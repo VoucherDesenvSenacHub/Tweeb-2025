@@ -1,0 +1,10 @@
+local="10.38.0.94"
+db="TWEEB"
+user="devweb"
+password="suporte@22"
+public $conn;
+    public string $local="10.38.0.94";
+    public string $db="TWEEB";
+    public string $user="devweb";
+    public string $password="suporte@22";
+    public $table;

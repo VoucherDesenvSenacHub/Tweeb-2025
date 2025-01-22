@@ -1,0 +1,200 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&display=swap');
+
+/* "direita" refere-se a uma lista que tem que ficar ao lado de outra */
+
+:root {
+    --color-neutral-1: #ffffff;
+    --color-neutral-10: #291E40;
+    --color-primary: #3C64B1;
+}
+
+* {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* isso aqui comentado ta bugando o código inteiro */
+/* 
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+} */
+
+footer {
+    background-color: #2E2046; 
+    color: var(--color-neutral-1);
+    padding: 2rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    width: 100%;
+    height: 250px;
+}
+
+#footer_content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+
+.footer-tagline{
+    font-family: 'Arimo', sans-serif;
+}
+.direita{
+    position: relative;
+    top: 22px;
+}
+.footer_container {
+    display: flex;
+    justify-content: space-between; /* Alinha as listas horizontalmente */
+}
+
+/* #footer_content ul:last-child{
+    display: flex;
+    flex-wrap: wrap;
+} */
+
+.espaco{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 75px;
+    position: relative;
+    right: 100px;
+}
+
+#footer_contacts {
+    flex: 1;
+    max-width: 300px;
+}
+
+.footer-logo {
+    max-width: 150px;
+    margin-bottom: 1rem;
+}
+
+.footer-tagline {
+    font-size: 1rem;
+    font-style: italic;
+    margin-bottom: 1rem;
+    color: #bbb; 
+}
+
+#footer_social_midia {
+    position: relative;
+    top: 30px;
+    right: 65px;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+#footer_social_midia a {
+    color: var(--color-neutral-1);
+    font-size: 1.2rem; 
+}
+
+.Contatos{
+    display: flex;
+    gap: 22px;
+}
+
+.footer_list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    flex: 1;
+    text-align: left;
+}
+
+.footer_list h3 {
+    margin-bottom: 24px;
+    font-size: 1.2rem;
+    color: var(--color-neutral-1);
+}
+
+.footer_list a {
+    text-decoration: none;
+    color: var(--color-neutral-1);
+    margin-bottom: 24px;
+    display: block;
+    font-size: 0.9rem;
+}
+
+.footer_list a:hover {
+    color: var(--color-primary);
+    transition: color 0.1s ease;
+}
+
+footer p, footer h3 {
+    font-size: 1rem;
+}
+
+/* Garantir que o rodapé fique no final da página */
+footer {
+    margin-top: auto;
+}
+/* garante que não tenha eventos de hover nas informações de contato */
+.cursorevento{
+    pointer-events: none;
+}
+/* MOBILE */
+.mobile-view{
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.mobile_direita{
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+}
+
+@media only screen and (max-width: 1050px) {
+    #footer_content{
+        display: none;
+    }
+    .contatos{
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+    }
+    .mobile-view{
+        display: flex;
+    }
+    footer{
+        height: 400px;
+    }
+    .footer_list{
+        height: 100%;
+    }
+    footer li{
+        text-align: center;
+    }
+    #footer_social_midia{
+        top: 0;
+        right: 0;
+        margin-bottom: 25px;
+    }
+  }
+  

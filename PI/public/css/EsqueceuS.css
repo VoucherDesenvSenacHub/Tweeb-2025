@@ -1,0 +1,194 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    min-height: 100vh; 
+    
+     
+}
+
+.container {
+    display: flex;
+    max-width: 1000px;
+    width: 100%;
+    background-color: white;
+    
+}
+
+.forms {
+    flex: 1;
+    margin-top:  50px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 40px;
+    border-radius: 10px;
+    box-sizing: border-box;
+    
+}
+
+.forms h1.tit {
+    font-size: 30px;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.forms p.descrit {
+    color: rgb(141, 141, 141);
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.forms .input-box {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin-bottom: 20px;
+}
+
+.forms .input-box label {
+    position: absolute;
+    left: 10.9px;
+    top: -8px;
+    font-size: 14px;
+    color: rgb(141, 141, 141);
+    background-color: white;
+    padding: 0 5px;
+}
+
+.forms .input-box input {
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    border: 1px solid rgb(141, 141, 141);
+    outline: none;
+    font-size: 15px;
+    color: rgb(141, 141, 141);
+    padding: 10px 15px;
+}
+
+.forms .input-box i {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 18px;
+    color: rgb(141, 141, 141);
+}
+
+.forms .btn {
+    width: 100%;
+    height: 40px;
+    background: #CEF5A4;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 15px;
+    color: rgb(114, 113, 113);
+    font-weight: 600;
+    margin-top: 20px;
+}
+
+.forms .btn:hover {
+    color: #333;
+}
+
+.forms .bt {
+    width: 100%;
+    height: 35px;
+    background: rgb(226, 228, 222);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 15px;
+    color: #333;
+    font-weight: 600;
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bt.google {
+    background-color: #f2f2f2;
+    margin-top: 20px;
+
+}
+
+.bt.google img {
+    margin-right: 26%;
+    position: absolute;
+}
+
+.forms .bt:hover {
+    background-color: #e0e0e0;
+}
+
+.forms .p1 {
+    text-align: center;
+    color: rgb(141, 141, 141);
+    margin-top: 20px;
+    height: 30px;
+}
+
+.forms .back-link {
+    color: #333;
+    font-size: 14px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.forms .back-link i {
+    margin-right: 5px;
+}
+
+.image-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-container img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.linha-1{
+    display: flex;
+    align-items: center;
+    height: 1px;
+    width: 120px;
+    color:  rgb(141, 141, 141);
+    background-color: rgb(141, 141, 141);
+    transform: translateY(8px);
+    margin-right: 10px;
+
+}
+
+.linha-2{
+    display: flex;
+    align-items: center;
+    height: 1px;
+    width: 120px;
+    color:  rgb(141, 141, 141)y;
+    background-color:  rgb(141, 141, 141);
+    transform: translateY(8px);
+    margin-left: 10px;
+}
+.linha{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}

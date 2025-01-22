@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Código de verificação</title>
+    <script src="valida.js" defer></script>
+    <link rel="stylesheet" href="public/css/codVerificacao.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="forms">
+            <form action="">
+                <a href="#" class="voltar"><i class='bx bx-chevron-left'></i> Voltar</a>
+                <h1 class="titulo">Digite o código</h1>
+                <p class="subtitulo">Um código de verificação foi enviado para o seu e-mail.</p>
+                <div class="input-group w50">
+                    <label for="codigo">Código</label>
+                    <input type="password" name="codigo" id="codigo" placeholder="Digite o código" required><i class="bi bi-eye-fill" id="btn-senha3" onclick="mostraSenha('codigo', 'btn-senha3')"></i>
+                </div>
+                <ul class="login-utils">
+                    <li class="margin-bottom-8 mar-top-8">
+                        <span class="texto1">Não recebeu o código?</span>
+                        <a href="#" class="texto2">Reenvie</a> <!-- colocar o link para reeviar -->
+                    </li>
+                </ul>
+                <button type="submit" class="btn">Verifique</button>
+            </form>
+        </div>
+        <div class="image-container">
+            <img src="public/assets/img/codVerifc 20 (1).png" alt="Imagem verificacao">
+        </div>
+    </div>
+
+
+</body>
+</html>

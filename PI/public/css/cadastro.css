@@ -1,0 +1,139 @@
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+    font-family: 'Inter', sans-serif;
+} 
+
+body { 
+    background-color: #2E184F; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    height: 100vh;
+} 
+     
+.container { 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    width: 100%; 
+    max-width: 490px;
+} 
+    
+.card { 
+    height: 620px;
+    background-color: #fff; 
+    padding: 25px 70px;
+    border-radius: 46px; 
+    text-align: center; 
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); 
+} 
+
+.logo { 
+    padding: 20px;
+    margin-top: 20px;
+}  
+
+h2 {
+    margin-bottom: 10px;
+    font-size: 23px;
+    font-weight: 600;
+} 
+
+p { 
+    font-size: 15px;
+    margin-bottom: 24px;
+    font-weight: 400;
+} 
+
+.input { 
+    background-color: #EEEEEE;
+    width: 100%;
+    padding: 10px; 
+    margin-bottom: 16px; 
+    border: 1px solid #E0E0E0; 
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.input:focus {
+    outline: none;
+    border: 1px solid #CEF5A4;
+    box-shadow: 0 0 5px #b7e850;
+}
+     
+.btn-email { 
+    width: 100%; 
+    padding: 10px; 
+    background-color: #CEF5A4; 
+    border: none; 
+    border-radius: 8px; 
+    color: #291E40; 
+    font-size: 16px; 
+    font-weight: 500;
+    cursor: pointer; 
+    margin-bottom: 24px;
+} 
+
+.btn-email:hover { 
+    background-color: #b7e850;
+    transition: 0.3s;
+} 
+
+.terms { 
+    font-size: 14px;
+    font-weight: 400;
+    color: #828282; 
+    margin-top: 2px;
+    line-height: 20px;
+} 
+    
+.terms a { 
+    color: #007bff; 
+    text-decoration: none; 
+} 
+
+.terms a:hover { 
+    text-decoration: underline; 
+}
+
+@media screen and (max-width:600px){
+    .container{
+        width: 300px;
+    }
+    .card{
+        padding: 5px 40px;
+        height: 500px;
+    }
+    .logo{
+        height: 72px;
+        padding: 18px;
+        margin-top: 10px;
+        
+    }
+    h2 {
+        margin-bottom: 10px;
+        font-size: 18px;
+        font-weight: 600;
+    }
+    p { 
+        font-size: 12px;
+        margin-bottom: 18px;
+        font-weight: 400;
+    }
+    .input{
+        font-size: 12px;
+        margin-bottom: 14px;
+    }
+    .btn-email{
+        font-size: 14px;
+    }
+    .terms{
+        font-size: 12px;
+        /* padding: 0px 100px 0px 100px; */
+        /* margin-top: 2px; */
+        line-height: 16px;
+    }
+}

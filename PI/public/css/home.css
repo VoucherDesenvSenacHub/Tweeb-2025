@@ -1,0 +1,533 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* CSS reset */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+    scroll-behavior: smooth;
+}
+
+/* Define cores principais em variaveis */
+:root{
+    --azul-intenso: #291E40;
+    --verde: #CEF5A4;
+    --azul-claro: #D4E3FF;
+    --roxo: #BF99FE;
+    --laranja: #FE8C67;
+}
+
+body{
+    background-color: #FAFAFA;
+}
+
+.container{
+    background-color: white;
+    display: flex;
+    height: 618px;
+}
+
+/* Divide o container em duas divs. */
+.container-text, .container-img, .ad-left, .ad-right{
+    width: 50%;
+    height: 100%;
+}
+
+.container-text{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* carrossel */
+
+.slider{
+    margin: 0 auto;
+    width: 100%;
+    height: 618px;
+    padding: 0 !important;
+    overflow: hidden;
+    position: relative;
+}
+.slider-content{
+    width: 400%;
+    height: auto;
+    display: flex;
+}
+.slider-content input{
+    display: none;
+}
+.slide-box{
+    width: 25%;
+    height: auto;
+    position: relative;
+    text-align: center;
+    transition: 1s;
+}
+.slide-box img{
+    /* width: 100vw; */
+    width: 100%;
+    object-fit: contain;
+}
+.nav-manual, .nav-auto{
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+}
+.nav-manual .manual-btn, .nav-auto div{
+    padding: 5px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.nav-manual .manual-btn:not(:last-child), .nav-auto div:not(:last-child){
+    margin-right: 10px;
+}
+/* .nav-manual .manual-btn:hover{
+    background-color: #008ECC;
+} */
+#radio1:checked ~ .nav-auto .auto-btn1,
+#radio2:checked ~ .nav-auto .auto-btn2,
+#radio3:checked ~ .nav-auto .auto-btn3{
+    background-color: #008ECC;
+    /* padding: 1px 15px;
+    border-radius: 20%; */
+}
+
+#radio1:not(:checked) ~ .nav-auto .auto-btn1,
+#radio2:not(:checked) ~ .nav-auto .auto-btn2,
+#radio3:not(:checked) ~ .nav-auto .auto-btn3{
+    background-color: gray;
+}
+
+#radio1:checked ~ .primeiro{
+    margin-left: 0%;
+}
+#radio2:checked ~ .primeiro{
+    margin-left: -25%;
+}
+#radio3:checked ~ .primeiro{
+    margin-left: -50%;
+}
+
+
+span{
+    font-weight: 700; /* BOLD */
+}
+/* seção abaixo */
+
+.container-ad{
+    display: flex;
+    margin-top: 10px;
+    height: 544px;
+    background-color: #EDEDED;
+}
+
+.ad-right{
+    background-color: var(--azul-intenso);
+}
+
+.ad-left, .ad-right{
+    display: flex;
+    flex: row;
+}
+
+.ad-imagem{
+    height: 100%;
+    width: auto;
+    margin-left: 40px;
+}
+
+.ad-imagem .img-fix{
+    height: auto;
+    max-width: 300px;
+}
+
+.ad-text{
+    height: 100%;
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.ad-text h1{
+    font-size: 29px;
+    font-weight: 300;
+    line-height: 40px;
+}
+
+.ad-text p{
+    font-size: 14px;
+    color: #909090;
+    line-height: 24px;
+}
+
+.ad-imagem2{
+    margin-left: 70px;
+}
+
+.ad-text2{
+    margin-left: 20%;
+}
+
+.ad-text2 h1{
+    color: white;
+}
+
+/* Categorias */
+
+.categorias{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 352px;
+    margin-top: 20px;
+    background-color: #FAFAFA;
+}
+
+.categorias-content{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 80%;
+    width: 80%;
+    /* background-color: black; */
+}
+
+.categorias-text{
+    display: flex;
+    flex-direction: row;
+}
+
+.text h1{
+    margin-left: 40px;
+}
+
+/* .text{
+    width: 90%;
+} */
+
+.text h1{
+    font-weight: 500;
+    font-size: 24px;
+}
+
+.arrows{
+    display: flex;
+    justify-content: space-evenly;
+    gap: 10px;
+    width: 10%;
+}
+
+.arrows img{
+    width: 12px;
+    height: auto;
+}
+
+.categorias-card{
+    height: 65%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    /* background-color: rebeccapurple; */
+}
+
+.card{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 128px;
+    width: 160px;
+    border-radius: 15px;
+    gap: 7px;
+    transition: 0.2s ease;
+}
+
+.card:hover{
+    cursor: pointer;
+}
+
+.card img{
+    height: auto;
+    max-width: 48px;
+}
+
+.card p{
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+/* cores e ajustes para as categorias */
+
+.card1{
+    background-color: var(--verde);
+}
+
+.card2{
+    background-color: var(--azul-claro);
+}
+
+.card2 p{
+    line-height: 16px;
+}
+
+/* as imagens que precisam alterar o width são realmente imagens e não vetores, pra não precisar usar isso, teria que achar alternativas das imagens usando vetores que seguem o mesmo padrão das anteriores. */
+.card2 img{
+    margin-bottom: 10px;
+    width: 36px;
+}
+
+.card3{
+    background-color: var(--roxo);
+}
+
+.card3 img{
+    max-width: 30px;
+}
+
+.card4{
+    background-color: var(--laranja);
+}
+
+.card5{
+    background-color: var(--azul-claro);
+}
+
+.card6{
+    background-color: var(--verde);
+}
+
+/* Produtos */
+
+.produtos{
+    height: auto;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.tabs{
+    align-items: center;
+    height: 100px;
+    width: 75%;
+    display: flex;
+    gap: 20px;
+}
+
+.tab-button{
+    background-color: white;
+    font-size: 18px;
+    font-weight: 500;
+    border: none;
+    height: 35px;
+}
+
+.tab-button:hover{
+    cursor: pointer;
+}
+
+.tab-button1{ /* solução temporaria enquanto não da pra selecionar os outros filtros */
+    border: none;
+    border-bottom: 2px solid black;
+}
+
+.produtos-grid{
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* define a quantidade de colunas */
+    column-gap: 15px;
+    row-gap: 15px;
+    width: auto;
+    height: auto;
+}
+
+.produtos-card{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative; /* necessário para colocar o coração no canto. */
+    height: 432px;
+    width: 268px;
+    background-color: #F6F6F6;
+    border-radius: 9px;
+}
+
+.produtos-card p{
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 500; /* chutei a grossura, não da pra saber pelo figma*/
+    text-align: center;
+}
+
+.produtos p, h1{
+    text-align: center;
+}
+
+.produtos h1{
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.produtos-card .heart{
+    position: absolute; /* sem isso a imagem não vai pro canto. */
+    top: 20px;
+    right: 20px;
+    width: 29px;
+    height: 27px;
+    cursor: pointer;
+}
+
+.produtos-card .image-produto{
+    width: 160px;
+    height: 160px;
+    object-fit: cover;
+    transition: 0.3s ease-in-out;
+}
+
+.produtos-card .image-produto:hover{
+    transform: scale(1.1);
+}
+
+.card-botao{
+    position: absolute;
+    bottom: 30px;
+    padding: 10px;
+    width: 235px;
+    height: 48px;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--azul-intenso);
+    color: white;
+    cursor: pointer;
+    transition: 0.1s ease;
+}
+
+.card-botao:hover{
+    background-color: #170e2b;
+}
+
+#opacidade{
+    color: #8B8B8B;
+}
+
+.promo-text{
+    margin-top: 30px;
+    margin-bottom: 30px;
+    width: 1117px;
+    align-items: flex-start;
+    display: flex;
+    font-weight: 500;
+    font-size: 24px;
+}
+
+/* segundo carrossel */
+
+.swiper-container{
+    margin-top: 70px;
+    margin-bottom: 90px;
+    width: 100%;
+    height: auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.swiper-slide img{
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+/* Ajuste do tamanho da seta dentro do botão */
+.swiper-button-next::after, .swiper-button-prev::after {
+    font-size: 20px !important; 
+    color: #008ECC !important;
+} 
+
+.swiper-button-next, .swiper-button-prev {
+    position: absolute;
+    z-index: 10;
+    background-color: white;
+    border-radius: 50%;
+    padding: 35px;
+}
+
+/* altera a posição dos botões */
+.swiper-button-next{
+    transform: translateX(45%) !important;
+}
+.swiper-button-prev{
+    transform: translateX(-45%) !important;
+}
+
+/* anuncio abaixo */
+
+.img-anuncio{
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    margin-bottom: 90px;
+}
+
+.img-anuncio img{
+    max-width: 100%;
+    object-fit: cover;
+}
+
+/* hover nos cards de categoria */
+
+.card1:hover, .card6:hover{
+    background-color: #c0e499;
+}
+
+.card2:hover, .card5:hover{
+    background-color: #c5d6f6;
+}
+
+.card3:hover{
+    background-color: #b691f2;
+}
+
+.card4:hover{
+    background-color: #e27956;
+}
+
+/* botão de voltar */
+
+#voltarAoTopo {
+    display: none; /* Esconde o botão inicialmente */
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    background-color: var(--azul-intenso);
+    color: #000;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2),
+    inset 0 0 0 4px white;
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+#voltarAoTopo:hover {
+    background-color: var(--azul-claro);
+    border: none;
+    transform: scale(1.1);
+    color: var(--azul-intenso);
+}
