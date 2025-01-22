@@ -309,7 +309,7 @@ span{
 /* Produtos */
 
 .produtos{
-    height: auto;
+    height: 1550px;
     background-color: white;
     display: flex;
     flex-direction: column;
@@ -351,6 +351,7 @@ span{
     row-gap: 15px;
     width: auto;
     height: auto;
+    margin-bottom: 40px;
 }
 
 .produtos-card{
@@ -384,6 +385,15 @@ span{
 .produtos-card .heart{
     position: absolute; /* sem isso a imagem não vai pro canto. */
     top: 20px;
+    left: 20px;
+    width: 29px;
+    height: 27px;
+    cursor: pointer;
+}
+
+.produtos-card .add-carrinho{
+    position: absolute; /* sem isso a imagem não vai pro canto. */
+    top: 20px;
     right: 20px;
     width: 29px;
     height: 27px;
@@ -403,7 +413,7 @@ span{
 
 .card-botao{
     position: absolute;
-    bottom: 30px;
+    bottom: 20px;
     padding: 10px;
     width: 235px;
     height: 48px;
@@ -436,18 +446,22 @@ span{
 /* segundo carrossel */
 
 .swiper-container{
-    margin-top: 70px;
-    margin-bottom: 90px;
     width: 100%;
     height: auto;
     position: relative;
     overflow: hidden;
 }
 
+.swiper-slide{
+    display: flex !important;
+    justify-content: space-evenly !important;
+    align-items: center !important;
+}
+
 .swiper-slide img{
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
+    width: auto;
+    height: 500px;
+    object-fit: cover;
 }
 
 /* Ajuste do tamanho da seta dentro do botão */
@@ -478,12 +492,11 @@ span{
     width: 100%;
     height: auto;
     overflow: hidden;
-    margin-bottom: 90px;
 }
 
 .img-anuncio img{
-    max-width: 100%;
-    object-fit: cover;
+    width: 100%;
+    height: auto;
 }
 
 /* hover nos cards de categoria */
@@ -530,4 +543,41 @@ span{
     border: none;
     transform: scale(1.1);
     color: var(--azul-intenso);
+}
+
+.card-rate{
+    margin: 10px;
+}
+
+.card-rate i{
+    color: #FFAD33;
+}
+
+.qnt-avaliacoes{
+    font: 14px;
+    color: gray;
+}
+
+#ad-produto{
+    margin-top: 15px;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.anuncios{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.anuncios img{
+    border-radius: 1rem;
+    cursor: pointer;
+}
+
+.produtos2{
+    margin-bottom: 50px;
+    height: auto;
 }
