@@ -1,16 +1,7 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link rel="stylesheet" href="../public/css/navbar.css">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-</head>
 <body class="navBody">
     <header  class="headNav">
         <div class="logo">
-            <img src="../public/assets/img/Ativo 2.png" alt="logo tweeb">
+            <img src="../PI/public/assets/img/Ativo 2.png" alt="logo tweeb">
         </div>
         <div class="search-box">
             <form action="">
@@ -20,7 +11,7 @@
         </div>
         <nav class="navb">
             <ul>
-                <li><a href="#">Home</a></li>
+                <li><a href="../PI/home.php">Home</a></li>
                 <li><a href="#">Sobre</a></li>
                 <li><a href="#">Orçamento</a></li>
                 <li><a href="#">Cadastre-se</a></li>
@@ -38,7 +29,7 @@
     <!-- Barra de departamentos -->
     <section class="departments-bar">
         <div class="department">
-            <img src="../public/assets/img/Hardwares.png" alt="Hardwares">
+            <img src="../PI/public/assets/img/Hardwares.png" alt="Hardwares">
             <span>Hardwares <i class='bx bx-chevron-right'></i></span>
             <ul class="submenu">
                 <li>
@@ -109,7 +100,7 @@
         </div>
         <span class="separator">|</span>
         <div class="department">
-            <img src="../public/assets/img/Computadores.png" alt="Computadores">
+            <img src="../PI/public/assets/img/Computadores.png" alt="Computadores">
             <span>Computadores <i class='bx bx-chevron-right'></i></span>
             <ul class="submenu">
                 <li>
@@ -139,7 +130,7 @@
         </div>
         <span class="separator">|</span>
         <div class="department">
-            <img src="../public/assets/img/Perifericos.png" alt="Periféricos">
+            <img src="../PI/public/assets/img/Perifericos.png" alt="Periféricos">
             <span>Periféricos <i class='bx bx-chevron-right'></i></span>
             <ul class="submenu">
                 <li>
@@ -170,7 +161,7 @@
         </div>
         <span class="separator">|</span>
         <div class="department">
-            <img src="../public/assets/img/Energia.png" alt="Energia">
+            <img src="../PI/public/assets/img/Energia.png" alt="Energia">
             <span>Energia <i class='bx bx-chevron-right'></i></span>
             <ul class="submenu">
                 <li>
@@ -195,7 +186,7 @@
         </div>
         <span class="separator">|</span>
         <div class="department">
-            <img src="../public/assets/img/audio.png" alt="Áudio">
+            <img src="../PI/public/assets/img/audio.png" alt="Áudio">
             <span>Áudio <i class='bx bx-chevron-right'></i></span>
             <ul class="submenu">
                 <li>
@@ -225,7 +216,7 @@
         </div>
         <span class="separator">|</span>
         <div class="department">
-            <img src="../public/assets/img/Jogos.png" alt="Jogos">
+            <img src="../PI/public/assets/img/Jogos.png" alt="Jogos">
             <span>Jogos <i class='bx bx-chevron-right'></i></span>
             <ul class="submenu">
                 <li>
@@ -253,6 +244,5 @@
             </ul>
         </div>
     </section>
-    <script src="../public/js/navbar.js"></script>
-</body>
+    <script src="../PI/public/js/navbar.js"></script>
 </html>

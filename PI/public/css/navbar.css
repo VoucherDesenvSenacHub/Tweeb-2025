@@ -89,7 +89,7 @@
     display: flex;
     justify-content: flex-end; 
     gap: 30px;
-    margin-right: 100px; 
+    margin-right: 30px; 
 }
 
 .navb ul li {

@@ -1,17 +1,7 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="../public/css/footer.css">
-    <title>tweeb</title>
-</head>
-<body>
     <footer>
         <div id="footer_content">
             <div id="footer_contacts">
-                <img src="../public/assets/img/logo.png" alt="Logo Tweeb" class="footer-logo">
+                <img src="../PI/public/assets/img/logo.png" alt="Logo Tweeb" class="footer-logo">
                 <p class="footer-tagline">Sua conexão com o futuro, garantimos hoje.</p>
                 <div id="footer_social_midia">
                     <a href="#"><i class="fa-brands fa-twitter"></i></a>
@@ -62,7 +52,7 @@
 
         <div class="mobile-view">
             <div class="contatos">
-                <img src="public/assets/img/logo.png" alt="logo tweeb" class="footer-logo">
+                <img src="../PI/public/assets/img/logo.png" alt="logo tweeb" class="footer-logo">
                 <p class="footer-tagline">Sua conexão com o futuro, garantimos hoje.</p>
                 <div id="footer_social_midia">
                     <a href="#"><i class="fa-brands fa-twitter"></i></a>
@@ -87,5 +77,4 @@
             </div>
         </div>
     </footer>
-</body>
 </html>

@@ -1,18 +1,5 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
-    <link rel="stylesheet" href="../PI/public/css/home.css">
-    <script defer src="../PI/public/js/home.js"></script>
-
-    <!-- <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script> -->
-</head>
-<body>
-
+    <?php include __DIR__.'/includes/headernavb.php'; ?>
+    <?php include __DIR__.'/includes/navbar.php'; ?>
     <section class="slider">
         <div class="slider-content">
             <input type="radio" name="btn-radio" id="radio1">
@@ -465,5 +452,6 @@
       </div>
 
     <button id="voltarAoTopo" title="Voltar ao topo"><i class="fa-solid fa-angle-up"></i></button>
+    <?php include __DIR__.'/includes/footer.php'; ?>
 </body>
 </html>
