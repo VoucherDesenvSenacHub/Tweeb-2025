@@ -17,7 +17,7 @@
                 <li><a href="../PI/home.php">Home</a></li>
                 <li><a href="#">Sobre</a></li>
                 <li><a href="#">Orçamento</a></li>
-                <li><a href="#">Cadastre-se</a></li>
+                <li><a href="../../../Tweeb-2025/PI/App/user/View/pages/cadastro.php">Cadastre-se</a></li>
                 <li>
                     <a href="#"><i class='bx bx-cart-alt'></i></a>
                     <a href="#"><i class='bx bx-user'></i></a>
