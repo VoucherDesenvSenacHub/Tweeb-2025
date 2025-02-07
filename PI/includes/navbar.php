@@ -1,5 +1,8 @@
 <body class="navBody">
     <header  class="headNav">
+        <!-- <div class="hamburger" id="hamburger">
+                <i class='bx bx-menu'></i>
+            </div> -->
         <div class="logo">
             <img src="../PI/public/assets/img/Ativo 2.png" alt="logo tweeb">
         </div>
