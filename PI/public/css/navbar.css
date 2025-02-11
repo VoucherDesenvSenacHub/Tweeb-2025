@@ -124,6 +124,7 @@
     background-color: #291E40; 
     display: flex;
     align-items: center;
+    width: 100%;
     justify-content: space-around;
     padding: 10px 20px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
@@ -132,7 +133,6 @@
 
 
 .department {
-    position: relative;
     display: flex;
     align-items: center;
     gap: 10px;
@@ -170,10 +170,11 @@
 
 .submenu {
     position: absolute;  
-    top: 100%;          /* Posicione logo abaixo do elemento pai */
-    left: 0;            /* Alinhe à esquerda do elemento pai */
-    right: 0;           /* Alinhe à direita do elemento pai */
-    width: 100vw;        /* Defina a largura como 100% para ocupar toda a largura do pai */
+    top: 100%;  
+    margin-left: 60px;     
+    left: 0;         
+    right: 0;          
+    width: 100%;        
     background-color: #291E40; 
     padding: 20px 0;   
     opacity: 0;        
