@@ -1,18 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
-html {
-    scroll-behavior: smooth;
-}
-
-
-.navBody{
-    background-color: rgb(255, 255, 255);
-    height: 200vh;
-}
 
 .headNav {
-    width: 100%;/*f az o cabeçalho ocupar toda a largura da pag*/
-    height: 100px;/*define a altura do cabeçalho*/
+    width: 100%;
+    height: 100px;
     display: flex;
     align-items: center;
     position: absolute;
@@ -38,13 +29,13 @@ html {
     position: relative;
 }
 
-.search-box form {
+.search-box .search-form {
     display: flex;
     align-items: center;
     width: 120%;
 }
 
-.search-box button {
+.search-box .search-buton {
     border: none; 
     background: transparent; 
     cursor: pointer;
@@ -56,12 +47,12 @@ html {
     margin-top: 11.9px;
 }
 
-.search-box button i {
+.search-box .search-buton i {
     font-size: 17px;
     color: gray;
 }
 
-.search-box input {
+.search-box .srch {
     flex: 1;
     height: 50px;
     border: none; 
@@ -73,7 +64,7 @@ html {
     padding: 0 40px 0 40px; 
     margin-top: 10px;
 }
-.search-box input::placeholder {
+.search-box .srch::placeholder {
     color: rgb(173, 169, 169);
     font-family: 'Montserrat', sans-serif;
 }
@@ -83,7 +74,7 @@ html {
     font-family: 'Montserrat', sans-serif;
 }
 
-.navb ul {
+.navb .nav-list {
     list-style: none; 
     display: flex;
     justify-content: flex-end; 
@@ -91,7 +82,7 @@ html {
     margin-right: 20px; 
 }
 
-.navb ul li {
+.navb .nav-list .nav-itens {
     position: relative;
     margin-top: 11px;
     flex-direction: row;
@@ -100,7 +91,7 @@ html {
     align-items: center;
 }
 
-.navb ul li a {
+.navb .nav-list .nav-itens a {
     text-decoration: none; 
     color: rgb(107, 104, 104); 
     font-weight: 500; 
@@ -109,19 +100,19 @@ html {
     transition: color 0.3s; 
 }
 
-.navb ul li a:hover {
+.navb .nav-list .nav-itens a:hover {
    color: #40331e; 
 }
 
-.navb ul li a i {
+.navb .nav-list .nav-itens a i {
     font-size: 18px;
     
 }
 
 
 .departments-bar {
-    position: absolute; /* Alterado de fixed para absolute */
-    top: 100px; /* Alinha corretamente abaixo da navbar */
+    position: absolute;
+    top: 100px; 
     left: 0;
     width: 100%;
     background-color: #291E40;
@@ -146,7 +137,7 @@ html {
 }
 
 
-.department img {
+.department .dep-img {
     width: 20px;  
     height: 20px;
     object-fit: contain;
@@ -189,7 +180,7 @@ html {
 }
 
 .submenu.open {
-    display: block;   /* O submenu principal aparece quando a classe 'open' é adicionada */
+    display: block;   
 }
 
 .department.open .submenu {
@@ -219,18 +210,18 @@ html {
 }
 
 .submenu i {
-    margin-left: auto; /* Coloca a seta à direita */
-    transition: transform 0.3s ease; /* Transição suave para a rotação */
+    margin-left: auto; 
+    transition: transform 0.3s ease; 
 }
 .submenu a:hover {
     background-color: #ffffff22;
 }
 
 
-/* Submenu secundário oculto inicialmente */
+
 .submenu-sub {
-    display: none;               /* Alinha os itens em uma linha */
-    gap: 10px;                    /* Espaçamento entre os itens */
+    display: none;               
+    gap: 10px;                    
     padding-left: 20px;
     width: 100%;
     flex-wrap: wrap;   
@@ -239,9 +230,9 @@ html {
 .submenu-sub li {
     list-style-type: none;
     padding: 8px 15px;
-    width: auto;                  /* A largura dos itens será ajustada automaticamente */
+    width: auto;                
     box-sizing: border-box;
-    display: inline-block;        /* Faz os itens se comportarem como elementos em linha */
+    display: inline-block;        
 }
 
 .submenu-sub a {
@@ -260,41 +251,41 @@ html {
 }
 
 .submenu-sub.open {
-    display: flex;   /* Exibe os submenus de tipos quando a classe 'open' é adicionada */
+    display: flex;   
 }
-/* Esconde o submenu do usuário inicialmente */
+
 .user-submenu {
     display: none;
     position: absolute;
     background-color: #f5f5f5;
     margin-left: 40px;
-    padding: 2px 0; /* Diminui o padding para tornar o background mais estreito */
+    padding: 2px 0; 
     border-radius: 5px;
     z-index: 999;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
-    width: 100px; /* Diminui a largura do submenu */
+    width: 100px; 
     height: 105px;
 }
 
-/* Ajusta o estilo das opções dentro do submenu */
+
 .user-submenu li {
     list-style-type: none;
-    padding: 6px 10px; /* Diminui o padding das opções para diminuir o background */
+    padding: 6px 10px; 
 }
 
-/* Ajusta o estilo dos links dentro do submenu */
+
 .user-submenu a {
     text-decoration: none;
     color: #333;
     font-size: 14px;
     font-weight: 400;
     display: block;
-    padding: 2px 8px; /* Diminui o padding dos links */
+    padding: 2px 8px; 
     border-radius: 5px;
     transition: background-color 0.3s ease;
 }
 
-/* Altera a cor do link quando o mouse passa por cima */
+
 .user-submenu a:hover {
     color: #FE8C67;
     background-color: #e0e0e0;

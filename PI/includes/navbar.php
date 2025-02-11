@@ -4,18 +4,18 @@
             <img src="public/assets/img/Ativo 2.png" alt="logo tweeb">
         </div>
         <div class="search-box">
-            <form action="">
-                <button type="submit"><i class='bx bx-search'></i></button>
+            <form class="search-form" action="">
+                <button class="search-buton" type="submit"><i class='bx bx-search'></i></button>
                 <input type="text" name="search" class="srch" placeholder="Buscar">
             </form>
         </div>
         <nav class="navb">
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Sobre</a></li>
-                <li><a href="#">Orçamento</a></li>
-                <li><a href="#">Cadastre-se</a></li>
-                <li>
+            <ul class="nav-list">
+                <li class="nav-itens"><a href="#">Home</a></li>
+                <li class="nav-itens"><a href="#">Sobre</a></li>
+                <li class="nav-itens"><a href="#">Orçamento</a></li>
+                <li class="nav-itens"><a href="#">Cadastre-se</a></li>
+                <li class="nav-itens">
                     <a href="#"><i class='bx bx-cart-alt'></i></a>
                     <a href="#"><i class='bx bx-user'></i></a>
                     <!-- <a href="#" class="user-icon">
@@ -29,7 +29,7 @@
     <!-- Barra de departamentos -->
     <section class="departments-bar">
         <div class="department">
-            <img src="public/assets/img/Hardwares.png" alt="Hardwares">
+            <img class="dep-img"src="public/assets/img/Hardwares.png" alt="Hardwares">
             <span>Hardwares <i class='bx bx-chevron-right'></i></span>
             <ul class="submenu">
                 <li>
