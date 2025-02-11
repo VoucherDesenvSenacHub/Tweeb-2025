@@ -1,10 +1,7 @@
 <body class="navBody">
     <header  class="headNav">
-        <!-- <div class="hamburger" id="hamburger">
-                <i class='bx bx-menu'></i>
-            </div> -->
         <div class="logo">
-            <img src="../PI/public/assets/img/Ativo 2.png" alt="logo tweeb">
+            <img src="public/assets/img/Ativo 2.png" alt="logo tweeb">
         </div>
         <div class="search-box">
             <form action="">
@@ -14,10 +11,10 @@
         </div>
         <nav class="navb">
             <ul>
-                <li><a href="../PI/home.php">Home</a></li>
+                <li><a href="#">Home</a></li>
                 <li><a href="#">Sobre</a></li>
                 <li><a href="#">Orçamento</a></li>
-                <li><a href="../../../Tweeb-2025/PI/App/user/View/pages/cadastro.php">Cadastre-se</a></li>
+                <li><a href="#">Cadastre-se</a></li>
                 <li>
                     <a href="#"><i class='bx bx-cart-alt'></i></a>
                     <a href="#"><i class='bx bx-user'></i></a>
@@ -32,7 +29,7 @@
     <!-- Barra de departamentos -->
     <section class="departments-bar">
         <div class="department">
-            <img src="../PI/public/assets/img/Hardwares.png" alt="Hardwares">
+            <img src="public/assets/img/Hardwares.png" alt="Hardwares">
             <span>Hardwares <i class='bx bx-chevron-right'></i></span>
             <ul class="submenu">
                 <li>
@@ -103,7 +100,7 @@
         </div>
         <span class="separator">|</span>
         <div class="department">
-            <img src="../PI/public/assets/img/Computadores.png" alt="Computadores">
+            <img src="public/assets/img/Computadores.png" alt="Computadores">
             <span>Computadores <i class='bx bx-chevron-right'></i></span>
             <ul class="submenu">
                 <li>
@@ -133,7 +130,7 @@
         </div>
         <span class="separator">|</span>
         <div class="department">
-            <img src="../PI/public/assets/img/Perifericos.png" alt="Periféricos">
+            <img src="public/assets/img/Perifericos.png" alt="Periféricos">
             <span>Periféricos <i class='bx bx-chevron-right'></i></span>
             <ul class="submenu">
                 <li>
@@ -164,7 +161,7 @@
         </div>
         <span class="separator">|</span>
         <div class="department">
-            <img src="../PI/public/assets/img/Energia.png" alt="Energia">
+            <img src="public/assets/img/Energia.png" alt="Energia">
             <span>Energia <i class='bx bx-chevron-right'></i></span>
             <ul class="submenu">
                 <li>
@@ -189,7 +186,7 @@
         </div>
         <span class="separator">|</span>
         <div class="department">
-            <img src="../PI/public/assets/img/audio.png" alt="Áudio">
+            <img src="public/assets/img/audio.png" alt="Áudio">
             <span>Áudio <i class='bx bx-chevron-right'></i></span>
             <ul class="submenu">
                 <li>
@@ -219,7 +216,7 @@
         </div>
         <span class="separator">|</span>
         <div class="department">
-            <img src="../PI/public/assets/img/Jogos.png" alt="Jogos">
+            <img src="public/assets/img/Jogos.png" alt="Jogos">
             <span>Jogos <i class='bx bx-chevron-right'></i></span>
             <ul class="submenu">
                 <li>
@@ -247,5 +244,6 @@
             </ul>
         </div>
     </section>
-    <script src="../PI/public/js/navbar.js"></script>
+    <script src="public/js/navbar.js"></script>
+</body>
 </html>
