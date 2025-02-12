@@ -58,7 +58,7 @@
                 </div>
             </div>
             </div>
-            <div class="pesquisa3-cadastro-btn2"><a href="#">Continuar</a></div>
+            <div class="pesquisa3-cadastro-btn2"><a href="../../../../home.php">Continuar</a></div>
         </main>
         <footer></footer>
     </section>
