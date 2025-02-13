@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../../public/css/estoque_cadastrar_novo.css">
+    <link rel="stylesheet" href="@import url('https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');">
+    <title>Cadastro de Produto</title>
+</head>
+<body>
+    <!-- Cabeçalho -->
+    <header>
+        <img src="logo.png" alt="Logo Tweeb">
+    </header>
+    
+    <!-- Conteúdo Principal -->
+    <main>
+      
+        <!-- Formulário de Cadastro -->
+        <form>
+            <div class="as">
+                <h1>Novo Produto</h1>
+                <div class="barrinha"></div>
+            </div>
+            <fieldset>
+                <legend>Detalhes do Produto</legend>
+                <label>Nome do Produto: <input type="text" name="nome"></label>
+                <label>Marca/Modelo: <input type="text" name="marca"></label>
+                <label>Quantidade: <input type="number" name="quantidade"></label>
+                <label>Departamento:
+                    <select name="departamento">
+                        <option value="">Selecione</option>
+                    </select>
+                </label>
+                <label>Imagem: <input type="file" name="imagem"></label>
+                <label>Nota Fiscal: <input type="file" name="nota_fiscal"></label>
+                <label>Nome: <input type="text" name="nome_produto"></label>
+                <label>Informação: <input type="text" name="informacao"></label>
+                <label>Cor: <input type="text" name="cor"></label>
+                <label>Código: <input type="text" name="codigo"></label>
+                <label>Escolher Ícone: <input type="file" name="icone"></label>
+            </fieldset>
+            
+            <fieldset>
+                <legend>Especificações Promocionais</legend>
+                <label>Valor: <input type="text" name="valor"></label>
+                <label>Desconto Promocional: <input type="text" name="desconto"></label>
+                <label>Produtos Relacionados:
+                    <select name="produtos_relacionados">
+                        <option value="">Selecione</option>
+                    </select>
+                </label>
+            </fieldset>
+            
+            <button type="submit">Salvar</button>
+        </form>
+    </main>
+    
+    <!-- Rodapé -->
+    <footer>
+        <p>Você faz parte de nossa conexão com o futuro.</p>
+    </footer>
+</body>
+</html>
