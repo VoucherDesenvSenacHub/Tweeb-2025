@@ -58,7 +58,7 @@
                 </div>
             </div>
             </div>
-            <div class="pesquisa2-cadastro-btn2"><a href="pagina_3_pesquisa_cadastro.html">Continuar</a></div>
+            <div class="pesquisa2-cadastro-btn2"><a href="pagina_3_pesquisa_cadastro.php">Continuar</a></div>
         </main>
         <footer>
             <div class="pesquisa1-cadastro-bottom-bar-footer"></div>
