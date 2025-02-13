@@ -247,5 +247,5 @@
             </ul>
         </div>
     </section>
-    <script src="../PI/public/js/navbar.js"></script>
+    <script src="../../../../public/js/navbar.js"></script>
 </html>
