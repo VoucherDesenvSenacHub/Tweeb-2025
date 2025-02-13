@@ -9,5 +9,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
     <link rel="stylesheet" href="../PI/public/css/home.css">
     <link rel="stylesheet" href="../PI/public/css/footer.css">
+    <link rel="stylesheet" href="../PI/public/css/task20-kitsetup.css">
     <script defer src="../PI/public/js/home.js"></script>
 </head>
