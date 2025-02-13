@@ -1,5 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -9,67 +10,63 @@
 
 body {
     display: flex;
-    width: 100%;
-    justify-content: center;
+    justify-content: flex-start; 
     align-items: center;
     min-height: 100vh;
     background-color: rgb(255, 255, 255);
+    padding-left: 15%; 
 }
 
 .forms {
-    flex: 1; 
     display: flex;
-    max-width: 1000px;
+    flex-direction: column;
+    max-width: 500px;
     width: 100%;
-    align-items: center;
-    color: #000;
-    padding: 5px; 
-    margin-left: 300px;
-    border-radius: 10px; 
-    box-sizing: border-box; 
+    padding: 20px;  
 }
 
-
-.forms .tit {
+.tit {
     font-size: 30px;
     text-align: left; 
     margin-bottom: 20px; 
 }
 
-.forms p.descrit{
+.descrit {
     color: rgb(141, 141, 141);
     text-align: left; 
-    margin: 0; 
-    padding: 0; 
     margin-bottom: 20px;
 }
-.forms .input-box {
+
+.input-box {
     position: relative;
-    width: 120%; 
-    height: 50px; 
+    width: 100%; 
     margin-bottom: 20px;
 }
-.forms .input-box label {
+
+.input-box label {
     position: absolute;
-    left: 10.9px; 
+    left: 10px; 
     top: -8px; 
     font-size: 14px; 
     color: rgb(141, 141, 141); 
     background-color: white; 
     padding: 0 5px; 
 }
-.forms .input-box input {
+
+.input-box input {
     width: 100%;
-    height: 100%;
+    height: 50px; 
     background-color: transparent;
-    border: 1px solid;
+    border: 1px solid rgb(141, 141, 141);
     outline: none;
     font-size: 15px;
     color: rgb(141, 141, 141);
     padding: 10px 15px;
+    border-radius: 5px; /* Bordas arredond adas para os campos de entrada */
 }
-.forms .btn {
-    width: 120%;
+
+.btn {
+    width: 100%;
     height: 40px;
     background: #CEF5A4;
     border: none;
@@ -79,17 +76,19 @@ body {
     color: rgb(114, 113, 113);
     font-weight: 600;
     margin-top: 20px; 
-}
-.forms .btn:hover{
-    color: #333;
+    transition: background 0.3s;
 }
 
-.forms .bt {
-    width: 120%;
+.btn:hover {
+    background: #B2E0A4; /* Cor de fundo ao passar o mouse */
+}
+
+.bt {
+    width: 100%;
     height: 35px;
     background-color: #f2f2f2;
     border: none;
-    border-radius: 10px;
+    border-radius: 5px;
     cursor: pointer;
     font-size: 15px;
     color: #333;
@@ -98,16 +97,18 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: background 0.3s;
 }
-.forms .bt:hover {
-   background-color: #e0e0e0;
-}
-.forms .bt img{
-    margin-right: 27%;
-    position: absolute;
 
+.bt:hover {
+    background-color: #e0e0e0; /* Cor de fundo ao passar o mouse */
 }
-.forms .remember-forgot {
+
+.bt img {
+    margin-right: 10px; /* Ajuste na margem da imagem */
+}
+
+.remember-forgot {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -115,95 +116,55 @@ body {
     margin-top: 10px;
 }
 
-.forms .remember-forgot label {
-    display: flex;
-    align-items: center;
-}
-
-.forms .remember-forgot input[type="checkbox"] {
-    margin-right: 5px;
-}
-
 .remember-forgot a {
     color: rgb(240, 8, 8);
     text-decoration: none;
-    margin-left: 338px;
-    position: fixed;
 }
-.remember-forgot a:hover{
+
+.remember-forgot a:hover {
     color: rgb(255, 0, 0);
 }
-
-.forms p a {
-    text-decoration: none;
-}
-
-
-
-.link_cadastro{
+.account{
     display: flex;
-    align-items: center;
-    gap: 10px;
-    width: 100%;
-    padding-top: 10px;
-    background-color: aqua;
-    justify-content: start;
-}
-.link_cadastro h6, .link_cadastro a{
-    display: flex;
-    align-items: center;
+    text-align: center;
     justify-content: center;
+}
+.account .account-title{
     font-size: 15px;
     font-weight: 400;
-    text-decoration: none;
 }
-.link_cadastro a{
-    color: red;
-    text-decoration: underline;
+.account .account-link{
+    color: rgb(1, 50, 99);
+    text-decoration: none;
+    font-size: 15px;
+    margin-left: 5px;
+}
+.linha {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0; /* Margem para separar a linha */
 }
 
-.forms .linha .p1{
-    display: flex;
-    text-align: center; 
-    justify-content: center;
-    margin-top: 40px; 
-    height: 30px;
-    color: rgb(141, 141, 141);
-    flex-direction: row;
+.linha-1, .linha-2 {
+    flex: 1;
+    height: 1px;
+    background-color: rgb(141, 141, 141);
 }
+
+.p1 {
+    margin: 0 10px; /* Margem lateral para o texto */
+    color: rgb(141, 141, 141);
+}
+
 .image-container {
-    flex: 2;
     display: flex;
     justify-content: center;
     align-items: center;
+    flex: 1;
 }
 
 .image-container img {
     max-width: 50%; 
     height: auto; 
 }
-
-.linha-1{
-    display: flex;
-    align-items: center;
-    height: 0.5px;
-    width: 118px;
-    background-color: rgb(141, 141, 141);
-    transform: translateY(17px);
-    margin-right: 10px;
-}
-.linha-2{
-    display: flex;
-    align-items: center;
-    height: 0.5px;
-    width: 118px;
-    background-color: rgb(141, 141, 141);
-    transform: translateY(17px);
-    margin-left: 10px;
-}
-.linha{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transform: translateX(40px);
-} 
