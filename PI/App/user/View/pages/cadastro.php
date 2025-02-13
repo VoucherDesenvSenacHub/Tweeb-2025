@@ -18,7 +18,7 @@
     
             if ($usuario->cadastrar()) {
                 echo '<script>alert("Usuário cadastrado com sucesso!");</script>';
-                // echo "<meta http-equiv='refresh' content='0.5;url= LINKAR TASK 2.B' />";
+                echo "<meta http-equiv='refresh' content='0.5;url= pagina_1_pesquisa_cadastro.html' />";
             } else {
                 echo '<script>alert("Erro ao cadastrar usuário.");</script>';
                 echo "<meta http-equiv='refresh' content='0.5;url=cadastro.php' />"; 
