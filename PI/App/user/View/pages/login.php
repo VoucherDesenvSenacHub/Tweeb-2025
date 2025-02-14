@@ -1,14 +1,5 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Entrar</title>
-    <link rel="stylesheet" href="../../../../public/css/Login.css">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-</head>
 <?php include __DIR__.'/../../../../includes/headernavb.php'; ?>
-<body>
+<body class="body-login">
     <div class="forms">
         <form action="">
             <h1 class="tit">Login</h1>
@@ -42,6 +33,5 @@
     <div class="image-container">
         <img src="../../../../public/assets/img/Groupo4.png" alt="img-login" class="login-image">
     </div>
-    <?php include __DIR__.'/../../../../includes/footer.php'; ?>
 </body>
 </html>
