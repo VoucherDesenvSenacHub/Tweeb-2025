@@ -2,6 +2,7 @@
 <body class="body-login">
     <div class="forms">
         <form action="">
+            <a href="../../../../home.php" class="back-links"><i class='bx bx-chevron-left'></i> Voltar</a>
             <h1 class="tit">Login</h1>
             <p class="descrit">Faça login para acessar sua conta.</p>
             <div class="input-box">
@@ -14,7 +15,7 @@
             </div>
             <div class="remember-forgot">
                 <label><input type="checkbox"> Lembrar senha</label>
-                <a href="#" class="forgot-password">Esqueceu sua senha?</a>
+                <a href="esqueceuSenha.php" class="forgot-password">Esqueceu sua senha?</a>
             </div>
             <button type="submit" class="btn">Login</button>
             <div class="account">

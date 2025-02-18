@@ -107,7 +107,14 @@
 .bt img {
     margin-right: 10px; /* Ajuste na margem da imagem */
 }
-
+.back-links{
+    color: rgb(1, 1, 1);
+    text-decoration: none;
+    font-size: 14px;
+}
+.back-links:hover{
+    color: rgb(92, 155, 29);
+}
 .remember-forgot {
     display: flex;
     align-items: center;
