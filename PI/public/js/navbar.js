@@ -103,3 +103,4 @@ document.getElementById('hamburger').addEventListener('click', function() {
         departments.style.display = 'flex'; // Exibe os departamentos
     }
 });
+

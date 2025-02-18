@@ -1,8 +1,8 @@
 <body class="navBody">
     <header  class="headNav">
-        <!-- <div class="hamburger" id="hamburger">
-                <i class='bx bx-menu'></i>
-            </div> -->
+        <div class="hamburguer">
+        <i class='bx bx-menu'></i>
+        </div>
         <div class="logo">
             <img src="public/assets/img/Ativo 2.png" alt="logo tweeb">
         </div>
@@ -14,13 +14,13 @@
         </div>
         <nav class="navb">
             <ul>
-                <li><a href="PI/home.php">Home</a></li>
+                <li><a href="home.php">Home</a></li>
                 <li><a href="#">Sobre</a></li>
                 <li><a href="#">Orçamento</a></li>
-                <li><a href="user/View/pages/cadastro.php">Cadastre-se</a></li>
+                <li><a href="app/user/View/pages/cadastro.php">Cadastre-se</a></li>
                 <li>
                     <a href="#"><i class='bx bx-cart-alt'></i></a>
-                    <a href="#"><i class='bx bx-user'></i></a>
+                    <a href="app/user/view/pages/login.php"><i class='bx bx-user'></i></a>
                     <!-- <a href="#" class="user-icon">
                         <img src="public/assets/img/card-produto.png" alt="teste">
                     </a> -->
@@ -30,7 +30,7 @@
     </header>
 
     <!-- Barra de departamentos -->
-    <section class="departments-bar">
+    <section id="departaments" class="departments-bar">
         <div class="department">
             <img src="public/assets/img/Hardwares.png" alt="Hardwares">
             <span>Hardwares <i class='bx bx-chevron-right'></i></span>
