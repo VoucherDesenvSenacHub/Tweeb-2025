@@ -15,7 +15,7 @@
             </div>
             <div class="remember-forgot">
                 <label><input type="checkbox"> Lembrar senha</label>
-                <a href="#" class="forgot-password">Esqueceu sua senha?</a>
+                <a href="esqueceuSenha.php" class="forgot-password">Esqueceu sua senha?</a>
             </div>
             <button type="submit" class="btn">Login</button>
             <div class="account">
