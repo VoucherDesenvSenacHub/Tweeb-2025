@@ -95,12 +95,12 @@ document.addEventListener('click', () => {
     if (userSubmenu) userSubmenu.style.display = 'none'; 
 });
 
-document.getElementById('hamburger').addEventListener('click', function() {
-    const departments = document.getElementById('departments');
-    if (departments.style.display === 'flex') {
-        departments.style.display = 'none'; // Oculta os departamentos
-    } else {
-        departments.style.display = 'flex'; // Exibe os departamentos
-    }
-});
+// document.getElementById('hamburger').addEventListener('click', function() {
+//     const departments = document.getElementById('departments');
+//     if (departments.style.display === 'flex') {
+//         departments.style.display = 'none'; // Oculta os departamentos
+//     } else {
+//         departments.style.display = 'flex'; // Exibe os departamentos
+//     }
+// });
 
