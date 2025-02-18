@@ -12,7 +12,7 @@
     <script defer src="../PI/public/js/home.js"></script>
 </head>
 <body>
-    <?php include __DIR__.'/includes/navbar.php'; ?>
+    <?php include __DIR__.'/includes/navbar-home.php'; ?>
     <section class="slider">
         <div class="slider-content">
             <input type="radio" name="btn-radio" id="radio1">
@@ -465,6 +465,6 @@
       </div>
 
     <button id="voltarAoTopo" title="Voltar ao topo"><i class="fa-solid fa-angle-up"></i></button>
-    <?php include __DIR__.'/includes/footer.php'; ?>
+    <?php include __DIR__.'/includes/footer-home.php'; ?>
 </body>
 </html>
