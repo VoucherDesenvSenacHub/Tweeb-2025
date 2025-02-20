@@ -1,0 +1,257 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+
+body {
+    font-family: "Poppins", sans-serif;
+    background-color: white;
+}
+
+
+
+header {
+    background-color:white;
+    padding: 8px;
+    color: rgb(104, 104, 104);
+}
+
+
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    width: 200px;
+    right: 10px;
+}
+
+.buscar-navbar input {
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    width: 400px;
+    background-color: #dedede;
+}
+
+
+
+.menu {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    padding: 8px;
+}
+
+
+.menu li {
+    margin-left: 30px;
+    
+}
+
+
+.menu a {
+    color: rgb(133, 133, 133);
+    text-decoration: none;
+    font-size: 16px;
+}
+
+
+
+.categoria {
+    display:flex;
+    justify-content: space-between;
+    background-color: #3d2352;
+}
+
+.categoria a{
+    color: #daaaff;;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 20px;
+    font-family: "Poppins", sans-serif;
+    font-size:16px;
+    padding: 6px;
+    text-decoration: none;
+}
+
+
+.sidebar {
+    width: 250px;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    height: 100vh;
+    position: fixed;
+    font-family: "Poppins", sans-serif;
+    
+}
+
+.sidebar ul {
+    list-style: none;
+    font-family: "Poppins", sans-serif;
+}
+
+.sidebar ul li {
+    margin-bottom: 20px;
+    font-family: "Poppins", sans-serif;
+}
+
+.sidebar ul li a {
+    color: #333;
+    text-decoration: none;
+    font-size: 18px;
+    font-family: "Poppins", sans-serif;
+}
+
+.logout {
+    margin-top: 20px;
+    background-color: #ff5f5f;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: "Poppins", sans-serif;
+}
+
+
+
+
+.endereco-card {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.endereco-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    
+}
+
+.endereco-header label {
+    font-size: 18px;
+    font-weight: bold;
+    font-family: "Poppins", sans-serif;
+    
+
+}
+
+
+
+.default-tag {
+    background-color: #c7c7f8;
+    color: #555;
+    font-size: 12px;
+    border-radius: 4px;
+    padding: 2px 6px;
+}
+
+.edit-btn, .delete-btn {
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    margin-left: 10px;
+    border-radius: none;
+   
+}
+
+.add-endereco-btn {
+    display: flex;
+    margin: auto;
+    padding: 10px 20px;
+    background-color: #ff5f5f;
+    border: 1px solid #bebebe;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    color: white;
+}
+
+
+footer {
+    background-color: #2e1b46;
+    color: #d6c0f1;
+    padding: 40px 0;
+    margin-top: 15px;
+
+    
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: auto;
+    font-family: "Montserrat", sans-serif;
+    
+
+}
+.logo h1 {
+    font-size: 36px;
+    font-family: 'Arial', sans-serif;
+    color: #c0a5ef;
+}
+
+.logo p {
+    margin-top: 10px;
+    font-size: 16px;
+    color: #fefefe;
+}
+
+.departamentorodape {
+    display: flex;
+    gap: 40px;
+}
+
+.departamentorodape h2 {
+    font-size: 20px;
+    color: #fff;
+    margin-bottom: 15px;
+}
+
+.departamentorodape ul {
+    list-style: none;
+    padding: 0;
+}
+
+.departamentorodape li {
+    margin-bottom: 10px;
+}
+
+.departamentorodape a {
+    color: #d6c0f1;
+    text-decoration: none;
+}
+
+.departamentorodape a:hover {
+    text-decoration: underline;
+}
+
+
+.contato p, .contact a {
+    color: #d6c0f1;
+    font-size: 16px;
+}
+
+.contato a:hover {
+    text-decoration: underline;
+}
+

@@ -1,0 +1,176 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family:Arial, Helvetica, sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+    
+}
+
+
+
+.logoclass {
+    background-color: #2e2e56;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    font-family: "Poppins", sans-serif;
+    
+}
+
+.opcoesmenu ul {
+    list-style: none;
+    display: flex;
+}
+
+.opcoesmenu ul li {
+    margin-left: 20px;
+}
+
+.opcoesmenu ul li a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.principal {
+    display: flex;
+    margin: 20px;
+}
+
+.menuLateral {
+    width: 20%;
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    margin-right: 20px;
+    font-size: large;
+   
+}
+
+.perfil {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.perfil-foto {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.menu {
+    list-style: none;
+}
+
+.menu li {
+    margin: 10px 0;
+}
+
+.menu li a {
+    text-decoration: none;
+    color: #333;
+}
+
+.perfil-editar {
+    width: 75%;
+    background-color: #f7f3f3;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    font-family: "Poppins", sans-serif;
+}
+
+.perfil-editar h1 {
+    margin-bottom: 20px;
+    color: #f3745b;
+}
+
+.grupoinfo {
+    margin-bottom: 15px;
+}
+
+.grupoinfo label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.grupoinfo input {
+    width: 100%;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+}
+
+.salvar-btn {
+    background-color: #f3745b;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+    margin-top: auto;
+}
+
+.cancelar-btn {
+    background-color: #ddd;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: auto;
+}
+
+.rodape {
+    background-color: #2e2e56;
+    color: white;
+    text-align: center;
+    padding: 40px 0;
+    margin-top: 80px;
+}
+
+.rodape ul {
+    list-style: none;
+    padding: 0;
+}
+
+.rodape ul li {
+    display: inline;
+    margin: 0 10px;
+}
+
+.rodape ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+.rodape p {
+    margin-bottom: 10px;
+}
+
+
+.logo{
+    width: 140px;
+    right: 140px;
+}
+
+
+
+
+
+
+
+
+

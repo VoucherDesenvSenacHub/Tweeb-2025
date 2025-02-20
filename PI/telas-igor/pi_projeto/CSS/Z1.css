@@ -1,0 +1,108 @@
+/* styles.css */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+    color: #333;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.rating-summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.rating-score h1 {
+    font-size: 3em;
+    margin: 0;
+}
+
+.rating-score p {
+    font-size: 0.9em;
+    color: #888;
+}
+
+.stars {
+    color: #f7b600;
+}
+
+.rating-details p {
+    display: flex;
+    justify-content: space-between;
+    margin: 5px 0;
+}
+
+.comment-section {
+    margin: 20px 0;
+}
+
+.comment-section input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.reviews {
+    margin-top: 20px;
+}
+
+.review {
+    border-top: 1px solid #eee;
+    padding-top: 15px;
+    margin-top: 15px;
+}
+
+.review-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.review-header img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.user-info h4 {
+    margin: 0;
+    font-size: 1em;
+}
+
+.user-info p {
+    margin: 0;
+    color: #888;
+    font-size: 0.8em;
+}
+
+.load-more {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+    background-color: #eee;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.load-more:hover {
+    background-color: #ddd;
+}

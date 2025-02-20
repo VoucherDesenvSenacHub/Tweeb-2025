@@ -134,7 +134,7 @@
                 <p>Cadeira Gamer</p>
                 <p>GAMING Tempest CG500</p>
                 <h1>R$900,99</h1>
-                <button class="card-botao">Comprar Agora</button>
+                <button class="card-botao"><a href="App/user/View/pages/descproduto.php" class="botaodescproduto">Comprar Agora</a></button>
             </div>
             <div class="produtos-card">
                 <img class="heart" src="public/assets/img/heart_disabled.png" alt="coração" onclick="AtivarCoracao(this)">
@@ -372,7 +372,7 @@
 
       <div class="anuncios">
         <img src="public/assets/img/Do seu jeito.png" alt="">
-        <img src="public/assets/img/Do seu jeito 2.png" alt="">
+        <a href="App/user/View/pages/do-seu-jeito.php"><img src="public/assets/img/Do seu jeito 2.png" alt=""></a>
         <img src="public/assets/img/Do seu jeito 3.png" alt="">
       </div>
 

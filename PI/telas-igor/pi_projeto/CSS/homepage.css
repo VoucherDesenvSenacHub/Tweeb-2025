@@ -1,0 +1,601 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(255, 255, 255);
+}
+
+header {
+    width: 100%;/*faz o cabeçalho ocupar toda a largura da pag*/
+    height: 120px;/*define a altura do cabeçalho*/
+    display: flex;/**/
+    align-items: center;/**/
+    position: fixed;/**/
+    top: 0;/**/
+    z-index: 99;/**/
+    box-shadow: 0 0 10px #000;/**/
+    background-color: #fff; /**/
+    padding: 0 20px;/**/
+}
+
+header .logo {
+    margin-right: 20px;/**/
+    display: flex;/**/
+    align-items: center;/**/
+    max-width:200px;/**/
+    max-height:150px;/**/
+    width: auto;/**/
+    height: auto;/**/
+}
+
+header .search-box {
+    flex: 1;/**/
+    position: relative;/**/
+}
+
+.search-box form {
+    display: flex;/**/
+    align-items: center;/**/
+    width: 100%;/**/
+}
+.search-box form {
+    display: flex;/**/
+    align-items: center;/**/
+    width: 100%;/**/
+}
+
+.search-box button {
+    border: none; /**/
+    background: transparent; /**/
+    cursor: pointer;/**/
+    display: flex;/**/
+    align-items: center;/**/
+    position: absolute;/**/
+    left: 10px; /**/
+    height: 100%;/**/
+    margin-top: 11.9px;/**/
+}
+
+.search-box button i {
+    font-size: 17px;/**/
+    color: gray;/**/
+}
+
+.search-box input {
+    flex: 1;/**/
+    height: 50px;/**/
+    border: none; /**/
+    outline: none; /**/
+    background: #f2f2f2;/**/
+    border-radius: 5px;/**/
+    color: gray;/**/
+    font-size: 15px;/**/
+    padding: 0 40px 0 40px; /**/
+    margin-top: 10px;/**/
+}
+.search-box input::placeholder {
+    color: rgb(173, 169, 169);/**/
+    font-family: 'Montserrat', sans-serif;
+}
+
+header nav {
+    flex: 2;/**/
+    font-family: 'Montserrat', sans-serif;
+}
+
+header nav ul {
+    display: flex;/**/
+    justify-content: flex-start; /**/
+    padding: 0;/**/
+    margin: 0;/**/
+    gap: 10px; /**/
+}
+
+header nav ul li {
+    list-style: none;/**/
+    margin-top: 11.9px;/**/
+}
+
+header nav ul li a {
+    text-decoration: none;/**/
+    color: rgb(107, 104, 104);/**/
+    font-weight: 500;/**/
+    padding: 10px 25px;/**/
+    font-size: 15px;/**/
+    font-family: 'Montserrat', sans-serif;
+}
+header nav ul li a:hover {
+   color: #313131;/**/
+}
+header nav ul li a i{
+    font-size: 18px;/**/
+}
+header .menu {
+    font-size: 2.5em;/**/
+    display: none;/**/
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Botão para abrir/fechar o filtro */
+.btn-toggle-filtro {
+    display: inline-block;
+    margin: 45px;
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    
+}
+
+.btn-toggle-filtro:hover {
+    background-color: #2980b9;
+}
+
+
+
+/* Filtro Lateral */
+.filtro-lateral {
+    display: flex; 
+    position: fixed;
+    top: 100px;
+    left: 20px;
+    width: 220px;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+    z-index: 1000;
+}
+
+.filtro-lateral h3 {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.filtro-categoria h4 {
+    font-size: 1.2em;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.filtro-categoria label {
+    font-size: 0.9em;
+    color: #666;
+}
+
+.filtro-categoria {
+    margin-bottom: 20px;
+}
+
+.filtro-categoria label input {
+    margin-right: 10px;
+}
+
+/* Botão de aplicar filtro */
+.btn-aplicar-filtro {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.btn-aplicar-filtro:hover {
+    background-color: #2980b9;
+}
+
+/* Ajustando a seção de produtos para dar espaço ao filtro */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    margin-top: 150px;
+}
+
+.produtos-destaque {
+    display: flex;
+    justify-content: space-between;
+    padding: 40px;
+    background-color: #fff;
+}
+
+.produto-edifier, .produto-ps5 {
+    display: flex;
+    align-items: center;
+    width: 48%;
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.produto-edifier img, .produto-ps5 img {
+    width: 200px;
+    margin-right: 20px;
+}
+
+.info-edifier h2, .info-ps5 h2 {
+    font-size: 1.5em;
+    color: #333;
+}
+
+.info-edifier h2 span, .info-ps5 h2 span {
+    font-weight: bold;
+    color: #000;
+}
+
+.info-edifier p, .info-ps5 p {
+    font-size: 1em;
+    color: #666;
+}
+
+.produto-ps5 {
+    background-color: #4e3474;
+    color: #fff;
+}
+
+.info-ps5 h2, .info-ps5 p {
+    color: white;
+}
+
+
+/* Seção de Categorias */
+.categorias {
+    background-color: #f8f8f8;
+    padding: 20px;
+    text-align: center;
+}
+
+.categorias h3 {
+    margin-bottom: 15px;
+    font-size: 1.5em;
+}
+
+.categoria-lista {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.categoria-item {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px;
+    background-color: #4a148c;
+    color: white;
+    font-size: 16px;
+    text-decoration: none;
+    border-radius: 8px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .categoria-item:hover {
+    background-color: #3a0d6d; 
+  }
+  
+
+  .hardware { background-color: #673ab7; }
+  .perifericos { background-color: #ff5722; }
+  .energia { background-color: #4caf50; }
+  .audio { background-color: #2196f3; }
+  .computadores { background-color: #ff9800; }
+  .jogos { background-color: #e91e63; }
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.produtos {
+    display:flex;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.card {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 5px;
+    width: 22%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    position:sticky;
+    
+}
+
+
+.card img{
+    width: 200px;
+    right: 200px;
+    
+}
+
+.card-imagem{
+    width: 200px;
+    right: 200px;
+}
+.card h2 {
+    font-size: 1.5em;
+    color: #333;
+}
+
+.card .descricao {
+    font-size: 1em;
+    color: #666;
+    margin: 10px 0;
+}
+
+.card .preco {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #27ae60;
+    margin: 10px 0;
+}
+
+
+
+
+.comprar-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #4a148c;
+    color: white;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .comprar-btn:hover {
+    background-color: #0bac61; /* Cor mais escura ao passar o mouse */
+  }
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+footer {
+    background-color: #2e1b46;
+    color:white;
+    padding: 40px 0;
+    
+    
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    font-family: "Montserrat", sans-serif;
+    
+
+}
+
+.footer-logo{
+    width: 500px;
+}
+
+
+.logo p {
+    margin-top: 10px;
+    font-size: 16px;
+    color: #fefefe;
+}
+
+.links {
+    display: flex;
+    gap: 40px;
+}
+
+.links h2 {
+    font-size: 20px;
+    color: #fff;
+    margin-bottom: 15px;
+}
+
+.links ul {
+    list-style: none;
+    padding: 0;
+   
+}
+
+.links li {
+    margin-bottom: 10px;
+   
+}
+
+.links a {
+    color: white;
+    text-decoration: none;
+}
+
+.links a:hover {
+    text-decoration: underline;
+}
+
+
+.contato p, .contact a {
+    color: white;
+    font-size: 16px;
+}
+
+.contato a:hover {
+    text-decoration: underline;
+}
+
+
+.logo img {
+    width: 200px;
+    right: 10px;
+}
+
+#footer_social_midia {
+    position: relative;
+    top: 30px;
+    right: 65px;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+#footer_social_midia a {
+    color: white;
+    font-size: 1.2rem; 
+}
+
+#footer_social_midia {
+    position: relative;
+    top: 30px;
+    right: 65px;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+#footer_social_midia a {
+    color: var(--color-neutral-1);
+    font-size: 1.2rem; 
+}
+
+.contact-info{
+    font-family: "Poppins", sans-serif;
+}
+
+.form-section h1{
+    font-family: "Poppins", sans-serif;
+    color: #976be2;
+    padding: 20px;
+   
+}
+
+.categoria-item {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px;
+    background-color: #4a148c;
+    color: white;
+    font-size: 16px;
+    text-decoration: none;
+    border-radius: 8px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .categoria-item:hover {
+    background-color: #3a0d6d; /* Cor mais escura ao passar o mouse */
+  }
+  
+  /* Personalização de categorias específicas (opcional) */
+  .hardware { background-color: #673ab7; }
+  .perifericos { background-color: #ff5722; }
+  .energia { background-color: #4caf50; }
+  .audio { background-color: #2196f3; }
+  .computadores { background-color: #ff9800; }
+  .jogos { background-color: #e91e63; }
+  

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="../CSS/EDITARPERFIL.CSS">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="../imagens/logo2.png" alt="logo tweeb">
+        </div>
+        <div class="search-box">
+            <form action="">
+                <button type="submit"><i class='bx bx-search'></i></button>
+                <input type="text" name="search" class="srch" placeholder="Buscar">
+            </form>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="../index.html/homepage.html">Home</a></li>
+                <li><a href="../index.html/QUEMSOMOS.HTML">Sobre</a></li>
+                <li><a href="../index.html/ORCAMENTOO.HTML">Orçamento</a></li>
+                <li><a href="../index.html/CADASTRO.html">Cadastre-se</a></li>
+                <li>
+                    <a href="favoritos.html"><i class='bx bx-heart'></i></a>
+                    <a href="carrinho.html"><i class='bx bx-cart-alt'></i></a>
+                    <a href="EDITARPERFIL.html"><i class='bx bx-user'></i></a>
+                </li>
+            </ul>
+        </nav>
+        
+    </header>
+
+
+
+
+
+
+    <main>
+        <div id="sidebar" class="sidebar">
+            <div class="user-profile">
+                
+                
+                <h3>   Igor Medeiros</h3>
+                <img src="../imagens/cliente1.jpg" alt="Foto de perfil" class="profile-img">
+            </div>
+            
+            <ul class="menu">
+                <li><a href="EDITARPERFIL.html"><i class="fa-solid fa-pen"></i>  Editar Perfil</a></li>
+                <li><a href="ENDERECOSNV.html"><i class="fa-solid fa-location-dot"></i>  Meus Endereços</a></li>
+                <li>
+                    <a href="carrinho.html" class="dropdown"><i class="fa-solid fa-clipboard-check"></i> Meus Pedidos </a>
+                    <ul class="submenu">
+                        <li><a href="enviados.html">Enviados</a> </li>
+                        <li><a href="../index.html/cancelados.html">Cancelados</a></li>
+                    </ul>
+                </li>
+                <li><a href="favoritos.html"><i class="fa-solid fa-heart"></i> Favoritos</a></li>
+            </ul>
+    
+            <ul class="footer-menu">
+                <li><a href="#">Ajuda</a></li>
+                <li><a href="#">Sair</a></li>
+            </ul>
+        </div>
+    
+        <button id="openSidebarBtn">
+            <i class="fa-solid fa-angles-right"></i>
+            
+        </button>
+    
+        <script src="script.js"></script>
+        
+        <div class="content">
+            <h1>Editar perfil</h1>
+            <form class="perfil-form">
+                <div class="perfil-header">
+                    <img src="../imagens/cliente1.jpg" alt="perfil Picture" class="perfil-pic">
+                    <div class="perfil-info">
+                        <h2>Igor Medeiros</h2>
+                        <p>igormedeiros@gmail.com</p>
+                    </div>
+                </div>
+
+                <div class="grupoinf">
+                    <label for="cpf">CPF*</label>
+                    <input type="text" id="cpf" value="" disabled>
+                </div>
+                
+                <div class="grupoinf">
+                    <label for="nome">Primeiro Nome</label>
+                    <input type="text" id="nome" value="">
+                </div>
+
+                <div class="grupoinf">
+                    <label for="sobrenome">Sobrenome</label>
+                    <input type="text" id="sobrenome" value="">
+                </div>
+
+                <div class="grupoinf">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" value="">
+                </div>
+
+                <div class="grupoinf">
+                    <label for="telefone">Telefone</label>
+                    <input type="text" id="telefone" value="">
+                </div>
+
+                <div class="grupoinf">
+                    <label for="endereco">Endereço</label>
+                    <input type="text" id="endereco" value="">
+                </div>
+
+                <div class="grupoinf">
+                    <label for="cep">CEP</label>
+                    <input type="text" id="cep" value="">
+                </div>
+
+                <h3>Alterar Senha</h3>
+
+                <div class="grupoinf">
+                    <label for="senha_atual">Senha Atual</label>
+                    <input type="password" id="senha_atual">
+                </div>
+
+                <div class="grupoinf">
+                    <label for="nova_senha">Nova Senha</label>
+                    <input type="password" id="nova_senha">
+                </div>
+
+                <div class="grupoinf">
+                    <label for="confirmar_senha">Confirmar Nova Senha</label>
+                    <input type="password" id="confirmar_senha">
+                </div>
+
+                <button type="submit" class="btn-save">Salvar Alterações</button>
+                <button type="button" class="btn-cancel">Cancelar</button>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="logo">
+                <img src="../imagens/logosembg.png" alt="logotweeb">
+                
+                <p>Sua conexão com o futuro, garantimos hoje.</p>
+
+                <div id="footer_social_midia">
+                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>  
+                </div>
+
+            </div>
+
+           
+           
+            <div class="links">
+                <div class="departmentos">
+                    <h2>Departamentos</h2>
+                    <ul>
+                        <li><a href="#">Computadores</a></li>
+                        <li><a href="#">Hardwares</a></li>
+                        <li><a href="#">Periféricos</a></li>
+                        <li><a href="#">Energia</a></li>
+                        <li><a href="#">Áudio</a></li>
+                        <li><a href="#">Games</a></li>
+                    </ul>
+                </div>
+
+                <div class="institutional">
+                    <h2>Institucional</h2>
+                    <ul>
+                        <li><a href="../index.html/QUEMSOMOS.HTML">Quem somos</a></li>
+                        <li><a href="#">Localização</a></li>
+                        <li><a href="#">Políticas do Site</a></li>
+                    </ul>
+                </div>
+
+                <div class="contato">
+                    <h2>Contatos</h2>
+                    <p>Email: <a href="..//index.html/FALECONOSCO.html">tweeb@comercial.com</a></p>
+                    <p>Telefone: (67) 1234-5678</p>
+                   
+                </div>
+
+        </div>
+    </footer>
+</body>
+</html>
+
+<script src="EDITAR.js"></script>

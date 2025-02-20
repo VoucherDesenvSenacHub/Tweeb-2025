@@ -1,0 +1,102 @@
+
+
+.sidebar {
+    width: 300px;
+    height: 100vh;
+    background-color: #fff;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    display: none;
+    flex-direction: column;
+  
+}
+
+.sidebar.active {
+    display: flex;
+}
+
+.user-profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.user-profile img.profile-img {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.user-profile h3 {
+    color: #007BFF;
+    font-size: 18px;
+
+}
+
+.menu,
+.footer-menu {
+    list-style: none;
+}
+
+.menu li {
+    margin: 10px 0;
+}
+
+.menu li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+    display: block;
+    padding: 10px 15px;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    transition: background-color 0.3s ease;
+}
+
+.menu li a:hover {
+    background-color: #007BFF;
+    color: #fff;
+}
+
+.submenu {
+    display: none;
+    padding-left: 20px;
+}
+
+.menu li a.dropdown::after {
+    content: " ";
+    float: right;
+}
+
+.menu li:hover .submenu {
+    display: block;
+}
+
+.footer-menu {
+    margin-top: auto;
+}
+
+.footer-menu li a {
+    color: #666;
+    font-size: 14px;
+}
+
+button#openSidebarBtn {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button#openSidebarBtn:hover {
+    background-color: #0056b3;
+}

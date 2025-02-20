@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="../CSS/homepage.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="../imagens/logo2.png" alt="logo tweeb">
+        </div>
+        <div class="search-box">
+            <form action="">
+                <button type="submit"><i class='bx bx-search'></i></button>
+                <input type="text" name="search" class="srch" placeholder="Buscar">
+            </form>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="../index.html/homepage.html">Home</a></li>
+                <li><a href="../index.html/QUEMSOMOS.HTML">Sobre</a></li>
+                <li><a href="../index.html/ORCAMENTOO.HTML">Orçamento</a></li>
+                <li><a href="../index.html/CADASTRO.html">Cadastre-se</a></li>
+                <li>
+                    <a href="favoritos.html"><i class='bx bx-heart'></i></a>
+                    <a href="carrinho.html"><i class='bx bx-cart-alt'></i></a>
+                    <a href="EDITARPERFIL.html"><i class='bx bx-user'></i></a>
+                </li>
+            </ul>
+        </nav>
+        
+    </header>
+</body>
+
+
+
+<body>
+
+
+
+    <!-- Seção de Produtos em Destaque -->
+    <section class="produtos-destaque">
+        <div class="produto-edifier">
+            <img src="../imagens/fone-removebg-preview.png" alt="Fone de Ouvido Edifier">
+            <div class="info-edifier">
+                <h2>Fone de Ouvido <br><span>Edifier</span></h2>
+                <p>Microfone com até 55 horas de bateria.</p>
+            </div>
+        </div>
+
+        <div class="produto-ps5">
+            <img src="../imagens/play5.png" alt="Novo PlayStation 5">
+            <div class="info-ps5">
+                <h2>NOVO <br><span>PlayStation 5</span></h2>
+                <p>Carregamento rápido com SSD de altíssima velocidade.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de Categorias -->
+    <section class="categorias">
+        <h3>Categorias</h3>
+        <div class="categoria-lista">
+            <!--<a href="#" class="categoria-item hardware">📱 Hardwares</a>
+            <a href="#" class="categoria-item perifericos">⌨️ Periféricos</a>
+            <a href="#" class="categoria-item energia">🔋 Energia</a>
+            <a href="#" class="categoria-item audio">🔉 Áudio</a>
+            <a href="#" class="categoria-item computadores">🖥️ Computadores</a>
+            <a href="#" class="categoria-item jogos">🎮 Jogos</a> -->
+
+            <button class="categoria-item hardware"><i class="fa-solid fa-memory"></i> Hardwares </button>
+            <button class="categoria-item perifericos"><i class="fa-solid fa-computer-mouse"></i> Periféricos </button>
+            <button class="categoria-item energia"><i class="fa-solid fa-battery-full"></i> Energia </button>
+            <button class="categoria-item audio"><i class="fa-solid fa-headphones"></i> Audio </button>
+            <button class="categoria-item computadores"><i class="fa-solid fa-computer"></i></i> Computadores </button>
+            <button class="categoria-item jogos"><i class="fa-solid fa-gamepad"></i> Jogos </button> 
+            
+            
+        </div>
+    </section>
+
+
+    <!-- <button class="btn-toggle-filtro" onclick="toggleFiltro()">Filtros</button>
+
+    <div id="filtro-lateral" class="filtro-lateral">
+   
+    <button class=botaofechar> <i class="fa-solid fa-x" onclick="toggleFiltro()"></i></button></i> 
+
+   
+    <h3>Filtros</h3>
+    
+    <div class="filtro-categoria">
+        <h4>Preço</h4>
+        <label><input type="checkbox" value="0-500"> Até R$ 500</label><br>
+        <label><input type="checkbox" value="500-1000"> R$ 500 - R$ 1000</label><br>
+        <label><input type="checkbox" value="1000-2000"> R$ 1000 - R$ 2000</label><br>
+        <label><input type="checkbox" value="2000+"> Acima de R$ 2000</label>
+    </div>
+    
+    <div class="filtro-categoria">
+        <h4>Memória</h4>
+        <label><input type="checkbox" value="4GB"> 4GB</label><br>
+        <label><input type="checkbox" value="8GB"> 8GB</label><br>
+        <label><input type="checkbox" value="16GB"> 16GB</label><br>
+        <label><input type="checkbox" value="32GB"> 32GB ou mais</label>
+    </div>
+    
+    <div class="filtro-categoria">
+        <h4>Marca</h4>
+        <label><input type="checkbox" value="Samsung"> Samsung</label><br>
+        <label><input type="checkbox" value="LG"> LG</label><br>
+        <label><input type="checkbox" value="Sony"> Sony</label><br>
+        <label><input type="checkbox" value="Outras"> Outras</label>
+    </div>
+
+    <div class="filtro-categoria">
+        <h4>Departamento</h4>
+        <label><input type="checkbox" value="Computadores"> Computadores</label><br>
+        <label><input type="checkbox" value="Hardwares"> Hardwares</label><br>
+        <label><input type="checkbox" value="Periféricos"> Periféricos</label><br>
+        <label><input type="checkbox" value="Áudio"> Áudio</label>
+    </div>
+
+    <button class="btn-aplicar-filtro">Aplicar Filtros</button>
+    
+    <script src="filtro.js"></script>
+</div> -->
+
+
+
+
+
+
+    <section class="produtos">
+
+        
+        
+        <div class="card">
+            <img src="../imagens/curvo3.webp" alt="" clas="card-imagem">
+            <h2>Gawfolk Gaming 32</h2>
+            <p class="descricao">Tela Curva 4k ULTRA</p>
+            <p class="preco">R$ 1.999,90</p>
+            <a href="../index.html/descproduto.html" class="comprar-btn">Comprar</a>
+            <br>
+        </div>
+        <div class="card">
+            
+            <img src="../imagens/monitor3-removebg-preview.png" alt="" clas="card-imagem">
+            <h2>Monitor LG</h2>
+            <p class="descricao">Tela Curva UltraWide</p>
+            <p class="preco">R$ 1.899,90</p>
+            <a href="#" class="comprar-btn">Comprar</a>
+        </div>
+        <div class="card">
+            <img src="../imagens/curvo.jfif" alt="" clas="card-imagem">
+            <h2>Monitor Sansung</h2>
+            <p class="descricao">Tela Curva 4k ULTRA</p>
+            <p class="preco">R$ 1.999,90</p>
+            <a href="#" class="comprar-btn">Comprar</a>
+        </div>
+        <div class="card">
+            <img src="../imagens/curvo2.jfif" alt="" clas="card-imagem">
+            <h2>Monitor Sansung</h2>
+            <p class="descricao">Tela Curva 4k ULTRA</p>
+            <p class="preco">R$ 1.999,90</p>
+            <a href="#" class="comprar-btn">Comprar</a>
+        </div>
+
+        
+    </section>
+
+
+
+    <section class="produtos">
+        <div class="card">
+            <img src="../imagens/reto.jfif" alt="" clas="card-imagem">
+            <h2>Monitor Sansung</h2>
+            <p class="descricao">Tela Curva 4k ULTRA</p>
+            <p class="preco">R$ 1.999,90</p>
+            <a href="#" class="comprar-btn">Comprar</a>
+        </div>
+        <div class="card">
+            <img src="../imagens/curvo1.jfif" alt="" clas="card-imagem">
+            <h2>Monitor LG</h2>
+            <p class="descricao">Tela Curva 50' Polegadas</p>
+            <p class="preco">R$ 1.899,90</p>
+            <a href="#" class="comprar-btn">Comprar</a>
+        </div>
+        <div class="card">
+            <img src="../imagens/linha2prod3.webp" alt="" clas="card-imagem">
+            <h2>Monitor Sansung</h2>
+            <p class="descricao">Tela Curva 4k ULTRA</p>
+            <p class="preco">R$ 1.999,90</p>
+            <a href="#" class="comprar-btn">Comprar</a>
+        </div>
+        <div class="card">
+            <img src="../imagens/linha2prod4.jpg" alt="" clas="card-imagem">
+            <h2>Monitor Sansung</h2>
+            <p class="descricao">Tela Curva 4k ULTRA</p>
+            <p class="preco">R$ 1.999,90</p>
+            <a href="#" class="comprar-btn">Comprar</a>
+        </div>
+
+        
+    </section>
+
+    <section class="produtos">
+      
+        <div class="card">
+            
+            <img src="../imagens/g6.jfif" alt="" clas="card-imagem">
+            <h2>Odyssey Neo G6</h2>
+            <p class="descricao">Tela Curva 50' Polegadas</p>
+            <p class="preco">R$ 1.899,90</p>
+            <a href="#" class="comprar-btn">Comprar</a>
+            
+            
+        </div>
+        <div class="card">
+            <br>
+            <br>
+            <img src="../imagens/monitorcurvog7.jpg" alt="" clas="card-imagem">
+            <h2>Odyssey Neo G7</h2>
+            <p class="descricao">Tela Curva 4k ULTRA</p>
+            <p class="preco">R$ 1.999,90</p>
+            <a href="#" class="comprar-btn">Comprar</a>
+        </div>
+        <div class="card">
+            <br>
+            <br>
+            <br>
+            <img src="../imagens/g8.jpg" alt="" clas="card-imagem">
+            <h2>Odyssey Neo G8</h2>
+            <p class="descricao">Tela Curva 4k ULTRA</p>
+            <p class="preco">R$ 1.999,90</p>
+            <a href="#" class="comprar-btn">Comprar</a>
+        </div>
+        <div class="card">
+            <img src="../imagens/monitorcurvog9.jpg" alt="" clas="card-imagem">
+            <h2>Odyssey Neo G9</h2>
+            <p class="descricao">Tela Curva 49 Polegadas</p>
+            <p class="preco">R$ 9.999,90</p>
+            <a href="#" class="comprar-btn">Comprar</a>
+        </div>
+
+        
+    </section>
+
+
+
+
+
+
+    <footer>
+        <div class="footer-container">
+            <div class="logo">
+                <img src="../imagens/logosembg.png" alt="logotweeb">
+                
+                <p>Sua conexão com o futuro, garantimos hoje.</p>
+                
+
+
+            <div id="footer_social_midia">
+                <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>  
+            </div>
+
+            </div>
+
+      
+            <div class="links">
+                <div class="departmentos">
+                    <h2>Departamentos</h2>
+                    <ul>
+                        <li><a href="#">Computadores</a></li>
+                        <li><a href="#">Hardwares</a></li>
+                        <li><a href="#">Periféricos</a></li>
+                        <li><a href="#">Energia</a></li>
+                        <li><a href="#">Áudio</a></li>
+                        <li><a href="#">Games</a></li>
+                    </ul>
+                </div>
+
+                
+
+                <div class="institutional">
+                    <h2>Institucional</h2>
+                    <ul>
+                        <li><a href="../index.html/QUEMSOMOS.HTML">Quem somos</a></li>
+                        <li><a href="#">Localização</a></li>
+                        <li><a href="#">Políticas do Site</a></li>
+                    </ul>
+                </div>
+
+                <div class="contato">
+                    <h2>Contatos</h2>
+                    <p>Email: <a href="../index.html/FALECONOSCO.html">tweeb@comercial.com</a></p>
+                    <p>Telefone: (67) 1234-5678</p>
+                   
+                </div>
+
+        </div>
+    </footer>
+
+</body>
+</html>   
+
+

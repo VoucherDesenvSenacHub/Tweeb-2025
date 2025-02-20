@@ -1,0 +1,427 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+  background-color: rgb(255, 255, 255);
+}
+
+header {
+  width: 100%;/*faz o cabeçalho ocupar toda a largura da pag*/
+  height: 120px;/*define a altura do cabeçalho*/
+  display: flex;/**/
+  align-items: center;/**/
+  position: fixed;/**/
+  top: 0;/**/
+  z-index: 99;/**/
+  box-shadow: 0 0 10px #000;/**/
+  background-color: #fff; /**/
+  padding: 0 20px;/**/
+}
+
+header .logo {
+    margin-right: 20px;/**/
+    display: flex;/**/
+    align-items: center;/**/
+    max-width:200px;/**/
+    max-height:150px;/**/
+    width: auto;/**/
+    height: auto;/**/
+}
+
+header .search-box {
+    flex: 1;/**/
+    position: relative;/**/
+}
+
+.search-box form {
+    display: flex;/**/
+    align-items: center;/**/
+    width: 100%;/**/
+}
+.search-box form {
+    display: flex;/**/
+    align-items: center;/**/
+    width: 100%;/**/
+}
+
+.search-box button {
+    border: none; /**/
+    background: transparent; /**/
+    cursor: pointer;/**/
+    display: flex;/**/
+    align-items: center;/**/
+    position: absolute;/**/
+    left: 10px; /**/
+    height: 100%;/**/
+    margin-top: 11.9px;/**/
+}
+
+.search-box button i {
+    font-size: 17px;/**/
+    color: gray;/**/
+}
+
+.search-box input {
+    flex: 1;/**/
+    height: 50px;/**/
+    border: none; /**/
+    outline: none; /**/
+    background: #f2f2f2;/**/
+    border-radius: 5px;/**/
+    color: gray;/**/
+    font-size: 15px;/**/
+    padding: 0 40px 0 40px; /**/
+    margin-top: 10px;/**/
+}
+.search-box input::placeholder {
+    color: rgb(173, 169, 169);/**/
+    font-family: 'Montserrat', sans-serif;
+}
+
+header nav {
+    flex: 2;/**/
+    font-family: 'Montserrat', sans-serif;
+}
+
+header nav ul {
+    display: flex;/**/
+    justify-content: flex-start; /**/
+    padding: 0;/**/
+    margin: 0;/**/
+    gap: 10px; /**/
+}
+
+header nav ul li {
+    list-style: none;/**/
+    margin-top: 11.9px;/**/
+}
+
+header nav ul li a {
+    text-decoration: none;/**/
+    color: rgb(107, 104, 104);/**/
+    font-weight: 500;/**/
+    padding: 10px 25px;/**/
+    font-size: 15px;/**/
+    font-family: 'Montserrat', sans-serif;
+}
+header nav ul li a:hover {
+   color: #313131;/**/
+}
+header nav ul li a i{
+    font-size: 18px;/**/
+}
+header .menu {
+    font-size: 2.5em;/**/
+    display: none;/**/
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f8f8f8;
+  padding: auto;
+}
+  
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  margin-top: 140px;
+  margin-bottom: 120px;
+  }
+  
+  h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  }
+  
+  .cart {
+  display: flex;
+  gap: 20px;
+  }
+  
+  .cart-items {
+  flex: 2;
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  }
+  
+  .item img {
+  width: 80px;
+  height: 80px;
+  margin-right: 20px;
+  }
+  
+  .detalhe {
+  flex: 1;
+  }
+  
+  .detalhe p {
+  margin: 0;
+  }
+  
+  .detalhe .code {
+  font-size: 12px;
+  color: #888;
+  }
+  
+  .quantidade {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  }
+  
+  .quantidade button {
+  background: #eee;
+  border: none;
+  padding: 5px;
+  cursor: pointer;
+  }
+  
+  .quantidade span {
+  display: inline-block;
+  width: 20px;
+  text-align: center;
+  }
+  
+  .preco {
+  font-weight: bold;
+  }
+  
+  .remover {
+  background: none;
+  border: none;
+  color: red;
+  font-size: 18px;
+  cursor: pointer;
+  }
+  
+  .continue-shopping {
+  display: block;
+  margin: 20px auto 0;
+  padding: 10px 20px;
+  background: #4a148c;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  }
+  
+  .revisao-itens {
+  flex: 1;
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .revisao-itens h2 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  }
+  
+  .desconto {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  }
+  
+  .desconto input {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  }
+  
+  .desconto button {
+  padding: 8px 15px;
+  background: #4a148c;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  }
+  
+  .total p {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+  }
+  
+  .total .final {
+    font-weight: bold;
+  }
+  
+  .continue {
+    display: block;
+    width: 100%;
+    padding: 10px 20px;
+    background: #4a148c;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+  }
+  
+
+
+
+
+  footer {
+  background-color: #2e1b46;
+  color:white;
+  padding: 40px 0;
+    
+    
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: "Montserrat", sans-serif;
+    
+
+}
+
+.footer-logo{
+  width: 500px;
+}
+
+
+.logo p {
+  margin-top: 10px;
+  font-size: 16px;
+  color: #fefefe;
+}
+
+.links {
+  display: flex;
+  gap: 40px;
+}
+
+.links h2 {
+   font-size: 20px;
+  color: #fff;
+  margin-bottom: 15px;
+}
+
+.links ul {
+  list-style: none;
+  padding: 0;
+   
+}
+
+.links li {
+  margin-bottom: 10px;
+   
+}
+
+.links a {
+  color: white;
+  text-decoration: none;
+}
+
+.links a:hover {
+  text-decoration: underline;
+}
+
+
+.contato p, .contact a {
+  color: white;
+  font-size: 16px;
+}
+
+.contato a:hover {
+  text-decoration: underline;
+}
+
+
+.logo img {
+  width: 200px;
+  right: 10px;
+}
+
+#footer_social_midia {
+  position: relative;
+  top: 30px;
+  right: 65px;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+#footer_social_midia a {
+  color: white;
+  font-size: 1.2rem; 
+}
+
+#footer_social_midia {
+  position: relative;
+  top: 30px;
+  right: 65px;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+#footer_social_midia a {
+  color: var(--color-neutral-1);
+  font-size: 1.2rem; 
+}
+
+.contact-info{
+  font-family: "Poppins", sans-serif;
+}
+
+.form-section h1{
+  font-family: "Poppins", sans-serif;
+  color: #976be2;
+  padding: 20px;
+   
+}

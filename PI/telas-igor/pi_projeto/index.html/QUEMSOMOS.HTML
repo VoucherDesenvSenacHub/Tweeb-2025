@@ -1,0 +1,208 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="../CSS/QUEMSOMOS.CSS">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="homepage.html"></a>
+            <img src="../imagens/logo2.png" alt="logo tweeb">
+        </div>
+        <div class="search-box">
+            <form action="">
+                <button type="submit"><i class='bx bx-search'></i></button>
+                <input type="text" name="search" class="srch" placeholder="   Buscar">
+            </form>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="../../../home.php">Home</a></li>
+                <li><a href="../index.html/QUEMSOMOS.HTML">Sobre</a></li>
+                <li><a href="../index.html/ORCAMENTOO.HTML">Orçamento</a></li>
+                <li><a href="../../../app/user/View/pages/cadastro.php">Cadastre-se</a></li>
+                <li>
+                    <a href="favoritos.html"><i class='bx bx-heart'></i></a>
+                    <a href="carrinho.html"><i class='bx bx-cart-alt'></i></a>
+                    <a href="EDITARPERFIL.html"><i class='bx bx-user'></i></a>
+                </li>
+            </ul>
+        </nav>
+        
+    </header>
+
+    <div id="sidebar" class="sidebar">
+        <div class="user-profile">
+            
+            
+            <h3>   Igor Medeiros</h3>
+            <img src="../imagens/cliente1.jpg" alt="Foto de perfil" class="profile-img">
+        </div>
+        
+        <ul class="menu">
+            <li><a href="EDITARPERFIL.html"><i class="fa-solid fa-pen"></i>  Editar Perfil</a></li>
+            <li><a href="ENDERECOSNV.html"><i class="fa-solid fa-location-dot"></i>  Meus Endereços</a></li>
+            <li>
+                <a href="carrinho.html" class="dropdown"><i class="fa-solid fa-clipboard-check"></i> Meus Pedidos </a>
+                <ul class="submenu">
+                    <li><a href="enviados.html">Enviados</a> </li>
+                    <li><a href="../index.html/cancelados.html">Cancelados</a></li>
+                </ul>
+            </li>
+            <li><a href="favoritos.html"><i class="fa-solid fa-heart"></i> Favoritos</a></li>
+        </ul>
+
+        <ul class="footer-menu">
+            <li><a href="#">Ajuda</a></li>
+            <li><a href="#">Sair</a></li>
+        </ul>
+    </div>
+
+    <button id="openSidebarBtn">
+        <i class="fa-solid fa-angles-right"></i>
+        
+    </button>
+
+    <script src="script.js"></script>
+
+
+    <div class="main-content">
+        <div class="bemvindo-text">
+            <p class="tagline">Bem vindo</p>
+            <h2>Sua <span class="highlight">Conexão</span> com o <span class="highlight">Futuro</span></h2>
+            <p>Bem-vindo a Tweeb, sua plataforma online especializada em informática, tecnologia e soluções digitais. 
+               Tem a missão de facilitar o acesso a produtos de qualidade e inovação.</p>
+            <button>Explorar</button>
+        </div>
+
+
+        <div class="logosobrenos">
+            <img src="../imagens/aqpesentada.jpg" alt="logo_sobrenos">
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+    <section class="contato">
+        <h2>Contato</h2>
+        <h1>Fale conosco. <span class="highlight">Ouvimos você.</span></h1>
+        <p>Entre em Contato através de um de nossos canais.</p>
+
+        <div class="contact-info">
+            <div class="info-item">
+                <i class="fas fa-phone"></i>
+                <p>Telefone</p>
+                <a href="tel">67 99123-4567</a>
+            </div>
+            <div class="info-item">
+                <i class="fas fa-envelope"></i>
+                <p>Email</p>
+                <a href="email">tweebofcl@gmail.com</a>
+            </div>
+            <div class="info-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <p>Endereço</p>
+                <a href="endereco">Rua 134, Centro, Campo Grande - MS</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="comentarios">
+        <h2>Comentários</h2>
+        <h1>Nossos clientes dizem:</h1>
+
+        <div class="comentarios-list">
+            <div class="comentario-item">
+                <span class="stars">★★★★★</span>
+                <p>Produtos de qualidade e bem embalado</p>
+                <p class="autor">Amitlon Silva</p>
+                <p class="usuario">Usuário</p>
+            </div>
+            <div class="comentario-item">
+                <span class="stars">★★★★★</span>
+                <p>Chegou rápido e veio tudo certinho</p>
+                <p class="autor">Felipe Justino</p>
+                <p class="usuario">Usuário</p>
+            </div>
+            <div class="comentario-item">
+                <span class="stars">★★★★★</span>
+                <p>Ótimos, atendimento perfeito, respondem rápido.</p>
+                <p class="autor">Vinícius Junior</p>
+                <p class="usuario">Usuário</p>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+    <footer>
+        <div class="footer-container">
+            <div class="logo">
+                <img src="../imagens/logosembg.png" alt="logotweeb">
+                
+                <p>Sua conexão com o futuro, garantimos hoje.</p>
+
+                <div id="footer_social_midia">
+                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>  
+                </div>
+
+            </div>
+
+           
+           
+            <div class="links">
+                <div class="departmentos">
+                    <h2>Departamentos</h2>
+                    <ul>
+                        <li><a href="#">Computadores</a></li>
+                        <li><a href="#">Hardwares</a></li>
+                        <li><a href="#">Periféricos</a></li>
+                        <li><a href="#">Energia</a></li>
+                        <li><a href="#">Áudio</a></li>
+                        <li><a href="#">Games</a></li>
+                    </ul>
+                </div>
+
+                <div class="institutional">
+                    <h2>Institucional</h2>
+                    <ul>
+                        <li><a href="../index.html/QUEMSOMOS.HTML">Quem somos</a></li>
+                        <li><a href="#">Localização</a></li>
+                        <li><a href="#">Políticas do Site</a></li>
+                    </ul>
+                </div>
+
+                <div class="contato">
+                    <h2>Contatos</h2>
+                    <p>Email: <a href="..//index.html/FALECONOSCO.html">tweeb@comercial.com</a></p>
+                    <p>Telefone: (67) 1234-5678</p>
+                   
+                </div>
+
+        </div>
+    </footer>
+
+
+</body>
+</html>

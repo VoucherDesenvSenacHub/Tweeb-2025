@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Novo Produto</title>
+    <link rel="stylesheet" href="../CSS/estoque.cadastrarnovo.css">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+<body>
+    <!-- Cabeçalho -->
+    <header>
+        <div class="logo">
+            <img src="../imagens/logo2.png" alt="Logo Tweeb">
+        </div>
+        <div class="search-box">
+            <form action="">
+                <button type="submit"><i class='bx bx-search'></i></button>
+                <input type="text" name="search" class="srch" placeholder="Buscar">
+            </form>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="../index.html/homepage.html">Home</a></li>
+                <li><a href="../index.html/QUEMSOMOS.HTML">Sobre</a></li>
+                <li><a href="../index.html/ORCAMENTOO.HTML">Orçamento</a></li>
+                <li><a href="../index.html/CADASTRO.html">Cadastre-se</a></li>
+                <li>
+                    <a href="favoritos.html"><i class='bx bx-heart'></i></a>
+                    <a href="carrinho.html"><i class='bx bx-cart-alt'></i></a>
+                    <a href="EDITARPERFIL.html"><i class='bx bx-user'></i></a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Formulário de Novo Produto -->
+    <div class="container">
+        <h1>Novo Produto</h1>
+        <form>
+            <section class="product-details">
+                <h2>Detalhes do Produto</h2>
+                <div class="form-row">
+                    <label>Nome do Produto</label>
+                    <input type="text" placeholder="Digite o nome">
+                    <label>Marca/Modelo</label>
+                    <input type="text">
+                    <label>Quantidade</label>
+                    <input type="number">
+                </div>
+
+                <div class="form-row">
+                    <label>Departamento</label>
+                    <select>
+                        <option>Selecione</option>
+                    </select>
+                    <label>Imagem</label>
+                    <input type="file">
+                    <label>Nota Fiscal</label>
+                    <input type="file">
+                </div>
+
+                <div class="form-row">
+                    <label>Número de Série</label>
+                    <input type="text">
+                    <label>Custo</label>
+                    <input type="text">
+                    <label>Estoque Mínimo</label>
+                    <input type="number">
+                </div>
+
+                <div class="form-row">
+                    <label>Descrição</label>
+                    <textarea maxlength="1000"></textarea>
+                </div>
+            </section>
+
+            <section class="promotional-specifications">
+                <h2>Especificações Promocionais</h2>
+                <div class="form-row">
+                    <label>Valor</label>
+                    <input type="text">
+                    <label>Desconto Promocional</label>
+                    <input type="text">
+                    <label>Produtos Relacionados</label>
+                    <select>
+                        <option>Selecione</option>
+                    </select>
+                </div>
+            </section>
+
+            <section class="product-status">
+                <div>
+                    <input type="checkbox" id="in-stock">
+                    <label for="in-stock">Em estoque Hoje</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="warranty">
+                    <label for="warranty">Garantia 1 ano</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="free-shipping">
+                    <label for="free-shipping">Entrega Grátis 1-2 dias</label>
+                </div>
+            </section>
+
+            <button type="submit" class="save-button">Salvar</button>
+        </form>
+    </div>
+</body>
+</html>

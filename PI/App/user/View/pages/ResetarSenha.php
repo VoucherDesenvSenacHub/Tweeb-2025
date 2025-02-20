@@ -27,7 +27,7 @@
                     <i class="bi bi-eye-fill" id="btn-senha2" onclick="mostraSenha('confirmar_senha', 'btn-senha2')"></i>
                 </div>
                 
-                <button type="submit" class="Btn">Enviar Senha</button>
+                <button type="submit" class="Btn"><a href="../../../../telas-igor/pi_projeto/index.html/EDITARPERFIL.html">Enviar Senha</a></button>
             </form>
         </div>
         <div class="image-container-resetar">

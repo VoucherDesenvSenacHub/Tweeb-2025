@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Sidebar</title>
+    <link rel="stylesheet" href="../CSS/SEIDBAR.CSS">
+</head>
+<body>
+
+    <div id="sidebar" class="sidebar">
+        <div class="user-profile">
+            <img src="profile.jpg" alt="Foto de perfil" class="profile-img">
+            <h3>Igor Medeiros</h3>
+        </div>
+        
+        <ul class="menu">
+            <li><a href="#">✏️ Editar Perfil</a></li>
+            <li><a href="#">📅 Meus Endereços</a></li>
+            <li>
+                <a href="#" class="dropdown">🛍️ Meus Pedidos ⬇️</a>
+                <ul class="submenu">
+                    <li>Enviados</li>
+                    <li>Cancelados</li>
+                </ul>
+            </li>
+            <li><a href="#">❤️ Favoritos</a></li>
+        </ul>
+
+        <ul class="footer-menu">
+            <li><a href="#">❓ Ajuda</a></li>
+            <li><a href="#">🚪 Sair</a></li>
+        </ul>
+    </div>
+
+    <button id="openSidebarBtn"></button>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
