@@ -580,3 +580,7 @@ span{
     margin-bottom: 50px;
     height: auto;
 }
+
+.botaodescproduto{
+    all: unset;
+}

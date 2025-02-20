@@ -44,7 +44,7 @@
 
             <div class="buy-buttons">
                 <button class="add-carrinho">Adicionar ao carrinho</button>
-                <button class="comprar-agora">Comprar Agora</button>
+                <button class="comprar-agora"><a class="tirardetalhe" href="../../../../telas-igor/pi_projeto/index.html/carrinho.html">Comprar Agora</a></button>
             </div>
 
             <div class="card-infos">
@@ -219,7 +219,7 @@
 
             <div class="reviews-comentarios" id="reviews-comentarios">
                 <?php
-                    for($x = 0; $x < 30; $x++){
+                    for($x = 0; $x < 10; $x++){
                         echo '<div class="card-comentario">
                         <div class="card-details">
                             <div class="card-profile-img">

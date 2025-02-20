@@ -17,7 +17,7 @@
                 <label><input type="checkbox"> Lembrar senha</label>
                 <a href="esqueceuSenha.php" class="forgot-password">Esqueceu sua senha?</a>
             </div>
-            <button type="submit" class="btn">Login</button>
+            <button type="submit" class="btn"><a class="tirardetalhe" href="../../../../home.php">Login</a></button>
             <div class="account">
                 <h6 class="account-title">Não tem uma Conta?</h6>
                 <a class="account-link" href="cadastro.php">Cadastre-se</a>

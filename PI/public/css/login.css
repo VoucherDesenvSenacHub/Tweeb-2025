@@ -8,6 +8,10 @@
     font-family: "Poppins", sans-serif;
 }
 
+.tirardetalhe{
+    all: unset;
+}
+
 .body-login {
     display: flex;
     justify-content: flex-start; 

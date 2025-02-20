@@ -790,3 +790,8 @@
     font: 14px;
     color: gray;
 }
+
+.tirardetalhe{
+    all: unset;
+    text-decoration: none;
+}

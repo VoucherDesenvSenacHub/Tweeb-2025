@@ -15,8 +15,8 @@
         <nav class="navb">
             <ul>
                 <li><a href="home.php">Home</a></li>
-                <li><a href="#">Sobre</a></li>
-                <li><a href="#">Orçamento</a></li>
+                <li><a href="../PI/telas-igor/pi_projeto/index.html/QUEMSOMOS.HTML">Sobre</a></li>
+                <li><a href="../PI/telas-igor/pi_projeto/index.html/ORCAMENTOO.HTML">Orçamento</a></li>
                 <li><a href="app/user/View/pages/cadastro.php">Cadastre-se</a></li>
                 <li>
                     <a href="#"><i class='bx bx-cart-alt'></i></a>
