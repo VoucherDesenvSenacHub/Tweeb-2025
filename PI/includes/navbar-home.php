@@ -4,7 +4,7 @@
         <i class='bx bx-menu'></i>
         </div>
         <div class="logo">
-            <img src="public/assets/img/Ativo 2.png" alt="logo tweeb">
+            <a href="home.php"><img src="public/assets/img/Ativo 2.png" alt="logo tweeb"></a>
         </div>
         <div class="search-box">
             <form action="">

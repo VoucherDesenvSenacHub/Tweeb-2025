@@ -17,8 +17,10 @@
                 <label><input type="checkbox"> Lembrar senha</label>
                 <a href="esqueceuSenha.php" class="forgot-password">Esqueceu sua senha?</a>
             </div>
-            <button type="submit" class="btn">Login</button>
+
+            <button type="submit" class="btn"><a href="../../../../home.php" class="botao-login">Login</a></button> <!-- tem que trocar isso pra ir pra home apenas após a validação pelo php-->
             <div class="account">
+
                 <h6 class="account-title">Não tem uma Conta?</h6>
                 <a class="account-link" href="cadastro.php">Cadastre-se</a>
             </div>

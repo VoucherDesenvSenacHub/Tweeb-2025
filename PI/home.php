@@ -48,7 +48,7 @@
         </div>
     </section>
 
-    <a href="#"><img id="ad-produto" src="public/assets/img/ad-produtos.png" alt=""></a>
+    <img id="ad-produto" src="public/assets/img/ad-produtos.png" alt="">
 
     <!-- <div class="container-ad">
         <div class="ad-left">

@@ -41,7 +41,7 @@
 <body class="Task2a-body"> 
     <div class="Task2a-container"> 
         <div class="Task2a-card">
-            <img src="../../../../public/assets/img/logo_img.png" alt="Logo" class="Task2a-logo"> 
+            <a href="../../../../home.php"><img src="../../../../public/assets/img/logo_img.png" alt="Logo" class="Task2a-logo"></a>
             <h2 class="Task2a-title">Crie sua conta</h2> 
             <p class="Task2a-description">Digite seu e-mail para criar sua conta</p> 
             <form method="POST" action="cadastro.php" class="Task2a-form"> 
