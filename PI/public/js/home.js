@@ -57,7 +57,7 @@ const botaoVoltarAoTopo = document.getElementById("voltarAoTopo");
 
 // Mostrar o botão ao rolar a página
 window.onscroll = function() {
-    if (document.body.scrollTop > 3500 || document.documentElement.scrollTop > 3500) {
+    if (document.body.scrollTop > 1000 || document.documentElement.scrollTop > 1000) {
         botaoVoltarAoTopo.style.display = "block";
     } else {
         botaoVoltarAoTopo.style.display = "none";
