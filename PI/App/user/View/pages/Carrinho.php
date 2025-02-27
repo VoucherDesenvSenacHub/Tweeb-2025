@@ -1,20 +1,20 @@
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
+  <?php include __DIR__.'/../../../../includes/headernavb.php'; ?>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <title>Carrinho</title>
-  <link rel="stylesheet" href="Carrinho.css">
-  <script src="Carrinho.js" defer></script>
- 
 </head>
 <body class="Carrinho">
+<?php include __DIR__.'/../../../../includes/navbar.php'; ?>
   <div class="container">
     <div class="cart-items">
       <h1>Carrinho de compras</h1>
       <div class="item">
-        <img src="../imagens/image 56.png" alt="Placa de video">
+        <img src="../../../../public/assets/img/image 56.png" alt="Placa de video">
         <div class="detalhe">
           <p>Placa de Vídeo<br><span>MANCER GTX 1660 SUPER HEIMDAL</span></p>
           <p class="code">#25139526913984</p>
@@ -31,7 +31,7 @@
         
       </div>
       <div class="item">
-        <img src="../imagens/image 56 (1).png" alt="Monitor">
+        <img src="../../../../public/assets/img/image 56 (1).png" alt="Monitor">
         <div class="detalhe">
           <p>MONITOR SMART<br><spa>SAMSUNG M5, 27 POL. VA, FHD, 4MS</spa></p>
           <p class="code">#53459358345</p>
@@ -45,7 +45,7 @@
         <button class="remover"> <i class="bi bi-x-lg"></i> </button>
       </div>
       <div class="item " id="item3">
-        <img src="../imagens/image 56 (2).png" alt="SSD">
+        <img src="../../../../public/assets/img/image 56 (2).png" alt="SSD">
         <div class="detalhe">
           <p><span>SSD SAMSUNG 990 PRO, 4TB, M.2 2280, PCIE NVME</span></p>
           <p class="code">#63632324</p>
@@ -95,6 +95,6 @@
       <button class="desconto"><a href="#">Continuar </a></button>
     </div>
   </div>
-  
+  <?php include __DIR__.'/../../../../includes/footer.php'; ?>
 </body>
 </html>

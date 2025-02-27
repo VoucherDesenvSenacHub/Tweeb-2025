@@ -1,6 +1,6 @@
 <?php include __DIR__.'/../../../../includes/headernavb.php'; ?>
-<?php include __DIR__.'/../../../../includes/navbar.php'; ?>
 <body>
+    <?php include __DIR__.'/../../../../includes/navbar.php'; ?>
     <div class="container-produto">
         <div class="produto-img">
             <img src="../../../../public/assets/img/gtx-desc.png" alt="placa de video">
