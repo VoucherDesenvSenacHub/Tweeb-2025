@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    background-color: rgb(255, 255, 255);
+}
+
+:root{
+    --azul-intenso: #291E40;
+    --azul-hover: #170e2b;
+}
+
+header {
+    width: 100%;/*faz o cabeçalho ocupar toda a largura da pag*/
+    height: 100px;/*define a altura do cabeçalho*/
+    display: flex;
+    align-items: center;
+    position: relative;
+    top: 0;
+    z-index: 1;
+    box-shadow: 0 0 10px #000;
+    background-color: #fff; 
+    padding: 0 20px;
+}
+
+header .logo {
+    margin-right: 20px;
+    display: flex;
+    align-items: center;
+    max-width:200px;
+    max-height:150px;
+    width: auto;
+    height: auto;
+}
+
+.listarU-departments-bar {
+    background-color: #291E40; 
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 10px 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    position: relative;
+    width: 100%;
+    height: 48px;
+}
+
+.quantidade-pedidos{
+    display: flex;
+    align-items: center;
+    position: relative;
+    height: 250px;
+    width: 100%;
+    background-color: white;
+}
+
+.pedidos-ui-card{
+    position: absolute;
+    left: 9.625rem;
+    width: 251px;
+    height: 157px;
+    border-radius: 8px;
+    background-color: white;
+    box-shadow: 0 5px 10px 0.5px rgba(0, 0, 0, 0.100);
+}
+
+.pedidos-adicionar-envio{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    right: 17rem;
+    width: 157px;
+    height: 33px;
+    padding: 8px;
+    border-radius: 4px;
+    background-color: var(--azul-intenso);
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+}
+
+.pedidos-adicionar-envio:hover{
+    background-color: var(--azul-hover);
+}
+
+.pedidos-adicionar-envio img{
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+.pedidos-adicionar-envio p{
+    font-size: 13px;
+    font-weight: 600;
+    color: white;
+}
