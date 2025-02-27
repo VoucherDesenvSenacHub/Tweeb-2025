@@ -9,7 +9,7 @@
 </head>
 
 <body class="pesquisa2-cadastro">
-    <header class="pesquisa2-cadastro-menu">
+    <!-- <header class="pesquisa2-cadastro-menu">
         <nav class="pesquisa2-cadastro-nav-menu">
             <div>
                 <img class="pesquisa2-cadastro-img-logo" src="../../../../public/assets/img/logo_img.png" alt="logo">
@@ -25,7 +25,7 @@
                 <li class="pesquisa2-cadastro-item-menu2"><a href="" class="pesquisa2-cadastro-link-item">Sobre</a></li>
             </ul>
         </nav>
-    </header>
+    </header> -->
     <section class="pesquisa2-cadastro-teste-altura">
         <div class="pesquisa2-cadastro-bottom-bar"></div>
         <div class="pesquisa2-cadastro-btn">

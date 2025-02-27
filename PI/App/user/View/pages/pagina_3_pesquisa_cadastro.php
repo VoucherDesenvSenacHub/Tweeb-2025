@@ -9,7 +9,7 @@
 </head>
 
 <body class="pesquisa3-cadastro">
-    <header class="pesquisa3-cadastro-menu">
+    <!-- <header class="pesquisa3-cadastro-menu">
         <nav class="pesquisa3-cadastro-nav-menu">
             <div>
                 <img class="pesquisa3-cadastro-img-logo" src="../../../../public/assets/img/logo_tweeb__1_-removebg-preview.png" alt="logo">
@@ -25,7 +25,7 @@
                 <li class="pesquisa3-cadastro-item-menu2"><a href="" class="pesquisa3-cadastro-link-item">Sobre</a></li>
             </ul>
         </nav>
-    </header>
+    </header> -->
     <section class="pesquisa3-cadastro-teste-altura">
         <div class="pesquisa3-cadastro-bottom-bar"></div>
         <div class="pesquisa3-cadastro-btn">
