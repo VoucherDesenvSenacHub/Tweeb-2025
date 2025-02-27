@@ -9,7 +9,7 @@
   <title>Carrinho</title>
 </head>
 <body class="Carrinho">
-<?php include __DIR__.'/../../../../includes/navbar.php'; ?>
+  <?php include __DIR__.'/../../../../includes/navbar.php'; ?>
   <div class="container">
     <div class="cart-items">
       <h1>Carrinho de compras</h1>
