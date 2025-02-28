@@ -61,26 +61,40 @@
         </div>
     </div>
 
-    <table class="tabela-recentes">
-        <tbody>
-            <tr class="tabela-cima">
-                <td>Produto</td>
-                <td>Departamento</td>
-                <td>Qtd</td>
-                <td>NF</td>
-                <td>Cliente</td>
-                <td>Status</td>
-            </tr>
-            <tr class="tabela-info">
-                <td>Fone de ouvido</td>
-                <td>Periféricos</td>
-                <td>2</td>
-                <td>Nota</td>
-                <td>desgraçasilva@gmail.com</td>
-                <td>Enviado</td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="tabela-container">
+        <table class="tabela-recentes">
+            <tbody>
+
+                <tr class="tabela-cima">
+                    <td>Produto</td>
+                    <td>Departamento</td>
+                    <td>Qtd</td>
+                    <td>NF</td>
+                    <td>Cliente</td>
+                    <td>Status</td>
+                </tr>
+
+                <tr class="tabela-info">
+                    <td>Fone de ouvido</td>
+                    <td>Periféricos</td>
+                    <td><span>2</span></td>
+                    <td>Nota</td>
+                    <td>desgraçasilva@gmail.com</td>
+                    <td><div class="status-enviado"><p>Enviado</p></div></td>
+                </tr>
+
+                <tr class="tabela-info">
+                    <td>Fone de ouvido</td>
+                    <td>Periféricos</td>
+                    <td><span>2</span></td>
+                    <td>Nota</td>
+                    <td>desgraçasilva@gmail.com</td>
+                    <td><div class="status-pendente"><p>Pendente</p></div></td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
 
 </body>
 </html>

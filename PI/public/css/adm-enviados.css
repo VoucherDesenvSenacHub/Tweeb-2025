@@ -215,9 +215,14 @@ header .logo {
     color: white;
 }
 
+.tabela-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .tabela-recentes{
-    width: 100%;
-    padding: 0 ;
+    width: 80%;
     margin-top: 17px;
     border-collapse: collapse;
 }
@@ -232,5 +237,43 @@ header .logo {
 
 .tabela-recentes .tabela-info{
     height: 80px;
+    color: #666666;
+    font-weight: 400;
     background-color: rgba(210, 210, 210, 5%);
+}
+
+.tabela-recentes .tabela-info span{
+    font-weight: bolder;
+    font-size: 18px;
+    color: #666666;
+}
+
+.tabela-info .status-enviado{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #6FCF97;
+    border-radius: 4px;
+    height: 36px;
+    width: 164px;
+}
+
+.tabela-info .status-enviado p{
+    color: white;
+    font-weight: 600;
+}
+
+.tabela-info .status-pendente{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #FA976C;
+    border-radius: 4px;
+    height: 36px;
+    width: 164px;
+}
+
+.tabela-info .status-pendente p{
+    color: white;
+    font-weight: 600;
 }
