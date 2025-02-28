@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,7 +21,17 @@
 
     <div class="quantidade-pedidos">
         <div class="pedidos-ui-card">
-            
+
+            <div class="ui-pedidos-frame">
+                <p>Pedidos</p>
+                <img src="../../../public/assets/img/adm-pedidos-icon1.png" alt="">
+            </div>
+
+            <div class="ui-pedidos-label">
+                <h1>96</h1>
+                <p><span>5%</span> incompleto</p>
+            </div>
+
         </div>
 
         <div class="pedidos-adicionar-envio">
@@ -29,5 +39,48 @@
             <p>Adicionar Envio</p>
         </div>
     </div>
+
+    <div class="pedidos-categoria-selecionado">
+        <div class="categorias">
+            <p>Visão Geral</p>
+            <p>Pedidos</p>
+            <span><p>Enviados</p></span>
+        </div>
+    </div>
+
+    <div class="pedidos-envios-recentes">
+        <h1>Envios Recentes</h1>
+
+        <div class="filtro-semana">
+            <p>Mês</p>
+            <p>Semanal</p>
+            
+            <div class="filtro-selecionado">
+                <p>Hoje</p>
+            </div>
+        </div>
+    </div>
+
+    <table class="tabela-recentes">
+        <tbody>
+            <tr class="tabela-cima">
+                <td>Produto</td>
+                <td>Departamento</td>
+                <td>Qtd</td>
+                <td>NF</td>
+                <td>Cliente</td>
+                <td>Status</td>
+            </tr>
+            <tr class="tabela-info">
+                <td>Fone de ouvido</td>
+                <td>Periféricos</td>
+                <td>2</td>
+                <td>Nota</td>
+                <td>desgraçasilva@gmail.com</td>
+                <td>Enviado</td>
+            </tr>
+        </tbody>
+    </table>
+
 </body>
 </html>
