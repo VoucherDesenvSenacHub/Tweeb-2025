@@ -20,10 +20,10 @@
                 <li><a href="app/user/View/pages/cadastro.php">Cadastre-se</a></li>
                 <li>
                     <a href="#"><i class='bx bx-cart-alt'></i></a>
-                    <a href="app/user/view/pages/login.php"><i class='bx bx-user'></i></a>
-                    <!-- <a href="#" class="user-icon">
-                        <img src="public/assets/img/card-produto.png" alt="teste">
-                    </a> -->
+                    <!-- <a href="app/user/view/pages/login.php"><i class='bx bx-user'></i></a> -->
+                    <a href="#" class="user-icon">
+                        <img src="../../../../public/assets/img/Avatar.png" alt="teste">
+                    </a>
                 </li>
             </ul>
         </nav>
@@ -32,7 +32,7 @@
     <!-- Barra de departamentos -->
     <section id="departaments" class="departments-bar">
         <div class="department">
-            <img src="public/assets/img/Hardwares.png" alt="Hardwares">
+            <img src="../../../../public/assets/img/Hardwares.png" alt="Hardwares">
             <span>Hardwares <i class='bx bx-chevron-right'></i></span>
             <ul class="submenu">
                 <li>
@@ -103,7 +103,7 @@
         </div>
         <span class="separator">|</span>
         <div class="department">
-            <img src="public/assets/img/Computadores.png" alt="Computadores">
+            <img src="../../../../public/assets/img/Computadores.png" alt="Computadores">
             <span>Computadores <i class='bx bx-chevron-right'></i></span>
             <ul class="submenu">
                 <li>
@@ -133,7 +133,7 @@
         </div>
         <span class="separator">|</span>
         <div class="department">
-            <img src="public/assets/img/Perifericos.png" alt="Periféricos">
+            <img src="../../../../public/assets/img/Perifericos.png" alt="Periféricos">
             <span>Periféricos <i class='bx bx-chevron-right'></i></span>
             <ul class="submenu">
                 <li>
@@ -164,7 +164,7 @@
         </div>
         <span class="separator">|</span>
         <div class="department">
-            <img src="public/assets/img/Energia.png" alt="Energia">
+            <img src="../../../../public/assets/img/Energia.png" alt="Energia">
             <span>Energia <i class='bx bx-chevron-right'></i></span>
             <ul class="submenu">
                 <li>
@@ -189,7 +189,7 @@
         </div>
         <span class="separator">|</span>
         <div class="department">
-            <img src="public/assets/img/audio.png" alt="Áudio">
+            <img src="../../../../public/assets/img/audio.png" alt="Áudio">
             <span>Áudio <i class='bx bx-chevron-right'></i></span>
             <ul class="submenu">
                 <li>
@@ -219,7 +219,7 @@
         </div>
         <span class="separator">|</span>
         <div class="department">
-            <img src="public/assets/img/Jogos.png" alt="Jogos">
+            <img src="../../../../public/assets/img/Jogos.png" alt="Jogos">
             <span>Jogos <i class='bx bx-chevron-right'></i></span>
             <ul class="submenu">
                 <li>
@@ -247,5 +247,5 @@
             </ul>
         </div>
     </section>
-    <script src="public/js/navbar.js"></script>
+    <script src="../../../../public/js/navbar.js"></script>
 </html>

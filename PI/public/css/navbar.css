@@ -218,9 +218,22 @@
     display: block;  
 }
 
-.submenu a {
+.submenu .linkn-submenu {
+    font-family: 'Montserrat', sans-serif;
     text-decoration: none;
-    color: #ffffff;  
+    color: #ffffff !important;  
+    font-size: 14px; 
+    font-weight: 500;
+    align-items: center;
+    display: block;
+    padding: 2px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+.submenu .linkn-submenu-h{
+    font-family: 'Montserrat', sans-serif;
+    text-decoration: none;
+    color: #ffffff !important;  
     font-size: 14px; 
     font-weight: 500;
     align-items: center;
@@ -234,7 +247,7 @@
     margin-left: auto; /* Coloca a seta à direita */
     transition: transform 0.3s ease; /* Transição suave para a rotação */
 }
-.submenu a:hover {
+.submenu .linkn-submenu:hover {
     background-color: #ffffff22;
 }
 
@@ -256,9 +269,9 @@
     display: inline-block;        /* Faz os itens se comportarem como elementos em linha */
 }
 
-.submenu-sub a {
+.submenu-sub .submenu-sub-link{
     text-decoration: none;
-    color: #ffffff;
+    color: #ffffff !important;
     font-size: 14px;
     font-weight: 400;
     padding: 6px 12px;
@@ -267,7 +280,7 @@
     transition: background-color 0.3s ease;
 }
 
-.submenu-sub a:hover {
+.submenu-sub .submenu-sub-link:hover {
     background-color: #ffffff22;
 }
 
