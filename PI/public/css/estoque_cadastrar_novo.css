@@ -1,0 +1,211 @@
+.header-container{
+    height: 100px;
+    display: flex;
+    align-items: center;
+}
+
+.header-logo img{
+    width: 100%;
+    margin-top: 35%;
+    margin-left: 52%;
+}
+
+.mini-navbar {
+    margin-top: 21px;
+    display: flex;
+    width: 100%;
+    height: 56px; 
+    background-color: #2D1B46;
+}
+
+.footer{
+    display: flex;
+    height: 100%;
+    background-color: #cef5a4;
+    padding: 22px 10px ;
+    text-align: center;
+    justify-content: center;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.footer-text{
+    display: flex;
+}
+
+.footer-logo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 3rem;
+}
+
+.footer-logo img{
+    width: 150px;
+    height: auto;
+}
+
+main {
+    width: 80%;
+    margin: 20px auto;
+}
+
+h1 {
+    margin-top: 50px;
+    font-family: sans-serif,'Poppins';
+    font-weight: 100;
+    font-size: 17px;
+    margin-bottom: 50px;
+    color: #000000;
+}
+
+.barrinha{
+    height: 1px;
+    width: 106px;
+    background: #000000;
+    border: 1px solid;
+    border-radius: 5px;
+    transform: translateY(-50px);
+}
+
+.as{
+    display: flex;
+    flex-direction: column;
+    padding: 2px;
+}
+
+.cadastrados-title{
+    margin-top: 52px;
+    color: #8b8b8b;
+}
+
+legend{
+    font-family: sans-serif;
+}
+
+.legenda{
+    font-family: sans-serif;
+}
+
+form {
+    font-family: sans-serif,'Poppins';
+    font-weight: 100;
+    padding: 60px; 
+    border-radius: 4px;
+    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 50px; 
+    position: relative; 
+    left: 55px; 
+}
+
+.description {
+    position: relative;
+}
+
+.counter {
+    position: absolute;
+    right: 50px;
+    font-size: 12px;
+    color: #000000;
+}
+
+.description input{
+    background-color: #f2f2f2;
+}
+
+fieldset {
+    border: none;
+    margin-bottom: 16px;
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 10px;
+    width: 100%;
+}
+
+legend {
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+label {
+    display: flex;
+    flex-direction: column;
+    width: calc(33.33% - 10px); 
+    margin-bottom: 20px;
+    gap: 10px;
+}
+
+input, select {
+    width: 85%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.Salvar {
+    width: auto; 
+    padding: 8px 16px;
+    background: #FE8C67;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    position: absolute;
+    bottom: 16px; 
+    right: 48px; 
+}
+
+.Salvar:hover {
+    background: #FE8C67;
+}
+
+.choose-icon{
+    justify-content: center;
+    margin-top: -3px;
+}
+
+.box1-icon img{
+    width: 24px;
+    height: 24px;
+}
+.container-icons{
+    display: flex;
+    flex-direction: row;
+    gap: 10%;
+    margin-bottom: 18%;
+    margin-left: 260px;
+}
+
+.box1-icon{
+    width: 56px;
+    height: 56px;
+    background-color: #D3D3D3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 11px;
+}
+
+.container-box1-icon{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.container-icons p{
+    width: 80px;
+    font-family: sans-serif;
+    font-size: 14px;
+  
+}
