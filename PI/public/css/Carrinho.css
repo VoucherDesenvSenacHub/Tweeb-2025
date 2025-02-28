@@ -196,9 +196,9 @@
 }
 .Carrinho .aplicar-btn {
   position: absolute;
-  right: 5%;
+  margin-top: 8px;
+  right: 2%;
   padding: 8px 12px;
-  margin-top: 5%;
   background-color: #fff;
   border: 1px solid #000;
   color: #000;
@@ -207,7 +207,6 @@
   font-size: 14px;
   width: 76.45px;
   height: 32px;
-  gap: 8px;
   border-radius: 6px;
   border: 1px 0px 0px 0px;
   opacity: 0px;
