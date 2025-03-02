@@ -4,7 +4,7 @@
         <i class='bx bx-menu'></i>
         </div>
         <div class="logo">
-            <a href="home.php"><img src="public/assets/img/Ativo 2.png" alt="logo tweeb"></a>
+            <a href="home.php"><img src="../../../../public/assets/img/Ativo 2.png" alt="logo tweeb"></a>
         </div>
         <div class="search-box">
             <form action="">
@@ -36,7 +36,7 @@
             <span>Hardwares <i class='bx bx-chevron-right'></i></span>
             <ul class="submenu">
                 <li>
-                    <a href="#" class="linkn-submenu-h">Placa Mãe <i class='bx bx-chevron-right'></i></a>
+                    <a href="#" class="linkn-submenu">Placa Mãe <i class='bx bx-chevron-right'></i></a>
                     <ul class="submenu-sub">
                         <li><a class="submenu-sub-link" href="#">Placa Mae Gigabyte B550M Aorus</a></li>
                         <li><a class="submenu-sub-link" href="#">Placa Mae ASRock B450M Steel Legend</a></li>
@@ -46,7 +46,7 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="#" class="linkn-submenu-h">Placa de Video <i class='bx bx-chevron-right'></i></a>
+                    <a href="#" class="linkn-submenu">Placa de Video <i class='bx bx-chevron-right'></i></a>
                     <ul class="submenu-sub">
                         <li><a class="submenu-sub-link" href="#">NVIDIA GeForce</a></li>
                         <li><a class="submenu-sub-link" href="#">AMD Radeon</a></li>
@@ -55,7 +55,7 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="#"class="linkn-submenu-h">Memorias <i class='bx bx-chevron-right'></i></a>
+                    <a href="#"class="linkn-submenu">Memorias <i class='bx bx-chevron-right'></i></a>
                     <ul class="submenu-sub">
                         <li><a class="submenu-sub-link" href="#">Memória DDR 2</a></li>
                         <li><a class="submenu-sub-link" href="#">Memória DDR 3</a></li>
@@ -64,7 +64,7 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="#"class="linkn-submenu-h">Coolers e WaterCoolers <i class='bx bx-chevron-right'></i></a>
+                    <a href="#"class="linkn-submenu">Coolers e WaterCoolers <i class='bx bx-chevron-right'></i></a>
                     <ul class="submenu-sub">
                         <li><a class="submenu-sub-link" href="#">Acessórios para Cooler</a></li>
                         <li><a class="submenu-sub-link" href="#">Air Cooler</a></li>
@@ -75,7 +75,7 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="#"class="linkn-submenu-h">Fonte de Alimentação <i class='bx bx-chevron-right'></i></a>
+                    <a href="#"class="linkn-submenu">Fonte de Alimentação <i class='bx bx-chevron-right'></i></a>
                     <ul class="submenu-sub">
                         <li><a class="submenu-sub-link" href="#">Fonte 200W</a></li>
                         <li><a class="submenu-sub-link" href="#">Fonte 230W</a></li>
@@ -107,7 +107,7 @@
             <span>Computadores <i class='bx bx-chevron-right'></i></span>
             <ul class="submenu">
                 <li>
-                    <a href="#"class="linkn-submenu-h">Desktop<i class='bx bx-chevron-right'></i></a>
+                    <a href="#"class="linkn-submenu">Desktop<i class='bx bx-chevron-right'></i></a>
                     <ul class="submenu-sub">
                         <li><a class="submenu-sub-link" href="#">Computador AMD</a></li>
                         <li><a class="submenu-sub-link" href="#">Computador Intel</a></li>
@@ -116,7 +116,7 @@
                 
                 </li>
                 <li>
-                    <a href="#"class="linkn-submenu-h">Notebook <i class='bx bx-chevron-right'></i></a>
+                    <a href="#"class="linkn-submenu">Notebook <i class='bx bx-chevron-right'></i></a>
                     <ul class="submenu-sub">
                         <li><a class="submenu-sub-link" href="#">Acessórios para Notebook</a></li>
                         <li><a class="submenu-sub-link" href="#">Notebook LG</a></li>
@@ -137,7 +137,7 @@
             <span>Periféricos <i class='bx bx-chevron-right'></i></span>
             <ul class="submenu">
                 <li>
-                    <a href="#"class="linkn-submenu-h">Teclados <i class='bx bx-chevron-right'></i></a>
+                    <a href="#"class="linkn-submenu">Teclados <i class='bx bx-chevron-right'></i></a>
                     <ul class="submenu-sub">
                         <li><a class="submenu-sub-link" href="#">Teclado com Fio</a></li>
                         <li><a class="submenu-sub-link" href="#">Teclado sem Fio</a></li>
@@ -145,7 +145,7 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="#"class="linkn-submenu-h">Mouses <i class='bx bx-chevron-right'></i></a>
+                    <a href="#"class="linkn-submenu">Mouses <i class='bx bx-chevron-right'></i></a>
                     <ul class="submenu-sub">
                         <li><a class="submenu-sub-link" href="#">Mouse com Fio</a></li>
                         <li><a class="submenu-sub-link" href="#">Mouse sem Fio</a></li>
@@ -153,7 +153,7 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="#"class="linkn-submenu-h">Headsets <i class='bx bx-chevron-right'></i></a>
+                    <a href="#"class="linkn-submenu">Headsets <i class='bx bx-chevron-right'></i></a>
                     <ul class="submenu-sub">
                         <li><a class="submenu-sub-link" href="#">Acessórios para Headset Gamer</a></li>
                         <li><a class="submenu-sub-link" href="#">Com Fio</a></li>
@@ -168,7 +168,7 @@
             <span>Energia <i class='bx bx-chevron-right'></i></span>
             <ul class="submenu">
                 <li>
-                    <a href="#"class="linkn-submenu-h">Cabos e Adaptadores de Energia <i class='bx bx-chevron-right'></i></a>
+                    <a href="#"class="linkn-submenu">Cabos e Adaptadores de Energia <i class='bx bx-chevron-right'></i></a>
                     <ul class="submenu-sub">
                         <li><a class="submenu-sub-link" href="#">Cabos de Alimentação para PC</a></li>
                         <li><a class="submenu-sub-link" href="#">Adaptadores de Energia para Notebooks</a></li>
@@ -177,7 +177,7 @@
                 
                 </li>
                 <li>
-                    <a href="#"class="linkn-submenu-h">No-Breaks <i class='bx bx-chevron-right'></i></a>
+                    <a href="#"class="linkn-submenu">No-Breaks <i class='bx bx-chevron-right'></i></a>
                     <ul class="submenu-sub">
                         <li><a class="submenu-sub-link" href="#">No-Breaks para PCs e Estações de Trabalho</a></li>
                         <li><a class="submenu-sub-link" href="#">No-Breaks para Home Office</a></li>
@@ -193,7 +193,7 @@
             <span>Áudio <i class='bx bx-chevron-right'></i></span>
             <ul class="submenu">
                 <li>
-                    <a href="#"class="linkn-submenu-h">Caixas de Som <i class='bx bx-chevron-right'></i></a>
+                    <a href="#"class="linkn-submenu">Caixas de Som <i class='bx bx-chevron-right'></i></a>
                     <ul class="submenu-sub">
                         <li><a class="submenu-sub-link" href="#">Caixas de Som Bluetooth</a></li>
                         <li><a class="submenu-sub-link" href="#">Caixas de Som para PC</a></li>
@@ -204,7 +204,7 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="#"class="linkn-submenu-h">Fones de Ouvido <i class='bx bx-chevron-right'></i></a>
+                    <a href="#"class="linkn-submenu">Fones de Ouvido <i class='bx bx-chevron-right'></i></a>
                     <ul class="submenu-sub">
                         <li><a class="submenu-sub-link" href="#">Fones de Ouvido Bluetooth</a></li>
                         <li><a class="submenu-sub-link" href="#">Fones de Ouvido Gamer</a></li>
@@ -223,7 +223,7 @@
             <span>Jogos <i class='bx bx-chevron-right'></i></span>
             <ul class="submenu">
                 <li>
-                    <a href="#"class="linkn-submenu-h">Jogos Para PC <i class='bx bx-chevron-right'></i></a>
+                    <a href="#"class="linkn-submenu">Jogos Para PC <i class='bx bx-chevron-right'></i></a>
                     <ul class="submenu-sub">
                         <li><a class="submenu-sub-link" href="#">Jogos de Ação</a></li>
                         <li><a class="submenu-sub-link" href="#">Jogos de Estratégia</a></li>
@@ -234,7 +234,7 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="#"class="linkn-submenu-h">Acessórios Para Games <i class='bx bx-chevron-right'></i></a>
+                    <a href="#"class="linkn-submenu">Acessórios Para Games <i class='bx bx-chevron-right'></i></a>
                     <ul class="submenu-sub">
                         <li><a class="submenu-sub-link" href="#">Controles de Console</a></li>
                         <li><a class="submenu-sub-link" href="#">Teclados e Mouses Gamer</a></li>
