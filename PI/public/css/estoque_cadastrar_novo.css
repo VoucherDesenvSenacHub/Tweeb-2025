@@ -1,43 +1,43 @@
-.header-container.task-marcos {
+.header-container{
     height: 100px;
     display: flex;
     align-items: center;
 }
 
-.header-logo.task-marcos img {
+.header-logo img{
     width: 100%;
     margin-top: 35%;
     margin-left: 52%;
 }
 
-.mini-navbar.task-marcos {
+.mini-navbar {
     margin-top: 21px;
     display: flex;
     width: 100%;
-    height: 56px;
+    height: 56px; 
     background-color: #2D1B46;
 }
 
-.footer.task-marcos {
+.footer{
     display: flex;
     height: 100%;
     background-color: #cef5a4;
-    padding: 22px 10px;
+    padding: 22px 10px ;
     text-align: center;
     justify-content: center;
 }
 
-* {
+/* *{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-}
+} */
 
-.footer-text.task-marcos {
+.footer-text{
     display: flex;
 }
 
-.footer-logo.task-marcos {
+.footer-logo{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -45,26 +45,26 @@
     gap: 3rem;
 }
 
-.footer-logo.task-marcos img {
+.footer-logo img{
     width: 150px;
     height: auto;
 }
 
-main.task-marcos {
+main {
     width: 80%;
     margin: 20px auto;
 }
 
-h1.task-marcos {
+h1 {
     margin-top: 50px;
-    font-family: sans-serif, 'Poppins';
+    font-family: sans-serif,'Poppins';
     font-weight: 100;
     font-size: 17px;
     margin-bottom: 50px;
     color: #000000;
 }
 
-.barrinha.task-marcos {
+.barrinha{
     height: 1px;
     width: 106px;
     background: #000000;
@@ -73,77 +73,78 @@ h1.task-marcos {
     transform: translateY(-50px);
 }
 
-.as.task-marcos {
+.as{
     display: flex;
     flex-direction: column;
     padding: 2px;
 }
 
-.cadastrados-title.task-marcos {
+.Cadastrados{
     margin-top: 52px;
     color: #8b8b8b;
 }
 
-legend.task-marcos {
+legend{
     font-family: sans-serif;
 }
 
-.legenda.task-marcos {
+.legenda{
     font-family: sans-serif;
 }
 
-form.task-marcos {
-    font-family: sans-serif, 'Poppins';
+form {
+    font-family: sans-serif,'Poppins';
     font-weight: 100;
-    padding: 60px;
+    padding: 60px; 
     border-radius: 4px;
+    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
     display: flex;
-    flex-wrap: wrap;
-    gap: 50px;
-    position: relative;
-    left: 55px;
+    flex-wrap: wrap; 
+    gap: 50px; 
+    position: relative; 
+    left: 55px; 
 }
 
-.description.task-marcos {
+.descricao {
     position: relative;
 }
 
-.counter.task-marcos {
+.contador {
     position: absolute;
     right: 50px;
     font-size: 12px;
     color: #000000;
 }
 
-.description.task-marcos input {
+.descricao input{
     background-color: #f2f2f2;
 }
 
-fieldset.task-marcos {
+fieldset {
     border: none;
     margin-bottom: 16px;
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: wrap; 
     gap: 10px;
     width: 100%;
 }
 
-legend.task-marcos {
+legend {
     font-weight: bold;
     font-size: 18px;
     margin-bottom: 10px;
     width: 100%;
 }
 
-label.task-marcos {
+label {
     display: flex;
     flex-direction: column;
-    width: calc(33.33% - 10px);
+    width: calc(33.33% - 10px); 
     margin-bottom: 20px;
     gap: 10px;
 }
 
-input.task-marcos, select.task-marcos {
+input, select {
     width: 85%;
     padding: 10px;
     margin-top: 5px;
@@ -151,8 +152,8 @@ input.task-marcos, select.task-marcos {
     border-radius: 4px;
 }
 
-.Salvar.task-marcos {
-    width: auto;
+.save-button {
+    width: auto; 
     padding: 8px 16px;
     background: #FE8C67;
     color: white;
@@ -161,25 +162,25 @@ input.task-marcos, select.task-marcos {
     border-radius: 4px;
     cursor: pointer;
     position: absolute;
-    bottom: 16px;
-    right: 48px;
+    bottom: 16px; 
+    right: 48px; 
 }
 
-.Salvar.task-marcos:hover {
+.save-button:hover {
     background: #FE8C67;
 }
 
-.choose-icon.task-marcos {
+.escolher-icone{
     justify-content: center;
-    margin-top: -3px;
+    margin-top: 30px;
 }
 
-.box1-icon.task-marcos img {
+.box1-icon img{
     width: 24px;
     height: 24px;
 }
 
-.container-icons.task-marcos {
+.container-icons{
     display: flex;
     flex-direction: row;
     gap: 10%;
@@ -187,7 +188,7 @@ input.task-marcos, select.task-marcos {
     margin-left: 260px;
 }
 
-.box1-icon.task-marcos {
+.box1-icon{
     width: 56px;
     height: 56px;
     background-color: #D3D3D3;
@@ -197,13 +198,13 @@ input.task-marcos, select.task-marcos {
     border-radius: 11px;
 }
 
-.container-box1-icon.task-marcos {
+.container-box1-icon{
     display: flex;
     align-items: center;
     gap: 20px;
 }
 
-.container-icons.task-marcos p {
+.container-icons p{
     width: 80px;
     font-family: sans-serif;
     font-size: 14px;
