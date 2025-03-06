@@ -215,40 +215,45 @@ header .logo {
     color: white;
 }
 
-.tabela-container{
+.tabela-container {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.tabela-recentes{
+.tabela-recentes {
     width: 80%;
     margin-top: 17px;
     border-collapse: collapse;
 }
 
-.tabela-recentes .tabela-cima{
+.tabela-recentes td, .tabela-recentes th {
+    padding: 12px;
+    text-align: center;
+    vertical-align: middle; /* Nunca ouvi falar disso na minha vida, mas funcionou */
+}
+
+.tabela-recentes .tabela-cima {
     height: 40px;
     color: var(--azul-tabela);
     font-weight: 500;
     background-color: #EDF4FB;
 }
 
-
-.tabela-recentes .tabela-info{
+.tabela-recentes .tabela-info {
     height: 80px;
     color: #666666;
     font-weight: 400;
     background-color: rgba(210, 210, 210, 5%);
 }
 
-.tabela-recentes .tabela-info span{
+.tabela-recentes .tabela-info span {
     font-weight: bolder;
     font-size: 18px;
     color: #666666;
 }
 
-.tabela-info .status-enviado{
+.tabela-info .status-enviado {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -256,14 +261,15 @@ header .logo {
     border-radius: 4px;
     height: 36px;
     width: 164px;
+    margin: 0 auto;
 }
 
-.tabela-info .status-enviado p{
+.tabela-info .status-enviado p {
     color: white;
     font-weight: 600;
 }
 
-.tabela-info .status-pendente{
+.tabela-info .status-pendente {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -271,9 +277,93 @@ header .logo {
     border-radius: 4px;
     height: 36px;
     width: 164px;
+    margin: 0 auto;
 }
 
-.tabela-info .status-pendente p{
+.tabela-info .status-pendente p {
     color: white;
     font-weight: 600;
+}
+
+.tabela-nota-fiscal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.tabela-nota-fiscal{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 8px;
+    gap: 0.5rem;
+    height: 38px;
+    width: 86px;
+    border: 2px solid #D0D5DD;
+}
+
+.tabela-nota-fiscal p{
+    font-size: 14px;
+    font-weight: 600;
+    color: #667085;
+}
+
+.tabela-nota-fiscal i{
+    color: #667085;
+}
+
+.centralizar-nota{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/*  
+*/
+
+.buscar-filtros{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.filtros-datas{
+    width: 80%;
+
+}
+
+.datas-botoes{
+    margin-top: 2rem;
+    display: flex;
+    width: 280px;
+}
+
+.datas-botoes .botao-ativado{
+    background-color: white;
+    font-weight: 500;
+}
+
+.datas-botoes button{
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 2rem;
+    width: auto;
+    border: 2px solid #D0D5DD;
+    padding: 16px 20px;
+    height: 40px;
+    color: #262626;
+    font-size: 14px;
+    box-shadow: 0 5px 10px 0.5px rgba(0, 0, 0, 0.100);
+    background-color: #f0f2f5;
+}
+
+.datas-botoes button img{
+    width: 16px;
+    height: auto;
 }

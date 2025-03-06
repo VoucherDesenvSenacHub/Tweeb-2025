@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../../../public/css/adm-enviados.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
     <!-- navbar, tirar isso depois e deixar só como include. -->
@@ -78,7 +79,7 @@
                     <td>Fone de ouvido</td>
                     <td>Periféricos</td>
                     <td><span>2</span></td>
-                    <td>Nota</td>
+                    <td class="centralizar-nota"><div class="tabela-nota-fiscal"><i class="fa-regular fa-file-lines"></i><p>Nota</p></div></td>
                     <td>desgraçasilva@gmail.com</td>
                     <td><div class="status-enviado"><p>Enviado</p></div></td>
                 </tr>
@@ -87,13 +88,54 @@
                     <td>Fone de ouvido</td>
                     <td>Periféricos</td>
                     <td><span>2</span></td>
-                    <td>Nota</td>
+                    <td class="centralizar-nota"><div class="tabela-nota-fiscal"><i class="fa-regular fa-file-lines"></i><p>Nota</p></div></td>
+                    <td>desgraçasilva@gmail.com</td>
+                    <td><div class="status-pendente"><p>Pendente</p></div></td>
+                </tr>
+
+                <tr class="tabela-info">
+                    <td>Fone de ouvido</td>
+                    <td>Periféricos</td>
+                    <td><span>2</span></td>
+                    <td class="centralizar-nota"><div class="tabela-nota-fiscal"><i class="fa-regular fa-file-lines"></i><p>Nota</p></div></td>
+                    <td>desgraçasilva@gmail.com</td>
+                    <td><div class="status-enviado"><p>Enviado</p></div></td>
+                </tr>
+
+                <tr class="tabela-info">
+                    <td>Fone de ouvido</td>
+                    <td>Periféricos</td>
+                    <td><span>2</span></td>
+                    <td class="centralizar-nota"><div class="tabela-nota-fiscal"><i class="fa-regular fa-file-lines"></i><p>Nota</p></div></td>
+                    <td>desgraçasilva@gmail.com</td>
+                    <td><div class="status-enviado"><p>Enviado</p></div></td>
+                </tr>
+
+                <tr class="tabela-info">
+                    <td>Fone de ouvido</td>
+                    <td>Periféricos</td>
+                    <td><span>2</span></td>
+                    <td class="centralizar-nota"><div class="tabela-nota-fiscal"><i class="fa-regular fa-file-lines"></i><p>Nota</p></div></td>
                     <td>desgraçasilva@gmail.com</td>
                     <td><div class="status-pendente"><p>Pendente</p></div></td>
                 </tr>
 
             </tbody>
         </table>
+    </div>
+
+
+
+    <div class="buscar-filtros">
+        <div class="filtros-datas">
+            <div class="datas-botoes">
+                <!-- trocar isso aqui pra checkbox quando iniciar o desenvolvimento do backend -->
+                <button class="botao-ativado">Hoje</button>
+                <button>Ontem</button>
+                <button>Data <img src="../../../public/assets/img/adm-calendario.png" alt=""></button>
+                <input class="testeee" type="date" value="">
+            </div>
+        </div>
     </div>
 
 </body>
