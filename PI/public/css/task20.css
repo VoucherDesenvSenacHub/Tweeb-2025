@@ -1,11 +1,8 @@
-*{
+.task20-kitsetup{
+    overflow-x: hidden;
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-}
-
-body{
-    overflow-x: hidden;
 }
 
 .kitsetup-container_banner img{
@@ -31,10 +28,6 @@ body{
 .kitsetup-container_titles{
     margin-top: 60px;
     margin-left: 130px;
-}
-
-footer{
-    margin-top: 112px;
 }
 
 .kitsetup-container_products{
@@ -163,6 +156,7 @@ footer{
 .kitsetup-pages-container{
     display: flex;
     cursor: pointer;
+    margin-bottom: 112px;
 }
 
 

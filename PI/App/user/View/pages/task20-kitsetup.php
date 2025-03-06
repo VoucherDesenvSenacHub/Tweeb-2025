@@ -18,7 +18,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
     <title>Tweeb</title>
 </head>
-<body>
+<body class="task20-kitsetup">
     <div class="kitsetup-container_banner">
         <img src="../../../../public/assets/img/banner setup.png" alt="banner-kit_setup" class="kitsetup-banner">
     </div>
