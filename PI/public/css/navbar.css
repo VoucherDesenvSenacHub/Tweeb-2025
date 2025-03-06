@@ -1,11 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
-* {
+/* * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-} 
+}  */
 
 .navBody{
     background-color: rgb(255, 255, 255);
@@ -16,10 +16,11 @@
 }
 
 .headNav {
-    width: 100%;/*f az o cabeçalho ocupar toda a largura da pag*/
-    height: 100px;/*define a altura do cabeçalho*/
+    width: 100%;
+    height: 100px;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     position: relative;
     top: 0;
     z-index: 1;
@@ -41,12 +42,13 @@
 .headNav .search-box {
     flex: 1;
     position: relative;
+    margin: 0 20px;
 }
 
 .search-box form {
     display: flex;
     align-items: center;
-    width: 120%;
+    width: 100%;
 }
 
 .search-box button {
@@ -77,6 +79,7 @@
     font-size: 15px;
     padding: 0 40px 0 40px; 
     margin-top: 10px;
+    transition: width 0.3s ease;
 }
 .search-box input::placeholder {
     color: rgb(173, 169, 169);
@@ -201,7 +204,7 @@
 }
 
 .submenu.open {
-    display: block;   /* O submenu principal aparece quando a classe 'open' é adicionada */
+    display: block;   
 }
 
 .department.open .submenu {
@@ -244,18 +247,18 @@
 }
 
 .submenu i {
-    margin-left: auto; /* Coloca a seta à direita */
-    transition: transform 0.3s ease; /* Transição suave para a rotação */
+    margin-left: auto;
+    transition: transform 0.3s ease; 
 }
 .submenu .linkn-submenu:hover {
     background-color: #ffffff22;
 }
 
 
-/* Submenu secundário oculto inicialmente */
+
 .submenu-sub {
-    display: none;               /* Alinha os itens em uma linha */
-    gap: 10px;                    /* Espaçamento entre os itens */
+    display: none;               
+    gap: 10px;                    
     padding-left: 20px;
     width: 100%;
     flex-wrap: wrap;  
@@ -264,9 +267,9 @@
 .submenu-sub li {
     list-style-type: none;
     padding: 8px 15px;
-    width: auto;                  /* A largura dos itens será ajustada automaticamente */
+    width: auto;                  
     box-sizing: border-box;
-    display: inline-block;        /* Faz os itens se comportarem como elementos em linha */
+    display: inline-block;        
 }
 
 .submenu-sub .submenu-sub-link{
@@ -286,41 +289,40 @@
 }
 
 .submenu-sub.open {
-    display: flex;   /* Exibe os submenus de tipos quando a classe 'open' é adicionada */
+    display: flex;   
 }
-/* Esconde o submenu do usuário inicialmente */
+
 .user-submenu {
     display: none;
     position: absolute;
     background-color: #f5f5f5;
     margin-left: 40px;
-    padding: 2px 0; /* Diminui o padding para tornar o background mais estreito */
+    padding: 2px 0; 
     border-radius: 5px;
     z-index: 999;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
-    width: 100px; /* Diminui a largura do submenu */
+    width: 100px; 
     height: 105px;
 }
 
-/* Ajusta o estilo das opções dentro do submenu */
+
 .user-submenu li {
     list-style-type: none;
-    padding: 6px 10px; /* Diminui o padding das opções para diminuir o background */
+    padding: 6px 10px; 
 }
 
-/* Ajusta o estilo dos links dentro do submenu */
+
 .user-submenu a {
     text-decoration: none;
     color: #333;
     font-size: 14px;
     font-weight: 400;
     display: block;
-    padding: 2px 8px; /* Diminui o padding dos links */
+    padding: 2px 8px; 
     border-radius: 5px;
     transition: background-color 0.3s ease;
 }
 
-/* Altera a cor do link quando o mouse passa por cima */
 .user-submenu a:hover {
     color: #FE8C67;
     background-color: #e0e0e0;
@@ -348,6 +350,21 @@
 .hamburguer{
     display: none;
 }
+@media (min-width: 2560px) {
+    .headNav {
+        padding: 0 100px; 
+    }
+
+    .search-box input {
+        height: 60px; 
+        font-size: 18px;
+        padding: 0 50px; 
+    }
+
+    .navb ul {
+        margin-right: 50px; 
+    }
+}
 @media (max-width: 768px) {
     .headNav {
         flex-direction: column;
@@ -369,12 +386,17 @@
         justify-content: space-between;
     }
 
-    .search-box form {
-        width: 100%;
+    .search-box {
+        margin: 0; /* Remove a margem em telas menores */
     }
 
     .search-box input {
+        height: 40px; 
         padding: 0 20px; 
+    }
+
+    .search-box button {
+        margin-left: 5px; 
     }
 
     .hamburguer {
@@ -397,8 +419,12 @@
         margin-right: 40px;
     }
     .search-box input {
-        font-size: 14px;
-        margin-left: 5px;
+        height: 35px; 
+        font-size: 14px; 
+    }
+
+    .search-box button {
+        margin-left: 3px; 
     }
     
     .department img {
