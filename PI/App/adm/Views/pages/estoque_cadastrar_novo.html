@@ -1,15 +1,12 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<?php include __DIR__.'/../../../../includes/headernavb.php'; ?>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../../../public/css/estoque_cadastrar_novo.css">
     <title>Cadastro de Produto</title>
 </head>
 <body>
-    
-    
      <!-- Cabeçalho -->
     <header class="header-container">
         <div class="header-logo"><img src="../../../../public/assets/img/Ativo 2.png" alt="Logo Tweeb"></div>
@@ -44,12 +41,14 @@
                 <label class="min-stock">Estoque mínimo <input type="number" name="Estoque-minimo"></label>
                 <label class="product-name-label">Nome: <input type="text" name="nome_produto"></label>
                 <label class="information">Informação: <input type="text" name="informacao"></label>
-                <label class="choose-icon">Escolher ícone <input type="file" name="informacao" placeholder="Escolher icone"></label>
+                <label class="choose-icon"> <input type="file" name="informacao" placeholder="Escolher icone"></label>
                 <label class="color">Cor: <input type="text" name="cor"></label>
                 <label class="code">Código: <input type="text" name="codigo"></label>
-                <label class="choose-icon">Escolher ícone <input type="file" name="informacao" placeholder="Escolher icone"></label>
+                <label class="choose-icon"> <input type="file" name="informacao" placeholder="Escolher icone"></label>
                 <label class="description">Descrição <input type="text" name="desc"><span class="counter">0/1000</span></label>
             </fieldset>
+            
+            
 
             <fieldset class="promotional-specifications">
                 <legend class="promo-legend">Especificações Promocionais</legend>
@@ -62,12 +61,11 @@
                 </label>
             </fieldset>
 
-            <button class="Salvar" type="submit">Salvar</button>
+            <button class="save-button" type="submit">Salvar</button>
         </form>
     </main>
 
-
-        <div class="container-icons">
+    <div class="container-icons">
         <div class="container-box1-icon">
             <div class="box1-icon">
                 <img src="../../../../public/assets/img/shop-2-svgrepo-com 2.png" alt="">
@@ -93,7 +91,6 @@
             <p class="text-icon1">
                 Em estoque 1-2 dias
             </p>
-        
         </div>
     </div>
 
