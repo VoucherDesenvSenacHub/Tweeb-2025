@@ -56,7 +56,7 @@
           <span class="plus"><i class="bi bi-plus-lg"></i></span>
         </div>
         <p class="preco">R$ 3.299,99</p>
-        <button class="remover"> <i class="bi bi-x-lg"></i></i> </button>
+        <button class="remover"><i class="bi bi-x-lg"></i></i> </button>
       </div>
       <button class="continuar"><a href="#">Continuar comprando</a></button>
     </div>

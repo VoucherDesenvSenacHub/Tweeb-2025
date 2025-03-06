@@ -94,8 +94,9 @@
 .navb ul {
     list-style: none; 
     display: flex;
-    justify-content: flex-end; 
-    gap: 40px;
+    align-items: center;
+    justify-content: center; 
+    gap: 60px;
     margin-right: 50px; 
 }
 
@@ -362,13 +363,41 @@
     }
 
     .navb ul {
+        display: flex;
         margin-right: 50px; 
+        align-items: center;
+        justify-content: center;
+        gap: 15%;
+    }
+    .departments-bar{
+        box-sizing: border-box;
+    }
+    .submenu{
+        transform: translateX(-70px);
+        width: 100.4%;
+    }
+}
+@media (max-width: 1024px){
+    .navb ul{
+        gap: 5%;
+    }
+    .search-box{
+        transform: translateX(-20px);
+    }
+    .navb ul .op{
+        font-size: 10px;
+    }
+    .submenu{
+        transform: translateX(-60px);
     }
 }
 @media (max-width: 768px) {
     .headNav {
         flex-direction: column;
         height: auto;
+    }
+    .headNav .logo{
+        transform: translateX(10px);
     }
 
     .navb ul {
@@ -388,6 +417,8 @@
 
     .search-box {
         margin: 0; /* Remove a margem em telas menores */
+        transform: translateX(1px);
+        gap: 20px;
     }
 
     .search-box input {
@@ -396,7 +427,7 @@
     }
 
     .search-box button {
-        margin-left: 5px; 
+      transform: translateX(-5px);
     }
 
     .hamburguer {
@@ -418,13 +449,16 @@
         max-width: 150px;
         margin-right: 40px;
     }
+    .search-box{
+        transform: translateX(5px);
+    }
     .search-box input {
         height: 35px; 
         font-size: 14px; 
     }
 
     .search-box button {
-        margin-left: 3px; 
+        transform: translateX(-5px); 
     }
     
     .department img {
