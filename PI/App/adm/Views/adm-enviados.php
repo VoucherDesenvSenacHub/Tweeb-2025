@@ -129,13 +129,48 @@
     <div class="buscar-filtros">
         <div class="filtros-datas">
             <div class="datas-botoes">
-                <!-- trocar isso aqui pra checkbox quando iniciar o desenvolvimento do backend -->
+                <!-- trocar isso aqui pra checkbox ou algum outro form quando iniciar o desenvolvimento do backend -->
                 <button class="botao-ativado">Hoje</button>
                 <button>Ontem</button>
                 <button>Data <img src="../../../public/assets/img/adm-calendario.png" alt=""></button>
-                <input class="testeee" type="date" value="">
             </div>
         </div>
+
+        <div class="filtro-formulario">
+            <form action="">
+                <div class="form-group">
+                            
+                    <label for="filtrar-nome">Nome</label>
+                    <input type="text" id="filtrar-nome" name="filtrar-nome" placeholder="filtrar nome" >
+                    
+                    <label for="filtrar-email">Email</label>
+                    <input type="email" id="filtrar-email" name="filtrar-email" placeholder="filtrar modelo">
+                    
+                    <label for="filtrar-id">Id do Pedido</label>
+                    <input type="text" id="filtrar-id" name="filtrar-id" placeholder="filtrar nº">
+                </div>
+
+                <div class="form-group-breakline">
+                    
+                    <label for="valor">Valor</label>
+                    <input type="text" id="valor" name="valor" placeholder="filtrar valor">
+                    
+                    <label for="filtrar-cpf">CPF</label>
+                    <input type="text" id="filtrar-cpf" name="filtrar-cpf" placeholder="filtrar nº">
+
+                    <input class="form-botao-buscar" type="submit" value="Buscar">
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+
+    <div class="envios-container">
+        <h1>smttttttt</h1>
+
+        <table class="tabela-envios"></table>
+
     </div>
 
 </body>
