@@ -131,25 +131,32 @@
   border: none;
   cursor: pointer;
 }
-.Carrinho .continuar{
+.Carrinho .btn_continuar{
   width: 291px;
   height: 56px;
-  background-color: #291E40;
-  padding: 16px 56px 16px 56px;
+  padding: 16px 56px;
   gap: 8px;
   border-radius: 6px;
-  opacity: 0px;
+  opacity: 1; 
   border: none; 
   cursor: pointer; 
+  background-color:#291E40;
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  white-space: nowrap;
 }
-.Carrinho .continuar a{
+.Carrinho .btn_continuar a{
   color: #FFFFFF;
   font-size: 16px;
   font-weight: 500;
   line-height: 24px;
-  text-align: center;
   text-decoration: none;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
 }
+
 .Carrinho .revisao-itens{
   width:566px;
   height: 450px;
@@ -192,11 +199,11 @@
   border: 1px solid #ccc;
   border-radius: 4px;
 }
-.Carrinho .aplicar-btn {
+.Carrinho .btn_aplicar {
   position: absolute;
   right: 5%;
   padding: 8px 12px;
-  margin-top: 5%;
+  margin-top: 2%;
   background-color: #fff;
   border: 1px solid #000;
   color: #000;
@@ -210,9 +217,10 @@
   border: 1px 0px 0px 0px;
   opacity: 0px;
 }
-.Carrinho .aplicar-btn:hover {
+.Carrinho .btn_aplicar:hover {
   background-color: #f0f0f0;
 }
+
 .Carrinho .resumo-pedido {
   margin-bottom: 24px;
 }

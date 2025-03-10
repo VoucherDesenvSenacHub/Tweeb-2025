@@ -58,14 +58,14 @@
         <p class="preco">R$ 3.299,99</p>
         <button class="remover"> <i class="bi bi-x-lg"></i></i> </button>
       </div>
-      <button class="continuar"><a href="#">Continuar comprando</a></button>
+      <button class="btn_continuar"><a href="#">Continuar comprando</a></button>
     </div>
     <div class="revisao-itens">
       <div class="cod-promo">
         <label for="codigo">Código de desconto / Código promocional</label>
         <div class="input-group">
           <input type="text" id="codigo" placeholder="Digite o código">
-          <button class="aplicar-btn">Aplicar</button>
+          <button class="btn_aplicar">Aplicar</button>
         </div>
       </div>
      
