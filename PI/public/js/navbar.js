@@ -1,3 +1,18 @@
+document.addEventListener("DOMContentLoaded", function () {
+    const hamburger = document.querySelector(".hamburguer");
+    const menu = document.querySelector(".hamburger-menu");
+
+    hamburger.addEventListener("click", function () {
+        menu.classList.toggle("active"); // Alterna a classe 'active' no menu
+    });
+
+    document.addEventListener("click", function (event) {
+        if (!menu.contains(event.target) && !hamburger.contains(event.target)) {
+            menu.classList.remove("active"); // Fecha o menu se o clique for fora do menu
+        }
+    });
+});
+
 // Seleciona todos os departamentos
 const departments = document.querySelectorAll('.department');
 

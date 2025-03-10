@@ -348,9 +348,114 @@
     display: flex;
     position: absolute;
 }
-.hamburguer{
+.hamburger-menu {
     display: none;
+    background-color: #291E40;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 200px; 
+    height: 85vh;
+    padding: 20px;
 }
+
+.hamburger-menu.active {
+    display: block; 
+}
+
+.hamburguer {
+    cursor: pointer;
+}
+
+.hamburger-menu ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.hamburger-menu li {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.hamburger-menu .department-link{
+    color: rgb(255, 255, 255);
+    font-weight: 300;
+    padding: 20px 0px 0px 0px;
+}
+.hamburger-menu a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+}
+.user-info{
+    display: flex;
+}
+.user-info img {
+    width: 50px; 
+    height: 50px; 
+    border-radius: 50%; 
+    border: 2px solid #007bff; 
+}
+
+.user-info .hi-user {
+    margin-top: 15px;
+    font-weight: 500;
+    font-size: 15px;
+    padding: 0px 0px 0px 10px;
+    color: white;
+}
+
+.department-link {
+    display: block; /* Faz o link ocupar toda a largura */
+    margin-bottom: 10px; /* Espaçamento abaixo do link */
+    color: #007bff; /* Cor do texto */
+    text-decoration: none; /* Remove sublinhado */
+}
+
+hr {
+    margin: 20px 0; /* Espaçamento acima e abaixo da linha */
+}
+
+.menu-options {
+    list-style: none; 
+    padding: 0; 
+    margin: 0; 
+}
+
+.menu-options li {
+    margin-bottom: 10px; 
+}
+
+.menu-options a {
+    text-decoration: none; 
+    font-weight: 300;
+    color: #ffffff; 
+}
+
+.auth-buttons {
+    margin-top: 100px; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: stretch; 
+}
+
+.btn-login, .btn-register {
+    padding: 10px 15px; 
+    border: none; 
+    border-radius: 5px; 
+    color: #fff; 
+    background-color: #CEF5A4; 
+    text-decoration: none; 
+    text-align: center; 
+    margin-bottom: 10px; 
+}
+
+.btn-register {
+    background-color: #CEF5A4; /* Cor de fundo diferente para o botão de cadastro */
+}
+
+.btn-login:hover, .btn-register:hover {
+    opacity: 0.8; /* Efeito de hover */
+}
+
 @media (min-width: 2560px) {
     .headNav {
         padding: 0 100px; 
@@ -375,6 +480,14 @@
     .submenu{
         transform: translateX(-70px);
         width: 100.4%;
+    }
+}
+@media (max-width: 1366px){
+    .submenu{
+        transform: translateX(-60px);
+    }
+    .navb ul .op{
+        font-size: 14px;
     }
 }
 @media (max-width: 1024px){

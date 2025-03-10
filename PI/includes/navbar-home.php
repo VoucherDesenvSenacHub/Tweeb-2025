@@ -1,7 +1,7 @@
 <body class="navBody">
-    <header  class="headNav">
+<header class="headNav">
         <div class="hamburguer">
-        <i class='bx bx-menu'></i>
+            <i class='bx bx-menu'></i>
         </div>
         <div class="logo">
             <a href="home.php"><img src="public/assets/img/Ativo 2.png" alt="logo tweeb"></a>
@@ -21,12 +21,33 @@
                 <li>
                     <a class="op" href="#"><i class='bx bx-cart-alt'></i></a>
                     <a class="op" href="app/user/view/pages/login.php"><i class='bx bx-user'></i></a>
-                    <!-- <a href="#" class="user-icon">
-                        <img src="public/assets/img/card-produto.png" alt="teste">
-                    </a> -->
                 </li>
             </ul>
         </nav>
+
+        <!-- Menu hamburguer (começa escondido) -->
+        <div class="hamburger-menu">
+            <div class="user-info">
+                <img src="public/assets/img/Hardwares.png" alt="Foto do Usuário">
+                <p class="hi-user">Olá, Usuário</p>
+            </div>
+
+            <a href="#" class="department-link">Departamentos</a>
+
+            <hr> <!-- Linha separadora -->
+
+            <ul class="menu-options">
+                <li><a href="#">Minha Conta</a></li>
+                <li><a href="#">Meus Dados</a></li>
+                <li><a href="#">Meus Pedidos</a></li>
+                <li><a href="#">Carteira</a></li>
+            </ul>
+
+            <div class="auth-buttons">
+                <a href="app/user/view/pages/login.php" class="btn-login">Entrar</a>
+                <a href="app/user/View/pages/cadastro.php" class="btn-register">Cadastrar</a>
+            </div>
+        </div>
     </header>
 
     <!-- Barra de departamentos -->
