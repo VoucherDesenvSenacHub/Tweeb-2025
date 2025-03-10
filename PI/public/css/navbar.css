@@ -350,7 +350,6 @@
 }
 .hamburger-menu {
     display: none;
-    background-color: #291E40;
     position: absolute;
     top: 0;
     right: 0;
@@ -361,6 +360,7 @@
 
 .hamburger-menu.active {
     display: block; 
+    background-color: #291E40;
 }
 
 .hamburguer {
@@ -404,14 +404,14 @@
 }
 
 .department-link {
-    display: block; /* Faz o link ocupar toda a largura */
-    margin-bottom: 10px; /* Espaçamento abaixo do link */
-    color: #007bff; /* Cor do texto */
-    text-decoration: none; /* Remove sublinhado */
+    display: block; 
+    margin-bottom: 10px; 
+    color: #007bff;
+    text-decoration: none; 
 }
 
-hr {
-    margin: 20px 0; /* Espaçamento acima e abaixo da linha */
+.sep{
+    margin: 20px 0;
 }
 
 .menu-options {
@@ -442,18 +442,18 @@ hr {
     border: none; 
     border-radius: 5px; 
     color: #fff; 
-    background-color: #CEF5A4; 
+    background-color: #ffffff; 
     text-decoration: none; 
     text-align: center; 
     margin-bottom: 10px; 
 }
 
 .btn-register {
-    background-color: #CEF5A4; /* Cor de fundo diferente para o botão de cadastro */
+    background-color: #ffffff; 
 }
 
 .btn-login:hover, .btn-register:hover {
-    opacity: 0.8; /* Efeito de hover */
+    opacity: 0.8; 
 }
 
 @media (min-width: 2560px) {
@@ -503,6 +503,7 @@ hr {
     .submenu{
         transform: translateX(-60px);
     }
+    
 }
 @media (max-width: 768px) {
     .headNav {
@@ -529,7 +530,7 @@ hr {
     }
 
     .search-box {
-        margin: 0; /* Remove a margem em telas menores */
+        margin: 0; 
         transform: translateX(1px);
         gap: 20px;
     }
@@ -545,6 +546,9 @@ hr {
 
     .hamburguer {
         display: block;
+    }
+    .hamburger-menu.active{
+        height: 100%;
     }
 }
 
@@ -593,5 +597,8 @@ hr {
 
     .submenu-sub a {
         font-size: 12px; 
+    }
+    .hamburger-menu.active{
+        height: 100%;
     }
 }

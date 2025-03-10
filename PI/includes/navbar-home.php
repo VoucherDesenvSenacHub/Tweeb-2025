@@ -34,7 +34,7 @@
 
             <a href="#" class="department-link">Departamentos</a>
 
-            <hr> <!-- Linha separadora -->
+            <hr class="sep"> <!-- Linha separadora -->
 
             <ul class="menu-options">
                 <li><a href="#">Minha Conta</a></li>
