@@ -168,3 +168,24 @@ body {
     max-width: 50%; 
     height: auto; 
 }
+
+@media (max-width:768px){
+
+    .image-container{
+        display: none;
+    }
+    .forms{
+        display: flex;
+        flex-wrap: wrap;
+        margin-right: 50px; 
+       
+    }
+    .remember-forgot{
+        font-size: 3vw;
+    }
+    .account{
+        font-size: 3vw;
+        flex-direction: column;
+        
+    }
+}
