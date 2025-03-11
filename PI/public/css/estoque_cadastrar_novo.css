@@ -105,6 +105,12 @@ form {
     left: 55px; 
 }
 
+    .cadastrados-title{
+        margin-top: 52px;
+        color: #8b8b8b;
+        text-decoration: none; /* Remove a linha de sublinhado do link */
+    }
+
 .description {
     position: relative;
 }
