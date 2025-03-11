@@ -488,9 +488,13 @@ header .logo {
   
 
 /*  */
-.envios-cima{
+
+.envios-cima td{
     display: flex;
-    gap: 1rem;
+    color: #ababab;
+    font-weight: 500;
+}
+.envios-cima .temSetinha{
     color: #ababab;
     font-weight: 500;
 }
