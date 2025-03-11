@@ -59,7 +59,11 @@
                 <textarea placeholder="Detalhe ao máximo a solicitação" class="responder-orcamento-input"></textarea>
             </div>
         </div>
-        <input type="submit" class="responder-orcamento-submit" value="Enviar agora">
+        <button class="responder-orcamento-submit">
+            <p class="responder-orcamento-submit-text">
+                Enviar agora
+            </p>
+        </button>
     </div>
     <script src="../../../../public/js/responder-orcamento.js"></script>
 </body>
