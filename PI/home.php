@@ -371,7 +371,7 @@
       </div> -->
 
       <div class="anuncios">
-        <img src="public/assets/img/Do seu jeito.png" alt="">
+        <a href="App/user/View/pages/task20-kitsetup.php"><img src="public/assets/img/Do seu jeito.png" alt=""></a>
         <img src="public/assets/img/Do seu jeito 2.png" alt="">
         <img src="public/assets/img/Do seu jeito 3.png" alt="">
       </div>
