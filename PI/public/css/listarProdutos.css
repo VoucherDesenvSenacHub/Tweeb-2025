@@ -597,6 +597,10 @@ tr:hover {
 
 .footer-text{
     display: flex;
+    font-family: 'Arimo Hebrew', sans-serif; /* Aplica a fonte */
+    font-style: italic; /* Aplica o estilo itálico */
+    font-size: 20px;
+    color: #291E40;
 }
 
 .footer-logo{
