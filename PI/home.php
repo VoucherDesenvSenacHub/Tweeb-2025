@@ -371,14 +371,14 @@
       </div> -->
 
       <div class="anuncios">
-        <img src="public/assets/img/Do seu jeito.png" alt="">
+        <a href="App/user/View/pages/task20-kitsetup.php"><img src="public/assets/img/Do seu jeito.png" alt=""></a>
         <img src="public/assets/img/Do seu jeito 2.png" alt="">
         <img src="public/assets/img/Do seu jeito 3.png" alt="">
       </div>
 
       <section class="produtos produtos2">
         <div class="promo-text">
-            <p>Promoções de Carnaval</p>
+            <p>Promoções de natal</p>
         </div>
         <div class="produtos-grid">
             <div class="produtos-card">
@@ -461,7 +461,7 @@
       </section>
 
       <div class="img-anuncio">
-        <a href="#"><img src="public/assets/img/banner tweeb carnaval.png" alt="anuncio natal"></a>
+        <a href="#"><img src="public/assets/img/natal-banner.png" alt="anuncio natal"></a>
       </div>
 
     <button id="voltarAoTopo" title="Voltar ao topo"><i class="fa-solid fa-angle-up"></i></button>

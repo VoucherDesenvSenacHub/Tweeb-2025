@@ -27,11 +27,11 @@
     justify-content: center;
 }
 
-*{
+/* *{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-}
+} */
 
 .footer-text{
     display: flex;
@@ -79,7 +79,7 @@ h1 {
     padding: 2px;
 }
 
-.cadastrados-title{
+.Cadastrados{
     margin-top: 52px;
     color: #8b8b8b;
 }
@@ -105,18 +105,18 @@ form {
     left: 55px; 
 }
 
-.description {
+.descricao {
     position: relative;
 }
 
-.counter {
+.contador {
     position: absolute;
     right: 50px;
     font-size: 12px;
     color: #000000;
 }
 
-.description input{
+.descricao input{
     background-color: #f2f2f2;
 }
 
@@ -152,7 +152,7 @@ input, select {
     border-radius: 4px;
 }
 
-.Salvar {
+.save-button {
     width: auto; 
     padding: 8px 16px;
     background: #FE8C67;
@@ -166,19 +166,20 @@ input, select {
     right: 48px; 
 }
 
-.Salvar:hover {
+.save-button:hover {
     background: #FE8C67;
 }
 
-.choose-icon{
+.escolher-icone{
     justify-content: center;
-    margin-top: -3px;
+    margin-top: 30px;
 }
 
 .box1-icon img{
     width: 24px;
     height: 24px;
 }
+
 .container-icons{
     display: flex;
     flex-direction: row;
@@ -207,5 +208,4 @@ input, select {
     width: 80px;
     font-family: sans-serif;
     font-size: 14px;
-  
 }

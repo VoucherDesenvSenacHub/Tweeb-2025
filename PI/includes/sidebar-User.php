@@ -10,19 +10,17 @@
                     </span>
                 </p>
             </div>
-            <div clsideass="linha"></div>
-            <ul class="sidemenu">
+            <div class="linha"></div>
+            <ul class="menu">
                 <li class="menu-item">
                   <a href="#"><img src="../../../../public/assets/img/editar.png" alt=""><span class="item-description">Editar Perfil</span></a>
                 </li>
                 <li class="menu-item">
                   <a href="#"><img src="../../../../public/assets/img/Calendar.png" alt=""><span class="item-description">Meus Endereços</span></a>
                 </li>
-                <li class="sidemenu-item has-segundomenu" id="toggle">
-                  <a href="#"><img src="../../../../public/assets/img/Inbox.png" alt="">
-                  <span class="item-description"> Meus Pedidos</span>
-                  <i class="fa-solid fa-angle-down" id="arrow"></i></a>
-                  <ul class="segundomenu">
+                <li class="menu-item has-submenu" id="toggle">
+                  <a href="#"><img src="../../../../public/assets/img/Inbox.png" alt=""><span class="item-description"> Meus Pedidos</span> <i class="fa-solid fa-angle-down" id="arrow"></i></a>
+                  <ul class="submenu">
                     <li><a href="#"><span class="item-description">Pedidos Enviados</span></a></li>
                     <li><a href="#"><span class="item-description">Pedidos Cancelados</span></a></li>
                   </ul>

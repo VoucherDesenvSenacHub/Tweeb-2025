@@ -14,12 +14,12 @@
         </div>
         <nav class="navb">
             <ul>
-                <li><a class="submenu-sub-link" href="home.php">Home</a></li>
-                <li><a href="#">Sobre</a></li>
-                <li><a href="#">Orçamento</a></li>
-                <li><a href="app/user/View/pages/cadastro.php">Cadastre-se</a></li>
+                <li><a class="op" href="home.php">Home</a></li>
+                <li><a class="op" href="#">Sobre</a></li>
+                <li><a class="op" href="#">Orçamento</a></li>
+                <li><a class="op"href="app/user/View/pages/cadastro.php">Sair</a></li>
                 <li>
-                    <a href="#"><i class='bx bx-cart-alt'></i></a>
+                    <a class="op"href="#"><i class='bx bx-cart-alt'></i></a>
                     <!-- <a href="app/user/view/pages/login.php"><i class='bx bx-user'></i></a> -->
                     <a href="#" class="user-icon">
                         <img src="../../../../public/assets/img/Avatar.png" alt="teste">

@@ -488,18 +488,14 @@ span{
 /* anuncio abaixo */
 
 .img-anuncio{
-    width: 80%;
+    width: 100%;
     height: auto;
-    display: block;
-    margin: 0 auto;
-    border-radius: 5px;
-
+    overflow: hidden;
 }
 
 .img-anuncio img{
     width: 100%;
     height: auto;
-    margin-bottom: 60px;
 }
 
 /* hover nos cards de categoria */

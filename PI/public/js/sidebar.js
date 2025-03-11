@@ -15,9 +15,9 @@ document.addEventListener('click', (event) => {
 });
 
 document.addEventListener('DOMContentLoaded', function() {
-    const segundomenuToggles = document.querySelectorAll('.menu-item .sidemenu-item .has-segundomenu'); 
-    segundomenuToggles.forEach(item => {
-        const segundomenu = item.querySelector('.segundomenu'); 
+    const submenuToggles = document.querySelectorAll('.menu-item.has-submenu'); 
+    submenuToggles.forEach(item => {
+        const submenu = item.querySelector('.submenu'); 
         const menuLink = item.querySelector('a'); 
         const arrow = menuLink.querySelector('#arrow'); 
     });

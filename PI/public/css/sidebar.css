@@ -6,8 +6,8 @@
     box-sizing: border-box;
 }
 .sidebar_Produto{
-    /* display: flex; */
-    /* min-width: 100vh; */
+    display: flex;
+    min-width: 100vh;
     background-color: aliceblue;
 }
 main{
@@ -20,7 +20,7 @@ main{
 }
 
 
-/* #sidebar{
+#sidebar{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -34,25 +34,7 @@ main{
     right: 1px;
     z-index: 2; 
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-} */
-
-#sidebar {
-    position: fixed; /* Fixa na tela */
-    top: 151px;
-    left: 0;
-    height: 100vh; /* Garante que ocupe toda a altura */
-    z-index: 100; /* Garante que fique acima de outros elementos */
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    background-color: #ffffff;
-    border-radius: 0px 12px 12px 0px;
-    transition: all .5s;
-    min-width: 82px;
-    gap: 24px;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
 }
- 
 #sidebar_content{
     padding: 12px;
     padding-left: 25px;
@@ -94,7 +76,7 @@ main{
     opacity: 0px;
     
   }
-.sidemenu{
+.menu{
     display: flex;
     flex-direction: column;
     gap: 8px;
@@ -108,22 +90,10 @@ main{
     border-radius: 8px;
     cursor: pointer;
 }
-
-.sidemenu-item{
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    list-style: none;
-    border-radius: 8px;
-    cursor: pointer;
-}
-
-
-
 #Favoritos{
     margin-top: 1px;
 }
-.has-segundomenu .segundomenu{
+.has-submenu .submenu{
     list-style: none;
     padding: 1px;
     gap: 8px;
@@ -132,31 +102,31 @@ main{
     margin-bottom: 0;
     
 }
-.has-segundomenu a #arrow{
+.has-submenu a #arrow{
     display: none; 
 }
 
 
-#sidebar.open-sidebar .has-segundomenu:hover .segundomenu{
+#sidebar.open-sidebar .has-submenu:hover .submenu{
     display: block; 
 }
-#sidebar.open-sidebar .has-segundomenu a #arrow{
+#sidebar.open-sidebar .has-submenu a #arrow{
     display: inline; 
     transition: transform 0.3s ease; 
     transform: rotate(0deg);
 }
-#sidebar.open-sidebar .has-segundomenu:hover a #arrow{
+#sidebar.open-sidebar .has-submenu:hover a #arrow{
     transform: rotate(180deg); 
 }
 #open_btn_icon{
     transition: transform .3s ease;}
-.segundomenu li{
+.submenu li{
     margin-bottom: 10px;
 }
 #Favoritos{
     margin-top: 0;
 }
-.segundomenu li a{
+.submenu li a{
     font-size: 12px;
     color: #0a0a0a;
     padding: 12px;
@@ -165,7 +135,7 @@ main{
     font-family: 'Inder';
     font-weight: 500;
 }
-.segundomenu li a:hover{
+.submenu li a:hover{
     background-color: #D4E3FF;
     color: #455A64;
 }
@@ -185,48 +155,16 @@ main{
     font-family: 'Inter';
     gap: 12px;
 }
-
-.sidemenu-item a{
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    color: #0a0a0a;
-    font-size: 16px;
-    padding: 10px;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-    white-space: nowrap;
-    font-family: 'Inter';
-    gap: 12px;
-}
-
 .menu-item.active a{
     color:#0a0a0a;
 }
 .menu-item.active a{
     color:#0a0a0a;
 }
-
-.sidemenu-item.active a{
-    color:#0a0a0a;
-}
-.sidemenu-item.active a{
-    color:#0a0a0a;
-}
-
-
 .menu-item a img{
     width: 20px;
     height: 20px;
 }
-
-.sidemenu-item a img{
-    width: 20px;
-    height: 20px;
-}
-
-
-
 #logout{
     display: flex;
     flex-direction: column;
@@ -306,11 +244,11 @@ main{
 .menu-item a:hover{
     background-color: #D4E3FF;
 }
-.has-segundomenu .segundomenu li:hover:not(.active) a{
+.has-submenu .submenu li:hover:not(.active) a{
     background-color: #D4E3FF;
     color: #0a0a0a;
 }
-.has-segundomenu .segundomenu li.active a{
+.has-submenu .submenu li.active a{
     background-color: #D4E3FF;
     color: #0a0a0a;
 }
@@ -327,10 +265,6 @@ main{
     font-size: 14px;
     font-weight: 500;
 }
-
-
-
-
 
  */
 #sidebar.open-sidebar {
