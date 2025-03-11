@@ -167,9 +167,56 @@
 
 
     <div class="envios-container">
-        <h1>smttttttt</h1>
+        
+        <table class="tabela-envios">
+            <h1>Envios</h1>
+            
+            <tbody>
 
-        <table class="tabela-envios"></table>
+                <tr class="envios-cima">
+                    <td>
+                        <label class="envios-checkbox">
+                            <input type="checkbox">
+                            <span class="checkbox"></span>
+                        </label>
+                    </td>
+                    <td class="temSetinha">ID Order 
+                        <div class="envios-setinhas">
+                            <i class="fa-solid fa-chevron-up"></i>
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </div>
+                    </td>
+                    <td>Produto</td>
+                    <td>Cliente</td>
+                    <td class="temSetinha">Status
+                        <div class="envios-setinhas">
+                            <i class="fa-solid fa-chevron-up"></i>
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </div>
+                    </td>
+                    <td class="temSetinha">Data do Pedido
+                        <div class="envios-setinhas">
+                            <i class="fa-solid fa-chevron-up"></i>
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </div>
+                    </td>
+                    <td class="temSetinha">Prazo
+                        <div class="envios-setinhas">
+                            <i class="fa-solid fa-chevron-up"></i>
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </div>
+                    </td>
+                    <td class="temSetinha">Preço
+                        <div class="envios-setinhas">
+                            <i class="fa-solid fa-chevron-up"></i>
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </div>
+                    </td>
+                    <td>Etapa</td>
+                </tr>
+
+            </tbody>
+        </table>
 
     </div>
 

@@ -424,13 +424,85 @@ header .logo {
 */
 
 .envios-container{
+    margin-top: 2rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
+.envios-container h1{
+    font-size: 20px;
+    margin-left: 10%;
+    align-self: flex-start;
+}
+
 .tabela-envios{
     margin-top: 17px;
     width: 80%;
+}
+
+/*  */
+
+/* Esconde a checkbox padrão */
+.envios-checkbox input[type="checkbox"] {
+    display: none;
+  }
+  
+  /* Estilo da caixa personalizada */
+  .envios-checkbox .checkbox {
+    width: 24px; /* Tamanho da checkbox */
+    height: 24px; /* Tamanho da checkbox */
+    border: 2px solid #E9E9EA; /* Cor da borda */
+    background-color: #F7F8FA; /* Cor de fundo da caixa */
+    display: inline-block;
+    border-radius: 5px; /* Borda arredondada */
+    position: relative;
+    transition: background-color 0.3s, border-color 0.3s;
+  }
+  
+  /* Estilo quando a checkbox está marcada */
+  .envios-checkbox input[type="checkbox"]:checked + .checkbox {
+    background-color: rgb(65, 142, 225); /* Cor de fundo quando marcado */
+    border-color: #007bff; /* Cor da borda quando marcado */
+  }
+  
+  /* Estilo da parte interna da caixa quando marcada */
+  /*
+  .envios-checkbox input[type="checkbox"]:checked + .checkbox::after {
+    content: '';
+    position: absolute;
+    left: 6px;
+    top: 3px;
+    width: 8px;
+    height: 8px;
+    background-color: white;
+    transform: rotate(45deg);
+  }
+  *\
+  
+  /* Efeito de hover */
+  .envios-checkbox .checkbox:hover {
+    border-color: #007bff; /* Cor da borda quando passar o mouse */
+  }
+  
+
+/*  */
+.envios-cima{
+    display: flex;
+    gap: 1rem;
+    color: #ababab;
+    font-weight: 500;
+}
+
+.envios-cima .envios-setinhas{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.envios-setinhas i{
+    font-size: 8px;
+    cursor: pointer;
 }
