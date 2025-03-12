@@ -46,7 +46,7 @@ body{
 .slider{
     margin: 0 auto;
     width: 100%;
-    height: 618px;
+    height: auto;
     padding: 0 !important;
     overflow: hidden;
     position: relative;
@@ -524,8 +524,8 @@ span{
     bottom: 20px;
     right: 20px;
     z-index: 1000;
-    background-color: var(--azul-intenso);
-    color: #000;
+    background-color: var(--laranja);
+    color: var(--azul-intenso);
     border: none;
     border-radius: 50%;
     width: 50px;
@@ -538,10 +538,10 @@ span{
 }
 
 #voltarAoTopo:hover {
-    background-color: var(--azul-claro);
+    background-color: var(--azul-intenso);
     border: none;
     transform: scale(1.1);
-    color: var(--azul-intenso);
+    color: var(--laranja);
 }
 
 .card-rate{

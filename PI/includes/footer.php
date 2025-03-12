@@ -1,7 +1,7 @@
     <footer>
         <div id="footer_content">
             <div id="footer_contacts">
-                <img src="../PI/public/assets/img/logo.png" alt="Logo Tweeb" class="footer-logo">
+                <img src="../../../../public/assets/img/logo.png" alt="Logo Tweeb" class="footer-logo">
                 <p class="footer-tagline">Sua conexão com o futuro, garantimos hoje.</p>
                 <div id="footer_social_midia">
                     <a href="#"><i class="fa-brands fa-twitter"></i></a>
@@ -52,7 +52,7 @@
 
         <div class="mobile-view">
             <div class="contatos">
-                <img src="../PI/public/assets/img/logo.png" alt="logo tweeb" class="footer-logo">
+                <img src="../../../../public/assets/img/logo.png" alt="logo tweeb" class="footer-logo">
                 <p class="footer-tagline">Sua conexão com o futuro, garantimos hoje.</p>
                 <div id="footer_social_midia">
                     <a href="#"><i class="fa-brands fa-twitter"></i></a>
@@ -78,3 +78,5 @@
         </div>
     </footer>
 </html>
+
+<!-- a -->

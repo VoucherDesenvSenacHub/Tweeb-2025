@@ -1,5 +1,18 @@
-    <?php include __DIR__.'/includes/headernavb.php'; ?>
-    <?php include __DIR__.'/includes/navbar.php'; ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="../PI/public/css/navbar.css">
+    <link rel="stylesheet" href="../PI/public/css/home.css">
+    <link rel="stylesheet" href="../PI/public/css/footer.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <script defer src="../PI/public/js/home.js"></script>
+</head>
+<body>
+    <?php include __DIR__.'/includes/navbar-home.php'; ?>
     <section class="slider">
         <div class="slider-content">
             <input type="radio" name="btn-radio" id="radio1">
@@ -35,7 +48,7 @@
         </div>
     </section>
 
-    <a href="#"><img id="ad-produto" src="public/assets/img/ad-produtos.png" alt=""></a>
+    <img id="ad-produto" src="public/assets/img/ad-produtos.png" alt="">
 
     <!-- <div class="container-ad">
         <div class="ad-left">
@@ -358,7 +371,7 @@
       </div> -->
 
       <div class="anuncios">
-        <img src="public/assets/img/Do seu jeito.png" alt="">
+        <a href="App/user/View/pages/task20-kitsetup.php"><img src="public/assets/img/Do seu jeito.png" alt=""></a>
         <img src="public/assets/img/Do seu jeito 2.png" alt="">
         <img src="public/assets/img/Do seu jeito 3.png" alt="">
       </div>
@@ -452,6 +465,6 @@
       </div>
 
     <button id="voltarAoTopo" title="Voltar ao topo"><i class="fa-solid fa-angle-up"></i></button>
-    <?php include __DIR__.'/includes/footer.php'; ?>
+    <?php include __DIR__.'/includes/footer-home.php'; ?>
 </body>
 </html>
