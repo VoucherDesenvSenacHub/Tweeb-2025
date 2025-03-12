@@ -16,7 +16,7 @@
             <ul>
                 <li><a class="op" href="home.php">Home</a></li>
                 <li><a class="op" href="#">Sobre</a></li>
-                <li><a class="op" href="#">Orçamento</a></li>
+                <li><a class="op" href="app/user/View/pages/orcamento.php"">Orçamento</a></li>
                 <li><a class="op" href="app/user/View/pages/cadastro.php">Cadastre-se</a></li>
                 <li>
                     <a class="op" href="#"><i class='bx bx-cart-alt'></i></a>

@@ -461,7 +461,7 @@
       </section>
 
       <div class="img-anuncio">
-        <a href="#"><img src="public/assets/img/natal-banner.png" alt="anuncio natal"></a>
+        <a href="#"><img src="public/assets/img/banner tweeb carnaval.png" alt="anuncio carnaval"></a>
       </div>
 
     <button id="voltarAoTopo" title="Voltar ao topo"><i class="fa-solid fa-angle-up"></i></button>

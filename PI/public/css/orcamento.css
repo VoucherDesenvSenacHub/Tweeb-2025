@@ -1,0 +1,371 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+    font-family: poppins;
+    font-size: 20px;
+}
+
+.orcamento-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 50px;
+    margin: 50px auto;
+    flex-direction: row;
+}
+
+.orcamento-titulo{
+    color: #e65a29;
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+}
+
+.orcamento-form-section {
+    width: 100%;
+    max-width: 900px;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.orcamento-button, .orcamento-botao-enviar {
+    width: 100%;
+    max-width: 900px;
+    display: flex;
+    justify-content: center;
+    white-space: nowrap;
+    text-align: center;
+    padding: 12px 24px;
+}
+
+.orcamento-contact-info {
+    width: 100%;
+    max-width: 340px;
+    height: 522px;
+    margin: 30px;
+    background-color: #fff;
+    padding: 24px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    font-family: "Poppins", sans-serif;
+}
+
+.orcamento-info-section {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    flex-direction: column;
+}
+
+.orcamento-info-content {
+    display: flex;
+    align-items: flex-start;
+}
+
+.orcamento-text {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.orcamento-icon {
+    width: 48px;
+    height: 48px;
+    background-color: #FF6A3D;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.orcamento-icon img {
+    width: 24px;
+    height: 24px;
+}
+
+.orcamento-text h3 {
+    margin: 0;
+    color: #333;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.orcamento-text p {
+    margin: 4px 0 0;
+    color: #666;
+    font-size: 14px;
+}
+
+.orcamento-text strong {
+    display: block;
+    font-size: 16px;
+    color: #000;
+    margin-top: 4px;
+}
+
+.orcamento-divider {
+    width: 100%;
+    height: 1px;
+    background-color: #ddd;
+    margin: 20px 0;
+}
+
+.orcamento-form-section form {
+    display: flex;
+    flex-direction: column;
+}
+
+.orcamento-input-group {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    outline: none;
+}
+
+.orcamento-input-group input,
+.orcamento-input-group select,
+.orcamento-textarea {
+    width: 32%;
+    padding: 10px;
+    background-color: #F2F2F7;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+}
+
+.orcamento-textarea {
+    width: 100%;
+    height: 150px;
+    margin-top: 30px;
+    padding: 20px;
+}
+
+.orcamento-button {
+    padding: 12px;
+    background-color: #BF99FE;
+    color: #f5f5f5;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px 0px;
+    width: 20%;
+    display: flex;
+}
+
+.orcamento-botao-enviar {
+    padding: 12px;
+    background-color: #e65a29;
+    color: #f5f5f5;
+    justify-content: center;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px 0px;
+    width: 20%;
+    display: flex;
+    margin-left: 80%;
+}
+
+.orcamento-botao-media {
+    background-color: #D4E3FF;
+    border: none;
+    outline: none;
+    width: 32%;
+    border-radius: 8px;
+}
+
+.orcamento-button:hover {
+    background-color: #e65a29;
+}
+
+.orcamento-button[type="button"] {
+    background-color: #e65a29;
+    color: #333;
+    width: 32%;
+}
+
+.orcamento-logo h1 {
+    font-size: 36px;
+    color: #c0a5ef;
+}
+
+.orcamento-logo p {
+    margin-top: 10px;
+    font-size: 16px;
+    color: #fefefe;
+}
+
+.orcamento-links {
+    display: flex;
+    gap: 40px;
+}
+
+.orcamento-links h2 {
+    font-size: 20px;
+    color: #fff;
+    margin-bottom: 15px;
+}
+
+.orcamento-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.orcamento-links li {
+    margin-bottom: 10px;
+}
+
+.orcamento-links a {
+    color: #d6c0f1;
+    text-decoration: none;
+}
+
+.orcamento-links a:hover {
+    text-decoration: underline;
+}
+
+.orcamento-contato p, .orcamento-contact a {
+    color: #d6c0f1;
+    font-size: 16px;
+}
+
+.orcamento-contato a:hover {
+    text-decoration: underline;
+}
+
+.orcamento-logo img {
+    width: 200px;
+    right: 10px;
+}
+
+.orcamento-preview-container {
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.orcamento-preview {
+    max-width: 150px;
+    max-height: 150px;
+    height: auto;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    padding: 5px;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Mobile breakpoint 576px */
+@media (max-width: 576px) {
+    .orcamento-container {
+        flex-direction: column;
+        padding: 15px;
+    }
+
+    .orcamento-form-section {
+        width: 100%;
+        padding: 15px;
+    }
+
+    .orcamento-contact-info {
+        width: 100%;
+        height: auto;
+        margin: 20px 0;
+    }
+
+    .orcamento-input-group {
+        flex-direction: column;
+    }
+
+    .orcamento-input-group input,
+    .orcamento-input-group select {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .orcamento-botao-enviar,
+    .orcamento-button {
+        width: 100%;
+        margin-left: 0;
+    }
+}
+
+/* Tablet breakpoint 768px */
+@media (max-width: 768px) {
+    .orcamento-container {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .orcamento-form-section {
+        width: 100%;
+        padding: 20px;
+    }
+
+    .orcamento-contact-info {
+        width: 100%;
+        height: auto;
+        margin: 20px 0;
+    }
+
+    .orcamento-input-group {
+        flex-direction: column;
+    }
+
+    .orcamento-input-group input,
+    .orcamento-input-group select {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .orcamento-botao-enviar,
+    .orcamento-button {
+        width: 100%;
+        margin-left: 0;
+    }
+}
+
+/* Large screen breakpoint 1024px */
+@media (max-width: 1024px) {
+    .orcamento-container {
+        flex-direction: column;
+        padding: 25px;
+    }
+
+    .orcamento-form-section {
+        width: 100%;
+        padding: 25px;
+    }
+
+    .orcamento-contact-info {
+        width: 100%;
+        height: auto;
+        margin: 20px 0;
+    }
+
+    .orcamento-input-group {
+        flex-direction: column;
+    }
+
+    .orcamento-input-group input,
+    .orcamento-input-group select {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .orcamento-botao-enviar,
+    .orcamento-button {
+        width: 100%;
+        margin-left: 0;
+    }
+}
