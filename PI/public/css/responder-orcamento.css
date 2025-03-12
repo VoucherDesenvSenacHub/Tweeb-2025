@@ -97,3 +97,102 @@
 .responder-orcamento-submit-text{
     font-family: "Nunito", sans-serif;
 }
+
+
+
+
+
+
+
+
+
+
+
+/*  CSS POP_UP   */
+
+
+
+
+
+
+
+
+
+.responder-orcamento-pop_up{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.resp-orc-pop_up-box{
+    width: 465px;
+    height: 196px;
+    border-radius: 8px;
+    text-align: center;
+    border: 1px solid #F6F6F6;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2); 
+}
+
+.resp-orc-pop_pup-container{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+}
+.close-button{
+    width: 24px;
+    height: 24px;
+    border-radius: 29px;
+    background-color: #E5E5E5;
+    display: flex;
+    align-items: center;
+    justify-content: center;     
+    margin-left: 92%;
+    transform: translateY(10px);  
+    cursor: pointer; 
+}
+
+.pop_up-cancel{
+    width: 170.5px;
+    height: 38px;
+    background-color: white;
+    border-radius: 8px;
+    font-family: "Inter", sans-serif;
+    border: 1px solid black;
+}
+
+.pop_up-submit{
+    width: 170.5px;
+    height: 38px;
+    background-color: #CEF5A4;
+    border-radius: 8px;
+    font-family: "Inter", sans-serif;
+    border: 1px solid #CEF5A4;
+}
+
+.container-buttons-pop_up{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+}
+
+.resp-orc-pop_up-h1{
+    font-family: "Inter", sans-serif;
+    font-size: 20px;
+    color: #54595E;
+    font-weight: 600;
+}
+
+.resp-orc-pop_up-p{
+    font-family: "Inter", sans-serif;
+    color: #54595E;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.resp-orc-pop_up-box button {
+    cursor: pointer;
+}

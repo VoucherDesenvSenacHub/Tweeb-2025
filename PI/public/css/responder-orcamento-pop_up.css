@@ -1,4 +1,4 @@
-.esponder-orcamento-pop_up{
+.responder-orcamento-pop_up{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -10,7 +10,7 @@
     border-radius: 8px;
     text-align: center;
     border: 1px solid #F6F6F6;
-    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2); /* X, Y, desfoque, cor */
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2); 
 }
 
 .resp-orc-pop_pup-container{
@@ -20,7 +20,6 @@
     justify-content: center;
     align-items: center;
 }
-
 .close-button{
     width: 24px;
     height: 24px;

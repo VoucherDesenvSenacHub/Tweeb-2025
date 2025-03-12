@@ -64,6 +64,24 @@
                 Enviar agora
             </p>
         </button>
+
+
+            <!-- POP-UP (inicialmente oculto) -->
+        <div class="resp-orc-pop_pup-container" style="display: none;">
+            <div class="resp-orc-pop_up-box">
+                <div class="close-button">
+                    <img src="../../../../public/assets/img/vector2.png" alt="close-icon">
+                </div>
+                <h1 class="resp-orc-pop_up-h1">Você tem certeza?</h1>
+                <p class="resp-orc-pop_up-p">
+                    Ao confirmar, Jorge irá receber uma mensagem automática informando que não realizamos este serviço.
+                </p>
+                <div class="container-buttons-pop_up">
+                    <button class="pop_up-cancel">Não, Cancelar</button>
+                    <button class="pop_up-submit">Sim, Confirmar</button>
+                </div>
+            </div>
+        </div>
     </div>
     <script src="../../../../public/js/responder-orcamento.js"></script>
 </body>
