@@ -70,14 +70,6 @@
     width: 100VW;
 }
 
-.pesquisa1-cadastro-bottom-bar-footer{
-    background-color: #291E40;
-    height: 33px;
-    width: 100VW;
-    bottom: 0%;
-    position: fixed;
-}
-
 /* Barra de pesquisa */
 .pesquisa1-cadastro-search-box {
     display: flex;
@@ -305,4 +297,34 @@
 
 .pesquisa1-cadastro-btn-text a {
     color: #8692A6;
+}
+
+@media (max-width: 600px){
+    .pesquisa1-cadastro{
+        display: flex;
+         transform: scale(0.4); 
+        margin-top: 45px;
+        margin-right: 200px;
+       
+    }
+    .pesquisa1-cadastro-nav-menu{
+        /* background-color: red; */
+        width: 500px;
+        display: flex;
+        
+        align-items: center;
+
+    }
+    .pesquisa1-cadastro-menu{
+        /* background-color: red; */
+        height: 100%;
+        justify-content: center;
+        margin-top: -100px;
+    }
+    .pesquisa1-cadastro-bottom-bar{
+        transform: translateX(-350px);
+        margin-top: -35px;
+        width: 200%;
+        height: 30px;
+    }
 }
