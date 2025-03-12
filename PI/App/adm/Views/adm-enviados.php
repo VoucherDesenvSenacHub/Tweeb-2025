@@ -180,39 +180,326 @@
                             <span class="checkbox"></span>
                         </label>
                     </td>
-                    <td class="temSetinha">ID Order 
-                        <div class="envios-setinhas">
-                            <i class="fa-solid fa-chevron-up"></i>
-                            <i class="fa-solid fa-chevron-down"></i>
+                    
+                    <td>
+                        <div class="td-com-setinha">
+                            <div class="td-text">
+                                <p>Id Order</p>
+                            </div>
+                            <div class="td-arrows">
+                                <i class="fa-solid fa-chevron-up"></i>
+                                <i class="fa-solid fa-chevron-down"></i>
+                            </div>
                         </div>
                     </td>
+
                     <td>Produto</td>
                     <td>Cliente</td>
-                    <td class="temSetinha">Status
-                        <div class="envios-setinhas">
-                            <i class="fa-solid fa-chevron-up"></i>
-                            <i class="fa-solid fa-chevron-down"></i>
+                    
+                    <td>
+                        <div class="td-com-setinha">
+                            <div class="td-text">
+                                <p>Status</p>
+                            </div>
+                            <div class="td-arrows">
+                                <i class="fa-solid fa-chevron-up"></i>
+                                <i class="fa-solid fa-chevron-down"></i>
+                            </div>
                         </div>
                     </td>
-                    <td class="temSetinha">Data do Pedido
-                        <div class="envios-setinhas">
-                            <i class="fa-solid fa-chevron-up"></i>
-                            <i class="fa-solid fa-chevron-down"></i>
+
+                    <td>
+                        <div class="td-com-setinha">
+                            <div class="td-text">
+                                <p>Data do Pedido</p>
+                            </div>
+                            <div class="td-arrows">
+                                <i class="fa-solid fa-chevron-up"></i>
+                                <i class="fa-solid fa-chevron-down"></i>
+                            </div>
                         </div>
                     </td>
-                    <td class="temSetinha">Prazo
-                        <div class="envios-setinhas">
-                            <i class="fa-solid fa-chevron-up"></i>
-                            <i class="fa-solid fa-chevron-down"></i>
+
+                    <td>
+                        <div class="td-com-setinha">
+                            <div class="td-text">
+                                <p>Prazo</p>
+                            </div>
+                            <div class="td-arrows">
+                                <i class="fa-solid fa-chevron-up"></i>
+                                <i class="fa-solid fa-chevron-down"></i>
+                            </div>
                         </div>
                     </td>
-                    <td class="temSetinha">Preço
-                        <div class="envios-setinhas">
-                            <i class="fa-solid fa-chevron-up"></i>
-                            <i class="fa-solid fa-chevron-down"></i>
+
+                    <td>
+                        <div class="td-com-setinha">
+                            <div class="td-text">
+                                <p>Preço</p>
+                            </div>
+                            <div class="td-arrows">
+                                <i class="fa-solid fa-chevron-up"></i>
+                                <i class="fa-solid fa-chevron-down"></i>
+                            </div>
                         </div>
                     </td>
+
                     <td>Etapa</td>
+                </tr>
+                
+                <!--  -->
+
+                <?php 
+                    for($x = 0; $x < 3; $x++){
+                        echo'
+                        <tr class="envios-information">
+                        <td>
+                            <label class="envios-checkbox">
+                                <input type="checkbox">
+                                <span class="checkbox"></span>
+                            </label>
+                        </td>
+                        
+                        <td>990 - 132</td>
+    
+                        <td id="envios-bold">TV 14 Inch Gede</td>
+                        <td>Bruna</td>
+                        
+                        <td>
+                            <div class="status-completo">
+                                <p>Completo</p>
+                            </div>
+                        </td>
+    
+                        <td>
+                            <div class="table-data">
+                                <p>21 de Março 2025</p>
+                                <p>00:28</p>
+                            </div>
+                        </td>
+    
+                        <td>23 de Março, 2025</td>
+    
+                        <td id="envios-bold">R$190.09</td>
+    
+                        <td>
+                            <form class="etapa-form">
+                                <select>
+                                    <option value="ativo">Ativo</option>
+                                    <option value="ativo">Cancelado</option>
+                                    <option value="ativo">Pendente</option>
+                                </select>
+                            </form>
+                        </td>
+                    </tr>
+    
+                    <tr class="envios-information">
+                        <td>
+                            <label class="envios-checkbox">
+                                <input type="checkbox">
+                                <span class="checkbox"></span>
+                            </label>
+                        </td>
+                        
+                        <td>990 - 132</td>
+    
+                        <td id="envios-bold">Sepeda BMX Shadow Blue</td>
+                        <td>Bruna</td>
+                        
+                        <td>
+                            <div class="status-andamento">
+                                <p>Andamento</p>
+                            </div>
+                        </td>
+    
+                        <td>
+                            <div class="table-data">
+                                <p>21 de Março 2025</p>
+                                <p>10:58</p>
+                            </div>
+                        </td>
+    
+                        <td>15 de Abril, 2025</td>
+    
+                        <td id="envios-bold">R$155.10</td>
+    
+                        <td>
+                            <form class="etapa-form">
+                                <select>
+                                    <option value="ativo">Ativo</option>
+                                    <option value="ativo">Cancelado</option>
+                                    <option value="ativo">Pendente</option>
+                                </select>
+                            </form>
+                        </td>
+                    </tr>
+    
+                    <tr class="envios-information">
+                        <td>
+                            <label class="envios-checkbox">
+                                <input type="checkbox">
+                                <span class="checkbox"></span>
+                            </label>
+                        </td>
+                        
+                        <td>990 - 132</td>
+    
+                        <td id="envios-bold">Mouse Gaming Logitech M-1332A</td>
+                        <td>Bruna</td>
+                        
+                        <td>
+                            <div class="status-rejeitado">
+                                <p>Rejeitado</p>
+                            </div>
+                        </td>
+    
+                        <td>
+                            <div class="table-data">
+                                <p>21 de Março 2025</p>
+                                <p>10:58</p>
+                            </div>
+                        </td>
+    
+                        <td>15 de Abril, 2025</td>
+    
+                        <td id="envios-bold">R$155.10</td>
+    
+                        <td>
+                            <form class="etapa-form">
+                                <select>
+                                    <option value="ativo">Ativo</option>
+                                    <option value="ativo">Cancelado</option>
+                                    <option value="ativo">Pendente</option>
+                                </select>
+                            </form>
+                        </td>
+                    </tr>
+                        
+                        ';
+                    }
+                ?>
+                
+                <tr class="envios-information">
+                    <td>
+                        <label class="envios-checkbox">
+                            <input type="checkbox">
+                            <span class="checkbox"></span>
+                        </label>
+                    </td>
+                    
+                    <td>990 - 132</td>
+
+                    <td id="envios-bold">TV 14 Inch Gede</td>
+                    <td>Bruna</td>
+                    
+                    <td>
+                        <div class="status-completo">
+                            <p>Completo</p>
+                        </div>
+                    </td>
+
+                    <td>
+                        <div class="table-data">
+                            <p>21 de Março 2025</p>
+                            <p>00:28</p>
+                        </div>
+                    </td>
+
+                    <td>23 de Março, 2025</td>
+
+                    <td id="envios-bold">R$190.09</td>
+
+                    <td>
+                        <form class="etapa-form">
+                            <select>
+                                <option value="ativo">Ativo</option>
+                                <option value="ativo">Cancelado</option>
+                                <option value="ativo">Pendente</option>
+                            </select>
+                        </form>
+                    </td>
+                </tr>
+
+                <tr class="envios-information">
+                    <td>
+                        <label class="envios-checkbox">
+                            <input type="checkbox">
+                            <span class="checkbox"></span>
+                        </label>
+                    </td>
+                    
+                    <td>990 - 132</td>
+
+                    <td id="envios-bold">Sepeda BMX Shadow Blue</td>
+                    <td>Bruna</td>
+                    
+                    <td>
+                        <div class="status-andamento">
+                            <p>Andamento</p>
+                        </div>
+                    </td>
+
+                    <td>
+                        <div class="table-data">
+                            <p>21 de Março 2025</p>
+                            <p>10:58</p>
+                        </div>
+                    </td>
+
+                    <td>15 de Abril, 2025</td>
+
+                    <td id="envios-bold">R$155.10</td>
+
+                    <td>
+                        <form class="etapa-form">
+                            <select>
+                                <option value="ativo">Ativo</option>
+                                <option value="ativo">Cancelado</option>
+                                <option value="ativo">Pendente</option>
+                            </select>
+                        </form>
+                    </td>
+                </tr>
+
+                <tr class="envios-information">
+                    <td>
+                        <label class="envios-checkbox">
+                            <input type="checkbox">
+                            <span class="checkbox"></span>
+                        </label>
+                    </td>
+                    
+                    <td>990 - 132</td>
+
+                    <td id="envios-bold">Mouse Gaming Logitech M-1332A</td>
+                    <td>Bruna</td>
+                    
+                    <td>
+                        <div class="status-rejeitado">
+                            <p>Rejeitado</p>
+                        </div>
+                    </td>
+
+                    <td>
+                        <div class="table-data">
+                            <p>21 de Março 2025</p>
+                            <p>10:58</p>
+                        </div>
+                    </td>
+
+                    <td>15 de Abril, 2025</td>
+
+                    <td id="envios-bold">R$155.10</td>
+
+                    <td>
+                        <form class="etapa-form">
+                            <select>
+                                <option value="ativo">Ativo</option>
+                                <option value="ativo">Cancelado</option>
+                                <option value="ativo">Pendente</option>
+                            </select>
+                        </form>
+                    </td>
                 </tr>
 
             </tbody>

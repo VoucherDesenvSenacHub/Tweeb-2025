@@ -423,25 +423,6 @@ header .logo {
 /*
 */
 
-.envios-container{
-    margin-top: 2rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.envios-container h1{
-    font-size: 20px;
-    margin-left: 10%;
-    align-self: flex-start;
-}
-
-.tabela-envios{
-    margin-top: 17px;
-    width: 80%;
-}
-
 /*  */
 
 /* Esconde a checkbox padrão */
@@ -488,25 +469,148 @@ header .logo {
   
 
 /*  */
-
-.envios-cima td{
+.envios-container {
+    margin-top: 2rem;
     display: flex;
-    color: #ababab;
-    font-weight: 500;
-}
-.envios-cima .temSetinha{
-    color: #ababab;
-    font-weight: 500;
-}
-
-.envios-cima .envios-setinhas{
-    display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+.envios-container h1 {
+    font-size: 20px;
+    margin-left: 10%;
+    align-self: flex-start;
+}
+
+.tabela-envios {
+    border-collapse: collapse;
+    margin-top: 17px;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto; /* Para garantir que a tabela fique centralizada */
+}
+
+.envios-cima {
+    border-bottom: 1px solid #E9E9EA;
+}
+
+.envios-cima td {
+    color: #ababab;
+    font-weight: 500;
+    text-align: left; /* Alinha o texto à esquerda em todas as células */
+    padding: 10px 15px; /* Adiciona espaçamento interno nas células */
+}
+
+.td-com-setinha {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 0.5rem;
+}
+
+.td-com-setinha .td-arrows {
+    display: flex;
     flex-direction: column;
 }
 
-.envios-setinhas i{
-    font-size: 8px;
+.td-arrows i {
     cursor: pointer;
+    font-size: 8px;
+}
+
+.envios-information td {
+    color: #1D1929;
+    font-weight: 400;
+    text-align: left; /* Alinha o texto à esquerda */
+    padding: 10px 15px; /* Adiciona espaçamento interno nas células */
+}
+
+.tabela-envios .status-completo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    height: 28px;
+    background-color: #DCFDD4;
+    color: #4FAC16;
+    padding: 1rem;
+}
+
+.tabela-envios .status-andamento {
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    height: 28px;
+    background-color: #FAFDD4;
+}
+
+.tabela-envios .status-rejeitado {
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    height: 28px;
+    background-color: #FDD4D4;
+}
+
+AC1616
+
+.status-completo p{
+    color: #4FAC16;
+}
+
+.tabela-envios .status-andamento p {
+    color: #AC9D16;
+}
+
+.tabela-envios .status-rejeitado p {
+    color: #AC1616;
+}
+
+.envios-information td .table-data {
+    display: flex;
+    flex-direction: column;
+}
+
+.table-data p {
+    height: 20px;
+}
+
+.envios-checkbox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.envios-checkbox input {
+    width: 18px;
+    height: 18px;
+}
+
+.td-com-setinha p {
+    margin: 0;
+    font-size: 14px;
+}
+
+.etapa-form select{
+    /* padding: 0 20px; */
+    font-weight: 500;
+    font-size: 14px;
+    border: 1px solid #E9E9EA;
+    text-align: center;
+    color: #003CFF;
+    padding: 0.25rem;
+    border-radius: 10px;
+    background-color: transparent;
+}
+.etapa-form select option{
+    text-align: center;
+}
+
+#envios-bold{
+    font-weight: 600;
 }
