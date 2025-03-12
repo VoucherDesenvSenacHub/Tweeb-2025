@@ -329,7 +329,6 @@ main{
 }
 
 
-
  */
 #sidebar.open-sidebar {
     min-width: 15%;
@@ -344,3 +343,4 @@ main{
     justify-content: flex-start;
     gap: 14px;
 }
+
