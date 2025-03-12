@@ -45,13 +45,13 @@
     margin: 0 20px;
 }
 
-.search-box .search-form {
+.search-box form {
     display: flex;
     align-items: center;
     width: 100%;
 }
 
-.search-box .search-buton {
+.search-box button {
     border: none; 
     background: transparent; 
     cursor: pointer;
@@ -63,12 +63,12 @@
     margin-top: 11.9px;
 }
 
-.search-box .search-buton i {
+.search-box button i {
     font-size: 17px;
     color: gray;
 }
 
-.search-box .srch {
+.search-box input {
     flex: 1;
     height: 50px;
     border: none; 
@@ -81,7 +81,7 @@
     margin-top: 10px;
     transition: width 0.3s ease;
 }
-.search-box .srch::placeholder {
+.search-box input::placeholder {
     color: rgb(173, 169, 169);
     font-family: 'Montserrat', sans-serif;
 }
@@ -91,7 +91,7 @@
     font-family: 'Montserrat', sans-serif;
 }
 
-.navb .nav-list {
+.navb ul {
     list-style: none; 
     display: flex;
     align-items: center;
@@ -100,7 +100,7 @@
     margin-right: 50px; 
 }
 
-.navb .nav-list .nav-itens {
+.navb ul li {
     position: relative;
     margin-top: 11px;
     flex-direction: row;
@@ -109,7 +109,7 @@
     align-items: center;
 }
 
-.navb .nav-list .nav-itens a {
+.navb ul li a {
     text-decoration: none; 
     color: rgb(107, 104, 104); 
     font-weight: 500; 
@@ -118,11 +118,11 @@
     transition: color 0.3s; 
 }
 
-.navb .nav-list .nav-itens a:hover {
+.navb ul li a:hover {
    color: #40331e; 
 }
 
-.navb .nav-list .nav-itens a i {
+.navb ul li a i {
     font-size: 18px;
     
 }
@@ -136,18 +136,14 @@
 }
 
 .departments-bar {
-    position: absolute;
-    top: 100px; 
-    left: 0;
-    width: 100%;
-    background-color: #291E40;
+    background-color: #291E40; 
     display: flex;
     align-items: center;
     width: 100%;
     justify-content: space-around;
     padding: 10px 20px;
-    z-index: 9999;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    position: relative;
 }
 
 
@@ -163,7 +159,7 @@
 }
 
 
-.department .dep-img {
+.department img {
     width: 20px;  
     height: 20px;
     object-fit: contain;
@@ -204,7 +200,8 @@
     border-image-slice: 1;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
     max-height: 300px;  
-    overflow-y: auto;   
+    overflow-y: auto;
+    transform: translatex(-4%);
 }
 
 .submenu.open {
@@ -265,7 +262,7 @@
     gap: 10px;                    
     padding-left: 20px;
     width: 100%;
-    flex-wrap: wrap;   
+    flex-wrap: wrap;  
 }
 
 .submenu-sub li {
