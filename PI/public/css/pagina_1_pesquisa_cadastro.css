@@ -299,10 +299,10 @@
     color: #8692A6;
 }
 
-@media (max-width: 600px){
+@media (max-width: 768px){
     .pesquisa1-cadastro{
         display: flex;
-         transform: scale(0.4); 
+        /* transform: scale(0.8); */
         margin-top: 45px;
         margin-right: 200px;
        
@@ -321,6 +321,25 @@
         justify-content: center;
         margin-top: -100px;
     }
+    .pesquisa1-cadastro-container-card2{
+        margin-top: 60%;
+        margin-left: -55%;
+        display: flex;
+        flex-direction: column;
+    }
+    .pesquisa1-cadastro-banner-imagem2{
+        display: flex;
+        align-items: center;
+        margin-top: -60%;
+    }
+
+    .pesquisa1-cadastro-container-cards{
+        /* justify-content: center; */
+        display: flex;
+        margin-left: 15%;
+        margin-top: 50%;
+    }
+
     .pesquisa1-cadastro-bottom-bar{
         transform: translateX(-350px);
         margin-top: -35px;
