@@ -437,6 +437,7 @@ header .logo {
     border-radius: 5px; /* Borda arredondada */
     position: relative;
     transition: background-color 0.3s, border-color 0.3s;
+    cursor: pointer;
   }
   
   /* Estilo quando a checkbox está marcada */
@@ -618,6 +619,7 @@ AC1616
     padding: 0.25rem;
     border-radius: 10px;
     background-color: transparent;
+    cursor: pointer;
 }
 .etapa-form select option{
     text-align: center;
