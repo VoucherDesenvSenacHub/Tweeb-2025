@@ -120,7 +120,7 @@
             <div class="produtos-card">
                 <img class="heart" src="public/assets/img/heart_disabled.png" alt="coração" onclick="AtivarCoracao(this)">
 
-                <img class="add-carrinho" src="public/assets/img/carrinho-card.png" alt="">
+                <a href="../PI/App/user/View/pages/Carrinho.php"><img class="add-carrinho" src="public/assets/img/carrinho-card.png" alt=""></a>
 
                 <img class="image-produto" src="public/assets/img/card-produto.png" alt="">
                 <div class="card-rate">
@@ -139,7 +139,7 @@
             <div class="produtos-card">
                 <img class="heart" src="public/assets/img/heart_disabled.png" alt="coração" onclick="AtivarCoracao(this)">
 
-                <img class="add-carrinho" src="public/assets/img/carrinho-card.png" alt="">
+                <a href="../PI/App/user/View/pages/Carrinho.php"><img class="add-carrinho" src="public/assets/img/carrinho-card.png" alt=""></a>
 
                 <img class="image-produto" src="public/assets/img/card-produto2.png" alt="">
                 <div class="card-rate">
@@ -158,7 +158,7 @@
             <div class="produtos-card">
                 <img class="heart" src="public/assets/img/heart_disabled.png" alt="coração" onclick="AtivarCoracao(this)">
 
-                <img class="add-carrinho" src="public/assets/img/carrinho-card.png" alt="">
+                <a href="../PI/App/user/View/pages/Carrinho.php"><img class="add-carrinho" src="public/assets/img/carrinho-card.png" alt=""></a>
 
                 <img class="image-produto" src="public/assets/img/card-produto2.png" alt="">
                 <div class="card-rate">
@@ -177,7 +177,7 @@
             <div class="produtos-card">
                 <img class="heart" src="public/assets/img/heart_disabled.png" alt="coração" onclick="AtivarCoracao(this)">
 
-                <img class="add-carrinho" src="public/assets/img/carrinho-card.png" alt="">
+                <a href="../PI/App/user/View/pages/Carrinho.php"><img class="add-carrinho" src="public/assets/img/carrinho-card.png" alt=""></a>
 
                 <img class="image-produto" src="public/assets/img/card-produto2.png" alt="">
                 <div class="card-rate">
@@ -196,7 +196,7 @@
             <div class="produtos-card">
                 <img class="heart" src="public/assets/img/heart_disabled.png" alt="coração" onclick="AtivarCoracao(this)">
 
-                <img class="add-carrinho" src="public/assets/img/carrinho-card.png" alt="">
+                <a href="../PI/App/user/View/pages/Carrinho.php"><img class="add-carrinho" src="public/assets/img/carrinho-card.png" alt=""></a>
 
                 <img class="image-produto" src="public/assets/img/card-produto2.png" alt="">
                 <div class="card-rate">
@@ -215,7 +215,7 @@
             <div class="produtos-card">
                 <img class="heart" src="public/assets/img/heart_disabled.png" alt="coração" onclick="AtivarCoracao(this)">
 
-                <img class="add-carrinho" src="public/assets/img/carrinho-card.png" alt="">
+                <a href="../PI/App/user/View/pages/Carrinho.php"><img class="add-carrinho" src="public/assets/img/carrinho-card.png" alt=""></a>
 
                 <img class="image-produto" src="public/assets/img/card-produto2.png" alt="">
                 <div class="card-rate">
@@ -234,7 +234,7 @@
             <div class="produtos-card">
                 <img class="heart" src="public/assets/img/heart_disabled.png" alt="coração" onclick="AtivarCoracao(this)">
 
-                <img class="add-carrinho" src="public/assets/img/carrinho-card.png" alt="">
+                <a href="../PI/App/user/View/pages/Carrinho.php"><img class="add-carrinho" src="public/assets/img/carrinho-card.png" alt=""></a>
 
                 <img class="image-produto" src="public/assets/img/card-produto2.png" alt="">
                 <div class="card-rate">
@@ -253,7 +253,7 @@
             <div class="produtos-card">
                 <img class="heart" src="public/assets/img/heart_disabled.png" alt="coração" onclick="AtivarCoracao(this)">
 
-                <img class="add-carrinho" src="public/assets/img/carrinho-card.png" alt="">
+                <a href="../PI/App/user/View/pages/Carrinho.php"><img class="add-carrinho" src="public/assets/img/carrinho-card.png" alt=""></a>
 
                 <img class="image-produto" src="public/assets/img/card-produto2.png" alt="">
                 <div class="card-rate">
@@ -278,7 +278,7 @@
             <div class="produtos-card">
                 <img class="heart" src="public/assets/img/heart_disabled.png" alt="coração" onclick="AtivarCoracao(this)">
 
-                <img class="add-carrinho" src="public/assets/img/carrinho-card.png" alt="">
+                <a href="../PI/App/user/View/pages/Carrinho.php"><img class="add-carrinho" src="public/assets/img/carrinho-card.png" alt=""></a>
 
                 <img class="image-produto" src="public/assets/img/card-produto2.png" alt="">
                 <div class="card-rate">
@@ -297,7 +297,7 @@
             <div class="produtos-card">
                 <img class="heart" src="public/assets/img/heart_disabled.png" alt="coração" onclick="AtivarCoracao(this)">
 
-                <img class="add-carrinho" src="public/assets/img/carrinho-card.png" alt="">
+                <a href="../PI/App/user/View/pages/Carrinho.php"><img class="add-carrinho" src="public/assets/img/carrinho-card.png" alt=""></a>
 
                 <img class="image-produto" src="public/assets/img/card-produto2.png" alt="">
                 <div class="card-rate">
@@ -316,7 +316,7 @@
             <div class="produtos-card">
                 <img class="heart" src="public/assets/img/heart_disabled.png" alt="coração" onclick="AtivarCoracao(this)">
 
-                <img class="add-carrinho" src="public/assets/img/carrinho-card.png" alt="">
+                <a href="../PI/App/user/View/pages/Carrinho.php"><img class="add-carrinho" src="public/assets/img/carrinho-card.png" alt=""></a>
 
                 <img class="image-produto" src="public/assets/img/card-produto2.png" alt="">
                 <div class="card-rate">
@@ -335,7 +335,7 @@
             <div class="produtos-card">
                 <img class="heart" src="public/assets/img/heart_disabled.png" alt="coração" onclick="AtivarCoracao(this)">
 
-                <img class="add-carrinho" src="public/assets/img/carrinho-card.png" alt="">
+                <a href="../PI/App/user/View/pages/Carrinho.php"><img class="add-carrinho" src="public/assets/img/carrinho-card.png" alt=""></a>
 
                 <img class="image-produto" src="public/assets/img/card-produto2.png" alt="">
                 <div class="card-rate">
@@ -384,7 +384,7 @@
             <div class="produtos-card">
                 <img class="heart" src="public/assets/img/heart_disabled.png" alt="coração" onclick="AtivarCoracao(this)">
 
-                <img class="add-carrinho" src="public/assets/img/carrinho-card.png" alt="">
+                <a href="../PI/App/user/View/pages/Carrinho.php"><img class="add-carrinho" src="public/assets/img/carrinho-card.png" alt=""></a>
 
                 <img class="image-produto" src="public/assets/img/card-produto2.png" alt="">
                 <div class="card-rate">
@@ -403,7 +403,7 @@
             <div class="produtos-card">
                 <img class="heart" src="public/assets/img/heart_disabled.png" alt="coração" onclick="AtivarCoracao(this)">
 
-                <img class="add-carrinho" src="public/assets/img/carrinho-card.png" alt="">
+                <a href="../PI/App/user/View/pages/Carrinho.php"><img class="add-carrinho" src="public/assets/img/carrinho-card.png" alt=""></a>
 
                 <img class="image-produto" src="public/assets/img/card-produto2.png" alt="">
                 <div class="card-rate">
@@ -422,7 +422,7 @@
             <div class="produtos-card">
                 <img class="heart" src="public/assets/img/heart_disabled.png" alt="coração" onclick="AtivarCoracao(this)">
 
-                <img class="add-carrinho" src="public/assets/img/carrinho-card.png" alt="">
+                <a href="../PI/App/user/View/pages/Carrinho.php"><img class="add-carrinho" src="public/assets/img/carrinho-card.png" alt=""></a>
 
                 <img class="image-produto" src="public/assets/img/card-produto2.png" alt="">
                 <div class="card-rate">
@@ -441,7 +441,7 @@
             <div class="produtos-card">
                 <img class="heart" src="public/assets/img/heart_disabled.png" alt="coração" onclick="AtivarCoracao(this)">
 
-                <img class="add-carrinho" src="public/assets/img/carrinho-card.png" alt="">
+                <a href="../PI/App/user/View/pages/Carrinho.php"><img class="add-carrinho" src="public/assets/img/carrinho-card.png" alt=""></a>
 
                 <img class="image-produto" src="public/assets/img/card-produto2.png" alt="">
                 <div class="card-rate">
