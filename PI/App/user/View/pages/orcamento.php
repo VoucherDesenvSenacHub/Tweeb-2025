@@ -12,7 +12,9 @@
 
 <?php include __DIR__.'/../../../../includes/navbar.php'; ?>
 
-    <div class="orcamento-container">
+<div class="orcamento-geral">
+
+<div class="orcamento-container">
         <div class="orcamento-contact-info">
             <div class="orcamento-info-section">
                 <img src="../../../../public/assets/img/telefone-laranja.png" alt="icone-telefone-laranja"> 
@@ -58,6 +60,8 @@
                 <button class="orcamento-botao-enviar" type="submit">Enviar</button>
             </form>
         </div>
+</div>
+
     </div>
     <?php include __DIR__.'/../../../../includes/footer.php'; ?>
 </body>

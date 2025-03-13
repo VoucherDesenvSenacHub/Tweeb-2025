@@ -1,22 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
-.body-orcamento {
+/* .body-orcamento {
     margin: 0;
     box-sizing: border-box;
     font-family: poppins;
     font-size: 20px;
     
+} */
+
+.orcamento-geral{
+    display: flex;
+    justify-content: center;
 }
-
-
 
 .orcamento-container {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100%;
-    padding: 50px;
+    padding: 0px;
     margin: 50px auto;
     flex-direction: row;
     
@@ -31,7 +34,7 @@
 
 .orcamento-form-section {
     width: 100%;
-    max-width: 900px;
+    max-width: 800px;
     background-color: #fff;
     padding: 20px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
@@ -57,7 +60,7 @@
 .orcamento-contact-info {
     width: 100%;
     max-width: 340px;
-    height: 522px;
+    height: 485px;
     margin: 30px;
     background-color: #fff;
     padding: 24px;
