@@ -119,8 +119,8 @@ document.addEventListener("DOMContentLoaded", function () {
         popUp.style.transform = "translate(-50%, -50%)";
     });
 
-    // Função para esconder o pop-up e restaurar o conteúdo ao clicar no botão de fechar (X)
-    const btnFechar = popUp.querySelector(".close-button"); // Seleciona o botão de fechar corretamente
+    // Função para esconder o pop-up e restaurar o conteúdo ao clicar no (X)
+    const btnFechar = popUp.querySelector(".close-button"); // Seleciona o botão de fechar
     btnFechar.addEventListener("click", function() {
         // Esconde o pop-up
         popUp.style.display = "none";
@@ -137,7 +137,7 @@ document.addEventListener("DOMContentLoaded", function () {
         // Esconde o pop-up
         popUp.style.display = "none";
 
-        // Restaura os elementos originais da página principal
+        // volta os elementos originais
         Array.from(divConteudo.children).forEach(child => {
             if (child !== popUp) child.style.visibility = "visible"; // Restaura a visibilidade
         });
