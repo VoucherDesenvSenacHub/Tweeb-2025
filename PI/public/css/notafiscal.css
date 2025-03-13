@@ -1,8 +1,6 @@
-/* notafiscal.css */
 
-/* Estilos gerais */
 body {
-    background-color: #f3f4f6; /* Cor de fundo */
+    background-color: #f3f4f6; 
     font-family: Arial, sans-serif;
 }
 
@@ -14,26 +12,8 @@ body {
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     margin-top: 50px;
-    top: 150px; /* Distância do topo */
-    left: 10%; /* Distância da esquerda para centralizar */
-}
-
-/* Estilo do cabe/* notafiscal.css */
-
-/* Estilos gerais */
-body {
-    background-color: #f3f4f6; /* Cor de fundo */
-    font-family: Arial, sans-serif;
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    background-color: white;
-    padding: 40px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    margin-top: 50px;
+    top: 150px; 
+    left: 10%; 
 }
 
 /* Estilo do cabeçalho e ícone de voltar */
@@ -156,7 +136,8 @@ table tr:nth-child(even) {
     font-size: 14px;
     line-height: 1.6;
 }
-çalho e ícone de voltar */
+
+/* cabeçalho e ícone de voltar */
 .voltar {
     display: flex;
     align-items: center;
