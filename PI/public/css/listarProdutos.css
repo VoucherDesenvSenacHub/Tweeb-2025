@@ -624,75 +624,95 @@ tr:hover {
     }
 }
 
-/* Responsividade
-@media (max-width: 1024px) {
-    .listarU-container {
-        margin-left: 0;
-        overflow-x: auto;
-    }
-
-    table {
-        width: 100%;
-        min-width: 500px; 
-    }
-
-    th, td {
-        font-size: 12px;  
-        padding: 8px 10px;
-    }
-
-    .listarU-titulo {
-        padding: 10px 0;
-        font-size: 16px; 
-    }
-}
-
-@media (max-width: 768px) {
-    .listarU-container {
-        margin-left: 0;
-        overflow-x: auto;  
-    }
-
-    table {
-        width: 100%;
-        min-width: 320px;  
-        border-collapse: separate;  
-        border-spacing: 0 10px;
-    }
-
-    th, td {
-        font-size: 12px;
-        padding: 8px 5px;  
-        border: none;
-    }
-
-    .listarU-titulo {
-        font-size: 14px; 
-    }
-
-    tbody td {
-        padding: 8px 10px;
-        box-shadow: none;
+@media only screen and (max-width: 840px) {
+    .listarU-titulo-container {
+        flex-direction: column;
+        gap: 15px;
+        padding: 0 235px;
+        left: 50%;
     }
 
     .listarU-search-box {
-        margin-left: 20px;
-        display: block;
-        margin-top: 10px;
+        position: relative;
+        top: -500px; /* Ajuste o valor conforme necessário */
+        width: 0%;
+        display: flex;
+        justify-content: center;
+        left: -60%;
+    }
+    
+
+    .listarU-search-container {
+        top: 0;
+        left: 0;
+    }
+
+    .listarU-filtro-container {
+        margin-left: 0;
+        top: 0;
+        width: 100%;
+    }
+
+    .listarU-filtro-box {
+        width: 100%;
         margin-bottom: 10px;
     }
 
-    .listarU-srch {
-        width: 150px; 
-        padding: 8px 8px 8px 30px;
+    /* Ajustes da tabela */
+    .listarU-container {
+        padding: 10px;
+        margin-left: 0;
+        margin-top: -200px;
     }
 
-    .listarU-search-btn {
-        right: 120px;
+    table {
+        width: 100%;
+        font-size: 14px;
     }
 
-    .td_botao {
-        gap: 5px; 
-        justify-content: center;
+    .listarU-filtro-box {
+        width: 20%;
+        margin-bottom: 15px;
+        margin-top: 370px;
+        margin-left: 450px;
     }
-} */
+
+    /* Sidebar
+    .SideBar_adm {
+        min-width: 100%;
+        flex-direction: column;
+    }
+
+    .adm_sidebar {
+        top: 0;
+        left: 0;
+        height: auto;
+        width: 100%;
+        padding: 15px;
+    }
+
+    .adm_user {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    #sidebar.open-sidebar {
+        min-width: 100%;
+    }
+
+    .sidebarAdm-item a {
+        padding: 12px;
+        font-size: 14px;
+        gap: 10px;
+    }
+
+    Botões e ícones
+    #open_btn {
+        top: 10px;
+        right: 10px;
+        width: 35px;
+        height: 35px;
+        font-size: 18px;
+    } */
+}
+
