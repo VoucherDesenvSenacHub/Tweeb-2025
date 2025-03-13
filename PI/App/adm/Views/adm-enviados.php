@@ -52,13 +52,29 @@
     <div class="pedidos-envios-recentes">
         <h1>Envios Recentes</h1>
 
-        <div class="filtro-semana">
+        <!-- <div class="filtro-semana">
             <p>Mês</p>
             <p>Semanal</p>
             
             <div class="filtro-selecionado">
                 <p>Hoje</p>
             </div>
+        </div> -->
+
+        <div class="radio-inputs">
+            <label class="radio">
+            <input type="radio" name="radio">
+            <span class="name">Mês</span>
+            </label>
+            <label class="radio">
+            <input type="radio" name="radio">
+            <span class="name">Semana</span>
+            </label>
+                
+            <label class="radio">
+            <input type="radio" name="radio" checked="">
+            <span class="name">Hoje</span>
+            </label>
         </div>
     </div>
 
@@ -80,7 +96,7 @@
                     <td>Periféricos</td>
                     <td><span>2</span></td>
                     <td class="centralizar-nota"><div class="tabela-nota-fiscal"><i class="fa-regular fa-file-lines"></i><p>Nota</p></div></td>
-                    <td>desgraçasilva@gmail.com</td>
+                    <td>hagamenongoncalves@gmail.com</td>
                     <td><div class="status-enviado"><p>Enviado</p></div></td>
                 </tr>
 
@@ -89,7 +105,7 @@
                     <td>Periféricos</td>
                     <td><span>2</span></td>
                     <td class="centralizar-nota"><div class="tabela-nota-fiscal"><i class="fa-regular fa-file-lines"></i><p>Nota</p></div></td>
-                    <td>desgraçasilva@gmail.com</td>
+                    <td>flavinsilva@gmail.com</td>
                     <td><div class="status-pendente"><p>Pendente</p></div></td>
                 </tr>
 
@@ -98,7 +114,7 @@
                     <td>Periféricos</td>
                     <td><span>2</span></td>
                     <td class="centralizar-nota"><div class="tabela-nota-fiscal"><i class="fa-regular fa-file-lines"></i><p>Nota</p></div></td>
-                    <td>desgraçasilva@gmail.com</td>
+                    <td>waldirbraz@gmail.com</td>
                     <td><div class="status-enviado"><p>Enviado</p></div></td>
                 </tr>
 
@@ -107,7 +123,7 @@
                     <td>Periféricos</td>
                     <td><span>2</span></td>
                     <td class="centralizar-nota"><div class="tabela-nota-fiscal"><i class="fa-regular fa-file-lines"></i><p>Nota</p></div></td>
-                    <td>desgraçasilva@gmail.com</td>
+                    <td>homicidiogames@gmail.com</td>
                     <td><div class="status-enviado"><p>Enviado</p></div></td>
                 </tr>
 
@@ -116,7 +132,7 @@
                     <td>Periféricos</td>
                     <td><span>2</span></td>
                     <td class="centralizar-nota"><div class="tabela-nota-fiscal"><i class="fa-regular fa-file-lines"></i><p>Nota</p></div></td>
-                    <td>desgraçasilva@gmail.com</td>
+                    <td>rucoyonline@gmail.com</td>
                     <td><div class="status-pendente"><p>Pendente</p></div></td>
                 </tr>
 
@@ -261,27 +277,27 @@
                         </td>
                         
                         <td>990 - 132</td>
-    
+
                         <td id="envios-bold">TV 14 Inch Gede</td>
-                        <td>Bruna</td>
+                        <td>Leticia</td>
                         
                         <td>
                             <div class="status-completo">
                                 <p>Completo</p>
                             </div>
                         </td>
-    
+
                         <td>
                             <div class="table-data">
                                 <p>21 de Março 2025</p>
                                 <p>00:28</p>
                             </div>
                         </td>
-    
+
                         <td>23 de Março, 2025</td>
-    
+
                         <td id="envios-bold">R$190.09</td>
-    
+
                         <td>
                             <form class="etapa-form">
                                 <select>
@@ -292,7 +308,7 @@
                             </form>
                         </td>
                     </tr>
-    
+
                     <tr class="envios-information">
                         <td>
                             <label class="envios-checkbox">
@@ -302,27 +318,27 @@
                         </td>
                         
                         <td>990 - 132</td>
-    
+
                         <td id="envios-bold">Sepeda BMX Shadow Blue</td>
-                        <td>Bruna</td>
+                        <td>Lucas</td>
                         
                         <td>
                             <div class="status-andamento">
                                 <p>Andamento</p>
                             </div>
                         </td>
-    
+
                         <td>
                             <div class="table-data">
                                 <p>21 de Março 2025</p>
                                 <p>10:58</p>
                             </div>
                         </td>
-    
+
                         <td>15 de Abril, 2025</td>
-    
+
                         <td id="envios-bold">R$155.10</td>
-    
+
                         <td>
                             <form class="etapa-form">
                                 <select>
@@ -333,7 +349,7 @@
                             </form>
                         </td>
                     </tr>
-    
+
                     <tr class="envios-information">
                         <td>
                             <label class="envios-checkbox">
@@ -343,27 +359,27 @@
                         </td>
                         
                         <td>990 - 132</td>
-    
+
                         <td id="envios-bold">Mouse Gaming Logitech M-1332A</td>
-                        <td>Bruna</td>
+                        <td>Ana</td>
                         
                         <td>
                             <div class="status-rejeitado">
                                 <p>Rejeitado</p>
                             </div>
                         </td>
-    
+
                         <td>
                             <div class="table-data">
                                 <p>21 de Março 2025</p>
                                 <p>10:58</p>
                             </div>
                         </td>
-    
+
                         <td>15 de Abril, 2025</td>
-    
+
                         <td id="envios-bold">R$155.10</td>
-    
+
                         <td>
                             <form class="etapa-form">
                                 <select>
@@ -378,7 +394,7 @@
                         ';
                     }
                 ?>
-                
+
                 <tr class="envios-information">
                     <td>
                         <label class="envios-checkbox">
@@ -390,7 +406,7 @@
                     <td>990 - 132</td>
 
                     <td id="envios-bold">TV 14 Inch Gede</td>
-                    <td>Bruna</td>
+                    <td>Leticia</td>
                     
                     <td>
                         <div class="status-completo">
@@ -431,7 +447,7 @@
                     <td>990 - 132</td>
 
                     <td id="envios-bold">Sepeda BMX Shadow Blue</td>
-                    <td>Bruna</td>
+                    <td>Marcos</td>
                     
                     <td>
                         <div class="status-andamento">
@@ -472,7 +488,7 @@
                     <td>990 - 132</td>
 
                     <td id="envios-bold">Mouse Gaming Logitech M-1332A</td>
-                    <td>Bruna</td>
+                    <td>Carla</td>
                     
                     <td>
                         <div class="status-rejeitado">
@@ -502,10 +518,22 @@
                     </td>
                 </tr>
 
-            </tbody>
-        </table>
+                </tbody>
+                </table>
+
 
     </div>
+
+
+    <!-- fazer isso ser um include depoiissss -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                    <div><img src="../../../public/assets/img/logo.png" alt="Logo Tweeb" /></div>
+                <div class="footer-text">Você faz parte da nossa conexão com o futuro.</div>
+            </div>       
+        </div>
+    </footer>
 
 </body>
 </html>
