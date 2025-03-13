@@ -384,7 +384,7 @@ main{
     position: relative; 
     display: inline-block;
     left: -100px; 
-    top: -470px;
+    top: -560px;
 }
 
 .listarU-srch {
@@ -431,7 +431,7 @@ main{
     margin-left: 690px;
     display: inline-block;
     position: absolute; /* Certifique-se de que o posicionamento é absoluto */
-    top: 496px; 
+    top: 446px; 
     /* padding: 49px; */
     width: auto; /* Ou defina uma largura específica */
 }
@@ -474,7 +474,7 @@ main{
     margin-left: 315px; 
     height: 0vh; 
     padding: 20px; /* Dá um pequeno padding para evitar que a tabela encoste nas bordas */
-    margin-top: -410px; /* Ajuste conforme necessário */
+    margin-top: -270px; /* Ajuste conforme necessário */
 }
 
 table {
@@ -617,7 +617,12 @@ tr:hover {
 }
 
 
-
+@media only screen and (max-width: 840px) {
+    .footer-logo{
+        flex-direction: column;
+        gap: 10px;
+    }
+}
 
 /* Responsividade
 @media (max-width: 1024px) {
