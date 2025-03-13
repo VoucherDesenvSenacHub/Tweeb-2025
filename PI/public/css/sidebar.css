@@ -37,7 +37,7 @@ main{
 } */
 
 #sidebar {
-    position: fixed; /* Fixa na tela */
+    position: fixed; /* Fixa na tela */ 
     top: 151px;
     left: 0;
     height: 100vh; /* Garante que ocupe toda a altura */
