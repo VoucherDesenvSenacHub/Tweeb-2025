@@ -217,7 +217,7 @@
 .Carrinho .resumo-pedido {
   margin-bottom: 24px;
 }
-.Carrinho .line {
+.Carrinho .line-carrinho {
   display: flex;
   justify-content: space-between;
   margin-bottom: 8px;
