@@ -19,7 +19,7 @@
                 <li><a class="op" href="app/user/View/pages/orcamento.php">Orçamento</a></li>
                 <li><a class="op" href="app/user/View/pages/cadastro.php">Cadastre-se</a></li>
                 <li>
-                    <a class="op" href="App/user/View/pages/Carrinho.php"><i class='bx bx-cart-alt'></i></a>
+                    <a class="op" href="app/user/View/pages/Carrinho.php"><i class='bx bx-cart-alt'></i></a>
                     <a class="op" href="app/user/view/pages/login.php"><i class='bx bx-user'></i></a>
                 </li>
             </ul>

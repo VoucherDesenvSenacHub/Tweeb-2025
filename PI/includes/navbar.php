@@ -19,7 +19,7 @@
                 <li><a href="../../../user/View/pages/orcamento.php">Orçamento</a></li>
                 <li><a href="../../../user/View/pages/cadastro.php">Cadastre-se</a></li>
                 <li>
-                    <a href="#"><i class='bx bx-cart-alt'></i></a>
+                    <a href="Carrinho.php"><i class='bx bx-cart-alt'></i></a>
                     <a href="#"><i class='bx bx-user'></i></a>
                     <!-- <a href="#" class="user-icon">
                         <img src="public/assets/img/card-produto.png" alt="teste">
@@ -28,7 +28,7 @@
             </ul>
         </nav>
     </header>
-
+    
     <!-- Barra de departamentos -->
     <section class="departments-bar">
         <div class="department">
