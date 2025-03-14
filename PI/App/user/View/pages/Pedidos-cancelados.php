@@ -84,6 +84,145 @@
                 <img src="../../../../public/assets/img/vermais-pcancelados.png" alt="Ver mais">
             </button>
         </div>
+        <div class="pedido-pcancelados">
+            <div class="info-produto-pcancelados">
+                <img src="../../../../public/assets/img/mouse-pcancelados.png" alt="Mouse Gamer" class="imagem-pcancelados">
+                <div>
+                    <p class="nome-produto-pcancelados">Mouse Gamer Sem Fio Logitech G PRO Wireless</p>
+                    <p class="codigo-produto-pcancelados">#25139526913984</p>
+                </div>
+                <input type="number" class="quantidade-pcancelados" value="1" readonly>
+            </div>
+
+            <div class="detalhes-pcancelados" style="display: none;">
+                <p>Imposto estimado: <strong>R$50</strong></p>
+                <p>Frete: <strong>Grátis</strong></p>
+                <p>Cupons: <strong>R$0,00</strong></p>
+                <p class="total-pcancelados">Total: <strong>R$XXX,XX</strong></p>
+            </div>
+
+            <p class="data-cancelamento-pcancelados">Pedido Cancelado em 12/07/2024</p>
+            
+            <button class="toggle-pcancelados">
+                <img src="../../../../public/assets/img/vermais-pcancelados.png" alt="Ver mais">
+            </button>
+        </div>
+        <div class="pedido-pcancelados">
+            <div class="info-produto-pcancelados">
+                <img src="../../../../public/assets/img/mouse-pcancelados.png" alt="Mouse Gamer" class="imagem-pcancelados">
+                <div>
+                    <p class="nome-produto-pcancelados">Mouse Gamer Sem Fio Logitech G PRO Wireless</p>
+                    <p class="codigo-produto-pcancelados">#25139526913984</p>
+                </div>
+                <input type="number" class="quantidade-pcancelados" value="1" readonly>
+            </div>
+
+            <div class="detalhes-pcancelados" style="display: none;">
+                <p>Imposto estimado: <strong>R$50</strong></p>
+                <p>Frete: <strong>Grátis</strong></p>
+                <p>Cupons: <strong>R$0,00</strong></p>
+                <p class="total-pcancelados">Total: <strong>R$XXX,XX</strong></p>
+            </div>
+
+            <p class="data-cancelamento-pcancelados">Pedido Cancelado em 12/07/2024</p>
+            
+            <button class="toggle-pcancelados">
+                <img src="../../../../public/assets/img/vermais-pcancelados.png" alt="Ver mais">
+            </button>
+        </div>
+        <div class="pedido-pcancelados">
+            <div class="info-produto-pcancelados">
+                <img src="../../../../public/assets/img/mouse-pcancelados.png" alt="Mouse Gamer" class="imagem-pcancelados">
+                <div>
+                    <p class="nome-produto-pcancelados">Mouse Gamer Sem Fio Logitech G PRO Wireless</p>
+                    <p class="codigo-produto-pcancelados">#25139526913984</p>
+                </div>
+                <input type="number" class="quantidade-pcancelados" value="1" readonly>
+            </div>
+
+            <div class="detalhes-pcancelados" style="display: none;">
+                <p>Imposto estimado: <strong>R$50</strong></p>
+                <p>Frete: <strong>Grátis</strong></p>
+                <p>Cupons: <strong>R$0,00</strong></p>
+                <p class="total-pcancelados">Total: <strong>R$XXX,XX</strong></p>
+            </div>
+
+            <p class="data-cancelamento-pcancelados">Pedido Cancelado em 12/07/2024</p>
+            
+            <button class="toggle-pcancelados">
+                <img src="../../../../public/assets/img/vermais-pcancelados.png" alt="Ver mais">
+            </button>
+        </div>
+        <div class="pedido-pcancelados">
+            <div class="info-produto-pcancelados">
+                <img src="../../../../public/assets/img/mouse-pcancelados.png" alt="Mouse Gamer" class="imagem-pcancelados">
+                <div>
+                    <p class="nome-produto-pcancelados">Mouse Gamer Sem Fio Logitech G PRO Wireless</p>
+                    <p class="codigo-produto-pcancelados">#25139526913984</p>
+                </div>
+                <input type="number" class="quantidade-pcancelados" value="1" readonly>
+            </div>
+
+            <div class="detalhes-pcancelados" style="display: none;">
+                <p>Imposto estimado: <strong>R$50</strong></p>
+                <p>Frete: <strong>Grátis</strong></p>
+                <p>Cupons: <strong>R$0,00</strong></p>
+                <p class="total-pcancelados">Total: <strong>R$XXX,XX</strong></p>
+            </div>
+
+            <p class="data-cancelamento-pcancelados">Pedido Cancelado em 12/07/2024</p>
+            
+            <button class="toggle-pcancelados">
+                <img src="../../../../public/assets/img/vermais-pcancelados.png" alt="Ver mais">
+            </button>
+        </div>
+        <div class="pedido-pcancelados">
+            <div class="info-produto-pcancelados">
+                <img src="../../../../public/assets/img/mouse-pcancelados.png" alt="Mouse Gamer" class="imagem-pcancelados">
+                <div>
+                    <p class="nome-produto-pcancelados">Mouse Gamer Sem Fio Logitech G PRO Wireless</p>
+                    <p class="codigo-produto-pcancelados">#25139526913984</p>
+                </div>
+                <input type="number" class="quantidade-pcancelados" value="1" readonly>
+            </div>
+
+            <div class="detalhes-pcancelados" style="display: none;">
+                <p>Imposto estimado: <strong>R$50</strong></p>
+                <p>Frete: <strong>Grátis</strong></p>
+                <p>Cupons: <strong>R$0,00</strong></p>
+                <p class="total-pcancelados">Total: <strong>R$XXX,XX</strong></p>
+            </div>
+
+            <p class="data-cancelamento-pcancelados">Pedido Cancelado em 12/07/2024</p>
+            
+            <button class="toggle-pcancelados">
+                <img src="../../../../public/assets/img/vermais-pcancelados.png" alt="Ver mais">
+            </button>
+        </div>
+        <div class="pedido-pcancelados">
+            <div class="info-produto-pcancelados">
+                <img src="../../../../public/assets/img/mouse-pcancelados.png" alt="Mouse Gamer" class="imagem-pcancelados">
+                <div>
+                    <p class="nome-produto-pcancelados">Mouse Gamer Sem Fio Logitech G PRO Wireless</p>
+                    <p class="codigo-produto-pcancelados">#25139526913984</p>
+                </div>
+                <input type="number" class="quantidade-pcancelados" value="1" readonly>
+            </div>
+
+            <div class="detalhes-pcancelados" style="display: none;">
+                <p>Imposto estimado: <strong>R$50</strong></p>
+                <p>Frete: <strong>Grátis</strong></p>
+                <p>Cupons: <strong>R$0,00</strong></p>
+                <p class="total-pcancelados">Total: <strong>R$XXX,XX</strong></p>
+            </div>
+
+            <p class="data-cancelamento-pcancelados">Pedido Cancelado em 12/07/2024</p>
+            
+            <button class="toggle-pcancelados">
+                <img src="../../../../public/assets/img/vermais-pcancelados.png" alt="Ver mais">
+            </button>
+        </div>
+        
     </div>
     <?php include __DIR__.'/../../../../includes/footer.php'; ?>
 </body>

@@ -10,7 +10,7 @@
                     </span>
                 </p>
             </div>
-            <div clsideass="linha"></div>
+            <div class="linha"></div>
             <ul class="sidemenu">
                 <li class="menu-item">
                   <a href="#"><img src="../../../../public/assets/img/editar.png" alt=""><span class="item-description">Editar Perfil</span></a>
@@ -33,9 +33,12 @@
                 <li class="menu-item">
                   <a href="#"><img src="../../../../public/assets/img/alterar.png" alt=""><span class="item-description"> Alterar Senha</span></a>
                 </li>
-                <li class="menu-item" >
-                  <a href="#"><img src="../../../../public/assets/img/config.png" alt=""><span class="item-description">Configurações</span></a>
+                <li class="menu-item">
+                  <a href="#"><img src="../../../../public/assets/img/sair.png" alt=""><span class="item-description">Sair</span></a>
                 </li>
+                <!-- <li class="menu-item" >
+                  <a href="#"><img src="../../../../public/assets/img/config.png" alt=""><span class="item-description">Configurações</span></a>
+                </li> -->
                 
             
             </ul>
@@ -45,12 +48,12 @@
         </div>
        
         <div id="logout">
-            <button id="logout_btn">
+            <!-- <button id="logout_btn">
                 <a href="#"><img src="../../../../public/assets/img/Help-circle.png" alt=""> <span class="item-description">Ajuda</span></a>
-            </button>
-            <button id="logout_btn">
+            </button> -->
+            <!-- <button id="logout_btn">
                 <a href="#"><img src="../../../../public/assets/img/sair.png" alt=""> <span class="item-description">Sair</span></a>
-            </button>
+            </button> -->
         </div>
     </nav>
 </body>

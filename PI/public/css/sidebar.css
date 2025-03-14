@@ -1,10 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inder&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+
 .sidebar_Produto{
     /* display: flex; */
     /* min-width: 100vh; */
@@ -36,12 +32,15 @@ main{
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
 } */
 
+
 #sidebar {
-    position: fixed; /* Fixa na tela */ 
-    top: 151px;
+    position: absolute; 
+    top: 150px;
+    /* width: 100px; */
+    /*   */
     left: 0;
-    height: 100vh; /* Garante que ocupe toda a altura */
-    z-index: 100; /* Garante que fique acima de outros elementos */
+    height: 71vh; /* Altura da sidebar */
+    z-index: 100; 
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -51,11 +50,12 @@ main{
     min-width: 82px;
     gap: 24px;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-}
- 
+} 
+
 #sidebar_content{
     padding: 12px;
     padding-left: 25px;
+    flex: 1;
 }
 #user{
     display: flex;
@@ -107,6 +107,7 @@ main{
     list-style: none;
     border-radius: 8px;
     cursor: pointer;
+    
 }
 
 .sidemenu-item{
@@ -138,12 +139,14 @@ main{
 
 
 #sidebar.open-sidebar .has-segundomenu:hover .segundomenu{
-    display: block; 
+    display: block;
+    
 }
 #sidebar.open-sidebar .has-segundomenu a #arrow{
     display: inline; 
     transition: transform 0.3s ease; 
     transform: rotate(0deg);
+    
 }
 #sidebar.open-sidebar .has-segundomenu:hover a #arrow{
     transform: rotate(180deg); 
@@ -152,6 +155,7 @@ main{
     transition: transform .3s ease;}
 .segundomenu li{
     margin-bottom: 10px;
+    
 }
 #Favoritos{
     margin-top: 0;
@@ -272,7 +276,8 @@ main{
     color: #000;
 }
 #sidebar.open-sidebar #logout_btn .item-description{
-    width: 150px;
+    /* width: 150px; */
+    background-color: red;
 }
 #sidebar.open-sidebar #logout_btn{
     justify-content: flex-start;
@@ -329,10 +334,10 @@ main{
 }
 
 
- */
 #sidebar.open-sidebar {
-    min-width: 15%;
+    width: 250px; 
 }
+
 
 #sidebar.open-sidebar .item-description {
     width: 150px;
@@ -343,4 +348,38 @@ main{
     justify-content: flex-start;
     gap: 14px;
 }
-
+@media(max-width: 578px){
+    #sidebar{
+        display: none;
+    }
+}
+@media(max-width: 480px){
+    #sidebar{
+        display: none;
+    }
+}
+@media(max-width: 768px){
+    #sidebar{
+        display: none;
+    }
+}
+@media(max-width: 1024px){
+    #sidebar{
+        display: none;
+    }
+}
+@media(max-width: 1025px){
+    #sidebar{
+        display: none;
+    }
+}
+@media(max-width: 600px){
+    #sidebar{
+        display: none;
+    }
+}
+@media(max-width: 1079px){
+    #sidebar{
+        display: none;
+    }
+}

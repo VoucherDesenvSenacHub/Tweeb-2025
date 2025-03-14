@@ -28,3 +28,52 @@ document.getElementById('open_btn').addEventListener('click', function () {
     const arrow = document.querySelector('#open_btn_icon');
     arrow.classList.toggle('rotated'); 
 });
+
+// window.onscroll = () => {
+//     const sidebar = document.getElementById('sidebar');
+//     const scrollPosition = window.scrollY;  // Posição de rolagem da página
+//     const footer = document.querySelector('footer');
+//     const footerOffset = footer.offsetTop; // Posição do rodapé
+//     const footerHeight = footer.offsetHeight; // Altura do rodapé
+//     const sidebarHeight = sidebar.offsetHeight; // Altura da sidebar
+
+//     // Limite superior (topo da página)
+//     const minTop = 150;
+
+//     // Limite inferior (evitar sobreposição com o rodapé)
+//     const maxTop = footerOffset - sidebarHeight - footerHeight;
+
+//     // Atualiza a posição da sidebar, respeitando os limites
+//     if (scrollPosition >= minTop && scrollPosition <= maxTop) {
+//         sidebar.style.top = scrollPosition + 'px';
+//     } else if (scrollPosition < minTop) {
+//         sidebar.style.top = minTop + 'px';
+//     } else if (scrollPosition > maxTop) {
+//         sidebar.style.top = maxTop + 'px';
+//     }
+// };
+
+window.onscroll = () => {
+    const sidebar = document.getElementById('sidebar');
+    const scrollPosition = window.scrollY;  // Posição de rolagem da página
+    const footer = document.querySelector('footer');
+    const footerOffset = footer.offsetTop; // Posição do rodapé
+    const footerHeight = footer.offsetHeight; // Altura do rodapé
+    const sidebarHeight = sidebar.offsetHeight; // Altura da sidebar
+
+    // Limite superior (onde a sidebar começa a rolar)
+    const minTop = 150;
+
+    // Limite inferior (onde a sidebar para de rolar)
+    const maxTop = footerOffset - sidebarHeight; // Corrigido para considerar apenas a altura da sidebar
+
+    // Atualiza a posição da sidebar, respeitando os limites
+    if (scrollPosition >= minTop && scrollPosition <= maxTop) {
+        sidebar.style.top = scrollPosition + 'px';
+    } else if (scrollPosition < minTop) {
+        sidebar.style.top = minTop + 'px';
+    } else if (scrollPosition > maxTop) {
+        sidebar.style.top = maxTop + 'px';
+    }
+};
+
