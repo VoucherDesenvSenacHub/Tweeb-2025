@@ -29,13 +29,13 @@
                     
                 </div>
 
-                <button type="submit" class="btn-esqueceu"><a class="botaolinkar" href="codVerificacao.php">Login</a></button>
+                <button type="submit" class="btn-esqueceu"><a class="botaolinkar" href="../../../user/View/pages/codVerificacao.php">Login</a></button>
                 <div class="linha">
 
                 </div>
                 <div class="remember-forgot">
                     <label><input type="checkbox"> Lembrar senha</label>
-                    <a href="esqueceuSenha.php" class="forgot-password">Esqueceu sua senha</a>
+                    <a href="../../../user/View/pages/codVerificacao.php" class="forgot-password">Esqueceu sua senha</a>
                 </div>
                
                 
