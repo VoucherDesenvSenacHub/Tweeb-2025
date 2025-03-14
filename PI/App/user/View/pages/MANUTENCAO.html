@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Perfil - Tweeeb</title>
+    <link rel="stylesheet" href="../CSS/MANUTENCAO.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <script>
+        function showPage(pageNumber) {
+            const pages = document.querySelectorAll(".product-page");
+            pages.forEach(page => page.style.display = "none");
+            document.getElementById("page-" + pageNumber).style.display = "table-row-group";
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="../imagens/logosembg.png" alt="Tweeeb Logo">
+            </div>    
+        </nav>
+    </header>
+
+
+    <nav class="categoriacompra">
+        <ul class="categoria">
+            <a href="">T</a>
+            <a href="">W</a>
+            <a href="">E</a>
+            <a href="">E</a>
+            <a href="">B</a>
+            
+        </ul>
+    </nav>
+
+       
+    <div class="subtitulo">
+        <h2>Manutenções</h2>
+    </div>
+
+
+   
+        <div class="container">
+          
+            
+            <div class="card">
+                <div class="stats-wrapper">
+                    <p class="heading">Total</p>
+                    <div class="bottom-wrapper">
+                        <a href="https://www.exemplo.com" class="like-button" style="color: blue;">
+                            <i class="fa-solid fa-layer-group"></i>
+                        </a>
+                        <p class="count">155</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="stats-wrapper">
+                    <p class="heading">Em andamento</p>
+                    <div class="bottom-wrapper">
+                        <a href="https://www.exemplo.com" class="like-button" style="color: green;">
+                            <i class="fa-solid fa-up-down"></i>
+                        </a>
+                        <p class="count">125</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="stats-wrapper">
+                    <p class="heading">Finalizadas</p>
+                    <div class="bottom-wrapper">
+                        <a href="https://www.exemplo.com" class="like-button" style="color: red;">
+                            <i class="fa-solid fa-check"></i>
+                        </a>
+                        <p class="count">1.456</p>
+                    </div>
+                </div>
+            </div>
+            
+            <nav class="tabs">
+                <a href="#" class="active">Ordem de serviço</a>
+                <a href="#">Enviadas</a>
+            </nav>
+            
+            <div class="actions">
+            
+
+                    <button type="button" class="button">
+                        <span class="button__text">Adicionar OS</span>
+                        <span class="button__icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" stroke="currentColor" height="24" fill="none" class="svg"><line y2="19" y1="5" x2="12" x1="12"></line><line y2="12" y1="12" x2="19" x1="5"></line></svg></span>
+                    </button>
+
+
+
+                    <button title="filter" class="filter">
+                        <svg viewBox="0 0 512 512" height="1em">
+                        <path
+                            d="M0 416c0 17.7 14.3 32 32 32l54.7 0c12.3 28.3 40.5 48 73.3 48s61-19.7 73.3-48L480 448c17.7 0 32-14.3 32-32s-14.3-32-32-32l-246.7 0c-12.3-28.3-40.5-48-73.3-48s-61 19.7-73.3 48L32 384c-17.7 0-32 14.3-32 32zm128 0a32 32 0 1 1 64 0 32 32 0 1 1 -64 0zM320 256a32 32 0 1 1 64 0 32 32 0 1 1 -64 0zm32-80c-32.8 0-61 19.7-73.3 48L32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l246.7 0c12.3 28.3 40.5 48 73.3 48s61-19.7 73.3-48l54.7 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-54.7 0c-12.3-28.3-40.5-48-73.3-48zM192 128a32 32 0 1 1 0-64 32 32 0 1 1 0 64zm73.3-64C253 35.7 224.8 16 192 16s-61 19.7-73.3 48L32 64C14.3 64 0 78.3 0 96s14.3 32 32 32l86.7 0c12.3 28.3 40.5 48 73.3 48s61-19.7 73.3-48L480 128c17.7 0 32-14.3 32-32s-14.3-32-32-32L265.3 64z"
+                        ></path>
+                        </svg>
+                    </button>
+  
+            </div>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Produto</th>
+                        <th>Valor</th>
+                        <th>Entrada</th>
+                        <th>Order ID</th>
+                        <th>Saída</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody id="page-1" class="product-page">
+                    <tr>
+                        <td>Notebook Dell</td>
+                        <td>R$ 4306</td>
+                        <td>43 Unidades</td>
+                        <td>7535</td>
+                        <td>11/08/24</td>
+                        <td class="atrasado">Atrasado</td>
+                    </tr>
+                    <tr>
+                        <td>Monitor</td>
+                        <td>R$ 2557</td>
+                        <td>22 Unidades</td>
+                        <td>5724</td>
+                        <td>21/08/24</td>
+                        <td class="entregue">Entregue</td>
+                    </tr>
+                    <tr>
+                        <td>Computador Gamer</td>
+                        <td>R$ 4075</td>
+                        <td>36 Unidades</td>
+                        <td>2775</td>
+                        <td>5/07/24</td>
+                        <td class="garantia">Retorno Garantia</td>
+                    </tr>
+                    <tr>
+                        <td>Mouse Gamer</td>
+                        <td>R$ 5052</td>
+                        <td>14 Unidades</td>
+                        <td>2275</td>
+                        <td>8/03/24</td>
+                        <td class="andamento">Em andamento</td>
+                    </tr>
+
+                    <tr>
+                        <td>Mouse Gamer</td>
+                        <td>R$ 5052</td>
+                        <td>14 Unidades</td>
+                        <td>2275</td>
+                        <td>8/03/24</td>
+                        <td class="andamento">Em andamento</td>
+                    </tr>
+
+                    <tr>
+                        <td>Mouse Gamer</td>
+                        <td>R$ 5052</td>
+                        <td>14 Unidades</td>
+                        <td>2275</td>
+                        <td>8/03/24</td>
+                        <td class="atrasado">Atrasado</td>
+                    </tr>
+
+                   
+                </tbody>
+                <tbody id="page-2" class="product-page" style="display: none;">
+                    <tr>
+                        <td>Teclado Mecânico</td>
+                        <td>R$ 329</td>
+                        <td>50 Unidades</td>
+                        <td>8923</td>
+                        <td>12/09/24</td>
+                        <td class="entregue">Entregue</td>
+                    </tr>
+                    <tr>
+                        <td>Headset Gamer</td>
+                        <td>R$ 499</td>
+                        <td>30 Unidades</td>
+                        <td>7123</td>
+                        <td>15/09/24</td>
+                        <td class="andamento">Em andamento</td>
+                    </tr>
+                    <tr>
+                        <td>Placa de Vídeo RTX</td>
+                        <td>R$ 3599</td>
+                        <td>20 Unidades</td>
+                        <td>6201</td>
+                        <td>20/09/24</td>
+                        <td class="garantia">Retorno Garantia</td>
+                    </tr>
+                    <tr>
+                        <td>SSD NVMe 1TB</td>
+                        <td>R$ 850</td>
+                        <td>40 Unidades</td>
+                        <td>4902</td>
+                        <td>25/09/24</td>
+                        <td class="atrasado">Atrasado</td>
+                    </tr>
+                </tbody>
+            </table>
+    
+            <div class="pagination">
+                <button onclick="showPage(1)">1</button>
+                <button onclick="showPage(2)">2</button>
+            </div>
+        </div>
+    
+    </div>
+
+
+    
+    <div class="aceitas">
+        <h2>Manutenções Aceitas</h2>
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>E-mail</th>
+                <th>Prazo determinado</th>
+                <th>Solicitação</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>Rafaela Costa</td>
+                <td>costa25@gmail.com</td>
+                <td class="green-text">2 dias</td>
+                <td>Formatação</td>
+            </tr>
+            <tr class="highlight">
+                <td>2</td>
+                <td>Laura Borges</td>
+                <td>blaura2021@gmail.com</td>
+                <td>Não</td>
+                <td>Troca de tela</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Wesley Pablo</td>
+                <td>wes_pablo@live.com</td>
+                <td class="green-text">3 dias</td>
+                <td>Troca de tela</td>
+            </tr>
+            <tr class="highlight">
+                <td>4</td>
+                <td>Gabriel José</td>
+                <td>gabriel_joca@live.com</td>
+                <td>Não</td>
+                <td>Notebook não liga</td>
+            </tr>
+        </table>
+        <div class="pagination">
+            <button class="active">1</button>
+            <button>2</button>
+        </div>
+        
+    </div>
+    
+
+
+      
+
+ 
+    
+
+    <footer>
+        <div class="footer-container">
+            <div class="logo">
+                <img src="../imagens/twebroxo-removebg.png" alt="logotweeb">
+                
+                <h3>Você faz parte da nossa conexão com o futuro.</h3>
+
+            </div>     
+        </div>
+        <button class="botaofim">
+            <svg class="svggIcon" viewBox="0 0 384 512">
+              <path
+                d="M214.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 141.2V448c0 17.7 14.3 32 32 32s32-14.3 32-32V141.2L329.4 246.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-160-160z"
+              ></path>
+            </svg>
+          </button>
+  
+    </footer>
+
+            
+    
+</body>
+</html>
