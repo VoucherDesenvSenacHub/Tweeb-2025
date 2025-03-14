@@ -373,18 +373,21 @@ main{
 }
 
 /* Search */
+.listarU-search-container
+{
+    margin-left: -14vh;
+    display: inline-block;
+    position: absolute; /* Certifique-se de que o posicionamento é absoluto */
+    top: 340px; 
+    /* padding: 49px; */
+    width: auto; /* Ou defina uma largura específica */
+}
+
 .listarU-search-box {
     margin: 50px 0 0 280px; 
     display: inline-block;
     margin-left: 480px;
     height: 40px;
-}
-
-.listarU-search-container {
-    position: relative; 
-    display: inline-block;
-    left: -100px; 
-    top: -560px;
 }
 
 .listarU-srch {
@@ -428,10 +431,10 @@ main{
 
 /* Caixa de Filtro */
 .listarU-filtro-container {
-    margin-left: 690px;
+    margin-left: 870px;
     display: inline-block;
     position: absolute; /* Certifique-se de que o posicionamento é absoluto */
-    top: 446px; 
+    top: 416px; 
     /* padding: 49px; */
     width: auto; /* Ou defina uma largura específica */
 }
@@ -469,12 +472,12 @@ main{
 
 /* Tabela */
 .listarU-container {
-    display: flex;
-    align-items: center; 
-    margin-left: 315px; 
-    height: 0vh; 
-    padding: 20px; /* Dá um pequeno padding para evitar que a tabela encoste nas bordas */
-    margin-top: -270px; /* Ajuste conforme necessário */
+    margin-left: 350px;
+    display: inline-block;
+    position: absolute; /* Certifique-se de que o posicionamento é absoluto */
+    top: 386px; 
+    /* padding: 49px; */
+    width: auto; /* Ou defina uma largura específica */
 }
 
 table {
@@ -499,7 +502,7 @@ thead {
 
 th {
     background-color: #D4E3FF; 
-    padding: 12px 15px;
+    padding: 12px 55px;
     text-align: left;
     font-weight: bold;
 }
@@ -618,33 +621,32 @@ tr:hover {
 
 
 @media only screen and (max-width: 840px) {
-    .footer-logo{
-        flex-direction: column;
-        gap: 10px;
-    }
-}
-
-@media only screen and (max-width: 840px) {
     .listarU-titulo-container {
-        flex-direction: column;
-        gap: 15px;
-        padding: 0 235px;
+        /* flex-direction: column; */
+        gap: 5vh;
+        /* padding: 0 235px; */
         left: 50%;
     }
 
-    .listarU-search-box {
-        position: relative;
-        top: -500px; /* Ajuste o valor conforme necessário */
-        width: 0%;
-        display: flex;
-        justify-content: center;
-        left: -60%;
-    }
-    
 
     .listarU-search-container {
-        top: 0;
-        left: 0;
+        margin-left: 0;
+        top: 1;
+        width: 100%;
+    }
+
+    .listarU-search-box {
+        width: 20%;
+        margin-bottom: 15px;
+        margin-top: 370px;
+        margin-left: 180px;
+    }
+
+    .listarU-search-btn {
+        width: 20%;
+        margin-bottom: 15px;
+        margin-top: 2px;
+        left: -56px;
     }
 
     .listarU-filtro-container {
@@ -654,15 +656,17 @@ tr:hover {
     }
 
     .listarU-filtro-box {
-        width: 100%;
-        margin-bottom: 10px;
+        width: 20%;
+        margin-bottom: 15px;
+        margin-top: 340px;
+        margin-left: 160px;
     }
 
     /* Ajustes da tabela */
     .listarU-container {
         padding: 10px;
         margin-left: 0;
-        margin-top: -200px;
+        margin-top: 20px;
     }
 
     table {
@@ -670,12 +674,12 @@ tr:hover {
         font-size: 14px;
     }
 
-    .listarU-filtro-box {
-        width: 20%;
-        margin-bottom: 15px;
-        margin-top: 370px;
-        margin-left: 450px;
+
+    .footer-logo{
+        flex-direction: column;
+        gap: 10px;
     }
+
 
     /* Sidebar
     .SideBar_adm {
