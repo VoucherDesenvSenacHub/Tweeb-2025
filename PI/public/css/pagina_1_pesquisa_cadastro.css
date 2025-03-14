@@ -302,7 +302,7 @@
 @media (max-width: 768px){
     .pesquisa1-cadastro{
         display: flex;
-        /* transform: scale(0.8); */
+        /* transform: scale(0.8);  */
         margin-top: 45px;
         margin-right: 200px;
        
