@@ -15,7 +15,7 @@
         <nav class="navb">
             <ul>
                 <li><a href="../../../../../PI/home.php">Home</a></li>
-                <li><a href="#">Sobre</a></li>
+                <li><a href="../../../user/View/pages/quemsomos.php">Sobre</a></li>
                 <li><a href="../../../user/View/pages/orcamento.php">Orçamento</a></li>
                 <li><a href="../../../user/View/pages/cadastro.php">Cadastre-se</a></li>
                 <li>

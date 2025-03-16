@@ -15,9 +15,9 @@
         <nav class="navb">
             <ul>
                 <li><a class="op" href="home.php">Home</a></li>
-                <li><a class="op" href="#">Sobre</a></li>
-                <li><a class="op" href="#">Orçamento</a></li>
-                <li><a class="op" href="../../../../app/user/View/pages/cadastro.php">Sair</a></li>
+                <li><a class="op" href="quemsomos.php">Sobre</a></li>
+                <li><a class="op" href="orcamento.php">Orçamento</a></li>
+                <li><a class="op" href="cadastro.php">Sair</a></li>
                 <li>
                     <a class="op"href="#"><i class='bx bx-cart-alt'></i></a>
                     <!-- <a href="app/user/view/pages/login.php"><i class='bx bx-user'></i></a> -->
