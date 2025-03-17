@@ -31,15 +31,11 @@
             <input type="search" placeholder="Busca" class="pesquisa1-cadastro-input">
         </div>
         <div class="pesquisa1-cadastro-links-header-container">
-            <a href="PI/App/user/View/pages/cadastro.php" class="pesquisa1-cadastro-header-p-sobre">
-                <p class="pesquisa1-cadastro-p-cadastro">
-                    Cadastro
-                </p>
+            <a href="PI/App/user/View/pages/cadastro.php" class="pesquisa1-cadastro-header-p-cadastro">
+                Cadastro
             </a>
             <a href="#" class="pesquisa1-cadastro-header-p-sobre">
-                <p class="pesquisa1-cadastro-p-sobre">
-                    Sobre
-                </p>
+                Sobre
             </a>
         </div>
     </header>
@@ -47,9 +43,7 @@
     <div class="pesquisa1-cadastro-voltar-button">
         <a href="#" class="pesquisa1-cadastro-link-voltar-button">
             <img src="../../../../public/assets/img/Icon_voltar (1).png" alt="voltar_icon" class="pesquisa1-cadastro-voltar-icon">
-            <p class="pesquisa1-cadastro-p-voltar-button">
-                Voltar
-            </p>
+            Voltar
         </a>
     </div>
     <div class="pesquisa1-cadastro-titles-container">
@@ -83,10 +77,8 @@
     </div>
     <div class="pesquisa1-cadastro-continuar-button-container">
         <div class="pesquisa1-cadastro-continuar-button">
-            <a href="#" class="pesquisa1-cadastro-link-continuar">
-                <p class="pesquisa1-cadastro-continuar-button-p">
-                    Continuar
-                </p>
+            <a href="../pages/pagina_2_pesquisa_cadastro.php" class="pesquisa1-cadastro-link-continuar">
+                Continuar
             </a>
         </div>
     </div>
