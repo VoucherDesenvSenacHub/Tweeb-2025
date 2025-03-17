@@ -5,23 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="../../../../public/css/escolhaendereco.css">
+    <?php include __DIR__.'/../../../../includes/headernavb.php'; ?>
     <script defer src="../../../../public/js/ENDERECO.js"></script>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 </head>
-
 <body>
+<?php include __DIR__.'/../../../../includes/navbar.php'; ?>
 
 <div class="container">
     <div class="step-indicator">
-        <span class="active"><i class="fa-solid fa-location-dot"></i> Passo 1 <br> Endereço</span>
-        <span class=""><i class="fa-solid fa-boxes-packing"></i> Passo 2 <br> Entrega </span>
-        <span class=""><i class="fa-solid fa-credit-card"></i> Passo 3 <br> Pagamento </span>
+        <span class="" id="step-ativo">
+            <i class="fa-solid fa-magnifying-glass-location"></i>
+            <div class="span-information">
+                <p id="step-passo">Passo 1</p>
+                <p>Endereço</p>
+            </div>
+        </span>
+        
+        <img src="../../../../public/assets/img/linha-pontilhada.png" alt="">
+        <span class="">
+            <i class="fa-solid fa-cart-flatbed"></i>
+            <div class="span-information">
+                <p id="step-passo">Passo 2</p>
+                <p>Entrega</p>
+            </div>
+        </span>
+        <img src="../../../../public/assets/img/linha-pontilhada.png" alt="">
+        <span class="">
+            <i class="fa-solid fa-credit-card"></i>
+            <div class="span-information">
+                <p id="step-passo">Passo 3</p>
+                <p>Pagamento</p>
+            </div>
+        </span>
       
     </div>
 
     <div class="enderecos">
-        <h1>Selecione Endereco</h1>
+        <h1>Selecione Endereço</h1>
         <div class="endereco-card">
             <label>
                 <input type="radio" id="endereco" name="endereco" value="casa" checked>
@@ -33,22 +55,23 @@
             </label>
             <div class="endereco-actions">
                 <button class="edit"><i class="fa fa-pencil"></i></button>
-                <button class="delete"><i class="fa fa-trash"></i></button>
+                <button class="delete"><i class="fa-solid fa-xmark"></i></button>
             </div>
         </div>
 
         <div class="endereco-card">
             <label>
-                <input type="radio" name="endereco" value="trabalho">
+                <input type="radio" id="endereco" name="endereco" value="trabalho">
+                <label class="endereco-label" for="endereco">Trabalho <span class="default-tag">PADRÃO</span></label>
                 <div class="endereco-details">
-                    <p><strong>Trabalho</strong> <span class="default-tag">PADRÃO</span></label>
                     <p>2715 RUA Dr Jose, Caranda Bosque, Campo Grande MS 79034331</p>
                     <p>(67) 555-0127</p>
                 </div>
             </label>
             <div class="endereco-actions">
                 <button class="edit"><i class="fa fa-pencil"></i></button>
-                <button class="delete"><i class="fa fa-trash"></i></button>
+                <button class="delete"><i class="fa-solid fa-xmark"></i></button>
+                
             </div>
         </div>
     </div>
@@ -78,17 +101,21 @@
     </div>
 
     <div class="add-new-endereco" id="add-new-endereco-btn">
-        <i class="fa fa-plus"></i> Adicionar novo endereço
+        <i class="fa-solid fa-circle-plus"></i>
+        <p>Adicionar novo endereço</p>
     </div>
-    
 
-    <a href="../index.html/descproduto.html" class="btoes-endereco">Sair</a>
-    <a href="../index.html/ENVIO.html" class="btoes-endereco">Avançar</a>
+
+    <div class="endereco-botoes">
+        <button class="botao-sair">Sair</button>
+        <button class="botao-avancar">Avançar</button>
+    </div>
 
   
 
 
 </div>
+<?php include __DIR__.'/../../../../includes/footer.php'; ?>
 </body>
 
 </html>

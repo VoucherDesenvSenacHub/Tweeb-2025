@@ -172,16 +172,15 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f9f9f9;
+    background-color: white;
 }
 
 .container {
-    max-width: 1200px;
+    max-width: 1000px;
     margin: 50px auto;
     padding: 20px;
-    background: #fff;
     border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); */
     margin-top: 140px;
 }
 
@@ -203,13 +202,32 @@ h1 {
 
 .step-indicator span {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
+    gap: 10px;
 }
 
-.step-indicator span.active {
-    color: #050404;
+.step-indicator span i{
+    font-size: 1.5rem;
 }
+
+.step-indicator .span-information{
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    font-size: 19px;
+    font-weight: 600;
+}
+
+#step-ativo{
+    color: black;
+
+}
+
+#step-passo{
+    font-size: 14px;
+}
+
 
 .enderecos {
     display: flex;
@@ -222,7 +240,7 @@ h1 {
     align-items: center;
     justify-content: space-between;
     padding: 24px;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     background: #F6F6F6;
     border-radius: 7px;
 }
@@ -233,7 +251,12 @@ h1 {
 }
 
 .endereco-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
     flex-grow: 1;
+    margin-left: 2rem;
 }
 
 .endereco-details p {
@@ -244,7 +267,7 @@ h1 {
 .endereco-actions {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 27px;
 }
 
 .endereco-actions button {
@@ -264,22 +287,27 @@ h1 {
 
 .add-new-endereco {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     margin-top: 20px;
     cursor: pointer;
-    color: #4e46dc;
-    font-weight: bold;
+    color: black;
+    font-size: 1.25rem;
+    font-weight: 400;
 }
+
 
 .add-new-endereco i {
     margin-right: 5px;
+    font-size: 1.75rem;
 }
 
 
 .default-tag {
-    background-color: #a3b8f4;
-    color: #555;
+    background-color: #BF99FE;
+    color: white;
+    font-weight: 600;
     font-size: 12px;
     border-radius: 4px;
     padding: 2px 6px;
@@ -501,4 +529,44 @@ footer {
     color: #17183B;
     font-size: 18px;
     font-weight: 400;
+}
+
+.step-indicator img{
+    height: 1px;
+    align-self: center;
+}
+
+.endereco-botoes{
+    margin-top: 4rem;
+    display: flex;
+    justify-content: flex-end;
+    gap: 24px;
+}
+
+.endereco-botoes button{
+    font-size: 16px;
+    font-weight: 500;
+    height: 56px;
+    border-radius: 6px;
+}
+
+.endereco-botoes .botao-avancar{
+    width: 248px;
+    background-color: #291E40;
+    border: none;
+    color: white;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.endereco-botoes .botao-avancar:hover{
+    background-color: #170e2b;
+}
+
+.endereco-botoes .botao-sair{
+    width: 208px;
+    background-color: transparent;
+    border: 2px solid black;
+    color: black;
+    cursor: pointer;
 }
