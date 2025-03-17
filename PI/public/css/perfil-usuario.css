@@ -11,7 +11,7 @@ body {
     justify-content: center;
     align-items: flex-start; 
     margin-top: 50px;
-    height: 100vh; 
+    height: 100%; 
     width: 100%; 
     box-sizing: border-box; 
     overflow: hidden; 
@@ -25,7 +25,8 @@ body {
     /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
     width: 900px;
     max-width: 100%;
-    box-sizing: border-box; 
+    box-sizing: border-box;
+    margin-bottom: 50px;
 }
 
 
@@ -310,7 +311,10 @@ label[for="sobrenome"] {
             margin-top: 140px; 
         }
         
-    
+        /* label[for="sobrenome"] {
+            margin-left: 0px;
+        }
+     */
         .perfil-tweeb-editar {
             width: 100%;
             max-width: 250px;
