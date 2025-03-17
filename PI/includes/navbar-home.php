@@ -12,10 +12,10 @@
                 <input type="text" name="search" class="srch" placeholder="Buscar">
             </form>
         </div>
-        <!-- <div class="responsive-menu">
+        <div class="responsive-menu">
             <a href="#">Sobre</a>
             <a href="#">Orçamento</a>
-        </div> -->
+        </div>
         <nav class="navb">
             <ul>
                 <li><a class="op" href="home.php">Home</a></li>
@@ -42,35 +42,11 @@
             <li class="menu-item-nav">
                   <a href="#"><img src="public/assets/img/editar.png" alt=""><span class="item-description-nav">Departamentos</span></a>
                 </li>
-                <li class="menu-item-nav">
-                  <a href="#"><img src="public/assets/img/editar.png" alt=""><span class="item-description-nav">Editar Perfil</span></a>
-                </li>
-                <li class="menu-item-nav">
-                  <a href="#"><img src="public/assets/img/Calendar.png" alt=""><span class="item-description-nav">Meus Endereços</span></a>
-                </li>
-                <li class="menu-item-nav">
-                  <a href="#"><img src="public/assets/img/Inbox.png" alt=""><span class="item-description-nav">Meus Pedidos</span></a>
-                  <i class="fa-solid fa-angle-down" id="arrow"></i></a>
-                  <ul class="segundomenu-nav">
-                    <li><a href="#"><span class="item-description-nav">Pedidos Enviados</span></a></li>
-                    <li><a href="#"><span class="item-description-nav">Pedidos Cancelados</span></a></li>
-                  </ul>
-                </li>
-                <li class="menu-item-nav">
-                  <a href="#"><img src="public/assets/img/Like.png" alt=""><span class="item-description-nav">Favoritos</span></a>
-                </li>
-                <li class="menu-item-nav">
-                  <a href="#"><img src="public/assets/img/alterar.png" alt=""><span class="item-description-nav">Alterar Senha</span></a>
-                </li>
-                <li class="menu-item-nav">
-                  <a href="#"><img src="public/assets/img/sair.png" alt=""><span class="item-description-nav">Sair</span></a>
-                </li>
-            </ul>
 
-            <!-- <div class="auth-buttons">
+            <div class="auth-buttons">
                 <a href="app/user/view/pages/login.php" class="btn-login">Entrar</a>
                 <a href="app/user/View/pages/cadastro.php" class="btn-register">Cadastrar</a>
-            </div> -->
+            </div>
         </div>
     </header>
 

@@ -4,7 +4,7 @@
             <i class='bx bx-menu'></i>
         </div>
         <div class="logo">
-            <a href="home.php"><img src="../../../../public/assets/img/Ativo 2.png" alt="logo tweeb"></a>
+            <a href="../../../../home.php"><img src="../../../../public/assets/img/Ativo 2.png" alt="logo tweeb"></a>
         </div>
         <div class="search-box">
             <form action="">
@@ -18,7 +18,7 @@
         </div>
         <nav class="navb">
             <ul>
-                <li><a class="op" href="home.php">Home</a></li>
+                <li><a class="op" href="../../../../home.php">Home</a></li>
                 <li><a class="op" href="quemsomos.php">Sobre</a></li>
                 <li><a class="op" href="orcamento.php">Orçamento</a></li>
                 <li><a class="op" href="cadastro.php">Sair</a></li>
@@ -26,16 +26,17 @@
                     <a class="op"href="#"><i class='bx bx-cart-alt'></i></a>
                     <!-- <a href="app/user/view/pages/login.php"><i class='bx bx-user'></i></a> -->
                     <a href="#" class="user-icon">
-                        <img src="../../../../public/assets/img/foto-perfil-comentarios.jpg" alt="teste">
+                        <img src="../../../../public/assets/img/User Pic.png" alt="teste">
                     </a>
                 </li>
             </ul>
         </nav>
 
-        <div class="hamburger-menu">
+    <div class="hamburger-menu">
     <div class="user-info">
         <img src="../../../../public/assets/img/User Pic.png" alt="Foto do Usuário">
         <p class="hi-user">Olá, Usuário</p>
+        <span class="close-menu-nav">X</span>
     </div>
 
     <hr class="sep"> 

@@ -481,7 +481,7 @@
 }
 
 .departamentos-menu {
-    display: none; /* Esconde o submenu inicialmente */
+    display: none; 
 }
 
 .sub-departamentos li {
@@ -541,6 +541,15 @@
         font-size: 14px;
     }
 }
+@media (max-width: 1440px){
+    .search-box button {
+        transform: translateX(-25px);
+        
+    }
+    .search-box input::placeholder{
+        transform: translateX(-15px);
+    }
+}
 @media (max-width: 1024px){
     .navb ul{
         gap: 5%;
@@ -554,7 +563,13 @@
     .submenu{
         transform: translateX(-60px);
     }
-    
+    .search-box button {
+        transform: translateX(-25px);
+        
+    }
+    .search-box input::placeholder{
+        transform: translateX(-15px);
+    }
 }
 @media (max-width: 768px) {
     .headNav {
@@ -588,11 +603,15 @@
 
     .search-box input {
         height: 40px;
-        padding: 0 20px;
+        padding: 0 30px;
     }
 
     .search-box button {
-        transform: translateX(-5px);
+        transform: translateX(-2px);
+        
+    }
+    .search-box input::placeholder {
+        transform: translateX(5px);
     }
 
     .hamburguer {
@@ -642,6 +661,13 @@
         margin-right: 8px; 
         color: white;
     }
+    .close-menu-nav{
+        cursor: pointer;
+        font-size: 18px;
+        font-weight: bold;
+        color: #ff0000;
+        margin-left: 10px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -656,7 +682,7 @@
     }
     .headNav .logo {
         max-width: 150px;
-        margin-right: 40px;
+        margin-right: 65px;
     }
     .search-box{
         transform: translateX(5px);
@@ -665,9 +691,13 @@
         height: 35px; 
         font-size: 14px; 
     }
+    .search-box input::placeholder {
+        transform: translateX(2px);
+    }
 
     .search-box button {
         transform: translateX(-5px); 
+        margin-bottom: 1px;
     }
     
     .department img {
