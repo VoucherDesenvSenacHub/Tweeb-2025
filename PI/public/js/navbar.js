@@ -1,3 +1,5 @@
+
+
 document.addEventListener("DOMContentLoaded", function () {
     const hamburger = document.querySelector(".hamburguer");
     const menu = document.querySelector(".hamburger-menu");
@@ -119,3 +121,4 @@ if (userIcon) {
 document.addEventListener('click', () => {
     if (userSubmenu) userSubmenu.style.display = 'none';
 });
+
