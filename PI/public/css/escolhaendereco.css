@@ -187,9 +187,10 @@ body {
 
 h1 {
     font-size: 20px;
-    color: #333;
+    color: #17183B;
     text-align: center;
     padding: 25px;
+    align-self: flex-start;
 }
 
 .step-indicator {
@@ -211,6 +212,8 @@ h1 {
 }
 
 .enderecos {
+    display: flex;
+    flex-direction: column;
     margin-bottom: 20px;
 }
 
@@ -218,15 +221,15 @@ h1 {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 15px;
+    padding: 24px;
     margin-bottom: 10px;
-    background: #f9f9f9;
-    border: 1px solid #ddd;
-    border-radius: 8px;
+    background: #F6F6F6;
+    border-radius: 7px;
 }
 
 .endereco-card input[type="radio"] {
     margin-right: 10px;
+    background-color: black;
 }
 
 .endereco-details {
@@ -449,3 +452,53 @@ footer {
   .categoria-item:hover {
     background-color: #3a0d6d; /* Cor mais escura ao passar o mouse */
   }
+
+  input[type="radio"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid #ccc; /* Borda visível */
+    outline: none;
+    position: relative;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  /* Cor quando o radio está marcado */
+  input[type="radio"]:checked {
+    border-color: transparent;
+  }
+  
+  /* Adicionar o efeito de seleção (círculo branco no centro quando marcado) */
+  input[type="radio"]:checked::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 10px;
+    height: 10px;
+    border: 3.5px solid #F6F6F6;
+    background-color: black; /* Cor do centro quando marcado */
+    border-radius: 100%;
+  }
+  
+  /* Quando não está selecionado, o centro do radio é transparente e a borda é visível */
+  input[type="radio"]:not(:checked)::before {
+    background-color: transparent; /* Centro transparente */
+  }
+  
+  /* Adicionar uma borda visível quando não está selecionado */
+  input[type="radio"]:not(:checked) {
+    border: 3px solid black; /* Cor da borda */
+    background-color: transparent;
+  }
+
+.endereco-card .endereco-label{
+    color: #17183B;
+    font-size: 18px;
+    font-weight: 400;
+}
