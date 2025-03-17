@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meu Perfil</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="../CSS/perfil-usuario.css"> <!-- Seu CSS -->
 </head>
 <body>
 
@@ -79,6 +78,7 @@
                 <button type="button" class="perfil-tweeb-cancelar">Cancelar</button>
                 <button type="submit" class="perfil-tweeb-salvar">Salvar alteração</button>
             </div>
+
         </form>
     </div>
 </div>
