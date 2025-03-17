@@ -151,7 +151,7 @@ footer p, footer h3 {
 
 /* Garantir que o rodapé fique no final da página */
 footer {
-    margin-top: auto;
+    margin-top: 5rem;
 }
 /* garante que não tenha eventos de hover nas informações de contato */
 .cursorevento{
