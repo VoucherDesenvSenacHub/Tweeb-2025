@@ -1,16 +1,16 @@
-.header-container{
+.header-container-task13{
     height: 100px;
     display: flex;
     align-items: center;
 }
 
-.header-logo img{
+.header-logo-task13 img{
     width: 100%;
     margin-top: 35%;
     margin-left: 52%;
 }
 
-.mini-navbar {
+.mini-navbar-task13 {
     margin-top: 21px;
     display: flex;
     width: 100%;
@@ -18,7 +18,7 @@
     background-color: #2D1B46;
 }
 
-.footer{
+.footer-task13{
     display: flex;
     height: 100%;
     background-color: #cef5a4;
@@ -27,17 +27,17 @@
     justify-content: center;
 }
 
-*{
+.estoque_cadastrar_novo{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
 
-.footer-text{
+.footer-text-task13{
     display: flex;
 }
 
-.footer-logo{
+.footer-logo-task13{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -45,17 +45,17 @@
     gap: 3rem;
 }
 
-.footer-logo img{
+.footer-logo-task13 img{
     width: 150px;
     height: auto;
 }
 
-main {
+.main-container-task13 {
     width: 80%;
     margin: 20px auto;
 }
 
-h1 {
+.new-product-task13 {
     margin-top: 50px;
     font-family: sans-serif,'Poppins';
     font-weight: 100;
@@ -64,7 +64,7 @@ h1 {
     color: #000000;
 }
 
-.barrinha{
+.barrinha-task13{
     height: 1px;
     width: 106px;
     background: #000000;
@@ -73,26 +73,26 @@ h1 {
     transform: translateY(-50px);
 }
 
-.as{
+.as-task13{
     display: flex;
     flex-direction: column;
     padding: 2px;
 }
 
-.cadastrados-title{
+.cadastrados-title-task13{
     margin-top: 52px;
     color: #8b8b8b;
 }
 
-legend{
+.titulo-task13{
     font-family: sans-serif;
 }
 
-.legenda{
+.legenda-task13{
     font-family: sans-serif;
 }
 
-form {
+.form-container-task13 {
     font-family: sans-serif,'Poppins';
     font-weight: 100;
     padding: 60px; 
@@ -105,28 +105,28 @@ form {
     left: 55px; 
 }
 
-    .cadastrados-title{
+    .cadastrados-title-task13{
         margin-top: 52px;
         color: #8b8b8b;
         text-decoration: none; /* Remove a linha de sublinhado do link */
     }
 
-.description {
+.description-task13 {
     position: relative;
 }
 
-.counter {
+.counter-task13 {
     position: absolute;
     right: 50px;
     font-size: 12px;
     color: #000000;
 }
 
-.description input{
+.description-task13 input{
     background-color: #f2f2f2;
 }
 
-fieldset {
+.product-details-task13 {
     border: none;
     margin-bottom: 16px;
     display: flex;
@@ -135,14 +135,14 @@ fieldset {
     width: 100%;
 }
 
-legend {
+.legend-task13{
     font-weight: bold;
     font-size: 18px;
     margin-bottom: 10px;
     width: 100%;
 }
 
-label {
+.label-task13 {
     display: flex;
     flex-direction: column;
     width: calc(33.33% - 10px); 
@@ -150,7 +150,7 @@ label {
     gap: 10px;
 }
 
-input, select {
+.form-field-task13 {
     width: 85%;
     padding: 10px;
     margin-top: 5px;
@@ -158,7 +158,7 @@ input, select {
     border-radius: 4px;
 }
 
-.Salvar {
+.Salvar-task13 {
     width: auto; 
     padding: 8px 16px;
     background: #FE8C67;
@@ -172,20 +172,20 @@ input, select {
     right: 48px; 
 }
 
-.Salvar:hover {
+.Salvar-task13:hover {
     background: #FE8C67;
 }
 
-.choose-icon{
+.choose-icon-task13{
     justify-content: center;
     margin-top: -3px;
 }
 
-.box1-icon img{
+.box1-icon-task13 img{
     width: 24px;
     height: 24px;
 }
-.container-icons{
+.container-icons-task13{
     display: flex;
     flex-direction: row;
     gap: 10%;
@@ -193,7 +193,7 @@ input, select {
     margin-left: 260px;
 }
 
-.box1-icon{
+.box1-icon-task13{
     width: 56px;
     height: 56px;
     background-color: #D3D3D3;
@@ -203,15 +203,23 @@ input, select {
     border-radius: 11px;
 }
 
-.container-box1-icon{
+.container-box1-icon-task13{
     display: flex;
     align-items: center;
     gap: 20px;
 }
 
-.container-icons p{
+.container-icons-task13 p{
     width: 80px;
     font-family: sans-serif;
     font-size: 14px;
   
 }
+.promotional-specifications-task13{
+    display: flex;
+    width: 100%;
+    border: none;
+
+}
+
+
