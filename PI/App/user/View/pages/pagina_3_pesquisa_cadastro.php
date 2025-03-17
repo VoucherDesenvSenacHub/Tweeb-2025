@@ -77,7 +77,7 @@
     </div>
     <div class="pesquisa3-cadastro-continuar-button-container">
         <div class="pesquisa3-cadastro-continuar-button">
-            <a href="#" class="pesquisa3-cadastro-link-continuar">
+            <a href="../../../../home.php" class="pesquisa3-cadastro-link-continuar">
                 Continuar
             </a>
         </div>
