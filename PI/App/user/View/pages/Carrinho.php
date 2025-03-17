@@ -95,6 +95,6 @@
       <button class="desconto"><a href="#">Continuar </a></button>
     </div>
   </div>
-  
+  <?php include __DIR__.'/../../../../includes/footer.php'; ?> 
 </body>
 </html>
