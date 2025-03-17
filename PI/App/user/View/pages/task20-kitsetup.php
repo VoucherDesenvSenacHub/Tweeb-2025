@@ -664,5 +664,6 @@
     </div>
     <script src="../../../../public/js/task20-modal.js"></script>
 </body>
-</html>
+<?php include __DIR__.'/../../../../includes/voltar-ao-topo.php'; ?>
 <?php include __DIR__.'/../../../../includes/footer.php'; ?>
+</html>

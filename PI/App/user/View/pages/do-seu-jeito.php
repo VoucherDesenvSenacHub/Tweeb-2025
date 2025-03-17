@@ -671,7 +671,7 @@
         </button>
     </div>
 
-
+    <?php include __DIR__.'/../../../../includes/voltar-ao-topo.php'; ?>
     <?php include __DIR__.'/../../../../includes/footer.php'; ?>
 
 </body>

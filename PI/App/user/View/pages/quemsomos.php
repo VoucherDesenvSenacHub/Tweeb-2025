@@ -237,7 +237,11 @@
             </div>
             <button class="qsomos-next">&gt;</button>
         </div>
+
+       
     </section>
+    
+    <?php include __DIR__.'/../../../../includes/voltar-ao-topo.php'; ?>
     <?php include __DIR__.'/../../../../includes/footer.php'; ?>
 </body-quemsomos>
 </html>
