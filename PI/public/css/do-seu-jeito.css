@@ -283,7 +283,7 @@ body {
     justify-content: space-between;
 }
 
-.active{
+/* .active{
     color: black;
     background-color: #CEF5A4;
     border-radius: 7px;
@@ -291,7 +291,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-}
+} */
 
 .active a{
     color: black;
