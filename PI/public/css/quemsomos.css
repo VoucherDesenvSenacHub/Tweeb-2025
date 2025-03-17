@@ -1,0 +1,1033 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+/* 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+} */
+
+body {
+    background-color: rgb(255, 255, 255);
+}
+
+/* Define cores principais em variaveis */
+:root{
+    --azul-intenso: #291E40;
+    --verde: #CEF5A4;
+    --azul-claro: #D4E3FF;
+    --roxo: #BF99FE;
+    --laranja: #FE8C67;
+}
+
+
+.Banner_Sobre_Nos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    height: 80vh; /* Ajuste conforme necessário */
+    overflow: hidden;
+}
+
+.content_banner_sobre_nos {
+    position: relative; /* Mantém os elementos dentro do contêiner */
+    display: flex;
+    align-items: center;
+    flex-direction: column; /* Garante que o texto fique acima da imagem */
+    text-align: center;
+    max-width: 80%;
+}
+
+.img_sobre_banner {
+    width: 1600px;
+    height: auto;
+    border-radius: 20px;
+    max-height: 600px; /* Ajuste esse valor conforme necessário */
+    object-fit: cover; /* Mantém o recorte proporcional sem distorcer */
+}
+
+.content_coteudo_banner_sobre {
+    position: absolute;
+    z-index: 2; /* Coloca o texto acima da imagem */
+    color: white; /* Ajuste conforme necessário */
+    padding: 20px;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7); /* Melhor contraste com a imagem */
+}
+
+/* Categorias */
+
+.categorias{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 352px;
+    margin-top: 20px;
+    background-color: #FAFAFA;
+}
+
+.categorias-content{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 80%;
+    width: 80%;
+    /* background-color: black; */
+}
+
+.categorias-text{
+    display: flex;
+    flex-direction: row;
+}
+
+.text h1{
+    margin-left: 40px;
+}
+
+/* .text{
+    width: 90%;
+} */
+
+.text h1{
+    font-weight: 500;
+    font-size: 24px;
+}
+
+.arrows{
+    display: flex;
+    justify-content: space-evenly;
+    gap: 10px;
+    width: 10%;
+}
+
+.arrows img{
+    width: 12px;
+    height: auto;
+}
+
+.categorias-card{
+    height: 65%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    /* background-color: rebeccapurple; */
+}
+
+.card{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 128px;
+    width: 160px;
+    border-radius: 15px;
+    gap: 7px;
+    transition: 0.2s ease;
+}
+
+.card:hover{
+    cursor: pointer;
+}
+
+.card img{
+    height: auto;
+    max-width: 48px;
+}
+
+.card p{
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+/* cores e ajustes para as categorias */
+
+.card1{
+    background-color: var(--verde);
+}
+
+.card2{
+    background-color: var(--azul-claro);
+}
+
+.card2 p{
+    line-height: 16px;
+}
+
+/* as imagens que precisam alterar o width são realmente imagens e não vetores, pra não precisar usar isso, teria que achar alternativas das imagens usando vetores que seguem o mesmo padrão das anteriores. */
+.card2 img{
+    margin-bottom: 10px;
+    width: 36px;
+}
+
+.card3{
+    background-color: var(--roxo);
+}
+
+.card3 img{
+    max-width: 30px;
+}
+
+.card4{
+    background-color: var(--laranja);
+}
+
+.card5{
+    background-color: var(--azul-claro);
+}
+
+.card6{
+    background-color: var(--verde);
+}
+
+/* acaba categorias */
+
+.card img{
+    z-index: 0;
+    display: flex;
+    /* position: absolute; */
+    width: 95%;
+    /* height: 100%; */
+    object-fit: cover;
+    border-radius: 10px 10px 10px 10px;
+    transition: all 0.3s ease;
+}
+
+
+.content_coteudo_banner_sobre{
+    display: flex;
+    z-index: 1;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    padding: 100px;
+    background-color: rgba(24, 24, 24, 0.229);
+    border-radius: 20px 20px 20px 20px;
+    row-gap: 20px;
+    transition: all 0.3s ease;
+    height: 100%;
+}
+
+.text_top_sobre{
+    display: flex;
+    font-size: 25px;
+    color: #ffffff;
+    text-transform: capitalize;
+    font-weight: 500;
+    width: 40%;
+    
+}
+
+
+.text_bottom_sobre{
+    display: flex;
+    width: 50%;
+    font-size: 15px;
+    color: #eeeeee;
+    font-weight: 400;
+    letter-spacing: 2px;
+}
+
+
+.btn_sobre{
+    display: flex;
+    width: 50%;
+    border: none;
+    background-color: transparent;
+    color: #fe8c67;
+
+}
+
+
+.btn_sobre a{
+    text-decoration: none;
+    background-color: #8c56b6;
+    width: 200px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    height: 45px;
+    border-radius: 5px;
+    color: rgb(255, 255, 255);
+    font-size: 17px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.btn_sobre a:hover{
+    background-color:white;
+    color: #fe8c67;
+}
+
+
+
+.main-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 120px;
+    margin-top: -50px;
+    margin-bottom: -50px;
+}
+
+.bemvindo-text {
+    max-width: 50%;
+}
+
+
+.bemvindo-text .tagline {
+    color:green;
+    font-weight: bold;
+    margin-top: 10px; 
+    font-size: 28px;
+    margin-bottom: 40px;
+    font-family: "Poppins", sans-serif;
+
+    
+}
+
+.info-bemvindo-line{
+    margin-top: 50px;
+}
+
+.bemvindo-text h2 {
+    font-size: 46px;
+    margin: 10px 0;
+    line-height: 1.2;
+    font: larger;
+    font-family: "Poppins", sans-serif;
+
+    
+}
+
+.bemvindo-text .highlight {
+    color: #00D100;
+}
+
+.bemvindo-text p {
+    font-size: 18px;
+    margin: 20px 0;
+    font-family: "Poppins", sans-serif;
+
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #382856;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.logo-right h1 {
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    font-size: 80px;
+    color: #B2EFA6;
+    letter-spacing: 5px;
+}
+
+.logosobrenos{
+    border-radius: 50PX 50PX 50PX 50PX;
+
+}
+
+
+
+
+/* CONTATO */
+
+
+.contato {
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 40px;
+    font-family: "Poppins", sans-serif;
+
+}
+
+.contato h2 {
+    font-size: 1.2em;
+    color: green;
+    margin-bottom: 10px;
+}
+
+.contato h1 {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.contato .highlight {
+    color: #00c200;
+    padding: 15px;
+
+
+}
+
+.contato p {
+    margin-bottom: 20px;
+    padding: 15px;
+    font-size: larger;
+    color: gray;
+
+}
+
+.contact-info {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 15px;
+}
+
+.info-item {
+    background-color: #f1ecfc;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    width: 250px;
+
+}
+
+.info-item i {
+    font-size: 24px;
+    color: #8c56b6;
+    margin-bottom: 13px;
+    padding: 15px;
+}
+
+
+
+.info-item a {
+    color: #8c56b6;
+    text-decoration: none;
+    
+}
+
+
+
+/* 
+SERVIÇOS */
+
+
+
+.container_produto_personazalizado{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+}
+
+.fale-conosco-contact-info{
+    height: 429px;
+}
+
+.container_items_produto_personalizado{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 60vh;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin-top: 80px;
+    background-image: url('../assets/img/BACKGROUND-LINHA.png')
+}
+
+
+.card_produto_personalizado{
+    display: flex;
+    width: 300px;
+    background-color: rgb(247, 247, 247);
+    height: 40%;
+    border-radius: 5px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 4rem;
+    transition: all 0.2s ease;
+    box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
+    
+}
+
+
+.card_produto_personalizado i{
+    display: flex;
+    color: #8c56b6;
+    font-size:35px;
+}
+
+.name_card_item_personalizado{
+    display: flex;
+    font-size: 18px;
+    font-weight: 500;
+    color: #4A4A4A;
+
+}
+
+.card_produto_personalizado:hover{
+    transform: scale(1.05);
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+}
+
+
+.quemsomos-container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.quemsomos-card {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.quemsomos-icon {
+    background: #c6a7f2;
+    padding: 10px;
+    border-radius: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.quemsomos-info {
+    display: flex;
+    flex-direction: column;
+    color: gray;
+}
+
+.quemsomos-info span {
+    font-size: 12px;
+    color: gray;
+}
+
+.contato .quemsomos-info p {
+    color: gray !important;
+}
+
+/* 
+teste */
+
+.elipse-quemsomos {
+    position: relative;
+    display: inline-block;
+}
+
+
+.tagline {
+    position: absolute;
+    top: 50%;
+    left: 13%;
+    transform: translate(-50%, -50%);
+    font-size: 18px; /* Ajuste conforme necessário */
+    font-weight: bold;
+    color: white; /* Ou escolha uma cor que contraste com a elipse */
+    white-space: nowrap;
+    z-index: 10; /* Garante que o texto fique acima da imagem */
+}
+
+
+.elipse-quemsomos2 {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 50px;
+}
+
+.elipse-quemsomos img {
+    width: 140%; /* Ajuste conforme necessário */
+    display: block;
+    top: -120px;
+    margin-left: -15px;
+    margin-top: 50px;
+}
+
+.tagline2 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 28px !important; /* Ajuste conforme necessário */
+    font-weight: bold;
+    color: green !important; /* Ou escolha uma cor que contraste com a elipse */
+    text-align: center;
+    white-space: nowrap;
+    z-index: 10; /* Garante que o texto fique acima da imagem */
+}
+
+
+/* js */
+
+.tooltip_produto_personalizado {
+    position: absolute;
+    bottom: 110%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 8px;
+    border-radius: 5px;
+    white-space: nowrap;
+    font-size: 14px;
+    opacity: 1;
+    transition: opacity 0.2s;
+}
+
+
+
+/* avaliação */
+.elipse-quemsomos {
+    display: flex;
+    flex-direction: column; /* Empilha a elipse e o texto */
+    text-align: center;
+}
+
+.elipse-quemsomos3 {
+    display: flex;
+    flex-direction: column; /* Empilha a elipse e o texto */
+    align-items: center; /* Centraliza os itens */
+    text-align: center;
+}
+
+.elipse-quemsomos2 {
+    display: flex;
+    flex-direction: column; /* Empilha a elipse e o texto */
+    align-items: center; /* Centraliza os itens */
+    text-align: center;
+}
+
+.elipse31 {
+    width: 230px; /* Largura da elipse */
+    height: 58px; /* Altura da elipse */
+    background-color: transparent; /* Remove o preenchimento */
+    border: 3px solid #6a0dad; /* Define apenas a borda */
+    border-radius: 50%; /* Mantém o formato de elipse */
+    left: -10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: -20px;
+}
+
+.elipse33 {
+    width: 250px; /* Largura da elipse */
+    height: 90px; /* Altura da elipse */
+    background-color: transparent; /* Remove o preenchimento */
+    border: 3px solid #6a0dad; /* Define apenas a borda */
+    border-radius: 50%; /* Mantém o formato de elipse */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: -70px
+}
+.elipse32 {
+    width: 150px; /* Largura da elipse */
+    height: 60px; /* Altura da elipse */
+    background-color: transparent; /* Remove o preenchimento */
+    border: 3px solid #6a0dad; /* Define apenas a borda */
+    border-radius: 50%; /* Mantém o formato de elipse */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: -3px;
+}
+
+.tagline3 {
+    margin-top: 10px; /* Espaço entre a elipse e o texto */
+    font-size: 28px;
+    color: green;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.tagline4 {
+    margin-top: 30px; /* Espaço entre a elipse e o texto */
+    font-size: 24px;
+    color: #333;
+    font-weight: bold;
+}
+
+.qsomos {
+    /* padding: 10px 20px; */
+    background: white;
+    height: 80vh;
+    background-image: url('../imagens/BACKGROUND-LINHA.png')
+ 
+}
+
+.qsomos-titulo {
+    font-size: 22px;
+    font-weight: bold;
+    color: #444;
+    margin-bottom: 20px;
+}
+
+.qsomos-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    max-width: 600px;
+    margin: 100px auto;
+}
+
+.qsomos-wrapper {
+    width: 100%;
+    overflow: hidden;
+}
+
+.qsomos-slider {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 100%;
+}
+
+.qsomos-card {
+    min-width: 100%;
+    padding: 20px;
+    background: #fff;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    text-align: center;
+    height: 40vh;
+}
+
+.qsomos-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.qsomos-stars {
+    color: #FFA500;
+    font-size: 18px;
+}
+
+.qsomos-nome {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 5px 0;
+}
+
+.qsomos-texto {
+    font-size: 14px;
+    color: #666;
+    padding: 0 10px;
+}
+
+.qsomos-prev,
+.qsomos-next {
+    background-color: #6a0dad;
+    border: none;
+    color: white;
+    font-size: 20px;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.qsomos-prev {
+    left: -50px;
+}
+
+.qsomos-next {
+    right: -50px;
+    
+
+}
+
+/* Responsividade para telas menores */
+@media screen and (max-width: 1024px) {
+    .main-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 60px;
+        justify-content: center;
+    }
+
+    .card{
+        height: 70%;
+    }
+
+    .Banner_Sobre_Nos{
+        display: none;
+    }
+    
+    .qsomos{
+        margin-top: 500px;
+        
+    }
+   
+    .content_coteudo_banner_sobre{
+        align-items: center;
+    }
+
+    .bemvindo-text {
+        max-width: 100%;
+        margin-top: 50px;
+    }
+
+    .tagline{
+        align-items: center;
+        position: relative;
+        justify-content: center;
+    }
+
+    .bemvindo-text .tagline {
+        margin-top: -10px;
+        left: 20%;
+        align-items: center;
+        justify-content: center;
+        font-size: 28px;
+        margin-bottom: 10px;
+    }
+
+    .text_top_sobre,
+    .text_bottom_sobre {
+        width: 80%;
+    }
+
+    .btn_sobre {
+        width: 80%;
+    }
+
+    .btn_sobre a {
+        width: 100%;
+    }
+
+    .categorias {
+        flex-direction: column;
+        height: auto;
+        padding: 20px;
+    }
+
+    .categorias-card {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .card {
+        width: 140px;
+        height: auto;
+    }
+
+    .contact-info {
+        flex-direction: column;
+    }
+
+    .info-item {
+        width: 90%;
+    }
+
+    .fale-conosco-info-section, .fale-conosco-texto{
+        align-items: center;
+        max-width: 90%;
+    }
+
+    .text h1{
+    margin-left: 0;
+    text-align: center;
+    justify-content: center;
+    }
+
+    .elipse-quemsomos{
+        align-items: center;
+    }
+
+  .mascote-pc{
+    width: 100%; /* Garante que a imagem ocupa a largura do contêiner */
+    max-width: 600px; /* Limita o tamanho máximo */
+    height: auto; /* Mantém a proporção */
+    display: block; /* Evita espaçamentos indesejados */
+    margin: 0 auto; /* Centraliza a imagem */
+  }
+
+  .qsomos-next {
+    right: 50px;
+    top: 60px;
+}
+ 
+.qsomos-container {
+    position: relative; /* Garante que os botões sejam posicionados em relação ao container */
+}
+
+.qsomos-prev, 
+.qsomos-next {
+    position: absolute;
+    top: 30%; /* Centraliza verticalmente */
+    transform: translateY(-50%); /* Ajusta melhor a posição */
+    background-color: #6a0dad;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.qsomos-prev {
+    left: 10px; /* Ajusta a posição à esquerda */
+}
+
+.qsomos-next {
+    right: 10px; /* Ajusta a posição à direita */
+}
+
+}
+
+@media screen and (max-width: 768px) {
+    .main-content {
+        padding: 40px;
+    }
+
+    .quemsomos-card{
+        width: 90%;
+        justify-content: center;
+    
+    }
+
+    .quemsomos-card p, .quemsomos-card span {
+        align-items: center;
+        font-size: 16px;
+        justify-content: center;
+    }
+
+
+    .bemvindo-text h2 {
+        font-size: 36px;
+    }
+
+    .bemvindo-text p {
+        font-size: 16px;
+    }
+
+    .btn_sobre a {
+        font-size: 16px;
+        height: 40px;
+    }
+
+    .content_coteudo_banner_sobre {
+        padding: 50px;
+    }
+
+    .text_top_sobre,
+    .text_bottom_sobre {
+        width: 90%;
+    }
+
+    .categorias-text {
+        flex-direction: column;
+       
+    }
+
+    .categorias-card {
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 50px;
+    }
+
+    .card {
+        width: 120px;
+        height: auto;
+    }
+
+    .card img {
+        width: 40px;
+    }
+
+    .quemsomos-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .elipse-quemsomos img {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .main-content {
+        padding: 20px;
+    }
+
+    .bemvindo-text h2 {
+        font-size: 28px;
+    }
+
+    .bemvindo-text p {
+        font-size: 14px;
+    }
+
+    .btn_sobre a {
+        font-size: 14px;
+        height: 35px;
+    }
+
+    .content_coteudo_banner_sobre {
+        padding: 30px;
+    }
+
+    .quemsomos-card{
+        width: 90%;
+    }
+
+    .text_top_sobre,
+    .text_bottom_sobre {
+        width: 100%;
+        font-size: 14px;
+    }
+
+    .categorias {
+        padding: 10px;
+    }
+
+    .categorias-card {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card {
+        width: 200px;
+        height: 200px;
+    }
+
+    .card img {
+        width: 40px;
+    }
+
+    .contact-info {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .info-item {
+        width: 100%;
+    }
+
+    .quemsomos-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .elipse-quemsomos img {
+        width: 100%;
+    }
+}

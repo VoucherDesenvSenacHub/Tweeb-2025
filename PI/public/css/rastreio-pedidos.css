@@ -1,16 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
-/* * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
-} */
-/* 
-.body-rastreio {
-    background-color: #f8f9fa;
-    padding: 20px;
-} */
+
 
 .container-rastreio {
     
@@ -38,19 +28,23 @@
 .id-rastreio {
     font-size: 18px;
     font-weight: bold;
+    color:#291E40;
+    
 }
 
 .rastreio-botao {
-    background-color: #007bff;
+    background-color: #7161EF;
     color: white;
     border: none;
     padding: 8px 12px;
     border-radius: 5px;
     cursor: pointer;
+    margin-top: 10px;
+    height: 50px;
 }
 
 .rastreio-botao:hover {
-    background-color: #0056b3;
+    background-color: #5f4edf;
 }
 
 .data-rastreio, .entrega-prevista-rastreio {
@@ -63,29 +57,37 @@
     font-weight: bold;
 }
 
-.rastreio-status {
+/* .rastreio-icone{
+    background: transparent; 
+    border: 2px solid #D0D5DD;
+    border-radius: 10px;
+} */
+
+/* .rastreio-status {
     background: #fff;
     padding: 15px;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    margin-bottom: 15px;
-}
+    outline: 4px;
+    
+} */
 
+/* 
 .rastreio-linha {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding-top: 20px;
     position: relative;
-}
+} */
 
-.rastreio-etapa {
+/* .rastreio-etapa {
     text-align: center;
     position: relative;
     flex: 1;
-}
+} */
 
-.rastreio-bolinha {
+/* .rastreio-bolinha {
     width: 14px;
     height: 14px;
     background: #ddd;
@@ -97,11 +99,11 @@
     left: 50%;
     transform: translateX(-50%);
     z-index: 1;
-}
+} */
 
-.ativo .rastreio-bolinha {
+/* .ativo .rastreio-bolinha {
     background: #28a745;
-}
+} */
 
 .rastreio-item {
     display: flex;
@@ -121,6 +123,7 @@
     width: 100%;
     flex-wrap: wrap;
 }
+
 
 .rastreio-img {
     width: 90px;
@@ -198,12 +201,15 @@
     height: auto;
 }
 
+.rastreio-botao i {
+    margin-left: 8px; 
+}
 .rastreio-botoes {
     display: flex;
     gap: 10px;
     flex-wrap: wrap;
 }
-
+/* 
 .line {
     position: relative;
     top: -55px;
@@ -212,7 +218,7 @@
     height: 4px;
     background-color: #ccc;
     z-index: 0;
-}
+} */
 
 .rastreio-pagamento-entrega-flex {
     display: flex;
@@ -226,11 +232,129 @@
     flex: 1; /* Ambos ocupam espaço igual */
 }
 
+.pedidosenviadostitulo{
+    color: #291E40;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    align-items: center;
+    display: flex;
+    justify-content: left;
+    font-size: 22px;
+}
+
+
+
+.rastreio-status,
+.rastreio-item,
+.rastreio-pagamento-entrega,
+.rastreio-resumo {
+    display: none;
+}
+
+
+.rastreio-status {
+    width: 100%;
+    max-width: 960px;
+    background: white;
+    padding: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    flex-direction: row;
+}
+
+/* Alinhamento horizontal no desktop */
+.rastreio-linha {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    width: 100%;
+}
+
+.rastreio-etapa {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    flex: 1;
+    position: relative;
+}
+
+.rastreio-status-texto {
+    font-weight: bold;
+    color: #555;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.rastreio-icone {
+    font-size: 28px;
+    border-radius: 10px;
+    margin: 8px 0;
+    padding: 5px 20px;
+    color: #555;
+}
+
+.rastreio-icone2 {
+    font-size: 28px;
+    background: transparent; 
+    border: 2px solid #D0D5DD;
+    border-radius: 10px;
+    margin: 8px 0;
+    padding: 5px 20px;
+}
+.ativo .rastreio-icone {
+    color: green;
+}
+
+.rastreio-data {
+    font-size: 14px;
+    color: #777;
+    margin-top: 5px;
+}
+
+
+@media (max-width: 1024px) {
+    .container-rastreio {
+        padding: 10px;
+    }
+
+    .line{
+        display: none;
+    }
+
+    .pedidosenviadostitulo{
+        color: #291E40;
+        margin-top: 30px;
+        margin-bottom: 20px;
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        font-size: 22px;
+    }
+}
+
+@media (max-width: 768px) {
+    .rastreio-info-preco, .rastreio-pagamento-entrega {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .rastreio-preco {
+        text-align: left;
+        margin-top: 10px;
+    }
+    .line{
+        display: none;
+    }
+}
 
 @media (max-width: 600px) {
     .header-rastreio {
         flex-direction: column;
         align-items: flex-start;
+    }
+    .line{
+        display: none;
     }
     .rastreio-botoes {
         margin-top: 10px;
@@ -244,34 +368,77 @@
         flex-direction: column;
         align-items: flex-start;
     }
-    .rastreio-preco {
-        text-align: left;
-        margin-top: 10px;
-    }
     .rastreio-pagamento-entrega {
         flex-direction: column;
     }
-    .rastreio-pagamento, .rastreio-entrega {
-        width: 100%;
-    }
     .line {
-    top: -79px;
+        top: -85px;
     }
     .ativo .rastreio-bolinha {
         background: #28a745;
-        top: -23px;
+    }
+    .rastreio-linha {
+        display: flex;
+        justify-content: space-between; /* Para distribuir os itens igualmente, com espaços entre eles */
+        align-items: center; /* Para garantir que os itens fiquem centralizados verticalmente */
+    }
+.element.style{
+    display: inline-flex;
+}
+    teste */
+
+    .rastreio-status {
+        width: 100%;
+        max-width: 400px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background: white;
+        padding: 20px;
+        /* border-radius: 10px; */
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
     }
 
-}
+    .rastreio-etapa {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        margin-bottom: 20px;
+        position: relative;
+    }
 
-.rastreio-status,
-.rastreio-item,
-.rastreio-pagamento-entrega,
-.rastreio-resumo {
-    display: none;
-}
+    .rastreio-status-texto {
+        font-weight: bold;
+        color: #555;
+        font-size: 18px;
+        margin-bottom: 5px;
+    }
+    .rastreio-icone {
+        font-size: 28px;
+        border-radius: 10px;
+        margin: 8px 0;
+        padding: 5px 20px;
+        color: #555;
+    }
+    
+    .rastreio-icone2 {
+        font-size: 28px;
+        background: transparent; 
+        border: 2px solid #D0D5DD;
+        border-radius: 10px;
+        margin: 8px 0;
+        padding: 5px 20px;
+    }
 
-.rastreio-icone {
-    outline: none;
-    border: none;
+    .ativo .rastreio-icone {
+        color: green;
+    }
+
+    .rastreio-data {
+        font-size: 14px;
+        color: #777;
+        margin-top: 5px;
+    }
+   
 }
