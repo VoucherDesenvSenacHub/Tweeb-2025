@@ -41,7 +41,7 @@
     </header>
     <div class="pesquisa3-cadastro-barra-roxa"></div>
     <div class="pesquisa3-cadastro-voltar-button">
-        <a href="#" class="pesquisa3-cadastro-link-voltar-button">
+        <a href="../pages/pagina_2_pesquisa_cadastro.php" class="pesquisa3-cadastro-link-voltar-button">
             <img src="../../../../public/assets/img/Icon_voltar (1).png" alt="voltar_icon" class="pesquisa3-cadastro-voltar-icon">
             Voltar
         </a>
@@ -77,7 +77,7 @@
     </div>
     <div class="pesquisa3-cadastro-continuar-button-container">
         <div class="pesquisa3-cadastro-continuar-button">
-            <a href="../pages/pagina_2_pesquisa_cadastro.php" class="pesquisa3-cadastro-link-continuar">
+            <a href="#" class="pesquisa3-cadastro-link-continuar">
                 Continuar
             </a>
         </div>
