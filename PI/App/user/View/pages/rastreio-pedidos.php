@@ -17,7 +17,7 @@
             <div class="header-rastreio">
                 <p class="id-rastreio">Ordem ID: 9632145632152</p>
                 <div class="rastreio-botoes">
-                <button class="rastreio-icone">
+                <button class="rastreio-icone2">
                         <img src="../../../../public/assets/img/nota-rastreio.png" alt="Ícone">
                     </button>
                     <button class="rastreio-botao" onclick="toggleDetalhes(this)">Acompanhar Pedido  <i class="fa-solid fa-location-dot"></i></button>
@@ -107,7 +107,7 @@
             <div class="header-rastreio">
                 <p class="id-rastreio">Ordem ID: 9632145632152</p>
                 <div class="rastreio-botoes">
-                <button class="rastreio-icone">
+                <button class="rastreio-icone2">
                         <img src="../../../../public/assets/img/nota-rastreio.png" alt="Ícone">
                     </button>
                     <button class="rastreio-botao" onclick="toggleDetalhes(this)">Acompanhar Pedido  <i class="fa-solid fa-location-dot"></i></button>
@@ -197,7 +197,7 @@
             <div class="header-rastreio">
                 <p class="id-rastreio">Ordem ID: 9632145632152</p>
                 <div class="rastreio-botoes">
-                <button class="rastreio-icone">
+                <button class="rastreio-icone2">
                         <img src="../../../../public/assets/img/nota-rastreio.png" alt="Ícone">
                     </button>
                     <button class="rastreio-botao" onclick="toggleDetalhes(this)">Acompanhar Pedido  <i class="fa-solid fa-location-dot"></i></button>
@@ -287,7 +287,7 @@
             <div class="header-rastreio">
                 <p class="id-rastreio">Ordem ID: 9632145632152</p>
                 <div class="rastreio-botoes">
-                <button class="rastreio-icone">
+                <button class="rastreio-icone2">
                         <img src="../../../../public/assets/img/nota-rastreio.png" alt="Ícone">
                     </button>
                     <button class="rastreio-botao" onclick="toggleDetalhes(this)">Acompanhar Pedido  <i class="fa-solid fa-location-dot"></i></button>
@@ -377,7 +377,7 @@
             <div class="header-rastreio">
                 <p class="id-rastreio">Ordem ID: 9632145632152</p>
                 <div class="rastreio-botoes">
-                <button class="rastreio-icone">
+                <button class="rastreio-icone2">
                         <img src="../../../../public/assets/img/nota-rastreio.png" alt="Ícone">
                     </button>
                     <button class="rastreio-botao" onclick="toggleDetalhes(this)">Acompanhar Pedido  <i class="fa-solid fa-location-dot"></i></button>
@@ -467,7 +467,7 @@
             <div class="header-rastreio">
                 <p class="id-rastreio">Ordem ID: 9632145632152</p>
                 <div class="rastreio-botoes">
-                <button class="rastreio-icone">
+                <button class="rastreio-icone2">
                         <img src="../../../../public/assets/img/nota-rastreio.png" alt="Ícone">
                     </button>
                     <button class="rastreio-botao" onclick="toggleDetalhes(this)">Acompanhar Pedido  <i class="fa-solid fa-location-dot"></i></button>
@@ -557,7 +557,7 @@
             <div class="header-rastreio">
                 <p class="id-rastreio">Ordem ID: 9632145632152</p>
                 <div class="rastreio-botoes">
-                <button class="rastreio-icone">
+                <button class="rastreio-icone2">
                         <img src="../../../../public/assets/img/nota-rastreio.png" alt="Ícone">
                     </button>
                     <button class="rastreio-botao" onclick="toggleDetalhes(this)">Acompanhar Pedido  <i class="fa-solid fa-location-dot"></i></button>
@@ -647,7 +647,7 @@
             <div class="header-rastreio">
                 <p class="id-rastreio">Ordem ID: 9632145632152</p>
                 <div class="rastreio-botoes">
-                <button class="rastreio-icone">
+                <button class="rastreio-icone2">
                         <img src="../../../../public/assets/img/nota-rastreio.png" alt="Ícone">
                     </button>
                     <button class="rastreio-botao" onclick="toggleDetalhes(this)">Acompanhar Pedido  <i class="fa-solid fa-location-dot"></i></button>
@@ -737,7 +737,7 @@
             <div class="header-rastreio">
                 <p class="id-rastreio">Ordem ID: 9632145632152</p>
                 <div class="rastreio-botoes">
-                <button class="rastreio-icone">
+                <button class="rastreio-icone2">
                         <img src="../../../../public/assets/img/nota-rastreio.png" alt="Ícone">
                     </button>
                     <button class="rastreio-botao" onclick="toggleDetalhes(this)">Acompanhar Pedido  <i class="fa-solid fa-location-dot"></i></button>
@@ -827,7 +827,7 @@
             <div class="header-rastreio">
                 <p class="id-rastreio">Ordem ID: 9632145632152</p>
                 <div class="rastreio-botoes">
-                <button class="rastreio-icone">
+                <button class="rastreio-icone2">
                         <img src="../../../../public/assets/img/nota-rastreio.png" alt="Ícone">
                     </button>
                     <button class="rastreio-botao" onclick="toggleDetalhes(this)">Acompanhar Pedido  <i class="fa-solid fa-location-dot"></i></button>
