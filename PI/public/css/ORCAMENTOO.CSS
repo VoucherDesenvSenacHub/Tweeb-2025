@@ -5,7 +5,7 @@
 
 
 
-* {
+* * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -693,7 +693,7 @@
 }
 
 .menu li a:hover {
-    background-color:  #976be2;
+    background-color:  #FF6A3D;
     color: #fff;
 }
 
@@ -726,7 +726,7 @@ button#openSidebarBtn {
     left: 20px;
     padding: 10px 20px;
     font-size: 16px;
-    background-color: #976be2;
+    background-color: #FF6A3D;
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -750,32 +750,11 @@ button#openSidebarBtn:hover {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .container {
     display: flex;
     justify-content: space-around;
-    padding: 50px;
-    margin-top: 10px;
+    padding: 120px;
+    
 }
 
 .contact-info {
@@ -793,7 +772,7 @@ button#openSidebarBtn:hover {
 
 .info-section h3 {
     margin-bottom: 10px;
-    color:#976be2;
+    color: #FF6A3D;
 }
 
 .icon img {
@@ -844,26 +823,23 @@ textarea {
 
 button {
     padding: 12px;
-    background-color:#976be2; 
+    background-color: #FF6A3D;
     color: #fff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     margin: 10px 0px;
-  
-    
     
 }
 
 button:hover {
-    background-color:#976be2;
+    background-color: #e65a29;
 }
 
 button[type="button"] {
     background-color: #d9d9d9;
     color: #333;
     width: 32%;
-   
 }
 
 
@@ -874,7 +850,7 @@ button[type="button"] {
 
 footer {
     background-color: #2e1b46;
-    color:white;
+    color: #d6c0f1;
     padding: 40px 0;
     
     
@@ -894,6 +870,11 @@ footer {
     width: 500px;
 }
 
+.logo h1 {
+    font-size: 36px;
+    font-family: 'Arial', sans-serif;
+    color: #c0a5ef;
+}
 
 .logo p {
     margin-top: 10px;
@@ -915,16 +896,14 @@ footer {
 .links ul {
     list-style: none;
     padding: 0;
-   
 }
 
 .links li {
     margin-bottom: 10px;
-   
 }
 
 .links a {
-    color: white;
+    color: #d6c0f1;
     text-decoration: none;
 }
 
@@ -934,7 +913,7 @@ footer {
 
 
 .contato p, .contact a {
-    color: white;
+    color: #d6c0f1;
     font-size: 16px;
 }
 
@@ -980,10 +959,82 @@ footer {
     font-family: "Poppins", sans-serif;
 }
 
+
 .form-section h1{
     font-family: "Poppins", sans-serif;
-    color: #976be2;
+    color: #FF6A3D;
     padding: 20px;
    
 }
 
+/* From Uiverse.io by Yaya12085 */ 
+.containerr {
+    width: 250px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    gap: 5px;
+    background-color: rgba(0, 110, 255, 0.041);
+    background-color: #fff;
+  }
+  
+  .header {
+    flex: 1;
+    width: 100%;
+    border: 2px dashed #FF6A3D;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  
+  .header svg {
+    height: 20px;
+  }
+  
+  .header p {
+    text-align: center;
+    color: black;
+  }
+  
+  .footer {
+    background-color: rgba(248, 248, 248, 0.075);
+    width: 100%;
+    height: 40px;
+    padding: 8px;
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    color: black;
+    border: none;
+  }
+  
+  .footer svg {
+    height: 130%;
+    fill: #FF6A3D;
+    background-color: rgba(70, 66, 66, 0.103);
+    border-radius: 50%;
+    padding: 2px;
+    cursor: pointer;
+    box-shadow: 0 2px 30px rgba(200, 199, 199, 0.205);
+  }
+  
+  .footer p {
+    flex: 1;
+    text-align: center;
+  }
+  
+  #file {
+    display: none;
+  }
+
+
+.footer, .p{
+    font-family:Arial, Helvetica, sans-serif;
+}

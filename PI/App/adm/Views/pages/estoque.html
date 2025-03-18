@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Perfil - Tweeeb</title>
+    <link rel="stylesheet" href="../CSS/estoque.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+   
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="../imagens/logosembg.png" alt="Tweeeb Logo">
+            </div>    
+        </nav>
+    </header>
+
+
+    <nav class="categoriacompra">
+        <ul class="categoria">
+            <a href="">T</a>
+            <a href="">W</a>
+            <a href="">E</a>
+            <a href="">E</a>
+            <a href="">B</a>
+            
+        </ul>
+    </nav>
+
+       
+    <div class="subtitulo">
+        <h2>Estoque</h2>
+    </div>
+
+
+    <div class="container">
+        <div class="btoescategoria">
+            <div class="category active">
+                <i class="fa-solid fa-computer" style="color:rgb(119, 119, 255);"></i>
+                <p>Computadores</p>
+                <div class="progress blue" style="width: 50%;"></div>
+                <span class="stock">200 | Estoque mín: 35</span>
+
+            </div>
+            <div class="category">
+                <i class="fa-solid fa-tablet-screen-button" style="color:rgb(226, 226, 109);"></i>
+                <p>Hardwares</p>
+                <div class="progress yellow" style="width: 70%;"></div>
+                <span class="stock">600 | Estoque mín: 108</span>
+
+            </div>
+            <div class="category">
+                <i class="fa-solid fa-computer-mouse" style="color:rgb(255, 129, 129);"></i>
+                <p>Periféricos</p>
+                <div class="progress red" style="width: 65%;"></div>
+                <span class="stock">500 | Estoque mín: 108</span>
+
+            </div>
+            <div class="category">
+                <i class="fa-solid fa-bolt" style="color:rgb(102, 215, 102);"></i>
+                <p>Energia</p>
+                <div class="progress gray" style="width: 30%;"></div>
+                <span class="stock">160 | Estoque mín: 67</span>
+            </div>
+            <div class="category">
+                <i class="fa-solid fa-headphones" style="color:rgb(173, 71, 148);"></i>
+                <p>Áudio</p>
+                <div class="progress bluee" style="width: 55%;"></div>
+                <span class="stock">256 | Estoque mín: 108</span>
+
+            </div>
+            <div class="category">
+                <i class="fa-solid fa-gamepad" style="color:rgb(100, 234, 236);"></i>
+                <p>Jogos</p>
+                <div class="progress grayy" style="width: 20%;"></div>
+                <span class="stock">123 | Estoque mín: 108</span>
+
+            </div>
+        </div>
+        
+        <div class="filters">
+            <button>Hoje</button>
+            <button>Ontem</button>
+            <button>7 dias</button>
+            <button>30 dias</button>
+            <button>Último mês</button>
+            <input type="date">
+            <input class="input" name="text" placeholder="Buscar..." type="search">
+        </div>
+
+        <div class="search-bar">
+            <input type="text" placeholder="Filtrar nome">
+            <input type="text" placeholder="Filtrar modelo">
+            <input type="text" placeholder="Número de série">
+            <input type="text" placeholder="Filtrar fornecedor">
+            <input type="number" value="1000">
+            <button class="clear">Limpar</button>
+            <button class="search">Buscar</button>
+        </div>
+
+
+
+
+        <div>   
+            <nav class="tabs">
+                <a href="#" class="active">Visão Geral</a>
+                <a href="../index.html/colabpedidos.html">Pedidos</a>
+                <a href="#" >Enviados</a>
+            </nav>
+            
+            <div class="actions">
+              <button type="button" class="button">
+                        <span class="button__text">Adicionar OS</span>
+                        <span class="button__icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" stroke="currentColor" height="24" fill="none" class="svg"><line y2="19" y1="5" x2="12" x1="12"></line><line y2="12" y1="12" x2="19" x1="5"></line></svg></span>
+                </button>
+
+              <button title="filter" class="filter">
+                        <svg viewBox="0 0 512 512" height="1em">
+                        <path
+                            d="M0 416c0 17.7 14.3 32 32 32l54.7 0c12.3 28.3 40.5 48 73.3 48s61-19.7 73.3-48L480 448c17.7 0 32-14.3 32-32s-14.3-32-32-32l-246.7 0c-12.3-28.3-40.5-48-73.3-48s-61 19.7-73.3 48L32 384c-17.7 0-32 14.3-32 32zm128 0a32 32 0 1 1 64 0 32 32 0 1 1 -64 0zM320 256a32 32 0 1 1 64 0 32 32 0 1 1 -64 0zm32-80c-32.8 0-61 19.7-73.3 48L32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l246.7 0c12.3 28.3 40.5 48 73.3 48s61-19.7 73.3-48l54.7 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-54.7 0c-12.3-28.3-40.5-48-73.3-48zM192 128a32 32 0 1 1 0-64 32 32 0 1 1 0 64zm73.3-64C253 35.7 224.8 16 192 16s-61 19.7-73.3 48L32 64C14.3 64 0 78.3 0 96s14.3 32 32 32l86.7 0c12.3 28.3 40.5 48 73.3 48s61-19.7 73.3-48L480 128c17.7 0 32-14.3 32-32s-14.3-32-32-32L265.3 64z"
+                        ></path>
+                        </svg>
+                </button>
+  
+            </div>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Imagem</th>
+                        <th>Produto</th>
+                        <th>Departamento</th>
+                        <th>QTD Entrada</th>
+                        <th>Valor UND</th>
+                        <th>Valor Total</th>
+                        <th>Estoque</th>
+                        <th>Fornecedor</th>
+                        <th>Status</th>
+                        <th>NF</th>
+                    </tr>
+                </thead>
+                <tbody id="page-1" class="product-page">
+                    <tr>
+                        <td>01</td>
+                        <td><img src="../imagens/gtx-removebg-preview.png" alt="Descrição da imagem" width="40" height="40"></td>
+                        <td>Placa GTX</td>
+                        <td>Perifericos</td>
+                        <td>150</td>
+                        <td>R$ 230,00</td>
+                        <td>R$ 34.000,00</td>
+                        <td>70 PCS</td>
+                        <td>SONY.SA</td>
+                        <td class="estoque">Estoque</td>
+                        <td><button class="download-button">
+                            <div class="docs">
+                              <svg
+                                viewBox="0 0 24 24"
+                                width="20"
+                                height="20"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                fill="none"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                class="css-i6dzq1"
+                              >
+                                <path
+                                  d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+                                ></path>
+                                <polyline points="14 2 14 8 20 8"></polyline>
+                                <line x1="16" y1="13" x2="8" y2="13"></line>
+                                <line x1="16" y1="17" x2="8" y2="17"></line>
+                                <polyline points="10 9 9 9 8 9"></polyline>
+                              </svg>
+                              Docs
+                            </div>
+                            <div class="download">
+                              <svg
+                                viewBox="0 0 24 24"
+                                width="24"
+                                height="24"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                fill="none"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                class="css-i6dzq1"
+                              >
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                <polyline points="7 10 12 15 17 10"></polyline>
+                                <line x1="12" y1="15" x2="12" y2="3"></line>
+                              </svg>
+                            </div>
+                          </button></td>
+                    </tr>
+
+                    <tr>
+                        <td>01</td>
+                        <td><img src="../imagens/gtx-removebg-preview.png" alt="Descrição da imagem" width="40" height="40"></td>
+                        <td>Placa GTX</td>
+                        <td>Perifericos</td>
+                        <td>150</td>
+                        <td>R$ 230,00</td>
+                        <td>R$ 34.000,00</td>
+                        <td>70 PCS</td>
+                        <td>SONY.SA</td>
+                        <td class="estoque">Estoque</td>
+                        <td><button class="download-button">
+                            <div class="docs">
+                              <svg
+                                viewBox="0 0 24 24"
+                                width="20"
+                                height="20"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                fill="none"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                class="css-i6dzq1"
+                              >
+                                <path
+                                  d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+                                ></path>
+                                <polyline points="14 2 14 8 20 8"></polyline>
+                                <line x1="16" y1="13" x2="8" y2="13"></line>
+                                <line x1="16" y1="17" x2="8" y2="17"></line>
+                                <polyline points="10 9 9 9 8 9"></polyline>
+                              </svg>
+                              Docs
+                            </div>
+                            <div class="download">
+                              <svg
+                                viewBox="0 0 24 24"
+                                width="24"
+                                height="24"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                fill="none"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                class="css-i6dzq1"
+                              >
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                <polyline points="7 10 12 15 17 10"></polyline>
+                                <line x1="12" y1="15" x2="12" y2="3"></line>
+                              </svg>
+                            </div>
+                          </button></td>
+                    </tr>
+
+                    
+                   
+                </tbody>
+                <tbody id="page-2" class="product-page" style="display: none;">
+                   
+            </table>
+    
+            <div class="pagination">
+                <button onclick="showPage(1)">1</button>
+                <button onclick="showPage(2)">2</button>
+            </div>
+        </div>
+    </div>
+
+
+        
+    
+    
+    
+
+    <footer>
+        <div class="footer-container">
+            <div class="logo">
+                <img src="../imagens/twebroxo-removebg.png" alt="logotweeb">
+                
+                <h3>Você faz parte da nossa conexão com o futuro.</h3>
+
+            </div>     
+        </div>
+        <button class="botaofim">
+            <svg class="svggIcon" viewBox="0 0 384 512">
+              <path
+                d="M214.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 141.2V448c0 17.7 14.3 32 32 32s32-14.3 32-32V141.2L329.4 246.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-160-160z"
+              ></path>
+            </svg>
+          </button>
+  
+    </footer>
+
+            
+    
+</body>
+</html>
