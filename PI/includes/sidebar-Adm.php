@@ -1,9 +1,10 @@
+
 <body class="SideBar_adm">
   <nav class="adm_sidebar" id="sidebar">
 
         <div class="sidebar_contentAdm">
             <div class="adm_user">
-                <img src="../../../../public/assets/img/Avatar.png" id="userAdm_avatar" alt="Avatar">
+                <img class="foto-adm" src="../../../../public/assets/img/Avatar.png" id="userAdm_avatar" alt="Avatar">
     
                 <p class="userAdm_infos">
                     <span class="itemAdm-descricao">
@@ -30,6 +31,15 @@
                     <li><a href="#"><span class="itemAdm-descricao">Estoque</span></a></li>
                   </ul>
                 </li>
+                <li class="sidebarAdm-item">
+                  <a href="#"><img src="../../../../public/assets/img/Vector (4).png" alt=""><span class="itemAdm-descricao">Clientes</span></a>
+                </li>
+                <li class="sidebarAdm-item">
+                  <a href="#"><img src="../../../../public/assets/img/Vector (5).png" alt=""><span class="itemAdm-descricao">Aparência</span></a>
+                </li>
+                <li class="sidebarAdm-item">
+                  <a href="#"><img src="../../../../public/assets/img/sair.png" alt=""><span class="itemAdm-descricao">Sair</span></a>
+                </li>
                
                 
             
@@ -40,12 +50,12 @@
         </div>
        
         <div id="logout">
-            <button id="logout_btn">
-                <a href="#"><img src="../../../../public/assets/img/Help-circle.png" alt=""> <span class="itemAdm-descricao">Ajuda</span></a>
-            </button>
-            <button id="logout_btn">
+            <!-- <button id="logout_btn">
+                <a href="#"><span class="itemAdm-descricao"></span></a>
+            </button> -->
+            <!-- <button id="logout_btn">
                 <a href="#"><img src="../../../../public/assets/img/sair.png" alt=""> <span class="itemAdm-descricao">Sair</span></a>
-            </button>
+            </button> -->
         </div>
     </nav>
 </body>

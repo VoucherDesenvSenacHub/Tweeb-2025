@@ -1,37 +1,4 @@
-.header-container{
-    height: 100px;
-    display: flex;
-    align-items: center;
-}
 
-.header-logo img{
-    width: 100%;
-    margin-top: 35%;
-    margin-left: 52%;
-}
-
-.mini-navbar {
-    margin-top: 21px;
-    display: flex;
-    width: 100%;
-    height: 56px; 
-    background-color: #2D1B46;
-}
-
-.footer{
-    display: flex;
-    height: 100%;
-    background-color: #cef5a4;
-    padding: 22px 10px ;
-    text-align: center;
-    justify-content: center;
-}
-
-/* *{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-} */
 
 .footer-text{
     display: flex;
@@ -50,10 +17,10 @@
     height: auto;
 }
 
-main {
+/* main {
     width: 80%;
     margin: 20px auto;
-}
+} */
 
 h1 {
     margin-top: 50px;
@@ -92,7 +59,7 @@ legend{
     font-family: sans-serif;
 }
 
-form {
+.form-container-adm {
     font-family: sans-serif,'Poppins';
     font-weight: 100;
     padding: 60px; 
@@ -161,9 +128,10 @@ input, select {
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    position: absolute;
-    bottom: 16px; 
-    right: 48px; 
+    bottom: 16px;
+    margin-right: 80px;
+    justify-content: flex-end;
+    margin-left: auto;
 }
 
 .save-button:hover {
