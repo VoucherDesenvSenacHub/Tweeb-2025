@@ -3,29 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="../../../public/css/adm-enviados.css">
+    <title>Enviados</title>
+    <link rel="stylesheet" href="../../../../public/css/adm-enviados.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-    <!-- navbar, tirar isso depois e deixar só como include. -->
-    <header>
-        <div class="listarU-logo">
-            <img src="../../../public/assets/img/Ativo 2.png " alt="logo tweeb">
-        </div> 
-    </header>
-
-    <!-- Barra de departamentos -->
-    <section class="listarU-departments-bar">
-        <div class="listarU-department"></div>
-    </section>
 
     <div class="quantidade-pedidos">
         <div class="pedidos-ui-card">
 
             <div class="ui-pedidos-frame">
                 <p>Pedidos</p>
-                <img src="../../../public/assets/img/adm-pedidos-icon1.png" alt="">
+                <img src="../../../../public/assets/img/adm-pedidos-icon1.png" alt="">
             </div>
 
             <div class="ui-pedidos-label">
@@ -36,7 +25,7 @@
         </div>
 
         <div class="pedidos-adicionar-envio">
-            <img src="../../../public/assets/img/plus-circle.svg" alt="">
+            <img src="../../../../public/assets/img/plus-circle.svg" alt="">
             <p>Adicionar Envio</p>
         </div>
     </div>
@@ -523,17 +512,5 @@
 
 
     </div>
-
-
-    <!-- fazer isso ser um include depoiissss -->
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-logo">
-                    <div><img src="../../../public/assets/img/logo.png" alt="Logo Tweeb" /></div>
-                <div class="footer-text">Você faz parte da nossa conexão com o futuro.</div>
-            </div>       
-        </div>
-    </footer>
-
 </body>
 </html>
