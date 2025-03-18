@@ -196,7 +196,6 @@
     color: black;
     text-decoration: none;
 }
-
 .pesquisa1-cadastro-link-voltar-button:hover{
     transition: transform 0.2s ease-in-out;
     transform: scale(1.1);
@@ -224,4 +223,133 @@
 .pesquisa1-cadastro-barra-roxa-footer{
     position: fixed;
     bottom: 0;
+}
+
+
+
+
+
+
+
+
+@media screen and (max-width: 705px){
+    .pesquisa1-cadastro-header{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .pesquisa1-cadastro-voltar-button{
+        display: flex;
+        transform: translateX(-35%);
+    }
+
+    .pesquisa1-cadastro-cards-container{
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .pesquisa1-cadastro-continuar-button{
+        margin-bottom: 30%;
+        margin-top: 15%;
+    }
+
+    .pesquisa1-cadastro-h1-title{
+        font-size: 22px;
+        margin-top: 2%;
+    }
+
+    .pesquisa1-cadastro-h2-title{
+        font-size: 14px;
+    }
+
+    .pesquisa1-cadastro-card1{
+        width: 30%;
+        height: 40vh;
+    }
+
+    .pesquisa1-cadastro-card2{
+        width: 30%;
+        height: 40vh;
+    }
+
+    .pesquisa1-cadastro-img-card1{
+        width: 70%;
+        height: 50%;
+        transform: translateY(10%);
+    }
+
+    .pesquisa1-cadastro-img-card2{
+        width: 70%;
+        height: 50%;
+    }
+
+    .pesquisa1-cadastro-h1-card1{
+        font-size: 12px;
+    }
+
+    .pesquisa1-cadastro-h2-card1{
+        font-size: 11px;
+        margin-bottom: 15%;
+        display: flex;
+    }
+
+    .pesquisa1-cadastro-h1-card2{
+        font-size: 12px;
+    }
+
+    .pesquisa1-cadastro-h2-card2{
+        font-size: 11px;
+    }
+}
+
+
+
+
+
+
+
+
+
+@media screen and (max-width: 515px){
+    .pesquisa1-cadastro-h1-title{
+        font-size: 14px;
+    }
+
+    .pesquisa1-cadastro-h2-title{
+        font-size: 11px;
+        transform: translateY(2vh);
+    }
+
+    .pesquisa1-cadastro-card1{
+        width: 50%;
+        height: 40vh;
+    }
+
+    .pesquisa1-cadastro-card2{
+        width: 50%;
+        height: 40vh;
+    }
+}
+
+
+@media screen and (max-width: 455px){
+    .pesquisa1-cadastro-voltar-button{
+        display: flex;
+        transform: translateX(-70%);
+    }
+}
+
+@media screen and (max-width: 362px){
+    .pesquisa1-cadastro-img-card1{
+        width: 80%;
+        height: 80%;
+        transform: translateY(10%);
+    }
+
+    .pesquisa1-cadastro-img-card2{
+        width: 80%;
+        height: 80%;
+        transform: translateY(10%);
+    }
 }
