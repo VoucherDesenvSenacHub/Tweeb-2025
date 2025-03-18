@@ -432,7 +432,7 @@
     text-decoration: none; 
     font-weight: 500;
     white-space: nowrap;
-    color: #000000 !important; 
+    color: #000000 ; 
 }
 
 .responsive-menu {
@@ -525,16 +525,15 @@
     font-weight: bold;
 }
 
-.btn-login {
-    background-color: #007bff;
+.btn-login {  
+    background-color: #CEF5A4;
     color: white;
 }
 
 .btn-register {
-    background-color: #28a745;
+    background-color: #d7d7d7;
     color: white;
 }
-
 
 @media (min-width: 2560px) {
     .headNav {
@@ -772,18 +771,7 @@
         width: 100vw;
     }
     .close-menu-nav{
-        transform: translate(225px, -20px);
+        transform: translate(220px, -20px);
     }
-}
-@media(max-width: 375px){
-    .close-menu-nav{
-        position: fixed;
-        left: 8%;
-    }
-}
-@media(max-width: 320px){
-    .close-menu-nav{
-        position: fixed;
-        left: 5%;
-    }
+    
 }
