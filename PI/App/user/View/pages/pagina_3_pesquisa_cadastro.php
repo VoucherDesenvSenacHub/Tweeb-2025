@@ -48,30 +48,30 @@
     </div>
     <div class="pesquisa3-cadastro-titles-container">
         <h1 class="pesquisa3-cadastro-h1-title">
-            Qual seu conhecimento sobre tecnologia?
+            Deseja fazer uma compra pessoal ou corporativa?
         </h1>
         <h2 class="pesquisa3-cadastro-h2-title">
-            Queremos te conhecer melhor, conte um pouco mais sobre você.
+            Não esqueça de dar uma espiadinha em nossos planos promocionais.
         </h2>
     </div>
     <div class="pesquisa3-cadastro-cards-container">
         <div class="pesquisa3-cadastro-card1">
             <img src="../../../../public/assets/img/fone 1.png" alt="" class="pesquisa3-cadastro-img-card1">
             <h1 class="pesquisa3-cadastro-h1-card1">
-                Tenho pouco conhecimento sobre tecnologia.
+                Uma compra pessoal.
             </h1>
             <h2 class="pesquisa3-cadastro-h2-card1">
-                Consigo usar o básico, mas frequentemente preciso de ajuda com configurações e problemas mais complexos.
+                Estou procurando algo que atenda às minhas necessidades individuais e ao meu gosto pessoal. 
             </h2>
         </div>
 
         <div class="pesquisa3-cadastro-card2">
             <img src="../../../../public/assets/img/Instagram Post Dia Internacional do Gamer Tech Preto e Rosa (5) 1.png" alt="" class="pesquisa3-cadastro-img-card2">
             <h1 class="pesquisa3-cadastro-h1-card2">
-                Tenho conhecimento sobre tecnologia.
+                Uma compra corporativa.
             </h1>
             <h2 class="pesquisa3-cadastro-h2-card2">
-                Tenho facilidade em usar e configurar dispositivos, explorar novos aplicativos, produtos e suas especificações.
+                Precisamos de produtos ou serviços que possam atender às demandas da nossa empresa e que sejam adequados para um ambiente corporativo.
             </h2>
         </div>
     </div>
