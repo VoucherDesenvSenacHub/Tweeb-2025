@@ -142,6 +142,7 @@
 .pesquisa2-cadastro-img-card1, .pesquisa2-cadastro-img-card2{
     width: 200px;
     height: 200px;
+    transform: translateY(10%);
 }
 
 
@@ -224,4 +225,168 @@
 .pesquisa2-cadastro-barra-roxa-footer{
     position: fixed;
     bottom: 0;
+}
+
+
+
+
+
+
+
+
+@media screen and (max-width: 705px){
+    .pesquisa2-cadastro-header{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .pesquisa2-cadastro-voltar-button{
+        display: flex;
+        transform: translateX(-35%);
+    }
+
+    .pesquisa2-cadastro-cards-container{
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .pesquisa2-cadastro-continuar-button{
+        margin-bottom: 30%;
+        margin-top: 15%;
+    }
+
+    .pesquisa2-cadastro-h1-title{
+        font-size: 22px;
+        margin-top: 2%;
+    }
+
+    .pesquisa2-cadastro-h2-title{
+        font-size: 14px;
+    }
+
+    .pesquisa2-cadastro-card1{
+        width: 30%;
+        height: 40vh;
+    }
+
+    .pesquisa2-cadastro-card2{
+        width: 30%;
+        height: 40vh;
+    }
+
+    .pesquisa2-cadastro-img-card1{
+        width: 70%;
+        height: 50%;
+        transform: translateY(10%);
+    }
+
+    .pesquisa2-cadastro-img-card2{
+        width: 70%;
+        height: 50%;
+    }
+
+    .pesquisa2-cadastro-h1-card1{
+        font-size: 12px;
+    }
+
+    .pesquisa2-cadastro-h2-card1{
+        font-size: 11px;
+        margin-bottom: 15%;
+        display: flex;
+    }
+
+    .pesquisa2-cadastro-h1-card2{
+        font-size: 12px;
+    }
+
+    .pesquisa2-cadastro-h2-card2{
+        font-size: 11px;
+    }
+}
+
+
+
+
+
+
+
+
+
+@media screen and (max-width: 515px){
+    .pesquisa2-cadastro-h1-title{
+        font-size: 14px;
+    }
+
+    .pesquisa2-cadastro-h2-title{
+        font-size: 11px;
+        transform: translateY(2vh);
+    }
+
+    .pesquisa2-cadastro-card1{
+        width: 50%;
+        height: 40vh;
+    }
+
+    .pesquisa2-cadastro-card2{
+        width: 50%;
+        height: 40vh;
+    }
+}
+
+
+@media screen and (max-width: 455px){
+    .pesquisa2-cadastro-voltar-button{
+        display: flex;
+        transform: translateX(-70%);
+    }
+}
+
+@media screen and (max-width: 380px){
+    .pesquisa2-cadastro-img-card1{
+        width: 60%;
+        height: 60%;
+        transform: translateY(10%);
+    }
+
+    .pesquisa2-cadastro-img-card2{
+        width: 60%;
+        height: 60%;
+        transform: translateY(10%);
+    }
+
+    .pesquisa2-cadastro-h1-card1{
+        font-size: 10px;
+    }
+
+    .pesquisa2-cadastro-h2-card1{
+        font-size: 9px;
+        margin-bottom: 15%;
+        display: flex;
+    }
+
+    .pesquisa2-cadastro-h1-card2{
+        font-size: 10px;
+    }
+
+    .pesquisa2-cadastro-h2-card2{
+        font-size: 9px;
+        margin-bottom: 15%;
+        display: flex;
+    }
+}
+
+
+@media screen and (max-width: 380px){
+    .pesquisa2-cadastro-img-card1{
+        width: 60%;
+        height: 40%;
+        transform: translateY(10%);
+    }
+
+    .pesquisa2-cadastro-img-card2{
+        width: 60%;
+        height: 40%;
+        transform: translateY(10%);
+    }
 }
