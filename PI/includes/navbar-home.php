@@ -8,7 +8,7 @@
         </div>
         <div class="search-box">
             <form action="">
-                <button type="submit"><i class='bx bx-search'></i></button>
+                <button class="srch-home" type="submit"><i class='bx bx-search'></i></button>
                 <input type="text" name="search" class="srch" placeholder="Buscar">
             </form>
         </div>
@@ -33,21 +33,36 @@
         <div class="hamburger-menu">
             <div class="user-info">
                 <img src="public/assets/img/User Pic.png" alt="Foto do Usuário">
-                <p class="hi-user">Olá, Usuário</p>
+                <p class="hi-user">Olá, visitante!</p>
+                <span class="close-menu-nav"><i class="fa-solid fa-xmark"></i></span>
             </div>
 
             <hr class="sep"> 
 
-            <ul class="menu-options">
+            <ul class="menu-options main-menu">
             <li class="menu-item-nav">
-                  <a href="#"><img src="public/assets/img/editar.png" alt=""><span class="item-description-nav">Departamentos</span></a>
-                </li>
-
+                <a href="#" class="toggle-departamentos">
+                    <img src="public/assets/img/editar.png" alt="">
+                    <span class="item-description-nav">Departamentos</span>
+                    <i class="arrow fa-solid fa-chevron-right"></i>
+                </a>
+            </li>
             <div class="auth-buttons">
                 <a href="app/user/view/pages/login.php" class="btn-login">Entrar</a>
                 <a href="app/user/View/pages/cadastro.php" class="btn-register">Cadastrar</a>
             </div>
+        </ul>
+
+        <!-- Submenu de Departamentos (começa oculto) -->
+        <div class="departamentos-menu">
+            <button class="voltar-menu">← Voltar</button>
+            <ul class="sub-departamentos">
+                <li><a href="#"><span class="item-description-nav">Eletrônicos</span></a></li>
+                <li><a href="#"><span class="item-description-nav">Vestuário</span></a></li>
+                <li><a href="#"><span class="item-description-nav">Alimentos</span></a></li>
+            </ul>
         </div>
+    </div>
     </header>
 
     <!-- Barra de departamentos -->
@@ -268,6 +283,46 @@
             </ul>
         </div>
     </section>
+    <script>
+        document.addEventListener('click', function(event) {
+    if (!menuItem.contains(event.target)) {
+       
+        menuItem.classList.remove('open');
+        arrow.classList.remove('rotate');
+    }
+});
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const departamentosLink = document.querySelector(".toggle-departamentos");
+    const departamentosMenu = document.querySelector(".departamentos-menu");
+    const voltarMenuButton = document.querySelector(".voltar-menu");
+    const mainMenu = document.querySelector(".main-menu");
+
+   
+    departamentosLink.addEventListener("click", function (e) {
+        e.preventDefault(); 
+
+       
+        mainMenu.style.display = "none";
+        departamentosMenu.classList.add("active");
+    });
+
+    voltarMenuButton.addEventListener("click", function () {
+        departamentosMenu.classList.remove("active"); 
+        mainMenu.style.display = "block"; 
+    });
+});
+document.addEventListener("DOMContentLoaded", function () {
+    const menuHamburguer = document.querySelector(".hamburger-menu");
+    const closeMenuBtn = document.querySelector(".close-menu-nav");
+
+    closeMenuBtn.addEventListener("click", function () {
+        menuHamburguer.classList.remove("active"); 
+    });
+});
+
+    </script>
     <script src="public/js/navbar.js"></script>
 
 </html>

@@ -438,7 +438,10 @@
 .responsive-menu {
     display: none ;
 }
-
+.search-box .srch-home{
+    transform: translateX(-5px);
+    margin-top: 12px;
+}
 .arrow {
     margin-top: 2px;
     margin-left: 80px;
@@ -504,7 +507,33 @@
 .voltar-menu:hover {
     background-color: #e9ecef;
 }
+.auth-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: auto; /* Isso empurra os botões para o final */
+    padding-bottom: 20px;
+}
 
+.btn-login,
+.btn-register {
+    display: block;
+    text-align: center;
+    padding: 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.btn-login {
+    background-color: #007bff;
+    color: white;
+}
+
+.btn-register {
+    background-color: #28a745;
+    color: white;
+}
 
 
 @media (min-width: 2560px) {
@@ -662,11 +691,28 @@
         color: white;
     }
     .close-menu-nav{
-        cursor: pointer;
-        font-size: 18px;
-        font-weight: bold;
-        color: #ff0000;
-        margin-left: 10px;
+        color: red;
+        transform: translate(70px, -20px);
+        font-size: 25px;
+        margin: 0;
+    }
+    .search-box .srch-logada{
+        transform: translateX(-20px);
+    }
+    .auth-buttons {
+        position: absolute;
+        bottom: 20px;
+        left: 0;
+        width: 100%; 
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        padding: 10px;
+    }
+    .btn-login,
+    .btn-register {
+        width: 100%;
     }
 }
 
@@ -720,8 +766,24 @@
     .submenu-sub a {
         font-size: 12px; 
     }
+    
     .hamburger-menu.active{
         height: 95vh;
         width: 100vw;
+    }
+    .close-menu-nav{
+        transform: translate(225px, -20px);
+    }
+}
+@media(max-width: 375px){
+    .close-menu-nav{
+        position: fixed;
+        left: 8%;
+    }
+}
+@media(max-width: 320px){
+    .close-menu-nav{
+        position: fixed;
+        left: 5%;
     }
 }
