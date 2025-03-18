@@ -1,7 +1,7 @@
     // Função para mostrar/ocultar o formulário de adicionar endereço
     document.getElementById("add-new-endereco-btn").addEventListener("click", function() {
         const form = document.getElementById("new-endereco-form");
-        form.style.display = form.style.display === "none" ? "block" : "none";
+        form.style.display = form.style.display === "none" ? "flex" : "none";
     });
 
     // Função para adicionar novo endereço
@@ -19,16 +19,16 @@
 
         enderecoCard.innerHTML = `
             <label>
-                <input type="radio" name="endereco">
+                <input type="radio" id="endereco" name="endereco" value="casa">
+                <label class="endereco-label" for="endereco">${nome}</label>
                 <div class="endereco-details">
-                    <p><strong>${nome}</strong></p>
                     <p>${detalhes}</p>
                     <p>${telefone}</p>
                 </div>
             </label>
             <div class="endereco-actions">
                 <button class="edit"><i class="fa fa-pencil"></i></button>
-                <button class="delete"><i class="fa fa-trash"></i></button>
+                <button class="delete"><i class="fa-solid fa-xmark"></i></button>
             </div>
         `;
 

@@ -295,12 +295,17 @@ h1 {
     color: black;
     font-size: 1.25rem;
     font-weight: 400;
+    transition: transform 0.2s ease;
 }
 
+.add-new-endereco:hover{
+    transform: translateY(-5px);
+}
 
 .add-new-endereco i {
     margin-right: 5px;
     font-size: 1.75rem;
+    color: #291E40;
 }
 
 
@@ -311,23 +316,6 @@ h1 {
     font-size: 12px;
     border-radius: 4px;
     padding: 2px 6px;
-}
-
-.btoes-endereco {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color:  #ff5f5f;
-    color: white;
-    font-size: 16px;
-    text-align: center;
-    text-decoration: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin-left: 20px;
-    margin-bottom: 20px;
-    right: 800px;
-   
 }
   
 .btoes-endereco:hover {
@@ -569,4 +557,79 @@ footer {
     border: 2px solid black;
     color: black;
     cursor: pointer;
+}
+
+#new-endereco-form{
+    /* display: flex; */
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#form-novo-endereco{
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+#form-novo-endereco input{
+    border-radius: 8px;
+    background-color: #fafafa;
+    box-shadow: 0 5px 10px 1px rgba(0, 0, 0, 0.200);
+    border: none;
+    height: 2rem;
+    padding: 20px;
+    outline: none;
+    color: #555;
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+#form-novo-endereco label{
+    color: #555;
+    font-weight: 500;
+}
+
+.btoes-endereco {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 2rem;
+    padding: 20px;
+    font-size: 20px;
+    font-weight: 500;
+    background-color: #291E40;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.btoes-endereco:hover{
+    background-color: #170e2b;
+}
+
+@media only screen and (max-width: 800px){
+    #form-novo-endereco{
+        width: 100%;
+    }
+
+    .step-indicator{
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        flex-direction: column;
+    }
+    .container{
+        margin-top: 3rem;
+    }
+    .enderecos{
+        margin-top: 2rem;
+    }
+    .enderecos h1{
+        margin: 1rem 0;
+    }
 }

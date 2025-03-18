@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="../../../../public/css/escolhaendereco.css">
+    <link rel="stylesheet" href="../../../../public/css/escolha-endereco.css">
     <?php include __DIR__.'/../../../../includes/headernavb.php'; ?>
     <script defer src="../../../../public/js/ENDERECO.js"></script>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -107,8 +107,8 @@
 
 
     <div class="endereco-botoes">
-        <button class="botao-sair">Sair</button>
-        <button class="botao-avancar">Avançar</button>
+        <a href="../../../../home.php"><button class="botao-sair">Sair</button></a>
+        <a href="metodo-envio.php"><button class="botao-avancar">Avançar</button></a>
     </div>
 
   
