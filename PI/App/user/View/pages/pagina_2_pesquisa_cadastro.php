@@ -48,30 +48,27 @@
     </div>
     <div class="pesquisa2-cadastro-titles-container">
         <h1 class="pesquisa2-cadastro-h1-title">
-            Qual seu conhecimento sobre tecnologia?
+            Quais categorias de produtos mais te interessam?
         </h1>
         <h2 class="pesquisa2-cadastro-h2-title">
-            Queremos te conhecer melhor, conte um pouco mais sobre você.
-        </h2>
+            Pense nos produtos que você frequentemente tem intenção de comprar.        </h2>
     </div>
     <div class="pesquisa2-cadastro-cards-container">
         <div class="pesquisa2-cadastro-card1">
             <img src="../../../../public/assets/img/Instagram Post Dia Internacional do Gamer Tech Preto e Rosa (3) 3.png" alt="" class="pesquisa2-cadastro-img-card1">
             <h1 class="pesquisa2-cadastro-h1-card1">
-                Tenho pouco conhecimento sobre tecnologia.
-            </h1>
+                Eu me interesso por games, computadores e hardwares.             </h1>
             <h2 class="pesquisa2-cadastro-h2-card1">
-                Consigo usar o básico, mas frequentemente preciso de ajuda com configurações e problemas mais complexos.
+                Acompanho as novidades de teclados, mouses, monitores e componentes internos. Estou sempre em busca de melhorias para o meu setup.            
             </h2>
         </div>
 
         <div class="pesquisa2-cadastro-card2">
             <img src="../../../../public/assets/img/Instagram Post Dia Internacional do Gamer Tech Preto e Rosa (4) 3.png" alt="" class="pesquisa2-cadastro-img-card2">
             <h1 class="pesquisa2-cadastro-h1-card2">
-                Tenho conhecimento sobre tecnologia.
-            </h1>
+                Eu me interesso por tecnologia para o dia a dia.            </h1>
             <h2 class="pesquisa2-cadastro-h2-card2">
-                Tenho facilidade em usar e configurar dispositivos, explorar novos aplicativos, produtos e suas especificações.
+                Gosto de som de alta qualidade, itens para otimizar energia. Estou sempre buscando formas de aprimorar minha experiência.            
             </h2>
         </div>
     </div>

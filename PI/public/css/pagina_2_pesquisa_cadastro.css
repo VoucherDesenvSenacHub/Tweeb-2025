@@ -142,6 +142,7 @@
 .pesquisa2-cadastro-img-card1, .pesquisa2-cadastro-img-card2{
     width: 200px;
     height: 200px;
+    transform: translateY(10%);
 }
 
 
