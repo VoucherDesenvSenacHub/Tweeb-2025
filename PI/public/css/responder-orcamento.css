@@ -268,3 +268,32 @@
         width: 70%;
     }
 }
+
+@media (max-width: 360px){
+    .responder-orcamento-data input{
+        height: 50%;
+    }
+
+    /* .responder-orcamento-title input{
+    }
+
+    .responder-orcamento-enviado_por input{
+    }
+
+    .responder-orcamento-responder_para input{
+    } */
+
+    .responder-orcamento-resposta textarea{
+        height: 40%;
+    }
+
+    .responder-orcamento{
+        width: 80%;
+        margin-top: 20px;
+        height: 750px;
+    }
+}
+
+@media (min-width: 360px) and (max-width: 390px){
+
+}
