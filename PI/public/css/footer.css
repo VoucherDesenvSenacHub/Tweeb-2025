@@ -175,6 +175,7 @@ footer {
 @media only screen and (max-width: 1050px) {
     #footer_content{
         display: none;
+        
     }
     .contatos{
         align-items: center;
