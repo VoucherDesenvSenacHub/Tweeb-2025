@@ -74,15 +74,15 @@
           <span>Subtotal</span>
           <span>R$ 6.599,99</span>
         </div>
-        <div class="line">
+        <div class="line-carrinho">
           <span>Imposto estimado</span>
           <span>R$50</span>
         </div>
-        <div class="line">
+        <div class="line-carrinho">
           <span>Frete</span>
           <span>Grátis</span>
         </div>
-        <div class="line">
+        <div class="line-carrinho">
           <span>Cupons</span>
           <span>R$0,00</span>
         </div>
@@ -95,6 +95,6 @@
       <button class="desconto"><a href="#">Continuar </a></button>
     </div>
   </div>
-  <?php include __DIR__.'/../../../../includes/footer.php'; ?>
+  <?php include __DIR__.'/../../../../includes/footer.php'; ?> 
 </body>
 </html>

@@ -1,34 +1,3 @@
-<?php
-    require_once '../../../user/Models/Entity/Usuario.php'; // ALTERE O DIRETORIO CONFORME SALVO NO SEU LOCAL
-   
-
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        $dados = [
-            'nome' => $_POST['nome'],
-            'email' => $_POST['email'],
-            'senha' => $_POST['senha'],
-            'confirmacao' => $_POST['confirmacao'],
-        ];
-    
-        if ($dados['senha'] != $dados['confirmacao']) {
-            echo '<script>alert("Senha e confirmação de senha não batem! Tente novamente!");</script>';
-            echo "<meta http-equiv='refresh' content='0.5;url=cadastro.php' />"; 
-        } else {
-            $usuario = new Usuario($dados);
-    
-            if ($usuario->cadastrar()) {
-                echo '<script>alert("Usuário cadastrado com sucesso!");</script>';
-                echo "<meta http-equiv='refresh' content='0.5;url= pagina_1_pesquisa_cadastro.php' />";
-            } else {
-                echo '<script>alert("Erro ao cadastrar usuário.");</script>';
-                echo "<meta http-equiv='refresh' content='0.5;url=cadastro.php' />"; 
-
-            }
-        }
-        exit;
-    }
-?>
-
 <!DOCTYPE html> 
 <html lang="pt-br"> 
 <head> 
@@ -43,14 +12,12 @@
         <div class="Task2a-card">
             <a href="../../../../home.php"><img src="../../../../public/assets/img/logo_img.png" alt="Logo" class="Task2a-logo"></a>
             <h2 class="Task2a-title">Crie sua conta</h2> 
-            <p class="Task2a-description">Digite seu e-mail para criar sua conta</p> 
-            <form method="POST" action="cadastro.php" class="Task2a-form"> 
-                <input name='nome' type="text" placeholder="Nome" class="Task2a-input"> 
-                <input name='email' type="email" placeholder="Email" class="Task2a-input"> 
-                <input name='senha' type="password" placeholder="Digite sua senha" class="Task2a-input"> 
-                <input name='confirmacao' type="password" placeholder="Confirme sua senha " class="Task2a-input"> 
-                <button type="submit" class="Task2a-btn-email">Cadastre-se</button> 
-            </form> 
+            <p class="Task2a-description">Digite seu e-mail para criar sua conta</p>  
+            <input name='nome' type="text" placeholder="Nome" class="Task2a-input"> 
+            <input name='email' type="email" placeholder="Email" class="Task2a-input"> 
+            <input name='senha' type="password" placeholder="Digite sua senha" class="Task2a-input"> 
+            <input name='confirmacao' type="password" placeholder="Confirme sua senha " class="Task2a-input">
+            <a href="../pages/pagina_1_pesquisa_cadastro.php"><button type="submit" class="Task2a-btn-email">Cadastre-se<button></a> 
             <p class="Task2a-terms">Ao clicar em continuar, você concorda com nossos <a href="#">Termos de Serviço</a> e <a href="#">Política de Privacidade</a></p> 
         </div> 
     </div> 

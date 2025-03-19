@@ -107,6 +107,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    
 }
 
 .navb .nav-list .nav-itens a {
@@ -116,6 +117,7 @@
     padding: 18px;
     font-size: 15px;
     transition: color 0.3s; 
+    white-space: nowrap;
 }
 
 .navb .nav-list .nav-itens a:hover {
@@ -363,7 +365,9 @@
 
 .hamburger-menu.active {
     display: block; 
-    background-color: #291E40;
+    background-color: #ffffff;
+    box-shadow: -10px 0px 10px rgba(0, 0, 0, 0.2),
+    0px 10px 10px rgba(0, 0, 0, 0.2);
 }
 
 .hamburguer {
@@ -379,7 +383,7 @@
     margin-top: 10px;
     margin-bottom: 10px;
 }
-.hamburger-menu .department-link{
+.hamburger-menu .department-link {
     color: rgb(255, 255, 255);
     font-weight: 300;
     padding: 20px 0px 0px 0px;
@@ -388,14 +392,14 @@
     color: rgb(0, 0, 0);
     text-decoration: none;
 }
-.user-info{
+.user-info {
     display: flex;
 }
 .user-info img {
     width: 50px; 
     height: 50px; 
     border-radius: 50%; 
-    border: 2px solid #007bff; 
+    border: 2px solid #020202; 
 }
 
 .user-info .hi-user {
@@ -403,7 +407,7 @@
     font-weight: 500;
     font-size: 15px;
     padding: 0px 0px 0px 10px;
-    color: white;
+    color: rgb(0, 0, 0);
 }
 
 .department-link {
@@ -413,7 +417,7 @@
     text-decoration: none; 
 }
 
-.sep{
+.sep {
     margin: 20px 0;
 }
 
@@ -429,34 +433,109 @@
 
 .menu-options a {
     text-decoration: none; 
-    font-weight: 300;
-    color: #ffffff; 
+    font-weight: 500;
+    white-space: nowrap;
+    color: #000000 ; 
 }
 
+.responsive-menu {
+    display: none ;
+}
+.search-box .srch-home{
+    transform: translateX(-5px);
+    margin-top: 12px;
+}
+.arrow {
+    margin-top: 2px;
+    margin-left: 80px;
+    font-size: 11px; 
+    transition: transform 0.3s ease; 
+}
+
+.arrow.rotate {
+    transform: rotate(90deg); 
+}
+
+.segundomenu-nav {
+    display: none;
+    list-style-type: none;
+    padding-left: 20px;
+}
+
+.segundomenu-nav li {
+    margin: 20px 20px 10px 20px;
+}
+
+.menu-item-nav.open .segundomenu-nav {
+    display: block;
+}
+
+/* Esconder o menu principal quando estiver visualizando os Departamentos */
+.hamburger-menu .main-menu {
+    display: block;
+}
+
+.hamburger-menu .departamentos-menu {
+    display: none;
+}
+
+.hamburger-menu .departamentos-menu.active {
+    display: block;
+}
+.departamentos-menu.active{
+    background-color: rgb(255, 255, 255);
+}
+
+.departamentos-menu {
+    display: none; 
+}
+
+.sub-departamentos li {
+    margin: 15px 0;
+}
+
+.voltar-menu {
+    margin-bottom: 10px;
+    padding: 5px;
+    background-color: #f4f4f4;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    color: #007bff;
+    text-align: left;
+    width: 100%;
+    transition: background-color 0.3s ease;
+}
+
+.voltar-menu:hover {
+    background-color: #e9ecef;
+}
 .auth-buttons {
-    margin-top: 100px; 
-    display: flex; 
-    flex-direction: column; 
-    align-items: stretch; 
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: auto; /* Isso empurra os botões para o final */
+    padding-bottom: 20px;
 }
 
-.btn-login, .btn-register {
-    padding: 10px 15px; 
-    border: none; 
-    border-radius: 5px; 
-    color: #fff; 
-    background-color: #ffffff; 
-    text-decoration: none; 
-    text-align: center; 
-    margin-bottom: 10px; 
+.btn-login,
+.btn-register {
+    display: block;
+    text-align: center;
+    padding: 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.btn-login {  
+    background-color: #CEF5A4;
+    color: white;
 }
 
 .btn-register {
-    background-color: #ffffff; 
-}
-
-.btn-login:hover, .btn-register:hover {
-    opacity: 0.8; 
+    background-color: #d7d7d7;
+    color: white;
 }
 
 @media (min-width: 2560px) {
@@ -493,6 +572,15 @@
         font-size: 14px;
     }
 }
+@media (max-width: 1440px){
+    .search-box button {
+        transform: translateX(-25px);
+        
+    }
+    .search-box input::placeholder{
+        transform: translateX(-15px);
+    }
+}
 @media (max-width: 1024px){
     .navb ul{
         gap: 5%;
@@ -506,21 +594,27 @@
     .submenu{
         transform: translateX(-60px);
     }
-    
+    .search-box button {
+        transform: translateX(-25px);
+        
+    }
+    .search-box input::placeholder{
+        transform: translateX(-15px);
+    }
 }
 @media (max-width: 768px) {
     .headNav {
         flex-direction: column;
-        height: auto;
+        height: 40vh;
     }
-    .headNav .logo{
+
+    .headNav .logo {
         transform: translateX(10px);
     }
 
     .navb ul {
-        flex-direction: column;
-        gap: 20px;
-        margin-right: 0;
+        display: none; 
+
     }
 
     .departments-bar {
@@ -533,25 +627,94 @@
     }
 
     .search-box {
-        margin: 0; 
+        margin: 0;
         transform: translateX(1px);
         gap: 20px;
     }
 
     .search-box input {
-        height: 40px; 
-        padding: 0 20px; 
+        height: 40px;
+        padding: 0 30px;
     }
 
     .search-box button {
-      transform: translateX(-5px);
+        transform: translateX(-2px);
+        
+    }
+    .search-box input::placeholder {
+        transform: translateX(5px);
     }
 
     .hamburguer {
         display: block;
     }
-    .hamburger-menu.active{
-        height: 100%;
+
+    .hamburger-menu.active {
+        height: 90vh;
+        width: 35vw;
+        border-radius: 10px 0px 0px 10px;
+    }
+
+    
+    .responsive-menu {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-top: 10px;
+    }
+
+    .responsive-menu a {
+        display: block;
+        text-decoration: none;
+        color: rgb(107, 104, 104);
+        font-weight: 500;
+        font-size: 15px;
+        padding: 10px;
+        transition: color 0.3s;
+    }
+
+    .responsive-menu a:hover {
+        color: #40331e;
+    }
+    .menu-item-nav{
+        padding: 10px;
+        
+    }
+    .menu-item-nav a {
+        display: flex;
+        align-items: center;
+        font-size: 14px; 
+    }
+
+    .menu-item-nav img {
+        width: 18px; 
+        height: 18px;
+        margin-right: 8px; 
+        color: white;
+    }
+    .close-menu-nav{
+        color: red;
+        transform: translate(70px, -20px);
+        font-size: 25px;
+        margin: 0;
+    }
+    .search-box .srch-logada{
+        transform: translateX(-20px);
+    }
+    .auth-buttons {
+        position: absolute;
+        bottom: 20px;
+        left: 0;
+        width: 100%; 
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        padding: 10px;
+    }
+    .btn-login,
+    .btn-register {
+        width: 100%;
     }
 }
 
@@ -567,7 +730,7 @@
     }
     .headNav .logo {
         max-width: 150px;
-        margin-right: 40px;
+        margin-right: 65px;
     }
     .search-box{
         transform: translateX(5px);
@@ -576,9 +739,13 @@
         height: 35px; 
         font-size: 14px; 
     }
+    .search-box input::placeholder {
+        transform: translateX(2px);
+    }
 
     .search-box button {
         transform: translateX(-5px); 
+        margin-bottom: 1px;
     }
     
     .department img {
@@ -601,7 +768,13 @@
     .submenu-sub a {
         font-size: 12px; 
     }
+    
     .hamburger-menu.active{
-        height: 100%;
+        height: 95vh;
+        width: 100vw;
     }
+    .close-menu-nav{
+        transform: translate(220px, -20px);
+    }
+    
 }

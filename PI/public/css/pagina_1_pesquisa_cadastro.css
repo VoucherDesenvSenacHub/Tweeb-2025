@@ -1,308 +1,355 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-* {
+
+.pesquisa1-cadastro-body{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    text-decoration: none;
-}
-
-.pesquisa1-cadastro {
-    padding: 0;
-    margin: 0;
-    background-color: #FFFFFF;
-}
-
-.pesquisa1-cadastro-teste-altura {
-    min-height: calc(100vh - 105px);
-    position: fixed;
-}
-
-/* Menu */
-.pesquisa1-cadastro-menu {
-    background-color: #FFFFFF;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     width: 100%;
-    font-family: 'Montserrat', sans-serif;
+    height: 100%;
 }
 
-.pesquisa1-cadastro-nav-menu {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    height: 60px;
-}
-
-/* itens-menu */
-.pesquisa1-cadastro-menu-itens {
-    list-style: none;
-    display: flex;
-    align-items: center;
-    margin-left: 35px;
-}
-
-.pesquisa1-cadastro-link-item {
+.pesquisa1-cadastro-header-p-cadastro{
     text-decoration: none;
-    font-size: 16px;
     color: black;
-    font-weight: 500;
+    font-family: "Montserrat", sans-serif;
 }
 
-.pesquisa1-cadastro-item-menu1 {
+.pesquisa1-cadastro-header-p-sobre{
     color: black;
+    opacity: 30%;
+    font-family: "Montserrat", sans-serif;
+    text-decoration: none;
 }
 
-.pesquisa1-cadastro-item-menu2 {
+.pesquisa1-cadastro-logo-tweeb{
+    width: 200px;
+    height: 52px;
     display: flex;
-    margin-left: 52px;
-    font-family: 'Montserrat', sans-serif;
-    opacity: 0.3;
+    margin-left: 37px;
 }
 
-/* Barra roxa */
-.pesquisa1-cadastro-bottom-bar {
-    background-color: #291E40;
-    height: 33px;
-    width: 100VW;
-}
-
-.pesquisa1-cadastro-bottom-bar-footer{
-    background-color: #291E40;
-    height: 33px;
-    width: 100VW;
-    bottom: 0%;
-    position: fixed;
-}
-
-/* Barra de pesquisa */
-.pesquisa1-cadastro-search-box {
+.pesquisa1-cadastro-header{
     display: flex;
+    width: 100%;
     align-items: center;
-    background-color: #F5F5F5;
-    width: 850px;
-    height: 47px;
-    margin: 16px 0px;
+    margin-top: 18px;
+}
+
+.pesquisa1-cadastro-container-input{
+    display: flex;
+    width: 49%;
+    height: 46px;
     border-radius: 8px;
-    padding: 16px, 160px, 16px, 160px;
+    background-color: #F5F5F5;
+    align-items: center;
+    gap: 8px;
+    margin-left: 51px;
 }
 
-.pesquisa1-cadastro-search-input {
-    padding: 8px;
+.pesquisa1-cadastro-input{
+    background: transparent;
     border: none;
-    background-color: transparent;
-    width: 100%;
-    outline: none;
-    font-size: 14px;
-    font-weight: 500;
-    font-family: 'Montserrat', sans-serif;
+    outline: none; /* Remove a borda azul ao clicar */
 }
 
-.pesquisa1-cadastro-img-busca {
-    padding-left: 20px;
+.pesquisa1-cadastro-search-icon{
+    width: 24px;
+    height: 24px;
+    margin-left: 16px;
 }
 
-/* logo-menu */
-.pesquisa1-cadastro-img-logo {
-    width: 180px;
-    height: 60px;
-    margin: 18px 37px;
+.pesquisa1-cadastro-links-header-container{
+    display: flex;
+    margin-left: 32px;
+    gap: 52px;
 }
 
-/* Barra roxa2 */
-.pesquisa1-cadastro-footer {
+.pesquisa1-cadastro-barra-roxa{
+    height: 48px;
     background-color: #291E40;
-    height: 38px;
-    width: 100%;
-    position: fixed;
-    bottom: 0;
-    left: 0;
+    display: flex;
+    margin-top: 18px;
 }
 
-.pesquisa1-cadastro-container {
+.pesquisa1-cadastro-voltar-button{
     display: flex;
-    height: 23vh;
-    justify-content: center;
-    flex-direction: column;
     align-items: center;
-    gap: 63px;
+    margin-left: 189px;
+    font-family: "Inter", sans-serif;
+    gap: 9px;
+    margin-top: 1%;
 }
 
-.pesquisa1-cadastro-texto-container {
-    text-align: center;
-    font-size: 25px;
+.pesquisa1-cadastro-titles-container{
     display: flex;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
 }
 
-.pesquisa1-cadastro-h2 {
-    font-size: 30px;
-    line-height: 45px;
-    font-weight: bold;
-    font-family: 'Poppins', sans-serif;
-    transform: translateY(-55%);
-}
-
-.pesquisa1-cadastro-p {
-    font-size: 19px;
-    font-family: 'Poppins', sans-serif;
-    transform: translateY(-80%);
-}
-
-.pesquisa1-cadastro-container-cards {
+.pesquisa1-cadastro-cards-container{
     display: flex;
-    gap: 85px;
-    transform: translateY(-13%);
-    margin-block-end: 1%;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    gap: 145px;
 }
 
-.pesquisa1-cadastro-container-card1 {
+.pesquisa1-cadastro-card1 {
+    width: 280px;
+    height: 350px;
     background-color: #CEF5A4;
-    border-radius: 15px;
-    padding: 38px;
+    border-radius: 18px;
     display: flex;
-    align-items: end;
-    height: 350px;
-    width: 300px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+    transform-origin: top left;
     cursor: pointer;
-    transition: 0.5s ease-in-out;
-    outline: none;
 }
 
-.pesquisa1-cadastro-container-card1:hover {
-    transform: scale(1.1) translate(9%, 7%);
+.pesquisa1-cadastro-card1:hover,
+.pesquisa1-cadastro-card1.ativo {
+    transform: scale(1.1);
+    border: 1px solid #47FF59;
 }
 
-.pesquisa1-cadastro-container-card1:focus {
-    transform: scale(1.1) translate(9%, 7%);
-    transition: none;
-    border: 1px solid #168b22;
-    box-shadow: 0 0 5px rgba(165, 152, 152, 0.919);
-}
-
-.pesquisa1-cadastro-container-card2:hover {
-    transform: scale(1.1) translate(9%, 7%);
-}
-
-.pesquisa1-cadastro-container-card2:focus {
-    transform: scale(1.1) translate(9%, 7%);
-    transition: none;
-    border: 1px solid #6983b4;
-    box-shadow: 0 0 5px rgba(165, 152, 152, 0.919);
-}
-
-.pesquisa1-cadastro-container-card2 {
+.pesquisa1-cadastro-card2 {
+    width: 280px;
+    height: 350px;
     background-color: #D4E3FF;
-    border-radius: 15px;
-    padding: 38px;
+    border-radius: 18px;
     display: flex;
-    align-items: end;
-    height: 350px;
-    width: 300px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+    transform-origin: top left;
     cursor: pointer;
-    transition: 0.5s ease-in-out;
-    outline: none;
 }
 
-.pesquisa1-cadastro-banner-imagem {
-    display: flex;
-    width: 220px;
-    height: 220px;
-    justify-content: center;
-    align-items: center;
-    transform: translateY(40%);
+.pesquisa1-cadastro-card2:hover,
+.pesquisa1-cadastro-card2.ativo {
+    transform: scale(1.1);
+    border: 1px solid rgb(116, 103, 198);
 }
 
-.pesquisa1-cadastro-banner-imagem img {
-    width: 220px;
-    height: 220px;
-}
-
-.pesquisa1-cadastro-banner-imagem2 {
-    display: flex;
-    width: 220px;
-    height: 220px;
-    justify-content: center;
-    align-items: center;
-    transform: translateY(43%);
-}
-
-.pesquisa1-cadastro-banner-imagem2 img {
+.pesquisa1-cadastro-img-card1, .pesquisa1-cadastro-img-card2{
     width: 200px;
     height: 200px;
 }
 
-/* textos container */
-.pesquisa1-cadastro-h2-card {
-    text-align: center;
-    font-size: 14px;
-    font-family: 'Poppins', sans-serif;
-    line-height: 15px;
-    transform: translateY(300%);
+
+.pesquisa1-cadastro-h1-card1, .pesquisa1-cadastro-h1-card2{
+    font-size: 15px;
+    font-family: "Poppins", sans-serif;
+    width: 90%;
 }
 
-.pesquisa1-cadastro-p-card {
-    text-align: center;
+.pesquisa1-cadastro-h2-card1, .pesquisa1-cadastro-h2-card2{
     font-size: 12px;
-    font-family: 'Poppins', sans-serif;
-    margin-top: 110px;
-    line-height: 15px;
-}
-
-/* botão voltar */
-.pesquisa1-cadastro-btn {
     display: flex;
-    flex-direction: row;
-    margin-top: 25px;
-    margin-left: 160px;
-    margin-block-end: 240px;
-    cursor: pointer;
-    font-family: 'Inter', sans-serif;
-    color: #8692A6;
-    font-weight: 600;
+    margin-bottom: 10%;
+    width: 88%;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    color: #291E40;
+    transform: translateY(6px);
 }
 
-.pesquisa1-cadastro-icon-btn {
-    padding-right: 9px;
-    color: #8692A6;
+.pesquisa1-cadastro-h1-title{
+    font-family: "Poppins", sans-serif;
+    font-size: 26px;
+    display: flex;
+    margin-top: -5px;
 }
 
-/* botão continuar */
-.pesquisa1-cadastro-btn2 {
-    padding: 7.5px 15.5px;
-    font-size: 13px;
-    color: #FAFAFA;
-    background: #FE8C67;
+.pesquisa1-cadastro-h2-title{
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    display: flex;
+    margin-top: -20px;
+}
+
+.pesquisa1-cadastro-continuar-button{
+    width: 95px;
+    height: 30px;
+    background-color: #FE8C67;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border-radius: 4px;
-    text-align: center;
+    margin-left: 42%;
     cursor: pointer;
-    margin-left: 38%;
-    font-family: 'Poppins', sans-serif;
-    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.3);
-    transition: 0.3s ease;
-    transform: translateY(-200%);
+    margin-top: 3%;
 }
 
-.pesquisa1-cadastro-btn2 a {
-    color: white;
-}
-
-.pesquisa1-cadastro-footer {
+.pesquisa1-cadastro-link-voltar-button{
     display: flex;
-    width: 100%;
-    height: 25px;
+    align-items: center;
+    color: black;
+    text-decoration: none;
+}
+.pesquisa1-cadastro-link-voltar-button:hover{
+    transition: transform 0.2s ease-in-out;
+    transform: scale(1.1);
+}
+
+.pesquisa1-cadastro-link-continuar{
+    color: white;
+    font-family: "Poppins", sans-serif;
+    font-size: 12px;
+    text-decoration: none;
+}
+
+.pesquisa1-cadastro-continuar-button-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pesquisa1-cadastro-barra-roxa-footer{
     background-color: #291E40;
-    bottom: 0;
+    width: 100%;
+    height: 48px;
+}
+
+.pesquisa1-cadastro-barra-roxa-footer{
     position: fixed;
+    bottom: 0;
 }
 
-.pesquisa1-cadastro-btn2:hover {
-    background-color: #da6b6b;
+
+
+
+
+
+
+
+@media screen and (max-width: 705px){
+    .pesquisa1-cadastro-header{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .pesquisa1-cadastro-voltar-button{
+        display: flex;
+        transform: translateX(-35%);
+    }
+
+    .pesquisa1-cadastro-cards-container{
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .pesquisa1-cadastro-continuar-button{
+        margin-bottom: 30%;
+        margin-top: 15%;
+    }
+
+    .pesquisa1-cadastro-h1-title{
+        font-size: 22px;
+        margin-top: 2%;
+    }
+
+    .pesquisa1-cadastro-h2-title{
+        font-size: 14px;
+    }
+
+    .pesquisa1-cadastro-card1{
+        width: 30%;
+        height: 40vh;
+    }
+
+    .pesquisa1-cadastro-card2{
+        width: 30%;
+        height: 40vh;
+    }
+
+    .pesquisa1-cadastro-img-card1{
+        width: 70%;
+        height: 50%;
+        transform: translateY(10%);
+    }
+
+    .pesquisa1-cadastro-img-card2{
+        width: 70%;
+        height: 50%;
+    }
+
+    .pesquisa1-cadastro-h1-card1{
+        font-size: 12px;
+    }
+
+    .pesquisa1-cadastro-h2-card1{
+        font-size: 11px;
+        margin-bottom: 15%;
+        display: flex;
+    }
+
+    .pesquisa1-cadastro-h1-card2{
+        font-size: 12px;
+    }
+
+    .pesquisa1-cadastro-h2-card2{
+        font-size: 11px;
+    }
 }
 
-.pesquisa1-cadastro-btn-text a {
-    color: #8692A6;
+
+
+
+
+
+
+
+
+@media screen and (max-width: 515px){
+    .pesquisa1-cadastro-h1-title{
+        font-size: 14px;
+    }
+
+    .pesquisa1-cadastro-h2-title{
+        font-size: 11px;
+        transform: translateY(2vh);
+    }
+
+    .pesquisa1-cadastro-card1{
+        width: 50%;
+        height: 40vh;
+    }
+
+    .pesquisa1-cadastro-card2{
+        width: 50%;
+        height: 40vh;
+    }
+}
+
+
+@media screen and (max-width: 455px){
+    .pesquisa1-cadastro-voltar-button{
+        display: flex;
+        transform: translateX(-70%);
+    }
+}
+
+@media screen and (max-width: 362px){
+    .pesquisa1-cadastro-img-card1{
+        width: 80%;
+        height: 80%;
+        transform: translateY(10%);
+    }
+
+    .pesquisa1-cadastro-img-card2{
+        width: 80%;
+        height: 80%;
+        transform: translateY(10%);
+    }
 }

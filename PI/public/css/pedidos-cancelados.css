@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+   
+}
+
+
+.container-pcancelados {
+   margin: auto;
+    max-width: 1100px;
+    padding: 80px;
+    
+    
+}
+
+.titulo-pcancelados {
+    color: #e65a29;
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.pedido-pcancelados {
+    background: #fff;
+    padding: 20px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.info-produto-pcancelados {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.imagem-pcancelados {
+    width: 60px;
+    height: auto;
+    border-radius: 5px;
+}
+
+.nome-produto-pcancelados {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.codigo-produto-pcancelados {
+    font-size: 12px;
+    color: #666;
+}
+
+.quantidade-pcancelados {
+    width: 40px;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.detalhes-pcancelados {
+    display: none;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.detalhes-pcancelados p {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+.total-pcancelados {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.data-cancelamento-pcancelados {
+    font-size: 14px;
+    color: #666;
+    margin-top: 10px;
+}
+
+.toggle-pcancelados {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.toggle-pcancelados img {
+    width: 60px;
+    height: 60px;
+}
+
+/* Responsividade */
+@media screen and (max-width: 600px) {
+    .container-pcancelados {
+        padding: 10px;
+    }
+
+    .info-produto-pcancelados {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .imagem-pcancelados {
+        width: 100%;
+        max-width: 120px;
+    }
+
+    .quantidade-pcancelados {
+        width: 100%;
+        text-align: center;
+    }
+
+    .toggle-pcancelados img {
+        width: 50px;
+        height: 50px;
+    }
+
+    .pedido-pcancelados {
+        padding: 15px;
+    }
+}

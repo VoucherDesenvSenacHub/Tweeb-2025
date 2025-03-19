@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+.footer-adm{
+    display: flex;
+    height: 180px;
+    background-color: #cef5a4;
+    padding: 22px 10px ;
+    text-align: center;
+    justify-content: center;
+
+}
+
+.footer-text-adm{
+    display: flex;
+    font-family: 'Arimo';
+    font-style: italic;
+    color: #291E40;
+}
+
+.footer-logo-adm{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 3rem;
+}
+
+.footer-logo-adm img{
+    width: 150px;
+    height: auto;
+}
+
+
+/* Responsividade */
+
+/* Para telas médias (tablets e notebooks menores) */
+@media (max-width: 1024px) {
+    .footer-logo-adm {
+        gap: 2rem;
+    }
+
+    .footer-logo-adm img {
+        width: 130px;
+    }
+
+    .footer-text-adm {
+        font-size: 1rem;
+    }
+}
+
+/* Para telas menores que 768px (tablets e celulares) */
+@media (max-width: 768px) {
+    .footer-logo-adm {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .footer-logo-adm img {
+        width: 120px;
+    }
+}
+
+/* Para telas menores que 480px (celulares pequenos) */
+@media (max-width: 480px) {
+    .footer-adm {
+        padding: 15px 5px;
+    }
+
+    .footer-logo-adm img {
+        width: 100px;
+    }
+
+    .footer-text-adm {
+        font-size: 14px;
+    }
+}
+
+/* Para telas maiores que 1440px (monitores grandes) */
+@media (min-width: 1440px) {
+    .footer-adm {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 30px;
+    }
+
+    .footer-logo-adm img {
+        width: 180px;
+    }
+
+    .footer-text-adm {
+        font-size: 1.5rem;
+    }
+}
+
+/* Para telas ultrawide maiores que 1920px */
+@media (min-width: 1920px) {
+    .footer-adm {
+        max-width: 1900px;
+    }
+
+    .footer-logo-adm img {
+        width: 200px;
+    }
+
+    .footer-text-adm {
+        font-size: 1.8rem;
+    }
+}

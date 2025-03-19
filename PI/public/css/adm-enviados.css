@@ -1,0 +1,801 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    background-color: rgb(255, 255, 255);
+}
+
+:root{
+    --azul-intenso: #291E40;
+    --azul-hover: #170e2b;
+    --azul-tabela: #0C1E5B;
+}
+
+header {
+    width: 100%;/*faz o cabeçalho ocupar toda a largura da pag*/
+    height: 100px;/*define a altura do cabeçalho*/
+    display: flex;
+    align-items: center;
+    position: relative;
+    top: 0;
+    z-index: 1;
+    box-shadow: 0 0 10px #000;
+    background-color: #fff; 
+    padding: 0 20px;
+}
+
+header .logo {
+    margin-right: 20px;
+    display: flex;
+    align-items: center;
+    max-width:200px;
+    max-height:150px;
+    width: auto;
+    height: auto;
+}
+
+.listarU-departments-bar {
+    background-color: #291E40; 
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 10px 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    position: relative;
+    width: 100%;
+    height: 48px;
+}
+
+.quantidade-pedidos{
+    display: flex;
+    align-items: center;
+    position: relative;
+    height: 250px;
+    width: 100%;
+    background-color: white;
+}
+
+.pedidos-ui-card{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0 1.75rem;
+    justify-content: center;
+    left: 9.625rem;
+    width: 251px;
+    height: 157px;
+    border-radius: 8px;
+    background-color: white;
+    box-shadow: 0 5px 10px 0.5px rgba(0, 0, 0, 0.100);
+}
+
+.pedidos-adicionar-envio{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    right: 17rem;
+    width: 157px;
+    height: 33px;
+    padding: 8px;
+    border-radius: 4px;
+    background-color: var(--azul-intenso);
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+}
+
+.pedidos-adicionar-envio:hover{
+    background-color: var(--azul-hover);
+}
+
+.pedidos-adicionar-envio img{
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+.pedidos-adicionar-envio p{
+    font-size: 13px;
+    font-weight: 600;
+    color: white;
+}
+
+.ui-pedidos-frame{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.ui-pedidos-frame p{
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.ui-pedidos-frame img{
+    width: 32px;
+    height: 32px;
+}
+
+.ui-pedidos-label{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.ui-pedidos-label span{
+    color: #A73728;
+    font-size: 14px;
+    font-weight: 600;
+    margin-right: 3px;
+}
+
+.ui-pedidos-label p{
+    color: #637381;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+/*  */
+
+.pedidos-categoria-selecionado{
+    width: 100%;
+    height: 5rem;
+    position: relative;
+}
+
+.pedidos-categoria-selecionado .categorias{
+    position: absolute;
+    left: 9.625rem;
+    display: flex;
+    gap: 2rem;
+}
+
+
+.pedidos-categoria-selecionado .categorias p{
+    font-size: 18px;
+    font-weight: 500;
+    color: #8B8B8B;
+    cursor: pointer;
+}
+
+.pedidos-categoria-selecionado .categorias span p{
+    color: black;
+    border-bottom: 2px solid black;
+}
+
+.pedidos-envios-recentes{
+    width: 100%;
+    padding: 0 175px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.pedidos-envios-recentes h1{
+    font-size: 20px;
+}
+/* 
+.pedidos-envios-recentes .filtro-semana{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    border-radius: 30px;
+    width: auto;
+    gap: 2.5rem;
+    padding-left: 2.5rem;
+    height: 51px;
+    background-color: #F4F5F9;
+}
+
+.pedidos-envios-recentes .filtro-semana p{
+    cursor: pointer;
+    color: #969BA0;
+}
+
+
+.filtro-semana .filtro-selecionado{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 112px;
+    height: 51px;
+    border-radius: 30px;
+    background-color: var(--azul-intenso);
+}
+
+.filtro-semana .filtro-selecionado p{
+    color: white;
+} */
+
+.tabela-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tabela-recentes {
+    width: 80%;
+    margin-top: 17px;
+    border-collapse: collapse;
+}
+
+.tabela-recentes td, .tabela-recentes th {
+    padding: 12px;
+    text-align: center;
+    vertical-align: middle; /* Nunca ouvi falar disso na minha vida, mas funcionou */
+}
+
+.tabela-recentes .tabela-cima {
+    height: 40px;
+    color: var(--azul-tabela);
+    font-weight: 500;
+    background-color: #EDF4FB;
+}
+
+.tabela-recentes .tabela-info {
+    height: 80px;
+    color: #666666;
+    font-weight: 400;
+    background-color: rgba(210, 210, 210, 5%);
+}
+
+.tabela-recentes .tabela-info span {
+    font-weight: bolder;
+    font-size: 18px;
+    color: #666666;
+}
+
+.tabela-info .status-enviado {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #6FCF97;
+    border-radius: 4px;
+    height: 36px;
+    width: 164px;
+    margin: 0 auto;
+}
+
+.tabela-info .status-enviado p {
+    color: white;
+    font-weight: 600;
+}
+
+.tabela-info .status-pendente {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #FA976C;
+    border-radius: 4px;
+    height: 36px;
+    width: 164px;
+    margin: 0 auto;
+}
+
+.tabela-info .status-pendente p {
+    color: white;
+    font-weight: 600;
+}
+
+.tabela-nota-fiscal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.tabela-nota-fiscal{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 8px;
+    gap: 0.5rem;
+    height: 38px;
+    width: 86px;
+    border: 2px solid #D0D5DD;
+}
+
+.tabela-nota-fiscal p{
+    font-size: 14px;
+    font-weight: 600;
+    color: #667085;
+}
+
+.tabela-nota-fiscal i{
+    color: #667085;
+}
+
+.centralizar-nota{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/*  
+*/
+
+.buscar-filtros{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.filtros-datas{
+    width: 80%;
+
+}
+
+.datas-botoes{
+    margin-top: 2rem;
+    display: flex;
+    width: 280px;
+}
+
+.datas-botoes .botao-ativado{
+    background-color: white;
+    font-weight: 500;
+}
+
+.datas-botoes button{
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 2rem;
+    width: auto;
+    border: 2px solid #D0D5DD;
+    padding: 16px 20px;
+    height: 40px;
+    color: #262626;
+    font-size: 14px;
+    box-shadow: 0 5px 10px 0.5px rgba(0, 0, 0, 0.100);
+    background-color: #f0f2f5;
+}
+
+.datas-botoes button img{
+    width: 16px;
+    height: auto;
+}
+
+.form-group{
+    margin-top: 2rem;
+}
+
+.form-group, .form-group-breakline{
+    height: 40px;
+}
+
+.filtro-formulario{
+    width: 77%;
+}
+
+.filtro-formulario label{
+    margin-right: -8px;
+    font-size: 14px;
+    font-weight: 400;
+    height: 32px;
+    padding: 5px 12px;
+    border-radius: 4px;
+    background-color: #fafafa;
+    border: 1px solid #d9d9d9;
+    color: #595959;
+}
+
+.filtro-formulario input{
+    margin-right: 10px;
+    height: 29.5px;
+    padding: 5px 12px;
+    border: 1px solid #d9d9d9;
+    border-top-right-radius:  4px;
+    border-bottom-right-radius:  4px;
+    z-index: -2;
+}
+
+.filtro-formulario input::placeholder{
+    color: rgba(0, 0, 0, 25%);
+}
+
+.form-botao-buscar{
+    cursor: pointer;
+    background-color: #1890ff;
+    color: white;
+    padding: 5px 16px;
+    height: 32px;
+    transition: background-color 0.15s ease;
+    border-radius: 4px;
+}
+
+.form-botao-buscar:hover{
+    background-color: #1372ca;
+}
+
+/* chatgpt teve que dar aulas aqui, muita burocracia trocar o estilo padrão de um checkbox */
+
+/* Esconde a checkbox padrão */
+.envios-checkbox input[type="checkbox"] {
+    display: none;
+  }
+  
+  /* Estilo da caixa personalizada */
+  .envios-checkbox .checkbox {
+    width: 24px; /* Tamanho da checkbox */
+    height: 24px; /* Tamanho da checkbox */
+    border: 2px solid #E9E9EA; /* Cor da borda */
+    background-color: #F7F8FA; /* Cor de fundo da caixa */
+    display: inline-block;
+    border-radius: 5px; /* Borda arredondada */
+    position: relative;
+    transition: background-color 0.3s, border-color 0.3s;
+    cursor: pointer;
+  }
+  
+  /* Estilo quando a checkbox está marcada */
+  .envios-checkbox input[type="checkbox"]:checked + .checkbox {
+    background-color: rgb(65, 142, 225); /* Cor de fundo quando marcado */
+    border-color: #007bff; /* Cor da borda quando marcado */
+  }
+
+  /* Adicionando o check */
+/* Adicionando o ícone personalizado */
+.envios-checkbox input[type="checkbox"]:checked + .checkbox::after {
+    content: '\f00c'; /* Código do ícone do Font Awesome (check) */
+    font-family: 'Font Awesome 5 Free'; /* Definindo a fonte para Font Awesome */
+    font-weight: 900; /* Necessário para ícones da versão 5 */
+    color: white;
+    font-size: 14px;
+    position: absolute;
+    top: 50%;
+    left: 45%;
+    transform: translate(-50%, -50%);
+  }
+  
+  /* Estilo da parte interna da caixa quando marcada */
+  /*
+  .envios-checkbox input[type="checkbox"]:checked + .checkbox::after {
+    content: '';
+    position: absolute;
+    left: 6px;
+    top: 3px;
+    width: 8px;
+    height: 8px;
+    background-color: white;
+    transform: rotate(45deg);
+  }
+  *\
+  
+  /* Efeito de hover */
+  .envios-checkbox .checkbox:hover {
+    border-color: #007bff; /* Cor da borda quando passar o mouse */
+  }
+  
+
+/*  */
+.envios-container {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.envios-container h1 {
+    font-size: 20px;
+    margin-left: 10%;
+    align-self: flex-start;
+}
+
+.tabela-envios {
+    border-collapse: collapse;
+    margin-top: 17px;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto; /* Para garantir que a tabela fique centralizada */
+}
+
+.envios-cima {
+    border-bottom: 1px solid #E9E9EA;
+}
+
+.envios-cima td {
+    color: #ababab;
+    font-weight: 500;
+    text-align: left; /* Alinha o texto à esquerda em todas as células */
+    padding: 10px 15px; /* Adiciona espaçamento interno nas células */
+}
+
+.td-com-setinha {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 0.5rem;
+}
+
+.td-com-setinha .td-arrows {
+    display: flex;
+    flex-direction: column;
+}
+
+.td-arrows i {
+    cursor: pointer;
+    font-size: 8px;
+}
+
+.envios-information td {
+    color: #1D1929;
+    font-weight: 400;
+    text-align: left; /* Alinha o texto à esquerda */
+    padding: 10px 15px; /* Adiciona espaçamento interno nas células */
+}
+
+.tabela-envios .status-completo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    height: 28px;
+    background-color: #DCFDD4;
+    color: #4FAC16;
+    padding: 1rem;
+}
+
+.tabela-envios .status-andamento {
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    height: 28px;
+    background-color: #FAFDD4;
+}
+
+.tabela-envios .status-rejeitado {
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    height: 28px;
+    background-color: #FDD4D4;
+}
+
+AC1616
+
+.status-completo p{
+    color: #4FAC16;
+}
+
+.tabela-envios .status-andamento p {
+    color: #AC9D16;
+}
+
+.tabela-envios .status-rejeitado p {
+    color: #AC1616;
+}
+
+.envios-information td .table-data {
+    display: flex;
+    flex-direction: column;
+}
+
+.table-data p {
+    white-space: nowrap;
+    height: auto;
+}
+
+.envios-checkbox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.envios-checkbox input {
+    width: 18px;
+    height: 18px;
+}
+
+.td-com-setinha p {
+    margin: 0;
+    font-size: 14px;
+}
+
+.etapa-form select{
+    /* padding: 0 20px; */
+    font-weight: 500;
+    font-size: 14px;
+    border: 1px solid #E9E9EA;
+    text-align: center;
+    color: #003CFF;
+    padding: 0.25rem;
+    border-radius: 10px;
+    background-color: transparent;
+    cursor: pointer;
+}
+.etapa-form select option{
+    text-align: center;
+}
+
+#envios-bold{
+    font-weight: 600;
+}
+
+/* obrigado igor kkkkk */
+
+.radio-inputs {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    border-radius: 30px;
+    background-color: #EEE;
+    box-sizing: border-box;
+    box-shadow: 0 0 0px 1px rgba(0, 0, 0, 0.06);
+    padding: 0.25rem;
+    width: 300px;
+    font-size: 14px;
+  }
+  
+  .radio-inputs .radio {
+    flex: 1 1 auto;
+    text-align: center;
+  }
+  
+  .radio-inputs .radio input {
+    display: none;
+  }
+  
+  .radio-inputs .radio .name {
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    border-radius: 30px;
+    border: none;
+    padding: .5rem 0;
+    color: #969BA0;
+    transition: all .15s ease-in-out;
+    height: 51px;
+  }
+  
+  .radio-inputs .radio input:checked + .name {
+    background-color: var(--azul-intenso);
+    color: white;
+    font-weight: 600;
+  }
+
+  /* footer */
+
+  .footer{
+    display: flex;
+    height: 100%;
+    background-color: #cef5a4;
+    padding: 22px 10px ;
+    text-align: center;
+    justify-content: center;
+    position: relative;
+    top: 55vh;
+}
+
+.footer-text{
+    display: flex;
+    font-family: 'Arimo Hebrew', sans-serif; /* Aplica a fonte */
+    font-style: italic; /* Aplica o estilo itálico */
+    font-size: 20px;
+    color: #291E40;
+}
+
+.footer-logo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 3rem;
+}
+
+.footer-logo img{
+    width: 150px;
+    height: auto;
+}
+
+
+
+  /* responsividade */
+  /* --------------------------------------------------------- */
+
+  @media only screen and (max-width: 840px) {
+    body{
+        overflow-x: hidden;
+    }
+
+    .quantidade-pedidos{
+        padding: 2rem;
+        gap: 2rem;
+        height: auto;
+        flex-direction: column;
+    }
+
+    .pedidos-ui-card, .pedidos-adicionar-envio{
+        position: unset;
+    }
+
+    .pedidos-categoria-selecionado{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .pedidos-categoria-selecionado .categorias{
+        position: unset;
+    }
+
+    .pedidos-envios-recentes{
+        flex-direction: column;
+        gap: 3rem;
+        margin: 3rem 0;
+        padding: 0;
+    }
+
+    .tabela-container{
+        display: block;
+        overflow: scroll;
+    }
+    .tabela-recentes, .envios-container, .tabela-envios{
+        overflow: scroll;
+    }
+
+    .envios-information{
+        white-space: nowrap;
+    }
+
+    /* .filtros-datas, .datas-botoes, .filtro-formulario{
+        width: auto;
+    } */
+
+    .form-group, .form-group-breakline{
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .form-group-breakline{
+        margin-top: 1rem;
+    }
+
+    .filtro-formulario .form-group label, .form-group-breakline label, .form-group-breakline input{
+        width: 100%;
+        height: 2.125rem;
+    }
+    .filtro-formulario .form-group input, .form-group-breakline input{
+        z-index: 10;
+        height: 3rem;
+        width: 100%;
+    }
+
+    .filtros-datas{
+        width: auto;
+    }
+
+    .buscar-filtros, .tabela-container, .quantidade-pedidos{
+        margin: 5rem 0;
+    }
+
+    .footer-logo{
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .datas-botoes{
+        width: auto;
+    }
+
+  }

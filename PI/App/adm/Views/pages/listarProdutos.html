@@ -1,0 +1,266 @@
+<!-- <?php
+require '../../../Entity/Usuario.php';  // ALTERE O DIRETÓRIO CONFORME SALVO NO SEU LOCAL
+$usuarios = Usuario::listar()->fetchAll(PDO::FETCH_ASSOC);
+<?php
+
+$produtos = Produto::listar()->fetchAll(PDO::FETCH_ASSOC);
+?>
+
+?> -->
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LISTAR PRODUTOS</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../../../../public/css/listarProdutos.css">
+    <!-- <link rel="stylesheet" href="../../../../public/css/SidbarAdm.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Arimo:wght@400&family=Arimo+Hebrew:wght@400&display=swap" rel="stylesheet">
+    <script src="../../../../public/js/SidebarAdm.js" defer></script>
+</head>
+<body>
+
+    <navbar id="main-content">
+        <div class="listarU-logo">
+            <img src="../../../../public/assets/img/Ativo 2.png " alt="logo tweeb">
+        </div>
+        <div class="listarU-departments-bar"></div>
+    </navbar>
+
+    <div class="SideBar_adm">
+        <nav class="adm_sidebar" id="sidebar">
+            <div class="sidebar_contentAdm">
+                <div class="adm_user">
+                    <img src="../../../../public/assets/img/Avatar.png" id="userAdm_avatar" alt="Avatar">
+                        <p class="userAdm_infos">
+                            <span class="itemAdm-descricao">
+                                Letícia Almeida <br>
+                                <small>VENDEDOR</small>
+                            </span>
+                        </p>
+                </div>
+                
+                <div class="linha"></div>
+                <ul class="menu_sidebarAdm">
+                    <li class="sidebarAdm-item">
+                        <a href="#"><img src="../../../../public/assets/img/analytics 1.png" alt=""><span class="itemAdm-descricao">Painel</span></a>
+                    </li>
+                    <li class="sidebarAdm-item" id="Favoritos">
+                        <a href="#"><img src="../../../../public/assets/img/Calendar.png" alt=""><span class="itemAdm-descricao">Manutenções</span></a>
+                    </li>
+                    <li class="sidebarAdm-item">
+                        <a href="#"><img src="../../../../public/assets/img/Inbox.png" alt=""><span class="itemAdm-descricao">Orçamentos</span></a>
+                    </li>
+                    <li class="sidebarAdm-item has-submenu_sidbarAdm" id="toggle">
+                        <a href="#"><img src="../../../../public/assets/img/Reports.png" alt=""><span class="itemAdm-descricao">Produtos</span> <i class="fa-solid fa-angle-down" id="arrow"></i></a>
+                        <ul class="submenu_sidbarAdm">
+                            <li><a href="#"><span class="itemAdm-descricao">Cadastro</span></a></li>
+                            <li><a href="#"><span class="itemAdm-descricao">Estoque</span></a></li>
+                        </ul>
+                    </li>
+                    
+                    <button id="open_btn">
+                      <i id="open_btn_icon" class="fa-solid fa-chevron-right"></i>
+                    </button>
+                </ul>
+            </div>
+            
+            <div id="logout">
+                <button id="logout_btn">
+                    <a href="#"><img src="../../../../public/assets/img/Help-circle.png" alt=""> <span class="itemAdm-descricao">Ajuda</span></a>
+                </button>
+                
+                <button id="logout_btn">
+                    <a href="#"><img src="../../../../public/assets/img/sair.png" alt=""> <span class="itemAdm-descricao">Sair</span></a>
+                </button>
+            </div>
+        </nav>
+    </div>
+
+
+    <div class="listarU-titulo-container">
+        <a href="estoque_cadastrar_novo.html">
+            <div class="listarU-titulo">Novo Produto</div>
+        </a>
+        
+        <div class="listarU-titulo2">Cadastrados</div>
+    </div>
+
+    <div class="listarU-search-box">
+        <form action="" onsubmit="event.preventDefault(); filterTable();">
+            <div class="listarU-search-container">
+                <button type="submit" class="listarU-search-btn">
+                    <i class="bx bx-search"></i>
+                </button>
+                <input type="text" id="searchInput" class="listarU-srch" placeholder="Buscar">
+            </div>
+        </form>
+    </div>
+
+    <div class="listarU-filtro-container">
+        <div class="listarU-filtro-box">
+            <img src="../../../../public/assets/img/Icon-filtro.png" alt="Ícone Filtro" class="listarU-filtro-icon">
+            <span>Filtro</span>
+        </div>
+    </div>
+
+    <section>
+        <div class="listarU-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Foto</th>
+                        <th>Nome do Produto</th>
+                        <th>Valor</th>
+                        <th>Alterar</th>
+                        <th>Quantidade</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- <?php
+                    foreach ($usuarios as $usuario) {
+                        echo ' -->
+                        <tr>
+                            <!-- <td>' . $usuario['id_usuario'] . '</td>
+                            <td>' . $usuario['nome'] . '</td>
+                            <td>' . $usuario['email'] . '</td> -->
+                            <td><img src="../../../../public/assets/img/notebook-gamer-dell-g15-i1300-a45p-intel-core-i5-16gb-nvidia-rtx-4050-ssd-512gb-15-6-fhd-windows-11-preto-210-bkyg_1707334557_gg 1.png" id="userAdm_avatar" alt="Avatar"></td>
+                            <td>Notebook Gamer Dell g15-i1300</td>
+                            <td>R$5.000,00</td>
+                            <td>
+                                <div class="td_botao">
+                                    <!-- <form action="editarUsuario.php" method="get"> -->
+                                    <form action="estoque_cadastrar_novo.html" method="get">
+                                        <input type="hidden" name="id_usuario" value="' . $usuario['id_usuario'] . '">
+                                        <button type="submit" class="listarU-edit-btn">
+                                            <img src="../../../../public/assets/img/edit-3.png" alt="Editar" class="listarU-edit-icon">
+                                        </button>
+                                    </form>
+                    
+                                    <!-- <form action="excluirUsuario.php" method="post"> -->
+                                    <form action="excluirProduto.php" method="post">
+                                        <input type="hidden" name="id_usuario" value="' . $usuario['id_usuario'] . '">
+                                        <button type="submit" class="listarU-delete-btn">
+                                            <img src="../../../../public/assets/img/trash-2.png" alt="Excluir" class="listarU-delete-icon">
+                                        </button>
+                                    </form>
+                                </div>
+                            </td>
+                            <!-- <td>' . $usuario['quantidade'] . '</td> -->
+                            <td>100</td>
+                        </tr>
+
+                        <tr>
+                            <!-- <td>' . $usuario['id_usuario'] . '</td>
+                            <td>' . $usuario['nome'] . '</td>
+                            <td>' . $usuario['email'] . '</td> -->
+                            <td><img src="../../../../public/assets/img/notebook-gamer-dell-g15-i1300-a45p-intel-core-i5-16gb-nvidia-rtx-4050-ssd-512gb-15-6-fhd-windows-11-preto-210-bkyg_1707334557_gg 1.png" id="userAdm_avatar" alt="Avatar"></td>
+                            <td>Notebook Gamer Dell g15-i1300</td>
+                            <td>R$5.000,00</td>
+                            <td>
+                                <div class="td_botao">
+                                    <!-- <form action="editarUsuario.php" method="get"> -->
+                                    <form action="estoque_cadastrar_novo.html" method="get">
+                                        <input type="hidden" name="id_usuario" value="' . $usuario['id_usuario'] . '">
+                                        <button type="submit" class="listarU-edit-btn">
+                                            <img src="../../../../public/assets/img/edit-3.png" alt="Editar" class="listarU-edit-icon">
+                                        </button>
+                                    </form>
+                    
+                                    <!-- <form action="excluirUsuario.php" method="post"> -->
+                                    <form action="excluirProduto.php" method="post">
+                                        <input type="hidden" name="id_usuario" value="' . $usuario['id_usuario'] . '">
+                                        <button type="submit" class="listarU-delete-btn">
+                                            <img src="../../../../public/assets/img/trash-2.png" alt="Excluir" class="listarU-delete-icon">
+                                        </button>
+                                    </form>
+                                </div>
+                            </td>
+                            <!-- <td>' . $usuario['quantidade'] . '</td> -->
+                            <td>100</td>
+                        </tr>
+
+                        <tr>
+                            <!-- <td>' . $usuario['id_usuario'] . '</td>
+                            <td>' . $usuario['nome'] . '</td>
+                            <td>' . $usuario['email'] . '</td> -->
+                            <td><img src="../../../../public/assets/img/notebook-gamer-dell-g15-i1300-a45p-intel-core-i5-16gb-nvidia-rtx-4050-ssd-512gb-15-6-fhd-windows-11-preto-210-bkyg_1707334557_gg 1.png" id="userAdm_avatar" alt="Avatar"></td>
+                            <td>Notebook Gamer Dell g15-i1300</td>
+                            <td>R$5.000,00</td>
+                            <td>
+                                <div class="td_botao">
+                                    <!-- <form action="editarUsuario.php" method="get"> -->
+                                    <form action="estoque_cadastrar_novo.html" method="get">
+                                        <input type="hidden" name="id_usuario" value="' . $usuario['id_usuario'] . '">
+                                        <button type="submit" class="listarU-edit-btn">
+                                            <img src="../../../../public/assets/img/edit-3.png" alt="Editar" class="listarU-edit-icon">
+                                        </button>
+                                    </form>
+                    
+                                    <!-- <form action="excluirUsuario.php" method="post"> -->
+                                    <form action="excluirProduto.php" method="post">
+                                        <input type="hidden" name="id_usuario" value="' . $usuario['id_usuario'] . '">
+                                        <button type="submit" class="listarU-delete-btn">
+                                            <img src="../../../../public/assets/img/trash-2.png" alt="Excluir" class="listarU-delete-icon">
+                                        </button>
+                                    </form>
+                                </div>
+                            </td>
+                            <!-- <td>' . $usuario['quantidade'] . '</td> -->
+                            <td>100</td>
+                        </tr>
+
+                        <tr>
+                            <!-- <td>' . $usuario['id_usuario'] . '</td>
+                            <td>' . $usuario['nome'] . '</td>
+                            <td>' . $usuario['email'] . '</td> -->
+                            <td><img src="../../../../public/assets/img/notebook-gamer-dell-g15-i1300-a45p-intel-core-i5-16gb-nvidia-rtx-4050-ssd-512gb-15-6-fhd-windows-11-preto-210-bkyg_1707334557_gg 1.png" id="userAdm_avatar" alt="Avatar"></td>
+                            <td>Notebook Gamer Dell g15-i1300</td>
+                            <td>R$5.000,00</td>
+                            <td>
+                                <div class="td_botao">
+                                    <!-- <form action="editarUsuario.php" method="get"> -->
+                                    <form action="estoque_cadastrar_novo.html" method="get">
+                                        <input type="hidden" name="id_usuario" value="' . $usuario['id_usuario'] . '">
+                                        <button type="submit" class="listarU-edit-btn">
+                                            <img src="../../../../public/assets/img/edit-3.png" alt="Editar" class="listarU-edit-icon">
+                                        </button>
+                                    </form>
+                    
+                                    <!-- <form action="excluirUsuario.php" method="post"> -->
+                                    <form action="excluirProduto.php" method="post">
+                                        <input type="hidden" name="id_usuario" value="' . $usuario['id_usuario'] . '">
+                                        <button type="submit" class="listarU-delete-btn">
+                                            <img src="../../../../public/assets/img/trash-2.png" alt="Excluir" class="listarU-delete-icon">
+                                        </button>
+                                    </form>
+                                </div>
+                            </td>
+                            <!-- <td>' . $usuario['quantidade'] . '</td> -->
+                            <td>100</td>
+                        </tr>
+
+                        <!-- </tr>';
+                        }
+                    ?> -->
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <div><img src="../../../../public/assets/img/logo.png" alt="Logo Tweeb" /></div>
+                <div class="footer-text">Você faz parte da nossa conexão com o futuro.</div>
+            </div>       
+        </div>
+    </footer>
+</body>
+</html>

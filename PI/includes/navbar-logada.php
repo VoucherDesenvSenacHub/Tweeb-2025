@@ -1,34 +1,94 @@
 <body class="navBody">
-    <header  class="headNav">
+<header class="headNav">
         <div class="hamburguer">
-        <i class='bx bx-menu'></i>
+            <i class='bx bx-menu'></i>
         </div>
         <div class="logo">
-            <a href="home.php"><img src="../../../../public/assets/img/Ativo 2.png" alt="logo tweeb"></a>
+            <a href="../../../../home.php"><img src="../../../../public/assets/img/Ativo 2.png" alt="logo tweeb"></a>
         </div>
         <div class="search-box">
             <form action="">
-                <button type="submit"><i class='bx bx-search'></i></button>
+                <button class="srch-logada"type="submit"><i class='bx bx-search'></i></button>
                 <input type="text" name="search" class="srch" placeholder="Buscar">
             </form>
         </div>
+        <div class="responsive-menu">
+            <a href="#">Sobre</a>
+            <a href="#">Orçamento</a>
+        </div>
         <nav class="navb">
             <ul>
-                <li><a class="op" href="home.php">Home</a></li>
-                <li><a class="op" href="#">Sobre</a></li>
-                <li><a class="op" href="#">Orçamento</a></li>
-                <li><a class="op"href="app/user/View/pages/cadastro.php">Sair</a></li>
+                <li><a class="op" href="../../../../home.php">Home</a></li>
+                <li><a class="op" href="quemsomos.php">Sobre</a></li>
+                <li><a class="op" href="orcamento.php">Orçamento</a></li>
+                <li><a class="op" href="cadastro.php">Sair</a></li>
                 <li>
                     <a class="op"href="#"><i class='bx bx-cart-alt'></i></a>
                     <!-- <a href="app/user/view/pages/login.php"><i class='bx bx-user'></i></a> -->
                     <a href="#" class="user-icon">
-                        <img src="../../../../public/assets/img/Avatar.png" alt="teste">
+                        <img src="../../../../public/assets/img/User Pic.png" alt="teste">
                     </a>
                 </li>
             </ul>
         </nav>
-    </header>
 
+    <div class="hamburger-menu">
+        <div class="user-info">
+            <img src="../../../../public/assets/img/User Pic.png" alt="Foto do Usuário">
+            <p class="hi-user">Olá, Usuário</p>
+            <span class="close-menu-nav"><i class="fa-solid fa-xmark"></i></span>
+        </div>
+
+        <hr class="sep"> 
+
+        <!-- Menu principal -->
+        <ul class="menu-options main-menu">
+            <li class="menu-item-nav">
+                <a href="#" class="toggle-departamentos">
+                    <img src="../../../../public/assets/img/editar.png" alt="">
+                    <span class="item-description-nav">Departamentos</span>
+                    <i class="arrow fa-solid fa-chevron-right"></i>
+                </a>
+            </li>
+            <li class="menu-item-nav">
+                <a href="#"><img src="../../../../public/assets/img/editar.png" alt=""><span class="item-description-nav">Editar Perfil</span></a>
+            </li>
+            <li class="menu-item-nav">
+                <a href="#"><img src="../../../../public/assets/img/Calendar.png" alt=""><span class="item-description-nav">Meus Endereços</span></a>
+            </li>
+            <li class="menu-item-nav">
+                <a href="#" class="toggle-pedidos">
+                    <img src="../../../../public/assets/img/Inbox.png" alt="">
+                    <span class="item-description-nav">Meus Pedidos</span>
+                    <i class="arrow fa-solid fa-chevron-right"></i> 
+                </a>
+                <ul class="segundomenu-nav">
+                    <li><a href="#"><span class="item-description-nav">Pedidos Enviados</span></a></li>
+                    <li><a href="#"><span class="item-description-nav">Pedidos Cancelados</span></a></li>
+                </ul>
+            </li>
+            <li class="menu-item-nav">
+                <a href="#"><img src="../../../../public/assets/img/Like.png" alt=""><span class="item-description-nav">Favoritos</span></a>
+            </li>
+            <li class="menu-item-nav">
+                <a href="#"><img src="../../../../public/assets/img/alterar.png" alt=""><span class="item-description-nav">Alterar Senha</span></a>
+            </li>
+            <li class="menu-item-nav">
+                <a href="#"><img src="../../../../public/assets/img/sair.png" alt=""><span class="item-description-nav">Sair</span></a>
+            </li>
+        </ul>
+
+        <!-- Submenu de Departamentos (começa oculto) -->
+        <div class="departamentos-menu">
+            <button class="voltar-menu">← Voltar</button>
+            <ul class="sub-departamentos">
+                <li><a href="#"><span class="item-description-nav">Eletrônicos</span></a></li>
+                <li><a href="#"><span class="item-description-nav">Vestuário</span></a></li>
+                <li><a href="#"><span class="item-description-nav">Alimentos</span></a></li>
+            </ul>
+        </div>
+    </div>
+</header> 
     <!-- Barra de departamentos -->
     <section id="departaments" class="departments-bar">
         <div class="department">
@@ -36,7 +96,7 @@
             <span>Hardwares <i class='bx bx-chevron-right'></i></span>
             <ul class="submenu">
                 <li>
-                    <a href="#" class="linkn-submenu">Placa Mãe <i class='bx bx-chevron-right'></i></a>
+                    <a href="#" class="linkn-submenu-h">Placa Mãe <i class='bx bx-chevron-right'></i></a>
                     <ul class="submenu-sub">
                         <li><a class="submenu-sub-link" href="#">Placa Mae Gigabyte B550M Aorus</a></li>
                         <li><a class="submenu-sub-link" href="#">Placa Mae ASRock B450M Steel Legend</a></li>
@@ -46,7 +106,7 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="#" class="linkn-submenu">Placa de Video <i class='bx bx-chevron-right'></i></a>
+                    <a href="#" class="linkn-submenu-h">Placa de Video <i class='bx bx-chevron-right'></i></a>
                     <ul class="submenu-sub">
                         <li><a class="submenu-sub-link" href="#">NVIDIA GeForce</a></li>
                         <li><a class="submenu-sub-link" href="#">AMD Radeon</a></li>
@@ -55,7 +115,7 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="#"class="linkn-submenu">Memorias <i class='bx bx-chevron-right'></i></a>
+                    <a href="#"class="linkn-submenu-h">Memorias <i class='bx bx-chevron-right'></i></a>
                     <ul class="submenu-sub">
                         <li><a class="submenu-sub-link" href="#">Memória DDR 2</a></li>
                         <li><a class="submenu-sub-link" href="#">Memória DDR 3</a></li>
@@ -64,7 +124,7 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="#"class="linkn-submenu">Coolers e WaterCoolers <i class='bx bx-chevron-right'></i></a>
+                    <a href="#"class="linkn-submenu-h">Coolers e WaterCoolers <i class='bx bx-chevron-right'></i></a>
                     <ul class="submenu-sub">
                         <li><a class="submenu-sub-link" href="#">Acessórios para Cooler</a></li>
                         <li><a class="submenu-sub-link" href="#">Air Cooler</a></li>
@@ -75,7 +135,7 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="#"class="linkn-submenu">Fonte de Alimentação <i class='bx bx-chevron-right'></i></a>
+                    <a href="#"class="linkn-submenu-h">Fonte de Alimentação <i class='bx bx-chevron-right'></i></a>
                     <ul class="submenu-sub">
                         <li><a class="submenu-sub-link" href="#">Fonte 200W</a></li>
                         <li><a class="submenu-sub-link" href="#">Fonte 230W</a></li>
@@ -107,7 +167,7 @@
             <span>Computadores <i class='bx bx-chevron-right'></i></span>
             <ul class="submenu">
                 <li>
-                    <a href="#"class="linkn-submenu">Desktop<i class='bx bx-chevron-right'></i></a>
+                    <a href="#"class="linkn-submenu-h">Desktop<i class='bx bx-chevron-right'></i></a>
                     <ul class="submenu-sub">
                         <li><a class="submenu-sub-link" href="#">Computador AMD</a></li>
                         <li><a class="submenu-sub-link" href="#">Computador Intel</a></li>
@@ -116,7 +176,7 @@
                 
                 </li>
                 <li>
-                    <a href="#"class="linkn-submenu">Notebook <i class='bx bx-chevron-right'></i></a>
+                    <a href="#"class="linkn-submenu-h">Notebook <i class='bx bx-chevron-right'></i></a>
                     <ul class="submenu-sub">
                         <li><a class="submenu-sub-link" href="#">Acessórios para Notebook</a></li>
                         <li><a class="submenu-sub-link" href="#">Notebook LG</a></li>
@@ -137,7 +197,7 @@
             <span>Periféricos <i class='bx bx-chevron-right'></i></span>
             <ul class="submenu">
                 <li>
-                    <a href="#"class="linkn-submenu">Teclados <i class='bx bx-chevron-right'></i></a>
+                    <a href="#"class="linkn-submenu-h">Teclados <i class='bx bx-chevron-right'></i></a>
                     <ul class="submenu-sub">
                         <li><a class="submenu-sub-link" href="#">Teclado com Fio</a></li>
                         <li><a class="submenu-sub-link" href="#">Teclado sem Fio</a></li>
@@ -145,7 +205,7 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="#"class="linkn-submenu">Mouses <i class='bx bx-chevron-right'></i></a>
+                    <a href="#"class="linkn-submenu-h">Mouses <i class='bx bx-chevron-right'></i></a>
                     <ul class="submenu-sub">
                         <li><a class="submenu-sub-link" href="#">Mouse com Fio</a></li>
                         <li><a class="submenu-sub-link" href="#">Mouse sem Fio</a></li>
@@ -153,7 +213,7 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="#"class="linkn-submenu">Headsets <i class='bx bx-chevron-right'></i></a>
+                    <a href="#"class="linkn-submenu-h">Headsets <i class='bx bx-chevron-right'></i></a>
                     <ul class="submenu-sub">
                         <li><a class="submenu-sub-link" href="#">Acessórios para Headset Gamer</a></li>
                         <li><a class="submenu-sub-link" href="#">Com Fio</a></li>
@@ -168,7 +228,7 @@
             <span>Energia <i class='bx bx-chevron-right'></i></span>
             <ul class="submenu">
                 <li>
-                    <a href="#"class="linkn-submenu">Cabos e Adaptadores de Energia <i class='bx bx-chevron-right'></i></a>
+                    <a href="#"class="linkn-submenu-h">Cabos e Adaptadores de Energia <i class='bx bx-chevron-right'></i></a>
                     <ul class="submenu-sub">
                         <li><a class="submenu-sub-link" href="#">Cabos de Alimentação para PC</a></li>
                         <li><a class="submenu-sub-link" href="#">Adaptadores de Energia para Notebooks</a></li>
@@ -177,7 +237,7 @@
                 
                 </li>
                 <li>
-                    <a href="#"class="linkn-submenu">No-Breaks <i class='bx bx-chevron-right'></i></a>
+                    <a href="#"class="linkn-submenu-h">No-Breaks <i class='bx bx-chevron-right'></i></a>
                     <ul class="submenu-sub">
                         <li><a class="submenu-sub-link" href="#">No-Breaks para PCs e Estações de Trabalho</a></li>
                         <li><a class="submenu-sub-link" href="#">No-Breaks para Home Office</a></li>
@@ -193,7 +253,7 @@
             <span>Áudio <i class='bx bx-chevron-right'></i></span>
             <ul class="submenu">
                 <li>
-                    <a href="#"class="linkn-submenu">Caixas de Som <i class='bx bx-chevron-right'></i></a>
+                    <a href="#"class="linkn-submenu-h">Caixas de Som <i class='bx bx-chevron-right'></i></a>
                     <ul class="submenu-sub">
                         <li><a class="submenu-sub-link" href="#">Caixas de Som Bluetooth</a></li>
                         <li><a class="submenu-sub-link" href="#">Caixas de Som para PC</a></li>
@@ -204,7 +264,7 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="#"class="linkn-submenu">Fones de Ouvido <i class='bx bx-chevron-right'></i></a>
+                    <a href="#"class="linkn-submenu-h">Fones de Ouvido <i class='bx bx-chevron-right'></i></a>
                     <ul class="submenu-sub">
                         <li><a class="submenu-sub-link" href="#">Fones de Ouvido Bluetooth</a></li>
                         <li><a class="submenu-sub-link" href="#">Fones de Ouvido Gamer</a></li>
@@ -223,7 +283,7 @@
             <span>Jogos <i class='bx bx-chevron-right'></i></span>
             <ul class="submenu">
                 <li>
-                    <a href="#"class="linkn-submenu">Jogos Para PC <i class='bx bx-chevron-right'></i></a>
+                    <a href="#"class="linkn-submenu-h">Jogos Para PC <i class='bx bx-chevron-right'></i></a>
                     <ul class="submenu-sub">
                         <li><a class="submenu-sub-link" href="#">Jogos de Ação</a></li>
                         <li><a class="submenu-sub-link" href="#">Jogos de Estratégia</a></li>
@@ -234,7 +294,7 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="#"class="linkn-submenu">Acessórios Para Games <i class='bx bx-chevron-right'></i></a>
+                    <a href="#"class="linkn-submenu-h">Acessórios Para Games <i class='bx bx-chevron-right'></i></a>
                     <ul class="submenu-sub">
                         <li><a class="submenu-sub-link" href="#">Controles de Console</a></li>
                         <li><a class="submenu-sub-link" href="#">Teclados e Mouses Gamer</a></li>
@@ -247,5 +307,61 @@
             </ul>
         </div>
     </section>
+    <script>
+const pedidosLink = document.querySelector('.toggle-pedidos');
+const arrow = pedidosLink.querySelector('.arrow');
+const menuItem = pedidosLink.closest('.menu-item-nav');
+const secondMenu = menuItem.querySelector('.segundomenu-nav');
+
+
+pedidosLink.addEventListener('click', function(event) {
+    event.preventDefault();
+
+    
+    menuItem.classList.toggle('open');
+    arrow.classList.toggle('rotate');
+});
+
+
+document.addEventListener('click', function(event) {
+    if (!menuItem.contains(event.target)) {
+       
+        menuItem.classList.remove('open');
+        arrow.classList.remove('rotate');
+    }
+});
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const departamentosLink = document.querySelector(".toggle-departamentos");
+    const departamentosMenu = document.querySelector(".departamentos-menu");
+    const voltarMenuButton = document.querySelector(".voltar-menu");
+    const mainMenu = document.querySelector(".main-menu");
+
+   
+    departamentosLink.addEventListener("click", function (e) {
+        e.preventDefault(); 
+
+       
+        mainMenu.style.display = "none";
+        departamentosMenu.classList.add("active");
+    });
+
+    voltarMenuButton.addEventListener("click", function () {
+        departamentosMenu.classList.remove("active"); 
+        mainMenu.style.display = "block"; 
+    });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    const menuHamburguer = document.querySelector(".hamburger-menu");
+    const closeMenuBtn = document.querySelector(".close-menu-nav");
+
+    closeMenuBtn.addEventListener("click", function () {
+        menuHamburguer.classList.remove("active"); 
+    });
+});
+
+</script>
     <script src="../../../../public/js/navbar.js"></script>
 </html>

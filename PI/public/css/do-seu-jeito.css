@@ -14,10 +14,10 @@ body {
 }
 
 
-
-
-
-
+.do-seu-jeito-continue-button-countainer{
+    margin-top: 50px;
+    float: right;
+}
 
 .do-seu-jeito-banner1{
     width: 100%;
@@ -283,7 +283,7 @@ body {
     justify-content: space-between;
 }
 
-.active{
+/* .active{
     color: black;
     background-color: #CEF5A4;
     border-radius: 7px;
@@ -291,7 +291,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-}
+} */
 
 .active a{
     color: black;
@@ -403,3 +403,4 @@ BF99FE */
     height: auto;
     width: 100%;
 }
+

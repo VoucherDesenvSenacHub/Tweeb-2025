@@ -1,23 +1,19 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+<?php include __DIR__.'/../../../../includes/headernavb.php'; ?>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../../../public/css/estoque_cadastrar_novo.css">
     <title>Cadastro de Produto</title>
 </head>
 <body>
-     <!-- Cabeçalho -->
-    <header class="header-container">
-        <div class="header-logo"><img src="../../../../public/assets/img/Ativo 2.png" alt="Logo Tweeb"></div>
-    </header>
 
-    <div class="mini-navbar"></div> 
+<?php include __DIR__.'/../../../../includes/head-adm.php'; ?>
+<?php include __DIR__.'/../../../../includes/sidebar-Adm.php'; ?>
 
     <!-- Conteúdo Principal -->
-    <main class="main-container">
         <!-- Formulário de Cadastro -->
-        <form class="form-container">
+        <form class="form-container-adm">
             <div class="form-title">
                 <h1 class="new-product">Novo Produto</h1>
                 <div class="barrinha"></div>
@@ -63,7 +59,7 @@
 
             <button class="save-button" type="submit">Salvar</button>
         </form>
-    </main>
+ 
 
     <div class="container-icons">
         <div class="container-box1-icon">
@@ -94,15 +90,7 @@
         </div>
     </div>
 
-    <!-- Rodapé -->
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-logo">
-                <div><img src="../../../../public/assets/img/logo.png" alt="Logo Tweeb" /></div>
-                <div class="footer-text">Você faz parte da nossa conexão com o futuro.</div>
-            </div>       
-        </div>
-    </footer>
+    <?php include __DIR__.'/../../../../includes/footer-adm.php'; ?> 
 
 </body>
 </html>

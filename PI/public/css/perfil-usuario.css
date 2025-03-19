@@ -1,0 +1,363 @@
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+.perfil-tweeb {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; 
+    margin-top: 50px;
+    height: 100%; 
+    width: 100%; 
+    box-sizing: border-box; 
+    overflow: hidden; 
+}
+
+
+.perfil-tweeb-container {
+
+    padding: 20px;
+    border-radius: 10px;
+    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+    width: 900px;
+    max-width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 50px;
+}
+
+
+/* .perfil-tweeb-container {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 600px;
+} */
+
+.perfil-tweeb-editar {
+    background: transparent;
+    border: 4px solid red;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    color: #6B7280;
+    font-size: 20px;
+    font-family: 'Poppins';
+    float: right;
+   
+}
+
+.perfil-tweeb-header {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.perfil-tweeb-imagem {
+    position: relative;
+    margin-right: 15px;
+}
+
+.perfil-tweeb-imagem img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 3px solid #ccc;
+}
+
+.fio {
+    width: 100%; 
+    height: 2px; 
+    background-color: #ccc; 
+    margin-top: 10px; 
+}
+
+.perfil-tweeb-editar-foto {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 50px; 
+    height: 50px; 
+    background-color: #FFFFFF; 
+    border: 1px solid #ddd; 
+    border-radius: 50%; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.perfil-tweeb-editar-foto i {
+    font-size: 20px; 
+}
+
+.perfil-tweeb-editar-foto:hover {
+    background-color: #FF8661;
+}
+
+.perfil-tweeb-editar-foto:hover i {
+    color: #f5f5f5; 
+}
+.perfil-tweeb-info h1 {
+    font-size: 28px;
+    margin: 0px;
+    margin-bottom: 10px;
+    font-family: 'Poppins';
+    color: #1F2937;
+}
+
+.perfil-tweeb-email {
+    color: #6B7280;
+    font-family: 'Poppins';
+    margin-top: -6px;
+}
+
+.perfil-tweeb-form {
+    margin-top: 24px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    color: #000000;
+    font-family: 'Poppins';
+
+}
+
+.perfil-tweeb-input-group {
+    display: flex;
+    flex-direction: column;
+   
+}
+
+.perfil-tweeb-input-group label {
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.perfil-tweeb-input-group input {
+    padding: 8px;
+    border: 1px solid #f5f5f5;
+    border-radius: 4px;
+    background-color: #f5f5f5;
+    height: 50px;
+    font-family: 'Poppins';
+}
+
+.perfil-tweeb-form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 colunas */
+    gap: 20px;
+    width: 100%;
+}
+
+#primeiro-nome {
+    width: 340px;
+}
+
+#sobrenome2 {
+    width: 115%;
+    margin-left: -60px;
+}
+
+label[for="sobrenome"] {
+    margin-left: -60px;
+}
+.perfil-tweeb-botoes {
+    grid-column: span 2;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+.perfil-tweeb-cancelar {
+    background: none;
+    border: none;
+    color: gray;
+    cursor: pointer;
+}
+
+.perfil-tweeb-salvar {
+    background: #FF8661;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 768px) {
+
+    .navbody{
+        display: none;
+    }
+    .perfil-tweeb-container {
+        max-width: 90%;
+    }
+
+    .perfil-tweeb-header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        margin-bottom: 15px;
+    }
+
+    
+    .perfil-tweeb-editar {
+        width: 100%;
+        max-width: 250px;
+        text-align: center;
+        display: block;
+        margin-bottom: 15px; 
+    }
+
+   
+    .perfil-tweeb-imagem {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 140px;
+        height: 140px;
+    }
+
+    .perfil-tweeb-imagem img {
+        width: 140px;
+        height: 140px;
+        border-radius: 50%;
+        border: 3px solid #ccc;
+        object-fit: cover;
+    }
+
+    
+    .perfil-tweeb-editar-foto {
+        position: absolute;
+        bottom: 5px;
+        right: 5px;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .perfil-tweeb-editar-foto i {
+        font-size: 18px;
+    }
+
+    /* Formulário vertical */
+    .perfil-tweeb-form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .perfil-tweeb-input-group {
+        width: 100%;
+    }
+
+    .perfil-tweeb-input-group input {
+        width: 100%;
+        height: 40px;
+        font-size: 20px;
+    }
+
+    /* Ajusta tamanho do primeiro nome e sobrenome */
+    #primeiro-nome, #sobrenome2 {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    label[for="sobrenome"] {
+        margin-left: 0;
+    }
+
+    
+    .perfil-tweeb-botoes {
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .perfil-tweeb-botoes button {
+        width: 100%;
+        max-width: 250px;
+    }
+}
+
+@media (max-width: 480px) {
+
+
+    @media (max-width: 480px) {
+        .perfil-tweeb-header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .margin-top-aumentado {
+            margin-top: 140px; 
+        }
+        
+        /* label[for="sobrenome"] {
+            margin-left: 0px;
+        }
+     */
+        .perfil-tweeb-editar {
+            width: 100%;
+            max-width: 250px;
+            text-align: center;
+            display: block;
+            margin-bottom: 15px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    
+        .perfil-tweeb-container {
+            max-width: 100%;
+            padding: 15px;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            height: 100%;  
+            overflow-y: auto;  
+        }
+    
+        .perfil-tweeb-info h1 {
+            font-size: 20px;
+            text-align: center;
+        }
+    
+        .perfil-tweeb-form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+    
+        .perfil-tweeb-botoes {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+    
+        .perfil-tweeb-botoes button {
+            width: 100%;
+            max-width: 250px;
+        }
+    }
+}

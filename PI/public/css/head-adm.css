@@ -1,0 +1,90 @@
+.header-container {
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Ajusta espaçamento entre logo e outros elementos */
+    padding: 0 20px; /* Evita que o conteúdo encoste nas bordas */
+}
+
+/* Ajuste da logo */
+.header-logo img {
+    width: auto; /* Mantém a proporção original */
+    max-width: 200px; /* Limita o tamanho máximo */
+    height: auto;
+    margin: 0;
+}
+
+/* Mini Navbar */
+.mini-navbar {
+    margin-top: 21px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 56px;
+    background-color: #2D1B46;
+}
+
+/* Responsividade */
+
+/* Tablets e notebooks menores (até 1024px) */
+@media (max-width: 1024px) {
+    .header-container {
+        height: 80px;
+    }
+
+    .header-logo img {
+        max-width: 180px;
+    }
+
+    .mini-navbar {
+        height: 50px;
+    }
+}
+
+/* Celulares e telas menores que 768px */
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        height: auto;
+        padding: 10px;
+    }
+
+    .header-logo img {
+        max-width: 150px;
+    }
+
+    .mini-navbar {
+        height: 48px;
+    }
+}
+
+/* Celulares pequenos (até 480px) */
+@media (max-width: 480px) {
+    .header-container {
+        text-align: center;
+        padding: 5px;
+    }
+
+    .header-logo img {
+        max-width: 120px;
+    }
+
+    .mini-navbar {
+        height: 45px;
+    }
+}
+
+/* Telas grandes (acima de 1440px) */
+@media (min-width: 1440px) {
+    .header-logo img {
+        max-width: 250px;
+    }
+}
+
+/* Telas ultrawide (acima de 1920px) */
+@media (min-width: 1920px) {
+    .header-logo img {
+        max-width: 300px;
+    }
+}

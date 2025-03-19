@@ -1,0 +1,33 @@
+/* botão de voltar */
+
+#voltarAoTopo {
+    display: none; /* Esconde o botão inicialmente */
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    background-color: var(--laranja);
+    color: var(--azul-intenso);
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2),
+    inset 0 0 0 4px white;
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+#voltarAoTopo:hover {
+    background-color: var(--azul-intenso);
+    border: none;
+    transform: scale(1.1);
+    color: var(--laranja);
+}
+
+#voltarAoTopo i{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
