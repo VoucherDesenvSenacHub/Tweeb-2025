@@ -108,8 +108,8 @@
     }
 
     .produtos-card .image-produto {
-        width: 100%;
-        max-width: 160px;
+        width: 50%;
+        max-width: 130px;
     }
 
     .card-botao {

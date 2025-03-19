@@ -141,7 +141,8 @@ h1 {
     color: #17183B;
     text-align: center;
     padding: 25px;
-    align-self: flex-start;
+    /* align-self: flex-start; */
+    margin-bottom: 10px;
 }
 
 .step-indicator {
@@ -367,8 +368,6 @@ footer {
 
 #footer_social_midia {
     position: relative;
-    top: 30px;
-    right: 65px;
     display: flex;
     justify-content: center;
     gap: 1.5rem;
@@ -381,8 +380,6 @@ footer {
 
 #footer_social_midia {
     position: relative;
-    top: 30px;
-    right: 65px;
     display: flex;
     justify-content: center;
     gap: 1.5rem;
