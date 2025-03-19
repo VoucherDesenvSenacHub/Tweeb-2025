@@ -154,7 +154,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const modalContent = document.createElement("div");
     modalContent.style.backgroundColor = "#fff";
-    modalContent.style.margin = "20% auto";
+    modalContent.style.margin = "10% auto";
     modalContent.style.padding = "40px";
     modalContent.style.width = "60%";
     modalContent.style.maxWidth = "600px";

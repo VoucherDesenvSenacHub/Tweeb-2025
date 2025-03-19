@@ -167,7 +167,9 @@ header .menu {
 
 
 
-
+#form-editar-endereco button{
+    font-size: 12px;
+}
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -181,7 +183,7 @@ body {
     padding: 20px;
     border-radius: 8px;
     /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); */
-    margin-top: 140px;
+  
 }
 
 h1 {
