@@ -315,15 +315,15 @@
         }
 
         .filtrodept-container-geral {
-    position: absolute;
-    top: 855px;
-    left: 190px;
-    height: auto; /* Mantém o filtro visível enquanto a página rola */
-    overflow-y: auto; /* Permite rolagem interna se os filtros forem longos */
-    background-color: white;
-    padding: 20px;
-    z-index: 1000;
-    width: 350px;
+        position: absolute;
+        top: 855px;
+        left: 190px;
+        height: auto; /* Mantém o filtro visível enquanto a página rola */
+        overflow-y: auto; /* Permite rolagem interna se os filtros forem longos */
+        background-color: white;
+        padding: 20px;
+        z-index: 1000;
+        width: 350px;
 }
 
 /* Ajustes do grupo do filtro */
@@ -333,6 +333,7 @@
     margin-bottom: 10px;
     width: 300px;
 }
+
 
 /* Para telas pequenas (até 400px) */
 @media (max-width: 400px) {
@@ -485,9 +486,10 @@
 @media (min-width: 1025px) {
     .filtrodept-container-geral {
         position: absolute;
-        top: 855px;
-        left: 190px;
-        width: 350px;
+        margin-top: 20px;
+        justify-content: center;
+        margin-left: 5px;
+        width: 320px;
     }
 
     .filtrodept-group {
@@ -498,6 +500,7 @@
     .filtrodept-range {
         width: 300px;
     }
+    
 }
 
 .filtrodept-container-geral {

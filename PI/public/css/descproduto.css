@@ -695,26 +695,28 @@
     justify-content: center;
     flex-direction: column;
     position: relative; /* necessário para colocar o coração no canto. */
-    height: 432px;
-    width: 268px;
+    height: 390px;
+    width: 250px;
     background-color: #F6F6F6;
     border-radius: 9px;
 }
 
 .produtos-card p{
-    font-size: 16px;
-    line-height: 24px;
+    font-size: 14px;
+    line-height: 20px;
     font-weight: 500; /* chutei a grossura, não da pra saber pelo figma*/
     text-align: center;
 }
 
 .produtos p, .produtos h1{
     text-align: center;
+    
 }
 
 .produtos h1{
-    margin-top: 15px;
-    margin-bottom: 15px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    
 }
 
 .produtos-card .heart{
@@ -736,8 +738,8 @@
 }
 
 .produtos-card .image-produto{
-    width: 160px;
-    height: 160px;
+    width: 100px;
+    height: 100px;
     object-fit: cover;
     transition: 0.3s ease-in-out;
 }
