@@ -11,7 +11,7 @@ body {
     justify-content: center;
     align-items: flex-start; 
     margin-top: 50px;
-    height: 100vh; 
+    height: 100%; 
     width: 100%; 
     box-sizing: border-box; 
     overflow: hidden; 
@@ -164,9 +164,9 @@ body {
     margin-left: -60px;
 }
 
-label[for="sobrenome"] {
+/* label[for="sobrenome"] {
     margin-left: -60px;
-}
+} */
 .perfil-tweeb-botoes {
     grid-column: span 2;
     display: flex;
@@ -207,6 +207,15 @@ label[for="sobrenome"] {
 
 .alterar-senha-botoes{
     float: right;
+}
+
+.botao-alterar-senha{
+    padding: 10px 20px;
+    background-color: #382856;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
 /* RESPONSIVIDADE */

@@ -49,8 +49,8 @@
 
 
             <div class="alterar-senha-botoes">
-                <button type="button" class="alterar-senha-cancelar">Cancelar</button>
-                <button type="submit" class="alterar-senha-salvar">Salvar alteração</button>
+                <button class="botao-alterar-senha" type="button" class="alterar-senha-cancelar">Cancelar</button>
+                <button class="botao-alterar-senha" type="submit" class="alterar-senha-salvar">Salvar alteração</button>
             </div>
     </div>
 </div>
