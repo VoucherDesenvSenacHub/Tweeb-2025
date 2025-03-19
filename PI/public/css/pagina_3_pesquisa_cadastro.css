@@ -246,11 +246,30 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        box-shadow: 0 0 10px black;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
     }
+
+    .pesquisa3-cadastro-logo-tweeb{
+        margin-top: 5%;
+    }
+
+    .pesquisa3-cadastro-links-header-container{
+        margin-top: 5%;
+    }
+
+
+    .pesquisa3-cadastro-barra-roxa{
+        display: none;
+    }
+
 
     .pesquisa3-cadastro-voltar-button{
         display: flex;
         transform: translateX(-35%);
+        margin-top: 10%;
     }
 
     .pesquisa3-cadastro-cards-container{
