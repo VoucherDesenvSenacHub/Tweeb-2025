@@ -22,7 +22,7 @@
     font-size: 22px;
     font-family: "Nunito", serif;
     font-weight: bold;
-    margin-left: 5%;
+    margin-left: 7%;
 }
 
 .kitsetup-container_titles{
@@ -335,6 +335,7 @@
     }
     .kitsetup-h1 {
         font-size: 52px;
+        margin: 0%;
     }
 }
 
