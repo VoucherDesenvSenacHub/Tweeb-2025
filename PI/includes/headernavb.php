@@ -27,6 +27,7 @@
     <link rel="stylesheet" href="../../../../public/css/escolha-endereco.css">
     <link rel="stylesheet" href="../../../../public/css/metodo-envio.css">
     <link rel="stylesheet" href="../../../../public/css/OrdemdeServico.css">
+    <link rel="stylesheet" href="../../../../public/css/corporativo.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
     <script defer src="../../../../public/js/descProduto.js"></script>
@@ -46,4 +47,5 @@
     <script src="../../../../public/js/ENDERECO.js" defer></script>
     <script src="../../../../public/js/endereco-modal.js" defer></script>
     <script src="../../../../public/js/metodo-envio.js" defer></script>
+    <script src="../../../../public/js/corporativo.js" defer></script>
 </head>
