@@ -8,7 +8,6 @@
     <title>Cadastro de Produto</title>
 </head>
 <body>
-     <!-- Cabeçalho -->
     <header class="header-container">
         <div class="header-logo"><img src="../../../../public/assets/img/Ativo 2.png" alt="Logo Tweeb"></div>
     </header>
