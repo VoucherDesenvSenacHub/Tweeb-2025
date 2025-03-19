@@ -208,3 +208,63 @@
 
 
 /*    RESPONSIVIDADE    */
+
+
+
+
+
+
+
+
+
+@media (max-width: 1425px){
+    .responder-orcamento-container1{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .responder-orcamento-container2{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .responder-orcamento{
+        height: 100%;
+        gap: 2%;
+    }
+}
+
+@media (max-width: 932px){
+    .responder-orcamento-input{
+        width: 95%;
+    }
+}
+
+@media (max-width: 502px){
+    .responder-orcamento-data input{
+        width: 85%;
+    }
+
+    .responder-orcamento-title input{
+        width: 85%;
+    }
+
+    .responder-orcamento-enviado_por input{
+        width: 85%;
+    }
+
+    .responder-orcamento-responder_para input{
+        width: 85%;
+    }
+
+    .responder-orcamento-submit{
+        width: 90%;
+    }
+}
+
+@media (max-width: 527px){
+    .responder-orcamento-h1{
+        font-size: 30px;
+        width: 70%;
+    }
+}
