@@ -169,6 +169,33 @@ body {
     height: auto; 
 }
 
+/* @media (max-width:1024px){
+    .image-container{
+        display: none;
+    }
+    .forms{
+        margin-left: 100px;
+    }
+}  */
+
+@media (max-width:425px){
+    .forms{
+        /* background-color: red; */
+        margin-left: 20px;
+    }
+}
+
+@media (max-width:1366px){
+    .image-container{
+        display: none; 
+     }
+    .forms{
+        /* background-color: red; */
+        margin-left: 120px;
+    }
+
+    
+}
 
 @media (max-width:768px){
 
@@ -176,9 +203,13 @@ body {
         display: none;
     }
     .forms{
+        /* background-color: red; */
         display: flex;
-        flex-wrap: wrap;
-        margin-right: 50px; 
+        /* flex-wrap: wrap; */
+        margin-left: -8%; 
+        font-size: 3vw;
+        /* justify-content: center;
+        align-items: center; */
        
     }
     .remember-forgot{
@@ -186,7 +217,18 @@ body {
     }
     .account{
         font-size: 3vw;
-        flex-direction: column;
-        
+        flex-direction: column;  
+    }
+}
+
+@media (max-width: 320px){
+    .forms{
+        /* background-color: red; */
+        margin-right: 20%;
+        font-size: 3vw;
+    }
+    .remember-forgot{
+        /* background-color: red; */
+        font-size: 3vw;
     }
 }
