@@ -196,10 +196,10 @@
         
         }
         .filtrodept-arrow {
-            transition: transform 0.3s;
+            transition: transform 0.3s !important;
         }
         .expanded .filtrodept-arrow {
-            transform: rotate(180deg);
+            transform: rotate(180deg) !important;
         }
 
         
@@ -229,6 +229,277 @@
             margin-top: 10px;
         }
 
+        .filtrodept-container-geral {
+            scrollbar-width: thin; /* Para Firefox */
+            scrollbar-color: #888 #f1f1f1; /* Cor do thumb e do track */
+        }
+
+        /* Para navegadores baseados em WebKit (Chrome, Edge, Safari) */
+        .filtrodept-container-geral::-webkit-scrollbar {
+            width: 1px; /* Largura da barra de rolagem */
+            background: #000000;
+        }
+
+        .filtrodept-container-geral::-webkit-scrollbar-track {
+            background: #000000; /* Cor do fundo */
+            border-radius: 10px; /* Borda arredondada */
+        }
+
+        .filtrodept-container-geral::-webkit-scrollbar-thumb {
+            background: #888; /* Cor do botão da barra de rolagem */
+            border-radius: 10px;
+        }
+
+        .filtrodept-container-geral::-webkit-scrollbar-thumb:hover {
+            background: #555; /* Cor ao passar o mouse */
+        }
+
+        /* Filtro no desktop (continua igual ao seu código original) */
+        .filtrodept-container-geral {
+            position: absolute;
+            top: 855px;
+            left: 190px;
+            background-color: white;
+            padding: 20px;
+            z-index: 1000;
+            width: 350px;
+            display: block; /* Exibe o filtro normalmente no desktop */
+        }
+
+        .filtrodept-group {
+            border-bottom: 2px solid #ddd;
+            padding: 20px;
+            margin-bottom: 10px;
+            width: 300px;
+        }
+
+        .filtrodept-options {
+            display: none;
+            margin-top: 5px;
+        }
+
+        .filtrodept-arrow {
+            transition: transform 0.3s;
+        }
+
+        .expanded .filtrodept-arrow {
+            transform: rotate(180deg);
+        }
+
+
+
+        /* Personalização da barra de rolagem */
+        .filtrodept-container-geral {
+            scrollbar-width: thin; /* Para Firefox */
+            scrollbar-color: #888 #f1f1f1; /* Cor do thumb e do track */
+        }
+
+        /* Para navegadores baseados em WebKit (Chrome, Edge, Safari) */
+        .filtrodept-container-geral::-webkit-scrollbar {
+            width: 1px;
+            background: #000000;
+        }
+
+        .filtrodept-container-geral::-webkit-scrollbar-track {
+            background: #000000;
+            border-radius: 10px;
+        }
+
+        .filtrodept-container-geral::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 10px;
+        }
+
+        .filtrodept-container-geral::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+
+        .filtrodept-container-geral {
+    position: absolute;
+    top: 855px;
+    left: 190px;
+    height: auto; /* Mantém o filtro visível enquanto a página rola */
+    overflow-y: auto; /* Permite rolagem interna se os filtros forem longos */
+    background-color: white;
+    padding: 20px;
+    z-index: 1000;
+    width: 350px;
+}
+
+/* Ajustes do grupo do filtro */
+.filtrodept-group {
+    border-bottom: 2px solid #ddd;
+    padding: 20px;
+    margin-bottom: 10px;
+    width: 300px;
+}
+
+/* Para telas pequenas (até 400px) */
+@media (max-width: 400px) {
+    .filtrodept-container-geral {
+        position: relative; /* Ajusta a posição para o mobile */
+        top: auto; /* Não precisa de top absoluto */
+        left: auto; /* Remover a posição fixa */
+        width: 100%; /* Filtro ocupa 100% da largura */
+        padding: 10px; /* Reduz o padding no mobile */
+    }
+
+    .filtrodept-group {
+        width: 100%; /* Cada grupo ocupa a largura total da tela */
+        padding: 8px; /* Reduz o padding para o mobile */
+    }
+
+    .filtrodept-slider-container,
+    .filtrodept-range {
+        width: 100%; /* Ajuste a largura para 100% no mobile */
+    }
+
+    /* Ajusta a barra de rolagem */
+    .filtrodept-container-geral::-webkit-scrollbar {
+        width: 5px; /* Aumenta a largura da barra de rolagem */
+    }
+
+    .filtrodept-container-geral::-webkit-scrollbar-thumb {
+        background: #888;
+        border-radius: 5px;
+    }
+
+    /* Exibe o filtro com um botão para dispositivos móveis */
+    .filtrar-departamentos {
+        background-color: #291E40;
+        border-radius: 5px;
+        width: 100%;
+        height: 40px;
+        color: #d5d5d5;
+        margin-top: 10px;
+        display: block;
+    }
+
+    /* Mostrar filtro quando o botão for clicado */
+    .filtrodept-container-geral.show {
+        display: block;
+    }
+}
+
+/* Para telas médias pequenas (até 600px) */
+@media (max-width: 600px) {
+    .filtrodept-container-geral {
+        position: relative; /* Ajusta a posição para o mobile */
+        top: auto; /* Não precisa de top absoluto */
+        left: auto; /* Remover a posição fixa */
+        width: 100%; /* Filtro ocupa 100% da largura */
+        padding: 15px; /* Reduz o padding no mobile */
+    }
+
+    .filtrodept-group {
+        width: 100%; /* Cada grupo ocupa a largura total da tela */
+        padding: 12px; /* Reduz o padding para o mobile */
+    }
+
+    .filtrodept-slider-container,
+    .filtrodept-range {
+        width: 100%; /* Ajuste a largura para 100% no mobile */
+    }
+
+    /* Ajusta a barra de rolagem */
+    .filtrodept-container-geral::-webkit-scrollbar {
+        width: 5px; /* Aumenta a largura da barra de rolagem */
+    }
+
+    .filtrodept-container-geral::-webkit-scrollbar-thumb {
+        background: #888;
+        border-radius: 5px;
+    }
+
+    /* Exibe o filtro com um botão para dispositivos móveis */
+    .filtrar-departamentos {
+        background-color: #291E40;
+        border-radius: 5px;
+        width: 100%;
+        height: 40px;
+        color: #d5d5d5;
+        margin-top: 10px;
+        display: block;
+    }
+
+    /* Mostrar filtro quando o botão for clicado */
+    .filtrodept-container-geral.show {
+        display: block;
+    }
+}
+
+/* Para tablets pequenos (601px a 768px) */
+@media (max-width: 768px) {
+    .filtrodept-container-geral {
+        position: relative; /* Ajusta a posição para o tablet */
+        top: auto; /* Não precisa de top absoluto */
+        left: auto; /* Remover a posição fixa */
+        width: 100%; /* Filtro ocupa 100% da largura */
+        padding: 15px; /* Ajusta o padding para tablet */
+    }
+
+    .filtrodept-group {
+        width: 100%; /* Cada grupo ocupa a largura total da tela */
+    }
+
+    .filtrodept-slider-container,
+    .filtrodept-range {
+        width: 100%; /* Ajuste a largura para 100% no tablet */
+    }
+
+    .filtrar-departamentos {
+        display: block;
+    }
+
+    .filtrodept-container-geral.show {
+        display: block;
+    }
+}
+
+/* Para tablets grandes e dispositivos com tela média (769px a 1024px) */
+@media (max-width: 1024px) {
+    .filtrodept-container-geral {
+        position: relative;
+        width: 100%;
+    }
+
+    .filtrodept-group {
+        width: 100%;
+    }
+
+    .filtrodept-slider-container,
+    .filtrodept-range {
+        width: 100%;
+    }
+
+    .filtrar-departamentos {
+        display: block;
+    }
+
+    .filtrodept-container-geral.show {
+        display: block;
+    }
+}
+
+/* Filtro no desktop (continua igual ao seu código original) */
+@media (min-width: 1025px) {
+    .filtrodept-container-geral {
+        position: absolute;
+        top: 855px;
+        left: 190px;
+        width: 350px;
+    }
+
+    .filtrodept-group {
+        width: 300px;
+    }
+
+    .filtrodept-slider-container,
+    .filtrodept-range {
+        width: 300px;
+    }
+}
+
 .filtrodept-container-geral {
     scrollbar-width: thin; /* Para Firefox */
     scrollbar-color: #888 #f1f1f1; /* Cor do thumb e do track */
@@ -236,103 +507,35 @@
 
 /* Para navegadores baseados em WebKit (Chrome, Edge, Safari) */
 .filtrodept-container-geral::-webkit-scrollbar {
-    width: 1px; /* Largura da barra de rolagem */
+    width: 5px;
     background: #000000;
 }
 
 .filtrodept-container-geral::-webkit-scrollbar-track {
-    background: #000000; /* Cor do fundo */
-    border-radius: 10px; /* Borda arredondada */
+    background: #000000;
+    border-radius: 10px;
 }
 
 .filtrodept-container-geral::-webkit-scrollbar-thumb {
-    background: #888; /* Cor do botão da barra de rolagem */
+    background: #888;
     border-radius: 10px;
 }
 
 .filtrodept-container-geral::-webkit-scrollbar-thumb:hover {
-    background: #555; /* Cor ao passar o mouse */
-}
-.filtrodept-arrow img {
-        width: 12px; /* Ajuste conforme necessário */
-        height: auto;
-        display: inline-block;
-        visibility: visible !important;
-        }
-
-        @media (max-width: 1024px) { /* Tablets e notebooks pequenos */
-    .filtrodept-container-geral {
-        left: 5%;
-        width: 85%;
-        max-width: 320px;
-    }
+    background: #555;
 }
 
-@media (max-width: 768px) { /* Tablets em modo retrato */
-    .filtrodept-container-geral {
-        left: 2%;
-        width: 95%;
-        max-width: none;
-        padding: 15px;
-    }
-    .filtrodept-group, 
-    .filtrodept-slider-container {
-        width: 100%;
-    }
-}
+       
 
-@media (max-width: 600px) { /* Smartphones grandes */
-    .filtrodept-container-geral {
-        top: 70px;
-        left: 0;
-        width: 100%;
-        padding: 10px;
-        box-shadow: none;
-    }
-    .filtrodept-group {
-        padding: 15px;
-    }
-}
 
-@media (max-width: 480px) { /* Smartphones médios e pequenos */
-    .filtrodept-container-geral {
-        position: fixed;
-        top: 60px;
-        left: 0;
-        width: 100%;
-        height: auto;
-        padding: 10px;
-        overflow-y: auto;
-        z-index: 9999;
-    }
-    .filtrodept-search {
-        width: 100%;
-    }
-    .filtrar-departamentos {
-        width: 100%;
-    }
-}
-
-@media (max-width: 360px) { /* Smartphones menores */
-    .filtrodept-container-geral {
-        top: 50px;
-        padding: 8px;
-    }
-    .filtrodept-group {
-        padding: 10px;
-    }
-    .filtrodept-search {
-        font-size: 14px;
-    }
-}
 
     </style>
 </head>
 <body-filtros>
 
     <!-- <h2>Filtrar Produtos</h2> -->
-<div  class="filtrodept-container-geral">
-<div class="filtrodept-container">
+    <div class="filtrodept-container-geral">
+    <div class="filtrodept-container">
         <div class="filtrodept-group">
             <label onclick="toggleOptions('filtrodept-priceOptions', this)">
                 Preço <span class="filtrodept-arrow"><img src="../../../../public/assets/img/arrow-prabaixo-filtro.png" alt=""></span>
@@ -348,7 +551,6 @@
                 </div>
             </div>
         </div>
-    </div>
 
         <div class="filtrodept-group">
             <label onclick="toggleOptions('filtrodept-brandOptions', this)">
@@ -359,35 +561,25 @@
                 <div id="filtrodept-brandList">
                     <input type="checkbox" class="filtrodept-brand" value="Samsung"> 
                     <span class="brand-name">Samsung</span> <span class="brand-count">(110)</span><br>
-            
                     <input type="checkbox" class="filtrodept-brand" value="Lenovo"> 
                     <span class="brand-name">Lenovo</span> <span class="brand-count">(125)</span><br>
-            
                     <input type="checkbox" class="filtrodept-brand" value="Xiaomi"> 
                     <span class="brand-name">Xiaomi</span> <span class="brand-count">(68)</span><br>
-            
                     <input type="checkbox" class="filtrodept-brand" value="AOC"> 
                     <span class="brand-name">AOC</span> <span class="brand-count">(44)</span><br>
-            
                     <input type="checkbox" class="filtrodept-brand" value="OPPO"> 
                     <span class="brand-name">OPPO</span> <span class="brand-count">(36)</span><br>
-            
                     <input type="checkbox" class="filtrodept-brand" value="Asus"> 
                     <span class="brand-name">Asus</span> <span class="brand-count">(10)</span><br>
-            
                     <input type="checkbox" class="filtrodept-brand" value="Dell"> 
                     <span class="brand-name">Dell</span> <span class="brand-count">(34)</span><br>
-            
                     <input type="checkbox" class="filtrodept-brand" value="HP"> 
                     <span class="brand-name">HP</span> <span class="brand-count">(22)</span><br>
-            
                     <input type="checkbox" class="filtrodept-brand" value="Multilaser"> 
                     <span class="brand-name">Multilaser</span> <span class="brand-count">(35)</span><br>
                 </div>
             </div>
         </div>
-
-        
 
         <div class="filtrodept-group">
             <label onclick="toggleOptions('filtrodept-memoryOptions', this)">
@@ -396,19 +588,14 @@
             <div id="filtrodept-memoryOptions" class="filtrodept-options">
                 <input type="checkbox" class="filtrodept-memory" value="16GB"> 
                 <span class="brand-name">16GB</span> <span class="brand-count">(65)</span><br>
-                
                 <input type="checkbox" class="filtrodept-memory" value="32GB"> 
                 <span class="brand-name">32GB</span> <span class="brand-count">(123)</span><br>
-                
                 <input type="checkbox" class="filtrodept-memory" value="64GB"> 
                 <span class="brand-name">64GB</span> <span class="brand-count">(48)</span><br>
-                
                 <input type="checkbox" class="filtrodept-memory" value="128GB"> 
                 <span class="brand-name">128GB</span> <span class="brand-count">(50)</span><br>
-                
                 <input type="checkbox" class="filtrodept-memory" value="256GB"> 
                 <span class="brand-name">256GB</span> <span class="brand-count">(24)</span><br>
-                
                 <input type="checkbox" class="filtrodept-memory" value="512GB"> 
                 <span class="brand-name">512GB</span> <span class="brand-count">(8)</span><br>
             </div>
@@ -421,39 +608,30 @@
             <div id="filtrodept-modelo" class="filtrodept-options">
                 <input type="checkbox" class="filtrodept-modelo" value="Notebook"> 
                 <span class="brand-name">Notebook</span> <span class="brand-count">(85)</span><br>
-                
                 <input type="checkbox" class="filtrodept-modelo" value="Desktop"> 
                 <span class="brand-name">Desktop</span> <span class="brand-count">(45)</span><br>
-                
                 <input type="checkbox" class="filtrodept-modelo" value="All-in-One"> 
                 <span class="brand-name">All-in-One</span> <span class="brand-count">(30)</span><br>
-                
                 <input type="checkbox" class="filtrodept-modelo" value="Ultrabook"> 
                 <span class="brand-name">Ultrabook</span> <span class="brand-count">(12)</span><br>
-                
                 <input type="checkbox" class="filtrodept-modelo" value="Gaming"> 
                 <span class="brand-name">Gaming</span> <span class="brand-count">(58)</span><br>
             </div>
-            
         </div>
 
         <div class="filtrodept-group">
             <label onclick="toggleOptions('filtrodept-cor', this)">
                 Cor <span class="filtrodept-arrow"><img src="../../../../public/assets/img/arrow-prabaixo-filtro.png" alt=""></span>
             </label>
-            <div id="filtrodept-cor" class="filtrodept-options">  <!-- Mude o ID para 'filtrodept-cor' -->
+            <div id="filtrodept-cor" class="filtrodept-options">
                 <input type="checkbox" class="filtrodept-cor" value="Preto"> 
                 <span class="brand-name">Preto</span> <span class="brand-count">(120)</span><br>
-        
                 <input type="checkbox" class="filtrodept-cor" value="Prata"> 
                 <span class="brand-name">Prata</span> <span class="brand-count">(98)</span><br>
-        
                 <input type="checkbox" class="filtrodept-cor" value="Cinza"> 
                 <span class="brand-name">Cinza</span> <span class="brand-count">(73)</span><br>
-        
                 <input type="checkbox" class="filtrodept-cor" value="Azul"> 
                 <span class="brand-name">Azul</span> <span class="brand-count">(36)</span><br>
-        
                 <input type="checkbox" class="filtrodept-cor" value="Branco"> 
                 <span class="brand-name">Branco</span> <span class="brand-count">(45)</span><br>
             </div>
@@ -463,53 +641,44 @@
             <label onclick="toggleOptions('filtrodept-telaOptions', this)">
                 Tela <span class="filtrodept-arrow"><img src="../../../../public/assets/img/arrow-prabaixo-filtro.png" alt=""></span>
             </label>
-            <div id="filtrodept-telaOptions" class="filtrodept-options">  <!-- Alterado para 'filtrodept-telaOptions' -->
+            <div id="filtrodept-telaOptions" class="filtrodept-options">
                 <input type="checkbox" class="filtrodept-tela" value="13 polegadas"> 
                 <span class="brand-name">13 polegadas</span> <span class="brand-count">(60)</span><br>
-        
                 <input type="checkbox" class="filtrodept-tela" value="15 polegadas"> 
                 <span class="brand-name">15 polegadas</span> <span class="brand-count">(150)</span><br>
-        
                 <input type="checkbox" class="filtrodept-tela" value="17 polegadas"> 
                 <span class="brand-name">17 polegadas</span> <span class="brand-count">(22)</span><br>
-        
                 <input type="checkbox" class="filtrodept-tela" value="14 polegadas"> 
                 <span class="brand-name">14 polegadas</span> <span class="brand-count">(45)</span><br>
-        
                 <input type="checkbox" class="filtrodept-tela" value="18 polegadas"> 
                 <span class="brand-name">18 polegadas</span> <span class="brand-count">(8)</span><br>
             </div>
         </div>
-        
 
         <div class="filtrodept-group">
             <label onclick="toggleOptions('filtrodept-bateriaOptions', this)">
                 Bateria <span class="filtrodept-arrow"><img src="../../../../public/assets/img/arrow-prabaixo-filtro.png" alt=""></span>
             </label>
-            <div id="filtrodept-bateriaOptions" class="filtrodept-options">  <!-- Alterado para 'filtrodept-bateriaOptions' -->
+            <div id="filtrodept-bateriaOptions" class="filtrodept-options">
                 <input type="checkbox" class="filtrodept-bateria" value="3000mAh"> 
                 <span class="brand-name">3000mAh</span> <span class="brand-count">(35)</span><br>
-        
                 <input type="checkbox" class="filtrodept-bateria" value="4000mAh"> 
                 <span class="brand-name">4000mAh</span> <span class="brand-count">(75)</span><br>
-        
                 <input type="checkbox" class="filtrodept-bateria" value="5000mAh"> 
                 <span class="brand-name">5000mAh</span> <span class="brand-count">(120)</span><br>
-        
                 <input type="checkbox" class="filtrodept-bateria" value="6000mAh"> 
                 <span class="brand-name">6000mAh</span> <span class="brand-count">(60)</span><br>
-        
                 <input type="checkbox" class="filtrodept-bateria" value="7000mAh"> 
                 <span class="brand-name">7000mAh</span> <span class="brand-count">(30)</span><br>
             </div>
         </div>
 
-        <button class="filtrar-departamentos" onclick="filterProducts()">Filtrar</button>
-        </div>
+        <button class="filtrar-departamentos">Filtrar</button>
 
+    </div>
+</div>
+  
 
-</div>      
-            
     
 
 </div>
@@ -573,6 +742,64 @@ function toggleOptions(id, element) {
                 product.style.display = show ? "block" : "none";
             });
         }
+
+        document.addEventListener("DOMContentLoaded", function() {
+    const toggleButton = document.querySelector('.filtro-toggle-btn');
+    const filtroContainer = document.querySelector('.filtrodept-container-geral');
+    const filtroArrow = document.querySelector('.filtrodept-arrow');
+    const filtroOptions = document.querySelector('.filtrodept-options');
+
+    toggleButton.addEventListener('click', function() {
+        filtroContainer.classList.toggle('show'); // Alterna a visibilidade do filtro
+        
+        if (filtroContainer.classList.contains('show')) {
+            filtroArrow.classList.add('expanded'); // Gira a seta
+        } else {
+            filtroArrow.classList.remove('expanded'); // Retorna a seta
+        }
+    });
+
+    // Alterna a visibilidade do filtro no grupo específico
+    const filtroGroup = document.querySelector('.filtrodept-group');
+    filtroGroup.addEventListener('click', function() {
+        if (filtroOptions.style.display === 'block') {
+            filtroOptions.style.display = 'none';
+            filtroArrow.classList.remove('expanded');
+        } else {
+            filtroOptions.style.display = 'block';
+            filtroArrow.classList.add('expanded');
+        }
+    });
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+    const toggleButton = document.querySelector('.filtro-toggle-btn');
+    const filtroContainer = document.querySelector('.filtrodept-container-geral');
+    const filtroArrow = document.querySelector('.filtrodept-arrow');
+    const filtroOptions = document.querySelector('.filtrodept-options');
+
+    toggleButton.addEventListener('click', function() {
+        filtroContainer.classList.toggle('show'); // Alterna a visibilidade do filtro
+        
+        if (filtroContainer.classList.contains('show')) {
+            filtroArrow.classList.add('expanded'); // Gira a seta
+        } else {
+            filtroArrow.classList.remove('expanded'); // Retorna a seta
+        }
+    });
+});
+
+function showFilter() {
+    const filtroContainer = document.querySelector('.filtrodept-container-geral');
+    filtroContainer.classList.add('show'); // Exibe o filtro inteiro
+}
+
+
+
+
+
+
+
     </script>
 
 </body>

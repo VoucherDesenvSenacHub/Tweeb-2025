@@ -20,7 +20,8 @@
 </head>
 <body class="task20-kitsetup">
 
-<?php include __DIR__.'/../../../../includes/filtro-departamentos.php'; ?>
+
+
     <div class="kitsetup-container_banner">
         <img src="../../../../public/assets/img/banner-departamento-computador.png" alt="banner-kit_setup" class="kitsetup-banner">
     </div>
@@ -32,8 +33,7 @@
         Escolha a oferta que mais combina com você. 
         </P>
     </div>
-
-
+    <?php include __DIR__.'/../../../../includes/filtro-departamentos.php'; ?>
 <div class="container-favoritos-depto">
 <div class="produtos-card">
         <img class="heart" src="../../../../public/assets/img/heart_disabled.png" alt="coração" onclick="AtivarCoracao(this)">
@@ -535,6 +535,7 @@
         <button class="card-botao">Comprar Agora</button>
     </div>
   
+    
 
 
 </div>
