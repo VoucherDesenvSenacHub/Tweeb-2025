@@ -256,3 +256,17 @@
     padding: 10px 15px;
     border-radius: 5px; /* Bordas arredond adas para os campos de entrada */
 }
+
+@media (max-width: 768px){
+    .image-container-esqueceu{
+      
+        display: none;
+    }
+
+    .container-esqueceu{
+        margin-top: 60px;
+        width: 50%;
+        margin-left: 100px;
+    }
+
+}
