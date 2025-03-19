@@ -16,7 +16,7 @@
                   <a href="../pages/perfil-usuario.php"><img src="../../../../public/assets/img/editar.png" alt=""><span class="item-description">Editar Perfil</span></a>
                 </li>
                 <li class="menu-item">
-                  <a href="#"><img src="../../../../public/assets/img/Calendar.png" alt=""><span class="item-description">Meus Endereços</span></a>
+                  <a href="../pages/meus-enderecos.php"><img src="../../../../public/assets/img/Calendar.png" alt=""><span class="item-description">Meus Endereços</span></a>
                 </li>
                 <li class="sidemenu-item has-segundomenu" id="toggle">
                   <a href="#"><img src="../../../../public/assets/img/Inbox.png" alt="">

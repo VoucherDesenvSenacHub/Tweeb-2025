@@ -1,0 +1,655 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(255, 255, 255);
+}
+
+header {
+    width: 100%;/*faz o cabeçalho ocupar toda a largura da pag*/
+    height: 120px;/*define a altura do cabeçalho*/
+    display: flex;/**/
+    align-items: center;/**/
+    position: fixed;/**/
+    top: 0;/**/
+    z-index: 99;/**/
+    box-shadow: 0 0 10px #000;/**/
+    background-color: #fff; /**/
+    padding: 0 20px;/**/
+}
+
+header .logo {
+    margin-right: 20px;/**/
+    display: flex;/**/
+    align-items: center;/**/
+    max-width:200px;/**/
+    max-height:150px;/**/
+    width: auto;/**/
+    height: auto;/**/
+}
+
+header .search-box {
+    flex: 1;/**/
+    position: relative;/**/
+}
+
+.search-box form {
+    display: flex;/**/
+    align-items: center;/**/
+    width: 100%;/**/
+}
+
+.search-box button {
+    border: none; /**/
+    background: transparent; /**/
+    cursor: pointer;/**/
+    display: flex;/**/
+    align-items: center;/**/
+    position: absolute;/**/
+    left: 10px; /**/
+    height: 100%;/**/
+    margin-top: 11.9px;/**/
+}
+
+.search-box button i {
+    font-size: 17px;/**/
+    color: gray;/**/
+}
+
+.search-box input {
+    flex: 1;/**/
+    height: 50px;/**/
+    border: none; /**/
+    outline: none; /**/
+    background: #f2f2f2;/**/
+    border-radius: 5px;/**/
+    color: gray;/**/
+    font-size: 15px;/**/
+    padding: 0 40px 0 40px; /**/
+    margin-top: 10px;/**/
+}
+.search-box input::placeholder {
+    color: rgb(173, 169, 169);/**/
+    font-family: 'Montserrat', sans-serif;
+}
+
+header nav {
+    flex: 2;/**/
+    font-family: 'Montserrat', sans-serif;
+}
+
+header nav ul {
+    display: flex;/**/
+    justify-content: flex-start; /**/
+    padding: 0;/**/
+    margin: 0;/**/
+    gap: 10px; /**/
+}
+
+header nav ul li {
+    list-style: none;/**/
+    margin-top: 11.9px;/**/
+}
+
+header nav ul li a {
+    text-decoration: none;/**/
+    color: rgb(107, 104, 104);/**/
+    font-weight: 500;/**/
+    padding: 10px 25px;/**/
+    font-size: 15px;/**/
+    font-family: 'Montserrat', sans-serif;
+}
+header nav ul li a:hover {
+   color: #313131;/**/
+}
+header nav ul li a i{
+    font-size: 18px;/**/
+}
+header .menu {
+    font-size: 2.5em;/**/
+    display: none;/**/
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 20px;
+    border-radius: 8px;
+    /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); */
+    margin-top: 140px;
+}
+
+h1 {
+    font-size: 20px;
+    color: #17183B;
+    text-align: center;
+    padding: 25px;
+    align-self: flex-start;
+}
+
+.step-indicator {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+    font-size: 14px;
+    color: #999;
+}
+
+.step-indicator span {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+.step-indicator span i{
+    font-size: 1.5rem;
+}
+
+.step-indicator .span-information{
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    font-size: 19px;
+    font-weight: 600;
+}
+
+#step-ativo{
+    color: black;
+
+}
+
+#step-passo{
+    font-size: 14px;
+}
+
+
+.enderecos {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    margin-top: 5rem;
+}
+
+.endereco-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px;
+    margin-bottom: 20px;
+    background: #F6F6F6;
+    border-radius: 7px;
+}
+
+.endereco-card input[type="radio"] {
+    margin-right: 10px;
+    background-color: black;
+}
+
+.endereco-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    /* margin-top: 0.5rem; */
+    flex-grow: 1;
+    margin-left: 2rem;
+}
+
+.endereco-details p {
+    margin: 0;
+    line-height: 1.4;
+}
+
+.endereco-actions {
+    display: flex;
+    align-items: center;
+    gap: 27px;
+}
+
+.endereco-actions button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.endereco-actions button i {
+    color: #000000;
+}
+
+.endereco-actions button.delete i {
+    color: #020202;
+}
+
+.add-new-endereco {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    cursor: pointer;
+    color: black;
+    font-size: 1.25rem;
+    font-weight: 400;
+    transition: transform 0.2s ease;
+}
+
+.add-new-endereco:hover{
+    transform: translateY(-5px);
+}
+
+.add-new-endereco i {
+    margin-right: 5px;
+    font-size: 1.75rem;
+    color: #291E40;
+}
+
+
+.default-tag {
+    background-color: #BF99FE;
+    color: white;
+    font-weight: 600;
+    font-size: 12px;
+    border-radius: 4px;
+    padding: 2px 6px;
+}
+  
+.btoes-endereco:hover {
+    background-color: #f3a9a9; /* Cor mais escura ao passar o mouse */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+footer {
+    background-color: #2e1b46;
+    color:white;
+    padding: 40px 0;
+    
+    
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    font-family: "Montserrat", sans-serif;
+    
+
+}
+
+.footer-logo{
+    width: 500px;
+}
+
+
+.logo p {
+    margin-top: 10px;
+    font-size: 16px;
+    color: #fefefe;
+}
+
+.links {
+    display: flex;
+    gap: 40px;
+}
+
+.links h2 {
+    font-size: 20px;
+    color: #fff;
+    margin-bottom: 15px;
+}
+
+.links ul {
+    list-style: none;
+    padding: 0;
+   
+}
+
+.links li {
+    margin-bottom: 10px;
+   
+}
+
+.links a {
+    color: white;
+    text-decoration: none;
+}
+
+.links a:hover {
+    text-decoration: underline;
+}
+
+
+.contato p, .contact a {
+    color: white;
+    font-size: 16px;
+}
+
+.contato a:hover {
+    text-decoration: underline;
+}
+
+
+.logo img {
+    width: 200px;
+    right: 10px;
+}
+
+#footer_social_midia {
+    position: relative;
+    top: 30px;
+    right: 65px;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+#footer_social_midia a {
+    color: white;
+    font-size: 1.2rem; 
+}
+
+#footer_social_midia {
+    position: relative;
+    top: 30px;
+    right: 65px;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+#footer_social_midia a {
+    color: var(--color-neutral-1);
+    font-size: 1.2rem; 
+}
+
+.contact-info{
+    font-family: "Poppins", sans-serif;
+}
+
+.form-section h1{
+    font-family: "Poppins", sans-serif;
+    color: #976be2;
+    padding: 20px;
+   
+}
+
+.categoria-item {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px;
+    background-color: #4a148c;
+    color: white;
+    font-size: 16px;
+    text-decoration: none;
+    border-radius: 8px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .categoria-item:hover {
+    background-color: #3a0d6d; /* Cor mais escura ao passar o mouse */
+  }
+
+  input[type="radio"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid #ccc; /* Borda visível */
+    outline: none;
+    position: relative;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  /* Cor quando o radio está marcado */
+  input[type="radio"]:checked {
+    border-color: transparent;
+  }
+  
+  /* Adicionar o efeito de seleção (círculo branco no centro quando marcado) */
+  input[type="radio"]:checked::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 10px;
+    height: 10px;
+    border: 3.5px solid #F6F6F6;
+    background-color: black; /* Cor do centro quando marcado */
+    border-radius: 100%;
+  }
+  
+  /* Quando não está selecionado, o centro do radio é transparente e a borda é visível */
+  input[type="radio"]:not(:checked)::before {
+    background-color: transparent; /* Centro transparente */
+  }
+  
+  /* Adicionar uma borda visível quando não está selecionado */
+  input[type="radio"]:not(:checked) {
+    border: 3px solid black; /* Cor da borda */
+    background-color: transparent;
+  }
+
+.endereco-card .endereco-label{
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.step-indicator img{
+    height: 1px;
+    align-self: center;
+}
+
+.endereco-botoes{
+    margin-top: 4rem;
+    display: flex;
+    justify-content: flex-end;
+    gap: 24px;
+}
+
+.endereco-botoes button{
+    font-size: 16px;
+    font-weight: 500;
+    height: 56px;
+    border-radius: 6px;
+}
+
+.endereco-botoes .botao-avancar{
+    width: 248px;
+    background-color: #291E40;
+    border: none;
+    color: white;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.endereco-botoes .botao-avancar:hover{
+    background-color: #170e2b;
+}
+
+.endereco-botoes .botao-sair{
+    width: 208px;
+    background-color: transparent;
+    border: 2px solid black;
+    color: black;
+    cursor: pointer;
+}
+
+#new-endereco-form{
+    /* display: flex; */
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#form-novo-endereco{
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+#form-novo-endereco input{
+    border-radius: 8px;
+    background-color: #fafafa;
+    box-shadow: 0 5px 10px 1px rgba(0, 0, 0, 0.200);
+    border: none;
+    height: 2rem;
+    padding: 20px;
+    outline: none;
+    color: #555;
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+#form-novo-endereco label{
+    color: #555;
+    font-weight: 500;
+}
+
+.btoes-endereco {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 2rem;
+    padding: 20px;
+    font-size: 20px;
+    font-weight: 500;
+    background-color: #291E40;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.btoes-endereco:hover{
+    background-color: #170e2b;
+}
+
+.envio-descricao{
+    display: flex;
+}
+
+.endereco-card{
+    color: #A2A3B1;
+}
+
+.metodo-selecionado{
+    color: black !important;
+}
+
+#selecionar-data{
+    border: none;
+    outline: none;
+    background-color: transparent;
+    font-size: 14px;
+    color: #555;
+}
+
+@media only screen and (max-width: 800px){
+    #form-novo-endereco{
+        width: 100%;
+    }
+
+    .step-indicator{
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        flex-direction: column;
+    }
+    .container{
+        margin-top: 3rem;
+    }
+    .enderecos{
+        margin-top: 2rem;
+    }
+    .enderecos h1{
+        margin: 1rem 0;
+    }
+}
