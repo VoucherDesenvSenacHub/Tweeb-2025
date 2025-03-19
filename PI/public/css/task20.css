@@ -7,7 +7,7 @@
 
 .kitsetup-container_banner img{
     width: 100%;
-    height: 470px;
+    height: 472px;
     margin-top: 40px;
 }
 
@@ -326,4 +326,266 @@
 .kitsetup-buy-now{
     text-decoration: none;
     color: white;
+}
+
+@media (max-width: 1440px) { /* Ajustes para telas menores */
+    .kitsetup-container_banner img {
+        height: 400px;
+    }
+    .kitsetup-h1 {
+        font-size: 52px;
+    }
+}
+
+@media (max-width: 1024px) { /* Tablets e notebooks pequenos */
+    .kitsetup-container_banner img {
+        height: 350px;
+    }
+    .kitsetup-h1 {
+        font-size: 42px;
+    }
+    .kitsetup-container_titles {
+        margin-left: 80px;
+    }
+    .kitsetup-container_products {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) { /* Tablets em modo retrato */
+    .kitsetup-container_banner img {
+        height: 300px;
+    }
+    .kitsetup-h1 {
+        font-size: 36px;
+    }
+    .kitsetup-p {
+        font-size: 18px;
+    }
+    .kitsetup-container_titles {
+        margin-left: 40px;
+    }
+    .kitsetup-products_box {
+        width: 220px;
+        height: 450px;
+    }
+    .kitsetup-pages-container {
+        justify-content: center;
+        margin-right: 0;
+    }
+    .kitsetup-container_products {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (max-width: 600px) { /* Smartphones grandes */
+    .kitsetup-container_banner img {
+        height: 250px;
+        margin-top: 20px;
+    }
+    .kitsetup-h1 {
+        font-size: 28px;
+    }
+    .kitsetup-p {
+        font-size: 16px;
+    }
+    .kitsetup-container_titles {
+        margin-left: 20px;
+    }
+    .kitsetup-products_box {
+        width: 200px;
+        height: 450px;
+    }
+    .kitsetup-heart-icon-box img {
+        margin-left: 35px;
+    }
+    .kitsetup-buy-product-button {
+        width: 200px;
+    }
+    .kitsetup-container_products {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (max-width: 480px) { /* Smartphones médios e pequenos */
+    .kitsetup-container_banner img {
+        height: 200px;
+    }
+    .kitsetup-h1 {
+        font-size: 24px;
+    }
+    .kitsetup-p {
+        font-size: 14px;
+        width: 90%;
+    }
+    .kitsetup-container_titles {
+        margin-left: 10px;
+    }
+    .kitsetup-products_box {
+        width: 256px;
+        height: 400px;
+    }
+    .kitsetup-config-box {
+        height: 30px;
+        margin-left: 8px;
+    }
+   /* Modal Container */
+.kitsetup-info-modal-container {
+    display: none; /* Inicialmente invisível */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fundo escuro para dar o efeito de bloqueio */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Garante que o modal fique sobre o conteúdo */
+}
+
+/* Modal */
+.kitsetup-info-modal {
+    width: 100%; /* Responsivo: 90% da largura da tela */
+    max-width: 600px; /* Limita a largura máxima */
+    background-color: #D4E3FF;
+    border-radius: 9px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    overflow-y: auto;
+}
+
+/* Modal Title */
+.kitsetup-info-modal-title {
+    font-size: 18px;
+    font-family: "Inter", serif;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+/* Modal Content */
+.kitsetup-info-modal p {
+    font-size: 12px;
+    font-family: "Nunito", serif;
+    line-height: 1.5;
+    margin-left: 20px;
+}
+
+.kitsetup-info-modal img {
+    width: 16px;
+    height: 16px;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+/* Ajuste para a Responsividade */
+@media (max-width: 768px) {
+    .kitsetup-info-modal {
+        width: 100%; /* Reduz a largura para 90% em telas menores */
+    }
+    .kitsetup-info-modal-title {
+        font-size: 16px; /* Ajusta o tamanho do título em telas menores */
+    }
+    .kitsetup-info-modal p {
+        font-size: 10px; /* Diminui o tamanho do texto */
+    }
+}
+
+@media (max-width: 480px) {
+    .kitsetup-info-modal {
+        width: 100%; /* Reduz mais a largura em telas muito pequenas */
+    }
+    .kitsetup-info-modal-title {
+        font-size: 14px; /* Título menor */
+    }
+    .kitsetup-info-modal p {
+        font-size: 9px; /* Texto ainda menor */
+    }
+}
+
+/* Responsividade do botão de fechar */
+.kitsetup-config-box {
+    width: 60%; /* Responsivo */
+    height: 40px;
+    background-color: #291E40;
+    color: white;
+    border-radius: 40px;
+    text-align: center;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0;
+    margin-left: 10px;
+}
+
+.kitsetup-config-box p {
+    font-size: 12px;
+    color: white;
+}
+
+.kitsetup-heart-icon-box img{
+    width: 32px;
+    height: 32px;
+    margin-top: 14px;
+    margin-left: 30px;
+}
+
+/* Ajustes finais para dispositivos menores */
+@media (max-width: 360px) {
+    .kitsetup-info-modal {
+        width: 100%; /* Modal ocupa toda a tela em dispositivos pequenos */
+    }
+    .kitsetup-info-modal-title {
+        font-size: 12px; /* Ajuste no título para telas muito pequenas */
+    }
+    .kitsetup-info-modal p {
+        font-size: 8px; /* Texto muito pequeno em telas pequenas */
+    }
+}
+
+    .kitsetup-buy-product-button {
+        width: 180px;
+    }
+    .kitsetup-container_products {
+        flex-direction: column;
+        align-items: center;
+    }
+
+   
+}
+
+@media (max-width: 360px) { /* Smartphones menores */
+    .kitsetup-container_banner img {
+        height: 180px;
+    }
+    .kitsetup-h1 {
+        font-size: 20px;
+    }
+    .kitsetup-p {
+        font-size: 12px;
+    }
+    .kitsetup-products_box {
+        width: 160px;
+        height: 400px;
+    }
+    .kitsetup-buy-product-button {
+        width: 160px;
+    }
+    .kitsetup-heart-icon-box img {
+        width: 24px;
+        height: 24px;
+        margin-left: 30px;
+    }
+    .kitsetup-pages{
+        margin-top: 50px;
+    }
+    .kitsetup-container_products {
+        flex-direction: column;
+        align-items: center;
+    }
 }

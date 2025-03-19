@@ -296,8 +296,8 @@
             
             <div class="rastreio-info-entrega">
                 <p class="data-rastreio">Data: 01 de janeiro</p>
-                <img src="../../../../public/assets/img/truck-tick.png" alt="Ícone Caminhão" class="rastreio-truck">
-                <p class="entrega-prevista-rastreio verde">Entrega prevista: 16 de Janeiro</p>
+                <img src="../../../../public/assets/img/avaliar-vetor.png" alt="Ícone Caminhão" class="rastreio-truck">
+                <p class="entrega-prevista-rastreio-avaliar">Avalie sua compra!</p>
             </div>
         </div>
 
@@ -476,8 +476,8 @@
             
             <div class="rastreio-info-entrega">
                 <p class="data-rastreio">Data: 01 de janeiro</p>
-                <img src="../../../../public/assets/img/truck-tick.png" alt="Ícone Caminhão" class="rastreio-truck">
-                <p class="entrega-prevista-rastreio verde">Entrega prevista: 16 de Janeiro</p>
+                <img src="../../../../public/assets/img/avaliar-vetor.png" alt="Ícone avaliar" class="rastreio-truck">
+                <p class="entrega-prevista-rastreio-avaliar">Avalie sua compra!</p>
             </div>
         </div>
 
@@ -566,8 +566,8 @@
             
             <div class="rastreio-info-entrega">
                 <p class="data-rastreio">Data: 01 de janeiro</p>
-                <img src="../../../../public/assets/img/truck-tick.png" alt="Ícone Caminhão" class="rastreio-truck">
-                <p class="entrega-prevista-rastreio verde">Entrega prevista: 16 de Janeiro</p>
+                <img src="../../../../public/assets/img/avaliar-vetor.png" alt="Ícone Caminhão" class="rastreio-truck">
+                <p class="entrega-prevista-rastreio-avaliar">Avalie sua compra!</p>
             </div>
         </div>
 

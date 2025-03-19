@@ -6,16 +6,30 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
     <title>Filtro de Produtos</title>
     <style>
-        body {
+        /* body {
             font-family: Montserrat;
             margin: 20px;
         
-        }
-        .filtrodept-container {
+        } */
+        /* .filtrodept-container {
             display: flex;
             flex-direction: column;
             width: 300px;
         }
+         */
+        .filtrodept-container-geral {
+        position: absolute;
+        top: 855px;
+        left: 190px;
+        height: auto; /* Mantém o filtro visível enquanto a página rola */
+        overflow-y: auto; /* Permite rolagem interna se os filtros forem longos */
+        background-color: white;
+        padding: 20px;
+        /* box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1); */
+        z-index: 1000;
+        width: 350px;
+        /* overflow-y: auto; */
+}
         .filtrodept-group {
             border-bottom: 2px solid #ddd;
             padding: 20px;
@@ -187,6 +201,8 @@
         .expanded .filtrodept-arrow {
             transform: rotate(180deg);
         }
+
+        
         .brand-name {
         color: #000000; /* Cor desejada para o nome */
         font-weight: 600;
@@ -213,16 +229,113 @@
             margin-top: 10px;
         }
 
+.filtrodept-container-geral {
+    scrollbar-width: thin; /* Para Firefox */
+    scrollbar-color: #888 #f1f1f1; /* Cor do thumb e do track */
+}
+
+/* Para navegadores baseados em WebKit (Chrome, Edge, Safari) */
+.filtrodept-container-geral::-webkit-scrollbar {
+    width: 1px; /* Largura da barra de rolagem */
+    background: #000000;
+}
+
+.filtrodept-container-geral::-webkit-scrollbar-track {
+    background: #000000; /* Cor do fundo */
+    border-radius: 10px; /* Borda arredondada */
+}
+
+.filtrodept-container-geral::-webkit-scrollbar-thumb {
+    background: #888; /* Cor do botão da barra de rolagem */
+    border-radius: 10px;
+}
+
+.filtrodept-container-geral::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Cor ao passar o mouse */
+}
+.filtrodept-arrow img {
+        width: 12px; /* Ajuste conforme necessário */
+        height: auto;
+        display: inline-block;
+        visibility: visible !important;
+        }
+
+        @media (max-width: 1024px) { /* Tablets e notebooks pequenos */
+    .filtrodept-container-geral {
+        left: 5%;
+        width: 85%;
+        max-width: 320px;
+    }
+}
+
+@media (max-width: 768px) { /* Tablets em modo retrato */
+    .filtrodept-container-geral {
+        left: 2%;
+        width: 95%;
+        max-width: none;
+        padding: 15px;
+    }
+    .filtrodept-group, 
+    .filtrodept-slider-container {
+        width: 100%;
+    }
+}
+
+@media (max-width: 600px) { /* Smartphones grandes */
+    .filtrodept-container-geral {
+        top: 70px;
+        left: 0;
+        width: 100%;
+        padding: 10px;
+        box-shadow: none;
+    }
+    .filtrodept-group {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 480px) { /* Smartphones médios e pequenos */
+    .filtrodept-container-geral {
+        position: fixed;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        height: auto;
+        padding: 10px;
+        overflow-y: auto;
+        z-index: 9999;
+    }
+    .filtrodept-search {
+        width: 100%;
+    }
+    .filtrar-departamentos {
+        width: 100%;
+    }
+}
+
+@media (max-width: 360px) { /* Smartphones menores */
+    .filtrodept-container-geral {
+        top: 50px;
+        padding: 8px;
+    }
+    .filtrodept-group {
+        padding: 10px;
+    }
+    .filtrodept-search {
+        font-size: 14px;
+    }
+}
+
     </style>
 </head>
 <body-filtros>
 
     <!-- <h2>Filtrar Produtos</h2> -->
-
-    <div class="filtrodept-container">
+<div  class="filtrodept-container-geral">
+<div class="filtrodept-container">
         <div class="filtrodept-group">
             <label onclick="toggleOptions('filtrodept-priceOptions', this)">
-                Preço <span class="filtrodept-arrow"><img src="../imagens/arrow-prabaixo-filtro.png" alt=""></span>
+                Preço <span class="filtrodept-arrow"><img src="../../../../public/assets/img/arrow-prabaixo-filtro.png" alt=""></span>
             </label>
             <div id="filtrodept-priceOptions" class="filtrodept-options">
                 <div class="filtrodept-values">
@@ -239,7 +352,7 @@
 
         <div class="filtrodept-group">
             <label onclick="toggleOptions('filtrodept-brandOptions', this)">
-                Marca <span class="filtrodept-arrow"><img src="../imagens/arrow-prabaixo-filtro.png" alt=""></span>
+                Marca <span class="filtrodept-arrow"><img src="../../../../public/assets/img/arrow-prabaixo-filtro.png" alt=""></span>
             </label>
             <div id="filtrodept-brandOptions" class="filtrodept-options">
                 <input type="text" id="filtrodept-brandSearch" class="filtrodept-search" placeholder="Buscar" onkeyup="filterBrands()">
@@ -278,7 +391,7 @@
 
         <div class="filtrodept-group">
             <label onclick="toggleOptions('filtrodept-memoryOptions', this)">
-                Memória <span class="filtrodept-arrow"><img src="../imagens/arrow-prabaixo-filtro.png" alt=""></span>
+                Memória <span class="filtrodept-arrow"><img src="../../../../public/assets/img/arrow-prabaixo-filtro.png" alt=""></span>
             </label>
             <div id="filtrodept-memoryOptions" class="filtrodept-options">
                 <input type="checkbox" class="filtrodept-memory" value="16GB"> 
@@ -303,7 +416,7 @@
 
         <div class="filtrodept-group">
             <label onclick="toggleOptions('filtrodept-modelo', this)">
-                Modelo <span class="filtrodept-arrow"><img src="../imagens/arrow-prabaixo-filtro.png" alt=""></span>
+                Modelo <span class="filtrodept-arrow"><img src="../../../../public/assets/img/arrow-prabaixo-filtro.png" alt=""></span>
             </label>
             <div id="filtrodept-modelo" class="filtrodept-options">
                 <input type="checkbox" class="filtrodept-modelo" value="Notebook"> 
@@ -326,7 +439,7 @@
 
         <div class="filtrodept-group">
             <label onclick="toggleOptions('filtrodept-cor', this)">
-                Cor <span class="filtrodept-arrow"><img src="../imagens/arrow-prabaixo-filtro.png" alt=""></span>
+                Cor <span class="filtrodept-arrow"><img src="../../../../public/assets/img/arrow-prabaixo-filtro.png" alt=""></span>
             </label>
             <div id="filtrodept-cor" class="filtrodept-options">  <!-- Mude o ID para 'filtrodept-cor' -->
                 <input type="checkbox" class="filtrodept-cor" value="Preto"> 
@@ -348,7 +461,7 @@
 
         <div class="filtrodept-group">
             <label onclick="toggleOptions('filtrodept-telaOptions', this)">
-                Tela <span class="filtrodept-arrow"><img src="../imagens/arrow-prabaixo-filtro.png" alt=""></span>
+                Tela <span class="filtrodept-arrow"><img src="../../../../public/assets/img/arrow-prabaixo-filtro.png" alt=""></span>
             </label>
             <div id="filtrodept-telaOptions" class="filtrodept-options">  <!-- Alterado para 'filtrodept-telaOptions' -->
                 <input type="checkbox" class="filtrodept-tela" value="13 polegadas"> 
@@ -371,7 +484,7 @@
 
         <div class="filtrodept-group">
             <label onclick="toggleOptions('filtrodept-bateriaOptions', this)">
-                Bateria <span class="filtrodept-arrow"><img src="../imagens/arrow-prabaixo-filtro.png" alt=""></span>
+                Bateria <span class="filtrodept-arrow"><img src="../../../../public/assets/img/arrow-prabaixo-filtro.png" alt=""></span>
             </label>
             <div id="filtrodept-bateriaOptions" class="filtrodept-options">  <!-- Alterado para 'filtrodept-bateriaOptions' -->
                 <input type="checkbox" class="filtrodept-bateria" value="3000mAh"> 
@@ -390,13 +503,17 @@
                 <span class="brand-name">7000mAh</span> <span class="brand-count">(30)</span><br>
             </div>
         </div>
-        
-        
-            
-        </div>
 
         <button class="filtrar-departamentos" onclick="filterProducts()">Filtrar</button>
-    </div>
+        </div>
+
+
+</div>      
+            
+    
+
+</div>
+    
 
     <!-- <h3>Resultados:</h3>
     <div id="filtrodept-products" class="filtrodept-list">
@@ -425,9 +542,6 @@ function toggleOptions(id, element) {
         opcoes.style.display = isVisible ? "none" : "block";
     }
 }
-
-
-
 
 
         function updatePrice() {

@@ -196,6 +196,14 @@
     flex-wrap: wrap;
 }
 
+.rastreio-info-entrega-avaliar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    color: #BF99FE;
+}
+
 .rastreio-truck {
     width: 20px;
     height: auto;

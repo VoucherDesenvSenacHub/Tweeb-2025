@@ -30,3 +30,80 @@
     width: 150px;
     height: auto;
 }
+
+
+/* Responsividade */
+
+/* Para telas médias (tablets e notebooks menores) */
+@media (max-width: 1024px) {
+    .footer-logo-adm {
+        gap: 2rem;
+    }
+
+    .footer-logo-adm img {
+        width: 130px;
+    }
+
+    .footer-text-adm {
+        font-size: 1rem;
+    }
+}
+
+/* Para telas menores que 768px (tablets e celulares) */
+@media (max-width: 768px) {
+    .footer-logo-adm {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .footer-logo-adm img {
+        width: 120px;
+    }
+}
+
+/* Para telas menores que 480px (celulares pequenos) */
+@media (max-width: 480px) {
+    .footer-adm {
+        padding: 15px 5px;
+    }
+
+    .footer-logo-adm img {
+        width: 100px;
+    }
+
+    .footer-text-adm {
+        font-size: 14px;
+    }
+}
+
+/* Para telas maiores que 1440px (monitores grandes) */
+@media (min-width: 1440px) {
+    .footer-adm {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 30px;
+    }
+
+    .footer-logo-adm img {
+        width: 180px;
+    }
+
+    .footer-text-adm {
+        font-size: 1.5rem;
+    }
+}
+
+/* Para telas ultrawide maiores que 1920px */
+@media (min-width: 1920px) {
+    .footer-adm {
+        max-width: 1900px;
+    }
+
+    .footer-logo-adm img {
+        width: 200px;
+    }
+
+    .footer-text-adm {
+        font-size: 1.8rem;
+    }
+}
