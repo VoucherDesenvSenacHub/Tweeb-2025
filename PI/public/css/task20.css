@@ -141,6 +141,7 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    margin-top: 19px;
 }
 
 .kitsetup-buy-product-text{
@@ -427,7 +428,7 @@
     }
     .kitsetup-products_box {
         width: 256px;
-        height: 400px;
+        height: 445px;
     }
     .kitsetup-config-box {
         height: 30px;
