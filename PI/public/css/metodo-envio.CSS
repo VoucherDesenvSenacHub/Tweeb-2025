@@ -605,4 +605,13 @@ footer {
     .enderecos h1{
         margin: 1rem 0;
     }
+
+    .endereco-botoes .botao-sair {
+        width: 248px;
+    }
+        
+    .endereco-botoes{
+        flex-direction: column;
+        align-items: center;
+    }
 }
