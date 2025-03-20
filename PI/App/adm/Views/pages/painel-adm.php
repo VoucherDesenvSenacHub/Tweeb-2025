@@ -17,62 +17,65 @@
 <div class="orcamento-recebido">
 
 <div class="quantidade-pedidos2">
-        <div class="pedidos-ui-card2">
+    <div class="fundo-roxo">
+    <div class="pedidos-ui-card2">
 
-            <div class="ui-pedidos-frame">
-                <p>Orçamentos</p>
-                <img src="../../../../public/assets/img/project-icon-2.png" alt="">
-            </div>
+<div class="ui-pedidos-frame">
+    <p>Manutenções</p>
+    <img src="../../../../public/assets/img/icone-manutencoes-adm.png" alt="">
+</div>
 
-            <div class="ui-pedidos-label">
-                <h1 class="numero-item-minicard">12</h1>
-                <p><span>1</span> fechado</p>
-            </div>
+<div class="ui-pedidos-label">
+    <h1 class="numero-item-minicard">18</h1>
+    <p><span>02</span>finalizadas</p>
+</div>
 
-        </div>
+</div>
 
-        
-        <div class="pedidos-ui-card3">
 
-            <div class="ui-pedidos-frame">
-                <p>Aceitos</p>
-                <img src="../../../../public/assets/img/project-icon-2.png" alt="">
-            </div>
+<div class="pedidos-ui-card3">
 
-            <div class="ui-pedidos-label">
-                <h1 class="numero-item-minicard">37</h1>
-                <p><span>1</span> Garantia</p>
-            </div>
+<div class="ui-pedidos-frame">
+    <p>Aceitos</p>
+    <img src="../../../../public/assets/img/project-icon-2.png" alt="">
+</div>
 
-        </div>
-        <div class="pedidos-ui-card2">
+<div class="ui-pedidos-label">
+    <h1 class="numero-item-minicard">37</h1>
+    <p><span>1</span> Garantia</p>
+</div>
 
-            <div class="ui-pedidos-frame">
-                <p>Orçamentos</p>
-                <img src="../../../../public/assets/img/project-icon-2.png" alt="">
-            </div>
+</div>
+<div class="pedidos-ui-card2">
 
-            <div class="ui-pedidos-label">
-                <h1 class="numero-item-minicard">12</h1>
-                <p><span>1</span> fechado</p>
-            </div>
+<div class="ui-pedidos-frame">
+    <p>Orçamentos</p>
+    <img src="../../../../public/assets/img/project-icon-2.png" alt="">
+</div>
 
-        </div>
+<div class="ui-pedidos-label">
+    <h1 class="numero-item-minicard">12</h1>
+    <p><span>1</span> fechado</p>
+</div>
 
-        
-        <div class="pedidos-ui-card3">
+</div>
 
-            <div class="ui-pedidos-frame">
-                <p>Aceitos</p>
-                <img src="../../../../public/assets/img/project-icon-2.png" alt="">
-            </div>
 
-            <div class="ui-pedidos-label">
-                <h1 class="numero-item-minicard">37</h1>
-                <p><span>1</span> Garantia</p>
-            </div>
+<div class="pedidos-ui-card3">
 
-        </div>
+<div class="ui-pedidos-frame">
+    <p>Aceitos</p>
+    <img src="../../../../public/assets/img/project-icon-2.png" alt="">
+</div>
+
+<div class="ui-pedidos-label">
+    <h1 class="numero-item-minicard">37</h1>
+    <p><span>1</span> Garantia</p>
+</div>
+
+</div>
+    </div>
+      
     </div>
 
     <h1 class="titulo-painel">Manutenções</h1>
