@@ -1,0 +1,164 @@
+.painel-container {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+    width: 100%;
+    height: 600px;
+    margin: auto;
+    margin-left: 30px;
+}
+
+.titulo-painel{
+    text-align: left;
+    margin-left: 125px;
+    margin-top: 40px;
+}
+.painel-tabela {
+    width: 90%;
+    /* border-collapse: collapse; */
+}
+.painel-tabela-header {
+    background-color: #F1F5F9;
+    color: white;
+}
+.painel-tabela th, .painel-tabela td {
+    padding: 10px;
+    text-align: left;
+    color: black;
+}
+.painel-tabela td {
+    border-bottom: none;
+}
+.painel-botao {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    color: black;
+    background-color: #F1F5F9;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.painel-botao:hover {
+    background-color: #BF99FE;
+}
+.painel-progresso-barra {
+    height: 5px;
+    background-color: #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+}
+.painel-progresso-preenchimento {
+    height: 100%;
+    width: 0;
+    transition: width 0.5s;
+}
+.painel-prioridade-média{
+    background-color: orange;
+    border-radius: 2px;
+    padding: 5px;
+}
+
+.painel-prioridade-alta{
+    background-color: red;
+    border-radius: 3px;
+    padding: 5px;
+}
+.painel-bottom-container {
+    display: flex;
+    gap: 20px;
+    margin-left: 150px;
+}
+
+.painel-bottom-card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    position: relative;
+}
+
+.painel-bottom-estoque {
+    width: 300px;
+    text-align: center;
+}
+
+.painel-bottom-titulo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.painel-bottom-menu-opcoes {
+    display: none;
+    position: absolute;
+    right: 10px;
+    top: 40px;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.painel-bottom-menu-opcoes p {
+    margin: 5px;
+    cursor: pointer;
+}
+
+.painel-bottom-menu-opcoes p:hover {
+    background: aliceblue;
+}
+
+.painel-bottom-status {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+}
+
+.painel-bottom-status-item {
+    text-align: center;
+}
+
+.painel-bottom-tecnicos {
+    width: 75%;
+    height: 200px;
+    margin-top: 50px;
+}
+
+.painel-bottom-tecnicos-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-left: 50px;
+    margin-top: 30px;
+}
+.titulo-tabela-tecnicos{
+    margin-top: -50px;
+}
+
+.painel-bottom-tecnicos-table th {
+    background-color: aliceblue;
+    padding: 10px;
+    text-align: left;
+}
+
+.painel-bottom-tecnicos-table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.painel-bottom-tecnicos-table img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+.fundo-roxo{
+    background-color: #BF99FE;
+    display: flex;
+    gap: 30px;
+    width: 100%;
+    height: 100px;
+    justify-content: center;
+    padding:30px;
+}

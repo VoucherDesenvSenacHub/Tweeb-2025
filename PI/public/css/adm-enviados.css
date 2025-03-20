@@ -19,28 +19,7 @@ body {
     --azul-tabela: #0C1E5B;
 }
 
-header {
-    width: 100%;/*faz o cabeçalho ocupar toda a largura da pag*/
-    height: 100px;/*define a altura do cabeçalho*/
-    display: flex;
-    align-items: center;
-    position: relative;
-    top: 0;
-    z-index: 1;
-    box-shadow: 0 0 10px #000;
-    background-color: #fff; 
-    padding: 0 20px;
-}
 
-header .logo {
-    margin-right: 20px;
-    display: flex;
-    align-items: center;
-    max-width:200px;
-    max-height:150px;
-    width: auto;
-    height: auto;
-}
 
 .listarU-departments-bar {
     background-color: #291E40; 
@@ -151,7 +130,7 @@ header .logo {
     position: relative;
 }
 
-.pedidos-categoria-selecionado .categorias{
+.pedidos-categoria-selecionado .categorias-adm-enviados{
     position: absolute;
     left: 9.625rem;
     display: flex;
@@ -159,14 +138,14 @@ header .logo {
 }
 
 
-.pedidos-categoria-selecionado .categorias p{
+.pedidos-categoria-selecionado .categorias-adm-enviados p{
     font-size: 18px;
     font-weight: 500;
     color: #8B8B8B;
     cursor: pointer;
 }
 
-.pedidos-categoria-selecionado .categorias span p{
+.pedidos-categoria-selecionado .categorias-adm-enviados span p{
     color: black;
     border-bottom: 2px solid black;
 }
@@ -487,12 +466,15 @@ header .logo {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    
 }
 
-.envios-container h1 {
+.envio-titulo-adm {
     font-size: 20px;
     margin-left: 10%;
     align-self: flex-start;
+    width: 1450px;
+    margin-left: 50px;
 }
 
 .tabela-envios {
@@ -569,6 +551,21 @@ header .logo {
     background-color: #FDD4D4;
 }
 
+.numero-item-minicard{
+    color: #17183B;
+    text-align: center;
+    padding: 25px;
+    /* align-self: flex-start; */
+   
+
+} 
+
+.numero-item-minicard{
+    font-size: 42px;
+    margin-bottom: -20px;
+    padding: 10px;
+}
+
 AC1616
 
 .status-completo p{
@@ -615,7 +612,7 @@ AC1616
     font-size: 14px;
     border: 1px solid #E9E9EA;
     text-align: center;
-    color: #003CFF;
+    color: #D4E3FF;
     padding: 0.25rem;
     border-radius: 10px;
     background-color: transparent;
@@ -672,43 +669,7 @@ AC1616
     font-weight: 600;
   }
 
-  /* footer */
-
-  .footer{
-    display: flex;
-    height: 100%;
-    background-color: #cef5a4;
-    padding: 22px 10px ;
-    text-align: center;
-    justify-content: center;
-    position: relative;
-    top: 55vh;
-}
-
-.footer-text{
-    display: flex;
-    font-family: 'Arimo Hebrew', sans-serif; /* Aplica a fonte */
-    font-style: italic; /* Aplica o estilo itálico */
-    font-size: 20px;
-    color: #291E40;
-}
-
-.footer-logo{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    gap: 3rem;
-}
-
-.footer-logo img{
-    width: 150px;
-    height: auto;
-}
-
-
-
-  /* responsividade */
+   /* responsividade */
   /* --------------------------------------------------------- */
 
   @media only screen and (max-width: 840px) {
@@ -796,6 +757,9 @@ AC1616
 
     .datas-botoes{
         width: auto;
+    }
+    .pedidos-categoria-selecionado .categorias-adm-enviados{
+        left: 0%;
     }
 
   }

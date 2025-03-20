@@ -77,9 +77,10 @@
     margin-top: 22px;
     margin-left: 1028px;
     gap: 10px;
+    align-items: center;
     border-radius: 4px;
     padding-right: 48px;
-    padding-bottom: 16px;
+    
     padding-left: 40px;
     background: #FE8C67;
     border: none;   

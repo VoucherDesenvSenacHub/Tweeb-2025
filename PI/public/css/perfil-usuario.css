@@ -190,6 +190,9 @@ label[for="sobrenome"] {
     border-radius: 5px;
     cursor: pointer;
 }
+.editar-perfil{
+    margin: 0%;
+}
 
 /* RESPONSIVIDADE */
 @media (max-width: 768px) {

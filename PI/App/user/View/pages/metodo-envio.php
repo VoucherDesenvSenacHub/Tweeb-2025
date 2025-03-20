@@ -43,7 +43,7 @@
     </div>
 
     <div class="enderecos">
-    <h1>Método de Envio</h1>
+    <h1 class="metodoh1">Método de Envio</h1>
     
     <div class="endereco-card">
         <label class="envio-descricao">

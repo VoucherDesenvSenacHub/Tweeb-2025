@@ -24,6 +24,163 @@
     height: 100px;
     background-color: #2D1B46 !important;
 }
+/* Estilos padrão para o menu */
+
+.admin-mini-navbar {
+    position: relative;
+}
+
+.admin-mini-navbar{
+    display: none;
+}
+/* Menu lateral */
+.admin-menu {
+    position: fixed;
+    top: 0;
+    right: -300px; /* Escondido inicialmente do lado direito */
+    width: 300px;
+    height: 100vh;
+    background-color: #fff; /* Fundo branco */
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2); 
+    transition: right 0.3s ease-in-out;
+    padding-top: 20px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Menu aberto */
+.admin-menu.open {
+    right: 0;
+}
+
+/* Usuário no menu */
+.admin-user-info {
+    display: flex;
+    flex-direction: row; 
+    align-items: center; 
+    padding: 10px;
+    margin-right: 85px;
+}
+
+.admin-user-info img {
+    width: 50px; 
+    height: 50px; 
+    border-radius: 50%; 
+    border: 2px solid #020202;
+}
+.admin-hi-user small {
+    font-size: 12px; /* Diminui um pouco o tamanho */
+    margin-top: -2px; /* Aproxima mais do nome */
+}
+
+
+.admin-user-info .admin-hi-user {
+    margin-top: 15px;
+    font-weight: 500;
+    font-size: 15px;
+    padding: 0px 0px 0px 10px;
+    color: rgb(0, 0, 0);
+}
+/* Ícone de fechar */
+.admin-close-menu {
+    cursor: pointer;
+    font-size: 20px;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    color: red;
+}
+
+.admin-menu-options {
+    list-style: none;
+    padding: 0;
+    margin-top: 2px;
+    width: 100%; 
+    text-align: left; 
+    padding-left: 20px; 
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.admin-menu-item {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    list-style: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+/* Estilização dos links do menu */
+.admin-menu-item a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #0a0a0a;
+    font-size: 14px;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    white-space: nowrap;
+    font-family: 'Inter';
+    gap: 12px;
+}
+
+.admin-menu-item a:hover {
+    background-color: #D4E3FF;
+    color: #455A64;
+}
+
+
+/* Botão hamburguer */
+.hamburguer-admin {
+    display: none; 
+    position: fixed; 
+    top: 15px;
+    right: 15px; 
+    font-size: 30px;
+    color: #333;
+    cursor: pointer;
+    z-index: 999;
+}
+.admin-menu-item img {
+    width: 15px;
+    height: 15px;
+    margin-right: 8px; 
+    color: white;
+}
+
+.hamburguer-admin i {
+    color: #333;
+}
+.admin-separator {
+    margin: 20px 0;
+    width: 250px;
+}
+/* Oculta o submenu por padrão */
+.admin-submenu {
+    display: none;
+    list-style: none;
+    padding-left: 30px;
+}
+
+/* Quando o submenu estiver aberto */
+.admin-submenu.open {
+    display: block;
+}
+
+/* Ícone da seta rotacionando quando o menu está aberto */
+.admin-arrow {
+    transition: transform 0.3s ease-in-out;
+}
+
+.admin-arrow.rotate {
+    transform: rotate(90deg);
+}
+
 
 /* Responsividade */
 
@@ -44,6 +201,12 @@
 
 /* Celulares e telas menores que 768px */
 @media (max-width: 768px) {
+    .hamburguer-admin {
+        display: block;
+    }
+    .admin-mini-navbar{
+        display: block;
+    }
     .header-container {
         flex-direction: column;
         height: auto;

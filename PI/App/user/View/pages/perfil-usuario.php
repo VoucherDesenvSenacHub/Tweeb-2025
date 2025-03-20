@@ -9,7 +9,7 @@
 </head>
 <body>
 
-<?php include __DIR__.'/../../../../includes/navbar.php'; ?>
+<?php include __DIR__.'/../../../../includes/navbar-logada.php'; ?>
 <?php include __DIR__.'/../../../../includes/sidebar-User.php'; ?>
 
 <!-- Contêiner do Perfil -->

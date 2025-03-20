@@ -1,0 +1,228 @@
+.Planos_corporativos {
+    background-color: #f5f5f5;
+    text-align: center;
+}
+
+.banner_corporativo {
+    width: 100%;
+    height: auto;
+    top: 202px;
+    overflow: hidden;
+}
+
+.banner_corporativo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.container_corporativo {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    margin-top: 80px;
+    width: 100%;
+    height: 736px;
+}
+
+.card_corporativo {
+    border: 1px solid #ddd;
+    text-align: left;
+    width: 420px;
+    height: 585px;
+    padding: 40px 30px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card_corporativo.popular_corporativo {
+    width: 466px;
+    height: 585px;
+    background: #c2a3f3;
+    color: #545454;
+    border-color: #c2a3f3;
+}
+
+.popular-label_corporativo {
+    background-color: #CEF5A4;
+    color: black;
+    padding: 5px 20px;
+    border-radius: 1px;
+    display: inline-block;
+    margin-bottom: 25px;
+    font-size: 16px;
+    letter-spacing: .3vh;
+    line-height: 122%;
+}
+
+.Preco_corporativo {
+    font-size: 30px;
+    font-weight: bold;
+    text-align: left;
+    font-weight: 600;
+    font-size: 45px;
+}
+
+.Preco_corporativo small {
+    font-weight: 500;
+    font-size: 16px;
+    position: relative;
+    top: -8px;
+}
+
+.btn_corporativo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 15px;
+    padding: 10px 20px;
+    background: #0FE3AF;
+    color: #1C1C1C;
+    text-decoration: none;
+    width: 307px;
+    height: 60px;
+    font-weight: 600;
+}
+
+.btn_corporativo:hover {
+    background: #CEF5A4;
+}
+
+.btn_corporativo span {
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+
+.form-section_corporativo {
+    background: linear-gradient(to bottom, #DCEDFE 0%, #F5F7FF 100%);
+    padding: 100px;
+    margin-top: 80px;
+    width: 100%;
+    height: 658px;
+}
+
+.form_corporativo {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    width: 1000px;
+    margin: auto;
+}
+
+.form-group_corporativo {
+    width: 48%;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group_corporativo label {
+    margin-bottom: 5px;
+    text-align: left;
+    font-size: 20px;
+}
+
+.form-group_corporativo input,
+.form-group_corporativo textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 490px;
+    height: 64px;
+}
+
+.button-orcamento_corporativo {
+    text-align: center;
+    margin-top: 24px;
+}
+
+.btn2_corporativo {
+    width: 272px;
+    height: 60px;
+    background: #291E40;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.btn2_corporativo:hover {
+    background: #CEF5A4;
+    color: black;
+}
+
+.checklist-corporativo{
+    list-style: none;
+}
+
+.form-group_corporativo textarea{
+    height: 200px;
+    width: 600px;
+    resize: vertical;
+}
+
+#description {
+    height: 100px;
+    width: 1000px;
+    resize: vertical;
+}
+
+.card_corporativo.selected {
+    border: 2px solid #291E40;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 1280px) {
+    .container_corporativo, .form_corporativo {
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+    }
+}
+
+@media (max-width: 1024px) {
+    .card_corporativo, .card_corporativo.popular_corporativo, .form-group_corporativo {
+        width: 100%;
+        max-width: 420px;
+        height: auto;
+    }
+    .form-group_corporativo input, .form-group_corporativo textarea {
+        width: 100%;
+        max-width: 100%;
+    }
+    #description {
+        width: 100%;
+    }
+    .form-section_corporativo{
+        height: 1100px;
+    }
+}
+
+@media (max-width: 768px) {
+    .form_corporativo {
+        width: 90%;
+    }
+}
+
+@media (max-width: 600px) {
+    .form_corporativo {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .form_corporativo {
+        gap: 15px;
+    }
+}
+
+@media (max-width: 400px) {
+    .form_corporativo {
+        padding: 10px;
+    }
+}
+
+@media (max-width: 330px) {
+    .btn_corporativo, .btn2_corporativo {
+        width: 100%;
+    }
+}

@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 /* * {
     margin: 0;
@@ -24,7 +25,7 @@
     position: relative;
     top: 0;
     z-index: 1;
-    box-shadow: 0 0 10px #000;
+    box-shadow: 0 2px 7px #000;
     background-color: #fff; 
     padding: 0 20px;
 }
@@ -98,6 +99,7 @@
     justify-content: center; 
     gap: 60px;
     margin-right: 50px; 
+    font-family: 'Inter';
 }
 
 .navb ul li {
@@ -107,6 +109,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    font-family: 'Inter';
     
 }
 
@@ -118,6 +121,7 @@
     font-size: 15px;
     transition: color 0.3s; 
     white-space: nowrap;
+    font-family: 'Inter';
 }
 
 .navb ul li a:hover {
@@ -340,6 +344,7 @@
     justify-content: center;
     align-items: center;
     position: relative;
+    overflow: hidden;
     
 }
 
@@ -441,7 +446,10 @@
 .search-box .srch-home{
     transform: translateX(-5px);
     margin-top: 12px;
+    font-family: 'Inter';
+    padding: 8px;
 }
+
 .arrow {
     margin-top: 2px;
     margin-left: 80px;
@@ -529,6 +537,13 @@
     background-color: #CEF5A4;
     color: white;
 }
+.close-menu-nav {
+    cursor: pointer;
+    font-size: 20px;
+    position: absolute;
+    top: 15px;
+    right: 85px;
+}
 
 .btn-register {
     background-color: #d7d7d7;
@@ -552,6 +567,7 @@
         align-items: center;
         justify-content: center;
         gap: 15%;
+        font-family: 'Inter';
     }
     .departments-bar{
         box-sizing: border-box;
@@ -567,6 +583,7 @@
     }
     .navb ul .op{
         font-size: 14px;
+        font-family: 'Inter';
     }
 }
 @media (max-width: 1440px){
@@ -581,12 +598,14 @@
 @media (max-width: 1024px){
     .navb ul{
         gap: 5%;
+        font-family: 'Inter';
     }
     .search-box{
         transform: translateX(-20px);
     }
     .navb ul .op{
         font-size: 10px;
+        font-family: 'Inter';
     }
     .submenu{
         transform: translateX(-60px);
@@ -598,6 +617,7 @@
     .search-box input::placeholder{
         transform: translateX(-15px);
     }
+    
 }
 @media (max-width: 768px) {
     .headNav {
@@ -611,6 +631,7 @@
 
     .navb ul {
         display: none; 
+        font-family: 'Inter';
 
     }
 
@@ -689,14 +710,17 @@
         margin-right: 8px; 
         color: white;
     }
-    .close-menu-nav{
+    .close-menu-nav {
+        position: absolute;
+        top: 10px;  
+        right: 10px; 
+        transform: none; 
+        font-size: 25px; 
         color: red;
-        transform: translate(70px, -20px);
-        font-size: 25px;
-        margin: 0;
     }
     .search-box .srch-logada{
         transform: translateX(-20px);
+
     }
     .auth-buttons {
         position: absolute;
@@ -721,6 +745,7 @@
     }
     .navb ul {
         gap: 10px;
+        font-family: 'Inter';
     }
     .departments-bar{
         display: none;
@@ -770,8 +795,13 @@
         height: 95vh;
         width: 100vw;
     }
-    .close-menu-nav{
-        transform: translate(220px, -20px);
+    .close-menu-nav {
+        position: absolute;
+        top: 10px;  
+        right: 40px; 
+        transform: none; 
+        font-size: 25px;
+        color: red; 
     }
     
 }
