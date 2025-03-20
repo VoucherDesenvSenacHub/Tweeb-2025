@@ -257,10 +257,15 @@
     border-radius: 5px; /* Bordas arredond adas para os campos de entrada */
 }
 
-@media (max-width: 768px){
+@media  (max-width: 768px) {
     .image-container-esqueceu{
       
         display: none;
+    }
+
+    .header-logo img{
+        width: 100px;
+        /* height: 100px; */
     }
 
     .container-esqueceu{
@@ -268,5 +273,17 @@
         width: 50%;
         margin-left: 100px;
     }
+    
+}
 
+@media (max-width: 1366px){
+    .image-container-esqueceu{
+        display: none;
+    }
+
+    .container-esqueceu{
+        margin-top: 20%;
+        
+
+    }
 }
