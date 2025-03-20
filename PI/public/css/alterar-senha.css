@@ -181,6 +181,8 @@ body {
     border: none;
     color: white;
     cursor: pointer;
+    padding: 10px;
+    border-radius: 5px;
 }
 
 .perfil-tweeb-salvar {
@@ -318,7 +320,7 @@ body {
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        margin-top: 200px;
+        /* margin-top: 200px; */
         text-align: center;
     }
 
