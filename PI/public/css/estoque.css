@@ -331,21 +331,33 @@ body {
     cursor: pointer;
 }
 
-table {
-    width: 100%;
+.estoque-table {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
     border-collapse: collapse;
+    margin-top: 20px;
 }
-th, td {
+.estoque-table th, .estoque-table td {
     padding: 10px;
     border-bottom: 1px solid #ddd;
     text-align: left;
-    color: rgb(109, 109, 109);
+    color: #515151;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+
+.estoque-table .status-estoque{
+  color: #10A142;
 }
-.poucas { color: orange; }
-.falta { color:red; }
-.estoque { color: green; }
 
+.estoque-table .status-emfalta{
+  color: #ED3237;
+}
 
+.estoque-table .status-poucasunid{
+  color: #F29425;
+}
 
 
 
@@ -566,11 +578,7 @@ h2 {
   color: black;
   margin-left: 40px;
 }
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 20px;
-}
+
 th, td {
   padding: 12px;
   text-align: left;
@@ -802,7 +810,7 @@ td {
 .adm-estoque-caterogias{
   display: flex;
   justify-content: space-evenly;
-  margin-top: 3rem;
+  margin: 3rem 0;
 }
 
 .estoque-categoria{
@@ -815,6 +823,7 @@ td {
   align-items: flex-start;
   flex-direction: column;
   justify-content: space-evenly;
+  cursor: pointer;
 }
 
 .estoque-categoria img{
@@ -898,7 +907,7 @@ td {
 }
 
 .filtros-datas{
-  width: 80%;
+  width: 95%;
 
 }
 
@@ -927,6 +936,7 @@ td {
   font-size: 14px;
   box-shadow: 0 5px 10px 0.5px rgba(0, 0, 0, 0.100);
   background-color: #f0f2f5;
+  white-space: nowrap;
 }
 
 .datas-botoes button img{
@@ -935,12 +945,21 @@ td {
 }
 
 .form-group{
+  display: flex;
+  flex-wrap: wrap;
   margin-top: 2rem;
+  justify-content: center;
 }
 
 .form-group, .form-group-breakline{
   height: auto;
 }
+
+/* .form-group-breakline{
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 1rem;
+} */
 
 .filtro-formulario{
   width: 100%;
@@ -958,14 +977,18 @@ td {
   color: #595959;
 }
 
+.filtro-formulario label, .filtro-formulario input{
+  margin-bottom: 1rem;
+}
+
 .filtro-formulario input{
   margin-right: 10px;
-  height: 29.5px;
-  padding: 5px 12px;
+  /* height: 29.5px; */
+  padding: 5.5px 12px;
   border: 1px solid #d9d9d9;
   border-top-right-radius:  4px;
   border-bottom-right-radius:  4px;
-  z-index: -2;
+  /* z-index: -2; */ 
 }
 
 .filtro-formulario input::placeholder{
@@ -1000,4 +1023,46 @@ td {
 .form-botao-limpar:hover{
   background-color: #d9d9d9;
   color: black;
+}
+
+
+.tabela-nota-fiscal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.tabela-nota-fiscal{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 8px;
+  gap: 0.5rem;
+  height: 38px;
+  width: 86px;
+  border: 2px solid #D0D5DD;
+}
+
+.tabela-nota-fiscal p{
+  font-size: 14px;
+  font-weight: 600;
+  color: #667085;
+}
+
+.tabela-nota-fiscal i{
+  color: #667085;
+}
+
+/* .centralizar-nota{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+} */
+
+.estoque-titulo{
+  font-size: 20px;
+  font-weight: 600;
+  margin-left: 5%;
 }

@@ -78,7 +78,10 @@
               <!-- trocar isso aqui pra checkbox ou algum outro form quando iniciar o desenvolvimento do backend -->
               <button class="botao-ativado">Hoje</button>
               <button>Ontem</button>
-              <button>Data <img src="../../../public/assets/img/adm-calendario.png" alt=""></button>
+              <button>7 dias</button>
+              <button>30 dias</button>
+              <button>Último mês</button>
+              <button>Data <img src="../../../../public/assets/img/adm-calendario.png" alt=""></button>
           </div>
       </div>
 
@@ -100,12 +103,12 @@
                   
                   <input class="form-botao-limpar" type="submit" value="Limpar">
                   <input class="form-botao-buscar" type="submit" value="Buscar">
-              </div>
 
-              <div class="form-group-breakline">
+                  <div class="form-group-breakline">
+                    <label for="valor">Custo</label>
+                    <input type="text" id="valor" name="valor" placeholder="filtrar valor">
+                  </div>
                     
-                <label for="valor">Valor</label>
-                <input type="text" id="valor" name="valor" placeholder="filtrar valor">
             </div>
 
                   
@@ -114,10 +117,11 @@
       </div>
   </div>
 
-    <table>
-        <thead>
-            <tr>
-                <th>ID</th>
+    <table class="estoque-table">
+      <thead>
+        <h1 class="estoque-titulo">Estoque</h1>
+        <tr>
+                <th>N</th>
                 <th>Imagem</th>
                 <th>Produto</th>
                 <th>Departamento</th>
@@ -133,7 +137,7 @@
         <tbody id="page-1" class="product-page">
             <tr>
                 <td>01</td>
-                <td><img src="../imagens/gtx-removebg-preview.png" alt="Descrição da imagem" width="40" height="40"></td>
+                <td><img src="../../../../public/assets/img/gtx-desc.png" alt="Descrição da imagem" width="40" height="40"></td>
                 <td>Placa GTX</td>
                 <td>Perifericos</td>
                 <td>150</td>
@@ -141,53 +145,55 @@
                 <td>R$ 34.000,00</td>
                 <td>70 PCS</td>
                 <td>SONY.SA</td>
-                <td class="estoque">Estoque</td>
-                <td><button class="download-button">
-                    <div class="docs">
-                      <svg
-                        viewBox="0 0 24 24"
-                        width="20"
-                        height="20"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        fill="none"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        class="css-i6dzq1"
-                      >
-                        <path
-                          d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
-                        ></path>
-                        <polyline points="14 2 14 8 20 8"></polyline>
-                        <line x1="16" y1="13" x2="8" y2="13"></line>
-                        <line x1="16" y1="17" x2="8" y2="17"></line>
-                        <polyline points="10 9 9 9 8 9"></polyline>
-                      </svg>
-                      Docs
-                    </div>
-                    <div class="download">
-                      <svg
-                        viewBox="0 0 24 24"
-                        width="24"
-                        height="24"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        fill="none"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        class="css-i6dzq1"
-                      >
-                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                        <polyline points="7 10 12 15 17 10"></polyline>
-                        <line x1="12" y1="15" x2="12" y2="3"></line>
-                      </svg>
-                    </div>
-                  </button></td>
+                <td class="status-estoque">Estoque</td>
+                <td class="centralizar-nota"><div class="tabela-nota-fiscal"><i class="fa-regular fa-file-lines"></i><p>Nota</p></div></td>
             </tr>
 
             <tr>
-                <td>01</td>
-                <td><img src="../imagens/gtx-removebg-preview.png" alt="Descrição da imagem" width="40" height="40"></td>
+                <td>02</td>
+                <td><img src="../../../../public/assets/img/image 56.png" alt="Descrição da imagem" width="40" height="40"></td>
+                <td>Rx 580</td>
+                <td>Hardware</td>
+                <td>150</td>
+                <td>R$ 720,00</td>
+                <td>R$ 12.000,00</td>
+                <td>180 PCS</td>
+                <td>Mancer</td>
+                <td class="status-emfalta">Em falta</td>
+                <td class="centralizar-nota"><div class="tabela-nota-fiscal"><i class="fa-regular fa-file-lines"></i><p>Nota</p></div></td>
+            </tr>
+
+            <tr>
+                <td>03</td>
+                <td><img src="../../../../public/assets/img/gabinete-pcancelados.png" alt="Descrição da imagem" width="40" height="40"></td>
+                <td>Gabinete</td>
+                <td>Hardware</td>
+                <td>150</td>
+                <td>R$ 100,00</td>
+                <td>R$ 5,000.00</td>
+                <td>40 PCS</td>
+                <td>Big Ben's Store</td>
+                <td class="status-poucasunid">Poucas unid.</td>
+                <td class="centralizar-nota"><div class="tabela-nota-fiscal"><i class="fa-regular fa-file-lines"></i><p>Nota</p></div></td>
+            </tr>
+
+            <tr>
+              <td>04</td>
+              <td><img src="../../../../public/assets/img/mouse-pcancelados.png" alt="Descrição da imagem" width="40" height="40"></td>
+              <td>Mouse Gamer</td>
+              <td>Periférico</td>
+              <td>30</td>
+              <td>R$ 350,00</td>
+              <td>R$ 8,000.00</td>
+              <td>80 PCS</td>
+              <td>Big Ben's Store</td>
+              <td class="status-poucasunid">Poucas unid.</td>
+              <td class="centralizar-nota"><div class="tabela-nota-fiscal"><i class="fa-regular fa-file-lines"></i><p>Nota</p></div></td>
+          </tr>
+
+          <tr>
+                <td>05</td>
+                <td><img src="../../../../public/assets/img/gtx-desc.png" alt="Descrição da imagem" width="40" height="40"></td>
                 <td>Placa GTX</td>
                 <td>Perifericos</td>
                 <td>150</td>
@@ -195,51 +201,51 @@
                 <td>R$ 34.000,00</td>
                 <td>70 PCS</td>
                 <td>SONY.SA</td>
-                <td class="estoque">Estoque</td>
-                <td><button class="download-button">
-                    <div class="docs">
-                      <svg
-                        viewBox="0 0 24 24"
-                        width="20"
-                        height="20"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        fill="none"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        class="css-i6dzq1"
-                      >
-                        <path
-                          d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
-                        ></path>
-                        <polyline points="14 2 14 8 20 8"></polyline>
-                        <line x1="16" y1="13" x2="8" y2="13"></line>
-                        <line x1="16" y1="17" x2="8" y2="17"></line>
-                        <polyline points="10 9 9 9 8 9"></polyline>
-                      </svg>
-                      Docs
-                    </div>
-                    <div class="download">
-                      <svg
-                        viewBox="0 0 24 24"
-                        width="24"
-                        height="24"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        fill="none"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        class="css-i6dzq1"
-                      >
-                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                        <polyline points="7 10 12 15 17 10"></polyline>
-                        <line x1="12" y1="15" x2="12" y2="3"></line>
-                      </svg>
-                    </div>
-                  </button></td>
+                <td class="status-estoque">Estoque</td>
+                <td class="centralizar-nota"><div class="tabela-nota-fiscal"><i class="fa-regular fa-file-lines"></i><p>Nota</p></div></td>
             </tr>
 
-            
+            <tr>
+                <td>06</td>
+                <td><img src="../../../../public/assets/img/image 56.png" alt="Descrição da imagem" width="40" height="40"></td>
+                <td>Rx 580</td>
+                <td>Hardware</td>
+                <td>150</td>
+                <td>R$ 720,00</td>
+                <td>R$ 12.000,00</td>
+                <td>180 PCS</td>
+                <td>Mancer</td>
+                <td class="status-emfalta">Em falta</td>
+                <td class="centralizar-nota"><div class="tabela-nota-fiscal"><i class="fa-regular fa-file-lines"></i><p>Nota</p></div></td>
+            </tr>
+
+            <tr>
+                <td>07</td>
+                <td><img src="../../../../public/assets/img/gabinete-pcancelados.png" alt="Descrição da imagem" width="40" height="40"></td>
+                <td>Gabinete</td>
+                <td>Hardware</td>
+                <td>150</td>
+                <td>R$ 100,00</td>
+                <td>R$ 5,000.00</td>
+                <td>40 PCS</td>
+                <td>Big Ben's Store</td>
+                <td class="status-poucasunid">Poucas unid.</td>
+                <td class="centralizar-nota"><div class="tabela-nota-fiscal"><i class="fa-regular fa-file-lines"></i><p>Nota</p></div></td>
+            </tr>
+
+            <tr>
+              <td>08</td>
+              <td><img src="../../../../public/assets/img/mouse-pcancelados.png" alt="Descrição da imagem" width="40" height="40"></td>
+              <td>Mouse Gamer</td>
+              <td>Periférico</td>
+              <td>30</td>
+              <td>R$ 350,00</td>
+              <td>R$ 8,000.00</td>
+              <td>80 PCS</td>
+              <td>Big Ben's Store</td>
+              <td class="status-poucasunid">Poucas unid.</td>
+              <td class="centralizar-nota"><div class="tabela-nota-fiscal"><i class="fa-regular fa-file-lines"></i><p>Nota</p></div></td>
+          </tr>
             
         </tbody>
         <tbody id="page-2" class="product-page" style="display: none;">
