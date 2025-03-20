@@ -31,7 +31,11 @@
                 
             </form>
         </div>
+
         <div class="image-container-esqueceu">
+
+        <!-- <div class="image-container"> -->
+
             <img src="../../../../public/assets/img/imagem.png" alt="Imagem de Recuperação">
         </div>
     </div>

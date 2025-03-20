@@ -19,7 +19,6 @@ header {
     position: fixed;/**/
     top: 0;/**/
     z-index: 99;/**/
-    box-shadow: 0 0 10px #000;/**/
     background-color: #fff; /**/
     padding: 0 20px;/**/
 }
@@ -189,7 +188,7 @@ h1 {
     color: #17183B;
     text-align: center;
     padding: 25px;
-    align-self: flex-start;
+    /* align-self: flex-start; */
 }
 
 .step-indicator {
@@ -411,7 +410,7 @@ footer {
     width: 200px;
     right: 10px;
 }
-
+/* 
 #footer_social_midia {
     position: relative;
     top: 30px;
@@ -428,8 +427,6 @@ footer {
 
 #footer_social_midia {
     position: relative;
-    top: 30px;
-    right: 65px;
     display: flex;
     justify-content: center;
     gap: 1.5rem;
@@ -438,7 +435,7 @@ footer {
 #footer_social_midia a {
     color: var(--color-neutral-1);
     font-size: 1.2rem; 
-}
+} */
 
 .contact-info{
     font-family: "Poppins", sans-serif;

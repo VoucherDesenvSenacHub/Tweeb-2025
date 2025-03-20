@@ -1,9 +1,9 @@
 
-body {
+/* body {
     margin: 0;
     padding: 0;
     font-family: 'Poppins', sans-serif;
-}
+} */
 
 
 .perfil-tweeb {
@@ -189,6 +189,9 @@ label[for="sobrenome"] {
     padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
+}
+.editar-perfil{
+    margin: 0%;
 }
 
 /* RESPONSIVIDADE */

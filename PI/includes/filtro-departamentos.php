@@ -6,17 +6,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
     <title>Filtro de Produtos</title>
     <style>
-        /* body {
-            font-family: Montserrat;
-            margin: 20px;
-        
-        } */
-        /* .filtrodept-container {
-            display: flex;
-            flex-direction: column;
-            width: 300px;
-        }
-         */
         .filtrodept-container-geral {
         position: absolute;
         top: 855px;
@@ -254,7 +243,7 @@
             background: #555; /* Cor ao passar o mouse */
         }
 
-        /* Filtro no desktop (continua igual ao seu código original) */
+    
         .filtrodept-container-geral {
             position: absolute;
             top: 855px;
@@ -263,7 +252,7 @@
             padding: 20px;
             z-index: 1000;
             width: 350px;
-            display: block; /* Exibe o filtro normalmente no desktop */
+            display: block; 
         }
 
         .filtrodept-group {
@@ -315,15 +304,15 @@
         }
 
         .filtrodept-container-geral {
-    position: absolute;
-    top: 855px;
-    left: 190px;
-    height: auto; /* Mantém o filtro visível enquanto a página rola */
-    overflow-y: auto; /* Permite rolagem interna se os filtros forem longos */
-    background-color: white;
-    padding: 20px;
-    z-index: 1000;
-    width: 350px;
+        position: absolute;
+        top: 855px;
+        left: 190px;
+        height: auto; /* Mantém o filtro visível enquanto a página rola */
+        overflow-y: auto; /* Permite rolagem interna se os filtros forem longos */
+        background-color: white;
+        padding: 20px;
+        z-index: 1000;
+        width: 350px;
 }
 
 /* Ajustes do grupo do filtro */
@@ -333,6 +322,7 @@
     margin-bottom: 10px;
     width: 300px;
 }
+
 
 /* Para telas pequenas (até 400px) */
 @media (max-width: 400px) {
@@ -428,6 +418,61 @@
     }
 }
 
+@media (max-width: 669px) {
+    .filtrodept-container-geral {
+        position: relative; /* Ajusta a posição para o tablet */
+        top: auto; /* Não precisa de top absoluto */
+        left: auto; /* Remover a posição fixa */
+        width: 100%; /* Filtro ocupa 100% da largura */
+        padding: 15px; /* Ajusta o padding para tablet */
+    }
+
+    .filtrodept-group {
+        width: 100%; /* Cada grupo ocupa a largura total da tela */
+    }
+
+    .filtrodept-slider-container,
+    .filtrodept-range {
+        width: 100%; /* Ajuste a largura para 100% no tablet */
+    }
+
+    .filtrar-departamentos {
+        display: block;
+    }
+
+    .filtrodept-container-geral.show {
+        display: block;
+    }
+}
+
+@media (max-width: 779px) {
+    .filtrodept-container-geral {
+        position: relative; 
+        top: 100%; /* Não precisa de top absoluto */
+        left: auto; /* Remover a posição fixa */
+        width: 100%; /* Filtro ocupa 100% da largura */
+        padding: 15px; /* Ajusta o padding para tablet */
+        justify-content: center;
+    }
+
+    .filtrodept-group {
+        width: 100%; /* Cada grupo ocupa a largura total da tela */
+    }
+
+    .filtrodept-slider-container,
+    .filtrodept-range {
+        width: 100%; /* Ajuste a largura para 100% no tablet */
+    }
+
+    .filtrar-departamentos {
+        display: block;
+    }
+
+    .filtrodept-container-geral.show {
+        display: block;
+    }
+}
+
 /* Para tablets pequenos (601px a 768px) */
 @media (max-width: 768px) {
     .filtrodept-container-geral {
@@ -461,6 +506,7 @@
     .filtrodept-container-geral {
         position: relative;
         width: 100%;
+        top:0%;
     }
 
     .filtrodept-group {
@@ -485,8 +531,9 @@
 @media (min-width: 1025px) {
     .filtrodept-container-geral {
         position: absolute;
-        top: 855px;
-        left: 190px;
+        margin-top: 20px;
+        justify-content: center;
+        margin-left: 5px;
         width: 350px;
     }
 
@@ -498,7 +545,10 @@
     .filtrodept-range {
         width: 300px;
     }
+    
 }
+
+
 
 .filtrodept-container-geral {
     scrollbar-width: thin; /* Para Firefox */

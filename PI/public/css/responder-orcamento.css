@@ -1,0 +1,210 @@
+.responder-orcamento-body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: aliceblue;
+}
+
+.responder-orcamento {
+    height: 486px;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+.responder-orcamento-h1{
+    margin-top: 24px;
+    margin-left: 20px;
+    font-family: "Inter", sans-serif;
+    font-weight: 800;
+}
+
+.responder-orcamento-container1{
+    display: flex;
+    flex-direction: row;
+}
+
+.responder-orcamento-container1 input{
+    width: 300px;
+    height: 50px;
+    margin-left: 20px;
+    border-radius: 10px;
+    border: 1px solid #D9D9D9;
+    text-align: center;
+}
+
+.responder-orcamento-p{
+    margin-left: 20px;
+}
+
+.responder-orcamento-container2{
+    display: flex;
+    flex-direction: row;
+    margin-top: 3%;
+    margin-left: 20px;
+    gap: 2%;
+    font-family: "Nunito", sans-serif;
+}
+
+.responder-orcamento-data input{
+    width: 320px;
+    height: 50px;
+    border-radius: 10px;
+    border: 1px solid #D9D9D9;
+    text-align: start;
+}
+
+.responder-orcamento-input {
+    width: 620px;
+    height: 132px;
+    border-radius: 10px;
+    border: 1px solid #D9D9D9;
+    text-align: left;
+    vertical-align: top;
+    /* padding: 5px; */
+}
+
+.responder-orcamento-submit{
+    display: flex;
+    width: 320px;
+    height: 46px;
+    background-color: #CEF5A4;
+    border: none;
+    border-radius: 10px;
+    margin-left: 20px;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.responder-orcamento-container1 p{
+    margin-left: 20px;
+    font-family: "Nunito", sans-serif;
+}
+
+.responder-orcamento-container1 input :hover{
+    background-color: red;
+}
+
+.responder-orcamento-submit-text{
+    font-family: "Nunito", sans-serif;
+}
+
+
+
+
+
+
+
+
+
+
+
+/*  CSS POP_UP   */
+
+
+
+
+
+
+
+
+
+.responder-orcamento-pop_up{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.resp-orc-pop_up-box{
+    width: 465px;
+    height: 196px;
+    border-radius: 8px;
+    text-align: center;
+    border: 1px solid #F6F6F6;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2); 
+}
+
+.resp-orc-pop_pup-container{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+}
+.close-button{
+    width: 24px;
+    height: 24px;
+    border-radius: 29px;
+    background-color: #E5E5E5;
+    display: flex;
+    align-items: center;
+    justify-content: center;     
+    margin-left: 92%;
+    transform: translateY(10px);  
+    cursor: pointer; 
+}
+
+.pop_up-cancel{
+    width: 170.5px;
+    height: 38px;
+    background-color: white;
+    border-radius: 8px;
+    font-family: "Inter", sans-serif;
+    border: 1px solid black;
+}
+
+.pop_up-submit{
+    width: 170.5px;
+    height: 38px;
+    background-color: #CEF5A4;
+    border-radius: 8px;
+    font-family: "Inter", sans-serif;
+    border: 1px solid #CEF5A4;
+}
+
+.container-buttons-pop_up{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+}
+
+.resp-orc-pop_up-h1{
+    font-family: "Inter", sans-serif;
+    font-size: 20px;
+    color: #54595E;
+    font-weight: 600;
+}
+
+.resp-orc-pop_up-p{
+    font-family: "Inter", sans-serif;
+    color: #54595E;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.resp-orc-pop_up-box button {
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+/*    RESPONSIVIDADE    */

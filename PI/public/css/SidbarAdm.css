@@ -5,11 +5,11 @@
     padding: 0;
     box-sizing: border-box;
 } */
-.SideBar_adm{
+/* .SideBar_adm{
     /* display: flex;
-    min-width: 100vh; */
+    min-width: 100vh; 
     background-color: aliceblue;
-}
+} */
 main{
     padding: 20px;
     position: fixed;

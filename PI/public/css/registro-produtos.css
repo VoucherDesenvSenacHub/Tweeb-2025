@@ -1,0 +1,95 @@
+body {
+    font-family: Arial, sans-serif;
+    
+    margin: 0;
+    padding: 20px;
+}
+.registro-produtos-container {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    max-width: 900px;
+    margin: auto;
+   
+}
+
+.registro-produtos-titulo{
+    margin-top: 50px;
+    margin-bottom: 30px;
+}
+.registro-produtos-nav {
+    display: flex;
+    gap: 20px;
+    font-weight: bold;
+}
+.registro-produtos-ativo {
+    border-bottom: 2px solid black;
+}
+.registro-produtos-inativo {
+    color: gray;
+}
+.registro-produtos-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 20px;
+}
+.registro-produtos-input, .registro-produtos-descricao, .registro-produtos-file {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background: white;
+}
+.registro-produtos-descricao {
+    height: 80px;
+    background-color: #F2F2F2;
+}
+.registro-produtos-file img {
+    display: flex;
+    width: 13px;
+    height: 17px;
+    align-items: center;
+    cursor: pointer;
+    flex-direction: row;
+    background: #f1f1f1;
+    text-align: center;
+}
+.registro-produtos-file {
+    display: flex;
+    align-items: center; 
+    gap: 8px; 
+    background: #f1f1f1;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: fit-content;
+    width: 300px;
+}
+
+.registro-produtos-file img {
+    width: 20px; /* Ajuste o tamanho do ícone conforme necessário */
+    height: auto;
+}
+.registro-produtos-icones {
+    display: flex;
+    gap: 20px;
+    margin-top: 10px;
+}
+.registro-produtos-status {
+    background: #eee;
+    padding: 10px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+}
+.registro-produtos-salvar {
+    background: #ff7f50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    margin: auto;
+}

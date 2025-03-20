@@ -22,7 +22,7 @@
     font-size: 22px;
     font-family: "Nunito", serif;
     font-weight: bold;
-    margin-left: 5%;
+    margin-left: 7%;
 }
 
 .kitsetup-container_titles{
@@ -141,6 +141,7 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    margin-top: 19px;
 }
 
 .kitsetup-buy-product-text{
@@ -334,6 +335,7 @@
     }
     .kitsetup-h1 {
         font-size: 52px;
+        margin: 0%;
     }
 }
 
@@ -426,7 +428,7 @@
     }
     .kitsetup-products_box {
         width: 256px;
-        height: 400px;
+        height: 445px;
     }
     .kitsetup-config-box {
         height: 30px;

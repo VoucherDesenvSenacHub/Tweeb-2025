@@ -33,12 +33,14 @@ body {
 }
 
 .forms-esqueceu h1.tit {
-    font-size: 30px;
+    font-family: 'poppins', 'san-serif';
+    font-size: 25px;
     text-align: left;
     margin-bottom: 20px;
 }
 
 .forms-esqueceu p.descrit {
+    font-family: 'poppins', 'sans-serif';
     color: rgb(141, 141, 141);
     text-align: left;
     margin-bottom: 20px;
@@ -88,6 +90,7 @@ body {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    font-family: 'poppins', 'san-serif';
     font-size: 15px;
     color: rgb(114, 113, 113);
     font-weight: 600;
@@ -130,6 +133,7 @@ body {
 }
 
 .forms-esqueceu .p1 {
+    font-family: 'poppins', 'san-serif';
     text-align: center;
     color: rgb(141, 141, 141);
     margin-top: 20px;
@@ -137,6 +141,7 @@ body {
 }
 
 .forms-esqueceu .back-link {
+    font-family: 'poppins', 'san-serif';
     color: #333;
     font-size: 14px;
     text-decoration: none;
@@ -193,7 +198,13 @@ body {
     justify-content: center;
 }
 
+
 .botaolinkar{
     text-decoration: none;
     color: unset;
+}
+@media (max-width: 768px) {
+    .image-container-esqueceu{
+        display: none;
+    }
 }

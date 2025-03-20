@@ -440,6 +440,7 @@ span{
     display: flex;
     font-weight: 500;
     font-size: 24px;
+    font-family: 'Montserrat';
 }
 
 /* segundo carrossel */
@@ -583,4 +584,88 @@ span{
 .produtos2{
     margin-bottom: 50px;
     height: auto;
+}
+
+@media screen and (max-width: 1024px) {
+    .container {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .container-text, .container-img, .ad-left, .ad-right {
+        width: 100%;
+        height: auto;
+    }
+
+    .container-ad {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .ad-left, .ad-right {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .ad-text, .ad-text2 {
+        width: 80%;
+        text-align: center;
+        margin: 0 auto;
+    }
+
+    .ad-imagem, .ad-imagem2 {
+        margin: 20px auto;
+        width: 100%;
+        text-align: center;
+    }
+
+    .categorias {
+        flex-direction: column;
+        height: auto;
+        padding: 20px 0;
+    }
+
+    .categorias-card {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .produtos {
+        height: auto;
+        padding-bottom: 50px;
+    }
+    
+    .produtos-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+    
+    .anuncios {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        margin-top: 50px;
+    }
+    
+    .img-anuncio {
+        width: 90%;
+        margin-bottom: 50px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .slider{
+        margin-top: 350px;
+    }
+    .produtos-grid {
+        grid-template-columns: repeat(1, 1fr);
+    }
+    
+    .tabs {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
 }

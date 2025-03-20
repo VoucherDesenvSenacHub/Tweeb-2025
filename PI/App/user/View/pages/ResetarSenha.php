@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../../../../public/css/ResetarSenha.Css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
-<body>
+<body class="resetar-senha">
     <div class="container-resetar">
         <div class="forms-resetar">
             <form action="">

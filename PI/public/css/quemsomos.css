@@ -318,13 +318,16 @@ body {
 
 }
 
-button {
+.qsomos-next{
     padding: 10px 20px;
     background-color: #382856;
-    color: white;
+    /* color: white; */
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .logo-right h1 {
@@ -425,7 +428,7 @@ SERVIÇOS */
 }
 
 .fale-conosco-contact-info{
-    height: 429px;
+    height: 462px;
 }
 
 .container_items_produto_personalizado{

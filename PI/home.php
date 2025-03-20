@@ -10,6 +10,7 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
     <script defer src="../PI/public/js/home.js"></script>
+    
 </head>
 <body>
     <?php include __DIR__.'/includes/navbar-home.php'; ?>
@@ -97,7 +98,7 @@
                     <p>Aúdio</p>
                 </div>
                 <div class="card card5">
-                    <img src="public/assets/img/computadores-icon.png" alt="periféricos">
+                <a href="../PI/App/user/View/pages/departamento01.php"><img src="public/assets/img/computadores-icon.png" alt="periféricos"></a>
                     <p>Computadores</p>
                 </div>
                 <div class="card card6">
@@ -373,7 +374,7 @@
       <div class="anuncios">
         <a href="App/user/View/pages/task20-kitsetup.php"><img src="public/assets/img/Do seu jeito.png" alt=""></a>
         <a href="App/user/View/pages/do-seu-jeito.php"><img src="public/assets/img/Do seu jeito 2.png" alt=""></a>
-        <img src="public/assets/img/Do seu jeito 3.png" alt="">
+        <a href="App/user/View/pages/corporativo.php"><img src="public/assets/img/Do seu jeito 3.png" alt=""></a>
       </div>
 
       <section class="produtos produtos2">
@@ -459,6 +460,7 @@
             </div>
         </div>
       </section>
+       
 
       <div class="img-anuncio">
         <a href="#"><img src="public/assets/img/banner tweeb carnaval.png" alt="anuncio carnaval"></a>

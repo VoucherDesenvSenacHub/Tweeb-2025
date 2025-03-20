@@ -11,7 +11,9 @@
 </head>
 <body-quemsomos>
 <?php include __DIR__.'/../../../../includes/navbar-logada.php'; ?>
-    <section class="Banner_Sobre_Nos">
+
+<div class="quemsomos">
+<section class="Banner_Sobre_Nos">
         <div class="shape_sobre"></div>
         <div class="content_banner_sobre_nos">
             <img class="img_sobre_banner" src="../../../../public/assets/img/Apresentação Empresarial Moderna Azul e Verde.png" alt="">
@@ -240,6 +242,9 @@
 
        
     </section>
+
+</div>
+  
     
     <?php include __DIR__.'/../../../../includes/voltar-ao-topo.php'; ?>
     <?php include __DIR__.'/../../../../includes/footer.php'; ?>
