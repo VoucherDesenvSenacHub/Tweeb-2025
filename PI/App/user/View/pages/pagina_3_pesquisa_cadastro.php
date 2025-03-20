@@ -31,10 +31,10 @@
             <input type="search" placeholder="Busca" class="pesquisa3-cadastro-input">
         </div>
         <div class="pesquisa3-cadastro-links-header-container">
-            <a href="PI/App/user/View/pages/cadastro.php" class="pesquisa3-cadastro-header-p-cadastro">
+            <a href="./cadastro.php" class="pesquisa3-cadastro-header-p-cadastro">
                 Cadastro
             </a>
-            <a href="#" class="pesquisa3-cadastro-header-p-sobre">
+            <a href="./quemsomos.php" class="pesquisa3-cadastro-header-p-sobre">
                 Sobre
             </a>
         </div>

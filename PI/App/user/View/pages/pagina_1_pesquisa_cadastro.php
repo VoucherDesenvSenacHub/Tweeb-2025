@@ -31,17 +31,17 @@
             <input type="search" placeholder="Busca" class="pesquisa1-cadastro-input">
         </div>
         <div class="pesquisa1-cadastro-links-header-container">
-            <a href="PI/App/user/View/pages/cadastro.php" class="pesquisa1-cadastro-header-p-cadastro">
+            <a href="./cadastro.php" class="pesquisa1-cadastro-header-p-cadastro">
                 Cadastro
             </a>
-            <a href="#" class="pesquisa1-cadastro-header-p-sobre">
+            <a href="./quemsomos.php" class="pesquisa1-cadastro-header-p-sobre">
                 Sobre
             </a>
         </div>
     </header>
     <div class="pesquisa1-cadastro-barra-roxa"></div>
     <div class="pesquisa1-cadastro-voltar-button">
-        <a href="#" class="pesquisa1-cadastro-link-voltar-button">
+        <a href="../pages/cadastro.php" class="pesquisa1-cadastro-link-voltar-button">
             <img src="../../../../public/assets/img/Icon_voltar (1).png" alt="voltar_icon" class="pesquisa1-cadastro-voltar-icon">
             Voltar
         </a>
