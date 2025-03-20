@@ -25,7 +25,7 @@
     position: relative;
     top: 0;
     z-index: 1;
-    box-shadow: 0 0 2px #000;
+    box-shadow: 0 2px 7px #000;
     background-color: #fff; 
     padding: 0 20px;
 }
@@ -622,7 +622,7 @@
 @media (max-width: 768px) {
     .headNav {
         flex-direction: column;
-        height: 0vh;
+        height: 40vh;
     }
 
     .headNav .logo {
@@ -710,11 +710,13 @@
         margin-right: 8px; 
         color: white;
     }
-    .close-menu-nav{
+    .close-menu-nav {
+        position: absolute;
+        top: 10px;  
+        right: 10px; 
+        transform: none; 
+        font-size: 25px; 
         color: red;
-        transform: translate(70px, -20px);
-        font-size: 25px;
-        margin: 0;
     }
     .search-box .srch-logada{
         transform: translateX(-20px);
@@ -793,8 +795,13 @@
         height: 95vh;
         width: 100vw;
     }
-    .close-menu-nav{
-        transform: translate(220px, -20px);
+    .close-menu-nav {
+        position: absolute;
+        top: 10px;  
+        right: 40px; 
+        transform: none; 
+        font-size: 25px;
+        color: red; 
     }
     
 }
