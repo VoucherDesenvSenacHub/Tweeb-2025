@@ -1,16 +1,8 @@
-<!-- <?php
-require '../../../Entity/Usuario.php';  // ALTERE O DIRETÓRIO CONFORME SALVO NO SEU LOCAL
-$usuarios = Usuario::listar()->fetchAll(PDO::FETCH_ASSOC);
-<?php
-
-$produtos = Produto::listar()->fetchAll(PDO::FETCH_ASSOC);
-?>
-
-?> -->
 
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
+<?php include __DIR__.'/../../../../includes/headernavb.php'; ?>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LISTAR PRODUTOS</title>
@@ -18,70 +10,15 @@ $produtos = Produto::listar()->fetchAll(PDO::FETCH_ASSOC);
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
     integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="../../../../public/css/listarProdutos.css">
     <!-- <link rel="stylesheet" href="../../../../public/css/SidbarAdm.css"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://fonts.googleapis.com/css2?family=Arimo:wght@400&family=Arimo+Hebrew:wght@400&display=swap" rel="stylesheet">
     <script src="../../../../public/js/SidebarAdm.js" defer></script>
 </head>
 <body>
+<?php include __DIR__.'/../../../../includes/head-adm.php'; ?>
+<?php include __DIR__.'/../../../../includes/sidebar-Adm.php'; ?>
 
-    <navbar id="main-content">
-        <div class="listarU-logo">
-            <img src="../../../../public/assets/img/Ativo 2.png " alt="logo tweeb">
-        </div>
-        <div class="listarU-departments-bar"></div>
-    </navbar>
-
-    <div class="SideBar_adm">
-        <nav class="adm_sidebar" id="sidebar">
-            <div class="sidebar_contentAdm">
-                <div class="adm_user">
-                    <img src="../../../../public/assets/img/Avatar.png" id="userAdm_avatar" alt="Avatar">
-                        <p class="userAdm_infos">
-                            <span class="itemAdm-descricao">
-                                Letícia Almeida <br>
-                                <small>VENDEDOR</small>
-                            </span>
-                        </p>
-                </div>
-                
-                <div class="linha"></div>
-                <ul class="menu_sidebarAdm">
-                    <li class="sidebarAdm-item">
-                        <a href="#"><img src="../../../../public/assets/img/analytics 1.png" alt=""><span class="itemAdm-descricao">Painel</span></a>
-                    </li>
-                    <li class="sidebarAdm-item" id="Favoritos">
-                        <a href="#"><img src="../../../../public/assets/img/Calendar.png" alt=""><span class="itemAdm-descricao">Manutenções</span></a>
-                    </li>
-                    <li class="sidebarAdm-item">
-                        <a href="#"><img src="../../../../public/assets/img/Inbox.png" alt=""><span class="itemAdm-descricao">Orçamentos</span></a>
-                    </li>
-                    <li class="sidebarAdm-item has-submenu_sidbarAdm" id="toggle">
-                        <a href="#"><img src="../../../../public/assets/img/Reports.png" alt=""><span class="itemAdm-descricao">Produtos</span> <i class="fa-solid fa-angle-down" id="arrow"></i></a>
-                        <ul class="submenu_sidbarAdm">
-                            <li><a href="#"><span class="itemAdm-descricao">Cadastro</span></a></li>
-                            <li><a href="#"><span class="itemAdm-descricao">Estoque</span></a></li>
-                        </ul>
-                    </li>
-                    
-                    <button id="open_btn">
-                      <i id="open_btn_icon" class="fa-solid fa-chevron-right"></i>
-                    </button>
-                </ul>
-            </div>
-            
-            <div id="logout">
-                <button id="logout_btn">
-                    <a href="#"><img src="../../../../public/assets/img/Help-circle.png" alt=""> <span class="itemAdm-descricao">Ajuda</span></a>
-                </button>
-                
-                <button id="logout_btn">
-                    <a href="#"><img src="../../../../public/assets/img/sair.png" alt=""> <span class="itemAdm-descricao">Sair</span></a>
-                </button>
-            </div>
-        </nav>
-    </div>
 
 
     <div class="listarU-titulo-container">
@@ -254,13 +191,6 @@ $produtos = Produto::listar()->fetchAll(PDO::FETCH_ASSOC);
         </div>
     </section>
 
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-logo">
-                <div><img src="../../../../public/assets/img/logo.png" alt="Logo Tweeb" /></div>
-                <div class="footer-text">Você faz parte da nossa conexão com o futuro.</div>
-            </div>       
-        </div>
-    </footer>
+    <?php include __DIR__.'/../../../../includes/footer-adm.php'; ?> 
 </body>
 </html>
