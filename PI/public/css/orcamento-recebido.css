@@ -58,6 +58,7 @@
     width: 850px;
     margin-left: 150px;
     margin-bottom: 30px;
+    margin: 30px auto; 
     
 }
 .orcamento-recebido-header {
@@ -96,6 +97,7 @@
     cursor: pointer;
     font-size: 16px;
     width: 30%;
+    
 }
 .orcamento-recebido-negacao {
     background: #ff7043;
@@ -158,8 +160,8 @@ textarea {
 
 
 .foto-orcamento-jpeg i{
-
-  padding: 3px;
+  
+  padding: 10px;
 }
 .orcamento-recebido-negacao, .orcamento-recebido-responder{
     justify-content: center;

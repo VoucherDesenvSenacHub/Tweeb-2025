@@ -14,6 +14,7 @@
   padding: 50px;
   margin-left: 198px;
   margin-top: 50px;
+  margin-bottom: 400px;
   gap: 48px;
   opacity: 0px;
   justify-content: space-between; 
@@ -213,6 +214,7 @@
 }
 .Carrinho .aplicar-btn:hover {
   background-color: #f0f0f0;
+  min-width: 80px;
 }
 .Carrinho .resumo-pedido {
   margin-bottom: 24px;
@@ -262,3 +264,182 @@
 
 
 /* RESPONSIVIDADE */
+/* Responsividade */
+@media (max-width: 1200px) {
+  .Carrinho .container {
+    width: 100%;
+    margin-left: 0;
+    padding: 20px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .Carrinho .container .cart-items,
+  .Carrinho .revisao-itens {
+    width: 100%;
+  }
+
+  .Carrinho .container .cart-items .item {
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .Carrinho .container .cart-items .item img {
+    width: 80px;
+    height: 80px;
+  }
+
+  .Carrinho .revisao-itens {
+    padding: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .Carrinho .container {
+    padding: 10px;
+  }
+
+  .Carrinho .container .cart-items .item {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+  }
+
+  .Carrinho .container .cart-items .item img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .Carrinho .detalhe p {
+    font-size: 14px;
+  }
+
+  .Carrinho .quantidade {
+    width: 90px;
+  }
+
+  .Carrinho .preco {
+    font-size: 16px;
+  }
+
+  .Carrinho .remover {
+    width: 20px;
+    height: 20px;
+  }
+
+  .Carrinho .continuar,
+  .Carrinho .desconto {
+    /* width: 100%; */
+    padding: 12px;
+  }
+
+  .Carrinho .revisao-itens {
+    padding: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .Carrinho .container .cart-items .item {
+    gap: 5px;
+  }
+
+  .Carrinho .quantidade {
+    width: 80px;
+  }
+
+  .Carrinho .input-group {
+    flex-direction: column;
+  
+  }
+
+  .Carrinho .input-group input {
+    width: 87%;
+  }
+
+  .Carrinho .aplicar-btn {
+    position: relative;
+    width: 76.45px;
+    margin-top: -55px;
+    margin-left: 290px;
+}
+
+  }
+
+  .Carrinho .line-carrinho,
+  .Carrinho .line1 {
+    width: 100%;
+  }
+
+  .Carrinho .desconto {
+    width: 100%;
+    margin-bottom: 300px;
+  }
+
+/* falta arrumar apartir daqui */
+  @media (max-width: 320px) {
+    .Carrinho .container {
+      padding: 8px;
+      
+      width: 100%;
+      height: 90vh;
+      margin-bottom: 200px;
+    }
+  
+    .Carrinho .container .cart-items {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+    
+    .Carrinho .container .cart-items .item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 8px;
+      
+      gap: 8px;
+      width: 100%; /* Para evitar sobreposição */
+      box-sizing: border-box;
+    }
+    
+    .Carrinho .container .cart-items .item img {
+      width: 70px;
+      height: 70px;
+    }
+    
+    .Carrinho .detalhe p {
+      font-size: 12px;
+    }
+    
+    .Carrinho .quantidade {
+      width: 70px;
+    }
+    
+    .Carrinho .preco {
+      font-size: 14px;
+    }
+    
+    .Carrinho .remover {
+      width: 18px;
+      height: 18px;
+    }
+  
+    .Carrinho .continuar,
+    .Carrinho .desconto {
+      padding: 10px;
+      width: 100%;
+      text-align: center;
+      box-sizing: border-box; /* Garante que o padding não estoure a largura */
+    }
+  
+    .Carrinho .revisao-itens {
+      padding: 12px;
+      margin-top: 20px;
+      width: 100%; /* Evita sobreposição */
+      margin-bottom: 300px;
+    }
+  }
