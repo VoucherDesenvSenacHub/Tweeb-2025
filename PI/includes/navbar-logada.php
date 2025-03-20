@@ -26,7 +26,7 @@
                     <a class="op"href="#"><i class='bx bx-cart-alt'></i></a>
                     <!-- <a href="app/user/view/pages/login.php"><i class='bx bx-user'></i></a> -->
                     <a href="#" class="user-icon">
-                        <img src="../../../../public/assets/img/User Pic.png" alt="teste">
+                        <img src="../../../../public/assets/img/foto-perfil-comentarios.jpg" alt="teste">
                     </a>
                 </li>
             </ul>
@@ -34,7 +34,7 @@
 
     <div class="hamburger-menu">
         <div class="user-info">
-            <img src="../../../../public/assets/img/User Pic.png" alt="Foto do Usuário">
+            <img src="../../../../public/assets/img/foto-perfil-comentarios.jpg" alt="Foto do Usuário">
             <p class="hi-user">Olá, Usuário</p>
             <span class="close-menu-nav"><i class="fa-solid fa-xmark"></i></span>
         </div>

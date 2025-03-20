@@ -175,9 +175,9 @@ body {
 }
 
 .perfil-tweeb-cancelar {
-    background: none;
+    background: #FF8661;
     border: none;
-    color: gray;
+    color: white;
     cursor: pointer;
 }
 
@@ -316,7 +316,7 @@ body {
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        margin-top: 40px;
+        margin-top: 200px;
         text-align: center;
     }
 
@@ -324,7 +324,7 @@ body {
         width: 100%;
         max-width: 250px;
         text-align: center;
-        display: block;
+        display: none;
         margin-bottom: 15px;
     }
 
