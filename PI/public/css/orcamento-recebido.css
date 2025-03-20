@@ -117,6 +117,7 @@
 .orcamento-recebido-form{
     margin-bottom: 20px;
     
+    
 }
 
 .orcamento-recebido-row input,
@@ -201,6 +202,13 @@ textarea {
 @media only screen and (max-width: 840px) {
     body {
         overflow-x: hidden;
+    }
+
+    .pedidos-categoria-selecionado {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-left: 50px;
     }
 
     .quantidade-pedidos2 {
@@ -299,6 +307,11 @@ textarea {
         gap: 10px;
     }
 
+    .orcamento-recebido-form{
+        margin-bottom: 20px;
+        width: 250px;
+        
+    }
     .pedidos-ui-card2, .pedidos-ui-card3 {
         width: 100%;
         height: auto;
@@ -308,6 +321,10 @@ textarea {
     .orcamento-recebido-container {
         width: 100%;
         /* padding: 5px; */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
     }
 
     .orcamento-recebido-header {

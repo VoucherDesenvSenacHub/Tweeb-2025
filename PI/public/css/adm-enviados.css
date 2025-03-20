@@ -135,6 +135,7 @@ body {
     left: 9.625rem;
     display: flex;
     gap: 2rem;
+    margin-left: 10px;
 }
 
 
