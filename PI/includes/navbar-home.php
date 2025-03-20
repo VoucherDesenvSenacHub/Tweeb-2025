@@ -13,8 +13,8 @@
             </form>
         </div>
         <div class="responsive-menu">
-            <a href="#">Sobre</a>
-            <a href="#">Orçamento</a>
+            <a href="app/user/View/pages/quemsomos.php">Sobre</a>
+            <a href="app/user/View/pages/orcamento.php">Orçamento</a>
         </div>
         <nav class="navb">
             <ul>

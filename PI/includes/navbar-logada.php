@@ -7,9 +7,9 @@
             <a href="../../../../home.php"><img src="../../../../public/assets/img/Ativo 2.png" alt="logo tweeb"></a>
         </div>
         <div class="search-box">
-            <form action="">
+            <form  action="">
                 <button class="srch-logada"type="submit"><i class='bx bx-search'></i></button>
-                <input type="text" name="search" class="srch" placeholder="Buscar">
+                <input type="text" name="search" class="srch-log" placeholder="Buscar">
             </form>
         </div>
         <div class="responsive-menu">
