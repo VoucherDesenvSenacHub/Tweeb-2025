@@ -42,11 +42,11 @@
             <table class="listarP-table">
                 <thead class="thead-listarP">
                     <tr class="tr-listarP">
-                        <th>Foto</th>
-                        <th>Nome do Produto</th>
-                        <th>Valor</th>
-                        <th>Alterar</th>
-                        <th>Quantidade</th>
+                        <th class="th-listarP">Foto</th>
+                        <th class="th-listarP">Nome do Produto</th>
+                        <th class="th-listarP">Valor</th>
+                        <th class="th-listarP">Alterar</th>
+                        <th class="th-listarP">Quantidade</th>
                     </tr>
                 </thead>
                 <tbody>
