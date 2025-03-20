@@ -45,7 +45,7 @@
         <ul class="menu-options main-menu">
             <li class="menu-item-nav">
                 <a href="#" class="toggle-departamentos">
-                    <img src="../../../../public/assets/img/editar.png" alt="">
+                    <img src="../../../../public/assets/img/icone-departamento.png" alt="">
                     <span class="item-description-nav">Departamentos</span>
                     <i class="arrow fa-solid fa-chevron-right"></i>
                 </a>

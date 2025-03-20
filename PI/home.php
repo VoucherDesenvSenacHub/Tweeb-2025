@@ -97,7 +97,7 @@
                     <p>Aúdio</p>
                 </div>
                 <div class="card card5">
-                    <img src="public/assets/img/computadores-icon.png" alt="periféricos">
+                <a href="../PI/App/user/View/pages/departamento01.php"><img src="public/assets/img/computadores-icon.png" alt="periféricos"></a>
                     <p>Computadores</p>
                 </div>
                 <div class="card card6">
@@ -459,6 +459,7 @@
             </div>
         </div>
       </section>
+       
 
       <div class="img-anuncio">
         <a href="#"><img src="public/assets/img/banner tweeb carnaval.png" alt="anuncio carnaval"></a>

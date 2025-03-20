@@ -1,19 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
-}
 
-.fale-conosco-body {
-    background-color: #f8f9fa;
-    padding: 20px;
-    min-height: 100vh; /* Faz o body ocupar toda a altura da tela */
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.quemsomos {
+    font-family: "Inter", sans-serif;
+    
+    
    
 }
 
@@ -25,6 +16,7 @@
     gap: 20px;
     max-width: 1200px;
     width: 100%;
+    
 }
 .fale-conosco-container {
     margin: auto;
