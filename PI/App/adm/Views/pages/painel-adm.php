@@ -36,13 +36,13 @@
 <div class="pedidos-ui-card3">
 
 <div class="ui-pedidos-frame">
-    <p>Aceitos</p>
-    <img src="../../../../public/assets/img/project-icon-2.png" alt="">
+    <p>Envio Semanal</p>
+    <img src="../../../../public/assets/img/icone-enviosemanal-adm.png" alt="">
 </div>
 
 <div class="ui-pedidos-label">
-    <h1 class="numero-item-minicard">37</h1>
-    <p><span>1</span> Garantia</p>
+    <h1 class="numero-item-minicard">132</h1>
+    <p><span>28</span> Entregues</p>
 </div>
 
 </div>
@@ -64,13 +64,13 @@
 <div class="pedidos-ui-card3">
 
 <div class="ui-pedidos-frame">
-    <p>Aceitos</p>
-    <img src="../../../../public/assets/img/project-icon-2.png" alt="">
+    <p>Pedidos</p>
+    <img src="../../../../public/assets/img/plus-circle.png" alt="">
 </div>
 
 <div class="ui-pedidos-label">
     <h1 class="numero-item-minicard">37</h1>
-    <p><span>1</span> Garantia</p>
+    <p><span>5%</span> incompletos</p>
 </div>
 
 </div>
@@ -96,7 +96,7 @@
                 <!-- As linhas serão inseridas dinamicamente pelo JavaScript -->
             </tbody>
         </table>
-        <button class="painel-botao" onclick="atualizarProgresso()">Ver todas</button>
+        <button class="painel-botao" onclick="atualizarProgresso()">Atualizar</button>
     </div>
 
     <div class="painel-bottom-container">
@@ -114,21 +114,21 @@
             </div>
             <div class="painel-bottom-status">
                 <div class="painel-bottom-status-item painel-bottom-completo">
-                    <span><img src="" alt=""></span>
+                    <span><img src="../../../../public/assets/img/icone-grafico1.png" alt=""></span>
                     <p>76%<br>Completo</p>
                 </div>
                 <div class="painel-bottom-status-item painel-bottom-alerta">
-                    <span><img src="" alt=""></span>
+                    <span><img src="../../../../public/assets/img/icone-grafico2.png" alt=""></span>
                     <p>32%<br>Alerta</p>
                 </div>
                 <div class="painel-bottom-status-item painel-bottom-falta">
-                    <span><img src="" alt=""></span>
+                    <span><img src="../../../../public/assets/img/icone-grafico3.png" alt=""></span>
                     <p>13%<br>Em falta</p>
                 </div>
             </div>
         </div>
         <div class="painel-bottom-card painel-bottom-tecnicos">
-            <h3>Técnicos</h3>
+            <h3 class="titulo-tabela-tecnicos">Técnicos</h3>
             <table class="painel-bottom-tecnicos-table">
                 <thead>
                     <tr>
@@ -139,22 +139,22 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td><img src="avatar1.jpg" alt="Lauana Souza"> Lauana Souza</td>
+                        <td><img src="../../../../public/assets/img/tecnico-1.png" alt="Lauana Souza"> Lauana Souza</td>
                         <td>Técnico de sistemas</td>
                         <td>hoje</td>
                     </tr>
                     <tr>
-                        <td><img src="avatar2.jpg" alt="Sandra Costa"> Sandra Costa</td>
+                        <td><img src="../../../../public/assets/img/tecnico-2.png" alt="Sandra Costa"> Sandra Costa</td>
                         <td>Técnico de rede</td>
                         <td>hoje</td>
                     </tr>
                     <tr>
-                        <td><img src="avatar3.jpg" alt="Amanda Rodrigues"> Amanda Rodrigues</td>
+                        <td><img src="../../../../public/assets/img/tecnico-3.png" alt="Amanda Rodrigues"> Lucas Rodrigues</td>
                         <td>Técnico de sistema</td>
                         <td>ontem</td>
                     </tr>
                     <tr>
-                        <td><img src="avatar4.jpg" alt="Pietro Meirelles"> Pietro Meirelles</td>
+                        <td><img src="../../../../public/assets/img/tecnico-4.png" alt="Pietro Meirelles"> Pietro Meirelles</td>
                         <td>Auxiliar Técnico</td>
                         <td>26/07/2024</td>
                     </tr>

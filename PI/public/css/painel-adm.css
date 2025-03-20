@@ -12,6 +12,7 @@
 .titulo-painel{
     text-align: left;
     margin-left: 125px;
+    margin-top: 40px;
 }
 .painel-tabela {
     width: 90%;
@@ -105,7 +106,7 @@
 }
 
 .painel-bottom-menu-opcoes p:hover {
-    background: #f0f0f0;
+    background: aliceblue;
 }
 
 .painel-bottom-status {
@@ -119,17 +120,23 @@
 }
 
 .painel-bottom-tecnicos {
-    width: 400px;
+    width: 75%;
+    height: 200px;
+    margin-top: 50px;
 }
 
 .painel-bottom-tecnicos-table {
     width: 100%;
     border-collapse: collapse;
     margin-left: 50px;
+    margin-top: 30px;
+}
+.titulo-tabela-tecnicos{
+    margin-top: -50px;
 }
 
 .painel-bottom-tecnicos-table th {
-    background-color: #ddd;
+    background-color: aliceblue;
     padding: 10px;
     text-align: left;
 }
