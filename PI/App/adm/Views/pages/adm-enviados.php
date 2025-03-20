@@ -21,7 +21,7 @@
             </div>
 
             <div class="ui-pedidos-label">
-                <h1>96</h1>
+                <h1 class="numero-item-minicard">96</h1>
                 <p><span>5%</span> incompleto</p>
             </div>
 

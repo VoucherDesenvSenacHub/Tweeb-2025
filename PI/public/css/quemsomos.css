@@ -325,6 +325,9 @@ button {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .logo-right h1 {
