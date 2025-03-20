@@ -30,6 +30,7 @@
         </form>
     </div>
 
+
         <div class="listarP-filtro-box">
             <img src="../../../../public/assets/img/Icon-filtro.png" alt="Ícone Filtro" class="listarP-filtro-icon">
             <span>Filtro</span>
@@ -38,9 +39,9 @@
 
     <section class="listarP-section">
         <div class="listarP-contain">
-            <table>
-                <thead>
-                    <tr>
+            <table class="listarP-table">
+                <thead class="thead-listarP">
+                    <tr class="tr-listarP">
                         <th>Foto</th>
                         <th>Nome do Produto</th>
                         <th>Valor</th>
@@ -49,11 +50,11 @@
                     </tr>
                 </thead>
                 <tbody>
-                        <tr>
-                            <td><img src="../../../../public/assets/img/notebook-gamer-dell-g15-i1300-a45p-intel-core-i5-16gb-nvidia-rtx-4050-ssd-512gb-15-6-fhd-windows-11-preto-210-bkyg_1707334557_gg 1.png" id="userAdm_avatar" alt="Avatar"></td>
-                            <td>Notebook Gamer Dell g15-i1300</td>
-                            <td>R$5.000,00</td>
-                            <td>
+                        <tr class="tr-tr-listarP">
+                            <td class="td-listarP"><img src="../../../../public/assets/img/notebook-gamer-dell-g15-i1300-a45p-intel-core-i5-16gb-nvidia-rtx-4050-ssd-512gb-15-6-fhd-windows-11-preto-210-bkyg_1707334557_gg 1.png" id="userAdm_avatar" alt="Avatar"></td>
+                            <td class="td-listarP">Notebook Gamer Dell g15-i1300</td>
+                            <td class="td-listarP">R$5.000,00</td>
+                            <td class="td-listarP">
                                 <div class="td_botao">
                                     <form action="estoque_cadastrar_novo.html" method="get">
                                         <input type="hidden" name="id_usuario" value="' . $usuario['id_usuario'] . '">
@@ -70,7 +71,7 @@
                                     </form>
                                 </div>
                             </td>
-                            <td>100</td>
+                            <td class="td-listarP">100</td>
                         </tr>
                 </tbody>
             </table>
