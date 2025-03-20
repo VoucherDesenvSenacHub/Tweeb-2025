@@ -98,6 +98,23 @@
     font-family: "Nunito", sans-serif;
 }
 
+.container-responder-orcamento-h1{
+    display: flex;
+    align-items: center;
+}
+
+.responder-orcamento-back-page{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #E5E5E5;
+    transform: translateX(650px);
+    cursor: pointer;
+}
+
 
 
 
@@ -118,11 +135,7 @@
 
 
 
-.responder-orcamento-pop_up{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+
 
 .resp-orc-pop_up-box{
     width: 465px;
@@ -208,3 +221,155 @@
 
 
 /*    RESPONSIVIDADE    */
+
+
+
+
+
+@media (max-width: 1500px){
+    .responder-orcamento-back-page{
+        display: flex;
+        transform: translateX(10px);
+    }
+}
+
+
+
+@media (max-width: 1425px){
+    .responder-orcamento-container1{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .responder-orcamento-container2{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .responder-orcamento{
+        height: 100%;
+        gap: 2%;
+    }
+}
+
+@media (max-width: 932px){
+    .responder-orcamento-input{
+        width: 95%;
+    }
+}
+
+@media (max-width: 502px){
+    .responder-orcamento-data input{
+        width: 85%;
+    }
+
+    .responder-orcamento-title input{
+        width: 85%;
+    }
+
+    .responder-orcamento-enviado_por input{
+        width: 85%;
+    }
+
+    .responder-orcamento-responder_para input{
+        width: 85%;
+    }
+
+    .responder-orcamento-submit{
+        width: 90%;
+    }
+}
+
+@media (max-width: 527px){
+    .responder-orcamento-h1{
+        font-size: 30px;
+        width: 70%;
+    }
+}
+
+@media (max-width: 380px){
+    .responder-orcamento{
+        width: 80%;
+    }
+
+    .responder-orcamento-h1{
+        font-size: 19px;
+    }
+
+    .responder-orcamento-title input{
+        height: 50%;
+    }
+
+    .responder-orcamento-responder_para{
+        margin-bottom: 10%;
+    }
+
+    .responder-orcamento-enviado_por input{
+        height: 50%;
+
+    }
+    .responder-orcamento-responder_para input{
+        height: 50%;
+
+    }
+
+    .responder-orcamento-data input{
+        height: 56%;
+        transform: translateY(-75%);  
+    }
+    .responder-orcamento-p1 {
+        transform: translateY(40%);
+    }
+
+    .responder-orcamento-p2 {
+        transform: translateY(40%);
+    }
+
+    .responder-orcamento-p3 {
+        transform: translateY(40%);
+    }
+
+    .responder-orcamento-p4 {
+        transform: translateY(-90%);
+    }
+
+    .responder-orcamento-p5{
+        transform: translateY(-50%);
+    }
+
+    .responder-orcamento-input{
+        height: 80%;
+    }
+
+}
+
+@media (max-width: 709px){
+    .resp-orc-pop_up-box{
+        display: flex;
+        flex-direction: column;
+        width: 270px;
+        height: 25%;
+
+    }
+
+    .close-button{
+        transform: translateX(-15px);
+        margin-top: 10px;
+    }
+
+    .resp-orc-pop_pup-container{
+        flex-direction: column;
+        height: 100%;
+        width: 50%;
+        display: flex;
+
+    }
+}
+
+@media  (max-width: 376px){
+    .resp-orc-pop_up-box{
+        height: 35%;
+    }
+}
+
+@media (min-width: )(max-width: 1424px){}
