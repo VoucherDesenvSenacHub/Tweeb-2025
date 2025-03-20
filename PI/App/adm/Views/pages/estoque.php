@@ -13,7 +13,7 @@
     <div class="pedidos-categoria-selecionado">
         <div class="categorias">
           <span><p>Visão Geral</p></span>
-            <p>Pedidos</p>
+          <p>Pedidos</p>
            <p>Enviados</p>
         </div>
 
@@ -25,50 +25,52 @@
     </div>
         
 
-    <div class="adm-estoque-caterogias">
+    <div class="centralizar-categorias">
+      <div class="adm-estoque-caterogias">
 
-      <div class="estoque-categoria">
-        <img src="../../../../public/assets/img/computadores-icon.png" alt="">
-        <h1>Computadores</h1>
-        <div class="estoque-progresso"></div>
-        <p><span>200</span> | Estoque min: 35</p>
+        <div class="estoque-categoria">
+          <img src="../../../../public/assets/img/computadores-icon.png" alt="">
+          <h1>Computadores</h1>
+          <div class="estoque-progresso"></div>
+          <p><span>200</span> | Estoque min: 35</p>
+        </div>
+        
+        <div class="estoque-categoria">
+          <img src="../../../../public/assets/img/phone-icon.png" alt="">
+          <h1>Hardwares</h1>
+          <div class="estoque-progresso"></div>
+          <p><span>600</span> | Estoque min: 100</p>
+        </div>
+
+        <div class="estoque-categoria">
+          <img src="../../../../public/assets/img/perifericos-icon.png" alt="">
+          <h1>Periféricos</h1>
+          <div class="estoque-progresso"></div>
+          <p><span>500</span> | Estoque min: 142</p>
+        </div>
+
+        <div class="estoque-categoria">
+          <img src="../../../../public/assets/img/energia-icon.png" alt="">
+          <h1>Energia</h1>
+          <div class="estoque-progresso"></div>
+          <p><span>160</span> | Estoque min: 67</p>
+        </div>  
+
+        <div class="estoque-categoria">
+          <img src="../../../../public/assets/img/audio-icon.png" alt="">
+          <h1>Áudio</h1>
+          <div class="estoque-progresso"></div>
+          <p><span>256</span> | Estoque min: 108</p>
+        </div>
+
+        <div class="estoque-categoria">
+          <img src="../../../../public/assets/img/jogos-icon.png" alt="">
+          <h1>Jogos</h1>
+          <div class="estoque-progresso"></div>
+          <p><span>123</span> | Estoque min: 50</p>
+        </div>  
+
       </div>
-      
-      <div class="estoque-categoria">
-        <img src="../../../../public/assets/img/phone-icon.png" alt="">
-        <h1>Hardwares</h1>
-        <div class="estoque-progresso"></div>
-        <p><span>600</span> | Estoque min: 100</p>
-      </div>
-
-      <div class="estoque-categoria">
-        <img src="../../../../public/assets/img/perifericos-icon.png" alt="">
-        <h1>Periféricos</h1>
-        <div class="estoque-progresso"></div>
-        <p><span>500</span> | Estoque min: 142</p>
-      </div>
-
-      <div class="estoque-categoria">
-        <img src="../../../../public/assets/img/energia-icon.png" alt="">
-        <h1>Energia</h1>
-        <div class="estoque-progresso"></div>
-        <p><span>160</span> | Estoque min: 67</p>
-      </div>  
-
-      <div class="estoque-categoria">
-        <img src="../../../../public/assets/img/audio-icon.png" alt="">
-        <h1>Áudio</h1>
-        <div class="estoque-progresso"></div>
-        <p><span>256</span> | Estoque min: 108</p>
-      </div>
-
-      <div class="estoque-categoria">
-        <img src="../../../../public/assets/img/jogos-icon.png" alt="">
-        <h1>Jogos</h1>
-        <div class="estoque-progresso"></div>
-        <p><span>123</span> | Estoque min: 50</p>
-      </div>  
-
     </div>
 
     
@@ -117,140 +119,142 @@
       </div>
   </div>
 
-    <table class="estoque-table">
-      <thead>
-        <h1 class="estoque-titulo">Estoque</h1>
-        <tr>
-                <th>N</th>
-                <th>Imagem</th>
-                <th>Produto</th>
-                <th>Departamento</th>
-                <th>QTD Entrada</th>
-                <th>Valor UND</th>
-                <th>Valor Total</th>
-                <th>Estoque</th>
-                <th>Fornecedor</th>
-                <th>Status</th>
-                <th>NF</th>
-            </tr>
-        </thead>
-        <tbody id="page-1" class="product-page">
-            <tr>
-                <td>01</td>
-                <td><img src="../../../../public/assets/img/gtx-desc.png" alt="Descrição da imagem" width="40" height="40"></td>
-                <td>Placa GTX</td>
-                <td>Perifericos</td>
-                <td>150</td>
-                <td>R$ 230,00</td>
-                <td>R$ 34.000,00</td>
-                <td>70 PCS</td>
-                <td>SONY.SA</td>
-                <td class="status-estoque">Estoque</td>
-                <td class="centralizar-nota"><div class="tabela-nota-fiscal"><i class="fa-regular fa-file-lines"></i><p>Nota</p></div></td>
-            </tr>
-
-            <tr>
-                <td>02</td>
-                <td><img src="../../../../public/assets/img/image 56.png" alt="Descrição da imagem" width="40" height="40"></td>
-                <td>Rx 580</td>
-                <td>Hardware</td>
-                <td>150</td>
-                <td>R$ 720,00</td>
-                <td>R$ 12.000,00</td>
-                <td>180 PCS</td>
-                <td>Mancer</td>
-                <td class="status-emfalta">Em falta</td>
-                <td class="centralizar-nota"><div class="tabela-nota-fiscal"><i class="fa-regular fa-file-lines"></i><p>Nota</p></div></td>
-            </tr>
-
-            <tr>
-                <td>03</td>
-                <td><img src="../../../../public/assets/img/gabinete-pcancelados.png" alt="Descrição da imagem" width="40" height="40"></td>
-                <td>Gabinete</td>
-                <td>Hardware</td>
-                <td>150</td>
-                <td>R$ 100,00</td>
-                <td>R$ 5,000.00</td>
-                <td>40 PCS</td>
-                <td>Big Ben's Store</td>
-                <td class="status-poucasunid">Poucas unid.</td>
-                <td class="centralizar-nota"><div class="tabela-nota-fiscal"><i class="fa-regular fa-file-lines"></i><p>Nota</p></div></td>
-            </tr>
-
-            <tr>
-              <td>04</td>
-              <td><img src="../../../../public/assets/img/mouse-pcancelados.png" alt="Descrição da imagem" width="40" height="40"></td>
-              <td>Mouse Gamer</td>
-              <td>Periférico</td>
-              <td>30</td>
-              <td>R$ 350,00</td>
-              <td>R$ 8,000.00</td>
-              <td>80 PCS</td>
-              <td>Big Ben's Store</td>
-              <td class="status-poucasunid">Poucas unid.</td>
-              <td class="centralizar-nota"><div class="tabela-nota-fiscal"><i class="fa-regular fa-file-lines"></i><p>Nota</p></div></td>
-          </tr>
-
+    <div class="overflow-estoque">
+      <h1 class="estoque-titulo">Estoque</h1>
+      <table class="estoque-table">
+        <thead>
           <tr>
-                <td>05</td>
-                <td><img src="../../../../public/assets/img/gtx-desc.png" alt="Descrição da imagem" width="40" height="40"></td>
-                <td>Placa GTX</td>
-                <td>Perifericos</td>
-                <td>150</td>
-                <td>R$ 230,00</td>
-                <td>R$ 34.000,00</td>
-                <td>70 PCS</td>
-                <td>SONY.SA</td>
-                <td class="status-estoque">Estoque</td>
-                <td class="centralizar-nota"><div class="tabela-nota-fiscal"><i class="fa-regular fa-file-lines"></i><p>Nota</p></div></td>
-            </tr>
+                  <th>N</th>
+                  <th>Imagem</th>
+                  <th>Produto</th>
+                  <th>Departamento</th>
+                  <th>QTD Entrada</th>
+                  <th>Valor UND</th>
+                  <th>Valor Total</th>
+                  <th>Estoque</th>
+                  <th>Fornecedor</th>
+                  <th>Status</th>
+                  <th>NF</th>
+              </tr>
+          </thead>
+          <tbody id="page-1" class="product-page">
+              <tr>
+                  <td>01</td>
+                  <td><img src="../../../../public/assets/img/gtx-desc.png" alt="Descrição da imagem" width="40" height="40"></td>
+                  <td>Placa GTX</td>
+                  <td>Perifericos</td>
+                  <td>150</td>
+                  <td>R$ 230,00</td>
+                  <td>R$ 34.000,00</td>
+                  <td>70 PCS</td>
+                  <td>SONY.SA</td>
+                  <td class="status-estoque">Estoque</td>
+                  <td class="centralizar-nota"><div class="tabela-nota-fiscal"><i class="fa-regular fa-file-lines"></i><p>Nota</p></div></td>
+              </tr>
 
-            <tr>
-                <td>06</td>
-                <td><img src="../../../../public/assets/img/image 56.png" alt="Descrição da imagem" width="40" height="40"></td>
-                <td>Rx 580</td>
-                <td>Hardware</td>
-                <td>150</td>
-                <td>R$ 720,00</td>
-                <td>R$ 12.000,00</td>
-                <td>180 PCS</td>
-                <td>Mancer</td>
-                <td class="status-emfalta">Em falta</td>
-                <td class="centralizar-nota"><div class="tabela-nota-fiscal"><i class="fa-regular fa-file-lines"></i><p>Nota</p></div></td>
-            </tr>
+              <tr>
+                  <td>02</td>
+                  <td><img src="../../../../public/assets/img/image 56.png" alt="Descrição da imagem" width="40" height="40"></td>
+                  <td>Rx 580</td>
+                  <td>Hardware</td>
+                  <td>150</td>
+                  <td>R$ 720,00</td>
+                  <td>R$ 12.000,00</td>
+                  <td>180 PCS</td>
+                  <td>Mancer</td>
+                  <td class="status-emfalta">Em falta</td>
+                  <td class="centralizar-nota"><div class="tabela-nota-fiscal"><i class="fa-regular fa-file-lines"></i><p>Nota</p></div></td>
+              </tr>
 
-            <tr>
-                <td>07</td>
-                <td><img src="../../../../public/assets/img/gabinete-pcancelados.png" alt="Descrição da imagem" width="40" height="40"></td>
-                <td>Gabinete</td>
-                <td>Hardware</td>
-                <td>150</td>
-                <td>R$ 100,00</td>
-                <td>R$ 5,000.00</td>
-                <td>40 PCS</td>
+              <tr>
+                  <td>03</td>
+                  <td><img src="../../../../public/assets/img/gabinete-pcancelados.png" alt="Descrição da imagem" width="40" height="40"></td>
+                  <td>Gabinete</td>
+                  <td>Hardware</td>
+                  <td>150</td>
+                  <td>R$ 100,00</td>
+                  <td>R$ 5,000.00</td>
+                  <td>40 PCS</td>
+                  <td>Big Ben's Store</td>
+                  <td class="status-poucasunid">Poucas unid.</td>
+                  <td class="centralizar-nota"><div class="tabela-nota-fiscal"><i class="fa-regular fa-file-lines"></i><p>Nota</p></div></td>
+              </tr>
+
+              <tr>
+                <td>04</td>
+                <td><img src="../../../../public/assets/img/mouse-pcancelados.png" alt="Descrição da imagem" width="40" height="40"></td>
+                <td>Mouse Gamer</td>
+                <td>Periférico</td>
+                <td>30</td>
+                <td>R$ 350,00</td>
+                <td>R$ 8,000.00</td>
+                <td>80 PCS</td>
                 <td>Big Ben's Store</td>
                 <td class="status-poucasunid">Poucas unid.</td>
                 <td class="centralizar-nota"><div class="tabela-nota-fiscal"><i class="fa-regular fa-file-lines"></i><p>Nota</p></div></td>
             </tr>
 
             <tr>
-              <td>08</td>
-              <td><img src="../../../../public/assets/img/mouse-pcancelados.png" alt="Descrição da imagem" width="40" height="40"></td>
-              <td>Mouse Gamer</td>
-              <td>Periférico</td>
-              <td>30</td>
-              <td>R$ 350,00</td>
-              <td>R$ 8,000.00</td>
-              <td>80 PCS</td>
-              <td>Big Ben's Store</td>
-              <td class="status-poucasunid">Poucas unid.</td>
-              <td class="centralizar-nota"><div class="tabela-nota-fiscal"><i class="fa-regular fa-file-lines"></i><p>Nota</p></div></td>
-          </tr>
-            
-        </tbody>
-        <tbody id="page-2" class="product-page" style="display: none;">
-            
-    </table>
+                  <td>05</td>
+                  <td><img src="../../../../public/assets/img/gtx-desc.png" alt="Descrição da imagem" width="40" height="40"></td>
+                  <td>Placa GTX</td>
+                  <td>Perifericos</td>
+                  <td>150</td>
+                  <td>R$ 230,00</td>
+                  <td>R$ 34.000,00</td>
+                  <td>70 PCS</td>
+                  <td>SONY.SA</td>
+                  <td class="status-estoque">Estoque</td>
+                  <td class="centralizar-nota"><div class="tabela-nota-fiscal"><i class="fa-regular fa-file-lines"></i><p>Nota</p></div></td>
+              </tr>
+
+              <tr>
+                  <td>06</td>
+                  <td><img src="../../../../public/assets/img/image 56.png" alt="Descrição da imagem" width="40" height="40"></td>
+                  <td>Rx 580</td>
+                  <td>Hardware</td>
+                  <td>150</td>
+                  <td>R$ 720,00</td>
+                  <td>R$ 12.000,00</td>
+                  <td>180 PCS</td>
+                  <td>Mancer</td>
+                  <td class="status-emfalta">Em falta</td>
+                  <td class="centralizar-nota"><div class="tabela-nota-fiscal"><i class="fa-regular fa-file-lines"></i><p>Nota</p></div></td>
+              </tr>
+
+              <tr>
+                  <td>07</td>
+                  <td><img src="../../../../public/assets/img/gabinete-pcancelados.png" alt="Descrição da imagem" width="40" height="40"></td>
+                  <td>Gabinete</td>
+                  <td>Hardware</td>
+                  <td>150</td>
+                  <td>R$ 100,00</td>
+                  <td>R$ 5,000.00</td>
+                  <td>40 PCS</td>
+                  <td>Big Ben's Store</td>
+                  <td class="status-poucasunid">Poucas unid.</td>
+                  <td class="centralizar-nota"><div class="tabela-nota-fiscal"><i class="fa-regular fa-file-lines"></i><p>Nota</p></div></td>
+              </tr>
+
+              <tr>
+                <td>08</td>
+                <td><img src="../../../../public/assets/img/mouse-pcancelados.png" alt="Descrição da imagem" width="40" height="40"></td>
+                <td>Mouse Gamer</td>
+                <td>Periférico</td>
+                <td>30</td>
+                <td>R$ 350,00</td>
+                <td>R$ 8,000.00</td>
+                <td>80 PCS</td>
+                <td>Big Ben's Store</td>
+                <td class="status-poucasunid">Poucas unid.</td>
+                <td class="centralizar-nota"><div class="tabela-nota-fiscal"><i class="fa-regular fa-file-lines"></i><p>Nota</p></div></td>
+            </tr>
+              
+          </tbody>
+          <tbody id="page-2" class="product-page" style="display: none;">
+              
+      </table>
+    </div>
 
         <div class="pagination">
             <button onclick="showPage(1)">1</button>
