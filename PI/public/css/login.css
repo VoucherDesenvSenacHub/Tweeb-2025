@@ -232,6 +232,9 @@
 }
 
 @media (max-width: 320px){
+    .image-container{
+        display: none;
+    }
     .forms{
         margin-right: 20%;
         font-size: 3vw;
