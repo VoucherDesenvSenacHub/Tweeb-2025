@@ -114,7 +114,7 @@
         
         
 .filtrodept-range {
-    -webkit-appearance: none; /* Remove o estilo padrão */
+    /* webkit-appearance: none; Remove o estilo padrão */
     width: 100%;
     height: 4px; /* Espessura da barra */
     background: #291E40; /* Cor da barra */
