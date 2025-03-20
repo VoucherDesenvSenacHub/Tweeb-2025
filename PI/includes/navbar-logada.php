@@ -25,7 +25,7 @@
                 <li>
                     <a class="op"href="#"><i class='bx bx-cart-alt'></i></a>
                     <!-- <a href="app/user/view/pages/login.php"><i class='bx bx-user'></i></a> -->
-                    <a href="#" class="user-icon">
+                    <a href="perfil-usuario.php" class="user-icon">
                         <img src="../../../../public/assets/img/foto-perfil-comentarios.jpg" alt="teste">
                     </a>
                 </li>
