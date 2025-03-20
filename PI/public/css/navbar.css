@@ -529,6 +529,13 @@
     background-color: #CEF5A4;
     color: white;
 }
+.close-menu-nav {
+    cursor: pointer;
+    font-size: 20px;
+    position: absolute;
+    top: 15px;
+    right: 85px;
+}
 
 .btn-register {
     background-color: #d7d7d7;
