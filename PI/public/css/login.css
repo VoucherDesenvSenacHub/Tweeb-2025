@@ -194,7 +194,6 @@
 
 @media (max-width:425px){
     .forms{
-        /* background-color: red; */
         margin-left: 20px;
     }
 }
@@ -204,7 +203,6 @@
         display: none; 
      }
     .forms{
-        /* background-color: red; */
         margin-left: 120px;
     }
 
@@ -217,13 +215,11 @@
         display: none;
     }
     .forms{
-        /* background-color: red; */
+       
         display: flex;
-        /* flex-wrap: wrap; */
         margin-left: -8%; 
         font-size: 3vw;
-        /* justify-content: center;
-        align-items: center; */
+       
        
     }
     .remember-forgot{
@@ -237,12 +233,10 @@
 
 @media (max-width: 320px){
     .forms{
-        /* background-color: red; */
         margin-right: 20%;
         font-size: 3vw;
     }
     .remember-forgot{
-        /* background-color: red; */
         font-size: 3vw;
     }
 }
