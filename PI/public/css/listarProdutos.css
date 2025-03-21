@@ -8,16 +8,12 @@
     box-sizing: border-box;
 }
 
-/* Títulos centralizados */
 .listarP-titulo-contain {
     width: 600px; 
     height: 29px; 
-    /* top: 266px; 
-    left: 520px;  */
     gap: 32px;
-    /* position: absolute; */
-    transform: translateX(-50%); /* Ajuste para centralizar de fato */
-    display: flex; /* Permite que os títulos fiquem na mesma linha */
+    transform: translateX(-50%); 
+    display: flex; 
     justify-content: center;
     margin-left: 449px;
     margin-top: 93px;
@@ -35,10 +31,6 @@
     letter-spacing: 0%;
     text-align: center;
     color: #8B8B8B;
-    
-    /* margin: 0;
-    display: inline-block;
-    transition: transform 0.3s ease, color 0.3s ease; */
 }
 
 .listarP-titulo2 {
@@ -49,29 +41,23 @@
     letter-spacing: 0%;
     text-align: center;
     color:  #000000;
-    border-bottom: 2px solid #000; /* Linha de 2px, cor preta */
+    border-bottom: 2px solid #000;
 }
 
 /* Search */
-.listarP-search-container
-{
-    margin-left: -14vh;
-    display: inline-block;
-    /* position: absolute; */
-    top: 340px; 
-    /* padding: 49px; */
-    width: auto; /* Ou defina uma largura específica */
-}
-
 .listarP-search-box {
     margin: 50px 0 0 280px; 
-    display: inline-block;
-    margin-left: 480px;
-    height: 40px;
+    display: flex; 
+    align-items: center; 
+}
+
+.listarP-search-contain {
+    display: flex;  
+    position: relative;  
 }
 
 .listarP-srch {
-    padding: 10px 10px 10px 40px;
+    padding: 10px 10px 10px 40px;  
     font-size: 14px;
     width: 198px;
     height: 40px;
@@ -87,16 +73,14 @@
 }
 
 .listarP-search-btn {
-    /* position: absolute; */
-    top: 50%;
-    right: 165px;
-    transform: translateY(-50%);
     background: none;
     border: none;
     cursor: pointer;
     padding: 0;
-    margin-top: 8px;
-    margin-left: -200px;
+    position: absolute; 
+    left: 10px;  
+    top: 50%;
+    transform: translateY(-50%);  
 }
 
 .listarP-search-btn i {
@@ -106,33 +90,28 @@
 }
 
 .listarP-search-btn i:hover {
-    color: #000; 
+    color: #000;
     transform: scale(1.2);
 }
-
 
 /* Caixa de Filtro */
 .listarP-filtro-contain {
     margin-left: 870px;
     display: inline-block;
-    /* position: absolute; */
     top: 416px;
-    /* padding: 49px; */
-    
-    /* width: auto;  */
-    /* Ou defina uma largura específica */
 }
 
 .listarP-filtro-box {
     display: flex;
     align-items: center;
-    background:white; /* Cor de fundo da caixa */
+    background:white; 
     padding: 10px;
     border: 1px solid #D0D3D9; 
     border-radius: 8px;
     cursor: pointer;
-    gap: 10px; /* Espaço entre o ícone e o texto */
+    gap: 10px;
     margin-left: 1277px;
+    margin-top: 40px;
     width: 147px;
     height: 47px;
 }
@@ -155,17 +134,13 @@
 }
 
 
-
-
 /* Tabela */
 .listarP-contain {
-    margin-left: 300px;
-    margin-top: 96px;
+    margin-left: 280px;
+    margin-top: -76px;
     display: inline-block;
-    /* position: absolute; */
     top: 386px; 
-    /* padding: 49px; */
-    width: auto; /* Ou defina uma largura específica */
+    width: auto;
 }
 
 .listarP-table {
@@ -173,14 +148,13 @@
     margin: 0 auto;
     border-collapse: separate;
     border-spacing: 0 30px;
-    /* display: table-cell; */
     font-family: 'Poppins', sans-serif;
     min-width: 600px; 
 }
 
 .listarP-table th, .listarP-table .td-listarP {
     border: 1px solid transparent;
-    text-align: center; /* Centralizar o conteúdo das células */
+    text-align: center; 
 }
 
 .listarP-table .thead-listarP {
@@ -195,27 +169,27 @@
     font-weight: bold;
 }
 
-tbody .td-listarP {
+.tbody-listarP .td-listarP {
     padding: 10px 15px;
     border: none; 
     box-shadow: none;
 }
 
-tbody .tr-listarP {
+.tbody-listarP .tr-listarP {
     border: 2px solid transparent; 
     box-shadow: 0px 0px 6px 2px #0000000D; 
 }
 
-tbody .tr-tr-listarP + .tr-tr-listarP {
+.tbody-listarP .tr-tr-listarP + .tr-tr-listarP {
     margin-top: 10px;
 }
 
-tbody .tr-tr-listarP:hover {
+.tbody-listarP .tr-tr-listarP:hover {
     background-color: #e9e9e9;
     box-shadow: 0px 0px 10px 3px #0000000D; 
 }
 
-/* Botões editar e excluir */
+
 .listarP-edit-btn {
     background-color: transparent;
     border: none;
@@ -273,58 +247,94 @@ tr:hover {
 }
 
 
-@media only screen and (max-width: 840px) {
+@media (max-width: 840px) {
     .listarP-titulo-contain {
-        /* flex-direction: column; */
-        gap: 5vh;
-        /* padding: 0 235px; */
-        left: 50%;
+        flex-direction: column;
+        margin-left: 0;
+        gap: 20px;
+        align-items: center;
     }
 
+    .listarP-titulo {
+        font-size: 14px;
+        color: #8B8B8B;
+    }
 
-    .listarP-search-contain {
-        margin-left: 0;
-        top: 1;
-        width: 100%;
+    .listarP-titulo2 {
+        font-size: 14px;
+        border-bottom: none;
     }
 
     .listarP-search-box {
-        width: 20%;
-        margin-bottom: 15px;
-        margin-top: 370px;
-        margin-left: 180px;
-    }
-
-    .listarP-search-btn {
-        width: 20%;
-        margin-bottom: 15px;
-        margin-top: 2px;
-        left: -56px;
-    }
-
-    .listarP-filtro-contain {
-        margin-left: 0;
-        top: 0;
-        width: 100%;
+        margin-left: 85px;
+        margin-top: 58px;
+        width: 230px;
+        height: 30px;
     }
 
     .listarP-filtro-box {
-        width: 20%;
-        margin-bottom: 15px;
-        margin-top: 340px;
-        margin-left: 160px;
+        margin-left: 130px;
+        margin-top: 34px;
+        /* justify-content: center; */
+        width: 106px;
+        height: 37px;
     }
 
-    /* Ajustes da tabela */
-    .listarP-contain {
-        padding: 10px;
-        margin-left: 0;
-        margin-top: 20px;
-    }
-
-    table {
+    .listarP-table {
         width: 100%;
+        font-size: 12px; 
+    }
+
+    .listarP-table th, .listarP-table td {
+        padding: 8px;
+    }
+
+    .listarP-srch {
+        width: calc(100% - 40px);
+    }
+
+    .listarP-edit-btn, .listarP-delete-btn {
+        padding: 5px;
+        font-size: 12px;
+    }
+
+    .listarP-edit-icon, .listarP-delete-icon {
+        width: 18px;
+        height: 18px;
+    }
+
+    .listarP-titulo {
         font-size: 14px;
+    }
+
+    .td_botao {
+        flex-direction: column;
     }
 }
 
+@media (max-width: 840px) {
+    .listarP-titulo-contain {
+        width: 100%;
+        gap: 0px;
+        margin-left: 185px;
+        margin-top: 50px;
+    }
+
+    .listarP-titulo {
+        font-size: 20px;
+    }
+
+    .listarP-titulo2 {
+        font-size: 20px;
+        border-bottom: 2px solid #000;
+    }
+
+}
+
+@media only screen and (max-width: 840px) {
+    .listarP-section, .listarP-contain {
+        margin-left: 4px;
+        margin-top: 30px;
+        overflow: scroll;
+    }
+}
