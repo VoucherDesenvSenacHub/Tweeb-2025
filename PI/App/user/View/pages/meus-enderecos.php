@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="../../../../public/css/escolha-endereco.css">
+    <!-- <link rel="stylesheet" href="../../../../public/css/escolha-endereco.css"> -->
     <?php include __DIR__.'/../../../../includes/headernavb.php'; ?>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
@@ -109,7 +109,7 @@
 
   
     <div class="enderecos">
-    <h1>Meus Endereços</h1>
+    <h1 class="metodoh1">Meus Endereços</h1>
     <div class="endereco-card">
         <label>
             <input type="radio" id="endereco" name="endereco" value="casa" checked>
