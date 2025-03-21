@@ -669,12 +669,16 @@
         padding: 0 30px;
     }
 
-    .search-box button {
-        transform: translateX(-2px);
+    .search-box .srch-logada {
+        display: none;
         
     }
-    .search-box input::placeholder {
-        transform: translateX(5px);
+    .search-box .srch-home {
+        display: none;
+        
+    }
+    .search-box .srch-log::placeholder {
+        transform: translateX(-20px);
     }
 
     .hamburguer {

@@ -57,12 +57,12 @@
         <div class="departamentos-menu">
             <button class="voltar-menu">← Voltar</button>
             <ul class="sub-departamentos">
-                <li><a href="#"><span class="item-description-nav">Hardwares</span></a></li>
-                <li><a href="#"><span class="item-description-nav">Computadores</span></a></li>
-                <li><a href="#"><span class="item-description-nav">Perifericos</span></a></li>
-                <li><a href="#"><span class="item-description-nav">Energia</span></a></li>
-                <li><a href="#"><span class="item-description-nav">Audio</span></a></li>
-                <li><a href="#"><span class="item-description-nav">Jogos</span></a></li>
+                <li><a href="app/user/View/pages/departamento01.php"><span class="item-description-nav">Hardwares</span></a></li>
+                <li><a href="app/user/View/pages/departamento01.php"><span class="item-description-nav">Computadores</span></a></li>
+                <li><a href="app/user/View/pages/departamento01.php"><span class="item-description-nav">Perifericos</span></a></li>
+                <li><a href="app/user/View/pages/departamento01.php"><span class="item-description-nav">Energia</span></a></li>
+                <li><a href="app/user/View/pages/departamento01.php"><span class="item-description-nav">Audio</span></a></li>
+                <li><a href="app/user/View/pages/departamento01.php"><span class="item-description-nav">Jogos</span></a></li>
             </ul>
         </div>
     </div>

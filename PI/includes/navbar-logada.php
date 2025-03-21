@@ -51,10 +51,10 @@
                 </a>
             </li>
             <li class="menu-item-nav">
-                <a href="#"><img src="../../../../public/assets/img/editar.png" alt=""><span class="item-description-nav">Editar Perfil</span></a>
+                <a href="perfil-usuario.php"><img src="../../../../public/assets/img/editar.png" alt=""><span class="item-description-nav">Editar Perfil</span></a>
             </li>
             <li class="menu-item-nav">
-                <a href="#"><img src="../../../../public/assets/img/Calendar.png" alt=""><span class="item-description-nav">Meus Endereços</span></a>
+                <a href="meus-enderecos.php"><img src="../../../../public/assets/img/Calendar.png" alt=""><span class="item-description-nav">Meus Endereços</span></a>
             </li>
             <li class="menu-item-nav">
                 <a href="#" class="toggle-pedidos">
@@ -63,18 +63,18 @@
                     <i class="arrow fa-solid fa-chevron-right"></i> 
                 </a>
                 <ul class="segundomenu-nav">
-                    <li><a href="#"><span class="item-description-nav">Pedidos Enviados</span></a></li>
-                    <li><a href="#"><span class="item-description-nav">Pedidos Cancelados</span></a></li>
+                    <li><a href="rastreio-pedidos.php"><span class="item-description-nav">Pedidos Enviados</span></a></li>
+                    <li><a href="Pedidos-cancelados.php"><span class="item-description-nav">Pedidos Cancelados</span></a></li>
                 </ul>
             </li>
             <li class="menu-item-nav">
-                <a href="#"><img src="../../../../public/assets/img/Like.png" alt=""><span class="item-description-nav">Favoritos</span></a>
+                <a href="favoritos.php"><img src="../../../../public/assets/img/Like.png" alt=""><span class="item-description-nav">Favoritos</span></a>
             </li>
             <li class="menu-item-nav">
-                <a href="#"><img src="../../../../public/assets/img/alterar.png" alt=""><span class="item-description-nav">Alterar Senha</span></a>
+                <a href="alterar-senha.php"><img src="../../../../public/assets/img/alterar.png" alt=""><span class="item-description-nav">Alterar Senha</span></a>
             </li>
             <li class="menu-item-nav">
-                <a href="#"><img src="../../../../public/assets/img/sair.png" alt=""><span class="item-description-nav">Sair</span></a>
+                <a href="cadastro.php"><img src="../../../../public/assets/img/sair.png" alt=""><span class="item-description-nav">Sair</span></a>
             </li>
         </ul>
 
@@ -82,12 +82,12 @@
         <div class="departamentos-menu">
             <button class="voltar-menu">← Voltar</button>
             <ul class="sub-departamentos">
-                <li><a href="#"><span class="item-description-nav">Hardwares</span></a></li>
-                <li><a href="#"><span class="item-description-nav">Computadores</span></a></li>
-                <li><a href="#"><span class="item-description-nav">Perifericos</span></a></li>
-                <li><a href="#"><span class="item-description-nav">Energia</span></a></li>
-                <li><a href="#"><span class="item-description-nav">Audio</span></a></li>
-                <li><a href="#"><span class="item-description-nav">Jogos</span></a></li>
+                <li><a href="departamento01.php"><span class="item-description-nav">Hardwares</span></a></li>
+                <li><a href="departamento01.php"><span class="item-description-nav">Computadores</span></a></li>
+                <li><a href="departamento01.php"><span class="item-description-nav">Perifericos</span></a></li>
+                <li><a href="departamento01.php"><span class="item-description-nav">Energia</span></a></li>
+                <li><a href="departamento01.php"><span class="item-description-nav">Audio</span></a></li>
+                <li><a href="departamento01.php"><span class="item-description-nav">Jogos</span></a></li>
             </ul>
         </div>
     </div>
