@@ -372,9 +372,9 @@
       </div> -->
 
       <div class="anuncios">
-        <a href="App/user/View/pages/task20-kitsetup.php"><img src="public/assets/img/Do seu jeito.png" alt=""></a>
-        <a href="App/user/View/pages/do-seu-jeito.php"><img src="public/assets/img/Do seu jeito 2.png" alt=""></a>
-        <a href="App/user/View/pages/corporativo.php"><img src="public/assets/img/Do seu jeito 3.png" alt=""></a>
+        <a href="App/user/View/pages/task20-kitsetup.php" class="img-responsiva" ><img src="public/assets/img/Do seu jeito.png" alt=""></a>
+        <a href="App/user/View/pages/do-seu-jeito.php" class="img-responsiva"><img src="public/assets/img/Do seu jeito 2.png" alt=""></a>
+        <a href="App/user/View/pages/corporativo.php" class="img-responsiva"><img src="public/assets/img/Do seu jeito 3.png" alt=""></a>
       </div>
 
       <section class="produtos produtos2">
