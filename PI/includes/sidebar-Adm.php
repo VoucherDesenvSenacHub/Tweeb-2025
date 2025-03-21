@@ -20,7 +20,7 @@
                   <a href="../pages/painel-adm.php"><img src="../../../../public/assets/img/analytics 1.png" alt=""><span class="itemAdm-descricao">Painel</span></a>
                 </li>
                 <li class="sidebarAdm-item" id="Favoritos">
-                  <a href="#"><img src="../../../../public/assets/img/Calendar.png" alt=""><span class="itemAdm-descricao">Manutenções</span></a>
+                  <a href="../pages/adm-manutencao.php"><img src="../../../../public/assets/img/Calendar.png" alt=""><span class="itemAdm-descricao">Manutenções</span></a>
                 </li>
                 <li class="sidebarAdm-item">
                   <a href="../pages/orcamento-recebido.php"><img src="../../../../public/assets/img/Inbox.png" alt=""><span class="itemAdm-descricao">Orçamentos</span></a>
@@ -29,7 +29,7 @@
                   <a href="../pages/listarProdutos.php"><img src="../../../../public/assets/img/Reports.png" alt=""><span class="itemAdm-descricao">Produtos</span> <i class="fa-solid fa-angle-down" id="arrow"></i></a>
                   <ul class="submenu_sidbarAdm">
                     <li><a href="#"><span class="itemAdm-descricao">Cadastro</span></a></li>
-                    <li><a href="#"><span class="itemAdm-descricao">Estoque</span></a></li>
+                    <li><a href="../pages/adm-estoque.php"><span class="itemAdm-descricao">Estoque</span></a></li>
                   </ul>
                 </li>
                 <li class="sidebarAdm-item">

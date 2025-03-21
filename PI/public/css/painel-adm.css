@@ -416,7 +416,7 @@
 /* Para dispositivos maiores que 900px (Desktop e acima) */
 @media screen and (min-width: 901px) {
     .painel-bottom-container {
-        margin-left: 50px;
+        margin-left: 120px;
         flex-direction: row; 
     }
 
@@ -632,6 +632,7 @@
     /* Para telas maiores, mantemos o layout original */
     .painel-container {
         margin-top: 30px;
+        margin-left: 120px;
         width: 80%; 
         padding: 30px; 
     }
