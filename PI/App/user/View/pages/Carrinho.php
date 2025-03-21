@@ -92,7 +92,7 @@
         </div>
       </div>
 
-      <button class="desconto"><a href="#">Continuar </a></button>
+      <button class="desconto"><a href="escolha-endereco.php">Continuar </a></button>
     </div>
   </div>
   <?php include __DIR__.'/../../../../includes/footer.php'; ?> 

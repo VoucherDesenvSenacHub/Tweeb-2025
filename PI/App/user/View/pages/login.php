@@ -28,7 +28,7 @@
                 <a href="esqueceuSenha.php" class="forgot-password">Esqueceu sua senha?</a>
             </div>
 
-            <button type="submit" class="btn"><a href="../../../../home.php" class="botao-login">Login</a></button> <!-- tem que trocar isso pra ir pra home apenas após a validação pelo php-->
+            <button type="submit" class="btn"><a href="home-logada.php" class="botao-login">Login</a></button> <!-- tem que trocar isso pra ir pra home apenas após a validação pelo php-->
             <div class="account">
 
                 <h6 class="account-title">Não tem uma Conta?</h6>
@@ -40,7 +40,7 @@
                 <p class="linha-2"></p>
             </div>
             <button type="button" class="bt"><img src="../../../../public/assets/img/Google.png" alt="">Google</button>
-            <button type="button" class="bt">Acesso Corporativo</button>
+            <a href="../../../adm/Views/pages/login-funcionario.php"><button type="button" class="bt">Corporativo</button></a>
         </form>
     </div>
     <div class="image-container">

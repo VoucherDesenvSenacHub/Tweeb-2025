@@ -92,7 +92,7 @@
 
     <div class="endereco-botoes">
         <a href="escolha-endereco.php"><button class="botao-sair">Sair</button></a>
-        <a href=""><button class="botao-avancar">Avançar</button></a>
+        <a href="pagamento-pix.php"><button class="botao-avancar">Avançar</button></a>
     </div>
 
   
