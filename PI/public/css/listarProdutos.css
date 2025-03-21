@@ -44,6 +44,29 @@
     border-bottom: 2px solid #000;
 }
 
+
+.listarC-titulo-contain3 {
+    width: 600px; 
+    height: 29px; 
+    gap: 32px;
+    transform: translateX(-50%); 
+    display: flex; 
+    justify-content: center;
+    margin-left: 393px;
+    margin-top: 93px;
+}
+
+.listarC-titulo3 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 32px;
+    letter-spacing: 0%;
+    text-align: center;
+    color:  #000000;
+    border-bottom: 2px solid #000;
+}
+
 /* Search */
 .listarP-search-box {
     margin: 50px 0 0 280px; 
@@ -328,6 +351,20 @@ tr:hover {
         font-size: 20px;
         border-bottom: 2px solid #000;
     }
+
+    .listarC-titulo-contain3 {
+        width: 100%;
+        gap: 0px;
+        margin-left: 185px;
+        margin-top: 50px;
+    }
+
+    .listarC-titulo3 {
+        font-size: 20px;
+        border-bottom: 2px solid #000;
+    }
+
+
 
 }
 

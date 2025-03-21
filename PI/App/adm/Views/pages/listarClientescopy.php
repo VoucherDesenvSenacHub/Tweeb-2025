@@ -11,8 +11,8 @@
     <?php include __DIR__.'/../../../../includes/head-adm.php'; ?>
     <?php include __DIR__.'/../../../../includes/sidebar-Adm.php'; ?>
 
-    <div class="listarP-titulo-contain">
-        <div class="listarP-titulo2">Clientes Cadastrados</div>
+    <div class="listarC-titulo-contain3">
+        <div class="listarC-titulo3">Clientes Cadastrados</div>
     </div>
 
     <div class="listarP-search-box">
