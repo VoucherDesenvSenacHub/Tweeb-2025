@@ -282,7 +282,7 @@
   .Carrinho .container .cart-items .item {
     width: 100%;
     flex-wrap: wrap;
-    gap: 10px;
+    /* gap: 10px; */
   }
 
   .Carrinho .container .cart-items .item img {
@@ -296,7 +296,7 @@
 }
 
 @media (max-width: 768px) {
-  .Carrinho .container {
+  .Carrinho .container { 
     padding: 10px;
   }
 
@@ -324,15 +324,13 @@
     font-size: 16px;
   }
 
-  .Carrinho .remover {
-    width: 20px;
-    height: 20px;
-  }
-
   .Carrinho .continuar,
   .Carrinho .desconto {
-    /* width: 100%; */
+    width: 100%;
     padding: 12px;
+  }
+  .Carrinho .continuar{
+    margin: auto;
   }
 
   .Carrinho .revisao-itens {
@@ -342,29 +340,33 @@
 
 @media (max-width: 480px) {
   .Carrinho .container .cart-items .item {
-    gap: 5px;
+    max-width: 100%;
+  box-sizing: border-box;
   }
-
   .Carrinho .quantidade {
     width: 80px;
   }
 
   .Carrinho .input-group {
     flex-direction: column;
-  
   }
-
   .Carrinho .input-group input {
-    width: 87%;
+    width: 96%;
   }
-
   .Carrinho .aplicar-btn {
     position: relative;
     width: 76.45px;
     margin-top: -55px;
-    margin-left: 290px;
-}
-
+    margin-left: 320px;
+  }
+  .Carrinho .continuar{
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;   
+  }
+  .Carrinho .continua a{
+    text-align: center;
   }
 
   .Carrinho .line-carrinho,
@@ -376,70 +378,95 @@
     width: 100%;
     margin-bottom: 300px;
   }
+}
 
 /* falta arrumar apartir daqui */
-  @media (max-width: 320px) {
-    .Carrinho .container {
-      padding: 8px;
-      
-      width: 100%;
-      height: 90vh;
-      margin-bottom: 200px;
-    }
-  
-    .Carrinho .container .cart-items {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 16px;
-    }
-    
-    .Carrinho .container .cart-items .item {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      padding: 8px;
-      
-      gap: 8px;
-      width: 100%; /* Para evitar sobreposição */
-      box-sizing: border-box;
-    }
-    
-    .Carrinho .container .cart-items .item img {
-      width: 70px;
-      height: 70px;
-    }
-    
-    .Carrinho .detalhe p {
-      font-size: 12px;
-    }
-    
-    .Carrinho .quantidade {
-      width: 70px;
-    }
-    
-    .Carrinho .preco {
-      font-size: 14px;
-    }
-    
-    .Carrinho .remover {
-      width: 18px;
-      height: 18px;
-    }
-  
-    .Carrinho .continuar,
-    .Carrinho .desconto {
-      padding: 10px;
-      width: 100%;
-      text-align: center;
-      box-sizing: border-box; /* Garante que o padding não estoure a largura */
-    }
-  
-    .Carrinho .revisao-itens {
-      padding: 12px;
-      margin-top: 20px;
-      width: 100%; /* Evita sobreposição */
-      margin-bottom: 300px;
-    }
-  }
+@media (max-width: 320px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+    width: 100%;
+    padding: 20px;
+    gap: 1px;
+    margin-bottom: 300px;
+}
+
+.cart-items, .revisao-itens {
+    width: 100%;
+    max-width: 600px; /* Limita a largura para manter um layout mais agradável */
+    margin-bottom: -20px;
+    gap: 1px;
+}
+
+.item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.item img {
+    width: 80%;
+    max-width: 300px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.detalhe {
+    text-align: center;
+}
+
+.Carrinho .input-group {
+  flex-direction: column;
+}
+.Carrinho .input-group input {
+  width: 60%;
+}
+.Carrinho .aplicar-btn {
+  position: relative;
+  width: 76.45px;
+  margin-top: -55px;
+  margin-left: 175px;
+}
+
+.revisao-itens {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 250px;
+}
+
+.cod-promo, .resumo-pedido {
+    width: 100%;
+    text-align: center;
+}
+
+.resumo-pedido div {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 5px 0;
+}
+
+.continuar, .desconto {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 2589px;
+}
+
+.continuar a, .desconto a {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    border-radius: 5px;
+}
+ 
+}
