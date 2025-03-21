@@ -12,7 +12,7 @@
 <?php include __DIR__.'/../../../../includes/sidebar-Adm.php'; ?>
 
 <div class="container-ordem-de-servico">
-<h1>Ordem de Serviço</h1>
+<h1 class="ordem-de-servico-h1">Ordem de Serviço</h1>
     <form class="Servico">
         <div class="Ordem_Servico">
             <label for="">Número da Os</label>
