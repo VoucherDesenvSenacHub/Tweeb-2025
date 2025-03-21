@@ -42,7 +42,7 @@
     </div>
 
     <div class="enderecos">
-        <h1>Selecione Endereço</h1>
+        <h1 class="metodoh1">Selecione Endereço</h1>
         <div class="endereco-card">
             <label>
                 <input type="radio" id="endereco" name="endereco" value="casa" checked>
