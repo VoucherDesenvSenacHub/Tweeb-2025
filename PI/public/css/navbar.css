@@ -549,7 +549,21 @@
     background-color: #d7d7d7;
     color: white;
 }
-
+.search-box .srch-logada{
+    left: 10%;
+}
+.search-box .srch-log::placeholder {
+    transform: translateX(-5px);
+}
+.search-box .srch-home{
+    transform: translateX(-13px);
+}
+.search-box .srch-log{
+    border-radius: 40px;
+}
+.search-box .srch-nav-def{
+    border-radius: 40px;
+}
 @media (min-width: 2560px) {
     .headNav {
         padding: 0 100px; 
@@ -719,8 +733,8 @@
         color: red;
     }
     .search-box .srch-logada{
-        transform: translateX(-3px);
-
+        transform: translateX(-24px);
+        
     }
     .auth-buttons {
         position: absolute;

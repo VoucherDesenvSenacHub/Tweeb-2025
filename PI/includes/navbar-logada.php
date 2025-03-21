@@ -13,8 +13,8 @@
             </form>
         </div>
         <div class="responsive-menu">
-            <a href="#">Sobre</a>
-            <a href="#">Orçamento</a>
+            <a href="quemsomos.php">Sobre</a>
+            <a href="orcamento.php">Orçamento</a>
         </div>
         <nav class="navb">
             <ul>
@@ -82,9 +82,12 @@
         <div class="departamentos-menu">
             <button class="voltar-menu">← Voltar</button>
             <ul class="sub-departamentos">
-                <li><a href="#"><span class="item-description-nav">Eletrônicos</span></a></li>
-                <li><a href="#"><span class="item-description-nav">Vestuário</span></a></li>
-                <li><a href="#"><span class="item-description-nav">Alimentos</span></a></li>
+                <li><a href="#"><span class="item-description-nav">Hardwares</span></a></li>
+                <li><a href="#"><span class="item-description-nav">Computadores</span></a></li>
+                <li><a href="#"><span class="item-description-nav">Perifericos</span></a></li>
+                <li><a href="#"><span class="item-description-nav">Energia</span></a></li>
+                <li><a href="#"><span class="item-description-nav">Audio</span></a></li>
+                <li><a href="#"><span class="item-description-nav">Jogos</span></a></li>
             </ul>
         </div>
     </div>
@@ -98,7 +101,7 @@
                 <li>
                     <a href="#" class="linkn-submenu-h">Placa Mãe <i class='bx bx-chevron-right'></i></a>
                     <ul class="submenu-sub">
-                        <li><a class="submenu-sub-link" href="#">Placa Mae Gigabyte B550M Aorus</a></li>
+                        <li><a class="submenu-sub-link" href="descproduto.php">Placa Mae Gigabyte B550M Aorus</a></li>
                         <li><a class="submenu-sub-link" href="#">Placa Mae ASRock B450M Steel Legend</a></li>
                         <li><a class="submenu-sub-link" href="#">Placa Mae Gigabyte B550M K</a></li>
                         <li><a class="submenu-sub-link" href="#">Placa Mae Mancer A520M DX</a></li>
