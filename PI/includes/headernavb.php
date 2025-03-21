@@ -56,6 +56,6 @@
     <script src="../../../../public/js/painel-adm.js" defer></script>
     <script src="../../../../public/js/painel-bottom.js" defer></script>
     <script src="../../../../public/js/adm-manutencao.js" defer></script>
-    <!-- <script src="../../../../public/js/editar-modal.js" defer></script> -->
+    <script src="../../../../public/js/modal2.js" defer></script>
   
 </head>

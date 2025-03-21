@@ -39,17 +39,16 @@
         
             
             <nav class="manutencao-tabs">
-                <a href="#" class="active">Ordem de serviço</a>
+                <a href="" class="active">Ordem de serviço</a>
                 <a href="#">Enviadas</a>
             </nav>
             
             <div class="manutencao-actions">
 
-                <div class="pedidos-adicionar-envio">
-                    <img src="../../../../public/assets/img/plus-circle.svg" alt="">
-                    <p>Adicionar OS</p>
-                </div>
-
+            <a href="OrdemdeServico.php" class="pedidos-adicionar-envio">
+                <img src="../../../../public/assets/img/plus-circle.svg" alt="Adicionar OS">
+                <p>Adicionar OS</p>
+            </a>
                 <!-- <div class="pedidos-adicionar-envio">
                     <img src="../../../../public/assets/img/plus-circle.svg" alt="">
                     <p>Editar OS</p>
