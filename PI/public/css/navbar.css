@@ -550,13 +550,13 @@
     color: white;
 }
 .search-box .srch-logada{
-    left: 10%;
+    left: 3%;
 }
 .search-box .srch-log::placeholder {
     transform: translateX(-5px);
 }
 .search-box .srch-home{
-    transform: translateX(-13px);
+    transform: translateX(-4px);
 }
 .search-box .srch-log{
     border-radius: 40px;
