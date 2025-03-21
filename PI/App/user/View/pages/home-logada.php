@@ -123,7 +123,7 @@
             <div class="produtos-card">
                 <img class="heart" src="../../../../public/assets/img/heart_disabled.png" alt="coração" onclick="AtivarCoracao(this)">
 
-                <a href="Carrinho.php"><img class="add-carrinho" src="../../../../public/assets/img/carrinho-card.png" alt=""></a>
+                <img class="add-carrinho" src="../../../../public/assets/img/carrinho-card.png" alt="">
 
                 <img class="image-produto" src="../../../../public/assets/img/card-produto.png" alt="">
                 <div class="card-rate">

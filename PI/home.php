@@ -399,7 +399,7 @@
                 <p>Monitor Gamer Curvo</p>
                 <p>GAMING MG700 27</p>
                 <h1>R$2535,99</h1>
-                <button class="card-botao">Comprar Agora</button>
+                <a href="descproduto.php"><button class="card-botao">Comprar Agora</button></a>
             </div>
             <div class="produtos-card">
                 <img class="heart" src="public/assets/img/heart_disabled.png" alt="coração" onclick="AtivarCoracao(this)">
