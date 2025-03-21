@@ -1,0 +1,185 @@
+/* Contêiner principal do modal */
+.container-ordem-de-servico {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0; /* Cor de fundo para a página */
+  }
+  
+  /* Estilos do Modal */
+  .editar-os-modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+  
+  .editar-os-modal-content {
+    background-color: white;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 70%; /* Modal mais estreito */
+    max-width: 900px; /* Limite de largura para modal */
+    max-height: 80%; /* Limitação da altura */
+    overflow-y: auto; /* Permitir rolar o conteúdo */
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    border-radius: 8px;
+    text-align: center; /* Centraliza o conteúdo no modal */
+    align-items: center;
+  }
+  
+  .editar-os-modal-close {
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+  }
+  
+  .editar-os-modal-close:hover,
+  .editar-os-modal-close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  .editar-os-modal-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+    white-space: nowrap; /* Impede quebra de linha */
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  /* Estilos para os campos de input */
+  .Ordem_Servico {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  .Ordem_Servico label {
+    /* display: block; */
+    margin-bottom: 5px;
+    font-size: 16px;
+  }
+  
+  .Ordem_Servico input {
+    width: 100%;
+    padding: 12px; /* Aumentei o padding para dar mais espaço */
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  /* Estilos da barra de progresso */
+  .editar-os-modal-progresso {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .editar-os-modal-progresso label {
+    font-size: 14px;
+  }
+  
+  .editar-os-modal-progresso input[type="range"] {
+    width: 100%;
+    height: 25px; /* Barra de progresso mais alta */
+    margin-top: 10px;
+  }
+  
+  /* Estilos da descrição do progresso */
+  .editar-os-modal-descricao {
+    margin-top: 15px;
+  }
+  
+  .editar-os-modal-descricao label {
+    font-size: 16px;
+  }
+  
+  .editar-os-modal-descricao textarea {
+    width: 100%;
+    height: 120px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: none;
+  }
+  
+  /* Estilos dos botões */
+  .editar-os-modal-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  .btn_cancelar,
+  .btn_salvar {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    width: 48%;
+  }
+  
+  .btn_cancelar {
+    background-color: #f44336;
+    color: white;
+  }
+  
+  .btn_cancelar:hover {
+    background-color: #d32f2f;
+  }
+  
+  .btn_salvar {
+    background-color: #4CAF50;
+    color: white;
+  }
+  
+  .btn_salvar:hover {
+    background-color: #45a049;
+  }
+  
+  /* Responsividade para dispositivos menores */
+  @media (max-width: 768px) {
+    .editar-os-modal-content {
+      width: 90%;
+    }
+  
+    .Ordem_Servico {
+      width: 100%;
+    }
+  
+    .editar-os-modal-buttons {
+      flex-direction: column;
+      gap: 10px;
+    }
+  
+    .btn_cancelar,
+    .btn_salvar {
+      width: 100%;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .editar-os-modal-content {
+      width: 100%;
+    }
+  
+    .btn_cancelar,
+    .btn_salvar {
+      font-size: 14px;
+    }
+  }
+  

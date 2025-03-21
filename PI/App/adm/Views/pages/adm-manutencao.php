@@ -50,9 +50,14 @@
                     <p>Adicionar OS</p>
                 </div>
 
-                <div class="pedidos-adicionar-envio">
+                <!-- <div class="pedidos-adicionar-envio">
                     <img src="../../../../public/assets/img/plus-circle.svg" alt="">
                     <p>Editar OS</p>
+                </div> -->
+
+                <div class="pedidos-adicionar-envio" onclick="window.location.href='editar-modal.php';">
+                        <img src="../../../../public/assets/img/plus-circle.svg" alt="">
+                        <p>Editar OS</p>
                 </div>
   
             </div>

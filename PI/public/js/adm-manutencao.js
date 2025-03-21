@@ -1,4 +1,4 @@
-// console.log('passou aqui');
+console.log('passou aqui');
 
 function showPage(pageNumber) {
     const pages = document.querySelectorAll(".product-page");
