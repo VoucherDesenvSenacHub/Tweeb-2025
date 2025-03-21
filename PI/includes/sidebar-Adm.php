@@ -39,7 +39,7 @@
                   <a href="#"><img src="../../../../public/assets/img/Vector (5).png" alt=""><span class="itemAdm-descricao">Aparência</span></a>
                 </li>
                 <li class="sidebarAdm-item">
-                  <a href="#"><img src="../../../../public/assets/img/sair.png" alt=""><span class="itemAdm-descricao">Sair</span></a>
+                  <a href=""><img src="../../../../public/assets/img/sair.png" alt=""><span class="itemAdm-descricao">Sair</span></a>
                 </li>
                
                 

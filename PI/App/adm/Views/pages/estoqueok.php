@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+<?php include __DIR__.'/../../../../includes/headernavb.php'; ?>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro de Produto</title>
@@ -22,7 +23,14 @@
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
             
+        }
+
+        .cadastrando-products-pai{
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
         nav {
             display: flex;
@@ -82,69 +90,74 @@
     </style>
 </head>
 <body>
-    <div class="cadastrando-products">
-        <nav>
-            <a href="#" class="active">Novo Produto</a>
-            <a href="#">Cadastrados</a>
-        </nav>
-        <h2>Detalhes do Produto</h2>
-        <form id="product-form">
-            <div class="form-group">
-                <label for="product-name">Nome do Produto</label>
-                <input type="text" id="product-name">
-                <label for="product-brand">Marca/Modelo</label>
-                <input type="text" id="product-brand">
-            </div>
-            <div class="form-group">
-                <label for="product-quantity">Quantidade</label>
-                <input type="number" id="product-quantity">
-                <label for="product-department">Departamento</label>
-                <select id="product-department">
-                    <option value="">Selecione</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="product-image">Imagem</label>
-                <input type="file" id="product-image">
-                <label for="product-invoice">Nota Fiscal</label>
-                <input type="file" id="product-invoice">
-            </div>
-            <div class="form-group">
-                <label for="serial-number">Número de Série</label>
-                <input type="text" id="serial-number">
-                <label for="product-cost">Custo</label>
-                <input type="text" id="product-cost">
-            </div>
-            <div class="form-group">
-                <label for="stock-minimum">Estoque Mínimo</label>
-                <input type="number" id="stock-minimum">
-                <label for="product-color">Cor</label>
-                <input type="text" id="product-color">
-            </div>
-            <div class="form-group">
-                <label for="product-description">Descrição</label>
-                <textarea id="product-description" maxlength="1000"></textarea>
-            </div>
-            <h3>Especificações Promocionais</h3>
-            <div class="form-group">
-                <label for="promo-value">Valor</label>
-                <input type="text" id="promo-value">
-                <label for="promo-discount">Desconto Promocional</label>
-                <input type="text" id="promo-discount">
-            </div>
-            <div class="form-group">
-                <label for="related-products">Produtos Relacionados</label>
-                <select id="related-products">
-                    <option value="">Selecione</option>
-                </select>
-            </div>
-            <div class="icons">
-                <span>📦 Em estoque Hoje</span>
-                <span>🔒 Garantia 1 ano</span>
-                <span>🚚 Entrega Grátis 1-2 dias</span>
-            </div>
-            <button type="submit" id="save-button">Salvar</button>
-        </form>
+    <?php include __DIR__.'/../../../../includes/head-adm.php'; ?>
+    <?php include __DIR__.'/../../../../includes/sidebar-Adm.php'; ?>
+    <div class="cadastrando-products-pai">
+        <div class="cadastrando-products">
+            <nav>
+                <a href="#" class="active">Novo Produto</a>
+                <a href="#">Cadastrados</a>
+            </nav>
+            <h2>Detalhes do Produto</h2>
+            <form id="product-form">
+                <div class="form-group">
+                    <label for="product-name">Nome do Produto</label>
+                    <input type="text" id="product-name">
+                    <label for="product-brand">Marca/Modelo</label>
+                    <input type="text" id="product-brand">
+                </div>
+                <div class="form-group">
+                    <label for="product-quantity">Quantidade</label>
+                    <input type="number" id="product-quantity">
+                    <label for="product-department">Departamento</label>
+                    <select id="product-department">
+                        <option value="">Selecione</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="product-image">Imagem</label>
+                    <input type="file" id="product-image">
+                    <label for="product-invoice">Nota Fiscal</label>
+                    <input type="file" id="product-invoice">
+                </div>
+                <div class="form-group">
+                    <label for="serial-number">Número de Série</label>
+                    <input type="text" id="serial-number">
+                    <label for="product-cost">Custo</label>
+                    <input type="text" id="product-cost">
+                </div>
+                <div class="form-group">
+                    <label for="stock-minimum">Estoque Mínimo</label>
+                    <input type="number" id="stock-minimum">
+                    <label for="product-color">Cor</label>
+                    <input type="text" id="product-color">
+                </div>
+                <div class="form-group">
+                    <label for="product-description">Descrição</label>
+                    <textarea id="product-description" maxlength="1000"></textarea>
+                </div>
+                <h3>Especificações Promocionais</h3>
+                <div class="form-group">
+                    <label for="promo-value">Valor</label>
+                    <input type="text" id="promo-value">
+                    <label for="promo-discount">Desconto Promocional</label>
+                    <input type="text" id="promo-discount">
+                </div>
+                <div class="form-group">
+                    <label for="related-products">Produtos Relacionados</label>
+                    <select id="related-products">
+                        <option value="">Selecione</option>
+                    </select>
+                </div>
+                <div class="icons">
+                    <span>📦 Em estoque Hoje</span>
+                    <span>🔒 Garantia 1 ano</span>
+                    <span>🚚 Entrega Grátis 1-2 dias</span>
+                </div>
+                <button type="submit" id="save-button">Salvar</button>
+            </form>
+        </div>
     </div>
+    <?php include __DIR__.'/../../../../includes/footer-adm.php'; ?> 
 </body>
 </html>

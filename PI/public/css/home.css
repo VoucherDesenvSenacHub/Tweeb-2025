@@ -424,6 +424,11 @@ span{
     transition: 0.1s ease;
 }
 
+.card-botao-a{
+    color: white;
+    text-decoration: none;
+}
+
 .card-botao:hover{
     background-color: #170e2b;
 }

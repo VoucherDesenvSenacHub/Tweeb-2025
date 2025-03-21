@@ -135,7 +135,7 @@
                 <p>Cadeira Gamer</p>
                 <p>GAMING Tempest CG500</p>
                 <h1>R$900,99</h1>
-                <button class="card-botao">Comprar Agora</button>
+                <button class="card-botao"><a href="app/user/View/pages/descproduto.php" class="card-botao-a">Comprar Agora</a></button>
             </div>
             <div class="produtos-card">
                 <img class="heart" src="public/assets/img/heart_disabled.png" alt="coração" onclick="AtivarCoracao(this)">
@@ -399,11 +399,6 @@
                 <p>Monitor Gamer Curvo</p>
                 <p>GAMING MG700 27</p>
                 <h1>R$2535,99</h1>
-                <a href="descproduto.php"><button class="card-botao">Comprar Agora</button></a>
-            </div>
-            <div class="produtos-card">
-                <img class="heart" src="public/assets/img/heart_disabled.png" alt="coração" onclick="AtivarCoracao(this)">
-
                 <a href="../PI/App/user/View/pages/Carrinho.php"><img class="add-carrinho" src="public/assets/img/carrinho-card.png" alt=""></a>
 
                 <img class="image-produto" src="public/assets/img/card-produto2.png" alt="">
