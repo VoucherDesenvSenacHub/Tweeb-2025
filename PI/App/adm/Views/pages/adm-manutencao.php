@@ -246,7 +246,7 @@
                 <td class="green-text">2 dias</td>
                 <td>Formatação</td>
             </tr>
-            <tr class="highlight">
+            <tr class="highlight-adm">
                 <td>2</td>
                 <td>Laura Borges</td>
                 <td>blaura2021@gmail.com</td>
@@ -260,7 +260,7 @@
                 <td class="green-text">3 dias</td>
                 <td>Troca de tela</td>
             </tr>
-            <tr class="highlight">
+            <tr class="highlight-adm">
                 <td>4</td>
                 <td>Gabriel José</td>
                 <td>gabriel_joca@live.com</td>

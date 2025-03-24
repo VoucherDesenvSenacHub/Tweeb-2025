@@ -135,7 +135,7 @@
                 <p>Cadeira Gamer</p>
                 <p>GAMING Tempest CG500</p>
                 <h1>R$900,99</h1>
-                <button class="card-botao"><a href="app/user/View/pages/descproduto.php" class="card-botao-a">Comprar Agora</a></button>
+                <button class="card-botao"><a href="app/user/View/pages/descproduto.php" class="corad-botao-a">Comprar Agora</a></button>
             </div>
             <div class="produtos-card">
                 <img class="heart" src="public/assets/img/heart_disabled.png" alt="coração" onclick="AtivarCoracao(this)">
@@ -387,6 +387,25 @@
 
                 <a href="../PI/App/user/View/pages/Carrinho.php"><img class="add-carrinho" src="public/assets/img/carrinho-card.png" alt=""></a>
 
+                <img class="image-produto" src="public/assets/img/card-produto.png" alt="">
+                <div class="card-rate">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <span class="qnt-avaliacoes">(500+)</span>
+                </div>
+                <p>Cadeira Gamer</p>
+                <p>GAMING Tempest CG500</p>
+                <h1>R$900,99</h1>
+                <button class="card-botao"><a href="app/user/View/pages/descproduto.php" class="corad-botao-a">Comprar Agora</a></button>
+            </div>
+            <div class="produtos-card">
+                <img class="heart" src="public/assets/img/heart_disabled.png" alt="coração" onclick="AtivarCoracao(this)">
+
+                <a href="../PI/App/user/View/pages/Carrinho.php"><img class="add-carrinho" src="public/assets/img/carrinho-card.png" alt=""></a>
+
                 <img class="image-produto" src="public/assets/img/card-produto2.png" alt="">
                 <div class="card-rate">
                     <i class="fa-solid fa-star"></i>
@@ -399,6 +418,68 @@
                 <p>Monitor Gamer Curvo</p>
                 <p>GAMING MG700 27</p>
                 <h1>R$2535,99</h1>
+                <button class="card-botao">Comprar Agora</button>
+            </div>
+            <div class="produtos-card">
+                <img class="heart" src="public/assets/img/heart_disabled.png" alt="coração" onclick="AtivarCoracao(this)">
+
+                <a href="../PI/App/user/View/pages/Carrinho.php"><img class="add-carrinho" src="public/assets/img/carrinho-card.png" alt=""></a>
+
+                <img class="image-produto" src="public/assets/img/card-produto2.png" alt="">
+                <div class="card-rate">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <span class="qnt-avaliacoes">(500+)</span>
+                </div>
+                <p>Monitor Gamer Curvo</p>
+                <p>GAMING MG700 27</p>
+                <h1>R$2535,99</h1>
+                <button class="card-botao">Comprar Agora</button>
+            </div>
+            <div class="produtos-card">
+                <img class="heart" src="public/assets/img/heart_disabled.png" alt="coração" onclick="AtivarCoracao(this)">
+
+                <a href="../PI/App/user/View/pages/Carrinho.php"><img class="add-carrinho" src="public/assets/img/carrinho-card.png" alt=""></a>
+
+                <img class="image-produto" src="public/assets/img/card-produto2.png" alt="">
+                <div class="card-rate">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <span class="qnt-avaliacoes">(500+)</span>
+                </div>
+                <p>Monitor Gamer Curvo</p>
+                <p>GAMING MG700 27</p>
+                <h1>R$2535,99</h1>
+                <button class="card-botao">Comprar Agora</button>
+            </div>
+            <div class="produtos-card">
+                <img class="heart" src="public/assets/img/heart_disabled.png" alt="coração" onclick="AtivarCoracao(this)">
+
+                <a href="../PI/App/user/View/pages/Carrinho.php"><img class="add-carrinho" src="public/assets/img/carrinho-card.png" alt=""></a>
+
+                <img class="image-produto" src="public/assets/img/card-produto2.png" alt="">
+                <div class="card-rate">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <span class="qnt-avaliacoes">(500+)</span>
+                </div>
+                <p>Monitor Gamer Curvo</p>
+                <p>GAMING MG700 27</p>
+                <h1>R$2536,99</h1>
+                <button class="card-botao">Comprar Agora</button>
+            </div>
+            <div class="produtos-card">
+                <img class="heart" src="public/assets/img/heart_disabled.png" alt="coração" onclick="AtivarCoracao(this)">
+
                 <a href="../PI/App/user/View/pages/Carrinho.php"><img class="add-carrinho" src="public/assets/img/carrinho-card.png" alt=""></a>
 
                 <img class="image-produto" src="public/assets/img/card-produto2.png" alt="">
@@ -461,7 +542,8 @@
         <a href="#"><img src="public/assets/img/banner tweeb carnaval.png" alt="anuncio carnaval"></a>
       </div>
 
-    <button id="voltarAoTopo" title="Voltar ao topo"><i class="fa-solid fa-angle-up"></i></button>
+
+    <?php include __DIR__.'/includes/voltar-ao-topo.php'; ?>
     <?php include __DIR__.'/includes/footer-home.php'; ?>
 </body>
 </html>
