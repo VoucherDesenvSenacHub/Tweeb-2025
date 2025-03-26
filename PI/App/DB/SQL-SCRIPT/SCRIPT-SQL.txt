@@ -196,3 +196,11 @@ CREATE TABLE envio (
     FOREIGN KEY (id_usuario) REFERENCES usuario (id_usuario)
     
 );
+
+
+create table usuario (
+	id_user int not null auto_increment primary key,
+    nome varchar(150) not null,
+    email varchar(200) not null,
+    senha varchar(100) not null
+);
