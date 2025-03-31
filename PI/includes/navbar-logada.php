@@ -4,7 +4,7 @@
             <i class='bx bx-menu'></i>
         </div>
         <div class="logo">
-            <a href="../../../../home.php"><img src="../../../../public/assets/img/Ativo 2.png" alt="logo tweeb"></a>
+            <a href="/Tweeb-2025/PI/home.php"><img src="/Tweeb-2025/PI/public/assets/img/Ativo 2.png" alt="logo tweeb"></a>
         </div>
         <div class="search-box">
             <form  action="">
@@ -18,7 +18,7 @@
         </div>
         <nav class="navb">
             <ul>
-                <li><a class="op" href="../../../../home.php">Home</a></li>
+                <li><a class="op" href="/Tweeb-2025/PI/home.php">Home</a></li>
                 <li><a class="op" href="quemsomos.php">Sobre</a></li>
                 <li><a class="op" href="orcamento.php">Orçamento</a></li>
                 <li><a class="op" href="cadastro.php">Sair</a></li>
@@ -26,7 +26,7 @@
                     <a class="op"href="#"><i class='bx bx-cart-alt'></i></a>
                     <!-- <a href="app/user/view/pages/login.php"><i class='bx bx-user'></i></a> -->
                     <a href="perfil-usuario.php" class="user-icon">
-                        <img src="../../../../public/assets/img/foto-perfil-comentarios.jpg" alt="teste">
+                        <img src="/Tweeb-2025/PI/public/assets/img/foto-perfil-comentarios.jpg" alt="teste">
                     </a>
                 </li>
             </ul>
@@ -34,7 +34,7 @@
 
     <div class="hamburger-menu">
         <div class="user-info">
-            <img src="../../../../public/assets/img/foto-perfil-comentarios.jpg" alt="Foto do Usuário">
+            <img src="/Tweeb-2025/PI/public/assets/img/foto-perfil-comentarios.jpg" alt="Foto do Usuário">
             <p class="hi-user">Olá, Usuário</p>
             <span class="close-menu-nav"><i class="fa-solid fa-xmark"></i></span>
         </div>
@@ -45,20 +45,20 @@
         <ul class="menu-options main-menu">
             <li class="menu-item-nav">
                 <a href="#" class="toggle-departamentos">
-                    <img src="../../../../public/assets/img/icone-departamento.png" alt="">
+                    <img src="/Tweeb-2025/PI/public/assets/img/icone-departamento.png" alt="">
                     <span class="item-description-nav">Departamentos</span>
                     <i class="arrow fa-solid fa-chevron-right"></i>
                 </a>
             </li>
             <li class="menu-item-nav">
-                <a href="perfil-usuario.php"><img src="../../../../public/assets/img/editar.png" alt=""><span class="item-description-nav">Editar Perfil</span></a>
+                <a href="perfil-usuario.php"><img src="/Tweeb-2025/PI/public/assets/img/editar.png" alt=""><span class="item-description-nav">Editar Perfil</span></a>
             </li>
             <li class="menu-item-nav">
-                <a href="meus-enderecos.php"><img src="../../../../public/assets/img/Calendar.png" alt=""><span class="item-description-nav">Meus Endereços</span></a>
+                <a href="meus-enderecos.php"><img src="/Tweeb-2025/PI/public/assets/img/Calendar.png" alt=""><span class="item-description-nav">Meus Endereços</span></a>
             </li>
             <li class="menu-item-nav">
                 <a href="#" class="toggle-pedidos">
-                    <img src="../../../../public/assets/img/Inbox.png" alt="">
+                    <img src="/Tweeb-2025/PI/public/assets/img/Inbox.png" alt="">
                     <span class="item-description-nav">Meus Pedidos</span>
                     <i class="arrow fa-solid fa-chevron-right"></i> 
                 </a>
@@ -68,13 +68,13 @@
                 </ul>
             </li>
             <li class="menu-item-nav">
-                <a href="favoritos.php"><img src="../../../../public/assets/img/Like.png" alt=""><span class="item-description-nav">Favoritos</span></a>
+                <a href="favoritos.php"><img src="/Tweeb-2025/PI/public/assets/img/Like.png" alt=""><span class="item-description-nav">Favoritos</span></a>
             </li>
             <li class="menu-item-nav">
-                <a href="alterar-senha.php"><img src="../../../../public/assets/img/alterar.png" alt=""><span class="item-description-nav">Alterar Senha</span></a>
+                <a href="alterar-senha.php"><img src="/Tweeb-2025/PI/public/assets/img/alterar.png" alt=""><span class="item-description-nav">Alterar Senha</span></a>
             </li>
             <li class="menu-item-nav">
-                <a href="cadastro.php"><img src="../../../../public/assets/img/sair.png" alt=""><span class="item-description-nav">Sair</span></a>
+                <a href="cadastro.php"><img src="/Tweeb-2025/PI/public/assets/img/sair.png" alt=""><span class="item-description-nav">Sair</span></a>
             </li>
         </ul>
 
@@ -95,7 +95,7 @@
     <!-- Barra de departamentos -->
     <section id="departaments" class="departments-bar">
         <div class="department">
-            <img src="../../../../public/assets/img/Hardwares.png" alt="Hardwares">
+            <img src="/Tweeb-2025/PI/public/assets/img/Hardwares.png" alt="Hardwares">
             <span>Hardwares <i class='bx bx-chevron-right'></i></span>
             <ul class="submenu">
                 <li>
@@ -166,7 +166,7 @@
         </div>
         <span class="separator">|</span>
         <div class="department">
-            <img src="../../../../public/assets/img/Computadores.png" alt="Computadores">
+            <img src="/Tweeb-2025/PI/public/assets/img/Computadores.png" alt="Computadores">
             <span>Computadores <i class='bx bx-chevron-right'></i></span>
             <ul class="submenu">
                 <li>
@@ -196,7 +196,7 @@
         </div>
         <span class="separator">|</span>
         <div class="department">
-            <img src="../../../../public/assets/img/Perifericos.png" alt="Periféricos">
+            <img src="/Tweeb-2025/PI/public/assets/img/Perifericos.png" alt="Periféricos">
             <span>Periféricos <i class='bx bx-chevron-right'></i></span>
             <ul class="submenu">
                 <li>
@@ -227,7 +227,7 @@
         </div>
         <span class="separator">|</span>
         <div class="department">
-            <img src="../../../../public/assets/img/Energia.png" alt="Energia">
+            <img src="/Tweeb-2025/PI/public/assets/img/Energia.png" alt="Energia">
             <span>Energia <i class='bx bx-chevron-right'></i></span>
             <ul class="submenu">
                 <li>
@@ -252,7 +252,7 @@
         </div>
         <span class="separator">|</span>
         <div class="department">
-            <img src="../../../../public/assets/img/audio.png" alt="Áudio">
+            <img src="/Tweeb-2025/PI/public/assets/img/audio.png" alt="Áudio">
             <span>Áudio <i class='bx bx-chevron-right'></i></span>
             <ul class="submenu">
                 <li>
@@ -282,7 +282,7 @@
         </div>
         <span class="separator">|</span>
         <div class="department">
-            <img src="../../../../public/assets/img/Jogos.png" alt="Jogos">
+            <img src="/Tweeb-2025/PI/public/assets/img/Jogos.png" alt="Jogos">
             <span>Jogos <i class='bx bx-chevron-right'></i></span>
             <ul class="submenu">
                 <li>
@@ -366,5 +366,5 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 </script>
-    <script src="../../../../public/js/navbar.js"></script>
+    <script src="/Tweeb-2025/PI/public/js/navbar.js"></script>
 </html>
