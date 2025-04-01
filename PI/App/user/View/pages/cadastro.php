@@ -13,6 +13,9 @@
             <a href="../../../../home.php"><img src="../../../../public/assets/img/logo_img.png" alt="Logo" class="Task2a-logo"></a>
             <h2 class="Task2a-title">Crie sua conta</h2> 
             <p class="Task2a-description">Digite seu e-mail para criar sua conta</p>  
+            <?php if (isset($_GET['status']) && $_GET['status'] == 'senha_diferente'): ?>
+                <p class="error-message" style="color: red;">As senhas não coincidem. Por favor, tente novamente.</p>
+            <?php endif; ?>
             <form method="post" action="../../Controllers/UserController.php" class="cadastro-form">
                 <input name='nome' type="text" placeholder="Nome" class="Task2a-input"> 
                 <input name='email' type="email" placeholder="Email" class="Task2a-input"> 
