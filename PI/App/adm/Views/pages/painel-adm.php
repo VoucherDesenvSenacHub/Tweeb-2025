@@ -10,7 +10,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
-<body>
+<body class="painel-adm-body">
 <?php include __DIR__.'/../../../../includes/head-adm.php'; ?>
 <?php include __DIR__.'/../../../../includes/sidebar-Adm.php'; ?>
 
@@ -81,21 +81,23 @@
     <h1 class="titulo-painel">Manutenções</h1>
 
     <div class="painel-container">
-        <table class="painel-tabela">
-            <thead class="painel-tabela-header">
-                <tr>
-                    <th class="painel-check"></th>
-                    <th class="painel-servico">Ordem de Serviço</th>
-                    <th class="painel-numero">Número</th>
-                    <th class="painel-prioridade">Prioridade</th>
-                    <th class="painel-tecnicos">Técnicos</th>
-                    <th class="painel-progresso">Progresso</th>
-                </tr>
-            </thead>
-            <tbody id="painel-corpo-tabela">
-                <!-- As linhas serão inseridas dinamicamente pelo JavaScript -->
-            </tbody>
-        </table>
+        <div class="painel-tabela-wrapper">
+            <table class="painel-tabela">
+                <thead class="painel-tabela-header">
+                    <tr>
+                        <th class="painel-check"></th>
+                        <th class="painel-servico">Ordem de Serviço</th>
+                        <th class="painel-numero">Número</th>
+                        <th class="painel-prioridade">Prioridade</th>
+                        <th class="painel-tecnicos">Técnicos</th>
+                        <th class="painel-progresso">Progresso</th>
+                    </tr>
+                </thead>
+                <tbody id="painel-corpo-tabela">
+                    <!-- As linhas serão inseridas dinamicamente pelo JavaScript -->
+                </tbody>
+            </table>
+        </div>
         <button class="painel-botao" onclick="atualizarProgresso()">Atualizar</button>
     </div>
 

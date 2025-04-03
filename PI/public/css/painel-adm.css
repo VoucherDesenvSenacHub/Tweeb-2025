@@ -1,3 +1,12 @@
+.painel-adm-body{
+    overflow-x: hidden;
+}
+
+.painel-tabela-wrapper {
+    width: 100%;
+    overflow-x: auto; 
+}
+
 .painel-container {
     background: white;
     padding: 20px;
