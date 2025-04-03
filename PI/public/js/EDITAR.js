@@ -1,8 +1,8 @@
     document.addEventListener("DOMContentLoaded", function() {
-        const form = document.querySelector(".perfil-form");
-        const perfilNome = document.querySelector(".perfil-info h2");
-        const perfilEmail = document.querySelector(".perfil-info p");
-        const perfilPic = document.querySelector(".perfil-pic");
+        const form = document.querySelector(".editarperfil-perfil-form");
+        const perfilNome = document.querySelector(".editarperfil-perfil-info h2");
+        const perfilEmail = document.querySelector(".editarperfil-perfil-info p");
+        const perfilPic = document.querySelector(".editarperfil-perfil-pic");
         const inputFile = document.createElement("input");
 
         // Preencher os campos de exemplo com dados iniciais
@@ -50,7 +50,7 @@
         });
 
         // Cancelar as alterações (opcional)
-        document.querySelector(".btn-cancel").addEventListener("click", function() {
+        document.querySelector(".editarperfil-btn-cancel").addEventListener("click", function() {
             if (confirm("Deseja cancelar as alterações? As mudanças não serão salvas.")) {
                 form.reset();
             }

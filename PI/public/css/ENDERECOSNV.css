@@ -6,11 +6,6 @@
 
 
 
-* * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}  */
 
 .navBody{
     background-color: rgb(255, 255, 255);
@@ -298,18 +293,6 @@
     display: flex;   
 }
 
-.user-submenu {
-    display: none;
-    position: absolute;
-    background-color: #f5f5f5;
-    margin-left: 40px;
-    padding: 2px 0; 
-    border-radius: 5px;
-    z-index: 999;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
-    width: 100px; 
-    height: 105px;
-}
 
 
 .user-submenu li {
@@ -652,7 +635,7 @@
 
 
 
-.sidebar {
+.endereconv-sidebar {
     width: 280px;
     height: 100vh;
     background-color: #fff;
@@ -663,26 +646,24 @@
     font-family: "Poppins", sans-serif;
     transition: left 0.3s ease;
     position: absolute;
-    
-
 
 
 }
 
-.sidebar.active {
+.endereconv-sidebar.active {
     display: flex;
     transition: left 0.3s ease;
     
 }
 
-.user-profile {
+.endereconv-user-profile {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-bottom: 30px;
 }
 
-.user-profile img.profile-img {
+.endereconv-user-profile img.endereconv-profile-img {
     width: 70px;
     height: 70px;
     border-radius: 50%;
@@ -690,7 +671,7 @@
     font-family: "Poppins", sans-serif;
 }
 
-.user-profile h3 {
+.endereconv-user-profile h3 {
     color: #007BFF;
     font-size: 18px;
     margin-top: 120px;
@@ -699,16 +680,16 @@
 
 
 
-.menu,
-.footer-menu {
+.endereconv-menu,
+.endereconv-footer-menu {
     list-style: none;
 }
 
-.menu li {
+.endereconv-menu li {
     margin: 10px 0;
 }
 
-.menu li a {
+.endereconv-menu li a {
     text-decoration: none;
     color: #333;
     font-size: 16px;
@@ -719,30 +700,30 @@
     transition: background-color 0.3s ease;
 }
 
-.menu li a:hover {
+.endereconv-menu li a:hover {
     background-color:  #ff5f5f;
     color: #fff;
 }
 
-.submenu2 {
+.endereconv-submenu2 {
     display: none;
     padding-left: 20px;
 }
 
-.menu li a.dropdown::after {
+.endereconv-menu li a.dropdown::after {
     content: " ";
     float: right;
 }
 
-.menu li:hover .submenu2 {
+.endereconv-menu li:hover .submenu2 {
     display: block;
 }
 
-.footer-menu {
+.endereconv-footer-menu {
     margin-top: auto;
 }
 
-.footer-menu li a {
+.endereconv-footer-menu li a {
     color: #666;
     font-size: 14px;
 }
@@ -819,64 +800,40 @@ button#openSidebarBtn:hover {
 
 
 
-.principalendereco {
+.endereconv-principalendereco {
     margin-top: 120px;
     font-family: "Poppins", sans-serif;
     
     
     
-}
-
-
-
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f9f9f9;
-}
-
-.container {
-    max-width: 800px;
-    margin: 50px auto;
-    padding: 10px;
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    margin-top: 140px;
     
 }
 
-h2 {
+
+
+.navBody {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    
+}
+
+
+.endereconv-h2 {
     font-size: 25px;
     color: #333;
     text-align: center;
     margin-right: 20px;
+    
 }
 
-.step-indicator {
-    display: flex;
-    justify-content: space-around;
-    margin-bottom: 20px;
-    font-size: 14px;
-    color: #999;
-}
 
-.step-indicator span {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
 
-.step-indicator span.active {
-    color: #050404;
-}
 
-.enderecos {
-    margin-bottom: 20px;
-}
 
-.endereco-card {
+
+
+.endereconv-endereco-card {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -890,41 +847,41 @@ h2 {
 }
 
 
-.endereco-card input[type="radio"] {
+.endereconv-endereco-card input[type="radio"] {
     margin-right: 10px;
 }
 
-.endereco-details {
+.endereconv-endereco-details {
     flex-grow: 1;
 }
 
-.endereco-details p {
+.endereconv-endereco-details p {
     margin: 0;
     line-height: 1.4;
 }
 
-.endereco-actions {
+.endereconv-endereco-actions {
     display: flex;
     align-items: center;
     gap: 10px;
 }
 
-.endereco-actions button {
+.endereconv-endereco-actions button {
     background: none;
     border: none;
     cursor: pointer;
     font-size: 16px;
 }
 
-.endereco-actions button i {
+.endereconv-endereco-actions button i {
     color: #000000;
 }
 
-.endereco-actions button.delete i {
+.endereconv-endereco-actions button.delete i {
     color: #020202;
 }
 
-.novo-endereco {
+.endereconv-novo-endereco {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -935,7 +892,7 @@ h2 {
     padding: 30px;
 }
 
-.novo-endereco i {
+.endereconv-novo-endereco i {
     margin-right: 5px;
 }
 
@@ -949,7 +906,7 @@ h2 {
 }
 
 
-.comprar-btn {
+.endereconv-salvar-btn {
     display: inline-block;
     padding: 10px 20px;
     background-color:  #ff5f5f;
@@ -965,7 +922,7 @@ h2 {
     left: 500px;
 }
   
-.comprar-btn:hover {
+.endereconv-salvar-btn:hover {
     background-color: #f3a9a9; /* Cor mais escura ao passar o mouse */
 }
   

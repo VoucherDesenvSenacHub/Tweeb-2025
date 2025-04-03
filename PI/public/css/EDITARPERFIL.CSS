@@ -6,12 +6,6 @@
 
 
 
-* * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}  */
-
 .navBody{
     background-color: rgb(255, 255, 255);
     width: 100%;
@@ -639,7 +633,7 @@
 
 
 
-.sidebar {
+.editarperfil-sidebar {
     width: 280px;
     height: 100vh;
     background-color: #fff;
@@ -656,20 +650,20 @@
 
 }
 
-.sidebar.active {
+.editarperfil-sidebar.active {
     display: flex;
     transition: left 0.3s ease;
     
 }
 
-.user-profile {
+.editarperfil-user-profile {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-bottom: 30px;
 }
 
-.user-profile img.profile-img {
+.editarperfil-user-profile img.editarperfil-profile-img {
     width: 70px;
     height: 70px;
     border-radius: 50%;
@@ -677,7 +671,7 @@
     font-family: "Poppins", sans-serif;
 }
 
-.user-profile h3 {
+.editarperfil-user-profile h3 {
     color: #007BFF;
     font-size: 18px;
     margin-top: 120px;
@@ -686,16 +680,16 @@
 
 
 
-.menu,
-.footer-menu {
+.editarperfil-menu,
+.editarperfil-footer-menu {
     list-style: none;
 }
 
-.menu li {
+.editarperfil-menu li {
     margin: 10px 0;
 }
 
-.menu li a {
+.editarperfil-menu li a {
     text-decoration: none;
     color: #333;
     font-size: 16px;
@@ -706,35 +700,35 @@
     transition: background-color 0.3s ease;
 }
 
-.menu li a:hover {
+.editarperfil-menu li a:hover {
     background-color:  #ff5f5f;
     color: #fff;
 }
 
-.submenu2 {
+.editarperfil-submenu2 {
     display: none;
     padding-left: 20px;
 }
 
-.menu li a.dropdown::after {
+.editarperfil-enu li a.dropdown::after {
     content: " ";
     float: right;
 }
 
-.menu li:hover .submenu2 {
+.editarperfil-menu li:hover .submenu2 {
     display: block;
 }
 
-.footer-menu {
+.editarperfil-footer-menu {
     margin-top: auto;
 }
 
-.footer-menu li a {
+.editarperfil-footer-menu li a {
     color: #666;
     font-size: 14px;
 }
 
-button#openSidebarBtn {
+#openSidebarBtn {
     position: absolute;
     top: 25px;
     left: 20px;
@@ -808,21 +802,21 @@ button#openSidebarBtn:hover {
 
 
 
-.content {
+.editarperfil-content {
     margin-left: 270px;
     padding: 40px;
     font-family: "Poppins", sans-serif;
     display: block;
 }
 
-h1 {
+.editarperfil-h1 {
     color: #333;
     margin-bottom: 30px;
     font-family: "Poppins", sans-serif;
     display: block;
 }
 
-.perfil-form {
+.editarperfil-perfil-form {
     background-color: white;
     padding: 20px;
     border-radius: 8px;
@@ -832,33 +826,33 @@ h1 {
     max-width: 80%;
 }
 
-.perfil-header {
+.editarperfil-perfil-header {
     display: flex;
     align-items: center;
     margin-bottom: 30px;
     font-family: "Poppins", sans-serif;
 }
 
-.perfil-pic {
+.editarperfil-perfil-pic {
     border-radius: 50%;
     width: 150px;
     height: 150px;
     margin-right: 20px;
 }
 
-.perfil-info h2 {
+.editarperfil-info h2 {
     margin-bottom: 5px;
 }
 
-.perfil-info p {
+.editarperfil-info p {
     color: #777;
 }
 
-.grupoinf {
+.editarperfil-grupoinf {
     margin-bottom: 15px;
 }
 
-.grupoinf label {
+.editarperfil-grupoinf label {
     display: block;
     font-size: 14px;
     margin-bottom: 5px;
@@ -867,7 +861,7 @@ h1 {
    
 }
 
-.grupoinf input {
+.editarperfil-grupoinf input {
     width: 100%;
     padding: 10px;
     border-radius: 4px;
@@ -876,19 +870,19 @@ h1 {
     
 } 
 
-.btn-save, .btn-cancel {
+.editarperfil-btn-save, .editarperfil-btn-cancel {
     padding: 10px 20px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
 }
 
-.btn-save {
+.editarperfil-btn-save {
     background-color: #ff7f5f;
     color: white;
 }
 
-.btn-cancel {
+.rditarperfil-btn-cancel {
     background-color: #ccc;
     margin-left: 10px;
 }

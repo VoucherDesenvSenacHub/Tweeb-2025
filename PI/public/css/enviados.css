@@ -4,11 +4,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}  */
+
 
 .navBody{
     background-color: rgb(255, 255, 255);
@@ -648,7 +644,7 @@
 
 
 
-.step-indicator {
+.enviados-step-indicator {
     display: flex;
     justify-content: space-around;
     margin-bottom: 20px;
@@ -656,13 +652,13 @@
     color: #999;
 }
 
-.step-indicator span {
+.enviados-step-indicator span {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.step-indicator span.active {
+.enviados-step-indicator span.active {
     color: #050404;
 }
 
@@ -820,7 +816,7 @@ button#openSidebarBtn:hover {
 
 
 
-.main {
+.enviados-main {
     font-family: Arial, sans-serif;
     background-color: #f9f9f9;
     margin: 0;
@@ -831,7 +827,7 @@ button#openSidebarBtn:hover {
     min-height: 20vh;
 }
 
-.container {
+.enviados-container {
     background: #fff;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -840,7 +836,7 @@ button#openSidebarBtn:hover {
     
 }
 
-.header {
+.enviados-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -854,7 +850,7 @@ button#openSidebarBtn:hover {
     margin: 0;
 }
 
-.status {
+.enviados-status {
     font-size: 16px;
     color: #4caf50;
 }

@@ -12,7 +12,7 @@
 </head>
 
 
-<body>
+
     <body class="navBody">
         <header  class="headNav">
             <!-- <div class="hamburger" id="hamburger">
@@ -266,45 +266,44 @@
    
 </body>
 
-    <main>
-        <div id="sidebar" class="sidebar">
-            <div class="user-profile">
-                
-                
-                <h3>   Igor Medeiros</h3>
-                <img src="../../../../public/assets/img/cliente1.jpg" alt="Foto de perfil" class="profile-img">
-            </div>
+<main class="page-endereconv-main">
+    <div id="sidebar" class="endereconv-sidebar">
+        <div class="endereconv-user-profile">
             
-            <ul class="menu">
-                <li><a href="EDITARPERFIL.html"><i class="fa-solid fa-pen"></i>  Editar Perfil</a></li>
-                <li><a href="ENDERECOSNV.html"><i class="fa-solid fa-location-dot"></i>  Meus Endereços</a></li>
-                <li>
-                    <a href="#" class="dropdown"><i class="fa-solid fa-clipboard-check"></i> Meus Pedidos </a>
-                    <ul class="submenu2">
-                        <li><a href="enviados.html">Enviados</a> </li>
-                        <li><a href="../index.html/cancelados.html">Cancelados</a></li>
-                    </ul>
-                </li>
-                <li><a href="favoritos.html"><i class="fa-solid fa-heart"></i> Favoritos</a></li>
-            </ul>
-    
-            <ul class="footer-menu">
-                <li><a href="#">Ajuda</a></li>
-                <li><a href="#">Sair</a></li>
-            </ul>
+            
+            <h3>   Igor Medeiros</h3>
+            <img src="../../../../public/assets/img/cliente1.jpg" alt="Foto de perfil" class="endereconv-profile-img">
         </div>
-    
-        <button id="openSidebarBtn">
-            <i class="fa-solid fa-angles-right"></i>
-            
-        </button>
-    
-        <script src="../../../../public/js/script.js"></script>
-    </main>
+        
+        <ul class="endereconv-menu">
+            <li><a href="../pages/EDITARPERFIL.html"><i class="fa-solid fa-pen"></i>  Editar Perfil</a></li>
+            <li><a href="../pages/ENDERECOSNV.html"><i class="fa-solid fa-location-dot"></i>  Meus Endereços</a></li>
+            <li>
+                <a href="carrinho.html" class="dropdown"><i class="fa-solid fa-clipboard-check"></i> Meus Pedidos </a>
+                <ul class="endereconv-submenu2">
+                    <li><a href="../pages/enviados.html">Enviados</a> </li>
+                    <li><a href="#">Cancelados</a></li>
+                </ul>
+            </li>
+            <li><a href="favoritos.html"><i class="fa-solid fa-heart"></i> Favoritos</a></li>
+        </ul>
+
+        <ul class="endereconv-footer-menu">
+            <li><a href="#">Ajuda</a></li>
+            <li><a href="#">Sair</a></li>
+        </ul>
+    </div>
+
+    <button id="openSidebarBtn">
+        <i class="fa-solid fa-angles-right"></i>
+        
+    </button>
+
+    <script src="../../../../public/js/script.js"></script>
 
     
-    <div class="principalendereco" >
-        <h2>Meus Endereços</h2>
+    <div class="endereconv-principalendereco" >
+        <h2 class="endereconv-h2">Meus Endereços</h2>
     </div>
    
 
@@ -312,34 +311,34 @@
 
 
 
-    <div class="enderecos">
-        <div class="endereco-card">
+    <div class="endereconv-enderecos">
+        <div class="endereconv-endereco-card">
             <label>
                 <input type="radio" name="endereco" value="casa" checked>
-                <div class="endereco-details">
+                <div class="endereconv-endereco-details">
                     <p><strong>Casa</strong></p>
                     <p>240 Rua Capiatá, Novos Estados, Campo Grande MS 79034331</p>
                     <p>(209) 555-0104</p>
                 </div>
             </label>
-            <div class="endereco-actions">
-                <button class="edit"><i class="fa fa-pencil"></i></button>
-                <button class="delete"><i class="fa fa-trash"></i></button>
+            <div class="endereco-endereco-actions">
+                <button class="endereconv-edit"><i class="fa fa-pencil"></i></button>
+                <button class="endereconv-delete"><i class="fa fa-trash"></i></button>
             </div>
         </div>
 
-        <div class="endereco-card">
+        <div class="endereconv-endereco-card">
             <label>
                 <input type="radio" name="endereco" value="trabalho">
-                <div class="endereco-details">
+                <div class="endereconv-endereco-details">
                     <p><strong>Trabalho</strong> <span class="default-tag">PADRÃO</span></label>
                     <p>2715 RUA Dr Jose, Caranda Bosque, Campo Grande MS 79034331</p>
                     <p>(67) 555-0127</p>
                 </div>
             </label>
-            <div class="endereco-actions">
-                <button class="edit"><i class="fa fa-pencil"></i></button>
-                <button class="delete"><i class="fa fa-trash"></i></button>
+            <div class="endereconv-endereco-actions">
+                <button class="endereconv-edit"><i class="fa fa-pencil"></i></button>
+                <button class="endereconv-delete"><i class="fa fa-trash"></i></button>
             </div>
         </div>
     </div>
@@ -356,26 +355,26 @@
             <label for="telefone-endereco">Telefone:</label>
             <input type="text" id="telefone-endereco" required>
     
-            <button type="submit" class="comprar-btn">Salvar Endereço</button>
+            <button type="submit" class="endereconv-salvar-btn">Salvar Endereço</button>
 
 
 
         </form>
     </div>
     
-    <div class="enderecos" id="enderecos-list">
+    <div class="endereconv-enderecos" id="enderecos-list">
         <!-- Endereços existentes estarão aqui -->
     </div>
 
-    <div class="novo-endereco" id="add-new-endereco-btn">
+    <div class="endereconv-novo-endereco" id="add-new-endereco-btn">
         <i class="fa fa-plus"></i> Adicionar novo endereço
     </div>
     
 
    
 
-    <a href="../index.html/homepage.html" class="comprar-btn">Sair</a>
-    <a href="#" class="comprar-btn">Avançar</a>
+    <a href="../index.html/homepage.html" class="endereconv-salvar-btn">Sair</a>
+    <a href="#" class="endereconv-salvar-btn">Avançar</a>
     
 
 
@@ -437,7 +436,7 @@
         </div>
     </footer>
     
-</body>
+
 </html>
 </body>
 </html>

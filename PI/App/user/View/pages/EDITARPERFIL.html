@@ -8,7 +8,7 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 </head>
-<body>
+
     <body class="navBody">
         <header  class="headNav">
             <!-- <div class="hamburger" id="hamburger">
@@ -260,25 +260,25 @@
         </section>
         <script src="../../../../public/js/teste.js"></script>
 
-</body>
 
 
 
-    <main>
-        <div id="sidebar" class="sidebar">
-            <div class="user-profile">
+
+    <main class="page-editarperfil-main">
+        <div id="sidebar" class="editarperfil-sidebar">
+            <div class="editarperfil-user-profile">
                 
                 
                 <h3>   Igor Medeiros</h3>
-                <img src="../../../../public/assets/img/cliente1.jpg" alt="Foto de perfil" class="profile-img">
+                <img src="../../../../public/assets/img/cliente1.jpg" alt="Foto de perfil" class="editarperfil-profile-img">
             </div>
             
-            <ul class="menu">
+            <ul class="editarperfil-menu">
                 <li><a href="../pages/EDITARPERFIL.html"><i class="fa-solid fa-pen"></i>  Editar Perfil</a></li>
                 <li><a href="../pages/ENDERECOSNV.html"><i class="fa-solid fa-location-dot"></i>  Meus Endereços</a></li>
                 <li>
                     <a href="carrinho.html" class="dropdown"><i class="fa-solid fa-clipboard-check"></i> Meus Pedidos </a>
-                    <ul class="submenu2">
+                    <ul class="editarperfil-submenu2">
                         <li><a href="../pages/enviados.html">Enviados</a> </li>
                         <li><a href="#">Cancelados</a></li>
                     </ul>
@@ -286,7 +286,7 @@
                 <li><a href="favoritos.html"><i class="fa-solid fa-heart"></i> Favoritos</a></li>
             </ul>
     
-            <ul class="footer-menu">
+            <ul class="editarperfil-footer-menu">
                 <li><a href="#">Ajuda</a></li>
                 <li><a href="#">Sair</a></li>
             </ul>
@@ -299,78 +299,78 @@
     
         <script src="../../../../public/js/script.js"></script>
         
-        <div class="content">
-            <h1>Editar perfil</h1>
-            <form class="perfil-form">
-                <div class="perfil-header">
-                    <img src="../../../../public/assets/img/cliente1.jpg" alt="perfil Picture" class="perfil-pic">
-                    <div class="perfil-info">
-                        <h2>Igor Medeiros</h2>
-                        <p>igormedeiros@gmail.com</p>
+        <div class="editarperfil-content">
+            <h1 class="editarperfil-h1">Editar perfil</h1>
+            <form class="editarperfil-perfil-form">
+                <div class="editarperfil-perfil-header">
+                    <img src="../../../../public/assets/img/cliente1.jpg" alt="perfil Picture" class="editarperfil-perfil-pic">
+                    <div class="editarperfil-perfil-info">
+                        <h2 class="editarperfil-h2">Igor Medeiros</h2>
+                        <p class="editarperfil-p">igormedeiros@gmail.com</p>
                     </div>
                 </div>
 
-                <div class="grupoinf">
+                <div class="editarperfil-grupoinf">
                     <label for="cpf">CPF*</label>
                     <input type="text" id="cpf" value="" disabled>
                     
                 </div>
                 
-                <div class="grupoinf">
+                <div class="editarperfil-grupoinf">
                     <label for="nome">Primeiro Nome</label>
                     <input type="text" id="nome" value=""> 
 
                 </div>
 
-                <div class="grupoinf">
+                <div class="editarperfil-grupoinf">
                     <label for="sobrenome">Sobrenome</label>
                     <input type="text" id="sobrenome" value="">
                 </div>
 
-                <div class="grupoinf">
+                <div class="editarperfil-grupoinf">
                     <label for="email">Email</label>
                     <input type="email" id="email" value="">
                 </div>
 
-                <div class="grupoinf">
+                <div class="editarperfil-grupoinf">
                     <label for="telefone">Telefone</label>
                     <input type="text" id="telefone" value="">
                 </div>
 
-                <div class="grupoinf">
+                <div class="editarperfil-grupoinf">
                     <label for="endereco">Endereço</label>
                     <input type="text" id="endereco" value="">
                 </div>
 
-                <div class="grupoinf">
+                <div class="editarperfil-grupoinf">
                     <label for="cep">CEP</label>
                     <input type="text" id="cep" value="">
                 </div>
 
                 <h3>Alterar Senha</h3>
 
-                <div class="grupoinf">
+                <div class="editarperfil-grupoinf">
                     <label for="senha_atual">Senha Atual</label>
                     <input type="password" id="senha_atual">
                 </div>
 
-                <div class="grupoinf">
+                <div class="editarperfil-grupoinf">
                     <label for="nova_senha">Nova Senha</label>
                     <input type="password" id="nova_senha">
                 </div>
 
-                <div class="grupoinf">
+                <div class="editarperfil-grupoinf">
                     <label for="confirmar_senha">Confirmar Nova Senha</label>
                     <input type="password" id="confirmar_senha">
                 </div>
 
-                <button type="submit" class="btn-save">Salvar Alterações</button>
-                <button type="button" class="btn-cancel">Cancelar</button>
+                <button type="submit" class="editarperfil-btn-save">Salvar Alterações</button>
+                <button type="button" class="editarperfil-btn-cancel">Cancelar</button>
             </form>
         </div>
     </main>
 
-    <footer>
+    <footer class="footer">
         <div class="footer-container">
             <div class="logo">
                 <img src="../../../../App/user/View/pages/img/logo copy.png" alt="logotweeb">
