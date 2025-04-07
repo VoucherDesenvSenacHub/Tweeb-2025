@@ -198,9 +198,24 @@ CREATE TABLE envio (
 );
 
 
-create table usuario (
-	id_user int not null auto_increment primary key,
-    nome varchar(150) not null,
-    email varchar(200) not null,
-    senha varchar(100) not null
+//Leandrex
+create database Tweeb25;
+use Tweeb25;
+CREATE TABLE usuarios (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  nome VARCHAR(100),
+  email VARCHAR(100),
+  senha VARCHAR(255),
+  criado_em DATETIME DEFAULT CURRENT_TIMESTAMP
 );
+select * from usuarios;
+CREATE TABLE respostas_preferencias (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  user_id INT,
+  resposta1 VARCHAR(255),
+  resposta2 VARCHAR(255),
+  resposta3 VARCHAR(255),
+  criado_em DATETIME DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (user_id) REFERENCES usuarios(id)
+);
+select * from respostas_preferencias;
