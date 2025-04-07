@@ -11,7 +11,7 @@ class CadastroUsuario{
 
 
     public function cadastrar(){
-        $db = new Database('usuario');
+        $db = new Database('usuarios');
         $this->id = $db->insert([
             'nome' => $this->nome,
             'email' => $this->email,

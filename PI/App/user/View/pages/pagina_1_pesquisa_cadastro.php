@@ -77,14 +77,24 @@
     </div>
     <div class="pesquisa1-cadastro-continuar-button-container">
         <div class="pesquisa1-cadastro-continuar-button">
-            <a href="../pages/pagina_2_pesquisa_cadastro.php" class="pesquisa1-cadastro-link-continuar">
-                Continuar
-            </a>
+        <button onclick="window.location.href='pagina_2_pesquisa_cadastro.php'">Continuar</button>
+
         </div>
     </div>
     <footer class="pesquisa1-cadastro-footer">
         <div class="pesquisa1-cadastro-barra-roxa-footer"></div>
     </footer>
+    <script>
+        document.querySelectorAll('.pesquisa1-cadastro-card1, .pesquisa1-cadastro-card2').forEach((card, index) => {
+    card.addEventListener('click', () => {
+      let resposta = index === 0 ? 'iniciante' : 'avancado';
+      localStorage.setItem('resposta1', resposta);
+  
+      // Redireciona pra próxima página
+      window.location.href = 'pagina_2_pesquisa_cadastro.php';
+    });
+  });
+    </script>
     <script src="../../../../public/js/pesquisa1.js"></script>
 </body>
 </html>

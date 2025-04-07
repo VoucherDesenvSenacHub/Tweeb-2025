@@ -21,7 +21,7 @@
                 <input name='email' type="email" placeholder="Email" class="Task2a-input"> 
                 <input name='senha' type="password" placeholder="Digite sua senha" class="Task2a-input"> 
                 <input name='confirmacao' type="password" placeholder="Confirme sua senha " class="Task2a-input">
-                <a href="../pages/pagina_1_pesquisa_cadastro.php"><button type="submit" class="Task2a-btn-email">Cadastre-se<button></a> 
+                <button type="submit" class="Task2a-btn-email">Cadastre-se</button>
             </form>
             <p class="Task2a-terms">Ao clicar em continuar, você concorda com nossos <a href="#">Termos de Serviço</a> e <a href="#">Política de Privacidade</a></p>
         </div> 

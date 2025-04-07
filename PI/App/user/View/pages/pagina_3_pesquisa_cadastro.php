@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -77,14 +80,54 @@
     </div>
     <div class="pesquisa3-cadastro-continuar-button-container">
         <div class="pesquisa3-cadastro-continuar-button">
-            <a href="../../../../home.php" class="pesquisa3-cadastro-link-continuar">
-                Continuar
-            </a>
+        <button id="finalizar" class="pesquisa3-cadastro-link-continuar">Continuar</button>
         </div>
     </div>
     <footer class="pesquisa3-cadastro-footer">
         <div class="pesquisa3-cadastro-barra-roxa-footer"></div>
     </footer>
+    <form id="respostaFinal" action="/Tweeb-2025/PI/App/user/controllers/salvar_respostas.php" method="POST" style="display:none;">
+    <input type="hidden" name="user_id" value="<?php echo isset($_SESSION['user_id']) ? $_SESSION['user_id'] : ''; ?>">
+    <input type="hidden" name="resposta1" id="resposta1">
+    <input type="hidden" name="resposta2" id="resposta2">
+    <input type="hidden" name="resposta3" id="resposta3">
+    </form>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Armazena a resposta da escolha entre pessoal e corporativo
+        document.querySelector('.pesquisa3-cadastro-card1').addEventListener('click', function () {
+            localStorage.setItem('resposta3', 'pessoal');
+        });
+
+        document.querySelector('.pesquisa3-cadastro-card2').addEventListener('click', function () {
+            localStorage.setItem('resposta3', 'corporativo');
+        });
+
+        // Envia as respostas ao clicar no botão
+        document.getElementById('finalizar').addEventListener('click', function () {
+            const r1 = localStorage.getItem('resposta1') || '';
+            const r2 = localStorage.getItem('resposta2') || '';
+            const r3 = localStorage.getItem('resposta3') || '';
+
+            // (Opcional) Validação: impede envio com campos vazios
+            if (!r1 || !r2 || !r3) {
+                alert('Por favor, responda todas as perguntas antes de continuar.');
+                return;
+            }
+
+            // Preenche os inputs do formulário oculto
+            document.getElementById('resposta1').value = r1;
+            document.getElementById('resposta2').value = r2;
+            document.getElementById('resposta3').value = r3;
+
+            // Envia o formulário
+            document.getElementById('respostaFinal').submit();
+        });
+    });
+</script>
+
+
     <script src="../../../../public/js/pesquisa3.js"></script>
 </body>
 </html>
