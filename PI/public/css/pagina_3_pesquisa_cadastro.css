@@ -180,19 +180,6 @@
     margin-top: -20px;
 }
 
-.pesquisa3-cadastro-continuar-button{
-    width: 95px;
-    height: 30px;
-    background-color: #FE8C67;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 4px;
-    margin-left: 42%;
-    cursor: pointer;
-    margin-top: 3%;
-}
-
 .pesquisa3-cadastro-link-voltar-button{
     display: flex;
     align-items: center;
@@ -415,4 +402,20 @@
         height: 40%;
         transform: translateY(10%);
     }
+}
+
+
+.pesquisa3-cadastro-button{
+    width: 95px;
+    height: 30px;
+    background-color: #FE8C67;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    margin-left: 42%;
+    cursor: pointer;
+    margin-top: 3%;
+    color: white;
+    border-color: #FE8C67;
 }

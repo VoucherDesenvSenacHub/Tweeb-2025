@@ -79,9 +79,7 @@ session_start();
         </div>
     </div>
     <div class="pesquisa3-cadastro-continuar-button-container">
-        <div class="pesquisa3-cadastro-continuar-button">
-        <button id="finalizar" class="pesquisa3-cadastro-link-continuar">Continuar</button>
-        </div>
+        <button class="pesquisa3-cadastro-button" onclick="window.location.href='../../../../home.php'">Continuar</button>
     </div>
     <footer class="pesquisa3-cadastro-footer">
         <div class="pesquisa3-cadastro-barra-roxa-footer"></div>

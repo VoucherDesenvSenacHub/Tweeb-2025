@@ -69,10 +69,7 @@
   </div>
 
   <div class="pesquisa2-cadastro-continuar-button-container">
-    <div class="pesquisa2-cadastro-continuar-button">
-      <!-- A âncora foi removida, pois o redirecionamento será via JS -->
-      <span class="pesquisa2-cadastro-link-continuar">Continuar</span>
-    </div>
+    <button class="pesquisa2-cadastro-button" onclick="window.location.href='pagina_3_pesquisa_cadastro.php'">Continuar</button>
   </div>
 
   <footer class="pesquisa2-cadastro-footer">

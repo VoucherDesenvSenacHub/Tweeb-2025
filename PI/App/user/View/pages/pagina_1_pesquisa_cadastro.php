@@ -76,10 +76,7 @@
         </div>
     </div>
     <div class="pesquisa1-cadastro-continuar-button-container">
-        <div class="pesquisa1-cadastro-continuar-button">
-        <button onclick="window.location.href='pagina_2_pesquisa_cadastro.php'">Continuar</button>
-
-        </div>
+        <button class="pesquisa1-cadastro-button" onclick="window.location.href='pagina_2_pesquisa_cadastro.php'">Continuar</button>
     </div>
     <footer class="pesquisa1-cadastro-footer">
         <div class="pesquisa1-cadastro-barra-roxa-footer"></div>
@@ -95,6 +92,5 @@
     });
   });
     </script>
-    <script src="../../../../public/js/pesquisa1.js"></script>
 </body>
 </html>
