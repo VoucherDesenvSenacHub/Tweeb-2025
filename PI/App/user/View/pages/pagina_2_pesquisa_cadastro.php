@@ -1,9 +1,5 @@
 <?php
 session_start(); // Iniciando a sessão para manipulação das respostas
-var_dump($_SESSION);
-echo '<pre>';
-print_r($_SESSION['usuario']); 
-echo '</pre>';
 ?>
 
 <!DOCTYPE html>

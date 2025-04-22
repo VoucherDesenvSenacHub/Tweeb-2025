@@ -1,9 +1,5 @@
 <?php
-session_start(); // Iniciando a sessão para manipulação das respostas
-var_dump($_SESSION);
-echo '<pre>';
-print_r($_SESSION['usuario']); 
-echo '</pre>';
+session_start(); 
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -77,7 +73,7 @@ echo '</pre>';
     </form>
 
     <footer class="pesquisa1-cadastro-footer">
-        <div class="pesquisa1-cadastro-barra-roxa-footer"></div>
+        <button class="pesquisa1-cadastro-barra-roxa-footer"></button>
     </footer>
 
     <script src="../../../../public/js/pesquisa1.js"></script>
