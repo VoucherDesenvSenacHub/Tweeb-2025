@@ -8,7 +8,6 @@ class Database{
     public string $password="Oliveira@87185";
     public $table;
 
-    // CONFIGURE O DB CONFORME O SERVIDOR ESTABELECIDO PELO ORIENTADOR
    
     public function __construct($table = null){
         $this->table = $table;
@@ -57,7 +56,7 @@ class Database{
         $result = $this->execute($query,array_values($values));
         
         if($result){
-            return true;
+            return $this->conn->lastInsertId();;
         }
         else{
             return false;

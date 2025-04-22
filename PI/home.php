@@ -1,3 +1,6 @@
+<?php
+session_start(); 
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,11 +19,11 @@
 </head>
 <body>
     <?php
-    if (isset($_SESSION['usuario_id'])) {
-        include __DIR__.'/includes/navbar-logada.php';
-        include __DIR__.'/includes/sidebar-User.php';
+    if (isset($_SESSION['usuario'])) {
+        include __DIR__.'/../PI/includes/navbar-logada.php'; 
+        include __DIR__.'/../PI/includes/sidebar-User.php'; 
     } else {
-        include __DIR__.'/includes/navbar-home.php';
+        include __DIR__.'/../PI/includes/navbar-home.php';
         // include __DIR__.'/includes/sidebar-User.php';
     }
     ?>

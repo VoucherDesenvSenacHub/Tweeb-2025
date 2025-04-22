@@ -2,22 +2,36 @@
 
 require __DIR__.'/../../DB/Database.php';
 
-class CadastroUsuario{
+class CadastroUsuario {
     public $id;
     public $nome;
     public $email;
     public $senha;
 
-
-
-    public function cadastrar(){
+    public function cadastrar() {
         $db = new Database('usuarios');
         $this->id = $db->insert([
             'nome' => $this->nome,
             'email' => $this->email,
             'senha' => password_hash($this->senha, PASSWORD_DEFAULT)
         ]);
-        return true;
-    }
+
+        if ($this->id) {
+            if (session_status() !== PHP_SESSION_ACTIVE) {
+                session_start(); 
+            }
+    
+            $_SESSION['usuario'] = [
+                'id' => $this->id,
+                'nome' => $this->nome,
+                'email' => $this->email
+            ];
+    
+            return true;
+        } else {
+            return false;
+        }
+    }    
 }
+
 ?>
