@@ -60,4 +60,7 @@ class LoginUsuario {
         }
         session_destroy();
     }
+
+
+    
 }

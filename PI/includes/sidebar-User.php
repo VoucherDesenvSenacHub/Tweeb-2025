@@ -1,3 +1,12 @@
+<?php
+if (session_status() !== PHP_SESSION_ACTIVE) {
+    session_start();
+}
+require_once __DIR__ . '/../app/user/models/loginUsuario.php';
+$usuario = LoginUsuario::getUsuario();
+
+
+?>
 <body class="sidebar_Produto">
     <nav id="sidebar">
         <div id="sidebar_content">
@@ -6,7 +15,7 @@
     
                 <p id="user_infos">
                     <span class="item-description">
-                        Igor Medeiros
+                      <?= $usuario['nome'] ?? 'Visitante' ?>
                     </span>
                 </p>
             </div>
