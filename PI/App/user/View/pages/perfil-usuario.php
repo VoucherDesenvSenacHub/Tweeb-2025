@@ -1,3 +1,6 @@
+<?php
+session_start(); 
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -9,8 +12,15 @@
 </head>
 <body>
 
-<?php include __DIR__.'/../../../../includes/navbar-logada.php'; ?>
-<?php include __DIR__.'/../../../../includes/sidebar-User.php'; ?>
+<?php
+    if (isset($_SESSION['usuario'])) {
+        include __DIR__.'/../../../../includes/navbar-logada.php'; 
+        include __DIR__.'/../../../../includes/sidebar-User.php'; 
+    } else {
+        include __DIR__.'/../../../../includes/navbar-home.php';
+        // include __DIR__.'/includes/sidebar-User.php';
+    }
+?>
 
 <!-- Contêiner do Perfil -->
 <div class="perfil-tweeb">
@@ -23,8 +33,8 @@
                 <button class="perfil-tweeb-editar-foto"><i class="fa-regular fa-pen-to-square" style="color: #4b5563;"></i></button>
             </div>
             <div class="perfil-tweeb-info">
-                <h1>Igor Medeiros</h1>
-                <p class="perfil-tweeb-email">igormedeiros@gmail.com</p>
+                <h1><?= $usuario['nome'] ?? 'Visitante' ?></h1>
+                <p class="perfil-tweeb-email"><?= $usuario['email'] ?? 'Visitante' ?></p>
                 <div class="fio"></div>
             </div>
         </div>

@@ -47,6 +47,9 @@ class LoginUsuario {
 
     public static function getUsuario() {
         if (!self::estaLogado()) return null;
+        if (is_array($_SESSION['usuario'])) {
+            return $_SESSION['usuario'];
+        }
 
         $dadosCriptografados = base64_decode($_SESSION['usuario']);
         list($cripto, $iv) = explode('::', $dadosCriptografados);
