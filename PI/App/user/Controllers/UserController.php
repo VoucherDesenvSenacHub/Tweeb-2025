@@ -3,10 +3,11 @@
 require __DIR__.'/../Models/CadastroUsuario.php';
 session_start();
 
-if (isset($_POST['nome'], $_POST['email'], $_POST['senha'])) {
+if (isset($_POST['nome'], $_POST['email'], $_POST['cpf'], $_POST['senha'])) {
     $client = new CadastroUsuario;
     $client->nome = $_POST['nome'];
     $client->email = $_POST['email'];
+    $client->cpf = $_POST['cpf'];
     $client->senha = $_POST['senha'];
     $confirmacao = $_POST['confirmacao'];
 

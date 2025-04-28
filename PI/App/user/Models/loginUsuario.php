@@ -28,7 +28,8 @@ class LoginUsuario {
             $dados = json_encode([
                 'id' => $usuario['id'],
                 'nome' => $usuario['nome'],
-                'email' => $usuario['email']
+                'email' => $usuario['email'],
+                'cpf' => $usuario['cpf']
             ]);
 
             $iv = openssl_random_pseudo_bytes(openssl_cipher_iv_length('aes-256-cbc'));

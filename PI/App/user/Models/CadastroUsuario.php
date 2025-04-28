@@ -6,6 +6,7 @@ class CadastroUsuario {
     public $id;
     public $nome;
     public $email;
+    public $cpf;
     public $senha;
 
     public function cadastrar() {
@@ -13,6 +14,7 @@ class CadastroUsuario {
         $this->id = $db->insert([
             'nome' => $this->nome,
             'email' => $this->email,
+            'cpf' => $this->email,
             'senha' => password_hash($this->senha, PASSWORD_DEFAULT)
         ]);
 
@@ -24,6 +26,7 @@ class CadastroUsuario {
             $_SESSION['usuario'] = [
                 'id' => $this->id,
                 'nome' => $this->nome,
+                'cpf' => $this->cpf,
                 'email' => $this->email
             ];
     
