@@ -25,7 +25,7 @@ session_start();
 <!-- Contêiner do Perfil -->
 <div class="perfil-tweeb">
     <div class="perfil-tweeb-container">
-        <button class="perfil-tweeb-editar">Oi Igor, 👋🏼 </button>
+        <button class="perfil-tweeb-editar">Oi <?= $usuario['nome'] ?? '' ?>, 👋🏼 </button>
         
         <div class="perfil-tweeb-header">
             <div class="perfil-tweeb-imagem">
@@ -42,46 +42,46 @@ session_start();
         <form class="perfil-tweeb-form">
             <div class="perfil-tweeb-input-group">
                 <label for="primeiro-nome">Primeiro nome</label>
-                <input type="text" id="primeiro-nome" value="Igor">
+                <input type="text" id="primeiro-nome" value="<?= $usuario['nome'] ?? '' ?>">
             </div>
 
             <div class="perfil-tweeb-input-group">
                 <label for="sobrenome">Sobrenome</label>
-                <input type="text" id="sobrenome2" value="Medeiros">
+                <input type="text" id="sobrenome2" value="<?= $usuario['sobrenome'] ?? '' ?>">
             </div>
             <div class="perfil-tweeb-input-group">
                 <label for="cpf">CPF*</label>
-                <input type="text" id="cpf" disabled value="123456789-12">
+                <input type="text" id="cpf" value="<?= $usuario['cpf'] ?? '' ?>">
             </div>
 
             <div class="perfil-tweeb-input-group">
                 <label for="email">Email</label>
-                <input type="email" id="email" value="igormedeiros@gmail.com">
+                <input type="email" id="email" value="<?= $usuario['email'] ?? '' ?>">
             </div>
 
             <div class="perfil-tweeb-input-group">
                 <label for="telefone">Telefone</label>
-                <input type="text" id="telefone" value="67 9 456789">
+                <input type="text" id="telefone" value="<?= $usuario['telefone'] ?? '' ?>">
             </div>
 
             <div class="perfil-tweeb-input-group">
                 <label for="endereco">Endereço</label>
-                <input type="text" id="endereco" value="Rua Capitão">
+                <input type="text" id="endereco" value="<?= $usuario['endereco'] ?? '' ?>">
             </div>
 
             <div class="perfil-tweeb-input-group">
                 <label for="bairro">Bairro</label>
-                <input type="text" id="bairro" value="Centro">
+                <input type="text" id="bairro" value="<?= $usuario['bairro'] ?? '' ?>">
             </div>
 
             <div class="perfil-tweeb-input-group">
                 <label for="cep">CEP</label>
-                <input type="text" id="cep" value="798255-12">
+                <input type="text" id="cep" value="<?= $usuario['cep'] ?? '' ?>">
             </div>
 
             <div class="perfil-tweeb-input-group">
                 <label for="estado">Estado</label>
-                <input type="text" id="estado" value="Mato Grosso do Sul">
+                <input type="text" id="estado" value="<?= $usuario['estado'] ?? '' ?>">
             </div>
 
             <div class="perfil-tweeb-botoes">

@@ -5,6 +5,7 @@ require __DIR__.'/../../DB/Database.php';
 class CadastroUsuario {
     public $id;
     public $nome;
+    public $sobrenome;
     public $email;
     public $cpf;
     public $senha;
@@ -13,8 +14,9 @@ class CadastroUsuario {
         $db = new Database('usuarios');
         $this->id = $db->insert([
             'nome' => $this->nome,
+            'sobrenome' => $this->sobrenome,
             'email' => $this->email,
-            'cpf' => $this->email,
+            'cpf' => $this->cpf,
             'senha' => password_hash($this->senha, PASSWORD_DEFAULT)
         ]);
 
@@ -26,10 +28,10 @@ class CadastroUsuario {
             $_SESSION['usuario'] = [
                 'id' => $this->id,
                 'nome' => $this->nome,
-                'cpf' => $this->cpf,
-                'email' => $this->email
+                'email' => $this->email,
+                'cpf' => $this->cpf
             ];
-    
+
             return true;
         } else {
             return false;

@@ -14,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['compra_tipo'])) {
     $db = new Database('respostas_preferencias');
 
   
-    $user_id = $_SESSION['user_id'];
+    $user_id =$_SESSION['usuario']['id'];
 
 
     $values = [

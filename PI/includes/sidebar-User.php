@@ -5,7 +5,6 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
 require_once __DIR__ . '/../app/user/models/loginUsuario.php';
 $usuario = LoginUsuario::getUsuario();
 
-
 ?>
 <body class="sidebar_Produto">
     <nav id="sidebar">
@@ -43,7 +42,7 @@ $usuario = LoginUsuario::getUsuario();
                   <a href="/Tweeb-2025/PI/app/user/View/pages/alterar-senha.php"><img src="/Tweeb-2025/PI/public/assets/img/alterar.png" alt=""><span class="item-description"> Alterar Senha</span></a>
                 </li>
                 <li class="menu-item">
-                  <a href="#"><img src="/Tweeb-2025/PI/public/assets/img/sair.png" alt=""><span class="item-description">Sair</span></a>
+                  <a href="/Tweeb-2025/PI/app/user/controllers/logout.php"><img src="/Tweeb-2025/PI/public/assets/img/sair.png" alt=""><span class="item-description">Sair</span></a>
                 </li>
                 <!-- <li class="menu-item" >
                   <a href="#"><img src="/Tweeb-2025/PI/public/assets/img/config.png" alt=""><span class="item-description">Configurações</span></a>

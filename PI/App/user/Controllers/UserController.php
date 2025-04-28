@@ -3,16 +3,17 @@
 require __DIR__.'/../Models/CadastroUsuario.php';
 session_start();
 
-if (isset($_POST['nome'], $_POST['email'], $_POST['cpf'], $_POST['senha'])) {
+if (isset($_POST['nome'], $_POST['sobrenome'], $_POST['email'], $_POST['cpf'], $_POST['senha'])) {
     $client = new CadastroUsuario;
     $client->nome = $_POST['nome'];
+    $client->sobrenome = $_POST['sobrenome'];
     $client->email = $_POST['email'];
     $client->cpf = $_POST['cpf'];
     $client->senha = $_POST['senha'];
     $confirmacao = $_POST['confirmacao'];
 
     // Verifica se os campos estão preenchidos
-    if (empty($client->nome) || empty($client->email) || empty($client->senha) || empty($confirmacao)) {
+    if (empty($client->nome) || empty($client->sobrenome) || empty($client->email) || empty($client->cpf) || empty($client->senha) || empty($confirmacao)) {
         header('location: /Tweeb-2025/PI/App/user/View/pages/cadastro.php?status=campos_vazios');
         exit();
     }

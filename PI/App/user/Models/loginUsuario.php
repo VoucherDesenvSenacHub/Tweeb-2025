@@ -29,6 +29,7 @@ class LoginUsuario {
                 'id' => $usuario['id'],
                 'nome' => $usuario['nome'],
                 'email' => $usuario['email'],
+                'sobrenome' => $usuario['sobrenome'],
                 'cpf' => $usuario['cpf']
             ]);
 
