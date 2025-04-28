@@ -22,12 +22,12 @@
 } 
     
 .Task2a-card { 
-    height: 620px;
+    height: 660px;
     background-color: #fff; 
     padding: 25px 70px;
     border-radius: 46px; 
     text-align: center; 
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); 
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 } 
 
 .Task2a-logo { 
@@ -99,6 +99,31 @@
     text-decoration: underline; 
 }
 
+.Task2a-arrow-icon{
+    height: 50%;
+}
+
+.Task2a-botaoVoltar{
+    border: none;
+    display: flex;
+    gap: 10px;
+    background-color: white;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.Task2a-text-voltar{
+    color: black;
+    font-size: 15px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    text-decoration: none;
+}
+
+.Task2a-text-voltar:hover{
+    transform: scale(1.2);
+    transition: transform 0.3s ease;
+}
 @media screen and (max-width:600px){
     .Task2a-container{
         width: 300px;

@@ -8,8 +8,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
 </head> 
 <body class="Task2a-body"> 
-    <div class="Task2a-container"> 
+    <div class="Task2a-container">
         <div class="Task2a-card">
+            <button class="Task2a-botaoVoltar">
+                
+                <a href="login.php" class="Task2a-text-voltar">
+                    <img src="../../../../public/assets/img/left-arrow.png" alt="" class="Task2a-arrow-icon">
+                    Voltar
+                </a>
+            </button> 
             <a href="../../../../home.php"><img src="../../../../public/assets/img/logo_img.png" alt="Logo" class="Task2a-logo"></a>
             <h2 class="Task2a-title">Crie sua conta</h2> 
             <p class="Task2a-description">Digite seu e-mail para criar sua conta</p>  
@@ -24,7 +31,6 @@
             <?php endif; ?>
             <form method="post" action="../../Controllers/UserController.php" class="cadastro-form">
                 <input name='nome' type="text" placeholder="Nome" class="Task2a-input"> 
-                <input name='sobrenome' type="text" placeholder="Sobrenome" class="Task2a-input"> 
                 <input name='email' type="email" placeholder="Email" class="Task2a-input">
                 <input name="cpf" type="text" placeholder="CPF" class="Task2a-input">
                 <input name='senha' type="password" placeholder="Digite sua senha" class="Task2a-input"> 
@@ -36,7 +42,3 @@
     </div> 
 </body> 
 </html>
-
-
-<?php 
-
