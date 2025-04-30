@@ -11,7 +11,7 @@ class CadastroUsuario {
     public $senha;
 
     public function cadastrar() {
-        $db = new Database('usuarios');
+        $db = new Database('usuario');
         $this->id = $db->insert([
             'nome' => $this->nome,
             'sobrenome' => $this->sobrenome,

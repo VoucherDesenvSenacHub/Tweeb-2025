@@ -367,4 +367,3 @@ document.addEventListener("DOMContentLoaded", function () {
 
 </script>
     <script src="/Tweeb-2025/PI/public/js/navbar.js"></script>
-</html>

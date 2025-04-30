@@ -1,4 +1,3 @@
-<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,7 +25,7 @@
     <link rel="stylesheet" href="../../../../public/css/escolha-endereco.css">
     <link rel="stylesheet" href="../../../../public/css/metodo-envio.css">
     <link rel="stylesheet" href="../../../../public/css/OrdemdeServico.css">
-    <link rel="stylesheet" href="../../../../public/css/corporativo.css">
+    <link rel="stylesheet" href="../../../../public/css/corporativo.css">   
     <link rel="stylesheet" href="../../../../public/css/painel-adm.css">
     <link rel="stylesheet" href="../../../../public/css/listarProdutos.css">
     <link rel="stylesheet" href="../../../../public/css/estoque.css">
