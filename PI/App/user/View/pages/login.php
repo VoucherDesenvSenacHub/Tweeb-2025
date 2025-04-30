@@ -27,9 +27,10 @@
             </div>
 
             <div class="remember-forgot">
-                <label><input type="checkbox"> Lembrar senha</label>
+                <label><input type="checkbox" id="lembrarSenha"> Lembrar senha</label>
                 <a href="esqueceuSenha.php" class="forgot-password">Esqueceu sua senha?</a>
             </div>
+
 
             <button type="submit" class="btn">Login</button> 
 
@@ -51,5 +52,8 @@
     <div class="image-container">
         <img src="/Tweeb-2025/PI/public/assets/img/Groupo4.png" alt="img-login" class="login-image">
     </div>
+    <script src="../../../../public/js/lembrarSenhaUser.js"></script>
 </body>
 </html>
+
+
