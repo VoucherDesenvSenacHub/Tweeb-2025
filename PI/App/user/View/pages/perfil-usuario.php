@@ -50,7 +50,7 @@ session_start();
                 <input type="text" id="sobrenome2" value="<?= $usuario['sobrenome'] ?? '' ?>">
             </div>
             <div class="perfil-tweeb-input-group">
-                <label for="cpf">CPF*</label>
+                <label for="cpf">CPF</label>
                 <input type="text" id="cpf" value="<?= $usuario['cpf'] ?? '' ?>">
             </div>
 
