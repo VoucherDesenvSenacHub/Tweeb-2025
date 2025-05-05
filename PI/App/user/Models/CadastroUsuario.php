@@ -11,7 +11,7 @@ class CadastroUsuario {
     public $senha;
 
     public function cadastrar() {
-        $db = new Database('usuario');
+        $db = new Database('usuarios');
         $this->id = $db->insert([
             'nome' => $this->nome,
             'sobrenome' => $this->sobrenome,
@@ -25,7 +25,7 @@ class CadastroUsuario {
                 session_start(); 
             }
     
-            $_SESSION['usuario'] = [
+            $_SESSION['usuarios'] = [
                 'id' => $this->id,
                 'nome' => $this->nome,
                 'email' => $this->email,
