@@ -17,7 +17,7 @@
           <span><p>Visão Geral</p></span>
           <p>Pedidos</p>
            <p>Enviados</p>
-        </div>
+        </div>  
 
         <div class="estoque-busca">
           <form action="">
