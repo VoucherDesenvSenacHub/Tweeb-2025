@@ -3,33 +3,39 @@
 require __DIR__.'/../Models/CadastroUsuario.php';
 session_start();
 
-if (isset($_POST['nome'], $_POST['email'], $_POST['senha'])) {
-    $client = new CadastroUsuario;
-    $client->nome = $_POST['nome'];
-    $client->email = $_POST['email'];
-    $client->senha = $_POST['senha'];
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+    $nome = $_POST['nome'];
+    $email = $_POST['email'];
+    $senha = $_POST['senha'];
     $confirmacao = $_POST['confirmacao'];
 
-    // Verifica se os campos estão preenchidos
-    if (empty($client->nome) || empty($client->email) || empty($client->senha) || empty($confirmacao)) {
-        header('location: /Tweeb-2025/PI/App/user/View/pages/cadastro.php?status=campos_vazios');
-        exit();
-    }
-    
-    // Verifica se as senhas são iguais
-    if ($client->senha != $confirmacao) {
-        header('location: /Tweeb-2025/PI/App/user/View/pages/cadastro.php?status=senha_diferente');
+
+    $client = new CadastroUsuario($nome, $email, $senha, $confirmacao);
+
+
+    $validacao = $client->validarCampos();
+    if ($validacao !== true) {
+     
+        header('location: /Tweeb-2025/PI/App/user/View/pages/cadastro.php?status=' . urlencode($validacao));
         exit();
     }
 
-    // Tenta cadastrar o usuário
+
+    // $emailVerificacao = $client->verificarEmailExistente();
+    // if ($emailVerificacao !== true) {
+
+    //     header('location: /Tweeb-2025/PI/App/user/View/pages/cadastro.php?status=email_ja_cadastrado');
+    //     exit();
+    // }
+
     if ($client->cadastrar()) {
-        // Se o cadastro for bem-sucedido, redireciona
+
         header('location: /Tweeb-2025/PI/App/user/View/pages/pagina_1_pesquisa_cadastro.php');
         exit();
     } else {
-        // Se o cadastro falhar devido ao e-mail já existente, redireciona com a mensagem de erro
-        header('location: /Tweeb-2025/PI/App/user/View/pages/cadastro.php?status=email_ja_cadastrado');
+
+        header('location: /Tweeb-2025/PI/App/user/View/pages/cadastro.php?status=erro_cadastro');
         exit();
     }
 }

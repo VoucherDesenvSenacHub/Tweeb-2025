@@ -7,30 +7,91 @@ class CadastroUsuario {
     public $nome;
     public $email;
     public $senha;
+    public $confirmacao; 
+
+    public function __construct($nome, $email, $senha, $confirmacao) {
+        $this->nome = $nome;
+        $this->email = $email;
+        $this->senha = $senha;
+        $this->confirmacao = $confirmacao;
+    }
+
+    public function validarCampos() {
+
+        if (empty($this->nome) || empty($this->email) || empty($this->senha) || empty($this->confirmacao)) {
+            return 'Campos obrigatórios não preenchidos';
+        }
+
+
+        if ($this->senha !== $this->confirmacao) {
+            return 'As senhas não coincidem';
+        }
+
+        if (!filter_var($this->email, FILTER_VALIDATE_EMAIL)) {
+            return 'Email inválido';
+        }
+
+        return true;
+    }
+
+    // public function verificarEmailExistente() {
+    //     // Consulta para verificar se o email já existe no banco
+    //     $db = new Database('usuarios');
+    //     // Passando a condição corretamente, sem 'WHERE' no parâmetro
+    //     $result = $db->select("email = ?", [$this->email]);
+    
+    //     // Se o resultado contiver registros, o email já existe
+    //     if (count($result) > 0) {
+    //         return false; // Email já existe
+    //     }
+    
+    //     return true; // Email não existe
+    // }
+    
+    
 
     public function cadastrar() {
+
+        $validacao = $this->validarCampos();
+        if ($validacao !== true) {
+            return $validacao;
+        }
+
+
+        // $emailVerificacao = $this->verificarEmailExistente();
+        // if ($emailVerificacao !== true) {
+        //     return $emailVerificacao;
+        // }
+
         $db = new Database('usuarios');
         $this->id = $db->insert([
-            'nome' => $this->nome,
-            'email' => $this->email,
-            'senha' => password_hash($this->senha, PASSWORD_DEFAULT)
+            'nome'   => $this->nome,
+            'email'  => $this->email,
+            'senha'  => password_hash($this->senha, PASSWORD_DEFAULT),
+            'tipo'   => 'cliente' 
         ]);
 
         if ($this->id) {
+            
+            $clienteDB = new Database('clientes');
+            $clienteDB->insert([
+                'id_usuario' => $this->id
+            ]);
+
             if (session_status() !== PHP_SESSION_ACTIVE) {
                 session_start(); 
             }
-    
+
             $_SESSION['usuario'] = [
-                'id' => $this->id,
-                'nome' => $this->nome,
+                'id'    => $this->id,
+                'nome'  => $this->nome,
                 'email' => $this->email
             ];
-    
+
             return true;
-        } else {
-            return false;
         }
+
+        return 'Erro ao cadastrar, tente novamente';
     }    
 }
 
