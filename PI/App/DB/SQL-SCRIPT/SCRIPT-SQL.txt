@@ -202,13 +202,54 @@ CREATE TABLE envio (
 create database Tweeb25;
 use Tweeb25;
 CREATE TABLE usuarios (
-  id INT AUTO_INCREMENT PRIMARY KEY,
-  nome VARCHAR(100),
-  email VARCHAR(100),
-  senha VARCHAR(255),
-  criado_em DATETIME DEFAULT CURRENT_TIMESTAMP
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(100) not null,
+    sobrenome VARCHAR(100),
+    email VARCHAR(100) not null UNIQUE,
+    telefone VARCHAR(20),
+    senha VARCHAR(255)not null ,
+    tipo ENUM('cliente', 'funcionario'),
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 select * from usuarios;
+select * from clientes;
+
+CREATE TABLE clientes (
+    id_usuario INT PRIMARY KEY,
+    cpf VARCHAR(14) UNIQUE,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (id_usuario) REFERENCES usuarios(id) ON DELETE CASCADE
+);
+CREATE TABLE enderecos (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    id_cliente INT,
+    endereco VARCHAR(100),
+    bairro VARCHAR(100),
+    cep VARCHAR(10),
+    estado VARCHAR(50),
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (id_cliente) REFERENCES clientes(id_usuario) ON DELETE CASCADE
+);
+
+CREATE TABLE funcionarios (
+    id_usuario INT PRIMARY KEY,
+    matricula VARCHAR(20),
+    cargo VARCHAR(50),
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (id_usuario) REFERENCES usuarios(id) ON DELETE CASCADE
+);
+
+
+
+
+
+drop table usuarios;
+select * from usuarios;
+
 CREATE TABLE respostas_preferencias (
   id INT AUTO_INCREMENT PRIMARY KEY,
   user_id INT,
@@ -218,4 +259,3 @@ CREATE TABLE respostas_preferencias (
   criado_em DATETIME DEFAULT CURRENT_TIMESTAMP,
   FOREIGN KEY (user_id) REFERENCES usuarios(id)
 );
-select * from respostas_preferencias;
