@@ -30,7 +30,8 @@
                 <?php endif; ?>
             <?php endif; ?>
             <form method="post" action="../../Controllers/UserController.php" class="cadastro-form">
-                <input name='nome' type="text" placeholder="Nome" class="Task2a-input"> 
+                <input name='nome' type="text" placeholder="Nome" class="Task2a-input">
+                <input name="sobrenome" type="text" placeholder="Sobrenome" class="Task2a-input">
                 <input name='email' type="email" placeholder="Email" class="Task2a-input">
                 <input name="cpf" type="text" placeholder="CPF" class="Task2a-input">
                 <input name='senha' type="password" placeholder="Digite sua senha" class="Task2a-input"> 
