@@ -42,11 +42,11 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
 
             <div class="perfil-tweeb-input-group">
                 <label for="sobrenome">Sobrenome</label>
-                <input type="text" id="sobrenome2" value="Medeiros">
+                <input type="text" id="sobrenome2" value="">
             </div>
             <div class="perfil-tweeb-input-group">
                 <label for="cpf">CPF*</label>
-                <input type="text" id="cpf" disabled value="123456789-12">
+                <input type="text" id="cpf" disabled value="">
             </div>
 
             <div class="perfil-tweeb-input-group">
@@ -56,27 +56,27 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
 
             <div class="perfil-tweeb-input-group">
                 <label for="telefone">Telefone</label>
-                <input type="text" id="telefone" value="67 9 456789">
+                <input type="text" id="telefone" value="">
             </div>
 
             <div class="perfil-tweeb-input-group">
                 <label for="endereco">Endereço</label>
-                <input type="text" id="endereco" value="Rua Capitão">
+                <input type="text" id="endereco" value="">
             </div>
 
             <div class="perfil-tweeb-input-group">
                 <label for="bairro">Bairro</label>
-                <input type="text" id="bairro" value="Centro">
+                <input type="text" id="bairro" value="">
             </div>
 
             <div class="perfil-tweeb-input-group">
                 <label for="cep">CEP</label>
-                <input type="text" id="cep" value="798255-12">
+                <input type="text" id="cep" value="">
             </div>
 
             <div class="perfil-tweeb-input-group">
                 <label for="estado">Estado</label>
-                <input type="text" id="estado" value="Mato Grosso do Sul">
+                <input type="text" id="estado" value="">
             </div>
 
             <div class="perfil-tweeb-botoes">

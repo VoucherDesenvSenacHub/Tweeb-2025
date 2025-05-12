@@ -11,9 +11,11 @@ class Login {
         $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
 
         if ($usuario && password_verify($senha, $usuario['senha'])) {
-            $_SESSION['usuario_id'] = $usuario['id'];
-            $_SESSION['usuario_nome'] = $usuario['nome'];
-            $_SESSION['usuario_email'] = $usuario['email'];
+            $_SESSION['usuario'] = [
+                'id' => $usuario['id'],
+                'nome' => $usuario['nome'],
+                'email' => $usuario['email']
+            ];
             return true;
         }
 
@@ -33,7 +35,7 @@ class Login {
 
     public static function requireLogout() {
         session_destroy();
-        header('Location: login.php');
+        header('Location: /Tweeb-2025/PI/app/user/view/pages/login.php');
         exit;
     }
 }
@@ -52,7 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         header('Location: /Tweeb-2025/PI/home.php');
         exit;
     } else {
-        echo "<script>alert('Email ou senha incorretos!'); window.location.href='login.php';</script>";
+        echo "<script>alert('Email ou senha incorretos!'); window.location.href='../view/pages/login.php';</script>";
         exit;
     }
 }
