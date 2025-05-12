@@ -28,7 +28,7 @@ class Login {
 
     public static function requireLogin() {
         if (!self::isLogged()) {
-            header('Location: login.php');
+            header('Location: /Tweeb-2025/PI/app/user/view/pages/login.php');
             exit;
         }
     }

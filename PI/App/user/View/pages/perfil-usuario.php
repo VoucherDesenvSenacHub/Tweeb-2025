@@ -2,6 +2,11 @@
 if (session_status() !== PHP_SESSION_ACTIVE) {
     session_start();
 }
+if (!isset($_SESSION['usuario']['id'])) {
+    // Redireciona para login se não estiver logado
+    header('Location: login.php');
+    exit();
+}
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -34,7 +39,7 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
             </div>
         </div>
 
-        <form class="perfil-tweeb-form">
+        <form class="perfil-tweeb-form" method="POST" action="../../Controllers/userEdit.php">
             <div class="perfil-tweeb-input-group">
                 <label for="primeiro-nome">Primeiro nome</label>
                 <input type="text" id="primeiro-nome" value="<?php echo htmlspecialchars($_SESSION['usuario']['nome']); ?>">
