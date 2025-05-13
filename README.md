@@ -60,7 +60,7 @@ Arquitetura: MVC (Model-View-Controller)
 # Instalação
 ## 1. Configuração do Banco de Dados
 
-Crie um banco de dados no PostgreSQL e configure a string de conexão no arquivo Database.php:
+Crie um banco de dados no MYSQL e configure a string de conexão no arquivo Database.php:
 
 ```PHP
 public $conn;
