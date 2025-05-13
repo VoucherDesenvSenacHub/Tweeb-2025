@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const camposInput = document.querySelectorAll(".perfil-tweeb-form input:not(#cpf)");
     const botaoSalvar = document.querySelector(".perfil-tweeb-salvar");
     const botaoCancelar = document.querySelector(".perfil-tweeb-cancelar");
+    const botaoExcluir = document.querySelector(".perfil-tweeb-excluir")
     const header = document.querySelector(".perfil-tweeb-header");  // Seleciona o cabeçalho
 
     // Inicia desativando os campos
@@ -12,6 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Oculta botões "Salvar" e "Cancelar" no início
     botaoSalvar.style.display = "none";
     botaoCancelar.style.display = "none";
+    botaoExcluir.style.display  = "none";
 
     // Torna os campos editáveis ao clicar no ícone de editar
     botaoEditarFoto.addEventListener("click", () => {
@@ -20,6 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
         // Exibe botões de ação
         botaoSalvar.style.display = "inline-block";
         botaoCancelar.style.display = "inline-block";
+        botaoExcluir.style.display  = "inline-block";
 
         // Adiciona a classe para aumentar o margin-top
         header.classList.add("margin-top-aumentado");
