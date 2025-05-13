@@ -7,11 +7,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $nome = $_POST['nome'];
     $email = $_POST['email'];
+    $cpf = $_POST['cpf'];
     $senha = $_POST['senha'];
     $confirmacao = $_POST['confirmacao'];
 
 
-    $client = new CadastroUsuario($nome, $email, $senha, $confirmacao);
+    $client = new CadastroUsuario($nome, $email, $cpf ,$senha, $confirmacao);
 
 
     $validacao = $client->validarCampos();
@@ -20,14 +21,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         header('location: /Tweeb-2025/PI/App/user/View/pages/cadastro.php?status=' . urlencode($validacao));
         exit();
     }
-
-
-    // $emailVerificacao = $client->verificarEmailExistente();
-    // if ($emailVerificacao !== true) {
-
-    //     header('location: /Tweeb-2025/PI/App/user/View/pages/cadastro.php?status=email_ja_cadastrado');
-    //     exit();
-    // }
 
     if ($client->cadastrar()) {
 

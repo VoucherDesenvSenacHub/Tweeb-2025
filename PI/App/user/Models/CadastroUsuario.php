@@ -6,19 +6,21 @@ class CadastroUsuario {
     public $id;
     public $nome;
     public $email;
+    public $cpf;
     public $senha;
     public $confirmacao; 
 
-    public function __construct($nome, $email, $senha, $confirmacao) {
+    public function __construct($nome, $email, $cpf , $senha, $confirmacao) {
         $this->nome = $nome;
         $this->email = $email;
+        $this->cpf = $cpf;
         $this->senha = $senha;
         $this->confirmacao = $confirmacao;
     }
 
     public function validarCampos() {
 
-        if (empty($this->nome) || empty($this->email) || empty($this->senha) || empty($this->confirmacao)) {
+        if (empty($this->nome) || empty($this->email) || empty($this->cpf) || empty($this->senha) || empty($this->confirmacao)) {
             return 'Campos obrigatórios não preenchidos';
         }
 
@@ -32,7 +34,35 @@ class CadastroUsuario {
         }
 
         return true;
+
+        $cpf = preg_replace('/[^0-9]/', '', $this->cpf);
+
+        if (
+            strlen($cpf) != 11 ||
+            preg_match('/^(\d)\1{10}$/', $cpf) ||
+            (
+                (function($cpf) {
+                    for ($t = 9; $t < 11; $t++) {
+                        $soma = 0;
+                        for ($c = 0; $c < $t; $c++) {
+                            $soma += $cpf[$c] * (($t + 1) - $c);
+                        }
+                        $digito = ((10 * $soma) % 11) % 10;
+                        if ($cpf[$c] != $digito) {
+                            return false;
+                        }
+                    }
+                    return true;
+                })($cpf) === false
+            )
+        ) {
+            return 'CPF inválido';
+        }
+    
+        return true;
     }
+
+    
 
     // public function verificarEmailExistente() {
     //     // Consulta para verificar se o email já existe no banco
@@ -75,7 +105,8 @@ class CadastroUsuario {
             
             $clienteDB = new Database('clientes');
             $clienteDB->insert([
-                'id_usuario' => $this->id
+                'id_usuario' => $this->id,
+                'cpf' => $this->cpf
             ]);
 
             if (session_status() !== PHP_SESSION_ACTIVE) {

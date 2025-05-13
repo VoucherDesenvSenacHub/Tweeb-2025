@@ -24,7 +24,8 @@
             <?php endif; ?>
             <form method="post" action="../../Controllers/UserController.php" class="cadastro-form">
                 <input name='nome' type="text" placeholder="Nome" class="Task2a-input"> 
-                <input name='email' type="email" placeholder="Email" class="Task2a-input"> 
+                <input name='email' type="email" placeholder="Email" class="Task2a-input">
+                <input name='cpf' type="text" placeholder="CPF" class="Task2a-input">
                 <input name='senha' type="password" placeholder="Digite sua senha" class="Task2a-input"> 
                 <input name='confirmacao' type="password" placeholder="Confirme sua senha " class="Task2a-input">
                 <button type="submit" class="Task2a-btn-email">Cadastre-se</button>
