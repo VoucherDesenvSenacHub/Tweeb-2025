@@ -51,7 +51,7 @@ if (!isset($_SESSION['usuario']['id'])) {
             </div>
             <div class="perfil-tweeb-input-group">
                 <label for="cpf">CPF*</label>
-                <input type="text" id="cpf" disabled value="">
+                <input type="text" id="cpf" disabled value="<?php echo htmlspecialchars($_SESSION['usuario']['cpf']); ?>">
             </div>
 
             <div class="perfil-tweeb-input-group">

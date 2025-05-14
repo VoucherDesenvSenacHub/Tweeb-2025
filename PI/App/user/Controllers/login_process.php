@@ -14,7 +14,8 @@ class Login {
             $_SESSION['usuario'] = [
                 'id' => $usuario['id'],
                 'nome' => $usuario['nome'],
-                'email' => $usuario['email']
+                'email' => $usuario['email'],
+                'cpf' => $usuario['cpf']
             ];
             return true;
         }

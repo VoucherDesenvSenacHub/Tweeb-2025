@@ -116,7 +116,8 @@ class CadastroUsuario {
             $_SESSION['usuario'] = [
                 'id'    => $this->id,
                 'nome'  => $this->nome,
-                'email' => $this->email
+                'email' => $this->email,
+                'cpf' => $this->cpf
             ];
 
             return true;
