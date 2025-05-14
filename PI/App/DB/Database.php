@@ -2,7 +2,7 @@
     
 class Database{
     public $conn;
-    public string $local="192.168.68.85";
+    public string $local="192.168.68.170";
     public string $db="Tweeb25";
     public string $user="devweb";
     public string $password="suporte@22";
