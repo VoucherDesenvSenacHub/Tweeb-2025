@@ -424,6 +424,11 @@ span{
     transition: 0.1s ease;
 }
 
+.card-botao-a{
+    color: white;
+    text-decoration: none;
+}
+
 .card-botao:hover{
     background-color: #170e2b;
 }
@@ -656,9 +661,6 @@ span{
 }
 
 @media screen and (max-width: 768px) {
-    .slider{
-        margin-top: 350px;
-    }
     .produtos-grid {
         grid-template-columns: repeat(1, 1fr);
     }
@@ -667,5 +669,19 @@ span{
         flex-direction: column;
         align-items: center;
         gap: 10px;
+    }
+    
+    #ad-produto{
+        display: none;
+    }
+
+    .img-responsiva{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .anuncios img{
+        width: 80%;
     }
 }

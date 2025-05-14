@@ -13,7 +13,7 @@
     <div class="container-verificacao">
         <div class="forms-verificacao">
             <form action="">
-                <a href="#" class="voltar"><i class='bx bx-chevron-left'></i>< Voltar</a>
+                <a href="#" class="voltar"><i class='bx bx-chevron-left'></i> Voltar</a>
                 <h1 class="titulo">Digite o código</h1>
                 <p class="subtitulo">Um código de verificação foi enviado para o seu e-mail.</p>
                 <div class="input-group-verificacao w50">

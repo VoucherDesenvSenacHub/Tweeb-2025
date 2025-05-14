@@ -2,13 +2,12 @@
     
 class Database{
     public $conn;
-    public string $local="localhost";
-    public string $db="TWEEB";
-    public string $user="root";
-    public string $password="";
+    public string $local="192.168.68.85";
+    public string $db="Tweeb25";
+    public string $user="devweb";
+    public string $password="suporte@22";
     public $table;
 
-    // CONFIGURE O DB CONFORME O SERVIDOR ESTABELECIDO PELO ORIENTADOR
    
     public function __construct($table = null){
         $this->table = $table;
@@ -57,7 +56,7 @@ class Database{
         $result = $this->execute($query,array_values($values));
         
         if($result){
-            return true;
+            return $this->conn->lastInsertId();;
         }
         else{
             return false;

@@ -1,177 +1,130 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-/* *{
+
+/* Reset geral */
+* {
     margin: 0;
     padding: 0;
-    font-family: 'Nunito';
-    
+    font-family: 'Nunito', sans-serif;
     box-sizing: border-box;
-} */
+}
 
-.container-ordem-de-servico{
-    top: 218px;
-    left: 311px;
-    align-items: center;
-    margin-left: 100px;
+/* Estilo para o container */
+.container-ordem-de-servico21 {
     padding: 20px;
-    justify-content: space-between;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    min-height: 80vh;
+    max-width: 1200px;
+    margin: auto;
 }
 
-.OrdemSevico .Servico{
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    margin-top: 12px;
-    margin-left: 45px;
-    top: 218px;
-    width: 1148px;
-    height: 271;
-    
-    left: 311px;
-    border-radius: 20px;
-}
-.container-ordem-de-servico h1{
+/* Título */
+.ordem-de-servico-h121 {
     font-weight: 800;
-    font-size: 20px;
-    /* line-height: 27.28px; */
-    top: 248px;
-    margin: 0%;
-    /* left: 331px;  */
+    font-size: 24px;
     margin-bottom: 15px;
-    margin-left: 10px;
     text-align: left;
 }
-.OrdemSevico .Ordem_Servico{
-    /* background-color: aqua; */
-    width: 350px;
-    height: 82px;
-    gap: 8px;
-    margin-bottom:20px ;
-    top: 698px;
-    left: 701px;
-    gap: 8px;   
+
+/* Formulário */
+.Servico21 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; /* Padrão com 3 colunas */
+    gap: 20px;
+    width: 100%;
+    margin-top: 12px;
 }
-.OrdemSevico label{
-    /* background-color: aqua; */
+
+/* Estilo para os campos de entrada (input) */
+.Ordem_Servico21 {
+    display: flex;
+    flex-direction: column;
+}
+
+.Ordem_Servico21 label {
     font-weight: 400;
     font-size: 16px;
     line-height: 24px;
-    letter-spacing: 0%;
-    width: 121px;
-    height: 24px;   
     color: #121212;
 }
-.OrdemSevico input{
+
+.Ordem_Servico21 input {
     display: block;
-    width: 350px;
+    width: 100%;
     border-radius: 8px;
     height: 50px;
-    border-width: 1px;
-    background-color: transparent;
-    border: 1px solid #D0D0D0; 
+    border: 1px solid #D0D0D0;
+    padding: 10px;
+    margin-top: 5px;
 }
-.btn_ordemServico{
-    /* background-color: blue; */
-    width: 115px;
-    height: 39px;
+
+/* Estilo para o botão */
+.btn_ordemServico21 {
+    width: 200px;
+    height: 45px;
     color: white;
-    margin-top: 22px;
-    margin-left: 1028px;
-    gap: 10px;
-    align-items: center;
-    border-radius: 4px;
-    padding-right: 48px;
-    
-    padding-left: 40px;
     background: #FE8C67;
-    border: none;   
+    border: none;
+    border-radius: 4px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    cursor: pointer;
 }
 
+/* Responsividade */
 
+/* Para telas menores que 1024px (tablets e abaixo) */
 @media (max-width: 1024px) {
-    .OrdemSevico .Servico {
-        display: flex;
-        flex-direction: column;
-        border-radius: 20px;
-        align-items: center;
-        width: 90%;
-        margin: auto;
+    .Servico21 {
+        grid-template-columns: 1fr 1fr; /* Muda para 2 colunas */
     }
-    .OrdemSevico h1{
-        font-weight: 800;
-        font-size: 20px;
-        line-height: 27.28px;
-        letter-spacing: 0%;
-        width: 170px;
-        height: 27px;
-        top: 248px;
-        left: 331px; 
-        margin-bottom: 15px;
-        margin-left: 255px;
-        margin-top: 150px;
-        align-items: center;
-        justify-content: center;
+
+    .btn_ordemServico21 {
+        width: 100%; /* Botão ocupa toda a largura */
+        margin-left: 0;
+    }
+
+    .Ordem_Servico21 {
+        width: 100%; /* Garante que o campo ocupe a largura inteira */
     }
 }
+
+/* Para telas menores que 768px (smartphones e tablets pequenos) */
 @media (max-width: 768px) {
-    .OrdemSevico .Servico {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-    }
-    .OrdemSevico h1{
-        font-weight: 800;
-        font-size: 20px;
-        line-height: 27.28px;
-        letter-spacing: 0%;
-        width: 170px;
-        height: 27px;
-        top: 248px;
-        left: 331px; 
-        margin-bottom: 15px;
-        margin-left: 255px;
-        margin-top: 150px;
-        align-items: center;
-        justify-content: center;
-    }
-    .OrdemSevico input {
-        width: 90%; 
-    }
-    .btn_ordemServico {
-        margin-left: 0; 
+    .Servico21 {
+        grid-template-columns: 1fr; /* Muda para 1 coluna */
         width: 90%;
-        text-align: center;
+        margin: 0 auto;
     }
-   
+
+    .Ordem_Servico21 input {
+        width: 100%; /* Garante que os campos de input ocupem toda a largura */
+    }
+
+    .btn_ordemServico21 {
+        width: 100%; /* Botão ocupa toda a largura */
+    }
 }
-@media (max-width: 600px){
-    .OrdemSevico .Servico {
-        display: flex;
-        flex-direction: column;
+
+/* Para telas menores que 600px (smartphones) */
+@media (max-width: 600px) {
+    .Servico21 {
+        grid-template-columns: 1fr; /* Apenas uma coluna */
         width: 100%;
+        margin: 0 auto;
     }
-    .OrdemSevico h1{
-        font-weight: 800;
-        font-size: 20px;
-        line-height: 27.28px;
-        letter-spacing: 0%;
-        width: 170px;
-        height: 27px;
-        top: 248px;
-        left: 331px; 
-        margin-bottom: 15px;
-        margin-left: 5px;
-        margin-top: 150px;
-        align-items: center;
-        justify-content: center;
-    }
-    .OrdemSevico input {
-        width: 90%; 
-        height: 35px;
-    }
-    .btn_ordemServico {
+
+    .Ordem_Servico21 input {
         width: 100%;
-        height: 45px;
-        margin: 10px 0;
-        text-align: center;
+        height: 45px; /* Aumenta a altura do input */
+    }
+
+    .btn_ordemServico21 {
+        width: 100%; /* Botão ocupa 100% da largura */
+        height: 50px;
     }
 }

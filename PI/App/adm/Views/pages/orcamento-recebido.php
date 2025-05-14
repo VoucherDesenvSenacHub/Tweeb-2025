@@ -68,7 +68,7 @@
         <div class="orcamento-recebido-row">
             <input type="text" value="Concerto" readonly>
             <input type="text" value="Até 10/10/2024" readonly>
-            <button class="foto-orcamento-jpeg" type="button" readonly> <i class="fa-solid fa-folder"></i></button>
+            <button class="foto-orcamento-jpeg" type="button" readonly> <i class="fa-regular fa-circle-down"></i></button>
        
             
         </div>
@@ -95,7 +95,7 @@
         <div class="orcamento-recebido-row">
             <input type="text" value="Concerto" readonly>
             <input type="text" value="Até 10/10/2024" readonly>
-            <button class="foto-orcamento-jpeg" type="button" readonly> <i class="fa-solid fa-folder"></i></button>
+            <button class="foto-orcamento-jpeg" type="button" readonly> <i class="fa-regular fa-circle-down"></i></button>
        
             
         </div>

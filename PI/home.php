@@ -1,3 +1,6 @@
+<?php
+session_start(); 
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,13 +10,24 @@
     <link rel="stylesheet" href="../PI/public/css/navbar.css">
     <link rel="stylesheet" href="../PI/public/css/home.css">
     <link rel="stylesheet" href="../PI/public/css/footer.css">
+    <link rel="stylesheet" href="../PI/public/css/sidebar.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
     <script defer src="../PI/public/js/home.js"></script>
+    <script defer src="../PI/public/js/sidebar.js"></script>
     
 </head>
 <body>
-    <?php include __DIR__.'/includes/navbar-home.php'; ?>
+    <?php
+    if (isset($_SESSION['usuario'])) {
+        include __DIR__.'/../PI/includes/navbar-logada.php'; 
+        include __DIR__.'/../PI/includes/sidebar-User.php'; 
+    } else {
+        include __DIR__.'/../PI/includes/navbar-home.php';
+        // include __DIR__.'/includes/sidebar-User.php';
+    }
+    ?>
+    
     <section class="slider">
         <div class="slider-content">
             <input type="radio" name="btn-radio" id="radio1">
@@ -135,7 +149,7 @@
                 <p>Cadeira Gamer</p>
                 <p>GAMING Tempest CG500</p>
                 <h1>R$900,99</h1>
-                <button class="card-botao">Comprar Agora</button>
+                <button class="card-botao"><a href="app/user/View/pages/descproduto.php" class="corad-botao-a">Comprar Agora</a></button>
             </div>
             <div class="produtos-card">
                 <img class="heart" src="public/assets/img/heart_disabled.png" alt="coração" onclick="AtivarCoracao(this)">
@@ -372,9 +386,9 @@
       </div> -->
 
       <div class="anuncios">
-        <a href="App/user/View/pages/task20-kitsetup.php"><img src="public/assets/img/Do seu jeito.png" alt=""></a>
-        <a href="App/user/View/pages/do-seu-jeito.php"><img src="public/assets/img/Do seu jeito 2.png" alt=""></a>
-        <a href="App/user/View/pages/corporativo.php"><img src="public/assets/img/Do seu jeito 3.png" alt=""></a>
+        <a href="App/user/View/pages/task20-kitsetup.php" class="img-responsiva" ><img src="public/assets/img/Do seu jeito.png" alt=""></a>
+        <a href="App/user/View/pages/do-seu-jeito.php" class="img-responsiva"><img src="public/assets/img/Do seu jeito 2.png" alt=""></a>
+        <a href="App/user/View/pages/corporativo.php" class="img-responsiva"><img src="public/assets/img/Do seu jeito 3.png" alt=""></a>
       </div>
 
       <section class="produtos produtos2">
@@ -382,6 +396,25 @@
             <p>Promoções de natal</p>
         </div>
         <div class="produtos-grid">
+            <div class="produtos-card">
+                <img class="heart" src="public/assets/img/heart_disabled.png" alt="coração" onclick="AtivarCoracao(this)">
+
+                <a href="../PI/App/user/View/pages/Carrinho.php"><img class="add-carrinho" src="public/assets/img/carrinho-card.png" alt=""></a>
+
+                <img class="image-produto" src="public/assets/img/card-produto.png" alt="">
+                <div class="card-rate">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <span class="qnt-avaliacoes">(500+)</span>
+                </div>
+                <p>Cadeira Gamer</p>
+                <p>GAMING Tempest CG500</p>
+                <h1>R$900,99</h1>
+                <button class="card-botao"><a href="app/user/View/pages/descproduto.php" class="corad-botao-a">Comprar Agora</a></button>
+            </div>
             <div class="produtos-card">
                 <img class="heart" src="public/assets/img/heart_disabled.png" alt="coração" onclick="AtivarCoracao(this)">
 
@@ -399,6 +432,63 @@
                 <p>Monitor Gamer Curvo</p>
                 <p>GAMING MG700 27</p>
                 <h1>R$2535,99</h1>
+                <button class="card-botao">Comprar Agora</button>
+            </div>
+            <div class="produtos-card">
+                <img class="heart" src="public/assets/img/heart_disabled.png" alt="coração" onclick="AtivarCoracao(this)">
+
+                <a href="../PI/App/user/View/pages/Carrinho.php"><img class="add-carrinho" src="public/assets/img/carrinho-card.png" alt=""></a>
+
+                <img class="image-produto" src="public/assets/img/card-produto2.png" alt="">
+                <div class="card-rate">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <span class="qnt-avaliacoes">(500+)</span>
+                </div>
+                <p>Monitor Gamer Curvo</p>
+                <p>GAMING MG700 27</p>
+                <h1>R$2535,99</h1>
+                <button class="card-botao">Comprar Agora</button>
+            </div>
+            <div class="produtos-card">
+                <img class="heart" src="public/assets/img/heart_disabled.png" alt="coração" onclick="AtivarCoracao(this)">
+
+                <a href="../PI/App/user/View/pages/Carrinho.php"><img class="add-carrinho" src="public/assets/img/carrinho-card.png" alt=""></a>
+
+                <img class="image-produto" src="public/assets/img/card-produto2.png" alt="">
+                <div class="card-rate">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <span class="qnt-avaliacoes">(500+)</span>
+                </div>
+                <p>Monitor Gamer Curvo</p>
+                <p>GAMING MG700 27</p>
+                <h1>R$2535,99</h1>
+                <button class="card-botao">Comprar Agora</button>
+            </div>
+            <div class="produtos-card">
+                <img class="heart" src="public/assets/img/heart_disabled.png" alt="coração" onclick="AtivarCoracao(this)">
+
+                <a href="../PI/App/user/View/pages/Carrinho.php"><img class="add-carrinho" src="public/assets/img/carrinho-card.png" alt=""></a>
+
+                <img class="image-produto" src="public/assets/img/card-produto2.png" alt="">
+                <div class="card-rate">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <span class="qnt-avaliacoes">(500+)</span>
+                </div>
+                <p>Monitor Gamer Curvo</p>
+                <p>GAMING MG700 27</p>
+                <h1>R$2536,99</h1>
                 <button class="card-botao">Comprar Agora</button>
             </div>
             <div class="produtos-card">
@@ -466,7 +556,8 @@
         <a href="#"><img src="public/assets/img/banner tweeb carnaval.png" alt="anuncio carnaval"></a>
       </div>
 
-    <button id="voltarAoTopo" title="Voltar ao topo"><i class="fa-solid fa-angle-up"></i></button>
+
+    <?php include __DIR__.'/includes/voltar-ao-topo.php'; ?>
     <?php include __DIR__.'/includes/footer-home.php'; ?>
 </body>
 </html>

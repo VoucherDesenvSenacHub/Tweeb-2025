@@ -25,7 +25,7 @@
     position: relative;
     top: 0;
     z-index: 1;
-    box-shadow: 0 2px 7px #000;
+    /* box-shadow: 0 2px 7px #000; */
     background-color: #fff; 
     padding: 0 20px;
 }
@@ -552,7 +552,21 @@
     background-color: #d7d7d7;
     color: white;
 }
-
+.search-box .srch-logada{
+    left: 3%;
+}
+.search-box .srch-log::placeholder {
+    transform: translateX(-5px);
+}
+.search-box .srch-home{
+    transform: translateX(-4px);
+}
+.search-box .srch-log{
+    border-radius: 40px;
+}
+.search-box .srch-nav-def{
+    border-radius: 40px;
+}
 @media (min-width: 2560px) {
     .headNav {
         padding: 0 100px; 
@@ -625,7 +639,7 @@
 @media (max-width: 768px) {
     .headNav {
         flex-direction: column;
-        height: 40vh;
+        height: 30vh;
     }
 
     .headNav .logo {
@@ -658,12 +672,16 @@
         padding: 0 30px;
     }
 
-    .search-box button {
-        transform: translateX(-2px);
+    .search-box .srch-logada {
+        display: none;
         
     }
-    .search-box input::placeholder {
-        transform: translateX(5px);
+    .search-box .srch-home {
+        display: none;
+        
+    }
+    .search-box .srch-log::placeholder {
+        transform: translateX(-20px);
     }
 
     .hamburguer {
@@ -722,8 +740,8 @@
         color: red;
     }
     .search-box .srch-logada{
-        transform: translateX(-20px);
-
+        transform: translateX(-24px);
+        
     }
     .auth-buttons {
         position: absolute;

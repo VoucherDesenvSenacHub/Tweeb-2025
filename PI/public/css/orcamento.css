@@ -50,7 +50,7 @@
 .orcamento-contact-info {
     width: 100%;
     max-width: 340px;
-    height: 525px;
+    height: 472px;
     margin: 30px;
     background-color: #fff;
     padding: 24px;
@@ -183,6 +183,7 @@
     outline: none;
     /* width: 32%; */
     border-radius: 8px;
+    padding: 20px;
 }
 
 .orcamento-button:hover {

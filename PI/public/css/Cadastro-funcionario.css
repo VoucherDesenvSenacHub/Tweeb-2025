@@ -1,0 +1,136 @@
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+    font-family: 'Inter', sans-serif;
+} 
+
+.Task3a-body { 
+    background-color: #2E184F; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    height: 100vh;
+} 
+     
+.Task3a-container { 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    width: 100%; 
+    max-width: 490px;
+} 
+    
+.Task3a-card { 
+    height: 620px;
+    background-color: #fff; 
+    padding: 25px 70px;
+    border-radius: 46px; 
+    text-align: center; 
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); 
+} 
+
+.Task3a-logo { 
+    padding: 20px;
+    margin-top: 20px;
+}  
+
+.Task3a-title {
+    margin-bottom: 10px;
+    font-size: 23px;
+    font-weight: 600;
+} 
+
+.Task3a-description { 
+    font-size: 15px;
+    margin-bottom: 24px;
+    font-weight: 400;
+} 
+
+.Task3a-input { 
+    background-color: #EEEEEE;
+    width: 100%;
+    padding: 10px; 
+    margin-bottom: 16px; 
+    border: 1px solid #E0E0E0; 
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.Task3a-input:focus {
+    outline: none;
+    border: 1px solid #CEF5A4;
+    box-shadow: 0 0 5px #b7e850;
+}
+     
+.Task3a-btn-email { 
+    width: 100%; 
+    padding: 10px; 
+    background-color: #CEF5A4; 
+    border: none; 
+    border-radius: 8px; 
+    color: #291E40; 
+    font-size: 16px; 
+    font-weight: 500;
+    cursor: pointer; 
+    margin-bottom: 24px;
+} 
+
+.Task3a-btn-email:hover { 
+    background-color: #b7e850;
+    transition: 0.3s;
+} 
+
+.Task3a-terms { 
+    font-size: 14px;
+    font-weight: 400;
+    color: #828282; 
+    margin-top: 2px;
+    line-height: 20px;
+} 
+    
+.Task3a-terms a { 
+    color: #007bff; 
+    text-decoration: none; 
+} 
+
+.Task3a-terms a:hover { 
+    text-decoration: underline; 
+}
+
+@media screen and (max-width:600px){
+    .Task3a-container{
+        width: 300px;
+    }
+    .Task3a-card{
+        padding: 5px 40px;
+        height: 500px;
+    }
+    .Task3a-logo{
+        height: 72px;
+        padding: 18px;
+        margin-top: 10px;
+    }
+    .Task3a-title {
+        margin-bottom: 10px;
+        font-size: 18px;
+        font-weight: 600;
+    }
+    .Task3a-description { 
+        font-size: 12px;
+        margin-bottom: 18px;
+        font-weight: 400;
+    }
+    .Task3a-input{
+        font-size: 12px;
+        margin-bottom: 14px;
+    }
+    .Task3a-btn-email{
+        font-size: 14px;
+    }
+    .Task3a-terms{
+        font-size: 12px;
+        line-height: 16px;
+    }
+}

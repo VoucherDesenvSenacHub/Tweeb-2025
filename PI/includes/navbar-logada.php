@@ -4,29 +4,29 @@
             <i class='bx bx-menu'></i>
         </div>
         <div class="logo">
-            <a href="../../../../home.php"><img src="../../../../public/assets/img/Ativo 2.png" alt="logo tweeb"></a>
+            <a href="/Tweeb-2025/PI/home.php"><img src="/Tweeb-2025/PI/public/assets/img/Ativo 2.png" alt="logo tweeb"></a>
         </div>
         <div class="search-box">
-            <form action="">
+            <form  action="">
                 <button class="srch-logada"type="submit"><i class='bx bx-search'></i></button>
-                <input type="text" name="search" class="srch" placeholder="Buscar">
+                <input type="text" name="search" class="srch-log" placeholder="Buscar">
             </form>
         </div>
         <div class="responsive-menu">
-            <a href="#">Sobre</a>
-            <a href="#">Orçamento</a>
+            <a href="quemsomos.php">Sobre</a>
+            <a href="orcamento.php">Orçamento</a>
         </div>
         <nav class="navb">
             <ul>
-                <li><a class="op" href="../../../../home.php">Home</a></li>
+                <li><a class="op" href="/Tweeb-2025/PI/home.php">Home</a></li>
                 <li><a class="op" href="quemsomos.php">Sobre</a></li>
                 <li><a class="op" href="orcamento.php">Orçamento</a></li>
-                <li><a class="op" href="cadastro.php">Sair</a></li>
+                <li><a class="op" href="/Tweeb-2025/PI/app/user/controllers/logout.php">Sair</a></li>
                 <li>
                     <a class="op"href="#"><i class='bx bx-cart-alt'></i></a>
                     <!-- <a href="app/user/view/pages/login.php"><i class='bx bx-user'></i></a> -->
                     <a href="perfil-usuario.php" class="user-icon">
-                        <img src="../../../../public/assets/img/foto-perfil-comentarios.jpg" alt="teste">
+                        <img src="/Tweeb-2025/PI/public/assets/img/foto-perfil-comentarios.jpg" alt="teste">
                     </a>
                 </li>
             </ul>
@@ -34,7 +34,7 @@
 
     <div class="hamburger-menu">
         <div class="user-info">
-            <img src="../../../../public/assets/img/foto-perfil-comentarios.jpg" alt="Foto do Usuário">
+            <img src="/Tweeb-2025/PI/public/assets/img/foto-perfil-comentarios.jpg" alt="Foto do Usuário">
             <p class="hi-user">Olá, Usuário</p>
             <span class="close-menu-nav"><i class="fa-solid fa-xmark"></i></span>
         </div>
@@ -45,36 +45,36 @@
         <ul class="menu-options main-menu">
             <li class="menu-item-nav">
                 <a href="#" class="toggle-departamentos">
-                    <img src="../../../../public/assets/img/icone-departamento.png" alt="">
+                    <img src="/Tweeb-2025/PI/public/assets/img/icone-departamento.png" alt="">
                     <span class="item-description-nav">Departamentos</span>
                     <i class="arrow fa-solid fa-chevron-right"></i>
                 </a>
             </li>
             <li class="menu-item-nav">
-                <a href="#"><img src="../../../../public/assets/img/editar.png" alt=""><span class="item-description-nav">Editar Perfil</span></a>
+                <a href="perfil-usuario.php"><img src="/Tweeb-2025/PI/public/assets/img/editar.png" alt=""><span class="item-description-nav">Editar Perfil</span></a>
             </li>
             <li class="menu-item-nav">
-                <a href="#"><img src="../../../../public/assets/img/Calendar.png" alt=""><span class="item-description-nav">Meus Endereços</span></a>
+                <a href="meus-enderecos.php"><img src="/Tweeb-2025/PI/public/assets/img/Calendar.png" alt=""><span class="item-description-nav">Meus Endereços</span></a>
             </li>
             <li class="menu-item-nav">
                 <a href="#" class="toggle-pedidos">
-                    <img src="../../../../public/assets/img/Inbox.png" alt="">
+                    <img src="/Tweeb-2025/PI/public/assets/img/Inbox.png" alt="">
                     <span class="item-description-nav">Meus Pedidos</span>
                     <i class="arrow fa-solid fa-chevron-right"></i> 
                 </a>
                 <ul class="segundomenu-nav">
-                    <li><a href="#"><span class="item-description-nav">Pedidos Enviados</span></a></li>
-                    <li><a href="#"><span class="item-description-nav">Pedidos Cancelados</span></a></li>
+                    <li><a href="rastreio-pedidos.php"><span class="item-description-nav">Pedidos Enviados</span></a></li>
+                    <li><a href="Pedidos-cancelados.php"><span class="item-description-nav">Pedidos Cancelados</span></a></li>
                 </ul>
             </li>
             <li class="menu-item-nav">
-                <a href="#"><img src="../../../../public/assets/img/Like.png" alt=""><span class="item-description-nav">Favoritos</span></a>
+                <a href="favoritos.php"><img src="/Tweeb-2025/PI/public/assets/img/Like.png" alt=""><span class="item-description-nav">Favoritos</span></a>
             </li>
             <li class="menu-item-nav">
-                <a href="#"><img src="../../../../public/assets/img/alterar.png" alt=""><span class="item-description-nav">Alterar Senha</span></a>
+                <a href="alterar-senha.php"><img src="/Tweeb-2025/PI/public/assets/img/alterar.png" alt=""><span class="item-description-nav">Alterar Senha</span></a>
             </li>
             <li class="menu-item-nav">
-                <a href="#"><img src="../../../../public/assets/img/sair.png" alt=""><span class="item-description-nav">Sair</span></a>
+                <a href="cadastro.php"><img src="/Tweeb-2025/PI/public/assets/img/sair.png" alt=""><span class="item-description-nav">Sair</span></a>
             </li>
         </ul>
 
@@ -82,9 +82,12 @@
         <div class="departamentos-menu">
             <button class="voltar-menu">← Voltar</button>
             <ul class="sub-departamentos">
-                <li><a href="#"><span class="item-description-nav">Eletrônicos</span></a></li>
-                <li><a href="#"><span class="item-description-nav">Vestuário</span></a></li>
-                <li><a href="#"><span class="item-description-nav">Alimentos</span></a></li>
+                <li><a href="departamento01.php"><span class="item-description-nav">Hardwares</span></a></li>
+                <li><a href="departamento01.php"><span class="item-description-nav">Computadores</span></a></li>
+                <li><a href="departamento01.php"><span class="item-description-nav">Perifericos</span></a></li>
+                <li><a href="departamento01.php"><span class="item-description-nav">Energia</span></a></li>
+                <li><a href="departamento01.php"><span class="item-description-nav">Audio</span></a></li>
+                <li><a href="departamento01.php"><span class="item-description-nav">Jogos</span></a></li>
             </ul>
         </div>
     </div>
@@ -92,13 +95,13 @@
     <!-- Barra de departamentos -->
     <section id="departaments" class="departments-bar">
         <div class="department">
-            <img src="../../../../public/assets/img/Hardwares.png" alt="Hardwares">
+            <img src="/Tweeb-2025/PI/public/assets/img/Hardwares.png" alt="Hardwares">
             <span>Hardwares <i class='bx bx-chevron-right'></i></span>
             <ul class="submenu">
                 <li>
                     <a href="#" class="linkn-submenu-h">Placa Mãe <i class='bx bx-chevron-right'></i></a>
                     <ul class="submenu-sub">
-                        <li><a class="submenu-sub-link" href="#">Placa Mae Gigabyte B550M Aorus</a></li>
+                        <li><a class="submenu-sub-link" href="descproduto.php">Placa Mae Gigabyte B550M Aorus</a></li>
                         <li><a class="submenu-sub-link" href="#">Placa Mae ASRock B450M Steel Legend</a></li>
                         <li><a class="submenu-sub-link" href="#">Placa Mae Gigabyte B550M K</a></li>
                         <li><a class="submenu-sub-link" href="#">Placa Mae Mancer A520M DX</a></li>
@@ -163,7 +166,7 @@
         </div>
         <span class="separator">|</span>
         <div class="department">
-            <img src="../../../../public/assets/img/Computadores.png" alt="Computadores">
+            <img src="/Tweeb-2025/PI/public/assets/img/Computadores.png" alt="Computadores">
             <span>Computadores <i class='bx bx-chevron-right'></i></span>
             <ul class="submenu">
                 <li>
@@ -193,7 +196,7 @@
         </div>
         <span class="separator">|</span>
         <div class="department">
-            <img src="../../../../public/assets/img/Perifericos.png" alt="Periféricos">
+            <img src="/Tweeb-2025/PI/public/assets/img/Perifericos.png" alt="Periféricos">
             <span>Periféricos <i class='bx bx-chevron-right'></i></span>
             <ul class="submenu">
                 <li>
@@ -224,7 +227,7 @@
         </div>
         <span class="separator">|</span>
         <div class="department">
-            <img src="../../../../public/assets/img/Energia.png" alt="Energia">
+            <img src="/Tweeb-2025/PI/public/assets/img/Energia.png" alt="Energia">
             <span>Energia <i class='bx bx-chevron-right'></i></span>
             <ul class="submenu">
                 <li>
@@ -249,7 +252,7 @@
         </div>
         <span class="separator">|</span>
         <div class="department">
-            <img src="../../../../public/assets/img/audio.png" alt="Áudio">
+            <img src="/Tweeb-2025/PI/public/assets/img/audio.png" alt="Áudio">
             <span>Áudio <i class='bx bx-chevron-right'></i></span>
             <ul class="submenu">
                 <li>
@@ -279,7 +282,7 @@
         </div>
         <span class="separator">|</span>
         <div class="department">
-            <img src="../../../../public/assets/img/Jogos.png" alt="Jogos">
+            <img src="/Tweeb-2025/PI/public/assets/img/Jogos.png" alt="Jogos">
             <span>Jogos <i class='bx bx-chevron-right'></i></span>
             <ul class="submenu">
                 <li>
@@ -363,5 +366,5 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 </script>
-    <script src="../../../../public/js/navbar.js"></script>
+    <script src="/Tweeb-2025/PI/public/js/navbar.js"></script>
 </html>

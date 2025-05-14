@@ -156,6 +156,12 @@
 
     .fale-conosco-contact-info{
         max-width: 400px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-left: 0%;
+        text-align: center;
+        align-items: center;
     }
 
  

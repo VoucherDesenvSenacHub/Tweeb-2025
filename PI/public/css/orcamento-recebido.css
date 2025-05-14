@@ -58,6 +58,7 @@
     width: 850px;
     margin-left: 150px;
     margin-bottom: 30px;
+    margin: 30px auto; 
     
 }
 .orcamento-recebido-header {
@@ -96,6 +97,7 @@
     cursor: pointer;
     font-size: 16px;
     width: 30%;
+    
 }
 .orcamento-recebido-negacao {
     background: #ff7043;
@@ -114,6 +116,7 @@
 
 .orcamento-recebido-form{
     margin-bottom: 20px;
+    
     
 }
 
@@ -158,8 +161,8 @@ textarea {
 
 
 .foto-orcamento-jpeg i{
-
-  padding: 3px;
+  
+  padding: 10px;
 }
 .orcamento-recebido-negacao, .orcamento-recebido-responder{
     justify-content: center;
@@ -199,6 +202,13 @@ textarea {
 @media only screen and (max-width: 840px) {
     body {
         overflow-x: hidden;
+    }
+
+    .pedidos-categoria-selecionado {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-left: 50px;
     }
 
     .quantidade-pedidos2 {
@@ -297,6 +307,11 @@ textarea {
         gap: 10px;
     }
 
+    .orcamento-recebido-form{
+        margin-bottom: 20px;
+        width: 250px;
+        
+    }
     .pedidos-ui-card2, .pedidos-ui-card3 {
         width: 100%;
         height: auto;
@@ -306,6 +321,10 @@ textarea {
     .orcamento-recebido-container {
         width: 100%;
         /* padding: 5px; */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
     }
 
     .orcamento-recebido-header {

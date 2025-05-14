@@ -561,9 +561,9 @@ footer {
     background-color: #170e2b;
 }
 
-.envio-descricao{
+/* .envio-descricao{
     display: flex;
-}
+} */
 
 .endereco-card{
     color: #A2A3B1;
@@ -581,6 +581,68 @@ footer {
     color: #555;
 }
 
+
+
+
+.pix-pago-container {
+    display: flex;
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+
+    gap: 40px;
+    max-width: 900px;
+    justify-content: center;
+}
+.pix-pago-resumo, .pix-pago-pagamento {
+    flex: 1;
+}
+.pix-pago-titulo {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+.pix-pago-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 15px 0;
+    font-weight: 400;
+}
+.pix-pago-item img {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+.pix-pago-total p, .pix-pago-total h3 {
+    margin: 10px 0;
+    font-weight: 600;
+}
+.pix-pago-qrcode {
+    width: 180px;
+    height: 180px;
+    margin: 20px 0;
+}
+.pix-pago-instrucoes {
+    font-size: 14px;
+    background: #f0f0f0;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+.pix-pago-botao {
+    background: #6200ea;
+    color: white;
+    border: none;
+    padding: 12px;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 100%;
+    font-weight: 600;
+}
+.pix-pago-botao:hover {
+    background: #3700b3;
+}
 @media only screen and (max-width: 800px){
     #form-novo-endereco{
         width: 100%;

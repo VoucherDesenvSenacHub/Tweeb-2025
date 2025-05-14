@@ -34,6 +34,7 @@ body {
 }
 .voltar{
     color: #333;
+    font-family: 'poppins', 'san-serif';
     font-size: 14px;
     text-decoration: none;
     display: flex;
@@ -44,11 +45,13 @@ body {
     margin-right: 5px;
 }
 .titulo {
+    font-family: 'poppins','san-serif';
     font-size: 30px;
     text-align: left;
     margin-bottom: 20px;
 }
 .subtitulo{
+    font-family: 'poppins',sans-serif;
     color: #1C1B1F;
     opacity: 0.75;
     text-align: left;
@@ -92,6 +95,7 @@ body {
     list-style: none;
 }
 .login-utils .texto1{
+    font-family: 'poppins', 'sans-serif';
     font-size: 14px;
     color: #1C1B1F;
 }
@@ -130,37 +134,8 @@ body {
     height: auto;
     border-radius: 10px;
 }
-/* @media screen and (max-width: 1024px) {
-    .container-verificacao {
-        flex-direction: column; 
-        align-items: center;
-        justify-content: center;
-    }
-    .forms-verificacao {
-        margin-right: 0;
-        width: 100%;
-        margin-bottom: 20px;
-    }
-    .image-container-verificacao-verificacao img {
-        width: 400px; 
-        height: auto;
-    }
-} */
-/* 
-@media screen and (max-width: 600px) {
-    .container-verificacao {
-        width: 100%; 
-        padding: 20px;
-        flex-direction: column;
-    }
-    .forms-verificacao {
-        width: 100%;
-        margin-bottom: 20px;
-    }
-    .image-container-verificacao-verificacao img {
-      display: none;
-    }
-} */
+
+
 
 .voltar:hover{
     color: rgb(92, 155, 29);
@@ -169,4 +144,14 @@ body {
 .botaolinkar{
     text-decoration: none;
     color: unset;
+}
+
+@media (max-width: 768px){
+    .image-container-verificacao{
+        display: none;
+    }
+    .container-verificacao{
+        /* background-color: red; */
+        margin-left: 20px;
+    }
 }

@@ -1,0 +1,560 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+  --azul-intenso: #291E40;
+  --azul-hover: #170e2b;
+  --azul-tabela: #0C1E5B;
+}
+
+.manutencao-body {
+    font-family: "Montserrat", sans-serif;
+    background-color: white;
+}
+
+ul.categoria{
+    display: flex;
+}
+
+.categoria {
+    display:flex;
+    justify-content: space-between;
+    background-color: #3d2352;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+.categoria a{
+    color: #daaaff;;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 20px;
+    font-family: "Poppins", sans-serif;
+    font-size:16px;
+    padding: 6px;
+    text-decoration: none;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.subtitulo{
+    margin-left: 150px;
+    padding: 20px;
+    font-size: 20px;
+}
+
+
+
+
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: #f8f9fa;
+}
+.manutencao-container {
+    max-width: 1200px;
+    margin: auto;
+    /* background: #fff; */
+    padding: 30px;
+    border-radius: 8px;
+    /* box-shadow: 0 0 10px rgba(101, 97, 97, 0.1); */
+    
+
+}
+.manutencoes {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+.manutencoes .item {
+    font-size: 18px;
+    font-weight: bold;
+}
+.total { color: blue; }
+.andamento { color: orange; }
+.finalizadas { color: purple; }
+
+.manutencao-tabs {
+    display: flex;
+    /* border-bottom: 2px solid #ddd; */
+    margin: 2rem 0;
+    
+}
+.manutencao-tabs a {
+    padding: 10px;
+    text-decoration: none;
+    font-weight: 500;
+    color: #8B8B8B;
+}
+.manutencao-tabs .active {
+    font-weight: 500;
+    border-bottom: 2px solid black;
+    color: black;
+}
+
+.manutencao-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+}
+.add-os {
+    background: #563d7c;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.filter {
+    background: white;
+    border: 1px solid #ddd;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+    color: rgb(109, 109, 109);
+}
+.servicos-table .atrasado { color: #F79009; }
+.servicos-table .entregue { color: #1570EF; }
+.servicos-table .garantia { color: #667085; }
+.servicos-table .andamento { color: #12B76A; }
+
+
+
+
+
+footer {
+background-color: #2E2046;
+color: #000000;
+padding: 20px 0;
+margin-top: 30px;    
+}
+
+.footer-container {
+display: flex;
+justify-content: space-between;
+max-width: 1200px;
+margin: auto;
+font-family: "Montserrat", sans-serif;
+}
+
+
+.footer-container .logo img {
+width: 250px;
+display: inline; 
+}
+
+
+
+h3 {
+margin-left: 400px;
+margin: 00px;
+font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+
+.filter {
+width: 50px;
+height: 50px;
+border-radius: 10px;
+display: flex;
+align-items: center;
+justify-content: center;
+border: 1px solid rgba(0, 0, 0, 0.192);
+cursor: pointer;
+box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.021);
+transition: all 0.3s;
+}
+  
+.filter svg {
+height: 16px;
+fill: rgb(77, 77, 77);
+transition: all 0.3s;
+}
+.filter:hover {
+box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.11);
+background-color: rgb(59, 59, 59);
+}
+.filter:hover svg {
+fill: white;
+}
+  
+
+
+
+/* From Uiverse.io by andrew-demchenk0 */ 
+.button {
+position: relative;
+width: 160px;
+height: 40px;
+cursor: pointer;
+display: flex;
+align-items: center;
+border: 1px solid #34974d;
+background-color: #3aa856;
+}
+  
+.button, .button__icon, .button__text {
+transition: all 0.3s;
+}
+  
+.button .button__text {
+transform: translateX(30px);
+color: #fff;
+font-weight: 600;
+}
+  
+.button .button__icon {
+position: absolute;
+transform: translateX(109px);
+margin-left: 10px;
+height: 100%;
+width: 39px;
+background-color: #34974d;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+  
+.button .svg {
+width: 60px;
+stroke: #fff;
+}
+  
+.button:hover {
+background: #34974d;
+}
+  
+.button:hover .button__text {
+color: transparent;
+}
+  
+.button:hover .button__icon {
+width: 148px;
+transform: translateX(0);
+}
+  
+.button:active .button__icon {
+background-color: #2e8644;
+}
+  
+.button:active {
+border: 1px solid #2e8644;
+}
+
+
+
+
+
+
+.manutencao-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-around;
+  border-radius: 4px;
+  padding: 15px 15px;
+  width: 200px;
+  height: 99px;
+  text-align: center;
+  margin: 10px;
+  box-shadow: 5px 0px 10px 0px rgba(0, 0, 0, 0.05);
+}
+
+.stats-wrapper {
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+.heading {
+font-size: 18px;
+font-weight: bold;
+margin-bottom: 10px;
+}
+.bottom-wrapper {
+display: flex;
+align-items: center;
+gap: 10px;
+}
+.like-button {
+font-size: 24px;
+text-decoration: none;
+transition: color 0.3s ease;
+}
+.like-button:hover {
+color: darkgray !important;
+}
+.count {
+font-size: 18px;
+font-weight: bold;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.aceitas-table {
+  /* background-color:#f8f9fa; */
+  /* max-width: 1200px; */
+  width: 80%;
+  margin: auto;
+  /* margin-top: 5rem; */
+}
+
+h2 {
+  color: black;
+  margin-left: 40px;
+}
+
+.servicos-table table , .aceitas-table table{
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  white-space: nowrap;
+}
+
+.servicos-table th, .servicos-table td , .aceitas-table th, .aceitas-table td{
+  padding: 12px;
+  text-align: left;
+}
+
+.servicos-table th, .aceitas-table th{
+  font-weight: 500;
+  color: #667085;
+}
+
+.servicos-table td, .aceitas-table td{
+  color: #48505E;
+  font-weight: 500;
+  height: 48px;
+}
+
+.highlight-adm {
+  background-color: #eef3ff;
+  border-radius: 10px;
+}
+.green-text {
+  color: green;
+}
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+.pagination button {
+  border: none;
+  padding: 8px 15px;
+  margin: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+.activee {
+  background-color: black;
+  color: white;
+  border-radius: 5px;
+}
+.dropdown {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  background: #eef3ff;
+  padding: 10px;
+  border-radius: 50%;
+}
+
+.manutencao-section{
+  display: flex;
+  gap: 2rem;
+  flex-direction: column;
+}
+
+.manutencao-card p{
+  color: #5D6679;
+  font-weight: 600;
+}
+
+.manutencao-card .manutencoes-total{
+  color: #1570EF;
+}
+
+.manutencao-card .manutencoes-andamento{
+  color: #E19133;
+}
+
+.manutencao-card .manutencoes-finalizadas{
+  color: #845EBC;
+}
+
+
+/*  */
+
+.pedidos-adicionar-envio{
+  /* position: absolute; */
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  right: 17rem;
+  width: 157px;
+  height: 33px;
+  padding: 8px;
+  border-radius: 4px;
+  background-color: var(--azul-intenso);
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.pedidos-adicionar-envio:hover{
+  background-color: var(--azul-hover);
+}
+
+.pedidos-adicionar-envio img{
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.pedidos-adicionar-envio p{
+  font-size: 13px;
+  font-weight: 600;
+  color: white;
+}
+
+.servicos-table h1, .aceitas-table h1{
+  font-size: 20px;
+  color: #383E49;
+  font-weight: 500;
+}
+
+.manutencoes-aceitas{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+  height: 95px;
+  width: 80%;
+  background-color: #D4E3FF;
+  border-radius: 12px;
+  margin: auto;
+  margin-bottom: 5rem;
+  margin-top: 2rem;
+}
+
+.manutencoes-aceitas p{
+  font-size: 22px;
+  color: var(--azul-intenso);
+  font-weight: 600;
+}
+
+.manutencoes-aceitas .botao-out{
+  cursor: pointer;
+  background-color: #c2d5f9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+}
+.manutencoes-aceitas .botao-inner{
+  display: flex;
+  background-color: #F3F9FB;
+  border-radius: 50%;
+  padding: 5px;
+
+}
+
+.manutencoes-cards{
+  display: flex;
+  gap: 2rem;
+}
+
+.manutencao-section h1{
+  color: #383E49;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+@media only screen and (max-width: 800px){
+
+  .servicos-table, .aceitas-table{
+    overflow: auto;
+  }
+}
+
+@media only screen and (max-width: 680px){
+
+  .manutencoes-cards{
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .manutencao-section{
+    align-items: center;
+    gap: 2rem;
+    margin: 2rem 0;
+  }
+
+  .manutencao-actions, .manutencao-tabs{
+    justify-content: center;
+    margin: 5rem 0;
+  }
+
+}

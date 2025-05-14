@@ -34,7 +34,7 @@
                     <input type="password" id="senha" placeholder="Digite sua senha" required>
                 </div>
 
-                <button type="submit" class="btn-esqueceu"><a class="botaolinkar" href="">Login</a></button>
+                <button type="submit" class="btn-esqueceu"><a class="botaolinkar" href="painel-adm.php">Login</a></button>
                 <div class="linha">
 
                 </div>

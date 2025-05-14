@@ -1,3 +1,7 @@
+<?php
+session_start(); // Iniciando a sessão para manipulação das respostas
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -7,18 +11,10 @@
     <title>Site_PI</title>
     <link rel="stylesheet" href="../../../../public/css/pagina_3_pesquisa_cadastro.css">
 
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
 </head>
@@ -31,10 +27,10 @@
             <input type="search" placeholder="Busca" class="pesquisa3-cadastro-input">
         </div>
         <div class="pesquisa3-cadastro-links-header-container">
-            <a href="PI/App/user/View/pages/cadastro.php" class="pesquisa3-cadastro-header-p-cadastro">
+            <a href="./cadastro.php" class="pesquisa3-cadastro-header-p-cadastro">
                 Cadastro
             </a>
-            <a href="#" class="pesquisa3-cadastro-header-p-sobre">
+            <a href="./quemsomos.php" class="pesquisa3-cadastro-header-p-sobre">
                 Sobre
             </a>
         </div>
@@ -54,37 +50,41 @@
             Não esqueça de dar uma espiadinha em nossos planos promocionais.
         </h2>
     </div>
-    <div class="pesquisa3-cadastro-cards-container">
-        <div class="pesquisa3-cadastro-card1">
-            <img src="../../../../public/assets/img/fone 1.png" alt="" class="pesquisa3-cadastro-img-card1">
-            <h1 class="pesquisa3-cadastro-h1-card1">
-                Uma compra pessoal.
-            </h1>
-            <h2 class="pesquisa3-cadastro-h2-card1">
-                Estou procurando algo que atenda às minhas necessidades individuais e ao meu gosto pessoal. 
-            </h2>
+
+    <!-- Formulário para salvar as respostas -->
+    <form action="../../controllers/processar_preferencia3.php" method="POST">
+        <div class="pesquisa3-cadastro-cards-container">
+            <div class="pesquisa3-cadastro-card1 card-opcao">
+                <img src="../../../../public/assets/img/fone 1.png" alt="" class="pesquisa3-cadastro-img-card1">
+                <h1 class="pesquisa3-cadastro-h1-card1">
+                    <input type="radio" name="compra_tipo" value="pessoal" id="compra_pessoal" required> Uma compra pessoal.
+                </h1>
+                <h2 class="pesquisa3-cadastro-h2-card1">
+                    Estou procurando algo que atenda às minhas necessidades individuais e ao meu gosto pessoal. 
+                </h2>
+            </div>
+
+            <div class="pesquisa3-cadastro-card2 card-opcao">
+                <img src="../../../../public/assets/img/Instagram Post Dia Internacional do Gamer Tech Preto e Rosa (5) 1.png" alt="" class="pesquisa3-cadastro-img-card2">
+                <h1 class="pesquisa3-cadastro-h1-card2">
+                    <input type="radio" name="compra_tipo" value="corporativa" id="compra_corporativa" required> Uma compra corporativa.
+                </h1>
+                <h2 class="pesquisa3-cadastro-h2-card2">
+                    Precisamos de produtos ou serviços que possam atender às demandas da nossa empresa e que sejam adequados para um ambiente corporativo.
+                </h2>
+            </div>
         </div>
 
-        <div class="pesquisa3-cadastro-card2">
-            <img src="../../../../public/assets/img/Instagram Post Dia Internacional do Gamer Tech Preto e Rosa (5) 1.png" alt="" class="pesquisa3-cadastro-img-card2">
-            <h1 class="pesquisa3-cadastro-h1-card2">
-                Uma compra corporativa.
-            </h1>
-            <h2 class="pesquisa3-cadastro-h2-card2">
-                Precisamos de produtos ou serviços que possam atender às demandas da nossa empresa e que sejam adequados para um ambiente corporativo.
-            </h2>
+        <div class="pesquisa3-cadastro-continuar-button-container">
+            <button type="submit" class="pesquisa3-cadastro-button">Continuar</button>
         </div>
-    </div>
-    <div class="pesquisa3-cadastro-continuar-button-container">
-        <div class="pesquisa3-cadastro-continuar-button">
-            <a href="../../../../home.php" class="pesquisa3-cadastro-link-continuar">
-                Continuar
-            </a>
-        </div>
-    </div>
+    </form>
+
     <footer class="pesquisa3-cadastro-footer">
         <div class="pesquisa3-cadastro-barra-roxa-footer"></div>
     </footer>
+
     <script src="../../../../public/js/pesquisa3.js"></script>
 </body>
+
 </html>

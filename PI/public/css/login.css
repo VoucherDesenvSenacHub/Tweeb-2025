@@ -74,7 +74,7 @@
     color: rgb(114, 113, 113);
     font-weight: 600;
     margin-top: 20px; 
-    transition: background 0.3s;
+    transition: 0.3s;
 }
 
 .btn:hover {
@@ -95,7 +95,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: background 0.3s;
+    transition: 0.3s;
 }
 
 .bt:hover {
@@ -194,7 +194,6 @@
 
 @media (max-width:425px){
     .forms{
-        /* background-color: red; */
         margin-left: 20px;
     }
 }
@@ -204,7 +203,6 @@
         display: none; 
      }
     .forms{
-        /* background-color: red; */
         margin-left: 120px;
     }
 
@@ -217,13 +215,11 @@
         display: none;
     }
     .forms{
-        /* background-color: red; */
+       
         display: flex;
-        /* flex-wrap: wrap; */
         margin-left: -8%; 
         font-size: 3vw;
-        /* justify-content: center;
-        align-items: center; */
+       
        
     }
     .remember-forgot{
@@ -236,13 +232,14 @@
 }
 
 @media (max-width: 320px){
+    .image-container{
+        display: none;
+    }
     .forms{
-        /* background-color: red; */
         margin-right: 20%;
         font-size: 3vw;
     }
     .remember-forgot{
-        /* background-color: red; */
         font-size: 3vw;
     }
 }

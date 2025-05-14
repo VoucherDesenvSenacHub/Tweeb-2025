@@ -44,7 +44,7 @@
 
             <div class="buy-buttons">
                 <button class="add-carrinho">Adicionar ao carrinho</button>
-                <button class="comprar-agora">Comprar Agora</button>
+                <a href="Carrinho.php"><button class="comprar-agora">Comprar Agora</button></a>
             </div>
 
             <div class="card-infos">

@@ -183,12 +183,13 @@ body {
     margin-top: 140px;
 }
 
-h1 {
-    font-size: 20px;
+.selecione-endereco h1 {
+    font-size: 16px;
     color: #17183B;
     text-align: center;
     padding: 25px;
     /* align-self: flex-start; */
+    margin-bottom: 30px;
 }
 
 .step-indicator {
@@ -639,7 +640,7 @@ footer {
     left: 0;
     top: 0;
     width: 100%;
-    height: 100%;
+    /* height: 100%; */
     overflow: auto;
     background-color: rgba(0,0,0,0.4);
 }
