@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <?php include __DIR__.'/../../../../includes/headernavb.php'; ?>
+<?php include __DIR__.'/../../../../includes/headernavb.php'; ?>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- <link rel="stylesheet" href="public/css/navbar.css"> -->
@@ -20,7 +20,7 @@
     <title>Tweeb</title>
 </head>
 <body class="do-seu-jeito-body">
-<?php include __DIR__.'/../../../../includes/navbar.php'; ?>
+<?php include __DIR__.'/../../../../includes/navbar-logada.php'; ?>
 
     <img src="../../../../public/assets/img/banner-do-seu-jeito.png" alt="Banner" class="do-seu-jeito-banner1">
 

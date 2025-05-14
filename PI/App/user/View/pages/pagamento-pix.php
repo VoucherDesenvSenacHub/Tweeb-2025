@@ -1,4 +1,13 @@
-
+<?php
+if (session_status() !== PHP_SESSION_ACTIVE) {
+    session_start();
+}
+if (!isset($_SESSION['usuario']['id'])) {
+    // Redireciona para login se não estiver logado
+    header('Location: login.php');
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -10,7 +19,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 </head>
 <body>
-<?php include __DIR__.'/../../../../includes/navbar.php'; ?>
+<?php include __DIR__.'/../../../../includes/navbar-logada.php'; ?>
 <?php include __DIR__.'/../../../../includes/sidebar-User.php'; ?>
 
 <div class="container">
@@ -48,26 +57,26 @@
             <h2 class="pix-pago-titulo">Resumo da Compra</h2>
             <div class="pix-pago-item">
                 <img src="../../../../public/assets/img/image 56.png" alt="Placa de vídeo">
-                <span>Placa de vídeo gtx 1660</span>
+                <span class="nome-produto-pix">PLACA DE VÍDEO GTX 1660</span>
                 <span>R$1.399,99</span>
             </div>
             <div class="pix-pago-item">
                 <img src="../../../../public/assets/img/image 56.png" alt="Monitor Samsung">
-                <span>MONITOR SMART SAMSUNG M5</span>
+                <span class="nome-produto-pix">MONITOR SMART SAMSUNG M5</span>
                 <span>R$1.899,99</span>
             </div>
             <div class="pix-pago-item">
                 <img src="../../../../public/assets/img/image 56.png" alt="SSD Samsung">
-                <span>SSD SAMSUNG 990 PRO, 4TB</span>
+                <span class="nome-produto-pix">SSD SAMSUNG 990 PRO, 4TB</span>
                 <span>R$3.239,00</span>
             </div>
             <p class="pix-pago-endereco">Endereço: Rua Capiatá, Novos Estados, 270, Campo Grande - MS</p>
             <p class="pix-pago-envio">Método de envio: Grátis</p>
             <div class="pix-pago-total">
-                <p>Subtotal: R$6.599,97</p>
-                <p>Imposto estimado: R$50</p>
-                <p>Manuseios: R$29</p>
-                <h3>Total: R$6.678,97</h3>
+                <p class="pix-resumo-compra">Subtotal: R$6.599,97</p>
+                <p class="pix-resumo-compra">Imposto estimado: R$50</p>
+                <p class="pix-resumo-compra">Manuseios: R$29</p>
+                <h3 class="pix-resumo-compra">Total: R$6.678,97</h3>
             </div>
         </div>
         <div class="pix-pago-pagamento">

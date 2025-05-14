@@ -18,7 +18,7 @@
         <div class="content_banner_sobre_nos">
             <img class="img_sobre_banner" src="../../../../public/assets/img/Apresentação Empresarial Moderna Azul e Verde.png" alt="">
             <div class="content_coteudo_banner_sobre">
-                <h4 class="text_top_sobre"> Tweeb, inovação ao seu alcance!</h4>
+                <h4 class="text_top_sobre"> Tweeb!</h4>
                 <h5 class="text_bottom_sobre">Soluções em informática, tecnologia e serviços digitais para transformar sua experiência online. </h4>
                 <button class="btn_sobre"> <a href="#contato-fale">Fale Conosco</a></button>
             </div>

@@ -1,8 +1,7 @@
-<?php include __DIR__.'/../../../../includes/headernavb.php'; ?>
-<?php include __DIR__.'/../../../../includes/navbar.php'; ?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
+<?php include __DIR__.'/../../../../includes/headernavb.php'; ?>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../../../public/css/task20.css">
@@ -19,6 +18,7 @@
     <title>Tweeb</title>
 </head>
 <body class="task20-kitsetup">
+<?php include __DIR__.'/../../../../includes/navbar-logada.php'; ?>
 
 
 
