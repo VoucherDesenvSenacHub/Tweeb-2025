@@ -5,21 +5,20 @@
     background-color: aliceblue;
 }
 
-body.modal-ativo > *:not(.ModalAltSenha-container) {
-    filter: blur(5px);
-    pointer-events: none;
-    user-select: none;
-}
-
-
-.ModalAltSenha-container{
+.ModalAltSenha-container {
+    position: fixed; /* fixa na tela */
+    top: 0;
+    left: 0;
     width: 100vw;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.4); /* adiciona sombra no fundo */
+    z-index: 9999; /* garante que o modal fique por cima de tudo */
 }
+
 
 .ModalAltSenha-modal{
     width: 30%;
@@ -59,6 +58,11 @@ body.modal-ativo > *:not(.ModalAltSenha-container) {
 
 .ModalAltSenha-mensagem{
     font-family: "Inter", sans-serif;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+    margin: 1rem 0;
+    font-weight: 300;
 }
 
 

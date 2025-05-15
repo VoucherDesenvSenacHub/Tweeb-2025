@@ -4,10 +4,19 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
 }
 
 require_once __DIR__ . '/../../Controllers/AlterarSenhaProcess.php';
+AlterarSenhaController::processarFormulario(); // processa se for POST
 
-$mensagem = AlterarSenhaController::processarFormulario();
 $mensagemModal = $_GET['status'] ?? null;
 ?>
+
+<?php if (!empty($mensagemModal)): ?>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        abrirModal("<?= htmlspecialchars($mensagemModal) ?>");
+    });
+</script>
+<?php endif; ?>
+
 
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -17,6 +26,7 @@ $mensagemModal = $_GET['status'] ?? null;
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alterar senha</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../../../../public/css/ModalAlterarSenhaUser.css">
 </head>
 <body>
 
@@ -38,8 +48,6 @@ $mensagemModal = $_GET['status'] ?? null;
                 <div class="fio"></div>
             </div>
         </div>
-
-    
                <!-- Campos para alterar senha -->
                 <?php if (!empty($mensagem)): ?>
                     <div style="color: red; font-weight: bold; margin-bottom: 10px;">
@@ -68,7 +76,33 @@ $mensagemModal = $_GET['status'] ?? null;
                     <button class="botao-alterar-senha" type="submit">Salvar alteração</button>
                 </div>
             </form>
+
+            <div class="ModalAltSenha-container" id="modalAlterarSenha" style="display: none;">
+                <div class="ModalAltSenha-modal">
+                    <img src="../../../../public/assets/img/logo_tweeb__1_-removebg-preview copy.png" class="ModalAltSenha-img">
+                    <h2 class="ModalAltSenha-mensagem" id="ModalAltSenhaMensagem"></h2>
+                    <button class="ModalAltSenha-button" id="ModalAltSenha-button">
+                        Entendi
+                    </button>
+                </div>
+            </div>
+
+            <?php if (!empty($mensagemModal)): ?>
+            <script>
+                document.addEventListener("DOMContentLoaded", function() {
+                    abrirModal("<?= htmlspecialchars($mensagemModal) ?>");
+
+                    // Limpa o parâmetro da URL após exibir o modal
+                    if (history.replaceState) {
+                        const url = window.location.href.split("?")[0];
+                        history.replaceState(null, "", url);
+                    }
+                });
+            </script>
+            <?php endif; ?>
+
     </div>
+</div>
 </div>
 <?php include __DIR__.'/../../../../includes/footer.php'; ?>
 <script src="../../../../public/js/ModalAltSenha.js"></script>
