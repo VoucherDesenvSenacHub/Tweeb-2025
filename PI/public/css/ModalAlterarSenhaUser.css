@@ -1,0 +1,74 @@
+.ModalAltSenha-body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: aliceblue;
+}
+
+body.modal-ativo > *:not(.ModalAltSenha-container) {
+    filter: blur(5px);
+    pointer-events: none;
+    user-select: none;
+}
+
+
+.ModalAltSenha-container{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.ModalAltSenha-modal{
+    width: 30%;
+    height: 50%;
+    background-color: rgb(255, 255, 255);
+    border-radius: 3%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.ModalAltSenha-img{
+    width: 40%;
+    height: 20%;
+}
+
+.ModalAltSenha-button{
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    width: 20%;
+    height: 10%;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ModalAltSenha-text-button{
+    font-family: "Montserrat", sans-serif;
+    font-size: 14px;
+}
+.ModalAltSenha-button:hover{
+    background-color: #45a049;
+}
+
+.ModalAltSenha-mensagem{
+    font-family: "Inter", sans-serif;
+}
+
+
+@media (max-width: 768px) {  
+    .btn_salvar {
+      width: 100%;
+    }
+}
+@media (max-width: 480px) {
+    .btn_salvar {
+      font-size: 14px;
+    }
+  }
