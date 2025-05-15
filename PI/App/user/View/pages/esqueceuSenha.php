@@ -10,18 +10,18 @@
 <body>
     <div class="container-esqueceu">
         <div class="forms-esqueceu">
-            <form action="">
+            <form action="../../Controllers/esqueceu_senha.php" method="POST">
                 <a href="../../../../home.php" class="back-link"><i class='bx bx-chevron-left'></i> Voltar</a>
                 <h1 class="tit">Esqueceu sua senha?</h1>
                 <p class="descrit">Não se preocupe, isso acontece com todos nós. Digite seu e-mail abaixo para recuperar sua senha.</p>
                 
                 <div class="input-box-esqueceu">
                     <label for="email">Email</label>
-                    <input type="email" id="email" placeholder="Digite seu email" required>
+                    <input type="email" id="email" name="email" placeholder="Digite seu email" required>
                     <i class='bx bxs-envelop'></i>
                 </div>
 
-                <button type="submit" class="btn-esqueceu"><a class="botaolinkar" href="codVerificacao.php">Continuar</a></button>
+                <input type="submit" class="btn-esqueceu">
                 <div class="linha">
                     <p class="linha-1"></p>
                     <p class="p1"> ou faça login com </p>
