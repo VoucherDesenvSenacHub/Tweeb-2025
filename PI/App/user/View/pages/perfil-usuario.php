@@ -28,10 +28,43 @@ if (!isset($_SESSION['usuario']['id'])) {
         <button class="perfil-tweeb-editar">Oi <?php echo htmlspecialchars($_SESSION['usuario']['nome']); ?>, 👋🏼 </button>
         
         <div class="perfil-tweeb-header">
-            <div class="perfil-tweeb-imagem">
-                <img src="../../../../public/assets/img/foto-perfil-comentarios.jpg" alt="Foto de perfil">
-                <button class="perfil-tweeb-editar-foto"><i class="fa-regular fa-pen-to-square" style="color: #4b5563;"></i></button>
-            </div>
+        <div class="perfil-foto-container">
+        <!-- Foto do usuário -->
+        <?php
+        $caminhoFoto = '../../../../public/uploads/fotos_perfil/';
+        $foto = $_SESSION['usuario']['foto_perfil'] ?? 'default.jpg';
+        $fotoPath = $caminhoFoto . $foto;
+
+        if (!file_exists($fotoPath) || empty($foto)) {
+            $foto = 'default.jpg';
+        }
+        ?>
+
+        <img
+        src="../../../../public/uploads/fotos_perfil/<?=
+            htmlspecialchars($_SESSION['usuario']['foto_perfil'] ?? 'default.jpg')
+        ?>"
+        alt="Foto de perfil"
+        class="foto-perfil"
+        />
+
+        <!-- Botão 1: editar dados (já existente) -->
+        <button class="btn-editar-dados" type="button">
+            <i class="fa-regular fa-pen-to-square"></i>
+        </button>
+
+        <!-- Botão 2: upload de nova foto -->
+        <label for="inputFotoPerfil" class="btn-upload-foto">
+            <i class="fa-solid fa-camera"></i>
+        </label>
+
+        <!-- Formulário escondido -->
+        <form id="formFotoPerfil" action="../../Controllers/upload-foto.php" method="POST" enctype="multipart/form-data" style="display: none;">
+            <input type="file" name="foto_perfil" id="inputFotoPerfil" accept="image/*"
+                onchange="document.getElementById('formFotoPerfil').submit();">
+        </form>
+    </div>
+
             <div class="perfil-tweeb-info">
                 <h1><?php echo htmlspecialchars($_SESSION['usuario']['nome']); ?></h1>
                 <p class="perfil-tweeb-email"><?php echo htmlspecialchars($_SESSION['usuario']['email']); ?></p>
