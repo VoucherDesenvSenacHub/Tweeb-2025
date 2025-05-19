@@ -90,6 +90,15 @@
   cursor: pointer;
 }
 
+.pedidos-categoria-selecionado .categorias-estoque a{
+  font-size: 18px;
+  font-weight: 500;
+  color: #8B8B8B;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+
 .pedidos-categoria-selecionado .categorias-estoque span p{
   color: black;
   border-bottom: 2px solid black;
