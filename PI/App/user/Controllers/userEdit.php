@@ -31,5 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
+
+
 $usuario = $usuarioModel->buscarPorId($id);
 include __DIR__ . '/../view/user/perfil.php';

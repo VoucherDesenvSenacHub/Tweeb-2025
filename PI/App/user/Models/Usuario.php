@@ -16,4 +16,9 @@ class Usuario {
     public function atualizar($id, $dados) {
         return $this->db->update($dados, "id = $id");
     }
+
+    public function excluir($id) {
+        $result = $this->db->delete("id = $id");
+        return $result->fetch(PDO::FETCH_ASSOC);
+    }
 }
