@@ -89,7 +89,6 @@ if (!isset($_SESSION['usuario']['id'])) {
                 <button type="submit" class="perfil-tweeb-salvar">Salvar alteração</button>
                 <button type="submit" class="perfil-tweeb-excluir" onClick="deletaUsuario()">Excluir</button>
             </div>
-
         </form>
     </div>
 </div>

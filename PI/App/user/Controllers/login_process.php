@@ -39,6 +39,7 @@ class Login {
         header('Location: /Tweeb-2025/PI/app/user/view/pages/login.php');
         exit;
     }
+    
 }
 
 // Processamento do formulário

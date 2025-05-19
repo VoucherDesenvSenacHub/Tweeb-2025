@@ -7,6 +7,15 @@ class Usuario {
     public function __construct() {
         $this->db = new Database('usuarios'); // Nome da sua tabela
     }
+    public function excluir($id){
+        $endereco = new Database('enderecos');
+        $endeco->delete("id = $id");
+
+        $clientes = new Database('clientes');
+        $clientes->delete ("id = $id");
+
+        return $this->db->delete("id = $id");
+    }
 
     public function buscarPorId($id) {
         $result = $this->db->select("id = $id");
@@ -15,10 +24,5 @@ class Usuario {
 
     public function atualizar($id, $dados) {
         return $this->db->update($dados, "id = $id");
-    }
-
-    public function excluir($id) {
-        $result = $this->db->delete("id = $id");
-        return $result->fetch(PDO::FETCH_ASSOC);
     }
 }

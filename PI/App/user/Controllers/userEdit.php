@@ -16,10 +16,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         'nome'     => $_POST['primeiro-nome'] ?? '',
         'email'    => $_POST['email'] ?? '',
         'telefone' => $_POST['telefone'] ?? '',
-        'endereco' => $_POST['endereco'] ?? '',
-        'bairro'   => $_POST['bairro'] ?? '',
-        'cep'      => $_POST['cep'] ?? '',
-        'estado'   => $_POST['estado'] ?? '',
     ];
 
     if ($usuarioModel->atualizar($id, $dados)) {
@@ -32,6 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 
-
 $usuario = $usuarioModel->buscarPorId($id);
-include __DIR__ . '/../view/user/perfil.php';
+include __DIR__ . '/../view/pages/perfil-usuario.php';
+include __DIR__ . './logout.php';
+                                                                                                                                
