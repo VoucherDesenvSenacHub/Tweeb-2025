@@ -203,6 +203,25 @@ label[for="sobrenome"] {
     margin: 0%;
 }
 
+.btn-upload-foto {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: white;
+    border-radius: 50%;
+    border: 1px solid #ccc;
+    padding: 8px;
+    cursor: pointer;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.carregar-foto {
+    font-size: 18px;
+    color: #4b5563;
+}
+
+  
+
 .perfil-foto-container {
     width: 150px;
     height: 150px;
@@ -239,29 +258,6 @@ label[for="sobrenome"] {
     font-size: 16px;
     color: #4b5563;
   }
-  
-  /* Botão de upload de foto – canto superior esquerdo */
-  .btn-upload-foto {
-    position: absolute;
-    top: 0;
-    left: 0;
-    background: white;
-    border-radius: 50%;
-    border: 1px solid #ccc;
-    padding: 8px;
-    cursor: pointer;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-  }
-  
-  .btn-upload-foto i {
-    font-size: 16px;
-    color: #4b5563;
-  }
-  
-
-
-
-
 
 /* RESPONSIVIDADE */
 @media (max-width: 768px) {
