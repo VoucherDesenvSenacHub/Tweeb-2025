@@ -96,7 +96,7 @@
         <div class="cadastrando-products">
             <nav>
                 <a href="#" class="active">Novo Produto</a>
-                <a href="#">Cadastrados</a>
+                <a href="listarProdutos.php">Cadastrados</a>
             </nav>
             <h2>Detalhes do Produto</h2>
             <form id="product-form">
