@@ -9,7 +9,7 @@ class Usuario {
     }
     public function excluir($id){
         $endereco = new Database('enderecos');
-        $endeco->delete("id = $id");
+        $endereco->delete("id = $id");
 
         $clientes = new Database('clientes');
         $clientes->delete ("id = $id");

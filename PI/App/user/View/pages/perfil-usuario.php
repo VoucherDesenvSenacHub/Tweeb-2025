@@ -18,6 +18,7 @@ if (!isset($_SESSION['usuario']['id'])) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
+    
 
 <?php include __DIR__.'/../../../../includes/navbar-logada.php'; ?>
 <?php include __DIR__.'/../../../../includes/sidebar-User.php'; ?>
@@ -87,13 +88,21 @@ if (!isset($_SESSION['usuario']['id'])) {
             <div class="perfil-tweeb-botoes">
                 <button type="button" class="perfil-tweeb-cancelar">Cancelar</button>
                 <button type="submit" class="perfil-tweeb-salvar">Salvar alteração</button>
-                <button type="submit" class="perfil-tweeb-excluir" onClick="deletaUsuario()">Excluir</button>
+                
             </div>
+            
         </form>
+        <button type="button" class="perfil-tweeb-excluir" onClick="deletaUsuario()">Excluir</button>
     </div>
 </div>
 
-<script src="perfil-usuario.js"></script>
+<script src="../../../../public/js/perfil-usuario.js" defer></script>
 <?php include __DIR__.'/../../../../includes/footer.php'; ?>
+
+<script>
+    const usuarioID  = <?php echo json_encode($_SESSION['usuario']['id']);
+        
+    ?>
+</script>
 </body>
 </html>

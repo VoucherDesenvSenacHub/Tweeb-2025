@@ -15,24 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
     botaoCancelar.style.display = "none";
     botaoExcluir.style.display  = "none";
 
-    function deletaUsuario() {
-        const confirma = confirm("Tem certeza que deseja excluir sua conta?");
-        
-        if (!confirma) return;
-
-        fetch("http://localhost/tweeb-2025/PI/public/api/deletar_usuario.php",{
-                method: "DELETE",
-                headers: {
-                    "Content-Type": "application/x-www-form-urlencoded"
-                },
-                body: "id"
-        })
-        .then(res => res.json())
-        .then(result => {
-            alert(result.mensagem || result.mensagem);
-        })
-        .catch(err => console.err("Erro:", err))
-    }
+   
 
     // Torna os campos editáveis ao clicar no ícone de editar
     botaoEditarFoto.addEventListener("click", () => {
@@ -77,3 +60,22 @@ document.addEventListener("DOMContentLoaded", () => {
         header.classList.remove("margin-top-aumentado");
     });
 });
+
+function deletaUsuario() {
+    const confirma = confirm("Tem certeza que deseja excluir sua conta?");
+    
+    if (!confirma) return;
+
+    fetch("http://localhost/tweeb-2025/PI/public/api/deletar_usuario.php",{
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded"
+            },
+            body: `id=${encodeURIComponent(usuarioID)}`
+    })
+    .then(res => res.json())
+    .then(result => {
+        alert(result.mensagem || result.mensagem);
+    })
+    .catch(err => console.error("Erro:", err))
+}
