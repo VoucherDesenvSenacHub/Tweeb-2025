@@ -38,7 +38,7 @@ switch($_SERVER['REQUEST_METHOD']){
     <div class="container-resetar">
         <div class="forms-resetar">
             <form method="POST">
-                <a href="#" class="voltar"><i class='bx bx-chevron-left'></i>< Voltar</a>
+                <a href="./login.php" class="voltar"><i class='bx bx-chevron-left'></i>< Voltar</a>
                 <h1 class="titulo">Refazer Senha</h1>
                 <p class="sutitulo">Sua conta irá ser resetada. Por favor, digite uma nova senha para sua conta.</p>
                 
