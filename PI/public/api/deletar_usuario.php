@@ -16,7 +16,7 @@ $usuario = new  Usuario($db);
 
 if($usuario->excluir($id)) {
     echo json_encode(["mensagem" => "Usuário excluído com sucesso."]); session_destroy();
-    header("Location: /Tweeb-2025/PI/");
+    header("Location: /Tweeb-2025/PI/app/user/view/pages/login.php");
 }else {
     http_response_code(500);
     echo json_encode(["erro" => "Erro ao excluir usuário"]);
