@@ -73,9 +73,15 @@ function deletaUsuario() {
             },
             body: `id=${encodeURIComponent(usuarioID)}`
     })
-    .then(res => res.json())
-    .then(result => {
-        alert(result.mensagem || result.mensagem);
-    })
-    .catch(err => console.error("Erro:", err))
+    .then(res => res.text()) // pega a resposta como texto bruto
+    .then(data => {
+    try {
+      const result = JSON.parse(data); // tenta converter em JSON
+      alert(result.mensagem || "Operação realizada com sucesso!");
+    } catch (e) {
+      // Se não for JSON, mostra o texto bruto
+      alert(data); 
+    }
+  })
+  .catch(err => console.error("Erro:", err));
 }

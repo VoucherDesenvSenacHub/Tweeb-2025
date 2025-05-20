@@ -14,8 +14,9 @@ if (!$id) {
 $db = new Database();
 $usuario = new  Usuario($db);
 
-if($usuario->delete->excluir($id)) {
-    echo json_encode(["mensagem" => "Usuário excluído com sucesso."]);
+if($usuario->excluir($id)) {
+    echo json_encode(["mensagem" => "Usuário excluído com sucesso."]); session_destroy();
+    header("Location: /Tweeb-2025/PI/");
 }else {
     http_response_code(500);
     echo json_encode(["erro" => "Erro ao excluir usuário"]);
