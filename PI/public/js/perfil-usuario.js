@@ -63,25 +63,27 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function deletaUsuario() {
     const confirma = confirm("Tem certeza que deseja excluir sua conta?");
-    
     if (!confirma) return;
 
-    fetch("http://localhost/tweeb-2025/PI/public/api/deletar_usuario.php",{
-            method: "DELETE",
-            headers: {
-                "Content-Type": "application/x-www-form-urlencoded"
-            },
-            body: `id=${encodeURIComponent(usuarioID)}`
+    fetch("http://localhost/tweeb-2025/PI/public/api/deletar_usuario.php", {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+        },
+        body: `id=${encodeURIComponent(usuarioID)}`
     })
-    .then(res => res.text()) // pega a resposta como texto bruto
+    .then(res => res.text())
     .then(data => {
-    try {
-      const result = JSON.parse(data); // tenta converter em JSON
-      alert(result.mensagem || "Operação realizada com sucesso!");
-    } catch (e) {
-      // Se não for JSON, mostra o texto bruto
-      alert(data); 
-    }
-  })
-  .catch(err => console.error("Erro:", err));
+        try {
+            const result = JSON.parse(data);
+            alert(result.mensagem || "Operação realizada com sucesso!");
+            if (result.mensagem) {
+                console.log("Redirecionando...");
+                window.location.href = "/Tweeb-2025/PI/app/user/view/pages/login.php";
+            }
+        } catch (e) {
+            alert(data); 
+        }
+    })
+    .catch(err => console.error("Erro:", err));
 }

@@ -1,5 +1,4 @@
 <?php
-require __DIR__. '/../../App/DB/Database.php';
 require __DIR__. '/../../App/user/Models/Usuario.php';
 
 parse_str(file_get_contents("php://input"), $_DELETE);
@@ -15,8 +14,9 @@ $db = new Database();
 $usuario = new  Usuario($db);
 
 if($usuario->excluir($id)) {
-    echo json_encode(["mensagem" => "Usuário excluído com sucesso."]); session_destroy();
-    header("Location: /Tweeb-2025/PI/app/user/view/pages/login.php");
+    session_start();
+    session_destroy();
+    echo json_encode(["mensagem" => "Usuário excluído com sucesso."]);  
 }else {
     http_response_code(500);
     echo json_encode(["erro" => "Erro ao excluir usuário"]);

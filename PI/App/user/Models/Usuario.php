@@ -8,8 +8,8 @@ class Usuario {
         $this->db = new Database('usuarios'); // Nome da sua tabela
     }
     public function excluir($id){
-        $endereco = new Database('enderecos');
-        $endereco->delete("id = $id");
+        // $endereco = new Database('enderecos');
+        // $endereco->delete("id = $id");
 
         $clientes = new Database('clientes');
         $clientes->delete ("id_usuario = $id");
