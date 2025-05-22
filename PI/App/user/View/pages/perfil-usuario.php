@@ -7,6 +7,12 @@ if (!isset($_SESSION['usuario']['id'])) {
     header('Location: login.php');
     exit();
 }
+function mascararCPF($cpf) {
+    $cpf = preg_replace('/\D/', '', $cpf);
+    if (strlen($cpf) !== 11) return '';
+    return '***.***.***-' . substr($cpf, 9, 2);
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -43,46 +49,49 @@ if (!isset($_SESSION['usuario']['id'])) {
         <form class="perfil-tweeb-form" method="POST" action="../../Controllers/userEdit.php">
             <div class="perfil-tweeb-input-group">
                 <label for="primeiro-nome">Primeiro nome</label>
-                <input type="text" id="primeiro-nome" value="<?php echo htmlspecialchars($_SESSION['usuario']['nome']); ?>">
+                <input type="text" id="primeiro-nome" name="nome" value="<?php echo htmlspecialchars($_SESSION['usuario']['nome']); ?>">
             </div>
 
             <div class="perfil-tweeb-input-group">
                 <label for="sobrenome">Sobrenome</label>
-                <input type="text" id="sobrenome2" value="">
+                <input type="text" id="sobrenome" name="sobrenome"value="<?php echo htmlspecialchars($_SESSION['usuario']['sobrenome'] ?? ''); ?>">
             </div>
             <div class="perfil-tweeb-input-group">
                 <label for="cpf">CPF*</label>
-                <input type="text" id="cpf" disabled value="<?php echo htmlspecialchars($_SESSION['usuario']['cpf']); ?>">
+                <input type="text" id="cpf" disabled value="<?php echo mascararCPF($_SESSION['usuario']['cpf']); ?>">
             </div>
 
             <div class="perfil-tweeb-input-group">
                 <label for="email">Email</label>
-                <input type="email" id="email" value="<?php echo htmlspecialchars($_SESSION['usuario']['email']); ?>">
+                <input type="email" id="email" name="email" value="<?php echo htmlspecialchars($_SESSION['usuario']['email']); ?>">
             </div>
 
             <div class="perfil-tweeb-input-group">
                 <label for="telefone">Telefone</label>
-                <input type="text" id="telefone" value="">
+                <input type="text" id="telefone" name="telefone"value="<?php echo htmlspecialchars($_SESSION['usuario']['telefone'] ?? ''); ?>">
+            </div>
+            <div class="perfil-tweeb-input-group">
+                <label for="cep">CEP</label>
+                <input type="text" id="cep" name="cep" value="<?php echo htmlspecialchars($_SESSION['usuario']['cep'] ?? ''); ?>">
             </div>
 
             <div class="perfil-tweeb-input-group">
-                <label for="endereco">Endereço</label>
-                <input type="text" id="endereco" value="">
+                <label for="rua">Rua</label>
+                <input type="text" id="rua" name="rua" value="<?php echo htmlspecialchars($_SESSION['usuario']['rua'] ?? ''); ?>">
             </div>
 
             <div class="perfil-tweeb-input-group">
                 <label for="bairro">Bairro</label>
-                <input type="text" id="bairro" value="">
+                <input type="text" id="bairro" name="bairro" value="<?php echo htmlspecialchars($_SESSION['usuario']['bairro'] ?? ''); ?>">
             </div>
-
             <div class="perfil-tweeb-input-group">
-                <label for="cep">CEP</label>
-                <input type="text" id="cep" value="">
+                <label for="cidade">Cidade</label>
+                <input type="text" id="cidade" name="cidade" value="<?php echo htmlspecialchars($_SESSION['usuario']['cidade'] ?? ''); ?>">
             </div>
 
             <div class="perfil-tweeb-input-group">
                 <label for="estado">Estado</label>
-                <input type="text" id="estado" value="">
+                <input type="text" id="estado" name="estado" value="<?php echo htmlspecialchars($_SESSION['usuario']['estado'] ?? ''); ?>">
             </div>
 
             <div class="perfil-tweeb-botoes">
@@ -96,13 +105,10 @@ if (!isset($_SESSION['usuario']['id'])) {
     </div>
 </div>
 
-<script src="../../../../public/js/perfil-usuario.js" defer></script>
 <?php include __DIR__.'/../../../../includes/footer.php'; ?>
 
 <script>
-    const usuarioID  = <?php echo json_encode($_SESSION['usuario']['id']);
-        
-    ?>
+    const usuarioID  = <?php echo json_encode($_SESSION['usuario']['id']);?>
 </script>
 </body>
 </html>

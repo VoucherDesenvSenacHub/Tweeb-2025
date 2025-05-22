@@ -30,19 +30,19 @@ document.addEventListener("DOMContentLoaded", () => {
         header.classList.add("margin-top-aumentado");
     });
 
-    // Simula o envio do formulário ao clicar em "Salvar alteração"
-    botaoSalvar.addEventListener("click", (event) => {
-        event.preventDefault();
-        alert("Alterações salvas com sucesso!");
-        camposInput.forEach(input => input.setAttribute("disabled", "true"));
+    // // Simula o envio do formulário ao clicar em "Salvar alteração"
+    // botaoSalvar.addEventListener("click", (event) => {
+    //     event.preventDefault();
+    //     alert("Alterações salvas com sucesso!");
+    //     camposInput.forEach(input => input.setAttribute("disabled", "true"));
         
-        // Esconde os botões novamente
-        botaoSalvar.style.display = "none";
-        botaoCancelar.style.display = "none";
+    //     // Esconde os botões novamente
+    //     botaoSalvar.style.display = "none";
+    //     botaoCancelar.style.display = "none";
 
-        // Remove a classe para voltar o margin-top ao normal
-        header.classList.remove("margin-top-aumentado");
-    });
+    //     // Remove a classe para voltar o margin-top ao normal
+    //     header.classList.remove("margin-top-aumentado");
+    // });
     
     // Cancela edição e restaura os valores originais ao clicar em "Cancelar"
     botaoCancelar.addEventListener("click", (event) => {
@@ -87,3 +87,29 @@ function deletaUsuario() {
     })
     .catch(err => console.error("Erro:", err));
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+    document.getElementById("cep").addEventListener("blur", async function () {
+        const cep = this.value.replace(/\D/g, "");
+
+        if (cep.length === 8) {
+            const response = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
+            const data = await response.json();
+
+            if (!data.erro) {
+                document.getElementById("rua").value = 
+                    `${data.logradouro}`;
+                document.getElementById("bairro").value = 
+                    `${data.bairro}`;
+                document.getElementById("cidade").value = 
+                    `${data.localidade}`;
+                document.getElementById("estado").value = 
+                    `${data.estado}`;
+            } else {
+                alert("CEP não encontrado. Preencha o endereço manualmente.");
+            }
+        }
+    });
+});
+
+
