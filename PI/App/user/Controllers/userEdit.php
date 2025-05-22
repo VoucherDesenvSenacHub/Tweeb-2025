@@ -22,13 +22,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $nomeArquivo = 'perfil_' . $id_usuario . '_' . time() . '.' . $extensao;
 
         // Caminho da nova pasta
-        $pastaDestino = __DIR__ . '../../public/uploads/';
+        $pastaDestino = realpath(__DIR__ . '/../../../') . '/public/uploads/';
         $caminhoCompleto = $pastaDestino . $nomeArquivo;
-
-        // Cria a pasta se não existir
-        if (!is_dir($pastaDestino)) {
-            mkdir($pastaDestino, 0755, true);
-        }
 
         if (move_uploaded_file($_FILES['foto_perfil']['tmp_name'], $caminhoCompleto)) {
             // Atualiza o banco com o novo nome do arquivo
@@ -38,14 +33,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 ':id' => $id_usuario
             ]);
 
-            // Atualiza a sessão
-            $_SESSION['usuario']['foto_perfil'] = $nomeArquivo;
+            // Recarrega os dados atualizados do usuário e atualiza a sessão
+            $stmt = $pdo->prepare("SELECT * FROM usuarios WHERE id = :id");
+            $stmt->execute([':id' => $id_usuario]);
+            $usuarioAtualizado = $stmt->fetch(PDO::FETCH_ASSOC);
+
+            if ($usuarioAtualizado) {
+                $_SESSION['usuario'] = $usuarioAtualizado;
+            }
         } else {
             echo "Erro ao mover a imagem para o servidor.";
             exit;
         }
     }
 
-    header('Location: ../../Views/user/perfil-usuario.php');
+    header('Location: ../View/pages/perfil-usuario.php');
     exit;
 }
