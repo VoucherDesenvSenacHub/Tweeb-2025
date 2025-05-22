@@ -40,7 +40,7 @@
             
             <nav class="manutencao-tabs">
                 <a href="" class="active">Ordem de serviço</a>
-                <a href="#">Enviadas</a>
+                <a href="adm-manutencao-enviados.php">Enviadas</a>
             </nav>
             
             <div class="manutencao-actions">
