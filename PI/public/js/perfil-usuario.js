@@ -58,3 +58,14 @@ document.addEventListener("DOMContentLoaded", () => {
         header.classList.remove("margin-top-aumentado");
     });
 });
+
+document.getElementById('inputFotoPerfil').addEventListener('change', function(event) {
+    const file = event.target.files[0];
+    if (file) {
+        const preview = document.querySelector('.perfil-tweeb-imagem img');
+        preview.src = URL.createObjectURL(file);
+
+        // Submete o formulário após seleção da imagem
+        document.getElementById('formFotoPerfil').submit();
+    }
+});

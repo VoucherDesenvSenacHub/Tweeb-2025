@@ -6,30 +6,46 @@ if (!isset($_SESSION['usuario']['id'])) {
 }
 
 require_once __DIR__ . '/../Models/Usuario.php';
+require_once __DIR__ . '/../../DB/Database.php';
 
-$usuarioModel = new Usuario();
-$id = $_SESSION['usuario']['id'];
-$msg = '';
+$db = new Database();         // cria instância
+$pdo = $db->conn;             // acessa a conexão criada no construtor
+
+$id_usuario = $_SESSION['usuario']['id'];
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $dados = [
-        'nome'     => $_POST['primeiro-nome'] ?? '',
-        'email'    => $_POST['email'] ?? '',
-        'telefone' => $_POST['telefone'] ?? '',
-        'endereco' => $_POST['endereco'] ?? '',
-        'bairro'   => $_POST['bairro'] ?? '',
-        'cep'      => $_POST['cep'] ?? '',
-        'estado'   => $_POST['estado'] ?? '',
-    ];
 
-    if ($usuarioModel->atualizar($id, $dados)) {
-        $_SESSION['usuario']['nome'] = $dados['nome'];
-        $_SESSION['usuario']['email'] = $dados['email'];
-        $msg = "Dados atualizados com sucesso!";
-    } else {
-        $msg = "Nada foi alterado.";
+    // Verifica se o arquivo foi enviado sem erro
+    if (isset($_FILES['foto_perfil']) && $_FILES['foto_perfil']['error'] === UPLOAD_ERR_OK) {
+
+        $extensao = pathinfo($_FILES['foto_perfil']['name'], PATHINFO_EXTENSION);
+        $nomeArquivo = 'perfil_' . $id_usuario . '_' . time() . '.' . $extensao;
+
+        // Caminho da nova pasta
+        $pastaDestino = __DIR__ . '../../public/uploads/';
+        $caminhoCompleto = $pastaDestino . $nomeArquivo;
+
+        // Cria a pasta se não existir
+        if (!is_dir($pastaDestino)) {
+            mkdir($pastaDestino, 0755, true);
+        }
+
+        if (move_uploaded_file($_FILES['foto_perfil']['tmp_name'], $caminhoCompleto)) {
+            // Atualiza o banco com o novo nome do arquivo
+            $stmt = $pdo->prepare("UPDATE usuarios SET foto_perfil = :foto WHERE id = :id");
+            $stmt->execute([
+                ':foto' => $nomeArquivo,
+                ':id' => $id_usuario
+            ]);
+
+            // Atualiza a sessão
+            $_SESSION['usuario']['foto_perfil'] = $nomeArquivo;
+        } else {
+            echo "Erro ao mover a imagem para o servidor.";
+            exit;
+        }
     }
-}
 
-$usuario = $usuarioModel->buscarPorId($id);
-include __DIR__ . '/../view/user/perfil.php';
+    header('Location: ../../Views/user/perfil-usuario.php');
+    exit;
+}
