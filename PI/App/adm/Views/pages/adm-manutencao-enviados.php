@@ -38,9 +38,9 @@
             </section>
         
             
-            <nav class="manutencao-tabs">
-                <a href="" class="active">Ordem de serviço</a>
-                <a href="adm-manutencao-enviados.php">Enviadas</a>
+            <nav class="manutencao-tabs2">
+                <a href="adm-manutencao.php" class="active">Ordem de serviço</a>
+                <a href="#" class="sublinhado">Enviadas</a>
             </nav>
             
             <div class="manutencao-actions">

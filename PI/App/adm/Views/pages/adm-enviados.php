@@ -29,15 +29,16 @@
 
         <div class="pedidos-adicionar-envio">
             <img src="../../../../public/assets/img/plus-circle.svg" alt="">
-            <p>Adicionar Envio</p>
+            <a href="" class="botaoenvio"><p>Adicionar Envio</p></a>
+
         </div>
     </div>
 
     <div class="pedidos-categoria-selecionado">
         <div class="categorias-adm-enviados">
-            <p>Visão Geral</p>
-            <p>Pedidos</p>
-            <span><p>Enviados</p></span>
+            <a href="adm-estoque.php"><p>Visão Geral</p></a>
+            <a href="adm-pedidos.php"><p>Pedidos</p></a>
+            <a href=""><span><p>Enviados</p></span></a>
         </div>
     </div>
 

@@ -14,20 +14,20 @@
 
     <div class="pedidos-categoria-selecionado">
         <div class="categorias-estoque">
-          <span><p>Visão Geral</p></span>
-          <p><a href="adm-pedidos.php">Pedidos</a></p>
+          <p><a href="adm-estoque.php">Visão Geral</a></p>
+          <span><p>Pedidos</p></span>
           <p><a href="adm-enviados.php">Enviados</a></p>
         </div>  
 
-        <div class="estoque-busca">
+        <!-- <div class="estoque-busca">
           <form action="">
             <input type="text" placeholder="Busca">
           </form>
-        </div>
+        </div> -->
     </div>
         
 
-    <div class="centralizar-categorias">
+    <!-- <div class="centralizar-categorias">
       <div class="adm-estoque-caterogias">
 
         <div class="estoque-categoria">
@@ -73,7 +73,7 @@
         </div>  
 
       </div>
-    </div>
+    </div> -->
 
     
     <div class="buscar-filtros">
@@ -261,6 +261,8 @@
         </div>
     </div>
 </div>
+
+<?php include __DIR__.'/../../../../includes/footer-adm.php'; ?> 
 
             
     

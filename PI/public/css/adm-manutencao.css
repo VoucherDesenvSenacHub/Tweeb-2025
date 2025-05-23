@@ -95,6 +95,26 @@ body {
     font-weight: 500;
     color: #8B8B8B;
 }
+
+.manutencao-tabs2 {
+  display: flex;
+  /* border-bottom: 2px solid #ddd; */
+  margin: 2rem 0;
+  
+}
+.manutencao-tabs2 a {
+  padding: 10px;
+  text-decoration: none;
+  font-weight: 500;
+  color: #8B8B8B;
+}
+
+.manutencao-tabs2 a.sublinhado {
+  /* text-decoration: underline; */
+  color: black;
+  border-bottom:  solid black;
+}
+
 .manutencao-tabs .active {
     font-weight: 500;
     border-bottom: 2px solid black;
