@@ -14,8 +14,8 @@
 
     <div class="pedidos-categoria-selecionado">
         <div class="categorias-estoque">
-          <span><p><a href="adm-estoque.php">Visão Geral</a></p></span>
-          <p>Pedidos</p>
+          <p><a href="adm-estoque.php">Visão Geral</a></p>
+          <span><p>Pedidos</p></span>
           <p><a href="adm-enviados.php">Enviados</a></p>
         </div>  
 
@@ -261,6 +261,8 @@
         </div>
     </div>
 </div>
+
+<?php include __DIR__.'/../../../../includes/footer-adm.php'; ?> 
 
             
     
