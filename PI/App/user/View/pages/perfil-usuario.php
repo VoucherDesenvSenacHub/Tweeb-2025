@@ -116,12 +116,14 @@ function mascararCPF($cpf) {
 
             <div class="perfil-tweeb-botoes">
                 <button type="button" class="perfil-tweeb-cancelar">Cancelar</button>
+                <button type="button" class="perfil-tweeb-excluir" onClick="deletaUsuario()">Excluir</button>
                 <button type="submit" class="perfil-tweeb-salvar">Salvar alteração</button>
+                
                 
             </div>
             
         </form>
-        <button type="button" class="perfil-tweeb-excluir" onClick="deletaUsuario()">Excluir</button>
+        
     </div>
 </div>
 

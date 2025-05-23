@@ -223,7 +223,8 @@ CREATE TABLE usuarios (
     senha VARCHAR(255)not null ,
     tipo ENUM('cliente', 'funcionario'),
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    token_recuperacao varchar(64)
 );
 
 select * from usuarios;
