@@ -39,7 +39,6 @@
         document.getElementById("form-novo-endereco").reset();
         document.getElementById("new-endereco-form").style.display = "none";
 
-        // Adicionar eventos para os botões de edição e exclusão
         addEnderecoEventListeners(enderecoCard);
     });
 
