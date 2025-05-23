@@ -189,6 +189,8 @@ label[for="sobrenome"] {
     padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
+    margin-left: 40%;
+      
 }
 
 .perfil-tweeb-salvar {
@@ -202,6 +204,62 @@ label[for="sobrenome"] {
 .editar-perfil{
     margin: 0%;
 }
+
+.btn-upload-foto {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: white;
+    border-radius: 50%;
+    border: 1px solid #ccc;
+    padding: 8px;
+    cursor: pointer;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.carregar-foto {
+    font-size: 18px;
+    color: #4b5563;
+}
+
+  
+
+.perfil-foto-container {
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    border-radius: 50%;
+    position: relative;
+  }
+  
+  
+  .foto-perfil {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%; /* arredonda */
+    object-fit: cover;   /* corta sem distorcer */
+    border: 3px solid #ccc;
+    display: block;
+  }
+  
+  
+  /* Botão de editar dados – canto inferior direito */
+  .btn-editar-dados {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background: white;
+    border-radius: 50%;
+    border: 1px solid #ccc;
+    padding: 8px;
+    cursor: pointer;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  .btn-editar-dados i {
+    font-size: 16px;
+    color: #4b5563;
+  }
 
 /* RESPONSIVIDADE */
 @media (max-width: 768px) {

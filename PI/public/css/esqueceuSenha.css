@@ -57,10 +57,11 @@ body {
     position: absolute;
     left: 10.9px;
     top: -8px;
-    font-size: 14px;
+    font-size: 13px;
     color: rgb(141, 141, 141);
     background-color: white;
     padding: 0 5px;
+    font-family: 'Poppins', 'sans-serif';
 }
 
 .forms-esqueceu .input-box-esqueceu input {

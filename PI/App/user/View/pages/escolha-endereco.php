@@ -1,3 +1,13 @@
+<?php
+if (session_status() !== PHP_SESSION_ACTIVE) {
+    session_start();
+}
+if (!isset($_SESSION['usuario']['id'])) {
+    // Redireciona para login se não estiver logado
+    header('Location: login.php');
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -10,7 +20,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 </head>
 <body>
-<?php include __DIR__.'/../../../../includes/navbar.php'; ?>
+<?php include __DIR__.'/../../../../includes/navbar-logada.php'; ?>
 
 <div class="container">
     <div class="step-indicator">

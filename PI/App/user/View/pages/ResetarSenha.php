@@ -1,3 +1,29 @@
+<?php
+require_once '../../Controllers/resetar_senha.php';
+
+switch($_SERVER['REQUEST_METHOD']){
+    case 'POST':
+        
+        if(isset($_GET['token']) && strlen($_GET['token'] != 0)){
+            $token = $_GET['token'];
+
+            $reset = new ResetarSenha();
+            $result = $reset::ResetarSenha($token, $_POST['confirmar_senha']);
+
+            if($result){
+                echo("<script>alert('senha alterada com sucesso') </script>");
+            }
+            
+        }
+}
+
+
+
+// if(isset($_GET)){
+//     var_dump($_GET);
+// }
+
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -11,8 +37,8 @@
 <body class="resetar-senha">
     <div class="container-resetar">
         <div class="forms-resetar">
-            <form action="">
-                <a href="#" class="voltar"><i class='bx bx-chevron-left'></i>< Voltar</a>
+            <form method="POST">
+                <a href="./login.php" class="voltar"><i class='bx bx-chevron-left'></i>< Voltar</a>
                 <h1 class="titulo">Refazer Senha</h1>
                 <p class="sutitulo">Sua conta irá ser resetada. Por favor, digite uma nova senha para sua conta.</p>
                 
@@ -27,7 +53,7 @@
                     <i class="bi bi-eye-fill" id="btn-senha2" onclick="mostraSenha('confirmar_senha', 'btn-senha2')"></i>
                 </div>
                 
-                <button type="submit" class="Btn">Enviar Senha</button>
+                <input type="submit" class="Btn" value="Enviar Senha">
             </form>
         </div>
         <div class="image-container-resetar">

@@ -220,7 +220,8 @@ body {
     color: #ffffff;
     text-transform: capitalize;
     font-weight: 500;
-    width: 40%;
+    /* width: 40%; */
+    margin-left: 190px;
     
 }
 
@@ -241,6 +242,7 @@ body {
     border: none;
     background-color: transparent;
     color: #fe8c67;
+    justify-content: center;
 
 }
 
@@ -428,7 +430,7 @@ SERVIÇOS */
 }
 
 .fale-conosco-contact-info{
-    height: 462px;
+    height: 420px;
 }
 
 .container_items_produto_personalizado{

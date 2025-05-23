@@ -1,11 +1,10 @@
-<?php include __DIR__.'/../../../../includes/headernavb.php'; ?>
-<?php include __DIR__.'/../../../../includes/navbar.php'; ?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
+<?php include __DIR__.'/../../../../includes/headernavb.php'; ?>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../../../public/css/task20.css">
+    <link rel="stylesheet" href="../../../../public/css/departamento01.css">
 
 
 
@@ -18,20 +17,21 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
     <title>Tweeb</title>
 </head>
-<body class="task20-kitsetup">
+<body class="Computadores">
+<?php include __DIR__.'/../../../../includes/navbar-logada.php'; ?>
 
 
 
-    <div class="kitsetup-container_banner">
-        <img src="../../../../public/assets/img/banner-departamento-computador.png" alt="banner-kit_setup" class="kitsetup-banner">
+    <div class="Computador-container_banner">
+        <img src="../../../../public/assets/img/banner-departamento-computador.png" alt="banner-omputadores" class="Computadores-banner">
     </div>
-    <div class="kitsetup-container_titles">
-        <h1 class="kitsetup-h1">
+    <div class="computadores-container_titles">
+        <h1 class="Computador_titulo">
             Computadores
         </h1>
-        <P class="kitsetup-p">
-        Escolha a oferta que mais combina com você. 
-        </P>
+       <p class="Computador_descricao">
+       Escolha a oferta que mais combina com você. 
+       </p>
     </div>
     <?php include __DIR__.'/../../../../includes/filtro-departamentos.php'; ?>
 <div class="container-favoritos-depto">

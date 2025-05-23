@@ -2,7 +2,12 @@
     <nav id="sidebar">
         <div id="sidebar_content">
             <div id="user">
-                <img src="/Tweeb-2025/PI/public/assets/img/foto-perfil-comentarios.jpg" id="user_avatar" alt="Avatar">
+              <?php
+              $foto = $_SESSION['usuario']['foto_perfil'] ?? '';
+              $caminhoImagem = $foto ? '/Tweeb-2025/PI/public/uploads/' . $foto : '/Tweeb-2025/PI/public/assets/img/foto-perfil-default.png';
+              ?>
+              <img src="<?php echo $caminhoImagem; ?>" alt="Foto de perfil" class="foto-perfil-navbar">
+
     
                 <p id="user_infos">
                     <span class="item-description">

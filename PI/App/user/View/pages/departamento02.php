@@ -1,11 +1,10 @@
-<?php include __DIR__.'/../../../../includes/headernavb.php'; ?>
-<?php include __DIR__.'/../../../../includes/navbar.php'; ?>
 <!DOCTYPE html>
 <html lang="pt-br">
+<?php include __DIR__.'/../../../../includes/headernavb.php'; ?>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../../../public/css/task20.css">
+    <link rel="stylesheet" href="../../../../public/css/departamento02.css">
 
 
 
@@ -18,18 +17,18 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
     <title>Tweeb</title>
 </head>
-<body class="task20-kitsetup">
+<body class="Hardwares">
+<?php include __DIR__.'/../../../../includes/navbar-logada.php'; ?>
 
 
-
-    <div class="kitsetup-container_banner">
-        <img src="../../../../public/assets/img/banner-hardwares.png" alt="banner-kit_setup" class="kitsetup-banner">
+    <div class="Hardwares-container_banner">
+        <img src="../../../../public/assets/img/banner-hardwares.png" alt="banner-Hardwares" class="Hardwares-banner">
     </div>
-    <div class="kitsetup-container_titles">
-        <h1 class="kitsetup-h1">
+    <div class="Hardwares-container_titles">
+        <h1 class="Hardwares_h1">
             Hardwares
         </h1>
-        <p class="kitsetup-p">
+        <p class="Hardwares_p">
         Aqui você tem a oportunidade perfeita de dar um up no seu setup.
         </p>
     </div>

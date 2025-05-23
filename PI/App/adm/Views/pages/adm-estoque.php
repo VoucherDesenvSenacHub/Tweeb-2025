@@ -15,8 +15,8 @@
     <div class="pedidos-categoria-selecionado">
         <div class="categorias-estoque">
           <span><p>Visão Geral</p></span>
-          <p>Pedidos</p>
-           <p>Enviados</p>
+          <p><a href="adm-pedidos.php">Pedidos</a></p>
+          <p><a href="adm-enviados.php">Enviados</a></p>
         </div>  
 
         <div class="estoque-busca">

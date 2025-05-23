@@ -12,9 +12,9 @@
 <?php include __DIR__.'/../../../../includes/sidebar-Adm.php'; ?>
 
     <div class="listarP-titulo-contain">
-        <!-- <a href="estoque_cadastrar_novo.html"> -->
+        <a href="estoqueok.php">
             <div class="listarP-titulo">Novo Produto</div>
-        <!-- </a> -->
+        </a>
         
         <div class="listarP-titulo2">Cadastrados</div>
     </div>

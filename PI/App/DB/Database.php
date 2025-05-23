@@ -2,10 +2,10 @@
     
 class Database{
     public $conn;
-    public string $local="192.168.68.85";
-    public string $db="Tweeb25";
-    public string $user="devweb";
-    public string $password="suporte@22";
+    public string $local="192.168.22.9";
+    public string $db="140p2";
+    public string $user="devwebp2";
+    public string $password="voucher@140";
     public $table;
 
    
@@ -18,7 +18,6 @@ class Database{
         try {
             $this->conn = new PDO("mysql:host=".$this->local.";dbname=$this->db",$this->user,$this->password); 
             $this->conn->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
-            echo "Conectado com Sucesso!!";
         } catch (PDOException $err) {
             //retirar msg em produção
             die("Connection Failed: " . $err->getMessage());

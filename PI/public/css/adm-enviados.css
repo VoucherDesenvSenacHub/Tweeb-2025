@@ -19,6 +19,12 @@ body {
     --azul-tabela: #0C1E5B;
 }
 
+.botaoenvio{
+    background-color: var(--azul-intenso);
+    text-decoration: none;
+    cursor: cell;
+}
+
 
 
 .listarU-departments-bar {
@@ -55,6 +61,7 @@ body {
     border-radius: 8px;
     background-color: white;
     box-shadow: 0 5px 10px 0.5px rgba(0, 0, 0, 0.100);
+    margin-top: 20px;
 }
 
 .pedidos-adicionar-envio{
@@ -62,7 +69,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-around;
-    right: 17rem;
+    right: 12rem;
     width: 157px;
     height: 33px;
     padding: 8px;
@@ -70,6 +77,7 @@ body {
     background-color: var(--azul-intenso);
     cursor: pointer;
     transition: background-color 0.15s ease;
+    margin-top: 500px;
 }
 
 .pedidos-adicionar-envio:hover{
@@ -136,6 +144,7 @@ body {
     display: flex;
     gap: 2rem;
     margin-left: 10px;
+    text-decoration: none;
 }
 
 
@@ -144,12 +153,23 @@ body {
     font-weight: 500;
     color: #8B8B8B;
     cursor: pointer;
+    text-decoration: none;
 }
 
 .pedidos-categoria-selecionado .categorias-adm-enviados span p{
     color: black;
     border-bottom: 2px solid black;
+    text-decoration: none;
 }
+
+.categorias-adm-enviados a {
+    text-decoration: none;
+}
+
+.categorias-adm-enviados a p {
+    margin: 0; 
+}
+
 
 .pedidos-envios-recentes{
     width: 100%;
@@ -221,9 +241,8 @@ body {
 }
 
 .tabela-recentes .tabela-info {
-    height: 80px;
-    color: #666666;
-    font-weight: 400;
+    font-weight: 400px;
+    width: 2px;
     background-color: rgba(210, 210, 210, 5%);
 }
 
@@ -272,6 +291,8 @@ body {
     gap: 8px;
 }
 
+
+
 .tabela-nota-fiscal{
     display: flex;
     align-items: center;
@@ -298,6 +319,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    
 }
 
 /*  
@@ -312,8 +334,8 @@ body {
 }
 
 .filtros-datas{
-    width: 80%;
-
+    width: 100%;
+    margin-top:120px ;
 }
 
 .datas-botoes{
@@ -350,6 +372,7 @@ body {
 
 .form-group{
     margin-top: 2rem;
+    margin-left: -350px;
 }
 
 .form-group, .form-group-breakline{
@@ -370,6 +393,7 @@ body {
     background-color: #fafafa;
     border: 1px solid #d9d9d9;
     color: #595959;
+    
 }
 
 .filtro-formulario input{
@@ -467,6 +491,7 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin-left: 50px;
     
 }
 
@@ -475,7 +500,7 @@ body {
     margin-left: 10%;
     align-self: flex-start;
     width: 1450px;
-    margin-left: 50px;
+    margin-left: 100px;
 }
 
 .tabela-envios {

@@ -20,16 +20,16 @@
     
                 <ul class="footer_list">
                     <li><h3>Institucional</h3></li>
-                    <li><a href="#" class="footer_link">Quem somos</a></li>
-                    <li><a href="#" class="footer_link">Localização</a></li>
+                    <li><a href="/Tweeb-2025/PI/app/user/View/pages/quemsomos.php" class="footer_link">Quem somos</a></li>
+                    <li><a href="/Tweeb-2025/PI/app/user/View/pages/quemsomos.php" class="footer_link">Localização</a></li>
                     <li><a href="#" class="footer_link">Políticas do site</a></li>
                 </ul>
     
                 <div class="footer_container">
                     <ul class="footer_list">
                         <li><h3>Departamentos</h3></li>
-                        <li><a href="#" class="footer_link">Computadores</a></li>
-                        <li><a href="#" class="footer_link">Hardwares</a></li>
+                        <li><a href="/Tweeb-2025/PI/app/user/View/pages/departamento01.php" class="footer_link">Computadores</a></li>
+                        <li><a href="/Tweeb-2025/PI/app/user/View/pages/departamento02.php" class="footer_link">Hardwares</a></li>
                         <li><a href="#" class="footer_link">Periféricos</a></li>
                     </ul>
                 

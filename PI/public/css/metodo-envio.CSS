@@ -589,18 +589,27 @@ footer {
     background: white;
     padding: 30px;
     border-radius: 10px;
-
-    gap: 40px;
+    gap: 100px;
     max-width: 900px;
     justify-content: center;
+    margin-top: 40px;
+
+}
+.pix-resumo-compra{
+    margin-bottom: 40px;
 }
 .pix-pago-resumo, .pix-pago-pagamento {
     flex: 1;
+    align-items: center;
+    
+}
+.nome-produto-pix{
+    margin-right: 80px;
 }
 .pix-pago-titulo {
     font-size: 20px;
     font-weight: 600;
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */
 }
 .pix-pago-item {
     display: flex;
@@ -613,6 +622,7 @@ footer {
     width: 40px;
     height: 40px;
     margin-right: 10px;
+    justify-content: center;
 }
 .pix-pago-total p, .pix-pago-total h3 {
     margin: 10px 0;
@@ -621,7 +631,8 @@ footer {
 .pix-pago-qrcode {
     width: 180px;
     height: 180px;
-    margin: 20px 0;
+    margin: 20px 150px;
+    align-items: center;
 }
 .pix-pago-instrucoes {
     font-size: 14px;
@@ -642,6 +653,13 @@ footer {
 }
 .pix-pago-botao:hover {
     background: #3700b3;
+}
+
+.pix-pago-fatura, .pix-pago-valor{
+    margin-bottom: 10px;
+}
+.pix-pago-endereco{
+    margin-top: 60px;
 }
 @media only screen and (max-width: 800px){
     #form-novo-endereco{
