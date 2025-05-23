@@ -1,0 +1,593 @@
+.Hardwares{
+    overflow-x: hidden;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.Hardwares-container_banner img{
+    width: 100%;
+    height: 472px;
+    margin-top: 40px;
+}
+
+.Hardwares_h1{
+    font-size: 62px;
+    font-family: "Inter", serif;
+    display: flex;
+    margin-left: 5%;
+}
+
+.Hardwares_p{
+    font-size: 22px;
+    font-family: "Nunito", serif;
+    font-weight: bold;
+    margin-left: 7%;
+}
+
+.Hardwares-container_titles{
+    margin-top: 60px;
+    margin-left: 130px;
+}
+
+.Hardwares-container_products{
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+}
+
+.Hardwares-products_box{
+    width: 270px;
+    height: 432px;
+    background-color: #F6F6F6;
+    border-radius: 9px;
+    margin-top: 40px;
+}
+
+.Hardwares-config-box{
+    width: 107px;
+    height: 37px;
+    background-color: #291E40;
+    border-radius: 40px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 19px;
+    margin-left: 12px;
+    cursor: pointer;
+}
+
+.Hardwares-config-box-p{
+    color: white;
+    font-size: 8px;
+    margin-left: 15px;
+}
+
+.Hardwares-info-box{
+    width: 24px;
+    height: 24px;
+    background-color: #BF99FE;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Hardwares-header-product-box{
+    height: 30%;
+    display: flex;
+    flex-direction: row;
+    cursor: pointer;
+}
+
+.Hardwares-heart-icon-box img{
+    width: 32px;
+    height: 32px;
+    margin-top: 24px;
+    margin-left: 102px;
+}
+
+.Hardwares-product-image{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Hardwares-product-name-box h1{
+    font-size: 16px;
+    font-family: "Montserrat", serif;
+    font-weight: 500;
+    width: 237px;
+    height: 48px;
+    text-align: center;
+}
+
+.Hardwares-product-name-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 16px;
+}
+
+.Hardwares-product-price-box h1{
+    font-size: 24px;
+    font-family: "Montserrat", serif;
+    font-weight: 600;
+    width: 237px;
+    height: 48px;
+    text-align: center;
+}
+
+.Hardwares-product-price-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 16px;
+}
+
+.Hardwares-buy-product-button-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.Hardwares-buy-product-button{
+    width: 235px;
+    height: 48px;
+    background-color: #291E40;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin-top: 19px;
+}
+
+.Hardwares-buy-product-text{
+    color: white;
+}
+
+.Hardwares-main-product-contant{
+    display: flex;
+    flex-direction: column;
+    transform: translateY(-18%);
+}
+
+.Hardwares-pages-container{
+    display: flex;
+    cursor: pointer;
+    margin-bottom: 112px;
+}
+
+
+.Hardwares-pages{
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    align-items: center;
+}
+
+.Hardwares-page1-button{
+    width: 30px;
+    height: 32px;
+    border-radius: 5px;
+    background-color: #000000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Hardwares-page2-button{
+    width: 30px;
+    height: 32px;
+    border-radius: 5px;
+    background-color: #F6F6F6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Hardwares-page-number{
+    color: white;
+}
+
+.Hardwares-page2-number{
+    color: black;
+}
+
+.Hardwares-left-arrow{
+    width: 6px;
+    height: 12px;
+    cursor: pointer;
+}
+
+.Hardwares-right-arrow{
+    width: 6px;
+    height: 12px;
+    cursor: pointer;
+}
+
+.Hardwares-pages-button-container{
+    gap: 8px;
+    display: flex;
+    cursor: pointer;
+}
+
+.Hardwares-pages-container{
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 13%;
+    margin-top: 32px;
+}
+
+
+
+
+
+
+
+/* CSS MODAL*/
+
+
+.Hardwares-info-modal-container{
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.Hardwares-info-modal{
+    width: 270px;
+    height: 432px;
+    background-color: #D4E3FF;
+    border-radius: 9px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+
+
+.Hardwares-info-modal-title{
+    font-size: 14px;
+    font-family: "Inter", serif;
+    font-weight: 700;
+    display: flex;
+    margin-left: 35px;
+    margin-top: 16px;
+}
+
+.Hardwares-info-modal-placa-mae{
+    font-size: 10px;
+    font-family: "Nunito", serif;
+    width: 200px;
+    display: flex;
+    margin-left: 56px;
+    margin-top: 10px;
+    line-height: 15px;
+}
+
+.Hardwares-info-modal-armazenamento{
+    font-size: 10px;
+    font-family: "Nunito", serif;
+    width: 200px;
+    display: flex;
+    margin-left: 56px;
+    margin-top: 10px;
+    line-height: 15px;
+}
+
+.Hardwares-info-modal-fonte{
+    font-size: 10px;
+    font-family: "Nunito", serif;
+    width: 200px;
+    display: flex;
+    margin-left: 56px;
+    margin-top: 10px;
+    line-height: 15px;
+}
+
+.Hardwares-info-modal-gabinete{
+    font-size: 10px;
+    font-family: "Nunito", serif;
+    width: 200px;
+    display: flex;
+    margin-left: 56px;
+    margin-top: 10px;
+    line-height: 15px;
+}
+
+.Hardwares-info-modal-alimentacao{
+    font-size: 10px;
+    font-family: "Nunito", serif;
+    width: 200px;
+    display: flex;
+    margin-left: 56px;
+    margin-top: 10px;
+    line-height: 15px;
+}
+
+.Hardwares-info-modal-placa-de-video{
+    font-size: 10px;
+    font-family: "Nunito", serif;
+    width: 200px;
+    display: flex;
+    margin-left: 56px;
+    margin-top: 10px;
+    line-height: 15px;
+}
+
+.Hardwares-icons-model{
+    width: 16px;
+    height: 16px;
+    transform: translateX(-4px);
+}
+
+.Hardwares-buy-now{
+    text-decoration: none;
+    color: white;
+}
+
+@media (max-width: 1440px) { /* Ajustes para telas menores */
+    .Hardwares-container_banner img {
+        height: 400px;
+    }
+    .Hardwares-h1 {
+        font-size: 52px;
+        margin: 0%;
+    }
+}
+
+@media (max-width: 1024px) { /* Tablets e notebooks pequenos */
+    .Hardwares-container_banner img {
+        height: 350px;
+    }
+    .Hardwares-h1 {
+        font-size: 42px;
+    }
+    .Hardwares-container_titles {
+        margin-left: 80px;
+    }
+    .Hardwares-container_products {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) { /* Tablets em modo retrato */
+    .Hardwares-container_banner img {
+        height: 300px;
+    }
+    .Hardwares-h1 {
+        font-size: 36px;
+    }
+    .Hardwares-p {
+        font-size: 18px;
+    }
+    .Hardwares-container_titles {
+        margin-left: 40px;
+    }
+    .Hardwares-products_box {
+        width: 220px;
+        height: 450px;
+    }
+    .Hardwares-pages-container {
+        justify-content: center;
+        margin-right: 0;
+    }
+    .Hardwares-container_products {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (max-width: 600px) { /* Smartphones grandes */
+    .Hardwares-container_banner img {
+        height: 250px;
+        margin-top: 20px;
+    }
+    .Hardwares-h1 {
+        font-size: 28px;
+    }
+    .Hardwares-p {
+        font-size: 16px;
+    }
+    .Hardwares-container_titles {
+        margin-left: 20px;
+    }
+    .Hardwares-products_box {
+        width: 200px;
+        height: 450px;
+    }
+    .Hardwares-heart-icon-box img {
+        margin-left: 35px;
+    }
+    .Hardwares-buy-product-button {
+        width: 200px;
+    }
+    .Hardwares-container_products {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (max-width: 480px) { /* Smartphones médios e pequenos */
+    .Hardwares-container_banner img {
+        height: 200px;
+    }
+    .Hardwares-h1 {
+        font-size: 24px;
+    }
+    .Hardwares-p {
+        font-size: 14px;
+        width: 90%;
+    }
+    .Hardwares-container_titles {
+        margin-left: 10px;
+    }
+    .Hardwares-products_box {
+        width: 256px;
+        height: 445px;
+    }
+    .Hardwares-config-box {
+        height: 30px;
+        margin-left: 8px;
+    }
+   /* Modal Container */
+.Hardwares-info-modal-container {
+    display: none; /* Inicialmente invisível */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fundo escuro para dar o efeito de bloqueio */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Garante que o modal fique sobre o conteúdo */
+}
+
+/* Modal */
+.Hardwares-info-modal {
+    width: 100%; /* Responsivo: 90% da largura da tela */
+    max-width: 600px; /* Limita a largura máxima */
+    background-color: #D4E3FF;
+    border-radius: 9px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    overflow-y: auto;
+}
+
+/* Modal Title */
+.Hardwares-info-modal-title {
+    font-size: 18px;
+    font-family: "Inter", serif;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+/* Modal Content */
+.Hardwares-info-modal p {
+    font-size: 12px;
+    font-family: "Nunito", serif;
+    line-height: 1.5;
+    margin-left: 20px;
+}
+
+.Hardwares-info-modal img {
+    width: 16px;
+    height: 16px;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+/* Ajuste para a Responsividade */
+@media (max-width: 768px) {
+    .Hardwares-info-modal {
+        width: 100%; /* Reduz a largura para 90% em telas menores */
+    }
+    .Hardwares-info-modal-title {
+        font-size: 16px; /* Ajusta o tamanho do título em telas menores */
+    }
+    .Hardwares-info-modal p {
+        font-size: 10px; /* Diminui o tamanho do texto */
+    }
+}
+
+@media (max-width: 480px) {
+    .Hardwares-info-modal {
+        width: 100%; /* Reduz mais a largura em telas muito pequenas */
+    }
+    .Hardwares-info-modal-title {
+        font-size: 14px; /* Título menor */
+    }
+    .Hardwares-info-modal p {
+        font-size: 9px; /* Texto ainda menor */
+    }
+}
+
+/* Responsividade do botão de fechar */
+.Hardwares-config-box {
+    width: 60%; /* Responsivo */
+    height: 40px;
+    background-color: #291E40;
+    color: white;
+    border-radius: 40px;
+    text-align: center;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0;
+    margin-left: 10px;
+}
+
+.Hardwares-config-box p {
+    font-size: 12px;
+    color: white;
+}
+
+.Hardwares-heart-icon-box img{
+    width: 32px;
+    height: 32px;
+    margin-top: 14px;
+    margin-left: 30px;
+}
+
+/* Ajustes finais para dispositivos menores */
+@media (max-width: 360px) {
+    .Hardwares-info-modal {
+        width: 100%; /* Modal ocupa toda a tela em dispositivos pequenos */
+    }
+    .Hardwares-info-modal-title {
+        font-size: 12px; /* Ajuste no título para telas muito pequenas */
+    }
+    .Hardwares-info-modal p {
+        font-size: 8px; /* Texto muito pequeno em telas pequenas */
+    }
+}
+
+    .Hardwares-buy-product-button {
+        width: 180px;
+    }
+    .Hardwares-container_products {
+        flex-direction: column;
+        align-items: center;
+    }
+
+   
+}
+
+@media (max-width: 360px) { /* Smartphones menores */
+    .Hardwares-container_banner img {
+        height: 180px;
+    }
+    .Hardwares-h1 {
+        font-size: 20px;
+    }
+    .Hardwares-p {
+        font-size: 12px;
+    }
+    .Hardwares-products_box {
+        width: 160px;
+        height: 400px;
+    }
+    .Hardwares-buy-product-button {
+        width: 160px;
+    }
+    .Hardwares-heart-icon-box img {
+        width: 24px;
+        height: 24px;
+        margin-left: 30px;
+    }
+    .Hardwares-pages{
+        margin-top: 50px;
+    }
+    .Hardwares-container_products {
+        flex-direction: column;
+        align-items: center;
+    }
+}
