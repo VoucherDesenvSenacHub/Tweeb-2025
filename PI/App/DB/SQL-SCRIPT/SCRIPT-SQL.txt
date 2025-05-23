@@ -214,8 +214,6 @@ CREATE TABLE envio (
 
 
 //Leandrex
-create database Tweeb25;
-use Tweeb25;
 CREATE TABLE usuarios (
     id INT PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(100) not null,
@@ -225,10 +223,16 @@ CREATE TABLE usuarios (
     senha VARCHAR(255)not null ,
     tipo ENUM('cliente', 'funcionario'),
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    token_recuperacao varchar(64)
 );
+
 select * from usuarios;
 select * from clientes;
+select * from enderecos;
+select * from cep;
+
+drop table enderecos;
 
 CREATE TABLE clientes (
     id_usuario INT PRIMARY KEY,
@@ -240,14 +244,25 @@ CREATE TABLE clientes (
 CREATE TABLE enderecos (
     id INT PRIMARY KEY AUTO_INCREMENT,
     id_cliente INT,
-    endereco VARCHAR(100),
+    nome_endereco VARCHAR(100),
+    rua VARCHAR(100),
     bairro VARCHAR(100),
-    cep VARCHAR(10),
+    cidade VARCHAR(50),
     estado VARCHAR(50),
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
     updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     FOREIGN KEY (id_cliente) REFERENCES clientes(id_usuario) ON DELETE CASCADE
 );
+
+CREATE TABLE cep (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    codigo VARCHAR(8) NOT NULL,          
+    endereco_id INT NOT NULL,             
+    criado_em DATETIME DEFAULT CURRENT_TIMESTAMP,
+	updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (endereco_id) REFERENCES enderecos(id) ON DELETE CASCADE
+);
+
 
 CREATE TABLE funcionarios (
     id_usuario INT PRIMARY KEY,
@@ -264,6 +279,8 @@ ALTER TABLE usuarios ADD COLUMN foto_perfil VARCHAR(255);
 
 drop table usuarios;
 select * from usuarios;
+select * from clientes;
+select * from respostas_preferencias;
 
 CREATE TABLE respostas_preferencias (
   id INT AUTO_INCREMENT PRIMARY KEY,

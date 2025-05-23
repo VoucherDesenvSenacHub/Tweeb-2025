@@ -5,7 +5,19 @@ class Usuario {
     private $db;
 
     public function __construct() {
-        $this->db = new Database('usuarios'); // Nome da sua tabela
+        $this->db = new Database('usuarios'); 
+    }
+    public function excluir($id){
+        // $endereco = new Database('enderecos');
+        // $endereco->delete("id = $id");
+
+        $clientes = new Database('clientes');
+        $clientes->delete ("id_usuario = $id");
+
+        $resposta_preferencia = new Database('respostas_preferencias');
+        $resposta_preferencia->delete("user_id = $id");
+
+        return $this->db->delete("id = $id");
     }
 
     public function buscarPorId($id) {

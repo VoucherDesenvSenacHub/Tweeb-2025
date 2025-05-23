@@ -1,52 +1,76 @@
 <?php
 session_start();
+require __DIR__.'/../Models/Usuario.php';
+require __DIR__.'/../Models/Endereco.php';
+require __DIR__.'/../Models/Cep.php';
+
 if (!isset($_SESSION['usuario']['id'])) {
     header('Location: /Tweeb-2025/PI/app/user/view/pages/login.php');
     exit();
 }
 
-require_once __DIR__ . '/../Models/Usuario.php';
-require_once __DIR__ . '/../../DB/Database.php';
+$usuarioModel = new Usuario();
+$cepModel = new Cep();
+$enderecoModel = new Endereco();
 
-$db = new Database();         // cria instância
-$pdo = $db->conn;             // acessa a conexão criada no construtor
-
-$id_usuario = $_SESSION['usuario']['id'];
+$id = $_SESSION['usuario']['id'];
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $dadosUsuario = [
+        'nome' => $_POST['nome'] ?? '',
+        'sobrenome' => $_POST['sobrenome'] ?? '',
+        'email' => $_POST['email'] ?? '',
+        'telefone' => $_POST['telefone'] ?? ''
+    ];
+    
 
-    // Verifica se o arquivo foi enviado sem erro
-    if (isset($_FILES['foto_perfil']) && $_FILES['foto_perfil']['error'] === UPLOAD_ERR_OK) {
+    $dadosEndereco = [
+        'nome_endereco' => 'teste',
+        'rua' => $_POST['rua'] ?? '',
+        'bairro' => $_POST['bairro'] ?? '',
+        'cidade' => $_POST['cidade'] ?? '',
+        'estado' => $_POST['estado'] ?? ''
+    ];
 
-        $extensao = pathinfo($_FILES['foto_perfil']['name'], PATHINFO_EXTENSION);
-        $nomeArquivo = 'perfil_' . $id_usuario . '_' . time() . '.' . $extensao;
+    $dadosCep = [
+        'codigo' => $_POST['cep'] ?? ''
+    ];
 
-        // Caminho da nova pasta
-        $pastaDestino = realpath(__DIR__ . '/../../../') . '/public/uploads/';
-        $caminhoCompleto = $pastaDestino . $nomeArquivo;
+    $okUsuario = $usuarioModel->atualizar($id, $dadosUsuario);
 
-        if (move_uploaded_file($_FILES['foto_perfil']['tmp_name'], $caminhoCompleto)) {
-            // Atualiza o banco com o novo nome do arquivo
-            $stmt = $pdo->prepare("UPDATE usuarios SET foto_perfil = :foto WHERE id = :id");
-            $stmt->execute([
-                ':foto' => $nomeArquivo,
-                ':id' => $id_usuario
-            ]);
-
-            // Recarrega os dados atualizados do usuário e atualiza a sessão
-            $stmt = $pdo->prepare("SELECT * FROM usuarios WHERE id = :id");
-            $stmt->execute([':id' => $id_usuario]);
-            $usuarioAtualizado = $stmt->fetch(PDO::FETCH_ASSOC);
-
-            if ($usuarioAtualizado) {
-                $_SESSION['usuario'] = $usuarioAtualizado;
-            }
-        } else {
-            echo "Erro ao mover a imagem para o servidor.";
-            exit;
-        }
+    $existeEndereco = $enderecoModel->buscarPorUsuario($id);
+    if ($existeEndereco) {
+        $okEndereco = $enderecoModel->atualizarPorUsuario($id, $dadosEndereco);
+    } else {
+        $okEndereco = $enderecoModel->inserirParaUsuario($id, $dadosEndereco);
     }
 
-    header('Location: ../View/pages/perfil-usuario.php');
-    exit;
-}
+    $existeCep = $cepModel->buscarPorUsuario($id);
+    if ($existeCep) {
+        $okCep = $cepModel->atualizarPorUsuario($id, $dadosCep);
+    } else {
+        $okCep = $cepModel->inserirParaUsuario($id, $dadosCep);
+    }
+
+
+    $_SESSION['usuario']['nome'] = $dadosUsuario['nome'];
+    $_SESSION['usuario']['email'] = $dadosUsuario['email'];
+    $_SESSION['usuario']['telefone'] = $dadosUsuario['telefone'];
+    $_SESSION['usuario']['sobrenome'] = $dadosUsuario['sobrenome'];
+    $_SESSION['usuario']['cep'] = $dadosCep['codigo'];
+    $_SESSION['usuario']['rua'] = $dadosEndereco['rua'];
+    $_SESSION['usuario']['cidade'] = $dadosEndereco['cidade'];
+    $_SESSION['usuario']['bairro'] = $dadosEndereco['bairro'];
+    $_SESSION['usuario']['estado'] = $dadosEndereco['estado'];
+
+    
+
+    if ($okUsuario || $okEndereco || $okCep) {
+        $msg = "Dados atualizados com sucesso!";
+        header('Location: /Tweeb-2025/PI/app/user/view/pages/perfil-usuario.php');
+    } else {
+        $msg = "Nada foi alterado.";
+    }
+
+
+}                                                                                          
