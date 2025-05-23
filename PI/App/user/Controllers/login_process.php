@@ -6,7 +6,7 @@ class Login {
     public static function login($email, $senha) {
         $db = new Database('usuarios');
 
-        $query = "SELECT id, nome, email, senha FROM usuarios WHERE email = ?";
+        $query = "SELECT u.id, u.nome, u.email, u.senha, c.cpf FROM usuarios u JOIN clientes c ON c.id_usuario = u.id WHERE email = ?";
         $stmt = $db->execute($query, [$email]);
         $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
 

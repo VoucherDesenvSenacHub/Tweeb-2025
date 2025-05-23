@@ -5,7 +5,7 @@ class Usuario {
     private $db;
 
     public function __construct() {
-        $this->db = new Database('usuarios'); // Nome da sua tabela
+        $this->db = new Database('usuarios'); 
     }
     public function excluir($id){
         // $endereco = new Database('enderecos');

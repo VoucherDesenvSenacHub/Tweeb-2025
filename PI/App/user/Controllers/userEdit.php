@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $dadosUsuario = [
         'nome' => $_POST['nome'] ?? '',
         'sobrenome' => $_POST['sobrenome'] ?? '',
-        // 'email' => $_POST['email'] ?? '',
+        'email' => $_POST['email'] ?? '',
         'telefone' => $_POST['telefone'] ?? ''
     ];
     
@@ -52,9 +52,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $okCep = $cepModel->inserirParaUsuario($id, $dadosCep);
     }
 
-    // Atualiza a sessão com os dados corretos
+
     $_SESSION['usuario']['nome'] = $dadosUsuario['nome'];
-    // $_SESSION['usuario']['email'] = $dadosUsuario['email'];
+    $_SESSION['usuario']['email'] = $dadosUsuario['email'];
     $_SESSION['usuario']['telefone'] = $dadosUsuario['telefone'];
     $_SESSION['usuario']['sobrenome'] = $dadosUsuario['sobrenome'];
     $_SESSION['usuario']['cep'] = $dadosCep['codigo'];
@@ -63,8 +63,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $_SESSION['usuario']['bairro'] = $dadosEndereco['bairro'];
     $_SESSION['usuario']['estado'] = $dadosEndereco['estado'];
 
+    
+
     if ($okUsuario || $okEndereco || $okCep) {
         $msg = "Dados atualizados com sucesso!";
+        header('Location: /Tweeb-2025/PI/app/user/view/pages/perfil-usuario.php');
     } else {
         $msg = "Nada foi alterado.";
     }
