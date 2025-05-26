@@ -36,18 +36,7 @@ function mascararCPF($cpf) {
         
         <div class="perfil-tweeb-header">
             <div class="perfil-tweeb-imagem">
-                <img src="../../../../public/uploads/<?php echo htmlspecialchars($_SESSION['usuario']['foto_perfil'] ?? ''); ?>" 
-                onerror="this.onerror=null; this.src='../../../../public/uploads/imagem_padrao.png';" 
-                alt="" 
-                class="foto-perfil">
-                <!-- Input oculto de upload -->
-                <form method="POST" action="../../Controllers/userEdit.php" enctype="multipart/form-data" id="formFotoPerfil">
-                    <input type="file" id="inputFotoPerfil" name="foto_perfil" accept="image/*" style="display: none;">
-                    <label for="inputFotoPerfil" class="btn-upload-foto" title="Alterar foto">
-                        <i class="bi bi-cloud-arrow-up carregar-foto"></i>
-                    </label>
-                </form>
-
+                <img src="../../../../public/uploads/imagem_padrao.png" class="foto-perfil">
                 <!-- Botão de upload (ícone Bootstrap) -->
                 <label for="inputFotoPerfil" class="btn-upload-foto" title="Alterar foto">
                     <i class="bi bi-cloud-arrow-up carregar-foto"></i>
@@ -132,5 +121,7 @@ function mascararCPF($cpf) {
 <script>
     const usuarioID  = <?php echo json_encode($_SESSION['usuario']['id']);?>
 </script>
+
+<script src="../../../../public/js/perfil-usuario.js"></script>
 </body>
 </html>
