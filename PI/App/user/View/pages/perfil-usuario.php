@@ -22,10 +22,23 @@ function mascararCPF($cpf) {
     <title>Meu Perfil</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <style>
+        .perfil-tweeb-botoes {
+            display: none; /* Esconde os botões por padrão */
+        }
+        .editing .perfil-tweeb-botoes {
+            display: flex; /* Mostra os botões quando estiver editando */
+        }
+        .editing input:not([disabled]) {
+            border: 1px solid #007bff;
+        }
+        input:not([disabled]) {
+            border: none;
+        }
+    </style>
 </head>
 <body>
     
-
 <?php include __DIR__.'/../../../../includes/navbar-logada.php'; ?>
 <?php include __DIR__.'/../../../../includes/sidebar-User.php'; ?>
 
@@ -35,15 +48,35 @@ function mascararCPF($cpf) {
         <button class="perfil-tweeb-editar">Oi <?php echo htmlspecialchars($_SESSION['usuario']['nome']); ?>, 👋🏼 </button>
         
         <div class="perfil-tweeb-header">
+            <?php if(isset($_SESSION['erro'])): ?>
+                <div class="alert alert-danger">
+                    <?php 
+                    echo htmlspecialchars($_SESSION['erro']); 
+                    unset($_SESSION['erro']);
+                    ?>
+                </div>
+            <?php endif; ?>
+            
             <div class="perfil-tweeb-imagem">
-                <img src="../../../../public/uploads/imagem_padrao.png" class="foto-perfil">
+                <img src="/Tweeb-2025/PI/public/uploads/<?php echo htmlspecialchars($_SESSION['usuario']['foto_perfil'] ?? ''); ?>" 
+                onerror="this.onerror=null; this.src='/Tweeb-2025/PI/public/uploads/imagem_padrao.png';" 
+                alt="" 
+                class="foto-perfil">
+                <!-- Input oculto de upload -->
+                <form method="POST" action="../../Controllers/userEdit.php" enctype="multipart/form-data" id="formFotoPerfil">
+                    <input type="file" id="inputFotoPerfil" name="foto_perfil" accept="image/*" style="display: none;">
+                    <label for="inputFotoPerfil" class="btn-upload-foto" title="Alterar foto">
+                        <i class="bi bi-cloud-arrow-up carregar-foto"></i>
+                    </label>
+                </form>
+
                 <!-- Botão de upload (ícone Bootstrap) -->
                 <label for="inputFotoPerfil" class="btn-upload-foto" title="Alterar foto">
                     <i class="bi bi-cloud-arrow-up carregar-foto"></i>
                 </label>
 
                 <!-- Botão de editar (ícone lápis) -->
-                <button class="perfil-tweeb-editar-foto" title="Editar">
+                <button class="perfil-tweeb-editar-foto" title="Editar" onclick="toggleEditMode()">
                     <i class="fa-regular fa-pen-to-square" style="color: #4b5563;"></i>
                 </button>
             </div>
@@ -57,12 +90,12 @@ function mascararCPF($cpf) {
         <form class="perfil-tweeb-form" method="POST" action="../../Controllers/userEdit.php" enctype="multipart/form-data">
             <div class="perfil-tweeb-input-group">
                 <label for="primeiro-nome">Primeiro nome</label>
-                <input type="text" id="primeiro-nome" name="nome" value="<?php echo htmlspecialchars($_SESSION['usuario']['nome']); ?>">
+                <input type="text" id="primeiro-nome" name="nome" value="<?php echo htmlspecialchars($_SESSION['usuario']['nome']); ?>" readonly>
             </div>
 
             <div class="perfil-tweeb-input-group">
                 <label for="sobrenome">Sobrenome</label>
-                <input type="text" id="sobrenome" name="sobrenome"value="<?php echo htmlspecialchars($_SESSION['usuario']['sobrenome'] ?? ''); ?>">
+                <input type="text" id="sobrenome" name="sobrenome" value="<?php echo htmlspecialchars($_SESSION['usuario']['sobrenome'] ?? ''); ?>" readonly>
             </div>
 
             <div class="perfil-tweeb-input-group">
@@ -72,43 +105,41 @@ function mascararCPF($cpf) {
 
             <div class="perfil-tweeb-input-group">
                 <label for="email">Email</label>
-                <input type="email" id="email" name="email" value="<?php echo htmlspecialchars($_SESSION['usuario']['email']); ?>">
+                <input type="email" id="email" name="email" value="<?php echo htmlspecialchars($_SESSION['usuario']['email']); ?>" readonly>
             </div>
 
             <div class="perfil-tweeb-input-group">
                 <label for="telefone">Telefone</label>
-                <input type="text" id="telefone" name="telefone"value="<?php echo htmlspecialchars($_SESSION['usuario']['telefone'] ?? ''); ?>">
+                <input type="text" id="telefone" name="telefone" value="<?php echo htmlspecialchars($_SESSION['usuario']['telefone'] ?? ''); ?>" readonly>
             </div>
             <div class="perfil-tweeb-input-group">
                 <label for="cep">CEP</label>
-                <input type="text" id="cep" name="cep" value="<?php echo htmlspecialchars($_SESSION['usuario']['cep'] ?? ''); ?>">
+                <input type="text" id="cep" name="cep" value="<?php echo htmlspecialchars($_SESSION['usuario']['cep'] ?? ''); ?>" readonly>
             </div>
 
             <div class="perfil-tweeb-input-group">
                 <label for="rua">Rua</label>
-                <input type="text" id="rua" name="rua" value="<?php echo htmlspecialchars($_SESSION['usuario']['rua'] ?? ''); ?>">
+                <input type="text" id="rua" name="rua" value="<?php echo htmlspecialchars($_SESSION['usuario']['rua'] ?? ''); ?>" readonly>
             </div>
 
             <div class="perfil-tweeb-input-group">
                 <label for="bairro">Bairro</label>
-                <input type="text" id="bairro" name="bairro" value="<?php echo htmlspecialchars($_SESSION['usuario']['bairro'] ?? ''); ?>">
+                <input type="text" id="bairro" name="bairro" value="<?php echo htmlspecialchars($_SESSION['usuario']['bairro'] ?? ''); ?>" readonly>
             </div>
             <div class="perfil-tweeb-input-group">
                 <label for="cidade">Cidade</label>
-                <input type="text" id="cidade" name="cidade" value="<?php echo htmlspecialchars($_SESSION['usuario']['cidade'] ?? ''); ?>">
+                <input type="text" id="cidade" name="cidade" value="<?php echo htmlspecialchars($_SESSION['usuario']['cidade'] ?? ''); ?>" readonly>
             </div>
 
             <div class="perfil-tweeb-input-group">
                 <label for="estado">Estado</label>
-                <input type="text" id="estado" name="estado" value="<?php echo htmlspecialchars($_SESSION['usuario']['estado'] ?? ''); ?>">
+                <input type="text" id="estado" name="estado" value="<?php echo htmlspecialchars($_SESSION['usuario']['estado'] ?? ''); ?>" readonly>
             </div>
 
             <div class="perfil-tweeb-botoes">
-                <button type="button" class="perfil-tweeb-cancelar">Cancelar</button>
+                <button type="button" class="perfil-tweeb-cancelar" onclick="cancelEdit()">Cancelar</button>
                 <button type="button" class="perfil-tweeb-excluir" onClick="deletaUsuario()">Excluir</button>
                 <button type="submit" class="perfil-tweeb-salvar">Salvar alteração</button>
-                
-                
             </div>
             
         </form>
@@ -118,10 +149,7 @@ function mascararCPF($cpf) {
 
 <?php include __DIR__.'/../../../../includes/footer.php'; ?>
 
-<script>
-    const usuarioID  = <?php echo json_encode($_SESSION['usuario']['id']);?>
-</script>
-
-<script src="../../../../public/js/perfil-usuario.js"></script>
+<!-- Incluindo o arquivo JavaScript externo -->
+<script src="../js/perfil-usuario.js"></script>
 </body>
 </html>

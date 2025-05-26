@@ -15,6 +15,51 @@ $enderecoModel = new Endereco();
 
 $id = $_SESSION['usuario']['id'];
 
+// Tratamento do upload de foto
+if (isset($_FILES['foto_perfil']) && $_FILES['foto_perfil']['error'] === UPLOAD_ERR_OK) {
+    $foto = $_FILES['foto_perfil'];
+    $nomeArquivo = uniqid() . '_' . basename($foto['name']);
+    $diretorioDestino = __DIR__ . '/../../../../PI/public/uploads/';
+    
+    // Verifica e cria o diretório se não existir
+    if (!file_exists($diretorioDestino)) {
+        mkdir($diretorioDestino, 0777, true);
+    }
+    
+    $caminhoCompleto = $diretorioDestino . $nomeArquivo;
+    
+    // Verifica o tipo do arquivo
+    $tipoPermitido = ['image/jpeg', 'image/png', 'image/gif'];
+    $tipoArquivo = mime_content_type($foto['tmp_name']);
+    
+    if (!in_array($tipoArquivo, $tipoPermitido)) {
+        $_SESSION['erro'] = "Tipo de arquivo não permitido. Use apenas imagens JPG, PNG ou GIF.";
+        header('Location: /Tweeb-2025/PI/app/user/view/pages/perfil-usuario.php');
+        exit();
+    }
+    
+    if (move_uploaded_file($foto['tmp_name'], $caminhoCompleto)) {
+        // Verifica se o arquivo foi realmente movido e existe
+        if (file_exists($caminhoCompleto)) {
+            $usuarioModel->atualizarFoto($id, $nomeArquivo);
+            $_SESSION['usuario']['foto_perfil'] = $nomeArquivo;
+            
+            if (!isset($_POST['nome'])) {
+                header('Location: /Tweeb-2025/PI/app/user/view/pages/perfil-usuario.php');
+                exit();
+            }
+        } else {
+            $_SESSION['erro'] = "Erro ao salvar a imagem. Tente novamente.";
+            header('Location: /Tweeb-2025/PI/app/user/view/pages/perfil-usuario.php');
+            exit();
+        }
+    } else {
+        $_SESSION['erro'] = "Erro ao fazer upload da imagem. Tente novamente.";
+        header('Location: /Tweeb-2025/PI/app/user/view/pages/perfil-usuario.php');
+        exit();
+    }
+}
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $dadosUsuario = [
         'nome' => $_POST['nome'] ?? '',
@@ -23,7 +68,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         'telefone' => $_POST['telefone'] ?? ''
     ];
     
-
     $dadosEndereco = [
         'nome_endereco' => 'teste',
         'rua' => $_POST['rua'] ?? '',
@@ -52,7 +96,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $okCep = $cepModel->inserirParaUsuario($id, $dadosCep);
     }
 
-
     $_SESSION['usuario']['nome'] = $dadosUsuario['nome'];
     $_SESSION['usuario']['email'] = $dadosUsuario['email'];
     $_SESSION['usuario']['telefone'] = $dadosUsuario['telefone'];
@@ -63,14 +106,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $_SESSION['usuario']['bairro'] = $dadosEndereco['bairro'];
     $_SESSION['usuario']['estado'] = $dadosEndereco['estado'];
 
-    
-
     if ($okUsuario || $okEndereco || $okCep) {
         $msg = "Dados atualizados com sucesso!";
         header('Location: /Tweeb-2025/PI/app/user/view/pages/perfil-usuario.php');
     } else {
         $msg = "Nada foi alterado.";
     }
-
-
-}                                                                                          
+}

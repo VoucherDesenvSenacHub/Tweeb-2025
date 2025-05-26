@@ -7,6 +7,7 @@ class Usuario {
     public function __construct() {
         $this->db = new Database('usuarios'); 
     }
+    
     public function excluir($id){
         // $endereco = new Database('enderecos');
         // $endereco->delete("id = $id");
@@ -26,6 +27,11 @@ class Usuario {
     }
 
     public function atualizar($id, $dados) {
+        return $this->db->update($dados, "id = $id");
+    }
+
+    public function atualizarFoto($id, $foto) {
+        $dados = ['foto_perfil' => $foto];
         return $this->db->update($dados, "id = $id");
     }
 }
