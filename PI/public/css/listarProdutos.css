@@ -172,7 +172,8 @@
     border-collapse: separate;
     border-spacing: 0 30px;
     font-family: 'Poppins', sans-serif;
-    min-width: 600px; 
+    min-width: 600px;
+    table-layout: fixed;
 }
 
 .listarP-table th, .listarP-table .td-listarP {
@@ -196,6 +197,7 @@
     padding: 10px 15px;
     border: none; 
     box-shadow: none;
+    overflow-wrap: break-word;
 }
 
 .tbody-listarP .tr-listarP {
