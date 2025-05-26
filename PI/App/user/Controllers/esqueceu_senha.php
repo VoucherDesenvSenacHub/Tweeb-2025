@@ -1,7 +1,9 @@
 <?php
-
+require_once __DIR__ . '/../../../init.php';
 require '../../DB/Database.php';
-require '../../../vendor/autoload.php';
+
+$dotenv = Dotenv\Dotenv::createImmutable(PROJECT_ROOT);
+$dotenv->load();
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
@@ -38,7 +40,7 @@ switch ($_SERVER['REQUEST_METHOD']) {
                 $mail->Host       = 'smtp.gmail.com';
                 $mail->SMTPAuth   = true;
                 $mail->Username   = 'tweebecommerce@gmail.com';
-                $mail->Password   = 'uemc ruwc bfsu lebo'; // Coloque a senha aqui com segurança
+                $mail->Password   = $_ENV['app_password']; // Coloque a senha aqui com segurança
                 $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
                 $mail->Port       = 587;
 

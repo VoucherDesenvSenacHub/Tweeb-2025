@@ -1,16 +1,24 @@
 <?php
-    
+require_once __DIR__ . '/../../init.php';
+
+$dotenv = Dotenv\Dotenv::createImmutable(PROJECT_ROOT);
+$dotenv->load();
+
 class Database{
     public $conn;
-    public string $local="192.168.22.9";
-    public string $db="140p2";
-    public string $user="devwebp2";
-    public string $password="voucher@140";
+    public string $local;
+    public string $db;
+    public string $user;
+    public string $password;
     public $table;
 
    
     public function __construct($table = null){
         $this->table = $table;
+        $this->local = $_ENV['local'];
+        $this->db = $_ENV['database'];
+        $this->user = $_ENV['user'];
+        $this->password = $_ENV['password'];
         $result = $this->conecta();
     }
 
