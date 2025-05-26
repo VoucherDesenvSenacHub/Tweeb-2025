@@ -14,10 +14,71 @@ session_start();
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <style>
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+        }
+
+        .modal-container {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            z-index: 1001;
+            min-width: 300px;
+        }
+
+        .modal-icon {
+            font-size: 50px;
+            color: #4CAF50;
+            margin-bottom: 20px;
+        }
+
+        .modal-title {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 10px;
+            font-family: 'Inter', sans-serif;
+            font-weight: bold;
+        }
+    </style>
 </head>
 
 <body class="pesquisa1-cadastro-body">
+    <!-- Modal de Sucesso -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal-container">
+            <div class="modal-icon">✓</div>
+            <div class="modal-title">Cadastrado com Sucesso!</div>
+        </div>
+    </div>
+
     <header class="pesquisa1-cadastro-header">
+        <?php
+        if (isset($_SESSION['mostrar_modal']) && $_SESSION['mostrar_modal']) {
+            echo "<script>
+                window.onload = function() {
+                    document.getElementById('modalOverlay').style.display = 'block';
+                    setTimeout(function() {
+                        document.getElementById('modalOverlay').style.display = 'none';
+                    }, 2000);
+                }
+            </script>";
+            unset($_SESSION['mostrar_modal']); // Remove a flag da sessão
+        }
+        ?>
         <img src="../../../../public/assets/img/logo_img.png" alt="image-1" class="pesquisa1-cadastro-logo-tweeb">
         <div class="pesquisa1-cadastro-container-input">
             <img src="../../../../public/assets/img/Search (1).png" alt="search-icon" class="pesquisa1-cadastro-search-icon">

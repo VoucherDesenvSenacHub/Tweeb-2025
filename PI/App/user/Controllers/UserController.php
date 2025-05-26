@@ -30,11 +30,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // }
 
     if ($client->cadastrar()) {
-
         header('location: /Tweeb-2025/PI/App/user/View/pages/pagina_1_pesquisa_cadastro.php');
         exit();
     } else {
-
         header('location: /Tweeb-2025/PI/App/user/View/pages/cadastro.php?status=erro_cadastro');
         exit();
     }
