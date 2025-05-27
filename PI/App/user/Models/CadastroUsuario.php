@@ -10,20 +10,18 @@ class CadastroUsuario {
     public $senha;
     public $confirmacao; 
 
-    public function __construct($nome, $email, $cpf , $senha, $confirmacao) {
+    public function __construct($nome, $email, $cpf, $senha, $confirmacao) {
         $this->nome = $nome;
         $this->email = $email;
-        $this->cpf = $cpf;
+        $this->cpf = preg_replace('/[^0-9]/', '', $cpf); // Remove tudo que não é número
         $this->senha = $senha;
         $this->confirmacao = $confirmacao;
     }
 
     public function validarCampos() {
-
         if (empty($this->nome) || empty($this->email) || empty($this->cpf) || empty($this->senha) || empty($this->confirmacao)) {
             return 'Campos obrigatórios não preenchidos';
         }
-
 
         if ($this->senha !== $this->confirmacao) {
             return 'As senhas não coincidem';
@@ -33,67 +31,51 @@ class CadastroUsuario {
             return 'Email inválido';
         }
 
-        return true;
-
-        $cpf = preg_replace('/[^0-9]/', '', $this->cpf);
-
-        if (
-            strlen($cpf) != 11 ||
-            preg_match('/^(\d)\1{10}$/', $cpf) ||
-            (
-                (function($cpf) {
-                    for ($t = 9; $t < 11; $t++) {
-                        $soma = 0;
-                        for ($c = 0; $c < $t; $c++) {
-                            $soma += $cpf[$c] * (($t + 1) - $c);
-                        }
-                        $digito = ((10 * $soma) % 11) % 10;
-                        if ($cpf[$c] != $digito) {
-                            return false;
-                        }
-                    }
-                    return true;
-                })($cpf) === false
-            )
-        ) {
-            return 'CPF inválido';
+        // Validação do CPF
+        if (strlen($this->cpf) !== 11) {
+            return 'CPF deve conter 11 dígitos';
         }
-    
+
+        if (preg_match('/^(\d)\1{10}$/', $this->cpf)) {
+            return 'CPF inválido: todos os dígitos são iguais';
+        }
+
+        // Validação dos dígitos verificadores
+        for ($t = 9; $t < 11; $t++) {
+            $soma = 0;
+            for ($c = 0; $c < $t; $c++) {
+                $soma += $this->cpf[$c] * (($t + 1) - $c);
+            }
+            $digito = ((10 * $soma) % 11) % 10;
+            if ($this->cpf[$c] != $digito) {
+                return 'CPF inválido';
+            }
+        }
+
         return true;
     }
 
-    
-
-    // public function verificarEmailExistente() {
-    //     // Consulta para verificar se o email já existe no banco
-    //     $db = new Database('usuarios');
-    //     // Passando a condição corretamente, sem 'WHERE' no parâmetro
-    //     $result = $db->select("email = ?", [$this->email]);
-    
-    //     // Se o resultado contiver registros, o email já existe
-    //     if (count($result) > 0) {
-    //         return false; // Email já existe
-    //     }
-    
-    //     return true; // Email não existe
-    // }
-    
-    
-
     public function cadastrar() {
-
         $validacao = $this->validarCampos();
         if ($validacao !== true) {
             return $validacao;
         }
 
-
-        // $emailVerificacao = $this->verificarEmailExistente();
-        // if ($emailVerificacao !== true) {
-        //     return $emailVerificacao;
-        // }
-
         $db = new Database('usuarios');
+        
+        // Verifica se o email já existe
+        $verificaEmail = $db->select("email = '" . $this->email . "'");
+        if ($verificaEmail->rowCount() > 0) {
+            return 'Este email já está cadastrado';
+        }
+
+        // Verifica se o CPF já existe
+        $dbClientes = new Database('clientes');
+        $verificaCPF = $dbClientes->select("cpf = '" . $this->cpf . "'");
+        if ($verificaCPF->rowCount() > 0) {
+            return 'Este CPF já está cadastrado';
+        }
+
         $this->id = $db->insert([
             'nome'   => $this->nome,
             'email'  => $this->email,
@@ -102,7 +84,6 @@ class CadastroUsuario {
         ]);
 
         if ($this->id) {
-            
             $clienteDB = new Database('clientes');
             $clienteDB->insert([
                 'id_usuario' => $this->id,
@@ -117,7 +98,7 @@ class CadastroUsuario {
                 'id'    => $this->id,
                 'nome'  => $this->nome,
                 'email' => $this->email,
-                'cpf' => $this->cpf
+                'cpf'   => $this->cpf
             ];
 
             return true;

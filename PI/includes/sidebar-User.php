@@ -11,7 +11,7 @@
     
                 <p id="user_infos">
                     <span class="item-description">
-                    <?php echo htmlspecialchars($_SESSION['usuario']['nome']); ?>
+                      <?php echo htmlspecialchars($_SESSION['usuario']['nome']); ?>
                     </span>
                 </p>
             </div>
