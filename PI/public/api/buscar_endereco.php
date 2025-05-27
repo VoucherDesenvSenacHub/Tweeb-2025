@@ -11,12 +11,18 @@ $usuario_id = $_SESSION['usuario']['id'];
 $enderecoModel = new Endereco();
 $cepModel = new Cep();
 
-$endereco = $enderecoModel->buscarPorUsuario($usuario_id);
+$enderecos = $enderecoModel->buscarPorUsuario($usuario_id);
 
-$dadosEndereco = [];
+$dadosEnderecosComCep = [];
 
-if ($endereco) {
-    $cep = $cepModel->buscarPorUsuario($endereco['id']);
-    $dadosEndereco = array_merge($endereco, $cep);
+if ($enderecos) {
+    foreach ($enderecos as $endereco) {
+        $cep = $cepModel->buscarPorEndereco($endereco['id_endereco']);
+        if ($cep === false || $cep === null) {
+            $cep = [];
+        }
+        $dadosEnderecosComCep[] = array_merge($endereco, $cep);
+    }
 }
+
 ?>

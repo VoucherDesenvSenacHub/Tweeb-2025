@@ -18,12 +18,14 @@ class Endereco {
     }
 
     public function buscarPorUsuario($usuario_id) {
-        $result = $this->db->select("id_cliente  = $usuario_id");
-        return $result->fetch(PDO::FETCH_ASSOC);
+    $result = $this->db->select("id_cliente = $usuario_id");
+    return $result->fetchAll(PDO::FETCH_ASSOC); // fetchAll para retornar todos
     }
 
+
     public function inserirParaUsuario($usuario_id, $dados) {
-        $dados['id_cliente '] = $usuario_id;
-        return $this->db->insert($dados);
+        $dados['id_cliente'] = $usuario_id;
+        $lastId = $this->db->insert($dados);
+        return $lastId;
     }
 }

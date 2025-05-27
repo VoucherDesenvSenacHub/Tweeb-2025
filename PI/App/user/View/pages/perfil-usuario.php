@@ -88,30 +88,30 @@ function mascararCPF($cpf) {
 
             <div class="perfil-tweeb-input-group">
                 <label for="telefone">Telefone</label>
-                <input type="text" id="telefone" name="telefone"value="<?php echo htmlspecialchars($_SESSION['usuario']['telefone'] ?? ''); ?>">
+                <input type="text" id="telefone" name="telefone"value="">
             </div>
             <div class="perfil-tweeb-input-group">
                 <label for="cep">CEP</label>
-                <input type="text" id="cep" name="cep" value="<?php echo htmlspecialchars($_SESSION['usuario']['cep'] ?? ''); ?>">
+                <input type="text" id="cep" name="cep" value="">
             </div>
 
             <div class="perfil-tweeb-input-group">
                 <label for="rua">Rua</label>
-                <input type="text" id="rua" name="rua" value="<?php echo htmlspecialchars($_SESSION['usuario']['rua'] ?? ''); ?>">
+                <input type="text" id="rua" name="rua" value="">
             </div>
 
             <div class="perfil-tweeb-input-group">
                 <label for="bairro">Bairro</label>
-                <input type="text" id="bairro" name="bairro" value="<?php echo htmlspecialchars($_SESSION['usuario']['bairro'] ?? ''); ?>">
+                <input type="text" id="bairro" name="bairro" value="">
             </div>
             <div class="perfil-tweeb-input-group">
                 <label for="cidade">Cidade</label>
-                <input type="text" id="cidade" name="cidade" value="<?php echo htmlspecialchars($_SESSION['usuario']['cidade'] ?? ''); ?>">
+                <input type="text" id="cidade" name="cidade" value="">
             </div>
 
             <div class="perfil-tweeb-input-group">
                 <label for="estado">Estado</label>
-                <input type="text" id="estado" name="estado" value="<?php echo htmlspecialchars($_SESSION['usuario']['estado'] ?? ''); ?>">
+                <input type="text" id="estado" name="estado" value="">
             </div>
 
             <div class="perfil-tweeb-botoes">

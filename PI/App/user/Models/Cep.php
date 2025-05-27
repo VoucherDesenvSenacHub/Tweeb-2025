@@ -16,13 +16,14 @@ class Cep {
         return $result->fetch(PDO::FETCH_ASSOC);
     }
 
-    public function buscarPorUsuario($usuario_id) {
-        $result = $this->db->select("endereco_id = $usuario_id");
-        return $result->fetch(PDO::FETCH_ASSOC);
+    public function buscarPorEndereco($endereco_id) {
+    $result = $this->db->select("endereco_id = $endereco_id");
+    return $result->fetch(PDO::FETCH_ASSOC);
     }
 
+
     public function inserirParaUsuario($usuario_id, $dados) {
-        $dados['endereco_id'] = $usuario_id;
+        // $dados['endereco_id'] = $usuario_id;
         return $this->db->insert($dados);
     }
     

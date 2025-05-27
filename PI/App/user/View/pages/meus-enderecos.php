@@ -3,11 +3,13 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
     session_start();
 }
 if (!isset($_SESSION['usuario']['id'])) {
-    // Redireciona para login se não estiver logado
+
     header('Location: login.php');
     exit();
 }
+
 require __DIR__.'/../../../../public/api/buscar_endereco.php';
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -28,22 +30,23 @@ require __DIR__.'/../../../../public/api/buscar_endereco.php';
     <div class="enderecos">
     <h1 class="metodoh1">Meus Endereços</h1>
 
-    <?php if ($dadosEndereco): ?>
+   <?php if (!empty($dadosEndereco)): ?>
+    <?php foreach ($dadosEndereco as $endereco): ?>
         <div class="endereco-card">
             <label>
-                <input type="radio" id="endereco" name="endereco" value="principal" checked>
-                <label class="endereco-label" for="endereco">
-                    <?= htmlspecialchars($dadosEndereco['nome'] ?? 'Endereço') ?>
+                <input type="radio" id="endereco-<?= $endereco['id_endereco'] ?>" name="endereco" value="<?= $endereco['id_endereco'] ?>" <?= $loopFirst ? 'checked' : '' ?>>
+                <label class="endereco-label" for="endereco-<?= $endereco['id_endereco'] ?>">
+                    <?= htmlspecialchars($endereco['nome_endereco'] ?? 'Endereço') ?>
                 </label>
                 <div class="endereco-details">
                     <p>
-                        <?= htmlspecialchars($dadosEndereco['rua'] ?? '') ?>,
-                        <?= htmlspecialchars($dadosEndereco['bairro'] ?? '') ?>,
-                        <?= htmlspecialchars($dadosEndereco['cidade'] ?? '') ?> -
-                        <?= htmlspecialchars($dadosEndereco['estado'] ?? '') ?>
-                        <?= htmlspecialchars($dadosEndereco['cep'] ?? '') ?>
+                        <?= htmlspecialchars($endereco['rua'] ?? '') ?>,
+                        <?= htmlspecialchars($endereco['bairro'] ?? '') ?>,
+                        <?= htmlspecialchars($endereco['cidade'] ?? '') ?> -
+                        <?= htmlspecialchars($endereco['estado'] ?? '') ?>
+                        <?= htmlspecialchars($endereco['cep'] ?? '') ?>
                     </p>
-                    <p><?= htmlspecialchars($dadosEndereco['telefone'] ?? '') ?></p>
+                    <p><?= htmlspecialchars($endereco['telefone'] ?? '') ?></p>
                 </div>
             </label>
             <div class="endereco-actions">
@@ -51,9 +54,12 @@ require __DIR__.'/../../../../public/api/buscar_endereco.php';
                 <button class="delete"><i class="fa-solid fa-xmark"></i></button>
             </div>
         </div>
-    <?php else: ?>
-        <p>Você ainda não cadastrou nenhum endereço.</p>
-    <?php endif; ?>
+    <?php endforeach; ?>
+<?php else: ?>
+    <p>Você ainda não cadastrou nenhum endereço.</p>
+    
+<?php endif; ?>
+
 </div>
 
 
