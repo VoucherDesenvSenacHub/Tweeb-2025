@@ -62,6 +62,27 @@ class Database{
         }
     }
 
+    // inserir por Id
+    public function insert_LastId($values){
+        $fields = array_keys($values);
+        $binds = array_pad([],count($fields),'?');
+
+        $query = 'INSERT INTO ' . $this->table .'  (' .implode(',',$fields). ') VALUES (' .implode(',',$binds).')';
+
+
+        $res = $this->execute($query, array_values($values));   
+
+        $lastId = $this->conection->lastInsertId();  
+
+        if($res){
+            return $lastId;
+        }
+        else{
+            return false;
+        }
+        
+    }
+
     public function update($values, $where){
         $fields = array_keys($values);
         $set = implode(' = ?, ', $fields) . ' = ?';
