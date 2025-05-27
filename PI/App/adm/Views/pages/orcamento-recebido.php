@@ -9,6 +9,99 @@
     <link rel="stylesheet" href="../../../../public/css/orcamento-recebido.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
+
+
+
+
+
+
+
+
+
+<!-- Modal de Resposta de Orçamento -->
+<div id="modal-responder-orcamento" class="modal-overlay" style="display: none;">
+  <div class="modal-content responder-orcamento">
+    <div class="container-responder-orcamento-h1">
+      <h1 class="responder-orcamento-h1">Responder Orçamento</h1>
+      <div class="responder-orcamento-back-page close-modal">
+        <img src="../../../../public/assets/img/Vector2.png" alt="Fechar">
+      </div>
+    </div>
+
+    <div class="responder-orcamento-container1">
+      <div class="responder-orcamento-title">
+        <p class="responder-orcamento-p1">Título</p>
+        <input type="text" placeholder="Enter title" class="responder-orcamento-input">
+      </div>
+      <div class="responder-orcamento-enviado_por">
+        <p class="responder-orcamento-p2">Enviada por</p>
+        <input type="text" placeholder="Enter name" class="responder-orcamento-input">
+      </div>
+      <div class="responder-orcamento-responder_para">
+        <p class="responder-orcamento-p3">Responder para</p>
+        <input type="email" placeholder="Enter email" class="responder-orcamento-input">
+      </div>
+    </div>
+
+    <div class="responder-orcamento-container2">
+      <div class="responder-orcamento-data">
+        <p class="responder-orcamento-p4">Data</p>
+        <input type="date" class="responder-orcamento-input">
+      </div>
+      <div class="responder-orcamento-resposta">
+        <p class="responder-orcamento-p5">Resposta</p>
+        <textarea placeholder="Detalhe ao máximo a solicitação" class="responder-orcamento-input"></textarea>
+      </div>
+    </div>
+
+    <button class="orcamento-recebido-negacao">
+    <button type="button" class="orcamento-recebido-negacao">Enviar</button>
+    </button>
+
+    <!-- Confirmação -->
+    <div class="resp-orc-pop_pup-container" style="display: none;">
+      <div class="resp-orc-pop_up-box">
+        <div class="close-button">
+          <img src="../../../../public/assets/img/vector2.png" alt="close-icon">
+        </div>
+        <h1 class="resp-orc-pop_up-h1">Você tem certeza?</h1>
+        <p class="resp-orc-pop_up-p">
+          Ao confirmar, Jorge irá receber uma mensagem automática informando que não realizamos este serviço.
+        </p>
+        <div class="container-buttons-pop_up">
+          <button class="pop_up-cancel">Não, Cancelar</button>
+          <button class="pop_up-submit">Sim, Confirmar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <body>
 <?php include __DIR__.'/../../../../includes/head-adm.php'; ?>
 <?php include __DIR__.'/../../../../includes/sidebar-Adm.php'; ?>
@@ -49,7 +142,7 @@
     <div class="pedidos-categoria-selecionado">
         <div class="categorias-adm-enviados">
         <span><p>Pendentes</p></span>
-        <p>Aceitos</p>
+        <a href="orcamento-aceitos.php"><p>Aceitos</p></a>
         </div>
     </div>
 
@@ -75,7 +168,10 @@
         <textarea readonly>Formatação do Notebook</textarea>
         <div class="orcamento-recebido-buttons">
             <button type="button" class="orcamento-recebido-negacao">Negar</button>
-            <button type="submit" class="orcamento-recebido-responder">Responder</button>
+            <button type="button" class="orcamento-recebido-responder open-modal-resposta">Responder</button>
+
+
+
         </div>
     </form>
     </div>
@@ -102,7 +198,9 @@
         <textarea readonly>Formatação do Notebook</textarea>
         <div class="orcamento-recebido-buttons">
             <button type="button" class="orcamento-recebido-negacao">Negar</button>
-            <button type="submit" class="orcamento-recebido-responder">Responder</button>
+            <button type="button" class="orcamento-recebido-responder open-modal-resposta">Responder</button>
+
+
         </div>
     </form>
     </div>
@@ -114,4 +212,25 @@
     
 <?php include __DIR__.'/../../../../includes/footer-adm.php'; ?> 
 </body>
+
+
+<script>
+  document.querySelectorAll('.open-modal-resposta').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.getElementById('modal-responder-orcamento').style.display = 'flex';
+    });
+  });
+
+  document.querySelectorAll('.close-modal').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.getElementById('modal-responder-orcamento').style.display = 'none';
+    });
+  });
+</script>
+
+
+
+
+
+
 </html>
