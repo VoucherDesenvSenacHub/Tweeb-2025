@@ -1,3 +1,31 @@
+function mostrarModal() {
+    return new Promise((resolve) => {
+        var modal = document.getElementById('modalSucesso');
+        var progress = document.getElementById('progress');
+        
+        modal.style.display = 'block';
+        
+        // Inicia a barra de progresso
+        setTimeout(() => {
+            progress.style.width = '100%';
+        }, 50);
+
+        // Esconde o modal após 1 segundo e resolve a Promise
+        setTimeout(function() {
+            modal.style.display = 'none';
+            progress.style.width = '0%';
+            resolve();
+        }, 1000);
+    });
+}
+
+
+document.getElementById('formCadastro').onsubmit = async function(e) {
+    e.preventDefault();
+    await mostrarModal();
+    this.submit(); 
+};
+
 // Função para abrir o modal de cadastro
 function abrirModalCadastro() {
     const modal = document.getElementById('modalCadastro');
@@ -147,9 +175,4 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Teste: mostrar modal ao clicar em qualquer lugar da página
-    document.body.addEventListener('click', () => {
-        console.log('Clique detectado');
-        mostrarModalSucesso();
-    });
 });

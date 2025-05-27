@@ -100,35 +100,8 @@
         </div>
     </div>
 
-    <script>
-    function mostrarModal() {
-        return new Promise((resolve) => {
-            var modal = document.getElementById('modalSucesso');
-            var progress = document.getElementById('progress');
-            
-            modal.style.display = 'block';
-            
-            // Inicia a barra de progresso
-            setTimeout(() => {
-                progress.style.width = '100%';
-            }, 50);
-
-            // Esconde o modal após 1 segundo e resolve a Promise
-            setTimeout(function() {
-                modal.style.display = 'none';
-                progress.style.width = '0%';
-                resolve();
-            }, 1000);
-        });
-    }
-
-    // Adiciona o evento de submit ao formulário
-    document.getElementById('formCadastro').onsubmit = async function(e) {
-        e.preventDefault(); // Previne o envio imediato do formulário
-        await mostrarModal(); // Espera o modal completar sua animação
-        this.submit(); // Envia o formulário após o modal terminar
-    };
-    </script>
+   
+   <script src="../../../../public/js/Modal_cadastroUsuario.js"></script>
 </body> 
 </html>
 
