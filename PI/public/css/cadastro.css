@@ -5,93 +5,116 @@
     font-family: 'Inter', sans-serif;
 } 
 
-.Task2a-body { 
-    background-color: #2E184F; 
-    display: flex; 
-    justify-content: center; 
-    align-items: center; 
-    height: 100vh;
+.Task2a-body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f5f5f5;
+    font-family: 'Inter', sans-serif;
 } 
      
 .Task2a-container { 
-    display: flex; 
-    justify-content: center; 
-    align-items: center; 
     width: 100%; 
-    max-width: 490px;
+    max-width: 400px; 
+    padding: 20px;
 } 
     
 .Task2a-card { 
-    height: 620px;
-    background-color: #fff; 
-    padding: 25px 70px;
-    border-radius: 46px; 
-    text-align: center; 
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); 
+    background: white; 
+    padding: 40px; 
+    border-radius: 10px; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 } 
 
 .Task2a-logo { 
-    padding: 20px;
-    margin-top: 20px;
+    display: block; 
+    margin: 0 auto 30px; 
+    max-width: 150px;
 }  
 
 .Task2a-title {
+    text-align: center;
+    color: #333;
     margin-bottom: 10px;
-    font-size: 23px;
-    font-weight: 600;
+    font-size: 24px;
 } 
 
 .Task2a-description { 
-    font-size: 15px;
-    margin-bottom: 24px;
-    font-weight: 400;
+    text-align: center;
+    color: #666;
+    margin-bottom: 30px;
+    font-size: 14px;
 } 
 
-.Task2a-input { 
-    background-color: #EEEEEE;
+.cadastro-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.input-group {
+    position: relative;
+}
+
+.Task2a-input {
     width: 100%;
-    padding: 10px; 
-    margin-bottom: 16px; 
-    border: 1px solid #E0E0E0; 
-    border-radius: 8px;
-    font-weight: 500;
-    font-size: 16px;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: border-color 0.3s ease;
 }
 
 .Task2a-input:focus {
     outline: none;
-    border: 1px solid #CEF5A4;
-    box-shadow: 0 0 5px #b7e850;
+    border-color: #6c63ff;
 }
-     
+
+.Task2a-input.error {
+    border-color: #ff3b3b;
+}
+
+.error-message {
+    color: #ff3b3b;
+    font-size: 12px;
+    margin-top: 5px;
+    text-align: center;
+}
+
+#cpf-error {
+    color: #ff3b3b;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
 .Task2a-btn-email { 
-    width: 100%; 
-    padding: 10px; 
-    background-color: #CEF5A4; 
+    background: #6c63ff; 
+    color: white; 
+    padding: 12px; 
     border: none; 
-    border-radius: 8px; 
-    color: #291E40; 
+    border-radius: 5px; 
     font-size: 16px; 
-    font-weight: 500;
     cursor: pointer; 
-    margin-bottom: 24px;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
 } 
 
 .Task2a-btn-email:hover { 
-    background-color: #b7e850;
-    transition: 0.3s;
+    background: #5a52d5;
 } 
 
 .Task2a-terms { 
-    font-size: 14px;
-    font-weight: 400;
-    color: #828282; 
-    margin-top: 2px;
-    line-height: 20px;
+    text-align: center;
+    color: #666;
+    font-size: 12px;
+    margin-top: 20px;
 } 
     
 .Task2a-terms a { 
-    color: #007bff; 
+    color: #6c63ff; 
     text-decoration: none; 
 } 
 

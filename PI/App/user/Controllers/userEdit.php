@@ -80,20 +80,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         'codigo' => $_POST['cep'] ?? ''
     ];
 
+    // Primeiro atualiza o usuário
     $okUsuario = $usuarioModel->atualizar($id, $dadosUsuario);
 
+    // Depois trata o endereço
     $existeEndereco = $enderecoModel->buscarPorUsuario($id);
     if ($existeEndereco) {
         $okEndereco = $enderecoModel->atualizarPorUsuario($id, $dadosEndereco);
+        $enderecoId = $existeEndereco['id'];
     } else {
-        $okEndereco = $enderecoModel->inserirParaUsuario($id, $dadosEndereco);
+        $enderecoId = $enderecoModel->inserirParaUsuario($id, $dadosEndereco);
+        $okEndereco = $enderecoId !== false;
     }
 
-    $existeCep = $cepModel->buscarPorUsuario($id);
-    if ($existeCep) {
-        $okCep = $cepModel->atualizarPorUsuario($id, $dadosCep);
-    } else {
-        $okCep = $cepModel->inserirParaUsuario($id, $dadosCep);
+    // Por fim, trata o CEP apenas se tiver um endereço válido
+    if ($enderecoId) {
+        $dadosCep['endereco_id'] = $enderecoId;
+        $existeCep = $cepModel->buscarPorUsuario($enderecoId);
+        if ($existeCep) {
+            $okCep = $cepModel->atualizarPorUsuario($enderecoId, $dadosCep);
+        } else {
+            $okCep = $cepModel->inserirParaUsuario($enderecoId, $dadosCep);
+        }
     }
 
     $_SESSION['usuario']['nome'] = $dadosUsuario['nome'];
@@ -106,10 +114,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $_SESSION['usuario']['bairro'] = $dadosEndereco['bairro'];
     $_SESSION['usuario']['estado'] = $dadosEndereco['estado'];
 
-    if ($okUsuario || $okEndereco || $okCep) {
-        $msg = "Dados atualizados com sucesso!";
+    if ($okUsuario || $okEndereco || ($enderecoId && $okCep)) {
         header('Location: /Tweeb-2025/PI/app/user/view/pages/perfil-usuario.php');
-    } else {
-        $msg = "Nada foi alterado.";
+        exit();
     }
-}
+}                                                                                          

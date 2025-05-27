@@ -22,17 +22,28 @@
                     <p class="error-message" style="color: red;">Erro ao cadastrar. Tente novamente mais tarde.</p>
                 <?php endif; ?>
             <?php endif; ?>
-            <form method="post" action="../../Controllers/UserController.php" class="cadastro-form">
-                <input name='nome' type="text" placeholder="Nome" class="Task2a-input"> 
-                <input name='email' type="email" placeholder="Email" class="Task2a-input">
-                <input name='cpf' type="text" placeholder="CPF" class="Task2a-input">
-                <input name='senha' type="password" placeholder="Digite sua senha" class="Task2a-input"> 
-                <input name='confirmacao' type="password" placeholder="Confirme sua senha " class="Task2a-input">
+            <form method="post" action="../../Controllers/UserController.php" class="cadastro-form" id="form-cadastro">
+                <div class="input-group">
+                    <input name='nome' type="text" placeholder="Nome" class="Task2a-input" required> 
+                </div>
+                <div class="input-group">
+                    <input name='email' type="email" placeholder="Email" class="Task2a-input" required>
+                </div>
+                <div class="input-group">
+                    <input name='cpf' type="text" id="cpf" placeholder="CPF" class="Task2a-input" maxlength="14" required>
+                </div>
+                <div class="input-group">
+                    <input name='senha' type="password" placeholder="Digite sua senha" class="Task2a-input" required> 
+                </div>
+                <div class="input-group">
+                    <input name='confirmacao' type="password" placeholder="Confirme sua senha" class="Task2a-input" required>
+                </div>
                 <button type="submit" class="Task2a-btn-email">Cadastre-se</button>
             </form>
             <p class="Task2a-terms">Ao clicar em continuar, você concorda com nossos <a href="#">Termos de Serviço</a> e <a href="#">Política de Privacidade</a></p>
         </div> 
     </div> 
+    <script src="../../../../public/js/validacao-cpf.js"></script>
 </body> 
 </html>
 
