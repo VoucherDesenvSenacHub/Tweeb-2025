@@ -1,29 +1,29 @@
 <?php
-require_once '../../Controllers/resetar_senha.php';
+// require_once '../../Controllers/resetar_senha.php';
 
-switch($_SERVER['REQUEST_METHOD']){
-    case 'POST':
+// switch($_SERVER['REQUEST_METHOD']){
+//     case 'POST':
         
-        if(isset($_GET['token']) && strlen($_GET['token'] != 0)){
-            $token = $_GET['token'];
+//         if(isset($_GET['token']) && strlen($_GET['token'] != 0)){
+//             $token = $_GET['token'];
 
-            $reset = new ResetarSenha();
-            $result = $reset::ResetarSenha($token, $_POST['confirmar_senha']);
+//             $reset = new ResetarSenha();
+//             $result = $reset::ResetarSenha($token, $_POST['confirmar_senha']);
 
-            if($result){
-                echo("<script>alert('senha alterada com sucesso') </script>");
-            }
+//             if($result){
+//                 echo("<script>alert('senha alterada com sucesso') </script>");
+//             }
             
-        }
-}
-
-
-
-// if(isset($_GET)){
-//     var_dump($_GET);
+//         }
 // }
 
-?>
+
+
+// // if(isset($_GET)){
+// //     var_dump($_GET);
+// // }
+
+// ?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -35,9 +35,22 @@ switch($_SERVER['REQUEST_METHOD']){
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 <body class="resetar-senha">
+
+    <div id="modal_esqueceu" class="modal-resetar-senha modal-hide">
+
+        <div class="modal-sucesso">
+            <img src="../../../../public/assets/img/check-one.png" alt="">
+            <h1>Senha Alterada!</h1>
+            <p>Sua senha foi alterada com sucesso!</p>
+            <button id="esqueceu-button" onclick="voltarLogin()">Voltar</button>
+        </div>
+
+    </div>
+
     <div class="container-resetar">
         <div class="forms-resetar">
-            <form method="POST">
+            <form method="POST" id="form-resetar-senha">
+                <input name="token" id="token" type="hidden" value="<?php echo($_GET['token']); ?>">
                 <a href="./login.php" class="voltar"><i class='bx bx-chevron-left'></i>< Voltar</a>
                 <h1 class="titulo">Refazer Senha</h1>
                 <p class="sutitulo">Sua conta irá ser resetada. Por favor, digite uma nova senha para sua conta.</p>
