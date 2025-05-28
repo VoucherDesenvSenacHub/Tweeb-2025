@@ -8,25 +8,25 @@ class Produto{
     public int $id_produto;
     public string $nome_produto;
     public string $marca_modelo;
-    public string $quantidade_produto;
+    public int $quantidade_produto;
     public string $imagem_produto;
-    public string $numero_serie;
-    public string $custo_produto;
+    public int $numero_serie;
+    public float $custo_produto;
     public string $cor_produto;
-    public string $preco_unid;
+    public float $preco_unid;
     public string $descricao_produto;
     public string $detalhes_produto;
 
-    public string $id_departamento;
-    public string $entrega_gratis;
-    public string $em_estoque;
-    public string $garantia;
+    public int $id_departamento;
+    public int $entrega_gratis;
+    public int $em_estoque;
+    public int $garantia;
 
     public function cadastrar(){
         $db = new Database('produto');
         $result =  $db->insert(
                             [
-                            // 'id_prod' => $this->id_prod,    
+                            'id_prod' => $this->id_prod,    
                             'nome_produto' => $this->nome_produto,
                             'marca_modelo' => $this->marca_modelo,
                             'quantidade_produto' => $this->quantidade_produto,                           
