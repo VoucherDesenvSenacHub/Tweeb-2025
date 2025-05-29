@@ -5,116 +5,93 @@
     font-family: 'Inter', sans-serif;
 } 
 
-.Task2a-body {
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background-color: #f5f5f5;
-    font-family: 'Inter', sans-serif;
+.Task2a-body { 
+    background-color: #2E184F; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    height: 100vh;
 } 
      
 .Task2a-container { 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
     width: 100%; 
-    max-width: 400px; 
-    padding: 20px;
+    max-width: 490px;
 } 
     
 .Task2a-card { 
-    background: white; 
-    padding: 40px; 
-    border-radius: 10px; 
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    height: 620px;
+    background-color: #fff; 
+    padding: 25px 70px;
+    border-radius: 46px; 
+    text-align: center; 
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); 
 } 
 
 .Task2a-logo { 
-    display: block; 
-    margin: 0 auto 30px; 
-    max-width: 150px;
+    padding: 20px;
+    margin-top: 20px;
 }  
 
 .Task2a-title {
-    text-align: center;
-    color: #333;
     margin-bottom: 10px;
-    font-size: 24px;
+    font-size: 23px;
+    font-weight: 600;
 } 
 
 .Task2a-description { 
-    text-align: center;
-    color: #666;
-    margin-bottom: 30px;
-    font-size: 14px;
+    font-size: 15px;
+    margin-bottom: 24px;
+    font-weight: 400;
 } 
 
-.cadastro-form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.input-group {
-    position: relative;
-}
-
-.Task2a-input {
+.Task2a-input { 
+    background-color: #EEEEEE;
     width: 100%;
-    padding: 12px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 14px;
-    transition: border-color 0.3s ease;
+    padding: 10px; 
+    margin-bottom: 16px; 
+    border: 1px solid #E0E0E0; 
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 16px;
 }
 
 .Task2a-input:focus {
     outline: none;
-    border-color: #6c63ff;
+    border: 1px solid #CEF5A4;
+    box-shadow: 0 0 5px #b7e850;
 }
-
-.Task2a-input.error {
-    border-color: #ff3b3b;
-}
-
-.error-message {
-    color: #ff3b3b;
-    font-size: 12px;
-    margin-top: 5px;
-    text-align: center;
-}
-
-#cpf-error {
-    color: #ff3b3b;
-    font-size: 12px;
-    margin-top: 5px;
-}
-
+     
 .Task2a-btn-email { 
-    background: #6c63ff; 
-    color: white; 
-    padding: 12px; 
+    width: 100%; 
+    padding: 10px; 
+    background-color: #CEF5A4; 
     border: none; 
-    border-radius: 5px; 
+    border-radius: 8px; 
+    color: #291E40; 
     font-size: 16px; 
+    font-weight: 500;
     cursor: pointer; 
-    transition: background-color 0.3s ease;
-    margin-top: 10px;
+    margin-bottom: 24px;
 } 
 
 .Task2a-btn-email:hover { 
-    background: #5a52d5;
+    background-color: #b7e850;
+    transition: 0.3s;
 } 
 
 .Task2a-terms { 
-    text-align: center;
-    color: #666;
-    font-size: 12px;
-    margin-top: 20px;
+    font-size: 14px;
+    font-weight: 400;
+    color: #828282; 
+    margin-top: 2px;
+    line-height: 20px;
 } 
     
 .Task2a-terms a { 
-    color: #6c63ff; 
+    color: #007bff; 
     text-decoration: none; 
 } 
 
