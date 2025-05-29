@@ -55,6 +55,16 @@
         </div>
     </div>
 
+    <div id="modalSucesso" class="Task2a-modal">
+        <div class="Task2a-modal-content">
+            <div class="Task2a-sucesso-icon">✓</div>
+            <div class="Task2a-sucesso-mensagem">Cadastrado com Sucesso!</div>
+            <div class="Task2a-progress-bar">
+                <div class="Task2a-progress" id="progress"></div>
+            </div>
+        </div>
+    </div>
+
     <script src="../../../../public/js/Modal_cadastroUsuario.js"></script>
     <script src="../../../../public/js/validacao-cpf.js"></script>
 </body>
