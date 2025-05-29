@@ -58,10 +58,15 @@ function mascararCPF($cpf) {
             <?php endif; ?>
             
             <div class="perfil-tweeb-imagem">
-                <img src="/Tweeb-2025/PI/public/uploads/<?php echo htmlspecialchars($_SESSION['usuario']['foto_perfil'] ?? ''); ?>" 
-                onerror="this.onerror=null; this.src='/Tweeb-2025/PI/public/assets/img/foto-perfil-default.png';" 
-                alt="" 
-                class="foto-perfil">
+                <?php 
+                $foto_perfil = !empty($_SESSION['usuario']['foto_perfil']) ? $_SESSION['usuario']['foto_perfil'] : 'foto-perfil-default.png';
+                $caminho_foto = strpos($foto_perfil, 'foto-perfil-default.png') !== false ? 
+                    '/Tweeb-2025/PI/public/assets/img/foto-perfil-default.png' : 
+                    '/Tweeb-2025/PI/public/uploads/' . $foto_perfil;
+                ?>
+                <img src="<?php echo htmlspecialchars($caminho_foto); ?>" 
+                     alt="Foto de Perfil" 
+                     class="foto-perfil">
                 
                 <!-- Input oculto de upload -->
                 <form method="POST" action="../../Controllers/UserController.php?acao=upload_foto" enctype="multipart/form-data" id="formFotoPerfil">
@@ -147,8 +152,7 @@ function mascararCPF($cpf) {
 
 <?php include __DIR__.'/../../../../includes/footer.php'; ?>
 
-<script>
-    const usuarioID  = <?php echo json_encode($_SESSION['usuario']['id']);?>
-</script>
+<!-- Incluindo o arquivo JavaScript externo -->
+<script src="../js/perfil-usuario.js"></script>
 </body>
 </html>
