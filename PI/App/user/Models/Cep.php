@@ -7,8 +7,8 @@ class Cep {
         $this->db = new Database('cep');
     }
 
-    public function atualizarPorUsuario($usuario_id, $dados) {
-        return $this->db->update($dados, "endereco_id = $usuario_id");
+    public function atualizarPorUsuario($endereco_id, $dados) {
+        return $this->db->update($dados, "endereco_id = $endereco_id");
     }
 
     public function buscarPorId($id) {
@@ -16,13 +16,15 @@ class Cep {
         return $result->fetch(PDO::FETCH_ASSOC);
     }
 
-    public function buscarPorUsuario($usuario_id) {
-        $result = $this->db->select("endereco_id = $usuario_id");
+    public function buscarPorUsuario($endereco_id) {
+        $result = $this->db->select("endereco_id = $endereco_id");
         return $result->fetch(PDO::FETCH_ASSOC);
     }
 
-    public function inserirParaUsuario($usuario_id, $dados) {
-        $dados['endereco_id'] = $usuario_id;
+    public function inserirParaUsuario($endereco_id, $dados) {
+        if (!isset($dados['endereco_id'])) {
+            $dados['endereco_id'] = $endereco_id;
+        }
         return $this->db->insert($dados);
     }
     

@@ -24,12 +24,12 @@
         </div>
     </div>
 
-    <div class="listarP-filtro-box">
-        <img src="../../../../public/assets/img/Icon-filtro.png" alt="Ícone Filtro" class="listarP-filtro-icon">
-        <span class="listarP-filtro-text">Filtro</span>
+    <div class="listarC-filtro-box">
+        <img src="../../../../public/assets/img/Icon-filtro.png" alt="Ícone Filtro" class="listarC-filtro-icon">
+        <span class="listarC-filtro-text">Filtro</span>
     </div>
 
-    <section class="listarP-section">
+    <section class="listarC-section">
         <div class="listarP-contain">
             <table class="listarP-table">
                 <thead class="thead-listarP">

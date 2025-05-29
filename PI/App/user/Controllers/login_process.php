@@ -6,7 +6,11 @@ class Login {
     public static function login($email, $senha) {
         $db = new Database('usuarios');
 
-        $query = "SELECT u.id, u.nome, u.email, u.senha, c.cpf FROM usuarios u JOIN clientes c ON c.id_usuario = u.id WHERE email = ?";
+        $query = "SELECT u.id, u.nome, u.email, u.senha, u.foto_perfil, u.telefone, u.sobrenome, c.cpf 
+                  FROM usuarios u 
+                  JOIN clientes c ON c.id_usuario = u.id 
+                  WHERE email = ?";
+        
         $stmt = $db->execute($query, [$email]);
         $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
 
@@ -15,7 +19,10 @@ class Login {
                 'id' => $usuario['id'],
                 'nome' => $usuario['nome'],
                 'email' => $usuario['email'],
-                'cpf' => $usuario['cpf']
+                'cpf' => $usuario['cpf'],
+                'foto_perfil' => $usuario['foto_perfil'],
+                'telefone' => $usuario['telefone'],
+                'sobrenome' => $usuario['sobrenome']
             ];
             return true;
         }
@@ -39,7 +46,6 @@ class Login {
         header('Location: /Tweeb-2025/PI/app/user/view/pages/login.php');
         exit;
     }
-    
 }
 
 // Processamento do formulário
