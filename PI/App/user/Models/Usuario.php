@@ -123,7 +123,8 @@ class Usuario {
                 'nome' => $this->nome,
                 'email' => $this->email,
                 'senha' => $this->senha,
-                'tipo' => 'cliente'
+                'tipo' => 'cliente',
+                'foto_perfil' => 'imagem_padrao.png'
             ]);
 
             if ($idUsuario) {
@@ -143,7 +144,8 @@ class Usuario {
                     'id' => $idUsuario,
                     'nome' => $this->nome,
                     'email' => $this->email,
-                    'cpf' => $this->cpf
+                    'cpf' => $this->cpf,
+                    'foto_perfil' => 'foto-perfil-default.png'
                 ];
 
                 return true;
@@ -184,7 +186,7 @@ class Usuario {
             
             // Define a foto de perfil padrão se não houver uma definida
             if (empty($usuario['foto_perfil'])) {
-                $usuario['foto_perfil'] = 'foto-perfil-default.png';
+                $usuario['foto_perfil'] = 'imagem_padrao.png';
             }
             
             $_SESSION['usuario'] = $usuario;
@@ -211,7 +213,20 @@ class Usuario {
     }
 
     public function atualizar($id, $dados) {
-        return $this->db->update($dados, "id = $id");
+        if (!$id || !is_numeric($id)) {
+            throw new Exception('ID inválido');
+        }
+
+        // Remove campos vazios
+        $dados = array_filter($dados, function($value) {
+            return $value !== '' && $value !== null;
+        });
+
+        if (empty($dados)) {
+            return false;
+        }
+
+        return $this->db->update($dados, "id = " . intval($id));
     }
 
     public function atualizarFoto($id, $foto) {

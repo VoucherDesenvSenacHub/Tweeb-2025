@@ -3,10 +3,10 @@
         <div id="sidebar_content">
             <div id="user">
               <?php
-              $foto = $_SESSION['usuario']['foto_perfil'] ?? '';
-              $caminhoImagem = $foto ? '/Tweeb-2025/PI/public/uploads/' . $foto : '/Tweeb-2025/PI/public/assets/img/foto-perfil-default.png';
+              $foto_perfil = !empty($_SESSION['usuario']['foto_perfil']) ? $_SESSION['usuario']['foto_perfil'] : 'imagem_padrao.png';
+              $caminho_foto = '/Tweeb-2025/PI/public/uploads/' . $foto_perfil;
               ?>
-              <img src="<?php echo $caminhoImagem; ?>" alt="Foto de perfil" class="foto-perfil-navbar">
+              <img src="<?php echo htmlspecialchars($caminho_foto); ?>" alt="Foto de perfil" class="foto-perfil-navbar">
 
     
                 <p id="user_infos">

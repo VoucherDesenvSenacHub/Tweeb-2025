@@ -6,6 +6,9 @@ class UserController {
     private $usuario;
 
     public function __construct() {
+        if (session_status() !== PHP_SESSION_ACTIVE) {
+            session_start();
+        }
         $this->usuario = new Usuario();
     }
 
@@ -61,32 +64,61 @@ class UserController {
     }
 
     public function processarEdicao() {
+        if (session_status() !== PHP_SESSION_ACTIVE) {
+            session_start();
+        }
+
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
             header('Location: /Tweeb-2025/PI/app/user/view/pages/perfil-usuario.php');
+            exit();
+        }
+
+        if (!isset($_SESSION['usuario']) || !isset($_SESSION['usuario']['id'])) {
+            header('Location: /Tweeb-2025/PI/app/user/view/pages/login.php');
             exit();
         }
 
         $id = $_SESSION['usuario']['id'];
         
         // Dados do usuário
-        $dadosUsuario = [
+        $dadosUsuario = array_filter([
             'nome' => $_POST['nome'] ?? '',
             'sobrenome' => $_POST['sobrenome'] ?? '',
             'email' => $_POST['email'] ?? '',
             'telefone' => $_POST['telefone'] ?? ''
-        ];
+        ], function($value) {
+            return $value !== '' && $value !== null;
+        });
 
-        // Atualiza o usuário
-        $this->usuario->atualizar($id, $dadosUsuario);
-
-        // Atualiza a sessão
-        $_SESSION['usuario'] = array_merge($_SESSION['usuario'], $dadosUsuario);
-
-        header('Location: /Tweeb-2025/PI/app/user/view/pages/perfil-usuario.php');
+        try {
+            // Atualiza o usuário
+            if ($this->usuario->atualizar($id, $dadosUsuario)) {
+                // Atualiza apenas os campos que foram modificados na sessão
+                foreach ($dadosUsuario as $campo => $valor) {
+                    $_SESSION['usuario'][$campo] = $valor;
+                }
+                header('Location: /Tweeb-2025/PI/app/user/view/pages/perfil-usuario.php');
+            } else {
+                $_SESSION['erro'] = "Nenhuma alteração foi realizada.";
+                header('Location: /Tweeb-2025/PI/app/user/view/pages/perfil-usuario.php');
+            }
+        } catch (Exception $e) {
+            $_SESSION['erro'] = "Erro ao atualizar dados: " . $e->getMessage();
+            header('Location: /Tweeb-2025/PI/app/user/view/pages/perfil-usuario.php');
+        }
         exit();
     }
 
     public function processarUploadFoto() {
+        if (session_status() !== PHP_SESSION_ACTIVE) {
+            session_start();
+        }
+
+        if (!isset($_SESSION['usuario']) || !isset($_SESSION['usuario']['id'])) {
+            header('Location: /Tweeb-2025/PI/app/user/view/pages/login.php');
+            exit();
+        }
+
         if (!isset($_FILES['foto_perfil']) || $_FILES['foto_perfil']['error'] !== UPLOAD_ERR_OK) {
             $_SESSION['erro'] = "Erro no upload da imagem.";
             header('Location: /Tweeb-2025/PI/app/user/view/pages/perfil-usuario.php');

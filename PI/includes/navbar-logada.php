@@ -30,8 +30,11 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
                 <li>
                     <a class="op"href="#"><i class='bx bx-cart-alt'></i></a>
                     <a href="../../../Tweeb-2025/PI/App/user/View/pages/perfil-usuario.php" class="user-icon">
-                        <img src="/Tweeb-2025/PI/public/uploads/<?php echo htmlspecialchars($_SESSION['usuario']['foto_perfil'] ?? ''); ?>" 
-                             onerror="this.onerror=null; this.src='/Tweeb-2025/PI/public/assets/img/foto-perfil-default.png';" 
+                        <?php 
+                        $foto_perfil = !empty($_SESSION['usuario']['foto_perfil']) ? $_SESSION['usuario']['foto_perfil'] : 'imagem_padrao.png';
+                        $caminho_foto = '/Tweeb-2025/PI/public/uploads/' . $foto_perfil;
+                        ?>
+                        <img src="<?php echo htmlspecialchars($caminho_foto); ?>" 
                              alt="Foto de Perfil">
                     </a>
                 </li>
@@ -40,8 +43,11 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
 
     <div class="hamburger-menu">
         <div class="user-info">
-            <img src="/Tweeb-2025/PI/public/uploads/<?php echo htmlspecialchars($_SESSION['usuario']['foto_perfil'] ?? ''); ?>" 
-                 onerror="this.onerror=null; this.src='/Tweeb-2025/PI/public/assets/img/foto-perfil-default.png';" 
+            <?php 
+            $foto_perfil = !empty($_SESSION['usuario']['foto_perfil']) ? $_SESSION['usuario']['foto_perfil'] : 'imagem_padrao.png';
+            $caminho_foto = '/Tweeb-2025/PI/public/uploads/' . $foto_perfil;
+            ?>
+            <img src="<?php echo htmlspecialchars($caminho_foto); ?>" 
                  alt="Foto do Usuário">
             <p class="hi-user">Olá, <?php echo htmlspecialchars($_SESSION['usuario']['nome'] ?? 'Usuário'); ?></p>
             <span class="close-menu-nav"><i class="fa-solid fa-xmark"></i></span>
