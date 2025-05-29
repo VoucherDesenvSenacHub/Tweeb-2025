@@ -39,7 +39,7 @@
                   <a href="/Tweeb-2025/PI/app/user/View/pages/alterar-senha.php"><img src="/Tweeb-2025/PI/public/assets/img/alterar.png" alt=""><span class="item-description"> Alterar Senha</span></a>
                 </li>
                 <li class="menu-item">
-                  <a href="#"><img src="/Tweeb-2025/PI/public/assets/img/sair.png" alt=""><span class="item-description">Sair</span></a>
+                  <a href="/Tweeb-2025/PI/app/user/controllers/UserController.php?acao=logout"><img src="/Tweeb-2025/PI/public/assets/img/sair.png" alt=""><span class="item-description">Sair</span></a>
                 </li>
                 <!-- <li class="menu-item" >
                   <a href="#"><img src="/Tweeb-2025/PI/public/assets/img/config.png" alt=""><span class="item-description">Configurações</span></a>

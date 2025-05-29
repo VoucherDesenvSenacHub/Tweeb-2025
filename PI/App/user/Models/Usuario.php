@@ -161,9 +161,9 @@ class Usuario {
             $query = "SELECT u.*, c.cpf 
                      FROM usuarios u 
                      LEFT JOIN clientes c ON c.id_usuario = u.id 
-                     WHERE u.email = '" . $email . "'";
+                     WHERE u.email = ?";
             
-            $resultado = $this->db->execute($query);
+            $resultado = $this->db->execute($query, [$email]);
             $usuario = $resultado->fetch(PDO::FETCH_ASSOC);
 
             if (!$usuario) {
@@ -181,6 +181,12 @@ class Usuario {
 
             // Remove a senha antes de salvar na sessão
             unset($usuario['senha']);
+            
+            // Define a foto de perfil padrão se não houver uma definida
+            if (empty($usuario['foto_perfil'])) {
+                $usuario['foto_perfil'] = 'foto-perfil-default.png';
+            }
+            
             $_SESSION['usuario'] = $usuario;
 
             return true;

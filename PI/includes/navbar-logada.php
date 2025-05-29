@@ -1,3 +1,8 @@
+<?php
+if (session_status() !== PHP_SESSION_ACTIVE) {
+    session_start();
+}
+?>
 <body class="navBody">
 <header class="headNav">
         <div class="hamburguer">
@@ -21,12 +26,13 @@
                 <li><a class="op" href="/Tweeb-2025/PI/home.php">Home</a></li>
                 <li><a class="op" href="quemsomos.php">Sobre</a></li>
                 <li><a class="op" href="orcamento.php">Orçamento</a></li>
-                <li><a class="op" href="/Tweeb-2025/PI/app/user/controllers/logout.php">Sair</a></li>
+                <li><a class="op" href="/Tweeb-2025/PI/app/user/controllers/UserController.php?acao=logout">Sair</a></li>
                 <li>
                     <a class="op"href="#"><i class='bx bx-cart-alt'></i></a>
-                    <!-- <a href="app/user/view/pages/login.php"><i class='bx bx-user'></i></a> -->
                     <a href="../../../Tweeb-2025/PI/App/user/View/pages/perfil-usuario.php" class="user-icon">
-                        <img src="/Tweeb-2025/PI/public/assets/img/foto-perfil-comentarios.jpg" alt="teste">
+                        <img src="/Tweeb-2025/PI/public/uploads/<?php echo htmlspecialchars($_SESSION['usuario']['foto_perfil'] ?? ''); ?>" 
+                             onerror="this.onerror=null; this.src='/Tweeb-2025/PI/public/assets/img/foto-perfil-default.png';" 
+                             alt="Foto de Perfil">
                     </a>
                 </li>
             </ul>
@@ -34,8 +40,10 @@
 
     <div class="hamburger-menu">
         <div class="user-info">
-            <img src="/Tweeb-2025/PI/public/assets/img/foto-perfil-comentarios.jpg" alt="Foto do Usuário">
-            <p class="hi-user">Olá, Usuário</p>
+            <img src="/Tweeb-2025/PI/public/uploads/<?php echo htmlspecialchars($_SESSION['usuario']['foto_perfil'] ?? ''); ?>" 
+                 onerror="this.onerror=null; this.src='/Tweeb-2025/PI/public/assets/img/foto-perfil-default.png';" 
+                 alt="Foto do Usuário">
+            <p class="hi-user">Olá, <?php echo htmlspecialchars($_SESSION['usuario']['nome'] ?? 'Usuário'); ?></p>
             <span class="close-menu-nav"><i class="fa-solid fa-xmark"></i></span>
         </div>
 
@@ -74,7 +82,7 @@
                 <a href="alterar-senha.php"><img src="/Tweeb-2025/PI/public/assets/img/alterar.png" alt=""><span class="item-description-nav">Alterar Senha</span></a>
             </li>
             <li class="menu-item-nav">
-                <a href="cadastro.php"><img src="/Tweeb-2025/PI/public/assets/img/sair.png" alt=""><span class="item-description-nav">Sair</span></a>
+                <a href="/Tweeb-2025/PI/app/user/controllers/UserController.php?acao=logout"><img src="/Tweeb-2025/PI/public/assets/img/sair.png" alt=""><span class="item-description-nav">Sair</span></a>
             </li>
         </ul>
 
