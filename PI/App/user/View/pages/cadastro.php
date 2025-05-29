@@ -55,6 +55,7 @@
         </div>
     </div>
 
+    <script src="../../../../public/js/Modal_cadastroUsuario.js"></script>
     <script src="../../../../public/js/validacao-cpf.js"></script>
 </body>
 </html>

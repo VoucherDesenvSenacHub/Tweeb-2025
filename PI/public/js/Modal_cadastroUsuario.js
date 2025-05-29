@@ -1,5 +1,3 @@
-modal.js
-
 function mostrarModal() {
     return new Promise((resolve) => {
         var modal = document.getElementById('modalSucesso');
