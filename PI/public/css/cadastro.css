@@ -134,3 +134,57 @@
         line-height: 16px;
     }
 }
+
+
+.Task2a-modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    pointer-events: none;
+}
+.Task2a-modal-content {
+    background-color: #fefefe;
+    margin: 2% auto; /* Mantido em 2% para ficar bem alto na tela */
+    padding: 15px;
+    border: 1px solid #888;
+    width: 60%;
+    max-width: 300px;
+    border-radius: 8px;
+    text-align: center;
+    position: relative;
+}
+
+.Task2a-sucesso-icon {
+    font-size: 36px;
+    color: #4CAF50;
+    margin-bottom: 15px;
+}
+
+.Task2a-sucesso-mensagem {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 10px;
+    font-family: 'Inter', sans-serif;
+    font-weight: bold;
+}
+
+.Task2a-progress-bar {
+    width: 100%;
+    height: 4px;
+    background-color: #f0f0f0;
+    border-radius: 2px;
+    margin-top: 10px;
+    overflow: hidden;
+}
+
+.Task2a-progress {
+    width: 0%;
+    height: 100%;
+    background-color: #4CAF50;
+    transition: width 1s linear;
+}

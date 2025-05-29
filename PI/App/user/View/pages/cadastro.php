@@ -40,7 +40,7 @@
                 <div class="input-group">
                     <input name='confirmar_senha' type="password" placeholder="Confirme sua senha" class="Task2a-input" required>
                 </div>
-                <button type="submit" class="Task2a-btn-email">Cadastre-se</button>
+                <button type="submit" onclick="mostrarModal()" class="Task2a-btn-email">Cadastre-se</button>
             </form>
 
             <p class="Task2a-terms">
