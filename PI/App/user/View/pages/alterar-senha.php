@@ -2,26 +2,15 @@
 if (session_status() !== PHP_SESSION_ACTIVE) {
     session_start();
 }
-
-require_once __DIR__ . '/../../Controllers/AlterarSenhaProcess.php';
-AlterarSenhaController::processarFormulario(); // processa se for POST
-
-$mensagemModal = $_GET['status'] ?? null;
+if (!isset($_SESSION['usuario']['id'])) {
+    header('Location: login.php');
+    exit();
+}
 ?>
-
-<?php if (!empty($mensagemModal)): ?>
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        abrirModal("<?= htmlspecialchars($mensagemModal) ?>");
-    });
-</script>
-<?php endif; ?>
-
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<?php include __DIR__.'/../../../../includes/headernavb.php'; ?>
+    <?php include __DIR__.'/../../../../includes/headernavb.php'; ?>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alterar senha</title>
@@ -29,46 +18,55 @@ $mensagemModal = $_GET['status'] ?? null;
     <link rel="stylesheet" href="../../../../public/css/ModalAlterarSenhaUser.css">
 </head>
 <body>
+    <?php include __DIR__.'/../../../../includes/navbar-logada.php'; ?>
+    <?php include __DIR__.'/../../../../includes/sidebar-User.php'; ?>
 
-<?php include __DIR__.'/../../../../includes/navbar-logada.php'; ?>
-<?php include __DIR__.'/../../../../includes/sidebar-User.php'; ?>
+    <!-- Contêiner do Perfil -->
+    <div class="perfil-tweeb">
+        <div class="perfil-tweeb-container">
+            <button class="perfil-tweeb-editar">Oi <?php echo htmlspecialchars($_SESSION['usuario']['nome']); ?>, 👋🏼 </button>
+            
+            <div class="perfil-tweeb-header">
+                <div class="perfil-tweeb-imagem">
+                    <?php 
+                    $foto_perfil = !empty($_SESSION['usuario']['foto_perfil']) ? $_SESSION['usuario']['foto_perfil'] : 'imagem_padrao.png';
+                    $caminho_foto = '/Tweeb-2025/PI/public/uploads/' . $foto_perfil;
+                    ?>
+                    <img src="<?php echo htmlspecialchars($caminho_foto); ?>" alt="Foto de perfil">
+                </div>
+                <div class="perfil-tweeb-info">
+                    <h1><?php echo htmlspecialchars($_SESSION['usuario']['nome']); ?></h1>
+                    <p class="perfil-tweeb-email"><?php echo htmlspecialchars($_SESSION['usuario']['email']); ?></p>
+                    <div class="fio"></div>
+                </div>
+            </div>
 
-<!-- Contêiner do Perfil -->
-<div class="perfil-tweeb">
-    <div class="perfil-tweeb-container">
-        <button class="perfil-tweeb-editar">Oi <?php echo htmlspecialchars($_SESSION['usuario']['nome']); ?>, 👋🏼 </button>
-        
-        <div class="perfil-tweeb-header">
-            <div class="perfil-tweeb-imagem">
-                <img src="../../../../public/assets/img/foto-perfil-comentarios.jpg" alt="Foto de perfil">
-            </div>
-            <div class="perfil-tweeb-info">
-                <h1><?php echo htmlspecialchars($_SESSION['usuario']['nome']); ?></h1>
-                <p class="perfil-tweeb-email"><?php echo htmlspecialchars($_SESSION['usuario']['email']); ?></p>
-                <div class="fio"></div>
-            </div>
-        </div>
-               <!-- Campos para alterar senha -->
-                <?php if (!empty($mensagem)): ?>
-                    <div style="color: red; font-weight: bold; margin-bottom: 10px;">
-                        <?= htmlspecialchars($mensagem); ?>
-                    </div>
-                <?php endif; ?>
-            <form action="" method="POST">
+            <!-- Campos para alterar senha -->
+            <?php if(isset($_SESSION['mensagem'])): ?>
+                <div class="alert <?php echo $_SESSION['mensagem_tipo'] ?? 'alert-info'; ?>">
+                    <?php 
+                    echo htmlspecialchars($_SESSION['mensagem']); 
+                    unset($_SESSION['mensagem']);
+                    unset($_SESSION['mensagem_tipo']);
+                    ?>
+                </div>
+            <?php endif; ?>
+
+            <form action="../../Controllers/UserController.php?acao=alterar_senha" method="POST">
                 <div class="perfil-tweeb-input-group">
                     <h2>Alterar Senha</h2>
                     <label for="senha-atual">Senha Atual</label>
-                    <input type="password" id="senha-atual" name="senha_atual" placeholder="Digite a senha atual">
+                    <input type="password" id="senha-atual" name="senha_atual" placeholder="Digite a senha atual" required>
                 </div>
 
                 <div class="perfil-tweeb-input-group">
                     <label for="nova-senha">Nova Senha</label>
-                    <input type="password" id="nova-senha" name="nova_senha" placeholder="Digite a nova senha">
+                    <input type="password" id="nova-senha" name="nova_senha" placeholder="Digite a nova senha" required>
                 </div>
 
                 <div class="perfil-tweeb-input-group">
                     <label for="confirmar-senha">Confirmar Nova Senha</label>
-                    <input type="password" id="confirmar-senha" name="confirmar_senha" placeholder="Confirme a nova senha">
+                    <input type="password" id="confirmar-senha" name="confirmar_senha" placeholder="Confirme a nova senha" required>
                 </div>  
 
                 <div class="alterar-senha-botoes">
@@ -86,25 +84,10 @@ $mensagemModal = $_GET['status'] ?? null;
                     </button>
                 </div>
             </div>
-
-            <?php if (!empty($mensagemModal)): ?>
-            <script>
-                document.addEventListener("DOMContentLoaded", function() {
-                    abrirModal("<?= htmlspecialchars($mensagemModal) ?>");
-
-                    // Limpa o parâmetro da URL após exibir o modal
-                    if (history.replaceState) {
-                        const url = window.location.href.split("?")[0];
-                        history.replaceState(null, "", url);
-                    }
-                });
-            </script>
-            <?php endif; ?>
-
+        </div>
     </div>
-</div>
-</div>
-<?php include __DIR__.'/../../../../includes/footer.php'; ?>
-<script src="../../../../public/js/ModalAltSenha.js"></script>
+
+    <?php include __DIR__.'/../../../../includes/footer.php'; ?>
+    <script src="../../../../public/js/ModalAltSenha.js"></script>
 </body>
 </html>

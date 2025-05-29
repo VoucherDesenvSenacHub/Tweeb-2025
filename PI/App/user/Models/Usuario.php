@@ -233,4 +233,16 @@ class Usuario {
         $dados = ['foto_perfil' => $foto];
         return $this->db->update($dados, "id = $id");
     }
+
+    public function atualizarSenha($id, $nova_senha) {
+        if (!$id || !is_numeric($id)) {
+            throw new Exception('ID inválido');
+        }
+
+        if (empty($nova_senha)) {
+            throw new Exception('Nova senha não pode estar vazia');
+        }
+
+        return $this->db->update(['senha' => $nova_senha], "id = " . intval($id));
+    }
 }

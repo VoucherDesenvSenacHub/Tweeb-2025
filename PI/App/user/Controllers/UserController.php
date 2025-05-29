@@ -162,6 +162,68 @@ class UserController {
         exit();
     }
 
+    public function processarAlteracaoSenha() {
+        if (session_status() !== PHP_SESSION_ACTIVE) {
+            session_start();
+        }
+
+        if (!isset($_SESSION['usuario']) || !isset($_SESSION['usuario']['id'])) {
+            header('Location: /Tweeb-2025/PI/app/user/view/pages/login.php');
+            exit();
+        }
+
+        if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+            header('Location: /Tweeb-2025/PI/app/user/view/pages/alterar-senha.php');
+            exit();
+        }
+
+        $senha_atual = $_POST['senha_atual'] ?? '';
+        $nova_senha = $_POST['nova_senha'] ?? '';
+        $confirmar_senha = $_POST['confirmar_senha'] ?? '';
+
+        // Validações
+        if (empty($senha_atual) || empty($nova_senha) || empty($confirmar_senha)) {
+            $_SESSION['mensagem'] = "Todos os campos são obrigatórios.";
+            $_SESSION['mensagem_tipo'] = "alert-danger";
+            header('Location: /Tweeb-2025/PI/app/user/view/pages/alterar-senha.php');
+            exit();
+        }
+
+        if ($nova_senha !== $confirmar_senha) {
+            $_SESSION['mensagem'] = "A nova senha e a confirmação não coincidem.";
+            $_SESSION['mensagem_tipo'] = "alert-danger";
+            header('Location: /Tweeb-2025/PI/app/user/view/pages/alterar-senha.php');
+            exit();
+        }
+
+        try {
+            // Verifica se a senha atual está correta
+            $usuario = $this->usuario->buscarPorId($_SESSION['usuario']['id']);
+            if (!password_verify($senha_atual, $usuario['senha'])) {
+                $_SESSION['mensagem'] = "Senha atual incorreta.";
+                $_SESSION['mensagem_tipo'] = "alert-danger";
+                header('Location: /Tweeb-2025/PI/app/user/view/pages/alterar-senha.php');
+                exit();
+            }
+
+            // Atualiza a senha
+            $senha_hash = password_hash($nova_senha, PASSWORD_DEFAULT);
+            if ($this->usuario->atualizarSenha($_SESSION['usuario']['id'], $senha_hash)) {
+                $_SESSION['mensagem'] = "Senha alterada com sucesso!";
+                $_SESSION['mensagem_tipo'] = "alert-success";
+            } else {
+                $_SESSION['mensagem'] = "Erro ao alterar a senha. Tente novamente.";
+                $_SESSION['mensagem_tipo'] = "alert-danger";
+            }
+        } catch (Exception $e) {
+            $_SESSION['mensagem'] = "Erro ao alterar a senha: " . $e->getMessage();
+            $_SESSION['mensagem_tipo'] = "alert-danger";
+        }
+
+        header('Location: /Tweeb-2025/PI/app/user/view/pages/alterar-senha.php');
+        exit();
+    }
+
     // Método estático para processar as requisições
     public static function processarRequisicao() {
         $controller = new self();
@@ -186,6 +248,10 @@ class UserController {
 
             case 'upload_foto':
                 $controller->processarUploadFoto();
+                break;
+
+            case 'alterar_senha':
+                $controller->processarAlteracaoSenha();
                 break;
             
             default:
