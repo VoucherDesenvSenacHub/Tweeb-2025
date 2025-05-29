@@ -24,6 +24,33 @@ function cancelEdit() {
     });
 }
 
+function deletaUsuario() {
+    const confirma = confirm("Tem certeza que deseja excluir sua conta?");
+    if (!confirma) return;
+
+    fetch("http://localhost/tweeb-2025/PI/public/api/deletar_usuario.php", {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+        },
+        body: `id=${encodeURIComponent(usuarioID)}`
+    })
+    .then(res => res.text())
+    .then(data => {
+        try {
+            const result = JSON.parse(data);
+            alert(result.mensagem || "Operação realizada com sucesso!");
+            if (result.mensagem) {
+                console.log("Redirecionando...");
+                window.location.href = "/Tweeb-2025/PI/app/user/view/pages/login.php";
+            }
+        } catch (e) {
+            alert(data); 
+        }
+    })
+    .catch(err => console.error("Erro:", err));
+}
+
 // Script para upload automático da foto
 document.getElementById('inputFotoPerfil').addEventListener('change', function() {
     if (this.files && this.files[0]) {

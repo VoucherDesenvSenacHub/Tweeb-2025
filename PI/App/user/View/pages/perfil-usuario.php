@@ -147,6 +147,9 @@ function mascararCPF($cpf) {
 
 <?php include __DIR__.'/../../../../includes/footer.php'; ?>
 
+<script>
+    const usuarioID  = <?php echo json_encode($_SESSION['usuario']['id']);?>
+</script>
 <!-- Incluindo o arquivo JavaScript externo -->
 <script src="../js/perfil-usuario.js"></script>
 </body>
