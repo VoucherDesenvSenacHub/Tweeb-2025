@@ -58,16 +58,19 @@ function mascararCPF($cpf) {
             <?php endif; ?>
             
             <div class="perfil-tweeb-imagem">
-                <img src="/Tweeb-2025/PI/public/uploads/<?php echo htmlspecialchars($_SESSION['usuario']['foto_perfil'] ?? ''); ?>" 
-                onerror="this.onerror=null; this.src='/Tweeb-2025/PI/public/uploads/imagem_padrao.png';" 
-                alt="" 
-                class="foto-perfil">
+                <?php 
+                $foto_perfil = !empty($_SESSION['usuario']['foto_perfil']) ? $_SESSION['usuario']['foto_perfil'] : 'foto-perfil-default.png';
+                $caminho_foto = strpos($foto_perfil, 'foto-perfil-default.png') !== false ? 
+                    '/Tweeb-2025/PI/public/assets/img/foto-perfil-default.png' : 
+                    '/Tweeb-2025/PI/public/uploads/' . $foto_perfil;
+                ?>
+                <img src="<?php echo htmlspecialchars($caminho_foto); ?>" 
+                     alt="Foto de Perfil" 
+                     class="foto-perfil">
+                
                 <!-- Input oculto de upload -->
-                <form method="POST" action="../../Controllers/userEdit.php" enctype="multipart/form-data" id="formFotoPerfil">
+                <form method="POST" action="../../Controllers/UserController.php?acao=upload_foto" enctype="multipart/form-data" id="formFotoPerfil">
                     <input type="file" id="inputFotoPerfil" name="foto_perfil" accept="image/*" style="display: none;">
-                    <label for="inputFotoPerfil" class="btn-upload-foto" title="Alterar foto">
-                        <i class="bi bi-cloud-arrow-up carregar-foto"></i>
-                    </label>
                 </form>
 
                 <!-- Botão de upload (ícone Bootstrap) -->
@@ -87,7 +90,7 @@ function mascararCPF($cpf) {
             </div>
         </div>
 
-        <form class="perfil-tweeb-form" method="POST" action="../../Controllers/userEdit.php" enctype="multipart/form-data">
+        <form class="perfil-tweeb-form" method="POST" action="../../Controllers/UserController.php?acao=editar" enctype="multipart/form-data">
             <div class="perfil-tweeb-input-group">
                 <label for="primeiro-nome">Primeiro nome</label>
                 <input type="text" id="primeiro-nome" name="nome" value="<?php echo htmlspecialchars($_SESSION['usuario']['nome']); ?>" readonly>
@@ -149,7 +152,9 @@ function mascararCPF($cpf) {
 
 <?php include __DIR__.'/../../../../includes/footer.php'; ?>
 
-<!-- Incluindo o arquivo JavaScript externo -->
-<script src="../js/perfil-usuario.js"></script>
+
+<script>
+    const usuarioID  = <?php echo json_encode($_SESSION['usuario']['id']);?>
+</script>
 </body>
 </html>

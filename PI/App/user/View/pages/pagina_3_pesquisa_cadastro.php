@@ -52,7 +52,7 @@ session_start(); // Iniciando a sessão para manipulação das respostas
     </div>
 
     <!-- Formulário para salvar as respostas -->
-    <form action="../../controllers/processar_preferencia3.php" method="POST">
+    <form method="POST" onsubmit="return irParaProximaPagina(event)">
         <div class="pesquisa3-cadastro-cards-container">
             <div class="pesquisa3-cadastro-card1 card-opcao">
                 <img src="../../../../public/assets/img/fone 1.png" alt="" class="pesquisa3-cadastro-img-card1">
@@ -84,7 +84,21 @@ session_start(); // Iniciando a sessão para manipulação das respostas
         <div class="pesquisa3-cadastro-barra-roxa-footer"></div>
     </footer>
 
-    <script src="../../../../public/js/pesquisa3.js"></script>
+    <script>
+    function irParaProximaPagina(event) {
+        event.preventDefault();
+        const tipoCompra = document.querySelector('input[name="compra_tipo"]:checked');
+        if (tipoCompra) {
+            // Armazena a resposta no sessionStorage
+            sessionStorage.setItem('compra_tipo', tipoCompra.value);
+            // Redireciona para a página inicial
+            window.location.href = '/Tweeb-2025/PI/home.php';
+        } else {
+            alert('Por favor, selecione uma opção para continuar.');
+        }
+        return false;
+    }
+    </script>
 </body>
 
 </html>
