@@ -150,7 +150,5 @@ function mascararCPF($cpf) {
 <script>
     const usuarioID  = <?php echo json_encode($_SESSION['usuario']['id']);?>
 </script>
-<!-- Incluindo o arquivo JavaScript externo -->
-<script src="../js/perfil-usuario.js"></script>
 </body>
 </html>
