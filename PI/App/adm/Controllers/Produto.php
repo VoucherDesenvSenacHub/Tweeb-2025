@@ -2,7 +2,7 @@
 <?php
 
 //require '../DB/Database.php';
-require_once ('../../DB/Database.php');
+require_once '../App/DB/Database.php';
 
 class Produto{
 

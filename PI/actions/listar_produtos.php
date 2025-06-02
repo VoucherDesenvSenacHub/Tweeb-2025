@@ -1,6 +1,6 @@
 <?php
 
-require_once '../Controllers/Produto.php';
+require_once '../App/adm/Controllers/Produto.php';
 
 $objProd = new Produto();
 
@@ -13,3 +13,5 @@ else{
     $array = ['status' => 400, 'msg' => 'Ocorreu algum erro!!'];
     echo json_encode($array);
 }
+
+?>
