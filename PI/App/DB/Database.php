@@ -2,10 +2,10 @@
     
 class Database{
     public $conn;
-    public string $local="localhost";
-    public string $db="Tweeb25";
-    public string $user="root";
-    public string $password="Oliveira@87185";
+    public string $local="192.168.22.9";
+    public string $db="140p2";
+    public string $user="devwebp2";
+    public string $password="voucher@140";
     public $table;
 
    
@@ -55,7 +55,7 @@ class Database{
         $result = $this->execute($query,array_values($values));
         
         if($result){
-            return $this->conn->lastInsertId();;
+            return $this->conn->lastInsertId();
         }
         else{
             return false;

@@ -7,7 +7,7 @@ class Usuario {
     public string $email;
     public string $senha;
     public string $cpf;
-    public string $tipo = 'cliente';
+    public string $tipo;
     public string $foto_perfil = 'imagem_padrao.png';
 
     public function inserir() {
@@ -21,7 +21,6 @@ class Usuario {
     ]);
 
     if ($idUsuario) {
-        // Agora insere na tabela clientes, relacionando pelo id_usuario
         $dbClientes = new Database('clientes');
         $dbClientes->insert([
             'id_usuario' => $idUsuario,
