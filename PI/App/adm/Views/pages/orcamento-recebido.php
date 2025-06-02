@@ -29,34 +29,33 @@
     </div>
 
     <div class="responder-orcamento-container1">
-      <div class="responder-orcamento-title">
-        <p class="responder-orcamento-p1">Título</p>
+      <div class="responder-orcamento-title"><br>
+        <p class="responder-orcamento-p1">Título: </p><br>
         <input type="text" placeholder="Enter title" class="responder-orcamento-input">
       </div>
-      <div class="responder-orcamento-enviado_por">
-        <p class="responder-orcamento-p2">Enviada por</p>
+      <div class="responder-orcamento-enviado_por"><br>
+        <p class="responder-orcamento-p2">Enviada por: </p><br>
         <input type="text" placeholder="Enter name" class="responder-orcamento-input">
       </div>
-      <div class="responder-orcamento-responder_para">
-        <p class="responder-orcamento-p3">Responder para</p>
+      <div class="responder-orcamento-responder_para"><br>
+        <p class="responder-orcamento-p3">Responder para: </p><br>
         <input type="email" placeholder="Enter email" class="responder-orcamento-input">
       </div>
     </div>
 
     <div class="responder-orcamento-container2">
-      <div class="responder-orcamento-data">
-        <p class="responder-orcamento-p4">Data</p>
+      <div class="responder-orcamento-data"><br>
+        <p class="responder-orcamento-p4">Data: </p><br>
         <input type="date" class="responder-orcamento-input">
       </div>
-      <div class="responder-orcamento-resposta">
-        <p class="responder-orcamento-p5">Resposta</p>
+      <div class="responder-orcamento-resposta"><br>
+        <p class="responder-orcamento-p5">Resposta: </p><br>
         <textarea placeholder="Detalhe ao máximo a solicitação" class="responder-orcamento-input"></textarea>
       </div>
     </div>
 
-    <button class="orcamento-recebido-negacao">
-    <button type="button" class="orcamento-recebido-negacao">Enviar</button>
-    </button>
+    <button type="button" class="botao-modal-enviar">Enviar</button>
+
 
     <!-- Confirmação -->
     <div class="resp-orc-pop_pup-container" style="display: none;">
