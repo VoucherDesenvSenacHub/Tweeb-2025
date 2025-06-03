@@ -89,15 +89,7 @@ class Usuario {
     public static function buscarPorEmail($email) {
         $db2 = new Database(); 
         $dados = $db2->buscarUsuarioComCpfPorEmail($email);
-<<<<<<< Updated upstream
-
-        if ($dados) {
-            return new Usuario($dados);
-        }
-        return null;
-=======
         return $dados;
->>>>>>> Stashed changes
     }
 
     public function excluir($id) {
