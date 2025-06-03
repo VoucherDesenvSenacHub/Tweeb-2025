@@ -22,8 +22,9 @@ let html = "";
         html += `<td class="td-listarP"><img src="${response[i].imagem_produto}" id="userAdm_avatar" alt="Avatar" class="listarP-produto-img"></td>`;
         html += `<td class="td-listarP">  ${response[i].nome_produto}  </td>`;
         html += `<td class="td-listarP">  ${response[i].preco_unid}  </td>`;
-        html += `<td class="td-listarP"> `;
-        html += `<div class="td_botao">`;
+        html += `<td class="td-listarP">  ${response[i].quantidade_produto}  `;
+        html += `<td class="td-listarP">  ${response[i].id_departamento}  `;
+        html += `<td class="td-listarP"> <div class="td_botao">`;
         html += ` <form action="" method="get" class="form-listarP_editar">`;
         html += ` <input type="hidden" name="id_usuario" value="${response.id_produto}" class="input-listarP">`;
         html += ` <button type="submit" class="listarP-edit-btn"> `;
@@ -33,7 +34,7 @@ let html = "";
         html += `<input type="hidden" name="id_usuario" value="${response.id_produto}" class="input-hidden">`;
         html +=  ` <button type="submit" class="listarP-delete-btn"></button> `;
         html += `<img src="../../../../public/assets/img/trash-2.png" alt="Excluir" class="listarP-delete-icon">`;
-        html +=  ` </button> </form> <td class="td-listarP"></td> </div> </tr> `;
+        html +=  ` </button> </form>  </div> </tr> `;
  
 
         console.log(response[i].nome_produto);

@@ -29,10 +29,10 @@
     </div>
 
 
-    <div class="listarP-filtro-box">
+    <!-- <div class="listarP-filtro-box">
         <img src="../../../../public/assets/img/Icon-filtro.png" alt="Ícone Filtro" class="listarP-filtro-icon">
         <span class="listarP-filtro-text">Filtro</span>
-    </div>
+    </div> -->
 
 
     <section class="listarP-section">
@@ -41,10 +41,12 @@
                 <thead class="thead-listarP">
                     <tr class="tr-listarP">
                         <th class="th-listarP">Foto</th>
-                        <th class="th-listarP">Nome do Produto</th>
+                        <th class="th-listarP">Produto</th>
                         <th class="th-listarP">Valor</th>
-                        <th class="th-listarP">Alterar</th>
                         <th class="th-listarP">Quantidade</th>
+                        <th class="th-listarP">Departamentos</th>
+                        <th class="th-listarP">Alterar</th>
+                   
                     </tr>
                 </thead>
                 <tbody id="rows_products" class="tbody-listarP">

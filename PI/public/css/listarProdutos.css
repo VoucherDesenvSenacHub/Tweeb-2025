@@ -69,7 +69,7 @@
 
 /* Search */
 .listarP-search-box {
-    margin: 50px 0 0 280px; 
+    margin: 50px 0 0 310px; 
     display: flex; 
     align-items: center; 
 }
@@ -179,6 +179,7 @@
 .listarP-table th, .listarP-table .td-listarP {
     border: 1px solid transparent;
     text-align: center; 
+
 }
 
 .listarP-table .thead-listarP {
@@ -250,7 +251,7 @@
     width: 20px;
     height: 20px; 
     transition: transform 0.3s; 
-    display: block;
+
 }
 
 .listarP-edit-icon:hover {
@@ -269,6 +270,14 @@
 
 tr:hover {
     background-color: #e9e9e9;
+}
+
+.listarP-section{
+    margin-top: 20px;
+    padding: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 
