@@ -2,6 +2,7 @@
 
 require_once __DIR__ . '/../Models/Usuario.php';
 
+session_start();
 header('Content-Type: application/json');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -29,27 +30,52 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
 
+<<<<<<< Updated upstream
 
     if (!password_verify($senha, $usuario['senha'])) {
+=======
+    // Verifica se $usuario é um objeto ou array e converte se necessário
+    $dadosUsuario = is_object($usuario) ? get_object_vars($usuario) : $usuario;
+
+    if (!password_verify($senha, $dadosUsuario['senha'])) {
+>>>>>>> Stashed changes
         echo json_encode([
             'sucesso' => false,
             'mensagem' => 'Senha incorreta.'
         ]);
         exit;
     }
+<<<<<<< Updated upstream
     $_SESSION['usuario'] = [
         'id' => $usuario['id'],
         'nome' => $usuario['nome'],
         'email' => $usuario['email']
+=======
+
+    $_SESSION['usuario'] = [
+        'id' => $dadosUsuario['id'],
+        'nome' => $dadosUsuario['nome'],
+        'email' => $dadosUsuario['email'],
+        'tipo' => $dadosUsuario['tipo'] ?? 'cliente',
+        'cpf' => $dadosUsuario['cpf'] ?? '',
+        'foto_perfil' => $dadosUsuario['foto_perfil'] ?? 'foto-perfil-default.png'
+>>>>>>> Stashed changes
     ];
     
     echo json_encode([
         'sucesso' => true,
         'mensagem' => 'Login realizado com sucesso!',
         'usuario' => [
+<<<<<<< Updated upstream
             'id' => $usuario['id'],
             'nome' => $usuario['nome'],
             'email' => $usuario['email']
+=======
+            'id' => $dadosUsuario['id'],
+            'nome' => $dadosUsuario['nome'],
+            'email' => $dadosUsuario['email'],
+            'cpf' => $dadosUsuario['cpf'] ?? ''
+>>>>>>> Stashed changes
         ]
     ]);
     exit;

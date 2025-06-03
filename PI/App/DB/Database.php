@@ -100,9 +100,15 @@ class Database{
     }
     public function buscarUsuarioComCpfPorEmail(string $email) {
         $query = "
+<<<<<<< Updated upstream
             SELECT u.id, u.nome, u.email, u.senha, c.cpf
             FROM usuarios u
             LEFT JOIN clientes c ON u.id = c.usuario_id
+=======
+            SELECT u.id, u.nome, u.email, u.senha, u.tipo, c.cpf
+            FROM usuarios u
+            LEFT JOIN clientes c ON u.id = c.id_usuario
+>>>>>>> Stashed changes
             WHERE u.email = ?
             LIMIT 1
         ";
