@@ -96,13 +96,13 @@
                   <label for="filtrar-nome">Nome</label>
                   <input type="text" id="filtrar-nome" name="filtrar-nome" placeholder="filtrar nome" >
                   
-                  <label for="filtrar-email">Modelo</label>
+                  <label for="filtrar-email">Email</label>
                   <input type="email" id="filtrar-email" name="filtrar-email" placeholder="filtrar modelo">
                   
-                  <label for="filtrar-id">Número de série</label>
+                  <label for="filtrar-id">ID do Pedido</label>
                   <input type="text" id="filtrar-id" name="filtrar-id" placeholder="filtrar nº">
 
-                  <label for="valor">Fornecedor</label>
+                  <label for="valor">CPF</label>
                   <input type="text" id="valor" name="valor" placeholder="filtrar fornecedor">
                   
                   <input class="form-botao-limpar" type="submit" value="Limpar">
@@ -119,21 +119,23 @@
   </div>
 
     <div class="overflow-estoque">
-      <h1 class="estoque-titulo">Estoque</h1>
+      <h1 class="estoque-titulo">Pedidos</h1>
       <table class="estoque-table">
         <thead>
           <tr>
                   <th>N</th>
                   <th>Imagem</th>
                   <th>Produto</th>
-                  <th>Departamento</th>
-                  <th>QTD Entrada</th>
-                  <th>Valor UND</th>
-                  <th>Valor Total</th>
+                  <th>Data</th>
+                  <th>Cliente</th>
+                  <th>Preço</th>
+                  <th>Receita</th>
                   <th>Estoque</th>
                   <th>Fornecedor</th>
                   <th>Status</th>
-                  <th>NF</th>
+              
+                  
+                  
               </tr>
           </thead>
           <tbody id="page-1" class="product-page">
@@ -141,112 +143,114 @@
                   <td>01</td>
                   <td><img src="../../../../public/assets/img/gtx-desc.png" alt="Descrição da imagem" width="40" height="40"></td>
                   <td>Placa GTX</td>
-                  <td>Perifericos</td>
-                  <td>150</td>
+                  <td>27/05/25</td>
+                  <td>Roger Santos</td>
                   <td>R$ 230,00</td>
-                  <td>R$ 34.000,00</td>
+                  <td>R$ 30,00</td>
                   <td>70 PCS</td>
                   <td>SONY.SA</td>
                   <td class="status-estoque">Estoque</td>
-                  <td class="centralizar-nota"><div class="tabela-nota-fiscal"><i class="fa-regular fa-file-lines"></i><p>Nota</p></div></td>
+                
+                  
+                <div></td>
               </tr>
 
               <tr>
                   <td>02</td>
                   <td><img src="../../../../public/assets/img/image 56.png" alt="Descrição da imagem" width="40" height="40"></td>
                   <td>Rx 580</td>
-                  <td>Hardware</td>
-                  <td>150</td>
+                  <td>27/05/25</td>
+                  <td>Cleber Santana</td>
                   <td>R$ 720,00</td>
-                  <td>R$ 12.000,00</td>
-                  <td>180 PCS</td>
+                  <td>R$ 50,00</td>
+                  <td>0 PCS</td>
                   <td>Mancer</td>
                   <td class="status-emfalta">Em falta</td>
-                  <td class="centralizar-nota"><div class="tabela-nota-fiscal"><i class="fa-regular fa-file-lines"></i><p>Nota</p></div></td>
+                  </div></td>
               </tr>
 
               <tr>
                   <td>03</td>
                   <td><img src="../../../../public/assets/img/gabinete-pcancelados.png" alt="Descrição da imagem" width="40" height="40"></td>
                   <td>Gabinete</td>
-                  <td>Hardware</td>
-                  <td>150</td>
+                  <td>26/05/25</td>
+                  <td>Vanessa da Mata</td>
                   <td>R$ 100,00</td>
-                  <td>R$ 5,000.00</td>
+                  <td>R$ 10.00</td>
                   <td>40 PCS</td>
                   <td>Big Ben's Store</td>
                   <td class="status-poucasunid">Poucas unid.</td>
-                  <td class="centralizar-nota"><div class="tabela-nota-fiscal"><i class="fa-regular fa-file-lines"></i><p>Nota</p></div></td>
+                  </div></td>
               </tr>
 
               <tr>
                 <td>04</td>
                 <td><img src="../../../../public/assets/img/mouse-pcancelados.png" alt="Descrição da imagem" width="40" height="40"></td>
                 <td>Mouse Gamer</td>
-                <td>Periférico</td>
-                <td>30</td>
+                <td>25/05/25</td>
+                <td>Suzana Richtofe</td>
                 <td>R$ 350,00</td>
-                <td>R$ 8,000.00</td>
+                <td>R$ 20.00</td>
                 <td>80 PCS</td>
                 <td>Big Ben's Store</td>
                 <td class="status-poucasunid">Poucas unid.</td>
-                <td class="centralizar-nota"><div class="tabela-nota-fiscal"><i class="fa-regular fa-file-lines"></i><p>Nota</p></div></td>
+                </div></td>
             </tr>
 
             <tr>
                   <td>05</td>
                   <td><img src="../../../../public/assets/img/gtx-desc.png" alt="Descrição da imagem" width="40" height="40"></td>
                   <td>Placa GTX</td>
-                  <td>Perifericos</td>
-                  <td>150</td>
+                  <td>22/05/25</td>
+                  <td>Jõao Cleber</td>
                   <td>R$ 230,00</td>
-                  <td>R$ 34.000,00</td>
+                  <td>R$ 22,00</td>
                   <td>70 PCS</td>
                   <td>SONY.SA</td>
                   <td class="status-estoque">Estoque</td>
-                  <td class="centralizar-nota"><div class="tabela-nota-fiscal"><i class="fa-regular fa-file-lines"></i><p>Nota</p></div></td>
+                  </div></td>
               </tr>
 
               <tr>
                   <td>06</td>
                   <td><img src="../../../../public/assets/img/image 56.png" alt="Descrição da imagem" width="40" height="40"></td>
                   <td>Rx 580</td>
-                  <td>Hardware</td>
-                  <td>150</td>
+                  <td>21/05//25</td>
+                  <td>Michael Jacksom</td>
                   <td>R$ 720,00</td>
-                  <td>R$ 12.000,00</td>
+                  <td>R$ 60,00</td>
                   <td>180 PCS</td>
                   <td>Mancer</td>
                   <td class="status-emfalta">Em falta</td>
-                  <td class="centralizar-nota"><div class="tabela-nota-fiscal"><i class="fa-regular fa-file-lines"></i><p>Nota</p></div></td>
+                  </div></td>
               </tr>
 
               <tr>
                   <td>07</td>
                   <td><img src="../../../../public/assets/img/gabinete-pcancelados.png" alt="Descrição da imagem" width="40" height="40"></td>
                   <td>Gabinete</td>
-                  <td>Hardware</td>
-                  <td>150</td>
+                  <td>20/05/25</td>
+                  <td>Felipe Toledo</td>
                   <td>R$ 100,00</td>
-                  <td>R$ 5,000.00</td>
+                  <td>R$ 9.00</td>
                   <td>40 PCS</td>
                   <td>Big Ben's Store</td>
                   <td class="status-poucasunid">Poucas unid.</td>
-                  <td class="centralizar-nota"><div class="tabela-nota-fiscal"><i class="fa-regular fa-file-lines"></i><p>Nota</p></div></td>
+                  </div></td>
               </tr>
 
               <tr>
                 <td>08</td>
                 <td><img src="../../../../public/assets/img/mouse-pcancelados.png" alt="Descrição da imagem" width="40" height="40"></td>
                 <td>Mouse Gamer</td>
-                <td>Periférico</td>
-                <td>30</td>
+                <td>19/05/25</td>
+                <td>Melissa Saaid</td>
                 <td>R$ 350,00</td>
-                <td>R$ 8,000.00</td>
+                <td>R$ 20.00</td>
                 <td>80 PCS</td>
                 <td>Big Ben's Store</td>
                 <td class="status-poucasunid">Poucas unid.</td>
-                <td class="centralizar-nota"><div class="tabela-nota-fiscal"><i class="fa-regular fa-file-lines"></i><p>Nota</p></div></td>
+                </div></td>
             </tr>
               
           </tbody>
