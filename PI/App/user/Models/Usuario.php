@@ -53,8 +53,13 @@ class Usuario {
     }
 
     public static function buscarPorEmail($email) {
-        $db = new Database('usuarios');
-        return $db->select("email = '$email'")->fetch(PDO::FETCH_ASSOC);
+        $db2 = new Database(); 
+        $dados = $db2->buscarUsuarioComCpfPorEmail($email);
+
+        if ($dados) {
+            return new Usuario($dados);
+        }
+        return null;
     }
 
     public function excluir($id) {

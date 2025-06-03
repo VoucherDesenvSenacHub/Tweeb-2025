@@ -98,7 +98,17 @@ class Database{
         }
         
     }
-
-
+    public function buscarUsuarioComCpfPorEmail(string $email) {
+        $query = "
+            SELECT u.id, u.nome, u.email, u.senha, c.cpf
+            FROM usuarios u
+            LEFT JOIN clientes c ON u.id = c.usuario_id
+            WHERE u.email = ?
+            LIMIT 1
+        ";
+        $stmt = $this->execute($query, [$email]);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+    
 }
 ?>
