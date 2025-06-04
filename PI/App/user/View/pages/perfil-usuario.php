@@ -59,9 +59,9 @@ function mascararCPF($cpf) {
             
             <div class="perfil-tweeb-imagem">
                 <?php 
-                $foto_perfil = !empty($_SESSION['usuario']['foto_perfil']) ? $_SESSION['usuario']['foto_perfil'] : 'foto-perfil-default.png';
-                $caminho_foto = strpos($foto_perfil, 'foto-perfil-default.png') !== false ? 
-                    '/Tweeb-2025/PI/public/assets/img/foto-perfil-default.png' : 
+                $foto_perfil = !empty($_SESSION['usuario']['foto_perfil']) ? $_SESSION['usuario']['foto_perfil'] : 'imagem_padrao.png';
+                $caminho_foto = strpos($foto_perfil, 'imagem_padrao.png') !== false ? 
+                    '/Tweeb-2025/PI/public/uploads/imagem_padrao.png' : 
                     '/Tweeb-2025/PI/public/uploads/' . $foto_perfil;
                 ?>
                 <img src="<?php echo htmlspecialchars($caminho_foto); ?>" 

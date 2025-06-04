@@ -21,7 +21,6 @@ class Departamento{
             return false;
         }
     }
-
     public function atualizar(){
             return (new Database('departamento'))->update('id_departamento ='.$this->id,[
                 'nome' => $this->nome_departamento
