@@ -2,7 +2,9 @@
 <?php
 
 //require '../DB/Database.php';
-require_once '../App/DB/Database.php';
+// require_once '../App/DB/Database.php';
+
+require_once(__DIR__ . '/../../DB/Database.php');
 
 class Produto{
 
@@ -27,7 +29,7 @@ class Produto{
         $db = new Database('produto');
         $result =  $db->insert(
                             [
-                            'id_prod' => $this->id_prod,    
+                            'id_produto' => $this->id_produto,    
                             'nome_produto' => $this->nome_produto,
                             'marca_modelo' => $this->marca_modelo,
                             'quantidade_produto' => $this->quantidade_produto,                           
@@ -58,7 +60,7 @@ class Produto{
 
     public function atualizar(){
             return (new Database('produto'))->update('id_produto ='.$this->id_produto,[
-                // 'id_prod' => $this->id_prod, 
+                'id_produto' => $this->id_produto, 
                 'nome_produto' => $this->nome_produto,
                 'marca_modelo' => $this->marca_modelo,
                 'quantidade_produto' => $this->quantidade_produto,                
@@ -85,10 +87,17 @@ class Produto{
 
     public static function buscar_by_id($id){
         //FETCHALL
-        return (new Database('produtos'))->select($id)->fetchObject(self::class);
+        return (new Database('produtos'))->select($id_produto)->fetchObject(self::class);
     }
 
     public function excluir($id_produto){
         return (new Database('produtos'))->delete('id_produto = '.$id_produto);
+    }
+
+    public function atualizarFlags($id_produto, $em_estoque, $garantia, $entrega_gratis) {
+
+    
+        $stmt = $conn->prepare("UPDATE produtos SET em_estoque = ?, garantia = ?, entrega_gratis = ? WHERE id_produto = ?");
+        $stmt->execute([$em_estoque, $garantia, $entrega_gratis, $id]);
     }
 }
