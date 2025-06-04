@@ -70,10 +70,15 @@ class Usuario {
     }
 
     public function atualizarFoto() {
-        $db = new Database('usuarios');
-        return $db->update([
-            'foto_perfil' => $this->foto_perfil
-        ], "id = {$this->id}");
+        try {
+            $db = new Database('usuarios');
+            return $db->update([
+                'foto_perfil' => $this->foto_perfil
+            ], "id = {$this->id}");
+        } catch (Exception $e) {
+            error_log('Erro ao atualizar foto: ' . $e->getMessage());
+            return false;
+        }
     }
 
     public static function buscarTodos() {

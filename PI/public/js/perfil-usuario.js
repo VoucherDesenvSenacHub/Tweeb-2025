@@ -20,7 +20,9 @@ function cancelEdit() {
     form.classList.remove('editing');
     inputs.forEach(input => {
         input.readOnly = true;
-        input.value = originalValues[input.name] || '';
+        if (originalValues[input.name]) {
+            input.value = originalValues[input.name];
+        }
     });
 }
 
@@ -51,18 +53,72 @@ function deletaUsuario() {
     .catch(err => console.error("Erro:", err));
 }
 
-// Script para upload automático da foto
+// Script aprimorado para upload de foto
 document.getElementById('inputFotoPerfil').addEventListener('change', function() {
     if (this.files && this.files[0]) {
+        const file = this.files[0];
+        const maxSize = 5 * 1024 * 1024; // 5MB
+
+        if (file.size > maxSize) {
+            alert('O arquivo é muito grande. Tamanho máximo permitido: 5MB');
+            this.value = ''; // Limpa o input
+            return;
+        }
+
+        const allowedTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/jfif'];
+        if (!allowedTypes.includes(file.type)) {
+            alert('Tipo de arquivo não permitido. Use apenas: JPG, JPEG, PNG, GIF ou JFIF');
+            this.value = ''; // Limpa o input
+            return;
+        }
+
         // Mostra um preview da imagem antes do upload
         const reader = new FileReader();
         reader.onload = function(e) {
-            document.querySelector('.foto-perfil').src = e.target.result;
+            const fotosPerfil = document.querySelectorAll('.foto-perfil, .foto-perfil-navbar');
+            fotosPerfil.forEach(foto => {
+                foto.src = e.target.result;
+            });
         }
-        reader.readAsDataURL(this.files[0]);
+        reader.readAsDataURL(file);
         
         // Envia o formulário automaticamente
-        document.getElementById('formFotoPerfil').submit();
+        const formData = new FormData(document.getElementById('formFotoPerfil'));
+        
+        fetch('/Tweeb-2025/PI/app/user/Controllers/UserController.php?acao=upload_foto', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Erro na requisição: ' + response.status);
+            }
+            return response.text();
+        })
+        .then(result => {
+            try {
+                const data = JSON.parse(result);
+                if (!data.sucesso) {
+                    throw new Error(data.mensagem || 'Erro ao fazer upload da foto');
+                }
+                // Sucesso no upload
+                console.log('Upload realizado com sucesso');
+                window.location.reload(); // Recarrega a página para atualizar a foto
+            } catch (e) {
+                // Se não for JSON, verifica se houve redirecionamento
+                if (result.includes('Location:')) {
+                    window.location.reload();
+                } else {
+                    console.log('Upload realizado com sucesso');
+                }
+            }
+        })
+        .catch(error => {
+            console.error('Erro:', error);
+            alert('Erro ao fazer upload da foto: ' + error.message);
+            // Restaura a foto anterior em caso de erro
+            location.reload();
+        });
     }
 });
 

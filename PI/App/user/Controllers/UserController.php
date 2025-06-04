@@ -8,6 +8,12 @@ if (!session_start()) {
     exit;
 }
 
+// Verifica se o diretório de uploads existe, se não, cria
+$diretorio_uploads = __DIR__ . '/../../../../public/uploads/';
+if (!file_exists($diretorio_uploads)) {
+    mkdir($diretorio_uploads, 0777, true);
+}
+
 // Verifica se é uma requisição de upload de foto
 if (isset($_GET['acao']) && $_GET['acao'] === 'upload_foto') {
     if (!isset($_FILES['foto_perfil'])) {
