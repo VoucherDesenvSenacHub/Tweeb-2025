@@ -213,7 +213,7 @@ CREATE TABLE envio (
 
 
 
-//Leandrex
+//Leandrex da galera
 create database Tweeb25;
 use Tweeb25;
 CREATE TABLE usuarios (
@@ -261,15 +261,20 @@ CREATE TABLE enderecos (
     FOREIGN KEY (id_cliente) REFERENCES clientes(id_usuario) ON DELETE CASCADE
 );
 
-CREATE TABLE funcionarios (
-    id_usuario INT PRIMARY KEY,
-    matricula VARCHAR(20),
-    cargo VARCHAR(50),
-    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    FOREIGN KEY (id_usuario) REFERENCES usuarios(id) ON DELETE CASCADE
+create table funcionario (
+id_funcionario int not null auto_increment primary key,
+nome varchar(100) not null,
+email varchar(100) not null,
+senha varchar(255) not null,
+cpf char(11) not null,
+rg CHAR(10),
+cep CHAR(8),
+endereco VARCHAR(255),
+perfil CHAR(30),
+avatar VARCHAR(255),
+tipo ENUM('admin', 'funcionario') NOT NULL DEFAULT 'funcionario',
+data_criacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
-
 
 drop table clientes;
 select * from usuarios;
