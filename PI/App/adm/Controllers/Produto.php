@@ -8,7 +8,7 @@ require_once(__DIR__ . '/../../DB/Database.php');
 
 class Produto{
 
-    public int $id_produto;
+    public ?int $id_produto = null;
     public string $nome_produto;
     public string $marca_modelo;
     public int $quantidade_produto;
@@ -26,7 +26,7 @@ class Produto{
     public int $garantia;
 
     public function cadastrar(){
-        $db = new Database('produto');
+        $db = new Database('produtos');
         $result =  $db->insert(
                             [
                             'id_produto' => $this->id_produto,    
@@ -59,7 +59,7 @@ class Produto{
     }
 
     public function atualizar(){
-            return (new Database('produto'))->update('id_produto ='.$this->id_produto,[
+            return (new Database('produtos'))->update('id_produto ='.$this->id_produto,[
                 'id_produto' => $this->id_produto, 
                 'nome_produto' => $this->nome_produto,
                 'marca_modelo' => $this->marca_modelo,

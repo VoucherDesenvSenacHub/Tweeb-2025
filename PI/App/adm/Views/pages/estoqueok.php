@@ -12,7 +12,7 @@ if(isset($_POST['cadastrar'])){
     $nome_produto = $_POST['nome_produto'];
     $marca_modelo = $_POST['marca_modelo'];
     $quantidade_produto = $_POST['quantidade_produto'];    
-    $imagem_produto = $_POST['imagem_produto'];
+    $imagem_produto = $_FILES['imagem_produto'];
     $numero_serie = $_POST['numero_serie'];
     $custo_produto = $_POST['custo_produto'];
     $cor_produto = $_POST['cor_produto'];
@@ -26,13 +26,28 @@ if(isset($_POST['cadastrar'])){
     $garantia = $_POST['garantia'];
 
     
+     
+    ###Código para cadastrar foto no servidor de banco de dados###
+    $arquivo =$_FILES['imagem_produto'];
+    if ($arquivo['error'])die("Falha ao enviar a foto");
+    $pasta ='../../../../public/uploads/';
+    $nome_foto =$arquivo['name'];
+    $novo_nome = uniqid();
+    // echo $novo_nome;
+    $extensao = strtolower(pathinfo($nome_foto, PATHINFO_EXTENSION));
+    if ($extensao != 'png' && $extensao !='jpg') die('Falha ao enviar a foto');
+    $caminho = $pasta . $novo_nome . '.' . $extensao;
+    $foto =move_uploaded_file($arquivo['tmp_name'], $caminho);
+
+    // echo '<br>CAMINHO ' . $caminho;
+    ###Código para cadastrar foto no servidor de banco de dados###
 
     $produto = new Produto();
     // $produto->id_produto = $id_produto;
     $produto->nome_produto = $nome_produto;
     $produto->marca_modelo = $marca_modelo;
     $produto->quantidade_produto = $quantidade_produto;
-    $produto->imagem_produto = $imagem_produto;
+    $produto->imagem_produto = $caminho;
     $produto->numero_serie = $numero_serie;
     $produto->custo_produto = $custo_produto;
     $produto->cor_produto  = $cor_produto;
@@ -45,21 +60,7 @@ if(isset($_POST['cadastrar'])){
     $produto->em_estoque = $em_estoque;
     $produto->garantia = $garantia;
 
-    
-    ###Código para cadastrar foto no servidor de banco de dados###
-    $arquivo =$_FILES['foto'];
-    if ($arquivo['error'])die("Falha ao enviar a foto");
-    $pasta ='./upload/';
-    $nome_foto =$arquivo['name'];
-    $novo_nome = uniqid();
-    // echo $novo_nome;
-    $extensao = strtolower(pathinfo($nome_foto, PATHINFO_EXTENSION));
-    if ($extensao != 'png' && $extensao !='jpg') die('Falha ao enviar a foto');
-    $caminho = $pasta . $novo_nome . '.' . $extensao;
-    $foto =move_uploaded_file($arquivo['tmp_name'], $caminho);
-
-    // echo '<br>CAMINHO ' . $caminho;
-    ###Código para cadastrar foto no servidor de banco de dados###
+   
     
 
     $result = $produto->cadastrar();
@@ -187,7 +188,7 @@ if ($id_produto !== null) {
                 <a href="listarProdutos.php">Cadastrados</a>
             </nav>
             <h2>Detalhes do Produto</h2>
-            <form action="" method="post" enctype="multipart/form-data" id="product-form">
+            <form action="estoqueok.php" method="POST" enctype="multipart/form-data" id="product-form">
     <div class="form-group">
         <label for="product-name">Nome do Produto</label>
         <input autocomplete="off" type="text" name="nome_produto" class="form_field" placeholder="" id="nome_produto" required>
@@ -232,6 +233,11 @@ if ($id_produto !== null) {
     <div class="form-group">
         <label for="product-description">Descrição</label>
         <textarea name="descricao_produto" id="descricao_produto" maxlength="1000"></textarea>
+    </div>
+    
+    <div class="form-group">
+        <label for="product-description">Detalhes produto</label>
+        <textarea name="detalhes_produto" id="detalhes_produto" maxlength="1000"></textarea>
     </div>
 
     <h3>Especificações Promocionais</h3>
