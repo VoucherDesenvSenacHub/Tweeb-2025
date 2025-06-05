@@ -21,9 +21,9 @@ if(isset($_POST['cadastrar'])){
     $detalhes_produto = $_POST['detalhes_produto'];
 
     $id_departamento= $_POST['id_departamento'];
-    $entrega_gratis = $_POST['entrega_gratis'];
-    $em_estoque = $_POST['em_estoque'];
-    $garantia = $_POST['garantia'];
+    $entrega_gratis = isset($_POST['entrega_gratis']) ? 1 : 0;
+    $em_estoque = isset($_POST['em_estoque']) ? 1 : 0;
+    $garantia = isset($_POST['garantia']) ? 1 : 0;
 
     
      
@@ -222,7 +222,7 @@ if ($id_produto !== null) {
         <input autocomplete="off" type="number" name="numero_serie" class="form_field" placeholder="" id="numero_serie" required>
 
         <label for="product-cost">Custo</label>
-        <input autocomplete="off" type="number" name="custo_produto" class="form_field" placeholder="" id="custo_produto" required>
+        <input autocomplete="off" type="number" name="custo_produto" step="0.01" class="form_field" placeholder="" id="custo_produto" required>
     </div>
 
     <div class="form-group">
@@ -243,7 +243,7 @@ if ($id_produto !== null) {
     <h3>Especificações Promocionais</h3>
     <div class="form-group">
         <label for="promo-value">Valor</label>
-        <input autocomplete="off" type="number" name="preco_unid" class="form_field" placeholder="" id="preco_unid" required>
+        <input autocomplete="off" type="number" name="preco_unid" step="0.01" class="form_field" placeholder="" id="preco_unid" required>
     </div>
 
     <div class="form-group">
