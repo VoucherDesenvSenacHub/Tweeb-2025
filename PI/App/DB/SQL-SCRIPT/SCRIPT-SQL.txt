@@ -214,6 +214,7 @@ CREATE TABLE envio (
 
 
 //Leandrex
+use 140p2;
 CREATE TABLE usuarios (
     id INT PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(100) not null,
@@ -223,15 +224,19 @@ CREATE TABLE usuarios (
     senha VARCHAR(255)not null ,
     tipo ENUM('cliente', 'funcionario'),
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    token_recuperacao varchar(64)
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
+
+desc funcionario;
+
 
 select * from usuarios;
 select * from clientes;
 select * from enderecos;
-select * from cep;
-
+show tables;
+select * from departamento
+;
+drop table funcionario;
 drop table enderecos;
 
 CREATE TABLE clientes (
@@ -242,10 +247,12 @@ CREATE TABLE clientes (
     FOREIGN KEY (id_usuario) REFERENCES usuarios(id) ON DELETE CASCADE
 );
 CREATE TABLE enderecos (
-    id INT PRIMARY KEY AUTO_INCREMENT,
+    id_endereco INT PRIMARY KEY AUTO_INCREMENT,
     id_cliente INT,
     nome_endereco VARCHAR(100),
     rua VARCHAR(100),
+    numero VARCHAR(20),
+    cep VARCHAR(8),
     bairro VARCHAR(100),
     cidade VARCHAR(50),
     estado VARCHAR(50),
@@ -254,14 +261,6 @@ CREATE TABLE enderecos (
     FOREIGN KEY (id_cliente) REFERENCES clientes(id_usuario) ON DELETE CASCADE
 );
 
-CREATE TABLE cep (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    codigo VARCHAR(8) NOT NULL,          
-    endereco_id INT NOT NULL,             
-    criado_em DATETIME DEFAULT CURRENT_TIMESTAMP,
-	updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    FOREIGN KEY (endereco_id) REFERENCES enderecos(id) ON DELETE CASCADE
-);
 
 
 CREATE TABLE funcionarios (
@@ -274,13 +273,10 @@ CREATE TABLE funcionarios (
 );
 
 
-ALTER TABLE usuarios ADD COLUMN foto_perfil VARCHAR(255);
-
-
-drop table usuarios;
-select * from usuarios;
+drop table clientes;
 select * from clientes;
-select * from respostas_preferencias;
+select * from cpf;
+select * from enderecos;
 
 CREATE TABLE respostas_preferencias (
   id INT AUTO_INCREMENT PRIMARY KEY,
