@@ -11,7 +11,7 @@
 
 <body class="body-login">
     <div class="forms">
-        <form action="/Tweeb-2025/PI/App/user/Controllers/UserController.php?acao=login" method="POST">
+        <form method="POST" class="login-form" id="login-form">
             <a href="/Tweeb-2025/PI/home.php" class="back-links"><i class='bx bx-chevron-left'></i> Voltar</a>
             <h1 class="tit">Login</h1>
             <p class="descrit">Faça login para acessar sua conta.</p>
@@ -58,5 +58,6 @@
         <img src="/Tweeb-2025/PI/public/assets/img/Groupo4.png" alt="img-login" class="login-image">
     </div>
     <script src="../../../../public/js/lembrarSenhaUser.js"></script>
+    <script src="../../../../public/js/login-usuario.js"></script>
 </body>
 </html>

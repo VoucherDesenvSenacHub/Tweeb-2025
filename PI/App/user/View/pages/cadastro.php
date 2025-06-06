@@ -24,7 +24,7 @@
                 <p class="success-message" style="color: green;"><?php echo htmlspecialchars($_GET['sucesso']); ?></p>
             <?php endif; ?>
 
-            <form method="post" action="/Tweeb-2025/PI/App/user/Controllers/UserController.php?acao=cadastrar" class="cadastro-form" id="form-cadastro">
+            <form method="post" action="#" class="cadastro-form" id="form-cadastro">
                 <div class="input-group">
                     <input name='nome' type="text" placeholder="Nome" class="Task2a-input" required>
                 </div>
@@ -56,6 +56,7 @@
     </div>
 
     <script src="../../../../public/js/validacao-cpf.js"></script>
+    <script src="../../../../public/js/cadastro_usuario.js"></script>
 </body>
 </html>
 

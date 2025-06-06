@@ -7,6 +7,7 @@ if (!isset($_SESSION['usuario']['id'])) {
     header('Location: login.php');
     exit();
 }
+define('INCLUDE_PATH', true);
 require __DIR__.'/../../../../public/api/buscar_endereco.php';
 ?>
 <!DOCTYPE html>

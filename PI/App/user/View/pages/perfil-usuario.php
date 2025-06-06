@@ -24,10 +24,10 @@ function mascararCPF($cpf) {
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <style>
         .perfil-tweeb-botoes {
-            display: none; /* Esconde os botões por padrão */
+            display: none;
         }
         .editing .perfil-tweeb-botoes {
-            display: flex; /* Mostra os botões quando estiver editando */
+            display: flex; 
         }
         .editing input:not([disabled]) {
             border: 1px solid #007bff;
@@ -59,9 +59,9 @@ function mascararCPF($cpf) {
             
             <div class="perfil-tweeb-imagem">
                 <?php 
-                $foto_perfil = !empty($_SESSION['usuario']['foto_perfil']) ? $_SESSION['usuario']['foto_perfil'] : 'foto-perfil-default.png';
-                $caminho_foto = strpos($foto_perfil, 'foto-perfil-default.png') !== false ? 
-                    '/Tweeb-2025/PI/public/assets/img/foto-perfil-default.png' : 
+                $foto_perfil = !empty($_SESSION['usuario']['foto_perfil']) ? $_SESSION['usuario']['foto_perfil'] : 'imagem_padrao.png';
+                $caminho_foto = strpos($foto_perfil, 'imagem_padrao.png') !== false ? 
+                    '/Tweeb-2025/PI/public/uploads/imagem_padrao.png' : 
                     '/Tweeb-2025/PI/public/uploads/' . $foto_perfil;
                 ?>
                 <img src="<?php echo htmlspecialchars($caminho_foto); ?>" 
@@ -69,7 +69,7 @@ function mascararCPF($cpf) {
                      class="foto-perfil">
                 
                 <!-- Input oculto de upload -->
-                <form method="POST" action="../../Controllers/UserController.php?acao=upload_foto" enctype="multipart/form-data" id="formFotoPerfil">
+                <form method="POST" enctype="multipart/form-data" id="formFotoPerfil">
                     <input type="file" id="inputFotoPerfil" name="foto_perfil" accept="image/*" style="display: none;">
                 </form>
 
@@ -90,7 +90,7 @@ function mascararCPF($cpf) {
             </div>
         </div>
 
-        <form class="perfil-tweeb-form" method="POST" action="../../Controllers/UserController.php?acao=editar" enctype="multipart/form-data">
+        <form class="perfil-tweeb-form" id="perfil-tweeb-form" method="POST" enctype="multipart/form-data">
             <div class="perfil-tweeb-input-group">
                 <label for="primeiro-nome">Primeiro nome</label>
                 <input type="text" id="primeiro-nome" name="nome" value="<?php echo htmlspecialchars($_SESSION['usuario']['nome']); ?>" readonly>
@@ -126,6 +126,11 @@ function mascararCPF($cpf) {
             </div>
 
             <div class="perfil-tweeb-input-group">
+                <label for="numero">Numero</label>
+                <input type="text" id="numero" name="numero" value="<?php echo htmlspecialchars($_SESSION['usuario']['numero'] ?? ''); ?>" readonly>
+            </div>
+
+            <div class="perfil-tweeb-input-group">
                 <label for="bairro">Bairro</label>
                 <input type="text" id="bairro" name="bairro" value="<?php echo htmlspecialchars($_SESSION['usuario']['bairro'] ?? ''); ?>" readonly>
             </div>
@@ -142,19 +147,18 @@ function mascararCPF($cpf) {
             <div class="perfil-tweeb-botoes">
                 <button type="button" class="perfil-tweeb-cancelar" onclick="cancelEdit()">Cancelar</button>
                 <button type="button" class="perfil-tweeb-excluir" onClick="deletaUsuario()">Excluir</button>
-                <button type="submit" class="perfil-tweeb-salvar">Salvar alteração</button>
+                <button type="submit" class="perfil-tweeb-salvar" onClick="editarUsuario()">Salvar alteração</button>
             </div>
             
         </form>
         
     </div>
 </div>
-
 <?php include __DIR__.'/../../../../includes/footer.php'; ?>
-
-
 <script>
     const usuarioID  = <?php echo json_encode($_SESSION['usuario']['id']);?>
 </script>
+<script src="/Tweeb-2025/PI/public/js/alterar-foto.js"></script>
+<script src="/Tweeb-2025/PI/public/js/perfil-usuario.js"></script>
 </body>
 </html>

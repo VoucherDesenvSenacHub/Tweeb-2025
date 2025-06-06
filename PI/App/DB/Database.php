@@ -55,7 +55,7 @@ class Database{
         $result = $this->execute($query,array_values($values));
         
         if($result){
-            return $this->conn->lastInsertId();;
+            return $this->conn->lastInsertId();
         }
         else{
             return false;
@@ -98,7 +98,17 @@ class Database{
         }
         
     }
-
-
+    public function buscarUsuarioComCpfPorEmail(string $email) {
+        $query = "
+            SELECT u.id, u.nome, u.email, u.senha, u.tipo, c.cpf
+            FROM usuarios u
+            LEFT JOIN clientes c ON u.id = c.id_usuario
+            WHERE u.email = ?
+            LIMIT 1
+        ";
+        $stmt = $this->execute($query, [$email]);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+    
 }
 ?>
