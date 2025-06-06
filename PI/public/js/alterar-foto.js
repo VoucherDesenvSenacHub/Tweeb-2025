@@ -2,7 +2,7 @@ document.getElementById('inputFotoPerfil').addEventListener('change', function (
     const formData = new FormData();
     formData.append('foto_perfil', this.files[0]);
 
-    fetch('../../Controllers/AlterarFotoController.php', {
+    fetch('/Tweeb-2025/PI/App/user/Controllers/AlterarFotoController.php', {
         method: 'POST',
         body: formData
     })
