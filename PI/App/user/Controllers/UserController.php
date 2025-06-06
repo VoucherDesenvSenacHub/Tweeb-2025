@@ -8,56 +8,6 @@ if (!session_start()) {
     exit;
 }
 
-// Verifica se o diretório de uploads existe, se não, cria
-$diretorio_uploads = __DIR__ . '/../../../../public/uploads/';
-if (!file_exists($diretorio_uploads)) {
-    mkdir($diretorio_uploads, 0777, true);
-}
-
-// Verifica se é uma requisição de upload de foto
-if (isset($_GET['acao']) && $_GET['acao'] === 'upload_foto') {
-    if (!isset($_FILES['foto_perfil'])) {
-        $_SESSION['erro'] = 'Nenhuma foto foi enviada.';
-        header('Location: ' . $_SERVER['HTTP_REFERER']);
-        exit;
-    }
-
-    $arquivo = $_FILES['foto_perfil'];
-    $extensao = strtolower(pathinfo($arquivo['name'], PATHINFO_EXTENSION));
-    $extensoes_permitidas = ['jpg', 'jpeg', 'png', 'gif', 'jfif'];
-
-    if (!in_array($extensao, $extensoes_permitidas)) {
-        $_SESSION['erro'] = 'Tipo de arquivo não permitido.';
-        header('Location: ' . $_SERVER['HTTP_REFERER']);
-        exit;
-    }
-
-    if ($arquivo['size'] > 5 * 1024 * 1024) { // 5MB
-        $_SESSION['erro'] = 'Arquivo muito grande. Máximo: 5MB.';
-        header('Location: ' . $_SERVER['HTTP_REFERER']);
-        exit;
-    }
-
-    $nome_arquivo = 'perfil_' . $_SESSION['usuario']['id'] . '_' . time() . '.' . $extensao;
-    $caminho_destino = __DIR__ . '/../../../../public/uploads/' . $nome_arquivo;
-
-    if (move_uploaded_file($arquivo['tmp_name'], $caminho_destino)) {
-        $usuario = new Usuario();
-        $usuario->id = $_SESSION['usuario']['id'];
-        $usuario->foto_perfil = $nome_arquivo;
-        
-        if ($usuario->atualizarFoto()) {
-            $_SESSION['usuario']['foto_perfil'] = $nome_arquivo;
-            header('Location: ' . $_SERVER['HTTP_REFERER']);
-            exit;
-        }
-    }
-
-    $_SESSION['erro'] = 'Erro ao fazer upload da foto.';
-    header('Location: ' . $_SERVER['HTTP_REFERER']);
-    exit;
-}
-
 // Verifica se é uma requisição de edição de perfil
 if (isset($_GET['acao']) && $_GET['acao'] === 'editar') {
     $nome = trim($_POST['nome'] ?? '');

@@ -55,6 +55,12 @@ class Usuario {
         return $idUsuario;
     }
 
+    public function atualizarFoto($novoNome) {
+        $db = new Database('usuarios');
+        return $db->update(['foto_perfil' => $novoNome], "id = {$this->id}");
+    }
+    
+
     public function atualizar() {
         $db = new Database('usuarios');
         return $db->update([
@@ -67,18 +73,6 @@ class Usuario {
             'cidade' => $this->cidade,
             'estado' => $this->estado
         ], "id = {$this->id}");
-    }
-
-    public function atualizarFoto() {
-        try {
-            $db = new Database('usuarios');
-            return $db->update([
-                'foto_perfil' => $this->foto_perfil
-            ], "id = {$this->id}");
-        } catch (Exception $e) {
-            error_log('Erro ao atualizar foto: ' . $e->getMessage());
-            return false;
-        }
     }
 
     public static function buscarTodos() {

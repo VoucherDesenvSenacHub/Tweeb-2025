@@ -156,5 +156,6 @@ function mascararCPF($cpf) {
 <script>
     const usuarioID  = <?php echo json_encode($_SESSION['usuario']['id']);?>
 </script>
+<script src="/Tweeb-2025/PI/public/js/alterarFoto.js"></script>
 </body>
 </html>
