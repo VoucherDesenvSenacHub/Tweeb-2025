@@ -22,6 +22,9 @@ if (!isset($_SESSION['usuario']['id'])) {
 <body>
 <?php include __DIR__.'/../../../../includes/navbar-logada.php'; ?>
 
+
+
+
 <div class="container">
     <div class="step-indicator">
         <span class="" id="step-ativo">

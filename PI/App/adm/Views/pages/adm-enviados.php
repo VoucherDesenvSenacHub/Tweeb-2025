@@ -2,521 +2,322 @@
 <html lang="pt-br">
 <head>
 <?php include __DIR__.'/../../../../includes/headernavb.php'; ?>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Enviados</title>
-    <link rel="stylesheet" href="../../../../public/css/adm-enviados.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../../../../public/css/adm-enviados.css" />
+    <link rel="stylesheet" href="../../../../public/css/enviadosmodal.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    
 </head>
 <body>
 <?php include __DIR__.'/../../../../includes/head-adm.php'; ?>
 <?php include __DIR__.'/../../../../includes/sidebar-Adm.php'; ?>
 
-    <div class="quantidade-pedidos">
-        <div class="pedidos-ui-card">
-
-            <div class="ui-pedidos-frame">
-                <p>Pedidos</p>
-                <img src="../../../../public/assets/img/adm-pedidos-icon1.png" alt="">
-            </div>
-
-            <div class="ui-pedidos-label">
-                <h1 class="numero-item-minicard">96</h1>
-                <p><span>5%</span> incompleto</p>
-            </div>
-
+<div class="quantidade-pedidos">
+    <div class="pedidos-ui-card">
+        <div class="ui-pedidos-frame">
+            <p>Pedidos</p>
+            <img src="../../../../public/assets/img/adm-pedidos-icon1.png" alt="" />
         </div>
-
-        <div class="pedidos-adicionar-envio">
-            <img src="../../../../public/assets/img/plus-circle.svg" alt="">
-            <a href="" class="botaoenvio"><p>Adicionar Envio</p></a>
-
+        <div class="ui-pedidos-label">
+            <h1 class="numero-item-minicard">96</h1>
+            <p><span>5%</span> incompleto</p>
         </div>
     </div>
+</div>
 
-    <div class="pedidos-categoria-selecionado">
-        <div class="categorias-adm-enviados">
-            <a href="adm-estoque.php"><p>Visão Geral</p></a>
-            <a href="adm-pedidos.php"><p>Pedidos</p></a>
-            <a href=""><span><p>Enviados</p></span></a>
-        </div>
+<div class="pedidos-categoria-selecionado">
+    <div class="categorias-adm-enviados">
+        <a href="adm-estoque.php"><p>Visão Geral</p></a>
+        <a href="adm-pedidos.php"><p>Pedidos</p></a>
+        <a href=""><span><p>Enviados</p></span></a>
     </div>
+</div>
 
-    <div class="pedidos-envios-recentes">
-        <h1>Envios Recentes</h1>
+<button class="btn-adicionar-envio">Adicionar Envio</button>
 
-        <!-- <div class="filtro-semana">
-            <p>Mês</p>
-            <p>Semanal</p>
-            
-            <div class="filtro-selecionado">
-                <p>Hoje</p>
-            </div>
-        </div> -->
 
-        <div class="radio-inputs">
-            <label class="radio">
-            <input type="radio" name="radio">
-            <span class="name">Mês</span>
-            </label>
-            <label class="radio">
-            <input type="radio" name="radio">
-            <span class="name">Semana</span>
-            </label>
-                
-            <label class="radio">
-            <input type="radio" name="radio" checked="">
-            <span class="name">Hoje</span>
-            </label>
-        </div>
+<div class="pedidos-envios-recentes">
+    <h1>Envios Recentes</h1>
+    <div class="radio-inputs">
+        <label class="radio">
+          <input type="radio" name="radio" />
+          <span class="name">Mês</span>
+        </label>
+        <label class="radio">
+          <input type="radio" name="radio" />
+          <span class="name">Semana</span>
+        </label>
+        <label class="radio">
+          <input type="radio" name="radio" checked="" />
+          <span class="name">Hoje</span>
+        </label>
     </div>
+</div>
 
-    <div class="tabela-container">
-        <table class="tabela-recentes">
-            <tbody>
-
-                <tr class="tabela-cima">
-                    <td>Produto</td>
-                    <td>Departamento</td>
-                    <td>Qtd</td>
-                    <td>NF</td>
-                    <td>Cliente</td>
-                    <td>Status</td>
-                </tr>
-
-                <tr class="tabela-info">
-                    <td>Fone de ouvido</td>
-                    <td>Periféricos</td>
-                    <td><span>2</span></td>
-                    <td class="centralizar-nota"><div class="tabela-nota-fiscal"><i class="fa-regular fa-file-lines"></i><p>Nota</p></div></td>
-                    <td>hagamenongoncalves@gmail.com</td>
-                    <td><div class="status-enviado"><p>Enviado</p></div></td>
-                </tr>
-
-                <tr class="tabela-info">
-                    <td>Fone de ouvido</td>
-                    <td>Periféricos</td>
-                    <td><span>2</span></td>
-                    <td class="centralizar-nota"><div class="tabela-nota-fiscal"><i class="fa-regular fa-file-lines"></i><p>Nota</p></div></td>
-                    <td>flavinsilva@gmail.com</td>
-                    <td><div class="status-pendente"><p>Pendente</p></div></td>
-                </tr>
-
-                <tr class="tabela-info">
-                    <td>Fone de ouvido</td>
-                    <td>Periféricos</td>
-                    <td><span>2</span></td>
-                    <td class="centralizar-nota"><div class="tabela-nota-fiscal"><i class="fa-regular fa-file-lines"></i><p>Nota</p></div></td>
-                    <td>waldirbraz@gmail.com</td>
-                    <td><div class="status-enviado"><p>Enviado</p></div></td>
-                </tr>
-
-                <tr class="tabela-info">
-                    <td>Fone de ouvido</td>
-                    <td>Periféricos</td>
-                    <td><span>2</span></td>
-                    <td class="centralizar-nota"><div class="tabela-nota-fiscal"><i class="fa-regular fa-file-lines"></i><p>Nota</p></div></td>
-                    <td>homicidiogames@gmail.com</td>
-                    <td><div class="status-enviado"><p>Enviado</p></div></td>
-                </tr>
-
-                <tr class="tabela-info">
-                    <td>Fone de ouvido</td>
-                    <td>Periféricos</td>
-                    <td><span>2</span></td>
-                    <td class="centralizar-nota"><div class="tabela-nota-fiscal"><i class="fa-regular fa-file-lines"></i><p>Nota</p></div></td>
-                    <td>rucoyonline@gmail.com</td>
-                    <td><div class="status-pendente"><p>Pendente</p></div></td>
-                </tr>
-
-            </tbody>
-        </table>
-    </div>
-
-
-
-    <div class="buscar-filtros">
-        <div class="filtros-datas">
-            <div class="datas-botoes">
-                <!-- trocar isso aqui pra checkbox ou algum outro form quando iniciar o desenvolvimento do backend -->
-                <button class="botao-ativado">Hoje</button>
-                <button>Ontem</button>
-                <button>Data <img src="../../../public/assets/img/adm-calendario.png" alt=""></button>
-            </div>
+<div class="filtro-formulario">
+    <form action="">
+        <div class="form-group">
+            <label for="filtrar-nome">Nome</label>
+            <input type="text" id="filtrar-nome" name="filtrar-nome" placeholder="filtrar nome" />
+            <label for="filtrar-email">Email</label>
+            <input type="email" id="filtrar-email" name="filtrar-email" placeholder="filtrar modelo" />
+            <label for="filtrar-id">ID Order</label>
+            <input type="text" id="filtrar-id" name="filtrar-id" placeholder="filtrar nº" />
+            <label for="text">Produto</label>
+            <input type="text" id="filtrar-produto" name="filtrar-produto" placeholder="filtrar produto" />
+            <input class="form-botao-limpar" type="submit" value="Limpar" />
+            <input class="form-botao-buscar" type="submit" value="Buscar" />
         </div>
-
-        <div class="filtro-formulario">
-            <form action="">
-                <div class="form-group">
-                            
-                    <label for="filtrar-nome">Nome</label>
-                    <input type="text" id="filtrar-nome" name="filtrar-nome" placeholder="filtrar nome" >
-                    
-                    <label for="filtrar-email">Email</label>
-                    <input type="email" id="filtrar-email" name="filtrar-email" placeholder="filtrar modelo">
-                    
-                    <label for="filtrar-id">Id do Pedido</label>
-                    <input type="text" id="filtrar-id" name="filtrar-id" placeholder="filtrar nº">
-                </div>
-
-                <div class="form-group-breakline">
-                    
-                    <label for="valor">Valor</label>
-                    <input type="text" id="valor" name="valor" placeholder="filtrar valor">
-                    
-                    <label for="filtrar-cpf">CPF</label>
-                    <input type="text" id="filtrar-cpf" name="filtrar-cpf" placeholder="filtrar nº">
-
-                    <input class="form-botao-buscar" type="submit" value="Buscar">
-                </div>
-
-            </form>
-        </div>
-    </div>
+    </form>
+</div>
 
 
-    <div class="envios-container">
-        
-        <table class="tabela-envios">
-            <h1 class="envio-titulo-adm">Envios</h1>
-            
-            <tbody>
 
-                <tr class="envios-cima">
-                    <td>
-                        <label class="envios-checkbox">
-                            <input type="checkbox">
-                            <span class="checkbox"></span>
-                        </label>
-                    </td>
-                    
-                    <td>
-                        <div class="td-com-setinha">
-                            <div class="td-text">
-                                <p>Id Order</p>
-                            </div>
-                            <div class="td-arrows">
-                                <i class="fa-solid fa-chevron-up"></i>
-                                <i class="fa-solid fa-chevron-down"></i>
-                            </div>
+<div class="envios-container">
+    <table class="tabela-envios">
+        <h1 class="envio-titulo-adm">Envios</h1>
+        <tbody id="envios-tbody">
+            <tr>
+                <td>
+                    <div class="td-com-setinha">
+                        <div class="td-text">
+                            <p>Id Order</p>
                         </div>
-                    </td>
-
-                    <td>Produto</td>
-                    <td>Cliente</td>
-                    
-                    <td>
-                        <div class="td-com-setinha">
-                            <div class="td-text">
-                                <p>Status</p>
-                            </div>
-                            <div class="td-arrows">
-                                <i class="fa-solid fa-chevron-up"></i>
-                                <i class="fa-solid fa-chevron-down"></i>
-                            </div>
+                        <div class="td-arrows">
+                            <i class="fa-solid fa-chevron-up"></i>
+                            <i class="fa-solid fa-chevron-down"></i>
                         </div>
-                    </td>
-
-                    <td>
-                        <div class="td-com-setinha">
-                            <div class="td-text">
-                                <p>Data do Pedido</p>
-                            </div>
-                            <div class="td-arrows">
-                                <i class="fa-solid fa-chevron-up"></i>
-                                <i class="fa-solid fa-chevron-down"></i>
-                            </div>
+                    </div>
+                </td>
+                <td>Produto</td>
+                <td>Cliente</td>
+                <td>
+                    <div class="td-com-setinha">
+                        <div class="td-text">
+                            <p>Status</p>
                         </div>
-                    </td>
-
-                    <td>
-                        <div class="td-com-setinha">
-                            <div class="td-text">
-                                <p>Prazo</p>
-                            </div>
-                            <div class="td-arrows">
-                                <i class="fa-solid fa-chevron-up"></i>
-                                <i class="fa-solid fa-chevron-down"></i>
-                            </div>
+                        <div class="td-arrows">
+                            <i class="fa-solid fa-chevron-up"></i>
+                            <i class="fa-solid fa-chevron-down"></i>
                         </div>
-                    </td>
-
-                    <td>
-                        <div class="td-com-setinha">
-                            <div class="td-text">
-                                <p>Preço</p>
-                            </div>
-                            <div class="td-arrows">
-                                <i class="fa-solid fa-chevron-up"></i>
-                                <i class="fa-solid fa-chevron-down"></i>
-                            </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="td-com-setinha">
+                        <div class="td-text">
+                            <p>Data do Pedido</p>
                         </div>
-                    </td>
+                        <div class="td-arrows">
+                            <i class="fa-solid fa-chevron-up"></i>
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="td-com-setinha">
+                        <div class="td-text">
+                            <p>Prazo</p>
+                        </div>
+                        <div class="td-arrows">
+                            <i class="fa-solid fa-chevron-up"></i>
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="td-com-setinha">
+                        <div class="td-text">
+                            <p>Preço</p>
+                        </div>
+                        <div class="td-arrows">
+                            <i class="fa-solid fa-chevron-up"></i>
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </div>
+                    </div>
+                </td>
+                <td>Etapa</td>
+            </tr>
 
-                    <td>Etapa</td>
-                </tr>
-                
-                <!--  -->
-
-                <?php 
-                    for($x = 0; $x < 3; $x++){
-                        echo'
-                        <tr class="envios-information">
-                        <td>
-                            <label class="envios-checkbox">
-                                <input type="checkbox">
-                                <span class="checkbox"></span>
-                            </label>
-                        </td>
-                        
+            <!-- Conteúdo PHP original removido para foco no exemplo -->
+            <?php 
+                for($x = 0; $x < 3; $x++){
+                    echo'
+                    <tr class="envios-information">
                         <td>990 - 132</td>
-
                         <td id="envios-bold">TV 14 Inch Gede</td>
                         <td>Leticia</td>
-                        
-                        <td>
-                            <div class="status-completo">
-                                <p>Completo</p>
-                            </div>
-                        </td>
-
-                        <td>
-                            <div class="table-data">
-                                <p>21 de Março 2025</p>
-                                <p>00:28</p>
-                            </div>
-                        </td>
-
+                        <td><div class="status-completo"><p>Completo</p></div></td>
+                        <td><div class="table-data"><p>21 de Março 2025</p><p>00:28</p></div></td>
                         <td>23 de Março, 2025</td>
-
                         <td id="envios-bold">R$190.09</td>
-
                         <td>
                             <form class="etapa-form">
                                 <select>
                                     <option value="ativo">Ativo</option>
-                                    <option value="ativo">Cancelado</option>
-                                    <option value="ativo">Pendente</option>
+                                    <option value="cancelado">Cancelado</option>
+                                    <option value="pendente">Pendente</option>
                                 </select>
                             </form>
                         </td>
                     </tr>
+                    ';
+                }
+            ?>
+        </tbody>
+    </table>
+</div>
 
-                    <tr class="envios-information">
-                        <td>
-                            <label class="envios-checkbox">
-                                <input type="checkbox">
-                                <span class="checkbox"></span>
-                            </label>
-                        </td>
-                        
-                        <td>990 - 132</td>
+<!-- Modal para adicionar envio -->
+<div id="modal-adicionar-envio" class="modal">
+    <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <h2>Adicionar Novo Envio</h2>
+        <form id="form-adicionar-envio">
+            <label for="input-id-order">Id Order</label>
+            <input type="text" id="input-id-order" name="idOrder" required />
 
-                        <td id="envios-bold">Sepeda BMX Shadow Blue</td>
-                        <td>Lucas</td>
-                        
-                        <td>
-                            <div class="status-andamento">
-                                <p>Andamento</p>
-                            </div>
-                        </td>
+            <label for="input-produto">Produto</label>
+            <input type="text" id="input-produto" name="produto" required />
 
-                        <td>
-                            <div class="table-data">
-                                <p>21 de Março 2025</p>
-                                <p>10:58</p>
-                            </div>
-                        </td>
+            <label for="input-cliente">Cliente</label>
+            <input type="text" id="input-cliente" name="cliente" required />
 
-                        <td>15 de Abril, 2025</td>
+            <label for="select-status">Status</label>
+            <select id="select-status" name="status" required>
+                <option value="Completo">Completo</option>
+                <option value="Andamento">Andamento</option>
+                <option value="Rejeitado">Rejeitado</option>
+            </select>
 
-                        <td id="envios-bold">R$155.10</td>
+            <label for="input-data-pedido">Data do Pedido</label>
+            <input type="date" id="input-data-pedido" name="dataPedido" required />
 
-                        <td>
-                            <form class="etapa-form">
-                                <select>
-                                    <option value="ativo">Ativo</option>
-                                    <option value="ativo">Cancelado</option>
-                                    <option value="ativo">Pendente</option>
-                                </select>
-                            </form>
-                        </td>
-                    </tr>
+            <label for="input-prazo">Prazo</label>
+            <input type="date" id="input-prazo" name="prazo" required />
 
-                    <tr class="envios-information">
-                        <td>
-                            <label class="envios-checkbox">
-                                <input type="checkbox">
-                                <span class="checkbox"></span>
-                            </label>
-                        </td>
-                        
-                        <td>990 - 132</td>
+            <label for="input-preco">Preço (R$)</label>
+            <input type="number" id="input-preco" name="preco" step="0.01" min="0" required />
 
-                        <td id="envios-bold">Mouse Gaming Logitech M-1332A</td>
-                        <td>Ana</td>
-                        
-                        <td>
-                            <div class="status-rejeitado">
-                                <p>Rejeitado</p>
-                            </div>
-                        </td>
+            <label for="select-etapa">Etapa</label>
+            <select id="select-etapa" name="etapa" required>
+                <option value="Ativo">Ativo</option>
+                <option value="Cancelado">Cancelado</option>
+                <option value="Pendente">Pendente</option>
+            </select>
 
-                        <td>
-                            <div class="table-data">
-                                <p>21 de Março 2025</p>
-                                <p>10:58</p>
-                            </div>
-                        </td>
-
-                        <td>15 de Abril, 2025</td>
-
-                        <td id="envios-bold">R$155.10</td>
-
-                        <td>
-                            <form class="etapa-form">
-                                <select>
-                                    <option value="ativo">Ativo</option>
-                                    <option value="ativo">Cancelado</option>
-                                    <option value="ativo">Pendente</option>
-                                </select>
-                            </form>
-                        </td>
-                    </tr>
-                        
-                        ';
-                    }
-                ?>
-
-                <tr class="envios-information">
-                    <td>
-                        <label class="envios-checkbox">
-                            <input type="checkbox">
-                            <span class="checkbox"></span>
-                        </label>
-                    </td>
-                    
-                    <td>990 - 132</td>
-
-                    <td id="envios-bold">TV 14 Inch Gede</td>
-                    <td>Leticia</td>
-                    
-                    <td>
-                        <div class="status-completo">
-                            <p>Completo</p>
-                        </div>
-                    </td>
-
-                    <td>
-                        <div class="table-data">
-                            <p>21 de Março 2025</p>
-                            <p>00:28</p>
-                        </div>
-                    </td>
-
-                    <td>23 de Março, 2025</td>
-
-                    <td id="envios-bold">R$190.09</td>
-
-                    <td>
-                        <form class="etapa-form">
-                            <select>
-                                <option value="ativo">Ativo</option>
-                                <option value="ativo">Cancelado</option>
-                                <option value="ativo">Pendente</option>
-                            </select>
-                        </form>
-                    </td>
-                </tr>
-
-                <tr class="envios-information">
-                    <td>
-                        <label class="envios-checkbox">
-                            <input type="checkbox">
-                            <span class="checkbox"></span>
-                        </label>
-                    </td>
-                    
-                    <td>990 - 132</td>
-
-                    <td id="envios-bold">Sepeda BMX Shadow Blue</td>
-                    <td>Marcos</td>
-                    
-                    <td>
-                        <div class="status-andamento">
-                            <p>Andamento</p>
-                        </div>
-                    </td>
-
-                    <td>
-                        <div class="table-data">
-                            <p>21 de Março 2025</p>
-                            <p>10:58</p>
-                        </div>
-                    </td>
-
-                    <td>15 de Abril, 2025</td>
-
-                    <td id="envios-bold">R$155.10</td>
-
-                    <td>
-                        <form class="etapa-form">
-                            <select>
-                                <option value="ativo">Ativo</option>
-                                <option value="ativo">Cancelado</option>
-                                <option value="ativo">Pendente</option>
-                            </select>
-                        </form>
-                    </td>
-                </tr>
-
-                <tr class="envios-information">
-                    <td>
-                        <label class="envios-checkbox">
-                            <input type="checkbox">
-                            <span class="checkbox"></span>
-                        </label>
-                    </td>
-                    
-                    <td>990 - 132</td>
-
-                    <td id="envios-bold">Mouse Gaming Logitech M-1332A</td>
-                    <td>Carla</td>
-                    
-                    <td>
-                        <div class="status-rejeitado">
-                            <p>Rejeitado</p>
-                        </div>
-                    </td>
-
-                    <td>
-                        <div class="table-data">
-                            <p>21 de Março 2025</p>
-                            <p>10:58</p>
-                        </div>
-                    </td>
-
-                    <td>15 de Abril, 2025</td>
-
-                    <td id="envios-bold">R$155.10</td>
-
-                    <td>
-                        <form class="etapa-form">
-                            <select>
-                                <option value="ativo">Ativo</option>
-                                <option value="ativo">Cancelado</option>
-                                <option value="ativo">Pendente</option>
-                            </select>
-                        </form>
-                    </td>
-                </tr>
-
-                </tbody>
-                </table>
-
-
+            <button class="botaoenviar" type="submit">Adicionar</button>
+        </form>
     </div>
+</div>
 
-    <?php include __DIR__.'/../../../../includes/footer-adm.php'; ?> 
+<?php include __DIR__.'/../../../../includes/footer-adm.php'; ?>
+
+<script>
+    // Elementos
+    const btnAbrirModal = document.querySelector('.btn-adicionar-envio');
+    const modal = document.getElementById('modal-adicionar-envio');
+    const spanFechar = modal.querySelector('.close-modal');
+    const form = document.getElementById('form-adicionar-envio');
+    const tbody = document.getElementById('envios-tbody');
+
+    // Abrir modal
+    btnAbrirModal.addEventListener('click', () => {
+        modal.style.display = 'block';
+    });
+
+    // Fechar modal ao clicar no X
+    spanFechar.addEventListener('click', () => {
+        modal.style.display = 'none';
+        form.reset();
+    });
+
+    // Fechar modal ao clicar fora do conteúdo
+    window.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            modal.style.display = 'none';
+            form.reset();
+        }
+    });
+
+    // Função para criar o HTML da linha nova conforme o status e etapa
+    function criarStatusDiv(status) {
+        let className = '';
+        if(status.toLowerCase() === 'completo') className = 'status-completo';
+        else if(status.toLowerCase() === 'andamento') className = 'status-andamento';
+        else if(status.toLowerCase() === 'rejeitado') className = 'status-rejeitado';
+        else className = 'status-completo'; // default
+
+        return `<div class="${className}"><p>${status}</p></div>`;
+    }
+
+    // Evento submit do formulário
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        // Pegar valores do formulário
+        const idOrder = form.idOrder.value.trim();
+        const produto = form.produto.value.trim();
+        const cliente = form.cliente.value.trim();
+        const status = form.status.value;
+        const dataPedidoRaw = form.dataPedido.value;
+        const prazoRaw = form.prazo.value;
+        const preco = parseFloat(form.preco.value).toFixed(2);
+        const etapa = form.etapa.value;
+
+        // Formatar data para o formato exibido (ex: 21 de Março 2025)
+        const meses = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
+
+        const dataPedidoDate = new Date(dataPedidoRaw);
+        const prazoDate = new Date(prazoRaw);
+
+        const dataPedidoFormat = `${dataPedidoDate.getDate()} de ${meses[dataPedidoDate.getMonth()]} ${dataPedidoDate.getFullYear()}`;
+        const horaPedidoFormat = dataPedidoDate.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+
+        const prazoFormat = `${prazoDate.getDate()} de ${meses[prazoDate.getMonth()]}, ${prazoDate.getFullYear()}`;
+
+        // Criar nova linha da tabela
+        const novaLinha = document.createElement('tr');
+        novaLinha.classList.add('envios-information');
+        novaLinha.innerHTML = `
+            <td>${idOrder}</td>
+            <td id="envios-bold">${produto}</td>
+            <td>${cliente}</td>
+            <td>${criarStatusDiv(status)}</td>
+            <td>
+                <div class="table-data">
+                    <p>${dataPedidoFormat}</p>
+                    <p>${horaPedidoFormat}</p>
+                </div>
+            </td>
+            <td>${prazoFormat}</td>
+            <td id="envios-bold">R$${preco}</td>
+            <td>
+                <form class="etapa-form">
+                    <select>
+                        <option value="ativo" ${etapa.toLowerCase() === 'ativo' ? 'selected' : ''}>Ativo</option>
+                        <option value="cancelado" ${etapa.toLowerCase() === 'cancelado' ? 'selected' : ''}>Cancelado</option>
+                        <option value="pendente" ${etapa.toLowerCase() === 'pendente' ? 'selected' : ''}>Pendente</option>
+                    </select>
+                </form>
+            </td>
+        `;
+
+        // Adicionar nova linha na tabela
+        tbody.appendChild(novaLinha);
+
+        // Fechar modal e resetar formulário
+        modal.style.display = 'none';
+        form.reset();
+    });
+</script>
+
 </body>
 </html>
