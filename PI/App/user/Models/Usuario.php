@@ -6,11 +6,13 @@ class Usuario {
     public string $nome;
     public string $email;
     public string $senha;
+    public ?string $sobrenome = null;
     public string $cpf;
     public string $tipo;
     public ?string $telefone = null;
     public ?string $cep = null;
     public ?string $rua = null;
+    public ?string $numero = null;
     public ?string $bairro = null;
     public ?string $cidade = null;
     public ?string $estado = null;

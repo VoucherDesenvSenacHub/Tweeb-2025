@@ -90,7 +90,7 @@ function mascararCPF($cpf) {
             </div>
         </div>
 
-        <form class="perfil-tweeb-form" method="POST" action="../../Controllers/UserController.php?acao=editar" enctype="multipart/form-data">
+        <form class="perfil-tweeb-form" id="perfil-tweeb-form" method="POST" enctype="multipart/form-data">
             <div class="perfil-tweeb-input-group">
                 <label for="primeiro-nome">Primeiro nome</label>
                 <input type="text" id="primeiro-nome" name="nome" value="<?php echo htmlspecialchars($_SESSION['usuario']['nome']); ?>" readonly>
@@ -126,6 +126,11 @@ function mascararCPF($cpf) {
             </div>
 
             <div class="perfil-tweeb-input-group">
+                <label for="numero">Numero</label>
+                <input type="text" id="numero" name="numero" value="<?php echo htmlspecialchars($_SESSION['usuario']['numero'] ?? ''); ?>" readonly>
+            </div>
+
+            <div class="perfil-tweeb-input-group">
                 <label for="bairro">Bairro</label>
                 <input type="text" id="bairro" name="bairro" value="<?php echo htmlspecialchars($_SESSION['usuario']['bairro'] ?? ''); ?>" readonly>
             </div>
@@ -142,19 +147,17 @@ function mascararCPF($cpf) {
             <div class="perfil-tweeb-botoes">
                 <button type="button" class="perfil-tweeb-cancelar" onclick="cancelEdit()">Cancelar</button>
                 <button type="button" class="perfil-tweeb-excluir" onClick="deletaUsuario()">Excluir</button>
-                <button type="submit" class="perfil-tweeb-salvar">Salvar alteração</button>
+                <button type="submit" class="perfil-tweeb-salvar" onClick="editarUsuario()">Salvar alteração</button>
             </div>
             
         </form>
         
     </div>
 </div>
-
 <?php include __DIR__.'/../../../../includes/footer.php'; ?>
-
-
 <script>
     const usuarioID  = <?php echo json_encode($_SESSION['usuario']['id']);?>
 </script>
+<script src="../../../../public/js/perfil-usuario.js"></script>
 </body>
 </html>

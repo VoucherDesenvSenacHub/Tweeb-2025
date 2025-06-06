@@ -5,13 +5,12 @@ require_once __DIR__ . '/../Models/Usuario.php';
 session_start();
 header('Content-Type: application/json');
 
-// Verifica se é uma requisição POST
+
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     echo json_encode(['sucesso' => false, 'mensagem' => 'Método não permitido']);
     exit;
 }
 
-// Pega os dados do POST
 $dados = json_decode(file_get_contents('php://input'), true);
 $email = trim($dados['email'] ?? '');
 $senha = $dados['senha'] ?? '';
