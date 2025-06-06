@@ -106,13 +106,18 @@
 .orcamento-recebido-responder {
     background: #a4e57e;
     color: black;
+    text-decoration: none;
+    
 }
+
 
 .orcamento-recebido-row {
     display: flex;
     gap: 10px;
     /* margin-bottom: 10px; */
 }
+
+
 
 .orcamento-recebido-form{
     margin-bottom: 20px;
@@ -167,6 +172,87 @@ textarea {
 .orcamento-recebido-negacao, .orcamento-recebido-responder{
     justify-content: center;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Modal */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: none; 
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+  }
+  
+  .modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 600px;
+    width: 85%;
+    max-height: 80vh; 
+    overflow-y: auto; 
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  }
+  .responder-orcamento-input{
+    border-radius: 10px;
+    width: 100%;
+    max-width: 100%; 
+    padding: 20px; 
+    box-sizing: border-box;
+
+  }
+
+
+  .botao-modal-enviar {
+    background-color:#ff7043; 
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  .botao-modal-enviar:hover {
+    background-color: #d62828;
+    transform: scale(1.05);
+  }
+  
+
+
+
 
 /* responsividade */
 @media only screen and (max-width: 1200px) {

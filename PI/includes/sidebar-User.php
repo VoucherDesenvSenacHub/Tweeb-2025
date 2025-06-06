@@ -3,15 +3,15 @@
         <div id="sidebar_content">
             <div id="user">
               <?php
-              $foto = $_SESSION['usuario']['foto_perfil'] ?? '';
-              $caminhoImagem = $foto ? '/Tweeb-2025/PI/public/uploads/' . $foto : '/Tweeb-2025/PI/public/assets/img/foto-perfil-default.png';
+              $foto_perfil = !empty($_SESSION['usuario']['foto_perfil']) ? $_SESSION['usuario']['foto_perfil'] : 'imagem_padrao.png';
+              $caminho_foto = '/Tweeb-2025/PI/public/uploads/' . $foto_perfil;
               ?>
-              <img src="<?php echo $caminhoImagem; ?>" alt="Foto de perfil" class="foto-perfil-navbar">
+              <img src="<?php echo htmlspecialchars($caminho_foto); ?>" alt="Foto de perfil" class="foto-perfil-navbar">
 
     
                 <p id="user_infos">
                     <span class="item-description">
-                    <?php echo htmlspecialchars($_SESSION['usuario']['nome']); ?>
+                      <?php echo htmlspecialchars($_SESSION['usuario']['nome']); ?>
                     </span>
                 </p>
             </div>
@@ -39,7 +39,7 @@
                   <a href="/Tweeb-2025/PI/app/user/View/pages/alterar-senha.php"><img src="/Tweeb-2025/PI/public/assets/img/alterar.png" alt=""><span class="item-description"> Alterar Senha</span></a>
                 </li>
                 <li class="menu-item">
-                  <a href="#"><img src="/Tweeb-2025/PI/public/assets/img/sair.png" alt=""><span class="item-description">Sair</span></a>
+                  <a href="/Tweeb-2025/PI/app/user/controllers/UserController.php?acao=logout"><img src="/Tweeb-2025/PI/public/assets/img/sair.png" alt=""><span class="item-description">Sair</span></a>
                 </li>
                 <!-- <li class="menu-item" >
                   <a href="#"><img src="/Tweeb-2025/PI/public/assets/img/config.png" alt=""><span class="item-description">Configurações</span></a>
