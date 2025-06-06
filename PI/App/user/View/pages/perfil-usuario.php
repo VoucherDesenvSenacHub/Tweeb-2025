@@ -69,7 +69,7 @@ function mascararCPF($cpf) {
                      class="foto-perfil">
                 
                 <!-- Input oculto de upload -->
-                <form method="POST" action="../../Controllers/UserController.php?acao=upload_foto" enctype="multipart/form-data" id="formFotoPerfil">
+                <form method="POST" enctype="multipart/form-data" id="formFotoPerfil">
                     <input type="file" id="inputFotoPerfil" name="foto_perfil" accept="image/*" style="display: none;">
                 </form>
 
@@ -158,6 +158,7 @@ function mascararCPF($cpf) {
 <script>
     const usuarioID  = <?php echo json_encode($_SESSION['usuario']['id']);?>
 </script>
-<script src="../../../../public/js/perfil-usuario.js"></script>
+<script src="/Tweeb-2025/PI/public/js/alterar-foto.js"></script>
+<script src="/Tweeb-2025/PI/public/js/perfil-usuario.js"></script>
 </body>
 </html>
