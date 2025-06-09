@@ -32,7 +32,7 @@ if (!isset($_SESSION['usuario']['id'])) {
                 <label class="endereco-label" for="endereco">Casa</label>
                 <div class="endereco-details">
                     <p>240 Rua Capiatá, Novos Estados, Campo Grande MS 79034331</p>
-                    <p>(209) 555-0104</p>
+                    <p>79034-331</p> 
                 </div>
             </label>
             <div class="endereco-actions">
@@ -47,7 +47,7 @@ if (!isset($_SESSION['usuario']['id'])) {
                 <label class="endereco-label" for="endereco">Trabalho <span class="default-tag">PADRÃO</span></label>
                 <div class="endereco-details">
                     <p>2715 RUA Dr Jose, Caranda Bosque, Campo Grande MS 79034331</p>
-                    <p>(67) 555-0127</p>
+                    <p>79034-331</p>
                 </div>
             </label>
             <div class="endereco-actions">
@@ -66,7 +66,7 @@ if (!isset($_SESSION['usuario']['id'])) {
             <label for="endereco-detalhes">Endereço Completo:</label>
             <input type="text" id="endereco-detalhes" required>
 
-            <label for="telefone-endereco">Telefone:</label>
+            <label for="telefone-endereco">CEP:</label>
             <input type="text" id="telefone-endereco" required>
 
             <button type="submit" class="btoes-endereco">Salvar Endereço</button>
@@ -84,28 +84,11 @@ if (!isset($_SESSION['usuario']['id'])) {
 
     <div class="endereco-botoes">
         <a href="../../../../home.php"><button class="botao-sair">Sair</button></a>
-        <a href="metodo-envio.php"><button class="botao-avancar">Salvar</button></a>
+        <a href="#"><button class="botao-avancar">Salvar</button></a>
     </div>
-</div> <!-- Fim do container centralizado -->
-
-    
-    <div id="new-endereco-form" style="display: none;">
-        <h2>Adicionar Novo Endereço</h2>
-        <form id="form-novo-endereco">
-            <label for="nome-endereco">Nome (ex: Casa, Trabalho):</label>
-            <input type="text" id="nome-endereco" required>
-    
-            <label for="endereco-detalhes">Endereço Completo:</label>
-            <input type="text" id="endereco-detalhes" required>
-    
-            <label for="telefone-endereco">Telefone:</label>
-            <input type="text" id="telefone-endereco" required>
-    
-            <button type="submit" class="btoes-endereco">Salvar Endereço</button>
+</div> 
 
 
-        </form>
-    </div>
     
     <div class="enderecos" id="enderecos-list">
         <!-- Endereços existentes estarão aqui -->

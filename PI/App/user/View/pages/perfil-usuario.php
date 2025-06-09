@@ -11,34 +11,21 @@ function mascararCPF($cpf) {
     if (strlen($cpf) !== 11) return '';
     return '***.***.***-' . substr($cpf, 9, 2);
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<?php include __DIR__.'/../../../../includes/headernavb.php'; ?>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meu Perfil</title>
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-    <style>
-        .perfil-tweeb-botoes {
-            display: none; /* Esconde os botões por padrão */
-        }
-        .editing .perfil-tweeb-botoes {
-            display: flex; /* Mostra os botões quando estiver editando */
-        }
-        .editing input:not([disabled]) {
-            border: 1px solid #007bff;
-        }
-        input:not([disabled]) {
-            border: none;
-        }
-    </style>
+    <link rel="stylesheet" href="../../../../public/css/perfil-usuario-enderecos.css">
 </head>
 <body>
-    
+<?php include __DIR__.'/../../../../includes/headernavb.php'; ?>
 <?php include __DIR__.'/../../../../includes/navbar-logada.php'; ?>
 <?php include __DIR__.'/../../../../includes/sidebar-User.php'; ?>
 
@@ -79,7 +66,7 @@ function mascararCPF($cpf) {
                 </label>
 
                 <!-- Botão de editar (ícone lápis) -->
-                <button class="perfil-tweeb-editar-foto" title="Editar" onclick="toggleEditMode()">
+                <button type="button" class="perfil-tweeb-editar-foto" title="Editar">
                     <i class="fa-regular fa-pen-to-square" style="color: #4b5563;"></i>
                 </button>
             </div>
@@ -115,46 +102,68 @@ function mascararCPF($cpf) {
                 <label for="telefone">Telefone</label>
                 <input type="text" id="telefone" name="telefone" value="<?php echo htmlspecialchars($_SESSION['usuario']['telefone'] ?? ''); ?>" readonly>
             </div>
+
             <div class="perfil-tweeb-input-group">
                 <label for="cep">CEP</label>
                 <input type="text" id="cep" name="cep" value="<?php echo htmlspecialchars($_SESSION['usuario']['cep'] ?? ''); ?>" readonly>
             </div>
 
-            <div class="perfil-tweeb-input-group">
-                <label for="rua">Rua</label>
-                <input type="text" id="rua" name="rua" value="<?php echo htmlspecialchars($_SESSION['usuario']['rua'] ?? ''); ?>" readonly>
+            <div class="perfil-tweeb-botoes-user">
+                <button type="button" class="perfil-tweeb-cancelar-end" onclick="cancelEdit()">Cancelar</button>
+                <button type="submit" class="perfil-tweeb-salvar-end">Salvar alteração</button>
             </div>
-
-            <div class="perfil-tweeb-input-group">
-                <label for="bairro">Bairro</label>
-                <input type="text" id="bairro" name="bairro" value="<?php echo htmlspecialchars($_SESSION['usuario']['bairro'] ?? ''); ?>" readonly>
-            </div>
-            <div class="perfil-tweeb-input-group">
-                <label for="cidade">Cidade</label>
-                <input type="text" id="cidade" name="cidade" value="<?php echo htmlspecialchars($_SESSION['usuario']['cidade'] ?? ''); ?>" readonly>
-            </div>
-
-            <div class="perfil-tweeb-input-group">
-                <label for="estado">Estado</label>
-                <input type="text" id="estado" name="estado" value="<?php echo htmlspecialchars($_SESSION['usuario']['estado'] ?? ''); ?>" readonly>
-            </div>
-
-            <div class="perfil-tweeb-botoes">
-                <button type="button" class="perfil-tweeb-cancelar" onclick="cancelEdit()">Cancelar</button>
-                <button type="button" class="perfil-tweeb-excluir" onClick="deletaUsuario()">Excluir</button>
-                <button type="submit" class="perfil-tweeb-salvar">Salvar alteração</button>
-            </div>
-            
         </form>
-        
+
     </div>
 </div>
 
 <?php include __DIR__.'/../../../../includes/footer.php'; ?>
 
+<script>
+    const usuarioID  = <?php echo json_encode($_SESSION['usuario']['id']);?>;
+</script>
 
 <script>
-    const usuarioID  = <?php echo json_encode($_SESSION['usuario']['id']);?>
+document.addEventListener("DOMContentLoaded", () => {
+    const botaoEditar = document.querySelector(".perfil-tweeb-editar-foto");
+    const camposEditaveis = document.querySelectorAll(".perfil-tweeb-form input:not(#cpf):not([disabled])");
+    const botaoSalvar = document.querySelector(".perfil-tweeb-salvar-end");
+    const botaoCancelar = document.querySelector(".perfil-tweeb-cancelar-end");
+
+    // Começa com os campos readonly
+    camposEditaveis.forEach(input => input.setAttribute("readonly", "true"));
+
+    // Botões Salvar e Cancelar inicialmente escondidos
+    botaoSalvar.style.display = "none";
+    botaoCancelar.style.display = "none";
+
+    botaoEditar.addEventListener("click", () => {
+        camposEditaveis.forEach(input => input.removeAttribute("readonly"));
+        botaoSalvar.style.display = "inline-block";
+        botaoCancelar.style.display = "inline-block";
+    });
+
+    botaoCancelar.addEventListener("click", () => {
+        camposEditaveis.forEach(input => {
+            input.value = input.defaultValue; // Restaura valor original
+            input.setAttribute("readonly", "true");
+        });
+        botaoSalvar.style.display = "none";
+        botaoCancelar.style.display = "none";
+    });
+});
+
+// Função para cancelar edit (ligada ao botão cancelar inline)
+function cancelEdit() {
+    const camposEditaveis = document.querySelectorAll(".perfil-tweeb-form input:not(#cpf):not([disabled])");
+    camposEditaveis.forEach(input => {
+        input.value = input.defaultValue;
+        input.setAttribute("readonly", "true");
+    });
+    document.querySelector(".perfil-tweeb-salvar-end").style.display = "none";
+    document.querySelector(".perfil-tweeb-cancelar-end").style.display = "none";
+}
 </script>
+
 </body>
 </html>
