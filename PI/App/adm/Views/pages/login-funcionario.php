@@ -17,24 +17,24 @@
 
     <div class="container-esqueceu">
         <div class="forms-esqueceu">
-            <form action="">
+            <form method="POST" id="login-funcionario">
                 
                 <h1 class="tit">Acesso Corporativo</h1>
                 <p class="descrit">Faça login para acessar a conta de administrador.</p>
                 
                 <div class="input-box-esqueceu">
                     <label for="email">Email Corporativo</label>
-                    <input type="email" id="email" placeholder="Digite seu email" required>
+                    <input type="text" id="email-funcionario" name="email" placeholder="Digite seu email" required>
                     <i class='bx bxs-envelop'></i>
 
                 </div>
 
                 <div class="input-box">
                     <label for="senha">Senha</label>
-                    <input type="password" id="senha" placeholder="Digite sua senha" required>
+                    <input type="password" id="senha-funcionario" name="senha" placeholder="Digite sua senha" required>
                 </div>
 
-                <button type="submit" class="btn-esqueceu"><a class="botaolinkar" href="painel-adm.php">Login</a></button>
+                <button type="submit" class="btn-esqueceu">Login</button>
                 <div class="linha">
 
                 </div>
@@ -50,5 +50,7 @@
             <img src="../../../../public/assets/img/Rectangle 20.png" alt="Imagem de Recuperação">
         </div>
     </div>
+    </div>
+    <script src="../../../../public/js/login-funcionario.js"></script>
 </body>
 </html>

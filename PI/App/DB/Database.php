@@ -109,6 +109,18 @@ class Database{
         $stmt = $this->execute($query, [$email]);
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
+
+    public function buscarAdmPorEmail(string $email) {
+        $query = "
+            SELECT u.id, u.nome, u.email, u.senha, u.tipo, a.matricula, a.cargo
+            FROM usuarios u
+            LEFT JOIN administrador a ON u.id = a.id_usuario
+            WHERE u.email = ?
+            LIMIT 1
+        ";
+        $stmt = $this->execute($query, [$email]);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
     
 }
 ?>
