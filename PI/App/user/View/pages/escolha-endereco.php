@@ -24,7 +24,6 @@ if (!isset($_SESSION['usuario']['id'])) {
 
 
 
-
 <div class="container">
     <div class="step-indicator">
         <span class="" id="step-ativo">
