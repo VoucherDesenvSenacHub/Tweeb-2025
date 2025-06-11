@@ -31,11 +31,8 @@ $usuario->nome = trim($dados['nome'] ?? '');
 $usuario->sobrenome = trim($dados['sobrenome'] ?? '');
 $usuario->email = trim($dados['email'] ?? '');
 $usuario->telefone = trim($dados['telefone'] ?? '');
-$usuario->cep = trim($dados['cep'] ?? '');
-$usuario->rua = trim($dados['rua'] ?? '');
-$usuario->bairro = trim($dados['bairro'] ?? '');
-$usuario->cidade = trim($dados['cidade'] ?? '');
-$usuario->estado = trim($dados['estado'] ?? '');
+$usuario->foto_perfil = trim($dados['foto_perfil'] ?? '');
+
 
 
 $sucesso = $usuario->atualizar(); 
@@ -45,11 +42,7 @@ if ($sucesso) {
     $_SESSION['usuario']['sobrenome'] = $usuario->sobrenome;
     $_SESSION['usuario']['email'] = $usuario->email;
     $_SESSION['usuario']['telefone'] = $usuario->telefone;
-    $_SESSION['usuario']['cep'] = $usuario->cep;
-    $_SESSION['usuario']['rua'] = $usuario->rua;
-    $_SESSION['usuario']['bairro'] = $usuario->bairro;
-    $_SESSION['usuario']['cidade'] = $usuario->cidade;
-    $_SESSION['usuario']['estado'] = $usuario->estado;
+    $_SESSION['usuario']['foto_perfil'] = $usuario->foto_perfil;
 
     echo json_encode(['sucesso' => true, 'mensagem' => 'Dados atualizados com sucesso!']);
 } else {

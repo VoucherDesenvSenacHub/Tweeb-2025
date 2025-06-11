@@ -1,5 +1,3 @@
-console.log('passou aqui');
-
 function showPage(pageNumber) {
     const pages = document.querySelectorAll(".product-page");
     pages.forEach(page => page.style.display = "none");

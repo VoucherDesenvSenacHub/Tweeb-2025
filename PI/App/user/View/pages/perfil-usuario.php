@@ -69,9 +69,6 @@ function mascararCPF($cpf) {
                      class="foto-perfil">
                 
                 <!-- Input oculto de upload -->
-                <form method="POST" enctype="multipart/form-data" id="formFotoPerfil">
-                    <input type="file" id="inputFotoPerfil" name="foto_perfil" accept="image/*" style="display: none;">
-                </form>
 
                 <!-- Botão de upload (ícone Bootstrap) -->
                 <label for="inputFotoPerfil" class="btn-upload-foto" title="Alterar foto">
@@ -91,6 +88,8 @@ function mascararCPF($cpf) {
         </div>
 
         <form class="perfil-tweeb-form" id="perfil-tweeb-form" method="POST" enctype="multipart/form-data">
+            <input type="file" id="inputFotoPerfil" name="foto_perfil" accept="image/*" style="display: none;">
+
             <div class="perfil-tweeb-input-group">
                 <label for="primeiro-nome">Primeiro nome</label>
                 <input type="text" id="primeiro-nome" name="nome" value="<?php echo htmlspecialchars($_SESSION['usuario']['nome']); ?>" readonly>
@@ -114,34 +113,6 @@ function mascararCPF($cpf) {
             <div class="perfil-tweeb-input-group">
                 <label for="telefone">Telefone</label>
                 <input type="text" id="telefone" name="telefone" value="<?php echo htmlspecialchars($_SESSION['usuario']['telefone'] ?? ''); ?>" readonly>
-            </div>
-            <div class="perfil-tweeb-input-group">
-                <label for="cep">CEP</label>
-                <input type="text" id="cep" name="cep" value="<?php echo htmlspecialchars($_SESSION['usuario']['cep'] ?? ''); ?>" readonly>
-            </div>
-
-            <div class="perfil-tweeb-input-group">
-                <label for="rua">Rua</label>
-                <input type="text" id="rua" name="rua" value="<?php echo htmlspecialchars($_SESSION['usuario']['rua'] ?? ''); ?>" readonly>
-            </div>
-
-            <div class="perfil-tweeb-input-group">
-                <label for="numero">Numero</label>
-                <input type="text" id="numero" name="numero" value="<?php echo htmlspecialchars($_SESSION['usuario']['numero'] ?? ''); ?>" readonly>
-            </div>
-
-            <div class="perfil-tweeb-input-group">
-                <label for="bairro">Bairro</label>
-                <input type="text" id="bairro" name="bairro" value="<?php echo htmlspecialchars($_SESSION['usuario']['bairro'] ?? ''); ?>" readonly>
-            </div>
-            <div class="perfil-tweeb-input-group">
-                <label for="cidade">Cidade</label>
-                <input type="text" id="cidade" name="cidade" value="<?php echo htmlspecialchars($_SESSION['usuario']['cidade'] ?? ''); ?>" readonly>
-            </div>
-
-            <div class="perfil-tweeb-input-group">
-                <label for="estado">Estado</label>
-                <input type="text" id="estado" name="estado" value="<?php echo htmlspecialchars($_SESSION['usuario']['estado'] ?? ''); ?>" readonly>
             </div>
 
             <div class="perfil-tweeb-botoes">

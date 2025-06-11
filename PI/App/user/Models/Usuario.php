@@ -10,12 +10,7 @@ class Usuario {
     public string $cpf;
     public string $tipo;
     public ?string $telefone = null;
-    public ?string $cep = null;
-    public ?string $rua = null;
-    public ?string $numero = null;
-    public ?string $bairro = null;
-    public ?string $cidade = null;
-    public ?string $estado = null;
+
     public string $foto_perfil = 'imagem_padrao.png';
 
     public function __construct($dados = []) {
@@ -27,11 +22,6 @@ class Usuario {
             $this->cpf = $dados['cpf'] ?? '';
             $this->tipo = $dados['tipo'] ?? 'cliente';
             $this->telefone = $dados['telefone'] ?? null;
-            $this->cep = $dados['cep'] ?? null;
-            $this->rua = $dados['rua'] ?? null;
-            $this->bairro = $dados['bairro'] ?? null;
-            $this->cidade = $dados['cidade'] ?? null;
-            $this->estado = $dados['estado'] ?? null;
             $this->foto_perfil = $dados['foto_perfil'] ?? 'imagem_padrao.png';
         }
     }
@@ -57,23 +47,16 @@ class Usuario {
         return $idUsuario;
     }
 
-    public function atualizarFoto($novoNome) {
-        $db = new Database('usuarios');
-        return $db->update(['foto_perfil' => $novoNome], "id = {$this->id}");
-    }
-    
+
 
     public function atualizar() {
         $db = new Database('usuarios');
         return $db->update([
             'nome' => $this->nome,
-            'email' => $this->email,
+            'sobrenome' => $this->sobrenome,
             'telefone' => $this->telefone,
-            'cep' => $this->cep,
-            'rua' => $this->rua,
-            'bairro' => $this->bairro,
-            'cidade' => $this->cidade,
-            'estado' => $this->estado
+            'email' => $this->email,
+            'foto_perfil' => $this->foto_perfil
         ], "id = {$this->id}");
     }
 
