@@ -149,7 +149,9 @@ session_start();
                 <p>Cadeira Gamer</p>
                 <p>GAMING Tempest CG500</p>
                 <h1>R$900,99</h1>
-                <button class="card-botao"><a href="app/user/View/pages/descproduto.php" class="corad-botao-a">Comprar Agora</a></button>
+                <a href="app/user/View/pages/descproduto.php" class="card-botao">Comprar Agora</a>
+
+
             </div>
             <div class="produtos-card">
                 <img class="heart" src="public/assets/img/heart_disabled.png" alt="coração" onclick="AtivarCoracao(this)">
@@ -413,7 +415,7 @@ session_start();
                 <p>Cadeira Gamer</p>
                 <p>GAMING Tempest CG500</p>
                 <h1>R$900,99</h1>
-                <button class="card-botao"><a href="app/user/View/pages/descproduto.php" class="corad-botao-a">Comprar Agora</a></button>
+                <a href="app/user/View/pages/descproduto.php" class="card-botao">Comprar Agora</a>
             </div>
             <div class="produtos-card">
                 <img class="heart" src="public/assets/img/heart_disabled.png" alt="coração" onclick="AtivarCoracao(this)">

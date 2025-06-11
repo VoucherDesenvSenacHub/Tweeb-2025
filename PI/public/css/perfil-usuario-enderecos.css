@@ -1,0 +1,31 @@
+
+.perfil-tweeb-botoes-user {
+    
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+
+
+.perfil-tweeb-cancelar-end{
+    background: #FF8661;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 40%; 
+    align-items: center; 
+}
+
+.perfil-tweeb-salvar-end {
+    background: #FF8661;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    align-items: center;
+    margin-left: 220px;
+}
