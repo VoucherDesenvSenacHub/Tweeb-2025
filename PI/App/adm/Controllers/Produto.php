@@ -25,7 +25,7 @@ class Produto{
     public int $entrega_gratis;
     public int $em_estoque;
     public int $garantia;
-    public int $status_produto = 1;
+    public ?int $status_produto = 1;
 
     public function cadastrar(){
         $db = new Database('produtos');
@@ -104,7 +104,7 @@ class Produto{
     }
     
 
-    public static function buscar_by_id($id){
+    public static function buscar_by_id($id_produto){
         //FETCHALL
         return (new Database('produtos'))->select($id_produto)->fetchObject(self::class);
     }
