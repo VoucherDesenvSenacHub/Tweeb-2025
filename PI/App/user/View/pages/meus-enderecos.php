@@ -58,19 +58,46 @@ if (!isset($_SESSION['usuario']['id'])) {
     </div>
 
     <div id="new-endereco-form" style="display: none;">
-        <h2>Adicionar Novo Endereço</h2>
-        <form id="form-novo-endereco">
-            <label for="nome-endereco">Nome (ex: Casa, Trabalho):</label>
-            <input type="text" id="nome-endereco" required>
+    <h2>Adicionar Novo Endereço</h2>
+    <form id="form-novo-endereco">
+        <div class="form-grid">
+            <div class="form-group">
+                <label for="nome_endereco">Nome (ex: Casa, Trabalho):</label>
+                <input type="text" id="nome_endereco" name="nome_endereco" required>
+            </div>
 
-            <label for="endereco-detalhes">Endereço Completo:</label>
-            <input type="text" id="endereco-detalhes" required>
+            <div class="form-group">
+                <label for="cep_endereco">CEP:</label>
+                <input type="text" id="cep_endereco" name="cep" required placeholder="Ex: 00000000">
+            </div>
 
-            <label for="telefone-endereco">CEP:</label>
-            <input type="text" id="telefone-endereco" required>
+            <div class="form-group full-width">
+                <label for="rua_endereco">Rua:</label>
+                <input type="text" id="rua_endereco" name="rua" required>
+            </div>
 
-            <button type="submit" class="btoes-endereco">Salvar Endereço</button>
-        </form>
+            <div class="form-group">
+                <label for="numero_endereco">Número:</label>
+                <input type="text" id="numero_endereco" name="numero" required>
+            </div>
+
+            <div class="form-group">
+                <label for="bairro_endereco">Bairro:</label>
+                <input type="text" id="bairro_endereco" name="bairro" required>
+            </div>
+
+            <div class="form-group">
+                <label for="cidade_endereco">Cidade:</label>
+                <input type="text" id="cidade_endereco" name="cidade" required>
+            </div>
+
+            <div class="form-group">
+                <label for="estado_endereco">Estado:</label>
+                <input type="text" id="estado_endereco" name="estado" required placeholder="Ex: SP">
+            </div>
+        </div>
+        <button type="submit" class="btoes-endereco">Salvar Endereço</button>
+    </form>
     </div>
 
     <div class="enderecos" id="enderecos-list">
@@ -82,10 +109,10 @@ if (!isset($_SESSION['usuario']['id'])) {
         <p>Adicionar novo endereço</p>
     </div>
 
-    <div class="endereco-botoes">
+    <!-- <div class="endereco-botoes">
         <a href="../../../../home.php"><button class="botao-sair">Sair</button></a>
         <a href="#"><button class="botao-avancar">Salvar</button></a>
-    </div>
+    </div> -->
 </div> 
 
 
@@ -101,6 +128,7 @@ if (!isset($_SESSION['usuario']['id'])) {
 
 </div>
 <?php include __DIR__.'/../../../../includes/footer.php'; ?>
+<script src="../../../../public/js/ENDERECO.js"></script>
 </body>
 
 </html>

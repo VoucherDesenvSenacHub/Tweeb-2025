@@ -50,7 +50,6 @@
     <script src="../../../../public/js/alterar-senha.js" defer></script>
     <script src="../../../../public/js/favoritos.js" defer></script>
     <script src="../../../../public/js/SiderbarAdm.js" defer></script>
-    <script src="../../../../public/js/ENDERECO.js" defer></script>
     <script src="../../../../public/js/endereco-modal.js" defer></script>
     <script src="../../../../public/js/metodo-envio.js" defer></script>
     <script src="../../../../public/js/corporativo.js" defer></script>

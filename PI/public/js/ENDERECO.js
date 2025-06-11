@@ -71,8 +71,63 @@
     // Adicionar os eventos iniciais para os endereços existentes
     document.querySelectorAll(".endereco-card").forEach(addEnderecoEventListeners);
 
+// Lógica do CEP
+document.addEventListener("DOMContentLoaded", function () {
+    const cepInput = document.getElementById("cep_endereco");
 
+    cepInput.addEventListener("blur", async function () {
+        const cep = cepInput.value.replace(/\D/g, '');
 
+        if (cep.length !== 8) return;
+
+        try {
+            const response = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
+            const data = await response.json();
+
+            if (data.erro) {
+                alert("CEP não encontrado.");
+                return;
+            }
+
+            document.getElementById("rua_endereco").value = data.logradouro || '';
+            document.getElementById("bairro_endereco").value = data.bairro || '';
+            document.getElementById("cidade_endereco").value = data.localidade || '';
+            document.getElementById("estado_endereco").value = data.uf || '';
+        } catch (error) {
+            console.error("Erro ao buscar CEP:", error);
+            alert("Erro ao buscar o CEP. Tente novamente.");
+        }
+    });
+});
+
+document.getElementById('form-novo-endereco').addEventListener('submit', async function(event) {
+    event.preventDefault();
+
+    const formData = {
+        nome: this.nome_endereco.value,
+        cep: this.cep_endereco.value,
+        rua: this.rua_endereco.value,
+        numero: this.numero_endereco.value,
+        bairro: this.bairro_endereco.value,
+        cidade: this.cidade_endereco.value,
+        estado: this.estado_endereco.value,
+    };
+
+    const response = await fetch('/Tweeb-2025/PI/app/user/Controllers/UserAddressController.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
+    });
+
+    const result = await response.json();
+
+    if (result.sucesso) {
+        alert(result.mensagem);
+        location.reload();
+    } else {
+        alert('Erro: ' + result.mensagem);
+    }
+});
 
 
 

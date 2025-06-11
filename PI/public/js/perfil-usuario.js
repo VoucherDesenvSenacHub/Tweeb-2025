@@ -1,28 +1,43 @@
-const form = document.querySelector('.perfil-tweeb-form');
-const inputs = form.querySelectorAll('input:not([disabled])');
-let originalValues = {};
+document.addEventListener("DOMContentLoaded", () => {
+    const botaoEditar = document.querySelector(".perfil-tweeb-editar-foto");
+    const camposEditaveis = document.querySelectorAll(".perfil-tweeb-form input:not(#cpf):not([disabled])");
+    const botaoSalvar = document.querySelector(".perfil-tweeb-salvar-end");
+    const botaoCancelar = document.querySelector(".perfil-tweeb-cancelar-end");
 
-// Salva os valores originais dos campos
-inputs.forEach(input => {
-    originalValues[input.name] = input.value;
+    // Começa com os campos readonly
+    camposEditaveis.forEach(input => input.setAttribute("readonly", "true"));
+
+    // Botões Salvar e Cancelar inicialmente escondidos
+    botaoSalvar.style.display = "none";
+    botaoCancelar.style.display = "none";
+
+    botaoEditar.addEventListener("click", () => {
+        camposEditaveis.forEach(input => input.removeAttribute("readonly"));
+        botaoSalvar.style.display = "inline-block";
+        botaoCancelar.style.display = "inline-block";
+    });
+
+    botaoCancelar.addEventListener("click", () => {
+        cancelEdit(); // Chama a função cancelEdit para reverter e ocultar botões
+    });
 });
 
-// Função para ativar/desativar modo de edição
-function toggleEditMode() {
-    form.classList.toggle('editing');
-    inputs.forEach(input => {
-        input.readOnly = !input.readOnly;
-    });
-}
-
-// Função para cancelar a edição
+// Função para cancelar edit (usada tanto pelo botão Cancelar quanto em outras partes do código)
 function cancelEdit() {
-    const form = document.querySelector(".perfil-tweeb-form");
-    form.classList.remove("editing");
-    form.querySelectorAll("input").forEach(input => {
-        input.setAttribute("readonly", true);
+    const camposEditaveis = document.querySelectorAll(".perfil-tweeb-form input:not(#cpf):not([disabled])");
+    camposEditaveis.forEach(input => {
+        // Restaura o valor original do campo (se foi modificado antes de editar)
+        // Note: Se o valor original não foi salvo, ele vai reverter para o valor do 'value' no HTML
+        // Para uma reversão mais robusta, você precisaria salvar os valores em uma variável JS ao carregar a página.
+        input.value = input.defaultValue; 
+        input.setAttribute("readonly", "true");
     });
-    const camposParaLimpar = ["sobrenome", "telefone", "cep", "rua", "bairro", "cidade", "estado"];
+
+    document.querySelector(".perfil-tweeb-salvar-end").style.display = "none";
+    document.querySelector(".perfil-tweeb-cancelar-end").style.display = "none";
+
+    // Limpa os campos de endereço ao cancelar, caso o CEP tenha sido preenchido
+    const camposParaLimpar = ["rua", "bairro", "cidade", "estado"];
     camposParaLimpar.forEach(id => {
         const input = document.getElementById(id);
         if (input) input.value = "";
@@ -34,6 +49,7 @@ function deletaUsuario() {
     const confirma = confirm("Tem certeza que deseja excluir sua conta?");
     if (!confirma) return;
 
+    // `usuarioID` é definida no script inline no HTML e é acessível aqui
     fetch("http://localhost/tweeb-2025/PI/public/api/deletar_usuario.php", {
         method: "DELETE",
         headers: {
@@ -89,31 +105,3 @@ document.getElementById('perfil-tweeb-form').addEventListener('submit', async fu
 });
 
 
-//cep
-document.addEventListener("DOMContentLoaded", function () {
-    const cepInput = document.getElementById("cep");
-
-    cepInput.addEventListener("blur", async function () {
-        const cep = cepInput.value.replace(/\D/g, '');
-
-        if (cep.length !== 8) return;
-
-        try {
-            const response = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
-            const data = await response.json();
-
-            if (data.erro) {
-                alert("CEP não encontrado.");
-                return;
-            }
-
-            document.getElementById("rua").value = data.logradouro || '';
-            document.getElementById("bairro").value = data.bairro || '';
-            document.getElementById("cidade").value = data.localidade || '';
-            document.getElementById("estado").value = data.uf || '';
-        } catch (error) {
-            console.error("Erro ao buscar CEP:", error);
-            alert("Erro ao buscar o CEP. Tente novamente.");
-        }
-    });
-});
