@@ -6,6 +6,7 @@ $objProd = new Produto();
 
 $dados = $objProd->buscar();
 
+
 if($dados){
     echo json_encode($dados);
 }

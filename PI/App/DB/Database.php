@@ -94,6 +94,8 @@ class Database{
             die("Update Failed: " . $err->getMessage());
         }
     }
+ 
+    
 
     public function select($where = null,$order = null,$limit = null, $fields = '*'){
             //montando a query
@@ -106,6 +108,20 @@ class Database{
         return $this->execute($query);
 
     }
+
+
+    public function select2($where = null, $order = null, $limit = null, $fields = '*') {
+        $where = strlen($where) ? 'WHERE ' . $where : '';
+        $order = strlen($order) ? 'ORDER BY ' . $order : '';
+        $limit = strlen($limit) ? 'LIMIT ' . $limit : '';
+    
+        $query = 'SELECT ' . $fields . ' FROM ' . $this->table . ' ' . $where . ' ' . $order . ' ' . $limit;
+        
+        return $this->execute($query);
+    }
+    
+
+
         //FUNÇÃO PARA DELETAR NO DB - $query = $sql 
     public function delete($where){
 
@@ -120,6 +136,49 @@ class Database{
         
     }
 
+    // public function update2($values, $where) {
+    //     // Monta o SET com placeholders (ex: status_produto = ?)
+    //     $fields = array_keys($values);
+    //     $set = implode(' = ?, ', $fields) . ' = ?';
+    
+    //     // Monta o WHERE com placeholders (ex: id_produto = ?)
+    //     $whereFields = array_keys($where);
+    //     $whereClause = implode(' = ? AND ', $whereFields) . ' = ?';
+    
+    //     // Monta a query completa
+    //     $query = 'UPDATE ' . $this->table . ' SET ' . $set . ' WHERE ' . $whereClause;
+    
+    //     try {
+    //         // Junta os valores em ordem: primeiro os do SET, depois os do WHERE
+    //         $params = array_merge(array_values($values), array_values($where));
+    
+    //         // Executa a query
+    //         $result = $this->execute($query, $params);
+    //         return $result ? true : false;
+    //     } catch (PDOException $err) {
+    //         die("Update Failed: " . $err->getMessage());
+    //     }
+    // }
+
+    // atualiza o status_produto no banco, pois um produto não pode ser apagado apenas ativado ou desativado
+    public function update2(array $where, array $values) {
+        $fields = array_keys($values);
+        $set = implode(' = ?, ', $fields) . ' = ?';
+    
+        $whereFields = array_keys($where);
+        $whereClause = implode(' = ? AND ', $whereFields) . ' = ?';
+    
+        $query = 'UPDATE ' . $this->table . ' SET ' . $set . ' WHERE ' . $whereClause;
+    
+        try {
+            $params = array_merge(array_values($values), array_values($where));
+            $stmt = $this->conn->prepare($query);
+            return $stmt->execute($params);
+        } catch (PDOException $e) {
+            die("Update failed: " . $e->getMessage());
+        }
+    }
+    
 
 }
 ?>

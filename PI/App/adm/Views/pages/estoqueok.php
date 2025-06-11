@@ -108,10 +108,10 @@ if ($id_produto !== null) {
         .cadastrando-products {
             width: 90%;
             max-width: 1100px;
-            background: #fff;
+            /* background: #fff; */
             padding: 20px;
             border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
             margin-top: 20px;
             
         }
@@ -187,7 +187,7 @@ if ($id_produto !== null) {
                 <a href="#" class="active">Novo Produto</a>
                 <a href="listarProdutos.php">Cadastrados</a>
             </nav>
-            <h2>Detalhes do Produto</h2>
+            <h2 id='titulo-cadastro-produto'>Detalhes do Produto</h2>
             <form action="estoqueok.php" method="POST" enctype="multipart/form-data" id="product-form">
     <div class="form-group">
         <label for="product-name">Nome do Produto</label>

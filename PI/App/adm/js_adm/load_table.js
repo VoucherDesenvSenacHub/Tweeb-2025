@@ -30,10 +30,15 @@ let html = "";
         html += ` <button type="submit" class="listarP-edit-btn"> `;
         html += ` <img src="../../../../public/assets/img/edit-3.png" alt="Editar" class="listarP-edit-icon">`;
         html += ` </button>  </form>`;
-        html += ` <form action="" method="post" class="form-excluir"> `;
-        html += `<input type="hidden" name="id_usuario" value="${response.id_produto}" class="input-hidden">`;
-        html +=  ` <button type="submit" class="listarP-delete-btn"></button> `;
-        html += `<img src="../../../../public/assets/img/trash-2.png" alt="Excluir" class="listarP-delete-icon">`;
+        // html += ` <form action="" method="post" class="form-excluir"> `;
+        // html += `<input type="hidden" name="id_usuario" value="${response.id_produto}" class="input-hidden">`;
+        // html +=  ` <button type="submit" class="listarP-delete-btn"></button> `;
+        // html += `<img src="../../../../public/assets/img/trash-2.png" alt="Excluir" class="listarP-delete-icon">`;
+        html += `<a href="excluir_produtos.php?id_produto=${response[i].id_produto}">
+        <button type="submit" class="listarP-delete-btn">
+            <img src="../../../../public/assets/img/trash-2.png" alt="Excluir" class="listarP-delete-icon">
+        </button>
+    </a>`;
         html +=  ` </button> </form>  </div> </tr> `;
  
 

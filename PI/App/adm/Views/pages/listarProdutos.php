@@ -34,6 +34,7 @@
         <span class="listarP-filtro-text">Filtro</span>
     </div> -->
 
+  
 
     <section class="listarP-section">
         <div class="listarP-contain">
@@ -52,7 +53,8 @@
                 <tbody id="rows_products" class="tbody-listarP">
                      
                 </tbody>
-    </section> 
+    </section>
+    
 
 <script src="../../js_adm/load_table.js" defer></script>
 <!-- <?php include __DIR__.'/../../../../includes/footer-adm.php'; ?>  -->

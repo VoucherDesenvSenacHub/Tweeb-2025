@@ -19,11 +19,13 @@ class Produto{
     public float $preco_unid;
     public string $descricao_produto;
     public string $detalhes_produto;
+    
 
     public int $id_departamento;
     public int $entrega_gratis;
     public int $em_estoque;
     public int $garantia;
+    public int $status_produto = 1;
 
     public function cadastrar(){
         $db = new Database('produtos');
@@ -45,6 +47,7 @@ class Produto{
                             'entrega_gratis' => $this-> entrega_gratis,
                             'em_estoque' => $this-> em_estoque,
                             'garantia' => $this-> garantia,
+                            'status_produto' => $this-> status_produto,
 
 
                             ]
@@ -76,14 +79,30 @@ class Produto{
                 'entrega_gratis' => $this-> entrega_gratis,
                 'em_estoque' => $this-> em_estoque,
                 'garantia' => $this-> garantia,
+                'status_produto' => $this-> status_produto,
 
         ]);
     }
 
-    public static function buscar($where=null,$order=null,$limit=null){
-        //FETCHALL
-        return (new Database('produtos'))->select()->fetchAll(PDO::FETCH_ASSOC);
+    // public static function buscar($where=null,$order=null,$limit=null){
+    //     //FETCHALL
+    //     return (new Database('produtos'))->select()->fetchAll(PDO::FETCH_ASSOC);
+    // }
+
+    // essa função está fazendo um select no banco apenas dos produtos ativos
+    public static function buscar($where = null, $order = null, $limit = null) {
+        // Adiciona a condição de status_produto = 1 ao where
+        $condicaoBase = 'status_produto = 0';
+    
+        // Se já houver uma condição passada pelo usuário, concatena com AND
+        if ($where) {
+            $condicaoBase .= ' AND ' . $where;
+        }
+    
+       
+        return (new Database('produtos'))->select($condicaoBase, $order, $limit)->fetchAll(PDO::FETCH_ASSOC);
     }
+    
 
     public static function buscar_by_id($id){
         //FETCHALL
@@ -100,4 +119,12 @@ class Produto{
         $stmt = $conn->prepare("UPDATE produtos SET em_estoque = ?, garantia = ?, entrega_gratis = ? WHERE id_produto = ?");
         $stmt->execute([$em_estoque, $garantia, $entrega_gratis, $id]);
     }
+
+    public function update2() {
+        return (new Database('produtos'))->update2(
+            ['id_produto' => $this->id_produto], // ← WHERE como array
+            ['status_produto' => $this->status_produto] // ← dados para atualizar
+        );
+    }
 }
+    
