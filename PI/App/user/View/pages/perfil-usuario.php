@@ -61,8 +61,9 @@ function mascararCPF($cpf) {
                 <?php 
                 $foto_perfil = !empty($_SESSION['usuario']['foto_perfil']) ? $_SESSION['usuario']['foto_perfil'] : 'imagem_padrao.png';
                 $caminho_foto = strpos($foto_perfil, 'imagem_padrao.png') !== false ? 
-                    '/Tweeb-2025/PI/public/uploads/imagem_padrao.png' : 
-                    '/Tweeb-2025/PI/public/uploads/' . $foto_perfil;
+                '/Tweeb-2025/PI/public/uploads/imagem_padrao.png' : 
+                '/Tweeb-2025/PI/public/uploads/' . $foto_perfil;
+
                 ?>
                 <img src="<?php echo htmlspecialchars($caminho_foto); ?>" 
                      alt="Foto de Perfil" 

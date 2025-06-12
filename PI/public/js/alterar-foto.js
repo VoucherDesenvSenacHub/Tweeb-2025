@@ -1,30 +1,31 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const inputFoto = document.getElementById("inputFotoPerfil");
-    const formFoto = document.getElementById("formFotoPerfil");
-    const imagemPerfil = document.querySelector(".foto-perfil");
+// public/js/alterar-foto.js
 
-    if (!inputFoto || !formFoto || !imagemPerfil) return;
+document.getElementById('inputFotoPerfil').addEventListener('change', function () {
+    const file = this.files[0];
+    if (!file) return;
 
-    inputFoto.addEventListener("change", function () {
-        const formData = new FormData(formFoto);
+    // Preview antes de enviar
+    const reader = new FileReader();
+    reader.onload = function (e) {
+        const img = document.querySelector('.foto-perfil');
+        img.src = e.target.result;
+    };
+    reader.readAsDataURL(file);
 
-        fetch("/Tweeb-2025/PI/app/user/Controllers/AlterarFotoController.php", {
-            method: "POST",
-            body: formData
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.sucesso) {
-                const novaImagem = "/Tweeb-2025/PI/public/uploads/" + data.nova_foto;
-                imagemPerfil.src = novaImagem + "?t=" + new Date().getTime(); // Cache busting
-                alert("Foto de perfil atualizada com sucesso!");
-            } else {
-                alert("Erro: " + (data.erro || "Não foi possível atualizar a foto."));
-            }
-        })
-        .catch(error => {
-            console.error("Erro ao enviar imagem:", error);
-            alert("Erro ao enviar imagem.");
-        });
-    });
+    const formData = new FormData();
+    formData.append('foto_perfil', file);
+
+    fetch('/Tweeb-2025/PI/App/user/Controllers/AlterarFotoController.php', {
+        method: 'POST',
+        body: formData
+    })
+    .then(res => res.json())
+    .then(data => {
+        if (data.sucesso) {
+            location.reload();
+        } else {
+            alert(data.erro || 'Erro ao alterar imagem.');
+        }
+    })
+    .catch(() => alert('Erro de rede'));
 });
