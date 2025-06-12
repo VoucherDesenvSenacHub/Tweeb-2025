@@ -59,7 +59,7 @@ if (!isset($_SESSION['usuario']['id'])) {
 
     <div id="new-endereco-form" style="display: none;">
     <h2>Adicionar Novo Endereço</h2>
-    <form id="form-novo-endereco">
+    <form id="form-novo-endereco" method="post">
         <div class="form-grid">
             <div class="form-group">
                 <label for="nome_endereco">Nome (ex: Casa, Trabalho):</label>
@@ -68,32 +68,32 @@ if (!isset($_SESSION['usuario']['id'])) {
 
             <div class="form-group">
                 <label for="cep_endereco">CEP:</label>
-                <input type="text" id="cep_endereco" name="cep" required placeholder="Ex: 00000000">
+                <input type="text" id="cep_endereco" name="cep_endereco" required placeholder="Ex: 00000000">
             </div>
 
             <div class="form-group full-width">
                 <label for="rua_endereco">Rua:</label>
-                <input type="text" id="rua_endereco" name="rua" required>
+                <input type="text" id="rua_endereco" name="rua_endereco" required>
             </div>
 
             <div class="form-group">
                 <label for="numero_endereco">Número:</label>
-                <input type="text" id="numero_endereco" name="numero" required>
+                <input type="text" id="numero_endereco" name="numero_endereco" required>
             </div>
 
             <div class="form-group">
                 <label for="bairro_endereco">Bairro:</label>
-                <input type="text" id="bairro_endereco" name="bairro" required>
+                <input type="text" id="bairro_endereco" name="bairro_endereco" required>
             </div>
 
             <div class="form-group">
                 <label for="cidade_endereco">Cidade:</label>
-                <input type="text" id="cidade_endereco" name="cidade" required>
+                <input type="text" id="cidade_endereco" name="cidade_endereco" required>
             </div>
 
             <div class="form-group">
                 <label for="estado_endereco">Estado:</label>
-                <input type="text" id="estado_endereco" name="estado" required placeholder="Ex: SP">
+                <input type="text" id="estado_endereco" name="estado_endereco" required placeholder="Ex: SP">
             </div>
         </div>
         <button type="submit" class="btoes-endereco">Salvar Endereço</button>

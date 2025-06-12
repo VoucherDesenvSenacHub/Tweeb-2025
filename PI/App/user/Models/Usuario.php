@@ -10,12 +10,6 @@ class Usuario {
     public string $cpf;
     public string $tipo;
     public ?string $telefone = null;
-    public ?string $cep = null;
-    public ?string $rua = null;
-    public ?string $numero = null;
-    public ?string $bairro = null;
-    public ?string $cidade = null;
-    public ?string $estado = null;
     public string $foto_perfil = 'imagem_padrao.png';
 
     public function __construct($dados = []) {
@@ -27,11 +21,6 @@ class Usuario {
             $this->cpf = $dados['cpf'] ?? '';
             $this->tipo = $dados['tipo'] ?? 'cliente';
             $this->telefone = $dados['telefone'] ?? null;
-            $this->cep = $dados['cep'] ?? null;
-            $this->rua = $dados['rua'] ?? null;
-            $this->bairro = $dados['bairro'] ?? null;
-            $this->cidade = $dados['cidade'] ?? null;
-            $this->estado = $dados['estado'] ?? null;
             $this->foto_perfil = $dados['foto_perfil'] ?? 'imagem_padrao.png';
         }
     }
@@ -69,11 +58,6 @@ class Usuario {
             'nome' => $this->nome,
             'email' => $this->email,
             'telefone' => $this->telefone,
-            'cep' => $this->cep,
-            'rua' => $this->rua,
-            'bairro' => $this->bairro,
-            'cidade' => $this->cidade,
-            'estado' => $this->estado
         ], "id = {$this->id}");
     }
 
