@@ -270,7 +270,7 @@ if ($id_produto !== null) {
         </label><br>
 
         <label>
-            <input type="checkbox" name="entrega_gratis" value="1" <?= !empty($produto_banco['entrega_gratis']) ? "checked" : "" ?>>
+            <input type="checkbox" name="entrega_gratis" value="" <?= !empty($produto_banco['entrega_gratis']) ? "checked" : "" ?>>
             🚚 Entrega Grátis 1-2 dias
         </label>
     </div>

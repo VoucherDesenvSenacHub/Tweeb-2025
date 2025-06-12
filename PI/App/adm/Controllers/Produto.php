@@ -92,7 +92,7 @@ class Produto{
     // essa função está fazendo um select no banco apenas dos produtos ativos
     public static function buscar($where = null, $order = null, $limit = null) {
         // Adiciona a condição de status_produto = 1 ao where
-        $condicaoBase = 'status_produto = 0';
+        $condicaoBase = 'status_produto = 1';
     
         // Se já houver uma condição passada pelo usuário, concatena com AND
         if ($where) {
@@ -105,8 +105,9 @@ class Produto{
     
 
     public static function buscar_by_id($id_produto){
+        var_dump((new Database('produtos'))->select(['id_produto' => $id_produto])->fetchObject(self::class));
         //FETCHALL
-        return (new Database('produtos'))->select($id_produto)->fetchObject(self::class);
+        //return (new Database('produtos'))->select($id_produto)->fetchObject(self::class);
     }
 
     public function excluir($id_produto){

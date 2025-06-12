@@ -4,10 +4,11 @@ require '../../Controllers/Produto.php';
 $id_recebido = $_GET['id_produto'];
 //echo "ID RECEBIDO :" .$id_recebido;
 
-if(!isset($id_recebido) or !is_numeric($id_recebido)){
-    header('location: editar_produtos.php');
-    exit;
-}
+// if(!isset($id_recebido) or !is_numeric($id_recebido)){
+//     header('location: editar_produtos.php');
+//     exit;
+// }
+var_dump($_GET['id_produto'], $id_recebido);
 $produto = Produto::buscar_by_id($id_recebido);
 $nome_produto = $produto->nome_produto;
 $marca_modelo = $produto->marca_modelo;
@@ -26,52 +27,52 @@ $em_estoque = $produto->em_estoque;
 $garantia = $produto->garantia;
 
 
-if(isset($_POST['editar'])){
+// if(isset($_POST['editar'])){
    
-    // $id_produto = $_POST['id_produto'];
-    $nome_produto = $_POST['nome_produto'];
-    $marca_modelo = $_POST['marca_modelo'];
-    $quantidade_produto = $_POST['quantidade_produto'];    
-    $imagem_produto = $_FILES['imagem_produto'];
-    $numero_serie = $_POST['numero_serie'];
-    $custo_produto = $_POST['custo_produto'];
-    $cor_produto = $_POST['cor_produto'];
-    $preco_unid = $_POST['preco_unid'];
-    $descricao_produto = $_POST['descricao_produto'];
-    $detalhes_produto = $_POST['detalhes_produto'];
+//     // $id_produto = $_POST['id_produto'];
+//     $nome_produto = $_POST['nome_produto'];
+//     $marca_modelo = $_POST['marca_modelo'];
+//     $quantidade_produto = $_POST['quantidade_produto'];    
+//     $imagem_produto = $_FILES['imagem_produto'];
+//     $numero_serie = $_POST['numero_serie'];
+//     $custo_produto = $_POST['custo_produto'];
+//     $cor_produto = $_POST['cor_produto'];
+//     $preco_unid = $_POST['preco_unid'];
+//     $descricao_produto = $_POST['descricao_produto'];
+//     $detalhes_produto = $_POST['detalhes_produto'];
 
-    $id_departamento= $_POST['id_departamento'];
-    $entrega_gratis = isset($_POST['entrega_gratis']) ? 1 : 0;
-    $em_estoque = isset($_POST['em_estoque']) ? 1 : 0;
-    $garantia = isset($_POST['garantia']) ? 1 : 0;
+//     $id_departamento= $_POST['id_departamento'];
+//     $entrega_gratis = isset($_POST['entrega_gratis']) ? 1 : 0;
+//     $em_estoque = isset($_POST['em_estoque']) ? 1 : 0;
+//     $garantia = isset($_POST['garantia']) ? 1 : 0;
 
-    $pro_editado = new Produto();
-    $pro_editado->id_produto = $id_recebido;
-    $pro_editado->nome_produto = $nome_produto;
-    $pro_editado->marca_modelo = $marca_modelo;
-    $pro_editado->quantidade_produto = $quantidade_produto;
-    $pro_editado->imagem_produto = $imagem_produto;
-    $pro_editado->numero_serie = $numero_serie;
-    $pro_editado->custo_produto = $custo_produto;
-    $pro_editado->cor_produto = $cor_produto;
-    $pro_editado->preco_unid = $preco_unid;
-    $pro_editado->descricao_produto = $descricao_produto;
-    $pro_editado->detalhes_produto = $detalhes_produto;
+//     $pro_editado = new Produto();
+//     $pro_editado->id_produto = $id_recebido;
+//     $pro_editado->nome_produto = $nome_produto;
+//     $pro_editado->marca_modelo = $marca_modelo;
+//     $pro_editado->quantidade_produto = $quantidade_produto;
+//     $pro_editado->imagem_produto = $imagem_produto;
+//     $pro_editado->numero_serie = $numero_serie;
+//     $pro_editado->custo_produto = $custo_produto;
+//     $pro_editado->cor_produto = $cor_produto;
+//     $pro_editado->preco_unid = $preco_unid;
+//     $pro_editado->descricao_produto = $descricao_produto;
+//     $pro_editado->detalhes_produto = $detalhes_produto;
 
-    $pro_editado->id_departamento = $id_departamento;
-    $pro_editado->entrega_gratis = $entrega_gratis;
-    $pro_editado->em_estoque = $em_estoque;
-    $pro_editado->garantia = $garantia;
+//     $pro_editado->id_departamento = $id_departamento;
+//     $pro_editado->entrega_gratis = $entrega_gratis;
+//     $pro_editado->em_estoque = $em_estoque;
+//     $pro_editado->garantia = $garantia;
 
-    $result = $pro_editado->atualizar();
-    if($result){
-        echo '<script> alert("Atualizado com sucesso!") </script>' ;
-    }else{
-        echo 'Erro ao atualizar';
-    }
+//     $result = $pro_editado->atualizar();
+//     if($result){
+//         echo '<script> alert("Atualizado com sucesso!") </script>' ;
+//     }else{
+//         echo 'Erro ao atualizar';
+//     }
 
-    echo $result;
-}
+//     echo $result;
+// }
 
 
 ?>
@@ -252,18 +253,20 @@ if(isset($_POST['editar'])){
 
     <div class="icons">
     <label>
-        <input type="checkbox" name="em_estoque" value="1" <?= ($produto->em_estoque == 1) ? 'checked' : '' ?>>
+        <input type="checkbox" name="em_estoque" value="1" <?= ($produto->em_estoque) ? 'checked' : '' ?>>
         📦 Em estoque Hoje
+        <?php var_dump($produto->em_estoque); ?>
     </label><br>
 
     <label>
-        <input type="checkbox" name="garantia" value="1" <?= ($produto->garantia == 1) ? 'checked' : '' ?>>
+        <input type="checkbox" name="garantia" value="1" <?= ($produto->garantia) ? 'checked' : '' ?>>
         🔒 Garantia 1 ano
     </label><br>
 
     <label>
-        <input type="checkbox" name="entrega_gratis" value="1" <?= ($produto->entrega_gratis == 1) ? 'checked' : '' ?>>
+        <input type="checkbox" name="entrega_gratis" value="" >>
         🚚 Entrega Grátis 1-2 dias
+        <?php var_dump($produto->entrega_gratis); ?>
     </label>
 </div>
 

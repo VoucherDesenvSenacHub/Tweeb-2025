@@ -105,7 +105,8 @@ class Database{
 
         $query = 'SELECT '.$fields. ' FROM ' .$this->table. ' '.$where;
         //SELECT * FROM pessoa;
-        return $this->execute($query);
+        var_dump($query);
+        //return $this->execute($query);
 
     }
 
