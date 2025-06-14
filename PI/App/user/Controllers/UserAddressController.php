@@ -2,7 +2,6 @@
 require_once __DIR__ . '/../Models/Endereco.php';
 
 session_start();
-
 header('Content-Type: application/json');
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
@@ -38,13 +37,27 @@ try {
     $endereco->cidade = trim($dados['cidade'] ?? '');
     $endereco->estado = trim($dados['estado'] ?? '');
 
-    $idNovoEndereco = $endereco->inserir();
+    if (!empty($dados['id_endereco'])) {
+        // EDIÇÃO
+        $endereco->id_endereco = (int) $dados['id_endereco'];
+        $sucesso = $endereco->atualizar();
 
-    if ($idNovoEndereco) {
-        echo json_encode(['sucesso' => true, 'mensagem' => 'Endereço cadastrado com sucesso!']);
+        if ($sucesso) {
+            echo json_encode(['sucesso' => true, 'mensagem' => 'Endereço atualizado com sucesso!']);
+        } else {
+            echo json_encode(['sucesso' => false, 'mensagem' => 'Erro ao atualizar endereço.']);
+        }
     } else {
-        echo json_encode(['sucesso' => false, 'mensagem' => 'Ocorreu um erro ao salvar o endereço. Tente novamente.']);
+        // NOVO CADASTRO
+        $idNovoEndereco = $endereco->inserir();
+
+        if ($idNovoEndereco) {
+            echo json_encode(['sucesso' => true, 'mensagem' => 'Endereço cadastrado com sucesso!']);
+        } else {
+            echo json_encode(['sucesso' => false, 'mensagem' => 'Erro ao cadastrar endereço.']);
+        }
     }
+
 } catch (Exception $e) {
     error_log('Erro no UserAddressController: ' . $e->getMessage());
     echo json_encode(['sucesso' => false, 'mensagem' => 'Ocorreu um erro inesperado no servidor.']);
