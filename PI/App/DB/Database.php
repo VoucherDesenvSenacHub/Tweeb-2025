@@ -2,10 +2,10 @@
     
 class Database{
     public $conn;
-    public string $local="192.168.22.9";
-    public string $db="140p2";
-    public string $user="devwebp2";
-    public string $password="voucher@140";
+    public string $local="localhost";
+    public string $db="Tweeb25";
+    public string $user="root";
+    public string $password="Oliveira@87185";
     public $table;
 
    

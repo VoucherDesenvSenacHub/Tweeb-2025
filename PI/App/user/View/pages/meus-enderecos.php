@@ -24,7 +24,7 @@ if (!isset($_SESSION['usuario']['id'])) {
 <?php include __DIR__.'/../../../../includes/sidebar-User.php'; ?>
 
 <div style="max-width: 900px; margin: 0 auto; padding: 20px;">
-    <div class="enderecos">
+    <!-- <div class="enderecos">
         <h1 class="metodoh1">Meus Endereços</h1>
         <div class="endereco-card">
             <label>
@@ -55,7 +55,7 @@ if (!isset($_SESSION['usuario']['id'])) {
                 <button class="delete"><i class="fa-solid fa-xmark"></i></button>
             </div>
         </div>
-    </div>
+    </div> -->
 
     <div id="new-endereco-form" style="display: none;">
     <h2>Adicionar Novo Endereço</h2>
@@ -129,6 +129,7 @@ if (!isset($_SESSION['usuario']['id'])) {
 </div>
 <?php include __DIR__.'/../../../../includes/footer.php'; ?>
 <script src="../../../../public/js/ENDERECO.js"></script>
+
 </body>
 
 </html>

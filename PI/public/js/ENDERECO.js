@@ -93,7 +93,47 @@ document.getElementById('form-novo-endereco').addEventListener('submit', async f
 });
 
 
+  document.addEventListener("DOMContentLoaded", () => {
+        const listaEnderecos = document.getElementById("enderecos-list");
 
+        fetch("/Tweeb-2025/PI/app/user/Controllers/UserGetAddressController.php")
+            .then(response => response.json())
+            .then(resposta => {
+                listaEnderecos.innerHTML = ""; // limpa antes de preencher
+
+                // Verifica se deu certo e se há endereços
+                if (!resposta.sucesso || !Array.isArray(resposta.enderecos) || resposta.enderecos.length === 0) {
+                    listaEnderecos.innerHTML = "<p style='text-align:center; font-weight:bold;'>Sem Endereços cadastrados.</p>";
+                    return;
+                }
+
+                resposta.enderecos.forEach(endereco => {
+                    const card = document.createElement("div");
+                    card.classList.add("endereco-card");
+
+                    card.innerHTML = `
+                        <label>
+                            <input type="radio" name="endereco" value="${endereco.nome_endereco ?? ''}">
+                            <label class="endereco-label">${endereco.nome_endereco ?? 'Endereço'}</label>
+                            <div class="endereco-details">
+                                <p>${endereco.rua}, ${endereco.numero}, ${endereco.bairro}</p>
+                                <p>${endereco.cidade} - ${endereco.estado} - ${endereco.cep}</p>
+                            </div>
+                        </label>
+                        <div class="endereco-actions">
+                            <button class="edit"><i class="fa fa-pencil"></i></button>
+                            <button class="delete"><i class="fa-solid fa-xmark"></i></button>
+                        </div>
+                    `;
+
+                    listaEnderecos.appendChild(card);
+                });
+            })
+            .catch(error => {
+                console.error("Erro ao carregar endereços:", error);
+                listaEnderecos.innerHTML = "<p style='text-align:center; font-weight:bold;'>Erro ao carregar endereços.</p>";
+            });
+    });
 
 
 
