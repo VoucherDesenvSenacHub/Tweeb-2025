@@ -1,0 +1,54 @@
+<!-- Esse é o conteudo que sera enviado por email para o usuario resetar sua senha -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        .container {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        h1 {
+            color: #333;
+        }
+        p {
+            font-size: 0.95rem;
+            color: #666;
+        }
+
+        .botao-link {
+            display: inline-block;
+            padding: 15px;
+            background-color: #CEF5A4;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            text-decoration: none;
+            color: #333 !important;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .botao-link:hover {
+            background-color: #b0da82;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="cid:logoCID" alt="Logo" width="125">
+        <h1>Olá, {{nome}}!</h1>
+        <p>Você solicitou a redefinição de senha da sua conta Tweeb!</p>
+        <p>Clique no botão abaixo para redefinir sua senha: </p>
+
+        <a href="{{link}}" class="botao-link">Redefinir Senha</a>
+
+
+    </div>
+</body>
+</html>
