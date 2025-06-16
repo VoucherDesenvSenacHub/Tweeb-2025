@@ -4,13 +4,22 @@ document.getElementById("btnSalvarSenha").addEventListener("click", async () => 
     const novaSenha = document.getElementById("nova-senha").value.trim();
     const confirmarSenha = document.getElementById("confirmar-senha").value.trim();
 
-    const resposta = await fetch("../../../../controllers/User/AlterarSenhaController.php", {
+    const resposta = await fetch("/Tweeb-2025/PI/App/user/Controllers/AlterarSenhaController.php", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ senha_atual: senhaAtual, nova_senha: novaSenha, confirmar_senha: confirmarSenha })
     });
 
-    const resultado = await resposta.json();
+    let resultado;
+    try {
+    resultado = await resposta.json();
+    } catch (e) {
+    const erroTexto = await resposta.text();
+    console.error("Resposta inválida:", erroTexto);
+    alert("Erro do servidor: veja console.");
+    return;
+    }
+
 
     const modal = document.getElementById("modalAlterarSenha");
     const mensagem = document.getElementById("ModalAltSenhaMensagem");

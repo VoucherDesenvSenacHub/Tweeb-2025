@@ -87,7 +87,7 @@ if (!isset($_SESSION['usuario']['id'])) {
         </div>
     </div>
 
-    <?php include __DIR__.'/../../../../includes/footer.php'; ?>
+    <?php include __DIR__.'../../../../../includes/footer.php'; ?>
     <script src="../../../../public/js/alterar-senha.js"></script>
 </body>
 </html>
