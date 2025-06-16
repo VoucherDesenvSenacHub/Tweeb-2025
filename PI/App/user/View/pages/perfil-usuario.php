@@ -1,6 +1,3 @@
-
-
-
 <?php
 
 require_once __DIR__ . '../../../Models/Usuario.php';
@@ -21,17 +18,29 @@ function mascararCPF($cpf) {
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-
+<?php include __DIR__.'/../../../../includes/headernavb.php'; ?>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meu Perfil</title>
-    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="../../../../public/css/perfil-usuario-enderecos.css">
+    <style>
+        .perfil-tweeb-botoes {
+            display: none;
+        }
+        .editing .perfil-tweeb-botoes {
+            display: flex; 
+        }
+        .editing input:not([disabled]) {
+            border: 1px solid #007bff;
+        }
+        input:not([disabled]) {
+            border: none;
+        }
+    </style>
 </head>
 <body>
-<?php include __DIR__.'/../../../../includes/headernavb.php'; ?>
+    
 <?php include __DIR__.'/../../../../includes/navbar-logada.php'; ?>
 <?php include __DIR__.'/../../../../includes/sidebar-User.php'; ?>
 
@@ -70,7 +79,7 @@ function mascararCPF($cpf) {
                 </label>
 
                 <!-- Botão de editar (ícone lápis) -->
-                <button type="button" class="perfil-tweeb-editar-foto" title="Editar">
+                <button class="perfil-tweeb-editar-foto" title="Editar" onclick="toggleEditMode()">
                     <i class="fa-regular fa-pen-to-square" style="color: #4b5563;"></i>
                 </button>
             </div>
@@ -116,13 +125,12 @@ function mascararCPF($cpf) {
             </div>
             
         </form>
-
+        
     </div>
 </div>
 <?php include __DIR__.'/../../../../includes/footer.php'; ?>
-
 <script>
-    const usuarioID  = <?php echo json_encode($_SESSION['usuario']['id']);?>;
+    const usuarioID  = <?php echo json_encode($_SESSION['usuario']['id']);?>
 </script>
 <script src="/Tweeb-2025/PI/public/js/alterar-foto.js"></script>
 <script src="/Tweeb-2025/PI/public/js/perfil-usuario.js"></script>

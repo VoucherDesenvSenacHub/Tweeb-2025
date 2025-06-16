@@ -3,22 +3,9 @@ console.log(perfil_form)
 let inputs = perfil_form.querySelectorAll('input:not([disabled])');
 let originalValues = {};
 
-    // Começa com os campos readonly
-    camposEditaveis.forEach(input => input.setAttribute("readonly", "true"));
-
-    // Botões Salvar e Cancelar inicialmente escondidos
-    botaoSalvar.style.display = "none";
-    botaoCancelar.style.display = "none";
-
-    botaoEditar.addEventListener("click", () => {
-        camposEditaveis.forEach(input => input.removeAttribute("readonly"));
-        botaoSalvar.style.display = "inline-block";
-        botaoCancelar.style.display = "inline-block";
-    });
-
-    botaoCancelar.addEventListener("click", () => {
-        cancelEdit(); // Chama a função cancelEdit para reverter e ocultar botões
-    });
+// Salva os valores originais dos campos
+inputs.forEach(input => {
+    originalValues[input.name] = input.value;
 });
 
 console.log(originalValues);
@@ -49,7 +36,6 @@ function deletaUsuario() {
     let confirma = confirm("Tem certeza que deseja excluir sua conta?");
     if (!confirma) return;
 
-    // `usuarioID` é definida no script inline no HTML e é acessível aqui
     fetch("http://localhost/tweeb-2025/PI/public/api/deletar_usuario.php", {
         method: "DELETE",
         headers: {

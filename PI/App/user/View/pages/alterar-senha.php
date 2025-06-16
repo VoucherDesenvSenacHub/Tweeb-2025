@@ -71,7 +71,7 @@ if (!isset($_SESSION['usuario']['id'])) {
 
                 <div class="alterar-senha-botoes">
                     <button class="botao-alterar-senha" type="reset">Cancelar</button>
-                    <button type="button" class="botao-alterar-senha" id="btnSalvarSenha">Salvar alteração</button> 
+                    <button class="botao-alterar-senha" id="btnSalvarSenha" type="button">Salvar alteração</button>
                 </div>
             </form>
 
