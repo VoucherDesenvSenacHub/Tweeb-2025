@@ -1,45 +1,52 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const botaoSalvarSenha = document.querySelector(".alterar-senha-salvar");
-    const botaoCancelarSenha = document.querySelector(".alterar-senha-cancelar");
-    const senhaAtual = document.querySelector("#senha-atual");
-    const novaSenha = document.querySelector("#nova-senha");
-    const confirmarSenha = document.querySelector("#confirmar-senha");
+document.addEventListener('DOMContentLoaded', function () {
+    const botao = document.getElementById('btnSalvarSenha');
+    botao.addEventListener('click', async function() {
+        const senhaAtual = document.getElementById('senha-atual').value.trim();
+        const novaSenha = document.getElementById('nova-senha').value.trim();
+        const confirmarSenha = document.getElementById('confirmar-senha').value.trim();
 
-    // Função para codificar a senha com ***
-    function esconderSenha(input) {
-        input.value = '***';
-    }
-
-    // Função para validar as senhas
-    function validarSenhas() {
-        if (novaSenha.value !== confirmarSenha.value) {
-            alert("As senhas não coincidem!");
-            return false;
+        if (!senhaAtual || !novaSenha || !confirmarSenha) {
+            alert("Preencha todos os campos.");
+            return;
         }
-        return true;
-    }
 
-    // Ao clicar no botão "Salvar alteração", valida e altera a senha
-    botaoSalvarSenha.addEventListener("click", (event) => {
-        event.preventDefault(); // Evita o envio do formulário
+        if (novaSenha !== confirmarSenha) {
+            alert("As senhas não coincidem.");
+            return;
+        }
 
-        // Valida as senhas
-        if (!validarSenhas()) return;
+        const dados = {
+            senha_atual: senhaAtual,
+            nova_senha: novaSenha,
+            confirmar_senha: confirmarSenha
+        };
 
-        // Codifica a senha temporariamente com ***
-        esconderSenha(senhaAtual);
-        esconderSenha(novaSenha);
-        esconderSenha(confirmarSenha);
+        try {
+            const response = await fetch('../../Controllers/AlterarSenhaController.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(dados)
+            });
 
-        // Exibe uma mensagem de sucesso
-        alert("Senha alterada com sucesso!");
-    });
+            const resultado = await response.json();
 
-    // Ao clicar no botão "Cancelar", limpa os campos de senha
-    botaoCancelarSenha.addEventListener("click", (event) => {
-        event.preventDefault(); // Evita o envio do formulário
-        senhaAtual.value = '';
-        novaSenha.value = '';
-        confirmarSenha.value = '';
+            const modal = document.getElementById('modalAlterarSenha');
+            const mensagem = document.getElementById('ModalAltSenhaMensagem');
+            const botaoModal = document.getElementById('ModalAltSenha-button');
+
+            mensagem.textContent = resultado.mensagem || "Erro desconhecido.";
+            modal.style.display = 'flex';
+
+            botaoModal.onclick = () => {
+                modal.style.display = 'none';
+                if (resultado.sucesso) {
+                    window.location.reload();
+                }
+            };
+        } catch (error) {
+            alert("Erro de rede ou servidor. Tente novamente.");
+        }
     });
 });

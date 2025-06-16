@@ -33,12 +33,14 @@ try {
     }
 
     $_SESSION['usuario'] = [
-        'id' => $usuario['id'],
-        'nome' => $usuario['nome'],
-        'email' => $usuario['email'],
-        'tipo' => $usuario['tipo'],
-        'cpf' => $usuario['cpf'] ?? '',
-        'foto_perfil' => $usuario['foto_perfil'] ?? 'imagem_padrao.png'
+        'id'           => $usuario['id'],
+        'nome'         => $usuario['nome'],
+        'sobrenome'    => $usuario['sobrenome'] ?? '',
+        'email'        => $usuario['email'],
+        'telefone'     => $usuario['telefone'] ?? '',
+        'tipo'         => $usuario['tipo'],
+        'cpf'          => $cliente['cpf'] ?? '',
+        'foto_perfil'  => $usuario['foto_perfil'] ?? 'imagem_padrao.png'
     ];
 
     echo json_encode([

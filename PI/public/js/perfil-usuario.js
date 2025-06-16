@@ -1,8 +1,7 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const botaoEditar = document.querySelector(".perfil-tweeb-editar-foto");
-    const camposEditaveis = document.querySelectorAll(".perfil-tweeb-form input:not(#cpf):not([disabled])");
-    const botaoSalvar = document.querySelector(".perfil-tweeb-salvar-end");
-    const botaoCancelar = document.querySelector(".perfil-tweeb-cancelar-end");
+let perfil_form = document.querySelector('.perfil-tweeb-form');
+console.log(perfil_form)
+let inputs = perfil_form.querySelectorAll('input:not([disabled])');
+let originalValues = {};
 
     // Começa com os campos readonly
     camposEditaveis.forEach(input => input.setAttribute("readonly", "true"));
@@ -22,31 +21,32 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-// Função para cancelar edit (usada tanto pelo botão Cancelar quanto em outras partes do código)
-function cancelEdit() {
-    const camposEditaveis = document.querySelectorAll(".perfil-tweeb-form input:not(#cpf):not([disabled])");
-    camposEditaveis.forEach(input => {
-        // Restaura o valor original do campo (se foi modificado antes de editar)
-        // Note: Se o valor original não foi salvo, ele vai reverter para o valor do 'value' no HTML
-        // Para uma reversão mais robusta, você precisaria salvar os valores em uma variável JS ao carregar a página.
-        input.value = input.defaultValue; 
-        input.setAttribute("readonly", "true");
+console.log(originalValues);
+
+// Função para ativar/desativar modo de edição
+function toggleEditMode() {
+    perfil_form.classList.toggle('editing');
+    inputs.forEach(input => {
+        input.readOnly = !input.readOnly;
     });
+}
 
-    document.querySelector(".perfil-tweeb-salvar-end").style.display = "none";
-    document.querySelector(".perfil-tweeb-cancelar-end").style.display = "none";
-
-    // Limpa os campos de endereço ao cancelar, caso o CEP tenha sido preenchido
-    const camposParaLimpar = ["rua", "bairro", "cidade", "estado"];
+// Função para cancelar a edição
+function cancelEdit() {
+    perfil_form.classList.remove("editing");
+    perfil_form.querySelectorAll("input").forEach(input => {
+        input.setAttribute("readonly", true);
+    });
+    let camposParaLimpar = ["sobrenome", "telefone"];
     camposParaLimpar.forEach(id => {
-        const input = document.getElementById(id);
+        let input = document.getElementById(id);
         if (input) input.value = "";
     });
 }
 
 
 function deletaUsuario() {
-    const confirma = confirm("Tem certeza que deseja excluir sua conta?");
+    let confirma = confirm("Tem certeza que deseja excluir sua conta?");
     if (!confirma) return;
 
     // `usuarioID` é definida no script inline no HTML e é acessível aqui
@@ -60,7 +60,7 @@ function deletaUsuario() {
     .then(res => res.text())
     .then(data => {
         try {
-            const result = JSON.parse(data);
+            let result = JSON.parse(data);
             alert(result.mensagem || "Operação realizada com sucesso!");
             if (result.mensagem) {
                 console.log("Redirecionando...");
@@ -73,28 +73,23 @@ function deletaUsuario() {
     .catch(err => console.error("Erro:", err));
 }
 
-document.getElementById('perfil-tweeb-form').addEventListener('submit', async function(event) {
-    event.preventDefault();
+    perfil_form.addEventListener('submit', async function(event) {
+        event.preventDefault();
 
-    const formData = {
+    let formData = {
         nome: this.nome.value,
         sobrenome: this.sobrenome.value,
         email: this.email.value,
         telefone: this.telefone.value,
-        cep: this.cep.value,
-        rua: this.rua.value,
-        bairro: this.bairro.value,
-        cidade: this.cidade.value,
-        estado: this.estado.value
     };
 
-    const response = await fetch('/Tweeb-2025/PI/app/user/Controllers/UserEditController.php', {
+    let response = await fetch('/Tweeb-2025/PI/app/user/Controllers/UserEditController.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData)
     });
 
-    const result = await response.json();
+    let result = await response.json();
 
     if (result.sucesso) {
         alert(result.mensagem);
@@ -105,3 +100,40 @@ document.getElementById('perfil-tweeb-form').addEventListener('submit', async fu
 });
 
 
+function editarUsuario() {
+    let formData = {
+        nome: perfil_form.nome.value,
+        sobrenome: perfil_form.sobrenome.value,
+        email: perfil_form.email.value,
+        telefone: perfil_form.telefone.value,
+    };
+
+    async function editar(form){ 
+
+    let dados_php = await fetch('/Tweeb-2025/PI/app/user/Controllers/UserEditController.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form)
+    });
+
+    let response = await dados_php.json();
+
+    console.log(response);
+
+    }
+
+    editar(formData);
+
+
+    // .then(response => response.json())
+    // .then(result => {
+    //     alert(result.mensagem);
+    //     if (result.sucesso) {
+    //         location.reload();
+    //     }
+    // })
+    // .catch(error => {
+    //     console.error('Erro ao atualizar:', error);
+    //     alert('Erro ao atualizar. Tente novamente.');
+    // });
+}

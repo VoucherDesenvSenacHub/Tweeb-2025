@@ -100,9 +100,21 @@ class Database{
     }
     public function buscarUsuarioComCpfPorEmail(string $email) {
         $query = "
-            SELECT u.id, u.nome, u.email, u.senha, u.tipo, c.cpf
+            SELECT u.id, u.nome, u.sobrenome, u.email, u.senha, u.tipo, u.telefone, u.foto_perfil, c.cpf
             FROM usuarios u
             LEFT JOIN clientes c ON u.id = c.id_usuario
+            WHERE u.email = ?
+            LIMIT 1
+        ";
+        $stmt = $this->execute($query, [$email]);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
+    public function buscarAdmPorEmail(string $email) {
+        $query = "
+            SELECT u.id, u.nome, u.email, u.senha, u.tipo, a.matricula, a.cargo
+            FROM usuarios u
+            LEFT JOIN administrador a ON u.id = a.id_usuario
             WHERE u.email = ?
             LIMIT 1
         ";

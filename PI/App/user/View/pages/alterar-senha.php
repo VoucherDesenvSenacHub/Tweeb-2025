@@ -52,7 +52,7 @@ if (!isset($_SESSION['usuario']['id'])) {
                 </div>
             <?php endif; ?>
 
-            <form action="../../Controllers/UserController.php?acao=alterar_senha" method="POST">
+            <form id="form-alterar-senha">
                 <div class="perfil-tweeb-input-group">
                     <h2>Alterar Senha</h2>
                     <label for="senha-atual">Senha Atual</label>
@@ -71,7 +71,7 @@ if (!isset($_SESSION['usuario']['id'])) {
 
                 <div class="alterar-senha-botoes">
                     <button class="botao-alterar-senha" type="reset">Cancelar</button>
-                    <button class="botao-alterar-senha" type="submit">Salvar alteração</button>
+                    <button type="button" class="botao-alterar-senha" id="btnSalvarSenha">Salvar alteração</button> 
                 </div>
             </form>
 
@@ -88,6 +88,6 @@ if (!isset($_SESSION['usuario']['id'])) {
     </div>
 
     <?php include __DIR__.'/../../../../includes/footer.php'; ?>
-    <script src="../../../../public/js/ModalAltSenha.js"></script>
+    <script src="../../../../public/js/alterar-senha.js"></script>
 </body>
 </html>

@@ -1,4 +1,10 @@
+
+
+
 <?php
+
+require_once __DIR__ . '../../../Models/Usuario.php';
+
 if (session_status() !== PHP_SESSION_ACTIVE) {
     session_start();
 }
@@ -48,17 +54,15 @@ function mascararCPF($cpf) {
                 <?php 
                 $foto_perfil = !empty($_SESSION['usuario']['foto_perfil']) ? $_SESSION['usuario']['foto_perfil'] : 'imagem_padrao.png';
                 $caminho_foto = strpos($foto_perfil, 'imagem_padrao.png') !== false ? 
-                    '/Tweeb-2025/PI/public/uploads/imagem_padrao.png' : 
-                    '/Tweeb-2025/PI/public/uploads/' . $foto_perfil;
+                '/Tweeb-2025/PI/public/uploads/imagem_padrao.png' : 
+                '/Tweeb-2025/PI/public/uploads/' . $foto_perfil;
+
                 ?>
                 <img src="<?php echo htmlspecialchars($caminho_foto); ?>" 
                      alt="Foto de Perfil" 
                      class="foto-perfil">
                 
                 <!-- Input oculto de upload -->
-                <form method="POST" enctype="multipart/form-data" id="formFotoPerfil">
-                    <input type="file" id="inputFotoPerfil" name="foto_perfil" accept="image/*" style="display: none;">
-                </form>
 
                 <!-- Botão de upload (ícone Bootstrap) -->
                 <label for="inputFotoPerfil" class="btn-upload-foto" title="Alterar foto">
@@ -78,6 +82,8 @@ function mascararCPF($cpf) {
         </div>
 
         <form class="perfil-tweeb-form" id="perfil-tweeb-form" method="POST" enctype="multipart/form-data">
+            <input type="file" id="inputFotoPerfil" name="foto_perfil" accept="image/*" style="display: none;">
+
             <div class="perfil-tweeb-input-group">
                 <label for="primeiro-nome">Primeiro nome</label>
                 <input type="text" id="primeiro-nome" name="nome" value="<?php echo htmlspecialchars($_SESSION['usuario']['nome']); ?>" readonly>
@@ -103,10 +109,12 @@ function mascararCPF($cpf) {
                 <input type="text" id="telefone" name="telefone" value="<?php echo htmlspecialchars($_SESSION['usuario']['telefone'] ?? ''); ?>" readonly>
             </div>
 
-            <div class="perfil-tweeb-botoes-user">
-                <button type="button" class="perfil-tweeb-cancelar-end" onclick="cancelEdit()">Cancelar</button>
-                <button type="submit" class="perfil-tweeb-salvar-end">Salvar alteração</button>
+            <div class="perfil-tweeb-botoes">
+                <button type="button" class="perfil-tweeb-cancelar" onclick="cancelEdit()">Cancelar</button>
+                <button type="button" class="perfil-tweeb-excluir" onClick="deletaUsuario()">Excluir</button>
+                <button type="submit" class="perfil-tweeb-salvar" onClick="editarUsuario()">Salvar alteração</button>
             </div>
+            
         </form>
 
     </div>
