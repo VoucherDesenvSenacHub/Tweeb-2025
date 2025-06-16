@@ -9,5 +9,5 @@ $_SESSION = array();
 session_destroy();
 
 // Redirecionar para a página inicial
-header('Location: /Tweeb-2025/PI/app/adm/views/pages/login-funcionario.php');
+header('Location: /Tweeb-2025/PI/app/user/view/pages/login.php');
 exit;

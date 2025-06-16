@@ -100,7 +100,7 @@ class Database{
     }
     public function buscarUsuarioComCpfPorEmail(string $email) {
         $query = "
-            SELECT u.id, u.nome, u.email, u.senha, u.tipo, c.cpf
+            SELECT u.id, u.nome, u.sobrenome, u.email, u.senha, u.tipo, u.telefone, u.foto_perfil, c.cpf
             FROM usuarios u
             LEFT JOIN clientes c ON u.id = c.id_usuario
             WHERE u.email = ?

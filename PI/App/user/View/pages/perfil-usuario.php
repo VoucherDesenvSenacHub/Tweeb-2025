@@ -1,4 +1,10 @@
+
+
+
 <?php
+
+require_once __DIR__ . '../../../Models/Usuario.php';
+
 if (session_status() !== PHP_SESSION_ACTIVE) {
     session_start();
 }
@@ -11,7 +17,6 @@ function mascararCPF($cpf) {
     if (strlen($cpf) !== 11) return '';
     return '***.***.***-' . substr($cpf, 9, 2);
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
