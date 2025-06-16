@@ -18,7 +18,7 @@
     <div class="container-esqueceu">
         <div class="forms-esqueceu">
             <form action="">
-                
+                <a href="/Tweeb-2025/PI/home.php" class="back-links-func"><i class='bx bx-chevron-left'></i> Voltar</a>
                 <h1 class="tit">Acesso Corporativo</h1>
                 <p class="descrit">Faça login para acessar a conta de administrador.</p>
                 
