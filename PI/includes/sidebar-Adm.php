@@ -33,8 +33,16 @@
                   </ul>
                 </li>
                 <li class="sidebarAdm-item">
-                  <a href="../pages/ListarClientescopy.php""><img src="../../../../public/assets/img/Vector (4).png" alt=""><span class="itemAdm-descricao">Clientes</span></a>
+                  <a href="../pages/ListarClientescopy.php"><img src="../../../../public/assets/img/Vector (4).png" alt=""><span class="itemAdm-descricao">Clientes</span></a>
                 </li>
+
+
+                <li class="sidebarAdm-item">
+                  <a href="addfuncionario.php"><img src="../../../../public/assets/img/addfun.png " alt=""><span class="itemAdm-descricao">Add funcionario </span></a>
+                </li>
+
+
+
                 <li class="sidebarAdm-item">
                   <a href="#"><img src="../../../../public/assets/img/Vector (5).png" alt=""><span class="itemAdm-descricao">Aparência</span></a>
                 </li>

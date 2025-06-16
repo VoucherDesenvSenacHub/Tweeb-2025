@@ -64,7 +64,7 @@
 
 <div class="filtro-formulario">
     <form action="">
-        <div class="form-group">
+        <div class="form-group-estoque">
             <label for="filtrar-nome">Nome</label>
             <input type="text" id="filtrar-nome" name="filtrar-nome" placeholder="filtrar nome" />
             <label for="filtrar-email">Email</label>

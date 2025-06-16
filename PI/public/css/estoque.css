@@ -262,15 +262,17 @@
   height: auto;
 }
 
-.form-group{
+.form-group-estoque{
   display: flex;
   flex-wrap: wrap;
   margin-top: 2rem;
   justify-content: center;
 }
 
-.form-group, .form-group-breakline{
+.form-group-estoque, .form-group-breakline{
   height: auto;
+  position: inherit;
+  max-height: 100px;
 }
 
 /* .form-group-breakline{
@@ -426,7 +428,7 @@
     width: 125px;
   }
 
-  .form-group{
+  .form-group-estoque{
     flex-direction: column;
     align-items: center;
   }
@@ -447,7 +449,7 @@
     margin-right: 0;
   }
 
-  .form-group .form-group-breakline{
+  .form-group-estoque .form-group-estoque-breakline{
     display: flex;
     flex-direction: column;
   }

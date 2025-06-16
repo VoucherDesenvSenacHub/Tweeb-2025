@@ -268,12 +268,16 @@ body {
 
 .form-group, .form-group-breakline{
     height: 40px;
+    margin-left: 10px;
+
 }
 
-.filtro-formulario{
-    margin-left: 120px;
-    height: 100%;    
-}
+
+.form-group, .form-group-breakline{
+    position: inherit;
+    max-height: 100px;
+  }
+
 
 .filtro-formulario label{
     margin-right: -8px;
