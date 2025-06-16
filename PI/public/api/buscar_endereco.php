@@ -4,7 +4,6 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
     session_start();
 }
 
-var_dump($_SESSION['usuario']['id']);
 
 $usuario_id = $_SESSION['usuario']['id'];
 $enderecoModel = new Endereco();
