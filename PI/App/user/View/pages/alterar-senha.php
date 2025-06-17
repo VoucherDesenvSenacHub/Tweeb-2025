@@ -74,6 +74,7 @@ if (!isset($_SESSION['usuario']['id'])) {
                     <button class="botao-alterar-senha" id="btnSalvarSenha" type="button">Salvar alteração</button>
                 </div>
             </form>
+            <p id="aviso-alteracao-senha" style="margin-top: 10px; font-weight: bold;"></p>
 
             <div class="ModalAltSenha-container" id="modalAlterarSenha" style="display: none;">
                 <div class="ModalAltSenha-modal">

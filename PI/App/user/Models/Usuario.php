@@ -84,4 +84,11 @@ class Usuario {
         $db = new Database('usuarios');
         return $db->delete("id = $id");
     }
+
+    public function atualizarSenha() {
+        $db = new Database('usuarios');
+        return $db->update(['senha' => $this->senha], "id = {$this->id}");
+    }
+    
+    
 }

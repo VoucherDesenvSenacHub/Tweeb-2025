@@ -1,42 +1,59 @@
 <?php
-// AlterarSenhaController.php
-require_once __DIR__ . '../../Models/Usuario.php';
+// App/user/Controllers/AlterarSenhaController.php
+
+require_once __DIR__ . '/../Models/Usuario.php';
 
 session_start();
+header('Content-Type: application/json; charset=utf-8');
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
-header('Content-Type: application/json');
-
-if (!isset($_SESSION['usuario']['id'])) {
-    echo json_encode(['status' => 'erro', 'mensagem' => 'Usuário não autenticado.']);
+function exibirModal($mensagem, $status = 'erro') {
+    echo json_encode([
+        'status' => $status,
+        'mensagem' => $mensagem,
+        'mostrarModal' => true
+    ]);
     exit;
 }
 
-$dados = json_decode(file_get_contents("php://input"), true);
+if (!isset($_SESSION['usuario']['id'])) {
+    http_response_code(401);
+    exibirModal('Usuário não autenticado.');
+}
+
+$input = file_get_contents("php://input");
+$dados = json_decode($input, true);
+
+if (json_last_error() !== JSON_ERROR_NONE) {
+    http_response_code(400);
+    exibirModal('Dados JSON inválidos.');
+}
 
 $senhaAtual = $dados['senha_atual'] ?? '';
 $novaSenha = $dados['nova_senha'] ?? '';
 $confirmarSenha = $dados['confirmar_senha'] ?? '';
 
 if (empty($senhaAtual) || empty($novaSenha) || empty($confirmarSenha)) {
-    echo json_encode(['status' => 'erro', 'mensagem' => 'Preencha todos os campos.']);
-    exit;
+    exibirModal('Preencha todos os campos.');
 }
 
 if ($novaSenha !== $confirmarSenha) {
-    echo json_encode(['status' => 'erro', 'mensagem' => 'As novas senhas não coincidem.']);
-    exit;
+    exibirModal('As novas senhas não coincidem.');
 }
 
 $usuario = Usuario::buscarPorId($_SESSION['usuario']['id']);
 
-if (!password_verify($senhaAtual, $usuario->senha)) {
-    echo json_encode(['status' => 'erro', 'mensagem' => 'Senha atual incorreta.']);
-    exit;
+if (!$usuario || !password_verify($senhaAtual, $usuario->senha)) {
+    exibirModal('Senha atual incorreta.');
 }
 
 $usuario->senha = password_hash($novaSenha, PASSWORD_DEFAULT);
+
 if ($usuario->atualizarSenha()) {
-    echo json_encode(['status' => 'sucesso', 'mensagem' => 'Senha alterada com sucesso.']);
+    exibirModal('Senha alterada com sucesso.', 'sucesso');
 } else {
-    echo json_encode(['status' => 'erro', 'mensagem' => 'Erro ao alterar a senha.']);
+    http_response_code(500);
+    exibirModal('Erro ao atualizar senha.');
 }

@@ -47,7 +47,6 @@
     <script src="../../../../public/js/quemsomos.js" defer></script>
     <script src="../../../../public/js/quemsomos2.js" defer></script>
     <script src="../../../../public/js/perfil-usuario.js" defer></script>
-    <script src="../../../../public/js/alterar-senha.js" defer></script>
     <script src="../../../../public/js/favoritos.js" defer></script>
     <script src="../../../../public/js/SiderbarAdm.js" defer></script>
     <script src="../../../../public/js/endereco-modal.js" defer></script>
