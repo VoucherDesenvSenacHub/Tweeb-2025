@@ -40,6 +40,14 @@
                 <li class="sidebarAdm-item">
                   <a href="#"><img src="../../../../public/assets/img/Vector (5).png" alt=""><span class="itemAdm-descricao">Aparência</span></a>
                 </li>
+                <?php if (isset($_SESSION['funcionario']) && $_SESSION['funcionario']['email'] === 'admgeral@empresa.com'): ?>
+                  <li class="sidebarAdm-item">
+                    <a href="../pages/cadastrar-funcionario.php">
+                      <img src="../../../../public/assets/img/user-plus.png" alt="">
+                      <span class="itemAdm-descricao">Cadastrar Funcionário</span>
+                    </a>
+                  </li>
+                <?php endif; ?>
                 <li class="sidebarAdm-item">
                   <a href="/Tweeb-2025/PI/app/adm/Controllers/FuncionarioLogout.php"><img src="../../../../public/assets/img/sair.png" alt=""><span class="itemAdm-descricao">Sair</span></a>
                 </li>
