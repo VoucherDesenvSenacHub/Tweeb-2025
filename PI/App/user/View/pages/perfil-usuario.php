@@ -106,6 +106,7 @@ function mascararCPF($cpf) {
             <div class="perfil-tweeb-botoes-user">
                 <button type="button" class="perfil-tweeb-cancelar-end" onclick="cancelEdit()">Cancelar</button>
                 <button type="submit" class="perfil-tweeb-salvar-end">Salvar alteração</button>
+                <button type="button" class="perfil-tweeb-excluir-end">Excluir Conta</button>
             </div>
         </form>
 
