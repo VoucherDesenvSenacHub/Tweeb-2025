@@ -11,26 +11,7 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manutenções</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <script defer src="../../../../public/js/adm-manutencao.js"></script>
 </head>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 <!-- Modal de Edição de OS -->
 <div id="editar-os-modal" class="editar-os-modal" style="display: none;">
