@@ -1,0 +1,69 @@
+create database Tweeb25;
+use Tweeb25;
+show tables;
+CREATE TABLE usuarios (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(100) not null,
+    sobrenome VARCHAR(100),
+    email VARCHAR(100) not null UNIQUE,
+    telefone VARCHAR(20),
+    senha VARCHAR(255)not null ,
+    tipo ENUM('cliente', 'funcionario'),
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    token_recuperacao varchar(64)
+);
+select * from usuarios;
+select * from clientes;
+
+select nome, EMAIL from usuarios where email = 'joaofavel@gmail.com';
+
+CREATE TABLE clientes (
+    id_usuario INT PRIMARY KEY,
+    cpf VARCHAR(14) UNIQUE,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (id_usuario) REFERENCES usuarios(id) ON DELETE CASCADE
+);
+CREATE TABLE enderecos (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    id_cliente INT,
+    endereco VARCHAR(100),
+    bairro VARCHAR(100),
+    cep VARCHAR(10),
+    estado VARCHAR(50),
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (id_cliente) REFERENCES clientes(id_usuario) ON DELETE CASCADE
+);
+
+CREATE TABLE funcionarios (
+    id_usuario INT PRIMARY KEY,
+    matricula VARCHAR(20),
+    cargo VARCHAR(50),
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (id_usuario) REFERENCES usuarios(id) ON DELETE CASCADE
+);
+
+CREATE TABLE respostas_preferencias (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  user_id INT,
+  resposta1 VARCHAR(255),
+  resposta2 VARCHAR(255),
+  resposta3 VARCHAR(255),
+  criado_em DATETIME DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (user_id) REFERENCES usuarios(id)
+);
+
+CREATE TABLE orcamento (
+	id_orcamento INT AUTO_INCREMENT PRIMARY KEY,
+    nome varchar(100) NOT NULL,
+    email varchar(100) NOT NULL,
+    telefone VARCHAR(20) NOT NULL,
+    tipo varchar(50) NOT NULL,
+    prazo varchar(30) NOT NULL,
+    imagem varchar(255) NOT NULL,
+    descricao text not null,
+    status_orcamento ENUM('pendente', 'aceito')
+);
