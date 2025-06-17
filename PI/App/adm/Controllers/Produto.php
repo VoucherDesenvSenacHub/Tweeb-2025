@@ -104,9 +104,14 @@ class Produto{
     }
     
 
-    public static function buscar_by_id($id_produto){
-        //FETCHALL
-        return (new Database('produtos'))->select($id_produto)->fetchObject(self::class);
+    // public static function buscar_by_id($id_produto){
+    //     //FETCHALL
+    //     return (new Database('produtos'))->select($id_produto)->fetchObject(self::class);
+    // }
+
+    public static function buscar_by_id($where=null, $order =null, $limit = null){
+        return (new Database('produtos'))->select('id_produto = "'. $where .'"')->fetchObject(self::class);
+
     }
 
     public function excluir($id_produto){
@@ -122,7 +127,7 @@ class Produto{
 
     public function update2() {
         return (new Database('produtos'))->update2(
-            ['id_produto' => $this->id_produto], // ← WHERE como array
+            ['id_produto' => $this->id_produto], 
             ['status_produto' => $this->status_produto] // ← dados para atualizar
         );
     }

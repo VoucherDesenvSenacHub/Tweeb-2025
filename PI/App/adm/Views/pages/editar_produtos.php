@@ -202,9 +202,23 @@ if(isset($_POST['editar'])){
     </div>
 
     <div class="form-group">
-        <label for="product-image">Imagem</label>
-        <input autocomplete="off" type="file" name="imagem_produto" class="form_field" placeholder="" id="imagem_produto" value="<?=$produto->imagem_produto;?>" required>
-    </div>
+
+<label>Imagem atual:</label><br>
+<?php if (!empty($produto->imagem_produto)) : ?>
+    <?php 
+        // Remove o caminho até 'public' e monta a URL acessível para o navegador
+        $caminhoImagem = str_replace('../../../../public', '', $produto->imagem_produto);
+    ?>
+    <img src="<?= htmlspecialchars($caminhoImagem) ?>" style="max-width:200px;" alt="Imagem do Produto"><br>
+    <?php var_dump($produto->imagem_produto); ?>
+<?php endif; ?>
+
+<label>Alterar imagem:</label>
+<input type="file" name="imagem_produto">
+
+</div>
+
+
 
     <div class="form-group">
         <label for="serial-number">Número de Série</label>
@@ -268,7 +282,7 @@ if(isset($_POST['editar'])){
 </div>
 
 
-    <button type="submit" name="cadastrar" value="cadastrar" id="save-button">Salvar</button>
+    <button type="submit" name="editar" value="editar" id="save-button">Salvar</button>
 </form>
 
 <!-- <?php include __DIR__.'/../../../../includes/footer-adm.php'; ?>  -->
