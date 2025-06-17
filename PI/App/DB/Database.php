@@ -72,7 +72,7 @@ class Database{
 
         $res = $this->execute($query, array_values($values));   
 
-        $lastId = $this->conection->lastInsertId();  
+        $lastId = $this->conn->lastInsertId();  
 
         if($res){
             return $lastId;
@@ -189,7 +189,17 @@ class Database{
             die("Update failed: " . $e->getMessage());
         }
     }
-    
+    public function buscarAdmPorEmail(string $email) {
+        $query = "
+            SELECT u.id, u.nome, u.email, u.senha, u.tipo, a.matricula, a.cargo
+            FROM usuarios u
+            LEFT JOIN administrador a ON u.id = a.id_usuario
+            WHERE u.email = ?
+            LIMIT 1
+        ";
+        $stmt = $this->execute($query, [$email]);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
 
 }
 ?>
