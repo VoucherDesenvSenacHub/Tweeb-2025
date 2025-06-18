@@ -200,24 +200,20 @@ if(isset($_POST['editar'])){
         <option value="6" <?= ($produto->id_departamento == 6) ? 'selected' : '' ?>>jogos</option>
         </select>
     </div>
+   
+<div class="form-group">
 
-    <div class="form-group">
-
-<label>Imagem atual:</label><br>
+<label>Imagem atual:</label>
 <?php if (!empty($produto->imagem_produto)) : ?>
-    <?php 
-        // Remove o caminho até 'public' e monta a URL acessível para o navegador
-        $caminhoImagem = str_replace('../../../../public', '', $produto->imagem_produto);
-    ?>
-    <img src="<?= htmlspecialchars($caminhoImagem) ?>" style="max-width:200px;" alt="Imagem do Produto"><br>
-    <?php var_dump($produto->imagem_produto); ?>
+    <img src="<?= htmlspecialchars($produto->imagem_produto) ?>" style="max-width:50px;" alt="Imagem do Produto"><br>
 <?php endif; ?>
+</div>
 
+<div>
 <label>Alterar imagem:</label>
 <input type="file" name="imagem_produto">
 
 </div>
-
 
 
     <div class="form-group">
