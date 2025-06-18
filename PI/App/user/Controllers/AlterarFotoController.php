@@ -1,23 +1,23 @@
 <?php
-require_once __DIR__ . '/../../../DB/Database.php';
+ob_start(); // Garante que nenhum output anterior atrapalhe os headers
+require_once __DIR__ . '../../Models/Usuario.php';
 
 session_start();
 
-// Verifica se o usuário está logado
+header('Content-Type: application/json');
+
 if (!isset($_SESSION['usuario']['id'])) {
     http_response_code(401);
     echo json_encode(['erro' => 'Usuário não autenticado']);
     exit;
 }
 
-// Verifica se veio um arquivo via POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['foto_perfil'])) {
     $usuarioId = $_SESSION['usuario']['id'];
     $foto = $_FILES['foto_perfil'];
 
-    // Verifica extensão permitida
     $extensao = strtolower(pathinfo($foto['name'], PATHINFO_EXTENSION));
-    $permitidas = ['jpg', 'jpeg', 'png', 'gif'];
+    $permitidas = ['jpg', 'jpeg', 'png', 'gif', 'jfif'];
 
     if (!in_array($extensao, $permitidas)) {
         http_response_code(400);
@@ -25,31 +25,30 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['foto_perfil'])) {
         exit;
     }
 
-    // Verifica tamanho (até 2MB)
     if ($foto['size'] > 2 * 1024 * 1024) {
         http_response_code(400);
         echo json_encode(['erro' => 'Arquivo muito grande']);
         exit;
     }
 
-    // Gera nome novo e caminho de destino
     $novoNome = 'foto_' . $usuarioId . '_' . time() . '.' . $extensao;
     $destino = __DIR__ . '/../../../public/uploads/' . $novoNome;
 
     if (move_uploaded_file($foto['tmp_name'], $destino)) {
-        // Atualiza no banco
         $db = new Database('usuarios');
         $db->update(['foto_perfil' => $novoNome], "id = $usuarioId");
 
-        // Atualiza sessão
         $_SESSION['usuario']['foto_perfil'] = $novoNome;
 
         echo json_encode(['sucesso' => true, 'nova_foto' => $novoNome]);
+        exit;
     } else {
         http_response_code(500);
         echo json_encode(['erro' => 'Erro ao salvar a imagem']);
+        exit;
     }
 } else {
     http_response_code(405);
     echo json_encode(['erro' => 'Método não permitido']);
+    exit;
 }

@@ -6,86 +6,107 @@ class Funcionario {
     public string $nome;
     public string $email;
     public string $senha;
-    public string $cpf;
+    public ?string $sobrenome = null;
     public string $tipo;
     public ?string $telefone = null;
-    public ?string $cep = null;
-    public ?string $rua = null;
-    public ?string $bairro = null;
-    public ?string $cidade = null;
-    public ?string $estado = null;
-    public string $avatar = 'imagem_padrao.png';
+    public string $matricula;
+    public string $cargo;
+    public string $foto_perfil = 'imagem_padrao.png';
 
     public function __construct($dados = []) {
         if (!empty($dados)) {
-            $this->id = $dados['id_funcionario'] ?? 0;
+            $this->id = $dados['id'] ?? 0;
             $this->nome = $dados['nome'] ?? '';
             $this->email = $dados['email'] ?? '';
             $this->senha = $dados['senha'] ?? '';
-            $this->cpf = $dados['cpf'] ?? '';
-            $this->tipo = $dados['tipo'] ?? 'funcionario';
-            $this->telefone = $dados['telefone'] ?? null;
-            $this->cep = $dados['cep'] ?? null;
-            $this->rua = $dados['rua'] ?? null;
-            $this->bairro = $dados['bairro'] ?? null;
-            $this->cidade = $dados['cidade'] ?? null;
-            $this->estado = $dados['estado'] ?? null;
-            $this->avatar = $dados['avatar'] ?? 'imagem_padrao.png';
+            $this->matricula = $dados['matricula'] ?? '';
+            $this->cargo = $dados['cargo'] ?? '';
+            $this->foto_perfil = $dados['foto_perfil'] ?? 'imagem_padrao.png';
         }
     }
 
-    public function inserir() {
-        $db = new Database('funcionario');
-        $idfuncionario = $db->insert([
+    public function inserirFunc() {
+        $db = new Database('usuarios');
+        $idUsuario = $db->insert([
             'nome' => $this->nome,
             'email' => $this->email,
             'senha' => $this->senha,
-            'tipo' => $this->tipo,
-            'avatar' => $this->avatar
+            'tipo' => 'funcionario',
+            'foto_perfil' => $this->foto_perfil
         ]);
 
-        return $idfuncionario;
+        if ($idUsuario) {
+            $dbfuncionario = new Database('funcionarios');
+            $dbfuncionario->insert([
+                'id_usuario' => $idUsuario,
+                'matricula' => $this->matricula,
+                'cargo' =>$this-> cargo
+            ]);
+        }
+
+        return $idUsuario;
     }
 
-    public function atualizar() {
-        $db = new Database('funcionario');
-        return $db->update([
+    public function inserirADM() {
+        $db = new Database('usuarios');
+        $idUsuario = $db->insert([
             'nome' => $this->nome,
             'email' => $this->email,
-            'telefone' => $this->telefone,
-            'cep' => $this->cep,
-            'rua' => $this->rua,
-            'bairro' => $this->bairro,
-            'cidade' => $this->cidade,
-            'estado' => $this->estado
-        ], "id = {$this->id}");
+            'senha' => $this->senha,
+            'tipo' => 'administrador',
+            'foto_perfil' => $this->foto_perfil
+        ]);
+
+        if ($idUsuario) {
+            $dbadm = new Database('administrador');
+            $dbadm->insert([
+                'id_usuario' => $idUsuario,
+                'matricula' => $this->matricula,
+                'cargo' => $this->cargo
+            ]);
+        }
+
+        return $idUsuario;
     }
 
-    public function atualizarFoto() {
-        $db = new Database('funcionario');
-        return $db->update([
-            'avatar' => $this->foto_perfil
-        ], "id = {$this->id}");
+    public function atualizarFoto($novoNome) {
+        $db = new Database('usuarios');
+        return $db->update(['foto_perfil' => $novoNome], "id = {$this->id}");
     }
+    
+
+    // public function atualizar() {
+    //     $db = new Database('usuarios');
+    //     return $db->update([
+    //         'nome' => $this->nome,
+    //         'email' => $this->email,
+    //         'telefone' => $this->telefone,
+    //         'cep' => $this->cep,
+    //         'rua' => $this->rua,
+    //         'bairro' => $this->bairro,
+    //         'cidade' => $this->cidade,
+    //         'estado' => $this->estado
+    //     ], "id = {$this->id}");
+    // }
 
     public static function buscarTodos() {
-        $db = new Database('funcionario');
+        $db = new Database('usuarios');
         return $db->select()->fetchAll(PDO::FETCH_ASSOC);
     }
 
     public static function buscarPorId($id) {
-        $db = new Database('funcionario');
+        $db = new Database('usuarios');
         return $db->select("id = $id")->fetchObject(self::class);
     }
 
     public static function buscarPorEmail($email) {
         $db2 = new Database(); 
-        $dados = $db2->buscarUsuarioComCpfPorEmail($email);
+        $dados = $db2->buscarAdmPorEmail($email);
         return $dados;
     }
 
     public function excluir($id) {
-        $db = new Database('funcionario');
+        $db = new Database('usuarios');
         return $db->delete("id = $id");
     }
 }
