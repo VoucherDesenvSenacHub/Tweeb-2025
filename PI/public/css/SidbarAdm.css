@@ -112,6 +112,7 @@ main{
     gap: 8px;
     list-style: none;
 }
+
 .sidebarAdm-item{
     display: flex;
     flex-direction: column;
