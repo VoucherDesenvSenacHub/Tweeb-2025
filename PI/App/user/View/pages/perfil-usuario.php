@@ -24,20 +24,7 @@ function mascararCPF($cpf) {
     <title>Meu Perfil</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-    <style>
-        .perfil-tweeb-botoes {
-            display: none;
-        }
-        .editing .perfil-tweeb-botoes {
-            display: flex; 
-        }
-        .editing input:not([disabled]) {
-            border: 1px solid #007bff;
-        }
-        input:not([disabled]) {
-            border: none;
-        }
-    </style>
+    <link rel="stylesheet" href="../../../../public/css/perfil-usuario-enderecos.css">
 </head>
 <body>
     
