@@ -62,7 +62,7 @@ class Produto{
     }
 
     public function atualizar(){
-            return (new Database('produtos'))->update('id_produto ='.$this->id_produto,[
+            return (new Database('produtos'))->update([
                 'id_produto' => $this->id_produto, 
                 'nome_produto' => $this->nome_produto,
                 'marca_modelo' => $this->marca_modelo,
@@ -74,14 +74,13 @@ class Produto{
                 'preco_unid' => $this->preco_unid,
                 'descricao_produto' => $this->descricao_produto,
                 'detalhes_produto' => $this->detalhes_produto,
-
                 'id_departamento' => $this-> id_departamento,
                 'entrega_gratis' => $this-> entrega_gratis,
                 'em_estoque' => $this-> em_estoque,
                 'garantia' => $this-> garantia,
                 'status_produto' => $this-> status_produto,
 
-        ]);
+            ],'id_produto ='.$this->id_produto );
     }
 
     // public static function buscar($where=null,$order=null,$limit=null){

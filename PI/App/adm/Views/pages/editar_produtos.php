@@ -9,6 +9,8 @@ if(!isset($id_recebido) or !is_numeric($id_recebido)){
     exit;
 }
 $produto = Produto::buscar_by_id($id_recebido);
+
+
 $nome_produto = $produto->nome_produto;
 $marca_modelo = $produto->marca_modelo;
 $quantidade_produto = $produto->quantidade_produto;
@@ -26,31 +28,60 @@ $em_estoque = $produto->em_estoque;
 $garantia = $produto->garantia;
 
 
+
 if(isset($_POST['editar'])){
-   
     // $id_produto = $_POST['id_produto'];
     $nome_produto = $_POST['nome_produto'];
     $marca_modelo = $_POST['marca_modelo'];
-    $quantidade_produto = $_POST['quantidade_produto'];    
-    $imagem_produto = $_FILES['imagem_produto'];
-    $numero_serie = $_POST['numero_serie'];
-    $custo_produto = $_POST['custo_produto'];
-    $cor_produto = $_POST['cor_produto'];
-    $preco_unid = $_POST['preco_unid'];
-    $descricao_produto = $_POST['descricao_produto'];
-    $detalhes_produto = $_POST['detalhes_produto'];
+    $quantidade_produto = $_POST['quantidade_produto'];
 
-    $id_departamento= $_POST['id_departamento'];
-    $entrega_gratis = isset($_POST['entrega_gratis']) ? 1 : 0;
-    $em_estoque = isset($_POST['em_estoque']) ? 1 : 0;
-    $garantia = isset($_POST['garantia']) ? 1 : 0;
+    if (isset($_FILES['imagem_produto']) && $_FILES['imagem_produto']['error'] === UPLOAD_ERR_OK) {
+        // Processar o upload da imagem
+    } else {
+        // Nenhuma imagem foi enviada ou ocorreu um erro
+        $caminho = null; // Ou mantenha o valor atual, se preferir
+    }
+
+    if ($caminho !== null) {
+        $arquivo = $_FILES['imagem_produto'];
+        $pasta = '../../../../public/uploads/';
+        $nome_foto = $arquivo['name'];
+        $novo_nome = uniqid();
+        $extensao = strtolower(pathinfo($nome_foto, PATHINFO_EXTENSION));
+    
+        if (in_array($extensao, ['jpg', 'jpeg', 'png'])) {
+            $caminho = $pasta . $novo_nome . '.' . $extensao;
+            if (!move_uploaded_file($arquivo['tmp_name'], $caminho)) {
+                die('Falha ao mover o arquivo.');
+            }
+        } else {
+            die('Somente arquivos JPG, JPEG ou PNG são permitidos.');
+        }
+    }
+
+    
+    
+
+    // ###Código para cadastrar foto no servidor de banco de dados###
+    // $arquivo =$_FILES['imagem_produto'];
+    // if ($arquivo['error'])die("Falha ao enviar a foto");
+    // $pasta ='../../../../public/uploads/';
+    // $nome_foto =$arquivo['name'];
+    // $novo_nome = uniqid();
+    // // echo $novo_nome;
+    // $extensao = strtolower(pathinfo($nome_foto, PATHINFO_EXTENSION));
+    // if ($extensao != 'png' && $extensao !='jpg') die('Falha ao enviar a foto');
+    // $caminho = $pasta . $novo_nome . '.' . $extensao;
+    // $foto =move_uploaded_file($arquivo['tmp_name'], $caminho);
+
+    // echo '<br>CAMINHO ' . $caminho;
 
     $pro_editado = new Produto();
     $pro_editado->id_produto = $id_recebido;
     $pro_editado->nome_produto = $nome_produto;
     $pro_editado->marca_modelo = $marca_modelo;
     $pro_editado->quantidade_produto = $quantidade_produto;
-    $pro_editado->imagem_produto = $imagem_produto;
+    $pro_editado->imagem_produto = $caminho; // Pode ser null
     $pro_editado->numero_serie = $numero_serie;
     $pro_editado->custo_produto = $custo_produto;
     $pro_editado->cor_produto = $cor_produto;
@@ -62,6 +93,37 @@ if(isset($_POST['editar'])){
     $pro_editado->entrega_gratis = $entrega_gratis;
     $pro_editado->em_estoque = $em_estoque;
     $pro_editado->garantia = $garantia;
+    // $result = $pro_editado->atualizar();
+
+    // $numero_serie = $_POST['numero_serie'];
+    // $custo_produto = $_POST['custo_produto'];
+    // $cor_produto = $_POST['cor_produto'];
+    // $preco_unid = $_POST['preco_unid'];
+    // $descricao_produto = $_POST['descricao_produto'];
+    // $detalhes_produto = $_POST['detalhes_produto'];
+
+    // $id_departamento= $_POST['id_departamento'];
+    // $entrega_gratis = isset($_POST['entrega_gratis']) ? 1 : 0;
+    // $em_estoque = isset($_POST['em_estoque']) ? 1 : 0;
+    // $garantia = isset($_POST['garantia']) ? 1 : 0;
+
+    // $pro_editado = new Produto();
+    // $pro_editado->id_produto = $id_recebido;
+    // $pro_editado->nome_produto = $nome_produto;
+    // $pro_editado->marca_modelo = $marca_modelo;
+    // $pro_editado->quantidade_produto = $quantidade_produto;
+    // $pro_editado->imagem_produto = $caminho;
+    // $pro_editado->numero_serie = $numero_serie;
+    // $pro_editado->custo_produto = $custo_produto;
+    // $pro_editado->cor_produto = $cor_produto;
+    // $pro_editado->preco_unid = $preco_unid;
+    // $pro_editado->descricao_produto = $descricao_produto;
+    // $pro_editado->detalhes_produto = $detalhes_produto;
+
+    // $pro_editado->id_departamento = $id_departamento;
+    // $pro_editado->entrega_gratis = $entrega_gratis;
+    // $pro_editado->em_estoque = $em_estoque;
+    // $pro_editado->garantia = $garantia;
 
     $result = $pro_editado->atualizar();
     if($result){
@@ -177,7 +239,7 @@ if(isset($_POST['editar'])){
                 <a href="listarProdutos.php">Cadastrados</a>
             </nav>
             <h2 id='titulo-cadastro-produto'>Editar Produto</h2>
-            <form action="estoqueok.php" method="POST" enctype="multipart/form-data" id="product-form">
+            <form action="" method="POST" enctype="multipart/form-data" id="product-form">
     <div class="form-group">
         <label for="product-name">Nome do Produto</label>
         <input autocomplete="off" type="text" name="nome_produto" class="form_field" placeholder="" id="nome_produto" value="<?=$produto->nome_produto;?>" required>
@@ -201,20 +263,22 @@ if(isset($_POST['editar'])){
         </select>
     </div>
    
-<div class="form-group">
+    <div class="form-group">
 
-<label>Imagem atual:</label>
-<?php if (!empty($produto->imagem_produto)) : ?>
-    <img src="<?= htmlspecialchars($produto->imagem_produto) ?>" style="max-width:50px;" alt="Imagem do Produto"><br>
-<?php endif; ?>
-</div>
+        <label>Imagem atual:</label>
+        <?php if (!empty($produto->imagem_produto)) : ?>
+            <img src="<?= htmlspecialchars($produto->imagem_produto) ?>" style="max-width:50px;" alt="Imagem do Produto"><br>
+        <?php endif; ?>
+        </div>
 
-<div>
-<label>Alterar imagem:</label>
-<input type="file" name="imagem_produto">
+        <div>
+            <label>Alterar imagem:</label>
+            <input type="file" name="imagem_produto">
+        </div>
 
-</div>
-
+    
+        
+    
 
     <div class="form-group">
         <label for="serial-number">Número de Série</label>
