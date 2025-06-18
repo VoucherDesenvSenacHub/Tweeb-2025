@@ -1,3 +1,5 @@
+const form_orcamento = document.getElementById("formulario_orcamento");
+
 function previewImages(event) {
     const input = event.target;
     const container = document.getElementById("imagePreviewContainer");
@@ -27,3 +29,17 @@ function previewImages(event) {
         reader.readAsDataURL(file);
     }
 }
+
+form_orcamento.addEventListener('submit', async function(event){
+    event.preventDefault();
+    
+    const formData = new FormData(form_orcamento);
+
+    let request = await fetch('../../Controllers/OrcamentoController.php', {
+        method: "post",
+        body: formData
+    });
+
+    let response = await request.json();
+    console.log(response);
+})

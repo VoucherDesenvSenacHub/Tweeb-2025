@@ -32,7 +32,7 @@
 
         <div class="orcamento-form-section">
             <h1 class="orcamento-titulo">Solicitação de Orçamento</h1>
-            <form class="orcamento-form" action="#" method="post">
+            <form class="orcamento-form" id="formulario_orcamento" action="#" method="post">
                 <div class="orcamento-input-group">
                     <input class="orcamento-input" type="text" name="nome" placeholder="Nome Completo *" required>
                     <input class="orcamento-input" type="email" name="email" placeholder="Email *" required>
@@ -41,22 +41,22 @@
                 <div class="orcamento-input-group">
                     <select class="orcamento-select" name="tipo-solicitacao" required>
                         <option value="" disabled selected>Tipo de Solicitação *</option>
-                        <option value="opcao1">Manutenção</option>
+                        <option value="Manutencao">Manutenção</option>
                         <option value="opcao2">Formatação</option>
                     </select>
                     <select class="orcamento-select" name="prazo-estimado" required>
                         <option value="" disabled selected>Prazo estimado *</option>
-                        <option value="prazo1">48 horas</option>
+                        <option value="2025-06-20">48 horas</option>
                         <option value="prazo2">Conforme demanda</option>
                     </select>
                     <button class="orcamento-botao-media" type="button" onclick="document.getElementById('imageInput').click()">Adicionar Imagem</button>
-                    <input type="file" id="imageInput" accept="image/*" style="display: none" multiple onchange="previewImages(event)">
+                    <input type="file" name="imagem[]" id="imageInput" accept="image/*" multiple style="display: none" onchange="previewImages(event)" enctype="multipart/form-data">
                 </div>
 
                 <!-- PRÉVIA DAS IMAGENS -->
                 <div id="imagePreviewContainer" style="margin-top: 10px; display: flex; gap: 10px;"></div>
 
-                <textarea class="orcamento-textarea" name="descricao" placeholder="Descreva sua solicitação de orçamento"></textarea>
+                <input type="text" class="orcamento-textarea" name="descricao" placeholder="Descreva sua solicitação de orçamento"></textarea>
                 <button class="orcamento-botao-enviar" type="submit">Enviar</button>
             </form>
         </div>
