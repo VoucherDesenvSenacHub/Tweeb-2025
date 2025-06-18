@@ -12,161 +12,110 @@ body {
 }
 
 header {
-    width: 100%;/*faz o cabeçalho ocupar toda a largura da pag*/
-    height: 120px;/*define a altura do cabeçalho*/
-    display: flex;/**/
-    align-items: center;/**/
-    position: fixed;/**/
-    top: 0;/**/
-    z-index: 99;/**/
-    background-color: #fff; /**/
-    padding: 0 20px;/**/
+    width: 100%; /* faz o cabeçalho ocupar toda a largura da pag*/
+    height: 120px; /* define a altura do cabeçalho*/
+    display: flex; /* */
+    align-items: center; /* */
+    position: fixed; /* */
+    top: 0; /* */
+    z-index: 99; /* */
+    background-color: #fff; /* */
+    padding: 0 20px; /* */
 }
 
 header .logo {
-    margin-right: 20px;/**/
-    display: flex;/**/
-    align-items: center;/**/
-    max-width:200px;/**/
-    max-height:150px;/**/
-    width: auto;/**/
-    height: auto;/**/
+    margin-right: 20px; /* */
+    display: flex; /* */
+    align-items: center; /* */
+    max-width:200px; /* */
+    max-height:150px; /* */
+    width: auto; /* */
+    height: auto; /* */
 }
 
 header .search-box {
-    flex: 1;/**/
-    position: relative;/**/
+    flex: 1; /* */
+    position: relative; /* */
 }
 
 .search-box form {
-    display: flex;/**/
-    align-items: center;/**/
-    width: 100%;/**/
+    display: flex; /* */
+    align-items: center; /* */
+    width: 100%; /* */
 }
 
 .search-box button {
-    border: none; /**/
-    background: transparent; /**/
-    cursor: pointer;/**/
-    display: flex;/**/
-    align-items: center;/**/
-    position: absolute;/**/
-    left: 10px; /**/
-    height: 100%;/**/
-    margin-top: 11.9px;/**/
+    border: none; /* */
+    background: transparent; /* */
+    cursor: pointer; /* */
+    display: flex; /* */
+    align-items: center; /* */
+    position: absolute; /* */
+    left: 10px; /* */
+    height: 100%; /* */
+    margin-top: 11.9px; /* */
 }
 
 .search-box button i {
-    font-size: 17px;/**/
-    color: gray;/**/
+    font-size: 17px; /* */
+    color: gray; /* */
 }
 
 .search-box input {
-    flex: 1;/**/
-    height: 50px;/**/
-    border: none; /**/
-    outline: none; /**/
-    background: #f2f2f2;/**/
-    border-radius: 5px;/**/
-    color: gray;/**/
-    font-size: 15px;/**/
-    padding: 0 40px 0 40px; /**/
-    margin-top: 10px;/**/
+    flex: 1; /* */
+    height: 50px; /* */
+    border: none; /* */
+    outline: none; /* */
+    background: #f2f2f2; /* */
+    border-radius: 5px; /* */
+    color: gray; /* */
+    font-size: 15px; /* */
+    padding: 0 40px 0 40px; /* */
+    margin-top: 10px; /* */
 }
 .search-box input::placeholder {
-    color: rgb(173, 169, 169);/**/
+    color: rgb(173, 169, 169); /* */
     font-family: 'Montserrat', sans-serif;
 }
 
 header nav {
-    flex: 2;/**/
+    flex: 2; /* */
     font-family: 'Montserrat', sans-serif;
 }
 
 header nav ul {
-    display: flex;/**/
-    justify-content: flex-start; /**/
-    padding: 0;/**/
-    margin: 0;/**/
-    gap: 10px; /**/
+    display: flex; /* */
+    justify-content: flex-start; /* */
+    padding: 0; /* */
+    margin: 0; /* */
+    gap: 10px; /* */
 }
 
 header nav ul li {
-    list-style: none;/**/
-    margin-top: 11.9px;/**/
+    list-style: none; /* */
+    margin-top: 11.9px; /* */
 }
 
 header nav ul li a {
-    text-decoration: none;/**/
-    color: rgb(107, 104, 104);/**/
-    font-weight: 500;/**/
-    padding: 10px 25px;/**/
-    font-size: 15px;/**/
+    text-decoration: none; /* */
+    color: rgb(107, 104, 104); /* */
+    font-weight: 500; /* */
+    padding: 10px 25px; /* */
+    font-size: 15px; /* */
     font-family: 'Montserrat', sans-serif;
 }
 header nav ul li a:hover {
-   color: #313131;/**/
+   color: #313131; /* */
 }
 header nav ul li a i{
-    font-size: 18px;/**/
+    font-size: 18px; /* */
 }
 header .menu {
-    font-size: 2.5em;/**/
-    display: none;/**/
+    font-size: 2.5em; /* */
+    display: none; /* */
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/* Estilos para o corpo principal e contêiner */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -227,7 +176,6 @@ body {
 #step-passo{
     font-size: 14px;
 }
-
 
 .enderecos {
     display: flex;
@@ -308,7 +256,6 @@ body {
     color: #291E40;
 }
 
-
 .default-tag {
     background-color: #BF99FE;
     color: white;
@@ -317,31 +264,16 @@ body {
     border-radius: 4px;
     padding: 2px 6px;
 }
-  
+ 
 .btoes-endereco:hover {
     background-color: #f3a9a9; /* Cor mais escura ao passar o mouse */
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/* Estilos do Footer */
 footer {
     background-color: #2e1b46;
     color:white;
     padding: 40px 0;
-    
-    
 }
 
 .footer-container {
@@ -350,14 +282,11 @@ footer {
     max-width: 1200px;
     margin: 0 auto;
     font-family: "Montserrat", sans-serif;
-    
-
 }
 
 .footer-logo{
     width: 500px;
 }
-
 
 .logo p {
     margin-top: 10px;
@@ -379,12 +308,10 @@ footer {
 .links ul {
     list-style: none;
     padding: 0;
-   
 }
 
 .links li {
     margin-bottom: 10px;
-   
 }
 
 .links a {
@@ -396,7 +323,6 @@ footer {
     text-decoration: underline;
 }
 
-
 .contato p, .contact a {
     color: white;
     font-size: 16px;
@@ -406,37 +332,10 @@ footer {
     text-decoration: underline;
 }
 
-
 .logo img {
     width: 200px;
     right: 10px;
 }
-/* 
-#footer_social_midia {
-    position: relative;
-    top: 30px;
-    right: 65px;
-    display: flex;
-    justify-content: center;
-    gap: 1.5rem;
-    margin-top: 1rem;
-}
-#footer_social_midia a {
-    color: white;
-    font-size: 1.2rem; 
-}
-
-#footer_social_midia {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    gap: 1.5rem;
-    margin-top: 1rem;
-}
-#footer_social_midia a {
-    color: var(--color-neutral-1);
-    font-size: 1.2rem; 
-} */
 
 .contact-info{
     font-family: "Poppins", sans-serif;
@@ -446,7 +345,6 @@ footer {
     font-family: "Poppins", sans-serif;
     color: #976be2;
     padding: 20px;
-   
 }
 
 .categoria-item {
@@ -461,13 +359,14 @@ footer {
     text-align: center;
     cursor: pointer;
     transition: background-color 0.3s ease;
-  }
-  
-  .categoria-item:hover {
+}
+ 
+.categoria-item:hover {
     background-color: #3a0d6d; /* Cor mais escura ao passar o mouse */
-  }
+}
 
-  input[type="radio"] {
+/* Estilos de Radio Button */
+input[type="radio"] {
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -479,15 +378,15 @@ footer {
     position: relative;
     cursor: pointer;
     transition: 0.3s;
-  }
-  
-  /* Cor quando o radio está marcado */
-  input[type="radio"]:checked {
+}
+ 
+/* Cor quando o radio está marcado */
+input[type="radio"]:checked {
     border-color: transparent;
-  }
-  
-  /* Adicionar o efeito de seleção (círculo branco no centro quando marcado) */
-  input[type="radio"]:checked::before {
+}
+ 
+/* Adicionar o efeito de seleção (círculo branco no centro quando marcado) */
+input[type="radio"]:checked::before {
     content: '';
     position: absolute;
     top: 50%;
@@ -498,18 +397,18 @@ footer {
     border: 3.5px solid #F6F6F6;
     background-color: black; /* Cor do centro quando marcado */
     border-radius: 100%;
-  }
-  
-  /* Quando não está selecionado, o centro do radio é transparente e a borda é visível */
-  input[type="radio"]:not(:checked)::before {
+}
+ 
+/* Quando não está selecionado, o centro do radio é transparente e a borda é visível */
+input[type="radio"]:not(:checked)::before {
     background-color: transparent; /* Centro transparente */
-  }
-  
-  /* Adicionar uma borda visível quando não está selecionado */
-  input[type="radio"]:not(:checked) {
+}
+ 
+/* Adicionar uma borda visível quando não está selecionado */
+input[type="radio"]:not(:checked) {
     border: 3px solid black; /* Cor da borda */
     background-color: transparent;
-  }
+}
 
 .endereco-card .endereco-label{
     color: #17183B;
@@ -557,59 +456,94 @@ footer {
     cursor: pointer;
 }
 
+/* Estilos para o formulário de novo endereço */
 #new-endereco-form{
-    /* display: flex; */
+    /* display: flex; */ /* Removido para controle via JS */
     align-items: center;
     justify-content: center;
     flex-direction: column;
+}
+
+#new-endereco-form h2 {
+    margin-bottom: 2rem;
+    color: #17183B; /* Cor do título */
+    font-size: 1.5rem;
 }
 
 #form-novo-endereco{
     display: flex;
     flex-direction: column;
-    width: 500px;
+    width: 600px; /* Aumentado a largura para acomodar duas colunas */
     gap: 2rem;
     margin: 2rem 0;
+    padding: 20px;
+    background-color: #fcfcfc; /* Um fundo suave para o formulário */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-#form-novo-endereco input{
-    border-radius: 8px;
-    background-color: #fafafa;
-    box-shadow: 0 5px 10px 1px rgba(0, 0, 0, 0.200);
-    border: none;
-    height: 2rem;
-    padding: 20px;
-    outline: none;
-    color: #555;
-    font-weight: 500;
-    font-size: 1rem;
+.form-grid {
+    display: flex;
+    flex-wrap: wrap; /* Permite que os itens quebrem para a próxima linha */
+    gap: 20px; /* Espaçamento entre os campos */
+    justify-content: space-between; /* Distribui os itens na linha */
+}
+
+.form-group {
+    flex: 1 1 calc(50% - 10px); /* Ocupa 50% da largura, menos metade do gap */
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group.full-width {
+    flex: 1 1 100%; /* Ocupa 100% da largura para campos longos como a rua */
 }
 
 #form-novo-endereco label{
     color: #555;
     font-weight: 500;
+    margin-bottom: 5px;
+}
+
+#form-novo-endereco input{
+    border-radius: 8px;
+    background-color: #fafafa;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra interna para um visual mais limpo */
+    border: 1px solid #ddd; /* Borda sutil */
+    height: 45px; /* Altura ajustada */
+    padding: 0 15px;
+    outline: none;
+    color: #333;
+    font-weight: 400;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+#form-novo-endereco input:focus {
+    border-color: #291E40; /* Destaca a borda ao focar */
 }
 
 .btoes-endereco {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 2rem;
-    padding: 20px;
-    font-size: 20px;
-    font-weight: 500;
+    width: 100%; /* Botão ocupa a largura total */
+    height: 50px;
+    font-size: 1.1rem;
+    font-weight: 600;
     background-color: #291E40;
     color: white;
     border: none;
     border-radius: 8px;
     cursor: pointer;
-    transition: background-color 0.2s ease;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+    margin-top: 1.5rem;
 }
 
 .btoes-endereco:hover{
     background-color: #170e2b;
+    transform: translateY(-2px); /* Pequeno efeito ao passar o mouse */
 }
 
+/* Media Queries para Responsividade do formulário de novo endereço */
 @media only screen and (max-width: 800px){
     #form-novo-endereco{
         width: 100%;
@@ -630,9 +564,21 @@ footer {
     .enderecos h1{
         margin: 1rem 0;
     }
+
+    /* Media Queries para Responsividade do formulário de novo endereço */
+    @media (max-width: 768px) {
+        #form-novo-endereco {
+            width: 90%; /* Ajusta a largura para telas menores */
+            padding: 15px;
+        }
+
+        .form-group {
+            flex: 1 1 100%; /* Em telas menores, os campos ficam em uma única coluna */
+        }
+    }
 }
 
-
+/* Estilos do Modal */
 .modal {
     display: none;
     position: fixed;
@@ -651,7 +597,8 @@ footer {
     padding: 20px;
     border: 1px solid #888;
     width: 80%;
-    max-width: 600px;
+    max-width: 700px;
+    margin-top: 110px;
 }
 
 .close {
@@ -666,4 +613,67 @@ footer {
     color: black;
     text-decoration: none;
     cursor: pointer;
+}
+
+/* --- Novos estilos para o formulário de perfil em colunas --- */
+/* Certifique-se de que .perfil-tweeb-container tenha espaço suficiente */
+.perfil-tweeb-container {
+    max-width: 900px; /* Garante que o contêiner tenha largura suficiente para as colunas */
+    margin: 0 auto; /* Centraliza o contêiner na página */
+    padding: 20px; /* Adiciona um padding para espaçamento interno */
+    border-radius: 8px; /* Cantos arredondados */
+    background-color: #fff; /* Fundo branco */
+}
+
+.perfil-tweeb-form {
+    display: flex;
+    flex-wrap: wrap; /* Permite que os itens quebrem para a próxima linha */
+    gap: 20px; /* Espaçamento entre os campos */
+    justify-content: space-between; /* Distribui os itens na linha */
+    width: 100%; /* Garante que o formulário ocupe a largura disponível */
+}
+
+.perfil-tweeb-input-group {
+    flex: 1 1 calc(50% - 10px); /* Ocupa 50% da largura, menos metade do gap */
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.perfil-tweeb-input-group label {
+    margin-bottom: 5px; /* Espaçamento entre label e input */
+    font-weight: 500;
+    color: #555;
+}
+
+.perfil-tweeb-input-group input[type="text"],
+.perfil-tweeb-input-group input[type="email"],
+.perfil-tweeb-input-group input[type="tel"] { /* Adicionado input[type="tel"] para o telefone */
+    border-radius: 8px;
+    background-color: #fafafa;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd;
+    height: 45px;
+    padding: 0 15px;
+    outline: none;
+    color: #333;
+    font-weight: 400;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.perfil-tweeb-input-group input:focus {
+    border-color: #291E40;
+}
+
+
+/* Media Query para responsividade do formulário de perfil */
+@media (max-width: 768px) {
+    .perfil-tweeb-input-group {
+        flex: 1 1 100%; /* Em telas menores, os campos ficam em uma única coluna */
+    }
+    .perfil-tweeb-botoes-user {
+        flex-direction: column; /* Botões empilham em telas menores */
+        align-items: stretch; /* Estica os botões para a largura total */
+    }
 }

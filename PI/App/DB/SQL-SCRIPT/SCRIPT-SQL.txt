@@ -238,6 +238,9 @@ select * from departamento
 ;
 drop table funcionario;
 drop table enderecos;
+drop table cep;
+
+drop table cep;
 
 CREATE TABLE clientes (
     id_usuario INT PRIMARY KEY,

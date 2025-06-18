@@ -10,7 +10,7 @@
 <body>
     <div class="container-esqueceu">
         <div class="forms-esqueceu">
-            <form action="../../Controllers/esqueceu_senha.php" method="POST">
+            <form action="../../Controllers/EsqueceuSenhaController.php" method="POST">
                 <a href="../../../../home.php" class="back-link"><i class='bx bx-chevron-left'></i> Voltar</a>
                 <h1 class="tit">Esqueceu sua senha?</h1>
                 <p class="descrit">Não se preocupe, isso acontece com todos nós. Digite seu e-mail abaixo para recuperar sua senha.</p>

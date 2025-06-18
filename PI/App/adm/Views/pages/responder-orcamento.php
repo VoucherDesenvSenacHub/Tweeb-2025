@@ -1,3 +1,8 @@
+<?php
+session_start();
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <?php include __DIR__.'/../../../../includes/headernavb.php'; ?>

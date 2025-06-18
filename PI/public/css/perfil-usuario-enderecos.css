@@ -1,0 +1,57 @@
+
+.perfil-tweeb-botoes-user {
+    
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+/* Força os botões a ficarem em uma linha separada, centralizados, e com largura total */
+.perfil-tweeb-botoes-user {
+    flex: 1 1 100%; /* Ocupa a largura total */
+    display: flex;
+    justify-content: flex-end; /* Alinha os botões à direita */
+    gap: 15px; /* Espaçamento entre os botões */
+    margin-top: 20px;
+}
+
+.perfil-tweeb-botoes-user button {
+    height: 50px;
+    padding: 0 25px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.perfil-tweeb-cancelar-end {
+    background-color: transparent;
+    border: 2px solid #291E40;
+    color: #291E40;
+}
+
+.perfil-tweeb-cancelar-end:hover {
+    background-color: #e0e0e0;
+    transform: translateY(-2px);
+}
+
+.perfil-tweeb-salvar-end {
+    background-color: #291E40;
+    border: none;
+    color: white;
+}
+
+.perfil-tweeb-salvar-end:hover {
+    background-color: #170e2b;
+    transform: translateY(-2px);
+}
+.perfil-tweeb-excluir-end{
+    background-color: #291E40;
+    border: none;
+    color: white;
+}
+
+.perfil-tweeb-excluir-end:hover {
+    background-color: #170e2b;
+    transform: translateY(-2px);
+}

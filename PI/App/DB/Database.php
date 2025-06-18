@@ -55,17 +55,22 @@ class Database{
         $result = $this->execute($query,array_values($values));
         
         if($result){
-            return $this->conn->lastInsertId();;
+            return $this->conn->lastInsertId();
         }
         else{
             return false;
         }
     }
 
-    public function update($values, $where){
+    public function update($values, $where) {
+        if (empty($values)) {
+            throw new InvalidArgumentException("Valores de atualização não podem estar vazios.");
+        }
+    
         $fields = array_keys($values);
         $set = implode(' = ?, ', $fields) . ' = ?';
         $query = 'UPDATE ' . $this->table . ' SET ' . $set . ' WHERE ' . $where;
+    
         try {
             $result = $this->execute($query, array_values($values));
             return $result ? true : false;
@@ -73,6 +78,7 @@ class Database{
             die("Update Failed: " . $err->getMessage());
         }
     }
+    
 
     public function select($where = null,$order = null,$limit = null, $fields = '*'){
             //montando a query
@@ -98,7 +104,29 @@ class Database{
         }
         
     }
+    public function buscarUsuarioComCpfPorEmail(string $email) {
+        $query = "
+            SELECT u.id, u.nome, u.sobrenome, u.email, u.senha, u.tipo, u.telefone, u.foto_perfil, c.cpf
+            FROM usuarios u
+            LEFT JOIN clientes c ON u.id = c.id_usuario
+            WHERE u.email = ?
+            LIMIT 1
+        ";
+        $stmt = $this->execute($query, [$email]);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
 
-
+    public function buscarAdmPorEmail(string $email) {
+        $query = "
+            SELECT u.id, u.nome, u.email, u.senha, u.tipo, a.matricula, a.cargo
+            FROM usuarios u
+            LEFT JOIN administrador a ON u.id = a.id_usuario
+            WHERE u.email = ?
+            LIMIT 1
+        ";
+        $stmt = $this->execute($query, [$email]);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+    
 }
 ?>

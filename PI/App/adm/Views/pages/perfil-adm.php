@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -9,8 +11,21 @@
 </head>
 <body>
 
-<?php include __DIR__.'/../../../../includes/head-adm.php'; ?>
-<?php include __DIR__.'/../../../../includes/sidebar-Adm.php'; ?>
+<?php
+include __DIR__.'/../../../../includes/head-adm.php';
+?>
+
+<?php
+
+if(isset($_SESSION['funcionario'])){
+    include __DIR__.'/../../../../includes/sidebar-Adm.php';
+}
+else{
+    header("Location: login-funcionario.php");
+    exit();
+}
+
+?>
 
 <!-- Contêiner do Perfil -->
 <div class="perfil-tweeb">
@@ -55,8 +70,8 @@
             </div>
 
             <div class="perfil-tweeb-input-group">
-                <label for="endereco">Endereço</label>
-                <input type="text" id="endereco" value="Rua Capitão">
+                <label for="cargo">Cargo</label>
+                <input type="text" id="cargo" value="funcionario">
             </div>
 
             <!-- <div class="perfil-tweeb-input-group">
@@ -100,9 +115,7 @@
                 <button type="submit" class="perfil-tweeb-salvar">Salvar alteração</button>
             </div>
     </div>
-</div>
 
-<script src="perfil-usuario.js"></script>
 <?php include __DIR__.'/../../../../includes/footer.php'; ?>
 </body>
 </html>

@@ -26,7 +26,7 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
                 <li><a class="op" href="/Tweeb-2025/PI/home.php">Home</a></li>
                 <li><a class="op" href="quemsomos.php">Sobre</a></li>
                 <li><a class="op" href="orcamento.php">Orçamento</a></li>
-                <li><a class="op" href="/Tweeb-2025/PI/app/user/controllers/UserController.php?acao=logout">Sair</a></li>
+                <li><a class="op" href="/Tweeb-2025/PI/app/user/Controllers/LogoutController.php">Sair</a></li>
                 <li>
                     <a class="op"href="#"><i class='bx bx-cart-alt'></i></a>
                     <a href="../../../Tweeb-2025/PI/App/user/View/pages/perfil-usuario.php" class="user-icon">
@@ -88,7 +88,7 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
                 <a href="alterar-senha.php"><img src="/Tweeb-2025/PI/public/assets/img/alterar.png" alt=""><span class="item-description-nav">Alterar Senha</span></a>
             </li>
             <li class="menu-item-nav">
-                <a href="/Tweeb-2025/PI/app/user/controllers/UserController.php?acao=logout"><img src="/Tweeb-2025/PI/public/assets/img/sair.png" alt=""><span class="item-description-nav">Sair</span></a>
+                <a href="/Tweeb-2025/PI/app/user/Controllers/LogoutController.php"><img src="/Tweeb-2025/PI/public/assets/img/sair.png" alt=""><span class="item-description-nav">Sair</span></a>
             </li>
         </ul>
 

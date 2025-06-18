@@ -1,268 +1,52 @@
 <?php
 
 require_once __DIR__ . '/../Models/Usuario.php';
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    header('Content-Type: application/json');
+    $dados = json_decode(file_get_contents('php://input'), true);
 
-class UserController {
-    private $usuario;
+    $nome = trim($dados['nome'] ?? '');
+    $email = trim($dados['email'] ?? '');
+    $cpf = trim($dados['cpf'] ?? '');
+    $senha = $dados['senha'] ?? '';
+    $confirmacao = $dados['confirmar_senha'] ?? '';
 
-    public function __construct() {
-        if (session_status() !== PHP_SESSION_ACTIVE) {
-            session_start();
-        }
-        $this->usuario = new Usuario();
+    if (empty($nome) || empty($cpf) || empty($email) || empty($senha) || empty($confirmacao)) {
+        echo json_encode(['sucesso' => false, 'mensagem' => 'Preencha todos os campos']);
+        exit;
     }
-
-    public function processarCadastro() {
-        if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-            header('location: /Tweeb-2025/PI/App/user/View/pages/cadastro.php');
-            exit();
-        }
-
-        // Converte o campo confirmar_senha para confirmacao
-        $_POST['confirmacao'] = $_POST['confirmar_senha'] ?? '';
-
-        $resultado = $this->usuario->cadastrar([
-            'nome' => $_POST['nome'] ?? '',
-            'email' => $_POST['email'] ?? '',
-            'cpf' => $_POST['cpf'] ?? '',
-            'senha' => $_POST['senha'] ?? '',
-            'confirmacao' => $_POST['confirmacao'] ?? ''
-        ]);
-
-        if ($resultado === true) {
-            header('location: /Tweeb-2025/PI/App/user/View/pages/pagina_1_pesquisa_cadastro.php');
-            exit();
-        }
-
-        header('location: /Tweeb-2025/PI/App/user/View/pages/cadastro.php?status=' . urlencode($resultado));
-        exit();
+   
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        echo json_encode(['sucesso' => false, 'mensagem' => 'Email inválido']);
+        exit;
     }
-
-    public function processarLogin() {
-        if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-            header('location: /Tweeb-2025/PI/App/user/View/pages/login.php');
-            exit();
-        }
-
-        $email = $_POST['email'] ?? '';
-        $senha = $_POST['senha'] ?? '';
-
-        if ($this->usuario->login($email, $senha)) {
-            header('Location: /Tweeb-2025/PI/home.php');
-            exit();
-        }
-
-        header('Location: /Tweeb-2025/PI/App/user/View/pages/login.php?status=error');
-        exit();
+ 
+    if ($senha !== $confirmacao) {
+        echo json_encode(['sucesso' => false, 'mensagem' => 'Senhas não conferem']);
+        exit;
     }
-
-    public function logout() {
-        session_start();
-        session_destroy();
-        header('Location: /Tweeb-2025/PI/App/user/View/pages/login.php');
-        exit();
+ 
+    $usuario = new Usuario();
+    $usuarioExistente = $usuario->buscarPorEmail($email);
+    if ($usuarioExistente) {
+        echo json_encode(['sucesso' => false, 'mensagem' => 'Email já cadastrado']);
+        exit;
     }
+   
+    $senhaHash = password_hash($senha, PASSWORD_DEFAULT);
 
-    public function processarEdicao() {
-        if (session_status() !== PHP_SESSION_ACTIVE) {
-            session_start();
-        }
+    $usuario->nome = $nome;
+    $usuario->email = $email;
+    $usuario->cpf = $cpf;
+    $usuario->senha = $senhaHash;
+    $usuario->tipo = 'cliente';
 
-        if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-            header('Location: /Tweeb-2025/PI/app/user/view/pages/perfil-usuario.php');
-            exit();
-        }
+    $id = $usuario->inserir();
 
-        if (!isset($_SESSION['usuario']) || !isset($_SESSION['usuario']['id'])) {
-            header('Location: /Tweeb-2025/PI/app/user/view/pages/login.php');
-            exit();
-        }
-
-        $id = $_SESSION['usuario']['id'];
-        
-        // Dados do usuário
-        $dadosUsuario = array_filter([
-            'nome' => $_POST['nome'] ?? '',
-            'sobrenome' => $_POST['sobrenome'] ?? '',
-            'email' => $_POST['email'] ?? '',
-            'telefone' => $_POST['telefone'] ?? ''
-        ], function($value) {
-            return $value !== '' && $value !== null;
-        });
-
-        try {
-            // Atualiza o usuário
-            if ($this->usuario->atualizar($id, $dadosUsuario)) {
-                // Atualiza apenas os campos que foram modificados na sessão
-                foreach ($dadosUsuario as $campo => $valor) {
-                    $_SESSION['usuario'][$campo] = $valor;
-                }
-                header('Location: /Tweeb-2025/PI/app/user/view/pages/perfil-usuario.php');
-            } else {
-                $_SESSION['erro'] = "Nenhuma alteração foi realizada.";
-                header('Location: /Tweeb-2025/PI/app/user/view/pages/perfil-usuario.php');
-            }
-        } catch (Exception $e) {
-            $_SESSION['erro'] = "Erro ao atualizar dados: " . $e->getMessage();
-            header('Location: /Tweeb-2025/PI/app/user/view/pages/perfil-usuario.php');
-        }
-        exit();
+    if ($id) {
+        echo json_encode(['sucesso' => true, 'mensagem' => 'Usuário cadastrado com sucesso!']);
+    } else {
+        echo json_encode(['sucesso' => false, 'mensagem' => 'Erro ao cadastrar.']);
     }
-
-    public function processarUploadFoto() {
-        if (session_status() !== PHP_SESSION_ACTIVE) {
-            session_start();
-        }
-
-        if (!isset($_SESSION['usuario']) || !isset($_SESSION['usuario']['id'])) {
-            header('Location: /Tweeb-2025/PI/app/user/view/pages/login.php');
-            exit();
-        }
-
-        if (!isset($_FILES['foto_perfil']) || $_FILES['foto_perfil']['error'] !== UPLOAD_ERR_OK) {
-            $_SESSION['erro'] = "Erro no upload da imagem.";
-            header('Location: /Tweeb-2025/PI/app/user/view/pages/perfil-usuario.php');
-            exit();
-        }
-
-        $foto = $_FILES['foto_perfil'];
-        $nomeArquivo = uniqid() . '_' . basename($foto['name']);
-        $diretorioDestino = __DIR__ . '/../../../../PI/public/uploads/';
-        
-        // Verifica e cria o diretório se não existir
-        if (!file_exists($diretorioDestino)) {
-            mkdir($diretorioDestino, 0777, true);
-        }
-        
-        $caminhoCompleto = $diretorioDestino . $nomeArquivo;
-        
-        // Verifica o tipo do arquivo
-        $tipoPermitido = ['image/jpeg', 'image/png', 'image/gif'];
-        $tipoArquivo = mime_content_type($foto['tmp_name']);
-        
-        if (!in_array($tipoArquivo, $tipoPermitido)) {
-            $_SESSION['erro'] = "Tipo de arquivo não permitido. Use apenas imagens JPG, PNG ou GIF.";
-            header('Location: /Tweeb-2025/PI/app/user/view/pages/perfil-usuario.php');
-            exit();
-        }
-        
-        if (move_uploaded_file($foto['tmp_name'], $caminhoCompleto)) {
-            // Atualiza a foto no banco de dados
-            $this->usuario->atualizarFoto($_SESSION['usuario']['id'], $nomeArquivo);
-            
-            // Atualiza a sessão
-            $_SESSION['usuario']['foto_perfil'] = $nomeArquivo;
-            
-            header('Location: /Tweeb-2025/PI/app/user/view/pages/perfil-usuario.php');
-            exit();
-        }
-        
-        $_SESSION['erro'] = "Erro ao salvar a imagem. Tente novamente.";
-        header('Location: /Tweeb-2025/PI/app/user/view/pages/perfil-usuario.php');
-        exit();
-    }
-
-    public function processarAlteracaoSenha() {
-        if (session_status() !== PHP_SESSION_ACTIVE) {
-            session_start();
-        }
-
-        if (!isset($_SESSION['usuario']) || !isset($_SESSION['usuario']['id'])) {
-            header('Location: /Tweeb-2025/PI/app/user/view/pages/login.php');
-            exit();
-        }
-
-        if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-            header('Location: /Tweeb-2025/PI/app/user/view/pages/alterar-senha.php');
-            exit();
-        }
-
-        $senha_atual = $_POST['senha_atual'] ?? '';
-        $nova_senha = $_POST['nova_senha'] ?? '';
-        $confirmar_senha = $_POST['confirmar_senha'] ?? '';
-
-        // Validações
-        if (empty($senha_atual) || empty($nova_senha) || empty($confirmar_senha)) {
-            $_SESSION['mensagem'] = "Todos os campos são obrigatórios.";
-            $_SESSION['mensagem_tipo'] = "alert-danger";
-            header('Location: /Tweeb-2025/PI/app/user/view/pages/alterar-senha.php');
-            exit();
-        }
-
-        if ($nova_senha !== $confirmar_senha) {
-            $_SESSION['mensagem'] = "A nova senha e a confirmação não coincidem.";
-            $_SESSION['mensagem_tipo'] = "alert-danger";
-            header('Location: /Tweeb-2025/PI/app/user/view/pages/alterar-senha.php');
-            exit();
-        }
-
-        try {
-            // Verifica se a senha atual está correta
-            $usuario = $this->usuario->buscarPorId($_SESSION['usuario']['id']);
-            if (!password_verify($senha_atual, $usuario['senha'])) {
-                $_SESSION['mensagem'] = "Senha atual incorreta.";
-                $_SESSION['mensagem_tipo'] = "alert-danger";
-                header('Location: /Tweeb-2025/PI/app/user/view/pages/alterar-senha.php');
-                exit();
-            }
-
-            // Atualiza a senha
-            $senha_hash = password_hash($nova_senha, PASSWORD_DEFAULT);
-            if ($this->usuario->atualizarSenha($_SESSION['usuario']['id'], $senha_hash)) {
-                $_SESSION['mensagem'] = "Senha alterada com sucesso!";
-                $_SESSION['mensagem_tipo'] = "alert-success";
-            } else {
-                $_SESSION['mensagem'] = "Erro ao alterar a senha. Tente novamente.";
-                $_SESSION['mensagem_tipo'] = "alert-danger";
-            }
-        } catch (Exception $e) {
-            $_SESSION['mensagem'] = "Erro ao alterar a senha: " . $e->getMessage();
-            $_SESSION['mensagem_tipo'] = "alert-danger";
-        }
-
-        header('Location: /Tweeb-2025/PI/app/user/view/pages/alterar-senha.php');
-        exit();
-    }
-
-    // Método estático para processar as requisições
-    public static function processarRequisicao() {
-        $controller = new self();
-        $acao = $_GET['acao'] ?? '';
-
-        switch ($acao) {
-            case 'cadastrar':
-                $controller->processarCadastro();
-                break;
-            
-            case 'login':
-                $controller->processarLogin();
-                break;
-            
-            case 'logout':
-                $controller->logout();
-                break;
-
-            case 'editar':
-                $controller->processarEdicao();
-                break;
-
-            case 'upload_foto':
-                $controller->processarUploadFoto();
-                break;
-
-            case 'alterar_senha':
-                $controller->processarAlteracaoSenha();
-                break;
-            
-            default:
-                header('Location: /Tweeb-2025/PI/App/user/View/pages/login.php');
-                exit();
-        }
-    }
+    exit;
 }
-
-// Se este arquivo for chamado diretamente, processa a requisição
-if (basename($_SERVER['PHP_SELF']) === basename(__FILE__)) {
-    UserController::processarRequisicao();
-}
-?>

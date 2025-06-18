@@ -1,3 +1,92 @@
+<?php
+// require '../../Controllers/Produto.php';
+
+
+require_once(__DIR__ . '/../../Controllers/Produto.php');
+
+$dados_produto = new Produto();
+$produto_banco = $dados_produto->buscar();
+
+if(isset($_POST['cadastrar'])){
+    // $id_produto = $_POST['id_produto'];
+    $nome_produto = $_POST['nome_produto'];
+    $marca_modelo = $_POST['marca_modelo'];
+    $quantidade_produto = $_POST['quantidade_produto'];    
+    $imagem_produto = $_FILES['imagem_produto'];
+    $numero_serie = $_POST['numero_serie'];
+    $custo_produto = $_POST['custo_produto'];
+    $cor_produto = $_POST['cor_produto'];
+    $preco_unid = $_POST['preco_unid'];
+    $descricao_produto = $_POST['descricao_produto'];
+    $detalhes_produto = $_POST['detalhes_produto'];
+
+    $id_departamento= $_POST['id_departamento'];
+    $entrega_gratis = isset($_POST['entrega_gratis']) ? 1 : 0;
+    $em_estoque = isset($_POST['em_estoque']) ? 1 : 0;
+    $garantia = isset($_POST['garantia']) ? 1 : 0;
+
+    
+     
+    ###Código para cadastrar foto no servidor de banco de dados###
+    $arquivo =$_FILES['imagem_produto'];
+    if ($arquivo['error'])die("Falha ao enviar a foto");
+    $pasta ='../../../../public/uploads/';
+    $nome_foto =$arquivo['name'];
+    $novo_nome = uniqid();
+    // echo $novo_nome;
+    $extensao = strtolower(pathinfo($nome_foto, PATHINFO_EXTENSION));
+    if ($extensao != 'png' && $extensao !='jpg') die('Falha ao enviar a foto');
+    $caminho = $pasta . $novo_nome . '.' . $extensao;
+    $foto =move_uploaded_file($arquivo['tmp_name'], $caminho);
+
+    // echo '<br>CAMINHO ' . $caminho;
+    ###Código para cadastrar foto no servidor de banco de dados###
+
+    $produto = new Produto();
+    // $produto->id_produto = $id_produto;
+    $produto->nome_produto = $nome_produto;
+    $produto->marca_modelo = $marca_modelo;
+    $produto->quantidade_produto = $quantidade_produto;
+    $produto->imagem_produto = $caminho;
+    $produto->numero_serie = $numero_serie;
+    $produto->custo_produto = $custo_produto;
+    $produto->cor_produto  = $cor_produto;
+    $produto->preco_unid = $preco_unid;
+    $produto->descricao_produto = $descricao_produto;
+    $produto->detalhes_produto= $detalhes_produto;
+
+    $produto->id_departamento = $id_departamento;
+    $produto->entrega_gratis = $entrega_gratis;
+    $produto->em_estoque = $em_estoque;
+    $produto->garantia = $garantia;
+
+   
+    
+
+    $result = $produto->cadastrar();
+    if($result){
+        echo '<script> alert("Produto cadastrado com sucesso!!") </script>';
+    }else{
+        echo 'Error';
+    }
+}
+
+$id_produto = $_POST['id_produto'] ?? null;
+
+$em_estoque = isset($_POST['em_estoque']) ? 1 : 0;
+$garantia = isset($_POST['garantia']) ? 1 : 0;
+$entrega_gratis = isset($_POST['entrega_gratis']) ? 1 : 0;
+
+if ($id_produto !== null) {
+    $produto = new Produto();
+    $produto->atualizarFlags($id_produto, $em_estoque, $garantia, $entrega_gratis);
+    exit;
+}
+
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -19,10 +108,10 @@
         .cadastrando-products {
             width: 90%;
             max-width: 1100px;
-            background: #fff;
+            /* background: #fff; */
             padding: 20px;
             border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
             margin-top: 20px;
             
         }
@@ -98,66 +187,97 @@
                 <a href="#" class="active">Novo Produto</a>
                 <a href="listarProdutos.php">Cadastrados</a>
             </nav>
-            <h2>Detalhes do Produto</h2>
-            <form id="product-form">
-                <div class="form-group">
-                    <label for="product-name">Nome do Produto</label>
-                    <input type="text" id="product-name">
-                    <label for="product-brand">Marca/Modelo</label>
-                    <input type="text" id="product-brand">
-                </div>
-                <div class="form-group">
-                    <label for="product-quantity">Quantidade</label>
-                    <input type="number" id="product-quantity">
-                    <label for="product-department">Departamento</label>
-                    <select id="product-department">
-                        <option value="">Selecione</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="product-image">Imagem</label>
-                    <input type="file" id="product-image">
-                    <label for="product-invoice">Nota Fiscal</label>
-                    <input type="file" id="product-invoice">
-                </div>
-                <div class="form-group">
-                    <label for="serial-number">Número de Série</label>
-                    <input type="text" id="serial-number">
-                    <label for="product-cost">Custo</label>
-                    <input type="text" id="product-cost">
-                </div>
-                <div class="form-group">
-                    <label for="stock-minimum">Estoque Mínimo</label>
-                    <input type="number" id="stock-minimum">
-                    <label for="product-color">Cor</label>
-                    <input type="text" id="product-color">
-                </div>
-                <div class="form-group">
-                    <label for="product-description">Descrição</label>
-                    <textarea id="product-description" maxlength="1000"></textarea>
-                </div>
-                <h3>Especificações Promocionais</h3>
-                <div class="form-group">
-                    <label for="promo-value">Valor</label>
-                    <input type="text" id="promo-value">
-                    <label for="promo-discount">Desconto Promocional</label>
-                    <input type="text" id="promo-discount">
-                </div>
-                <div class="form-group">
-                    <label for="related-products">Produtos Relacionados</label>
-                    <select id="related-products">
-                        <option value="">Selecione</option>
-                    </select>
-                </div>
-                <div class="icons">
-                    <span>📦 Em estoque Hoje</span>
-                    <span>🔒 Garantia 1 ano</span>
-                    <span>🚚 Entrega Grátis 1-2 dias</span>
-                </div>
-                <button type="submit" id="save-button">Salvar</button>
-            </form>
-        </div>
+            <h2 id='titulo-cadastro-produto'>Detalhes do Produto</h2>
+            <form action="estoqueok.php" method="POST" enctype="multipart/form-data" id="product-form">
+    <div class="form-group">
+        <label for="product-name">Nome do Produto</label>
+        <input autocomplete="off" type="text" name="nome_produto" class="form_field" placeholder="" id="nome_produto" required>
+
+        <label for="product-brand">Marca/Modelo</label>
+        <input autocomplete="off" type="text" name="marca_modelo" class="form_field" placeholder="" id="marca_modelo" required>
     </div>
-    <?php include __DIR__.'/../../../../includes/footer-adm.php'; ?> 
+
+    <div class="form-group">
+        <label for="product-quantity">Quantidade</label>
+        <input autocomplete="off" type="number" name="quantidade_produto" class="form_field" placeholder="" id="quantidade_produto" required>
+
+        <label for="product-department">Departamento</label>
+        <select name="id_departamento" id="id_departamento">
+            <option value="1">hardwares</option>
+            <option value="2">computadores</option>
+            <option value="3">periféricos</option>
+            <option value="4">energia</option>
+            <option value="5">áudio</option>
+            <option value="6">jogos</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="product-image">Imagem</label>
+        <input autocomplete="off" type="file" name="imagem_produto" class="form_field" placeholder="" id="imagem_produto" required>
+    </div>
+
+    <div class="form-group">
+        <label for="serial-number">Número de Série</label>
+        <input autocomplete="off" type="number" name="numero_serie" class="form_field" placeholder="" id="numero_serie" required>
+
+        <label for="product-cost">Custo</label>
+        <input autocomplete="off" type="number" name="custo_produto" step="0.01" class="form_field" placeholder="" id="custo_produto" required>
+    </div>
+
+    <div class="form-group">
+        <label for="product-color">Cor</label>
+        <input autocomplete="off" type="text" name="cor_produto" class="form_field" placeholder="" id="cor_produto" required>
+    </div>
+
+    <div class="form-group">
+        <label for="product-description">Descrição</label>
+        <textarea name="descricao_produto" id="descricao_produto" maxlength="1000"></textarea>
+    </div>
+    
+    <div class="form-group">
+        <label for="product-description">Detalhes produto</label>
+        <textarea name="detalhes_produto" id="detalhes_produto" maxlength="1000"></textarea>
+    </div>
+
+    <h3>Especificações Promocionais</h3>
+    <div class="form-group">
+        <label for="promo-value">Valor</label>
+        <input autocomplete="off" type="number" name="preco_unid" step="0.01" class="form_field" placeholder="" id="preco_unid" required>
+    </div>
+
+    <div class="form-group">
+        <label for="related-products">Produtos Relacionados</label>
+        <select name="related-products" id="related-products">
+            <option value="">hardwares</option>
+            <option value="">computadores</option>
+            <option value="">periféricos</option>
+            <option value="">energia</option>
+            <option value="">áudio</option>
+            <option value="">jogos</option>
+        </select>
+    </div>
+
+    <div class="icons">
+        <label>
+            <input type="checkbox" name="em_estoque" value="1" <?= !empty($produto_banco['em_estoque']) ? "checked" : "" ?>>
+            📦 Em estoque Hoje
+        </label><br>
+
+        <label>
+            <input type="checkbox" name="garantia" value="1" <?= !empty($produto_banco['garantia']) ? "checked" : "" ?>>
+            🔒 Garantia 1 ano
+        </label><br>
+
+        <label>
+            <input type="checkbox" name="entrega_gratis" value="1" <?= !empty($produto_banco['entrega_gratis']) ? "checked" : "" ?>>
+            🚚 Entrega Grátis 1-2 dias
+        </label>
+    </div>
+
+    <button type="submit" name="cadastrar" value="cadastrar" id="save-button">Salvar</button>
+</form>
+
+<!-- <?php include __DIR__.'/../../../../includes/footer-adm.php'; ?>  -->
 </body>
 </html>

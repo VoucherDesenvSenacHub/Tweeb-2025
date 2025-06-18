@@ -22,9 +22,9 @@
                     <p class="error-message" style="color: red;">Erro ao cadastrar. Tente novamente mais tarde.</p>
                 <?php endif; ?>
             <?php endif; ?>
-            <form method="post" action="../../Controllers/UserController.php" class="cadastrofunc-form">
+            <form method="post" id="cadastrofunc-form" action="../../Controllers/FuncionarioController.php" class="cadastrofunc-form">
                 <input name='nome' type="text" placeholder="Nome" class="Task3a-input"> 
-                <input name='matricula' type="text" placeholder="Matrícula" class="Task3a-input">
+                <input name='email' type="text" placeholder="E-mail" class="Task3a-input">
                 <input name='senha' type="password" placeholder="Digite sua senha" class="Task3a-input"> 
                 <input name='confirmacao' type="password" placeholder="Confirme sua senha " class="Task3a-input">
                 <button type="submit" class="Task3a-btn-email">Cadastre-se</button>
@@ -32,6 +32,9 @@
             <p class="Task3a-terms">Ao clicar em continuar, você concorda com nossos <a href="#">Termos de Serviço</a> e <a href="#">Política de Privacidade</a></p>
         </div> 
     </div> 
+    
+    <script src="../../../../public/js/validacao-cpf.js"></script>
+    <script src="../../../../public/js/cadastro_funcionario.js"></script>
 </body> 
 </html>
 
