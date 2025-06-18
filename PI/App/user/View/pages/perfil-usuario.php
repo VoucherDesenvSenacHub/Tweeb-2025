@@ -118,10 +118,10 @@ function mascararCPF($cpf) {
                 <input type="text" id="telefone" name="telefone" value="<?php echo htmlspecialchars($_SESSION['usuario']['telefone'] ?? ''); ?>" readonly>
             </div>
 
-            <div class="perfil-tweeb-botoes">
-                <button type="button" class="perfil-tweeb-cancelar" onclick="cancelEdit()">Cancelar</button>
-                <button type="button" class="perfil-tweeb-excluir" onClick="deletaUsuario()">Excluir</button>
-                <button type="submit" class="perfil-tweeb-salvar" onClick="editarUsuario()">Salvar alteração</button>
+            <div class="perfil-tweeb-botoes-user">
+                <button type="button" class="perfil-tweeb-cancelar-end" onclick="cancelEdit()">Cancelar</button>
+                <button type="submit" class="perfil-tweeb-salvar-end" onClick="editarUsuario()">Salvar alteração</button>
+                <button type="button" class="perfil-tweeb-excluir-end" onClick="deletaUsuario()">Excluir Conta</button>
             </div>
             
         </form>

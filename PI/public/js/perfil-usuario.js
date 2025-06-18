@@ -8,6 +8,33 @@ inputs.forEach(input => {
     originalValues[input.name] = input.value;
 });
 
+document.addEventListener("DOMContentLoaded", () => {
+    const botaoEditar = document.querySelector(".perfil-tweeb-editar-foto");
+    const camposEditaveis = document.querySelectorAll(".perfil-tweeb-form input:not(#cpf):not([disabled])");
+    const botaoSalvar = document.querySelector(".perfil-tweeb-salvar-end");
+    const botaoExcluir = document.querySelector(".perfil-tweeb-excluir-end");
+    const botaoCancelar = document.querySelector(".perfil-tweeb-cancelar-end");
+
+    // Começa com os campos readonly
+    camposEditaveis.forEach(input => input.setAttribute("readonly", "true"));
+
+    // Botões Salvar e Cancelar inicialmente escondidos
+    botaoSalvar.style.display = "none";
+    botaoCancelar.style.display = "none";
+    botaoExcluir.style.display = "none";
+
+    botaoEditar.addEventListener("click", () => {
+        camposEditaveis.forEach(input => input.removeAttribute("readonly"));
+        botaoSalvar.style.display = "inline-block";
+        botaoCancelar.style.display = "inline-block";
+        botaoExcluir.style.display = "inline-block";
+    });
+
+    botaoCancelar.addEventListener("click", () => {
+        cancelEdit(); // Chama a função cancelEdit para reverter e ocultar botões
+    });
+});
+
 console.log(originalValues);
 
 // Função para ativar/desativar modo de edição
@@ -24,6 +51,9 @@ function cancelEdit() {
     perfil_form.querySelectorAll("input").forEach(input => {
         input.setAttribute("readonly", true);
     });
+    document.querySelector(".perfil-tweeb-salvar-end").style.display = "none";
+    document.querySelector(".perfil-tweeb-cancelar-end").style.display = "none";
+    document.querySelector(".perfil-tweeb-excluir-end").style.display = "none";
     let camposParaLimpar = ["sobrenome", "telefone"];
     camposParaLimpar.forEach(id => {
         let input = document.getElementById(id);
