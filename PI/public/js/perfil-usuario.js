@@ -89,7 +89,7 @@ function deletaUsuario() {
     .catch(err => console.error("Erro:", err));
 }
 
-    perfil_form.addEventListener('submit', async function(event) {
+perfil_form.addEventListener('submit', async function(event) {
         event.preventDefault();
 
     let formData = {
