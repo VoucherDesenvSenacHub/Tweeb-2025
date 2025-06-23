@@ -91,7 +91,7 @@ class Produto{
     // essa função está fazendo um select no banco apenas dos produtos ativos
     public static function buscar($where = null, $order = null, $limit = null) {
         // Adiciona a condição de status_produto = 1 ao where
-        $condicaoBase = 'status_produto = 0';
+        $condicaoBase = 'status_produto = 1';
     
         // Se já houver uma condição passada pelo usuário, concatena com AND
         if ($where) {

@@ -29,111 +29,134 @@ $garantia = $produto->garantia;
 
 
 
+// if(isset($_POST['editar'])){
+//     // $id_produto = $_POST['id_produto'];
+//     $nome_produto = $_POST['nome_produto'];
+//     $marca_modelo = $_POST['marca_modelo'];
+//     $quantidade_produto = $_POST['quantidade_produto'];
+
+//     if (isset($_FILES['imagem_produto']) && $_FILES['imagem_produto']['error'] === UPLOAD_ERR_OK) {
+//         // Processar o upload da imagem
+//     } else {
+//         // Nenhuma imagem foi enviada ou ocorreu um erro
+//         $caminho = null; // Ou mantenha o valor atual, se preferir
+//     }
+    
+    
+
+//     ###Código para cadastrar foto no servidor de banco de dados###
+//     $arquivo =$_FILES['imagem_produto'];
+//     if ($arquivo['error'])die("Falha ao enviar a foto");
+//     $pasta ='../../../../public/uploads/';
+//     $nome_foto =$arquivo['name'];
+//     $novo_nome = uniqid();
+  
+//     $extensao = strtolower(pathinfo($nome_foto, PATHINFO_EXTENSION));
+//     if ($extensao != 'png' && $extensao !='jpg') die('Falha ao enviar a foto');
+//     $caminho = $pasta . $novo_nome . '.' . $extensao;
+//     $foto =move_uploaded_file($arquivo['tmp_name'], $caminho);
+
+
+
+//     $pro_editado = new Produto();
+//     $pro_editado->id_produto = $id_recebido;
+//     $pro_editado->nome_produto = $nome_produto;
+//     $pro_editado->marca_modelo = $marca_modelo;
+//     $pro_editado->quantidade_produto = $quantidade_produto;
+//     $pro_editado->imagem_produto = $caminho; // Pode ser null
+//     $pro_editado->numero_serie = $numero_serie;
+//     $pro_editado->custo_produto = $custo_produto;
+//     $pro_editado->cor_produto = $cor_produto;
+//     $pro_editado->preco_unid = $preco_unid;
+//     $pro_editado->descricao_produto = $descricao_produto;
+//     $pro_editado->detalhes_produto = $detalhes_produto;
+
+//     $pro_editado->id_departamento = $id_departamento;
+//     $pro_editado->entrega_gratis = $entrega_gratis;
+//     $pro_editado->em_estoque = $em_estoque;
+//     $pro_editado->garantia = $garantia;
+
+
+//     $pro_editado = new Produto();
+//     $pro_editado->id_produto = $id_recebido;
+//     $pro_editado->nome_produto = $nome_produto;
+//     $pro_editado->marca_modelo = $marca_modelo;
+//     $pro_editado->quantidade_produto = $quantidade_produto;
+//     $pro_editado->imagem_produto = $caminho;
+//     $pro_editado->numero_serie = $numero_serie;
+//     $pro_editado->custo_produto = $custo_produto;
+//     $pro_editado->cor_produto = $cor_produto;
+//     $pro_editado->preco_unid = $preco_unid;
+//     $pro_editado->descricao_produto = $descricao_produto;
+//     $pro_editado->detalhes_produto = $detalhes_produto;
+
+//     $pro_editado->id_departamento = $id_departamento;
+//     $pro_editado->entrega_gratis = $entrega_gratis;
+//     $pro_editado->em_estoque = $em_estoque;
+//     $pro_editado->garantia = $garantia;
+
+//     $result = $pro_editado->atualizar();
+//     if($result){
+//         echo '<script> alert("Atualizado com sucesso!") </script>' ;
+//     }else{
+//         echo 'Erro ao atualizar';
+//     }
+
+//     echo $result;
+// }
+
 if(isset($_POST['editar'])){
-    // $id_produto = $_POST['id_produto'];
     $nome_produto = $_POST['nome_produto'];
     $marca_modelo = $_POST['marca_modelo'];
     $quantidade_produto = $_POST['quantidade_produto'];
+    $imagem_antiga = $_POST['imagem_produto_antiga'] ?? null;
+
+    $caminho = $imagem_antiga; // valor padrão é a imagem antiga
 
     if (isset($_FILES['imagem_produto']) && $_FILES['imagem_produto']['error'] === UPLOAD_ERR_OK) {
-        // Processar o upload da imagem
-    } else {
-        // Nenhuma imagem foi enviada ou ocorreu um erro
-        $caminho = null; // Ou mantenha o valor atual, se preferir
-    }
-
-    if ($caminho !== null) {
         $arquivo = $_FILES['imagem_produto'];
         $pasta = '../../../../public/uploads/';
         $nome_foto = $arquivo['name'];
         $novo_nome = uniqid();
+
         $extensao = strtolower(pathinfo($nome_foto, PATHINFO_EXTENSION));
-    
-        if (in_array($extensao, ['jpg', 'jpeg', 'png'])) {
-            $caminho = $pasta . $novo_nome . '.' . $extensao;
-            if (!move_uploaded_file($arquivo['tmp_name'], $caminho)) {
-                die('Falha ao mover o arquivo.');
-            }
-        } else {
-            die('Somente arquivos JPG, JPEG ou PNG são permitidos.');
+        if ($extensao != 'png' && $extensao != 'jpg') die('Falha ao enviar a foto');
+
+        $caminho = $pasta . $novo_nome . '.' . $extensao;
+        $foto = move_uploaded_file($arquivo['tmp_name'], $caminho);
+
+        if (!$foto) {
+            die('Erro ao mover o arquivo');
         }
     }
-
-    
-    
-
-    // ###Código para cadastrar foto no servidor de banco de dados###
-    // $arquivo =$_FILES['imagem_produto'];
-    // if ($arquivo['error'])die("Falha ao enviar a foto");
-    // $pasta ='../../../../public/uploads/';
-    // $nome_foto =$arquivo['name'];
-    // $novo_nome = uniqid();
-    // // echo $novo_nome;
-    // $extensao = strtolower(pathinfo($nome_foto, PATHINFO_EXTENSION));
-    // if ($extensao != 'png' && $extensao !='jpg') die('Falha ao enviar a foto');
-    // $caminho = $pasta . $novo_nome . '.' . $extensao;
-    // $foto =move_uploaded_file($arquivo['tmp_name'], $caminho);
-
-    // echo '<br>CAMINHO ' . $caminho;
 
     $pro_editado = new Produto();
     $pro_editado->id_produto = $id_recebido;
     $pro_editado->nome_produto = $nome_produto;
     $pro_editado->marca_modelo = $marca_modelo;
     $pro_editado->quantidade_produto = $quantidade_produto;
-    $pro_editado->imagem_produto = $caminho; // Pode ser null
+    $pro_editado->imagem_produto = $caminho;
     $pro_editado->numero_serie = $numero_serie;
     $pro_editado->custo_produto = $custo_produto;
     $pro_editado->cor_produto = $cor_produto;
     $pro_editado->preco_unid = $preco_unid;
     $pro_editado->descricao_produto = $descricao_produto;
     $pro_editado->detalhes_produto = $detalhes_produto;
-
     $pro_editado->id_departamento = $id_departamento;
     $pro_editado->entrega_gratis = $entrega_gratis;
     $pro_editado->em_estoque = $em_estoque;
     $pro_editado->garantia = $garantia;
-    // $result = $pro_editado->atualizar();
-
-    // $numero_serie = $_POST['numero_serie'];
-    // $custo_produto = $_POST['custo_produto'];
-    // $cor_produto = $_POST['cor_produto'];
-    // $preco_unid = $_POST['preco_unid'];
-    // $descricao_produto = $_POST['descricao_produto'];
-    // $detalhes_produto = $_POST['detalhes_produto'];
-
-    // $id_departamento= $_POST['id_departamento'];
-    // $entrega_gratis = isset($_POST['entrega_gratis']) ? 1 : 0;
-    // $em_estoque = isset($_POST['em_estoque']) ? 1 : 0;
-    // $garantia = isset($_POST['garantia']) ? 1 : 0;
-
-    // $pro_editado = new Produto();
-    // $pro_editado->id_produto = $id_recebido;
-    // $pro_editado->nome_produto = $nome_produto;
-    // $pro_editado->marca_modelo = $marca_modelo;
-    // $pro_editado->quantidade_produto = $quantidade_produto;
-    // $pro_editado->imagem_produto = $caminho;
-    // $pro_editado->numero_serie = $numero_serie;
-    // $pro_editado->custo_produto = $custo_produto;
-    // $pro_editado->cor_produto = $cor_produto;
-    // $pro_editado->preco_unid = $preco_unid;
-    // $pro_editado->descricao_produto = $descricao_produto;
-    // $pro_editado->detalhes_produto = $detalhes_produto;
-
-    // $pro_editado->id_departamento = $id_departamento;
-    // $pro_editado->entrega_gratis = $entrega_gratis;
-    // $pro_editado->em_estoque = $em_estoque;
-    // $pro_editado->garantia = $garantia;
 
     $result = $pro_editado->atualizar();
     if($result){
-        echo '<script> alert("Atualizado com sucesso!") </script>' ;
-    }else{
+        echo '<script> alert("Atualizado com sucesso!") </script>';
+    } else {
         echo 'Erro ao atualizar';
     }
 
     echo $result;
 }
+
 
 
 ?>
@@ -174,7 +197,7 @@ if(isset($_POST['editar'])){
         }
         nav {
             display: flex;
-            border-bottom: 2px solid #ddd;
+            /* border-bottom: 2px solid #ddd; */
             margin-bottom: 20px;
         }
         nav a {
@@ -273,10 +296,12 @@ if(isset($_POST['editar'])){
 
         <div>
             <label>Alterar imagem:</label>
+            <!-- <input type="file" name="imagem_produto"> -->
             <input type="file" name="imagem_produto">
+            <input type="hidden" name="imagem_produto_antiga" value="<?= $imagem_produto ?>">
         </div>
 
-    
+        
         
     
 

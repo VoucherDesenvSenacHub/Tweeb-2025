@@ -4,7 +4,7 @@ require '../../Controllers/Produto.php';
 
 $id_produto = $_GET['id_produto'] ?? null;
 
-$status_produto = 0;
+$status_produto = 1;
 
 if ($id_produto === null) {
     die("ID do produto não informado.");

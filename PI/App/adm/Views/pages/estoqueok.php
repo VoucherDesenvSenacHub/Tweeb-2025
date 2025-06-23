@@ -7,11 +7,98 @@ require_once(__DIR__ . '/../../Controllers/Produto.php');
 $dados_produto = new Produto();
 $produto_banco = $dados_produto->buscar();
 
-if(isset($_POST['cadastrar'])){
-    // $id_produto = $_POST['id_produto'];
+// if(isset($_POST['cadastrar'])){
+//     // $id_produto = $_POST['id_produto'];
+//     $nome_produto = $_POST['nome_produto'];
+//     $marca_modelo = $_POST['marca_modelo'];
+//     $quantidade_produto = $_POST['quantidade_produto'];    
+//     $imagem_produto = $_FILES['imagem_produto'];
+//     $numero_serie = $_POST['numero_serie'];
+//     $custo_produto = $_POST['custo_produto'];
+//     $cor_produto = $_POST['cor_produto'];
+//     $preco_unid = $_POST['preco_unid'];
+//     $descricao_produto = $_POST['descricao_produto'];
+//     $detalhes_produto = $_POST['detalhes_produto'];
+
+//     $id_departamento= $_POST['id_departamento'];
+//     $entrega_gratis = isset($_POST['entrega_gratis']) ? 1 : 0;
+//     $em_estoque = isset($_POST['em_estoque']) ? 1 : 0;
+//     $garantia = isset($_POST['garantia']) ? 1 : 0;
+
+    
+     
+//     ###Código para cadastrar foto no servidor de banco de dados###
+//     $arquivo =$_FILES['imagem_produto'];
+//     if ($arquivo['error'])die("Falha ao enviar a foto");
+//     $pasta ='../../../../public/uploads/';
+//     $nome_foto =$arquivo['name'];
+//     $novo_nome = uniqid();
+//     // echo $novo_nome;
+//     $extensao = strtolower(pathinfo($nome_foto, PATHINFO_EXTENSION));
+//     if ($extensao != 'png' && $extensao !='jpg') die('Falha ao enviar a foto');
+//     $caminho = $pasta . $novo_nome . '.' . $extensao;
+//     $foto =move_uploaded_file($arquivo['tmp_name'], $caminho);
+
+//     // echo '<br>CAMINHO ' . $caminho;
+//     ###Código para cadastrar foto no servidor de banco de dados###
+
+//     $produto = new Produto();
+//     // $produto->id_produto = $id_produto;
+//     $produto->nome_produto = $nome_produto;
+//     $produto->marca_modelo = $marca_modelo;
+//     $produto->quantidade_produto = $quantidade_produto;
+//     $produto->imagem_produto = $caminho;
+//     $produto->numero_serie = $numero_serie;
+//     $produto->custo_produto = $custo_produto;
+//     $produto->cor_produto  = $cor_produto;
+//     $produto->preco_unid = $preco_unid;
+//     $produto->descricao_produto = $descricao_produto;
+//     $produto->detalhes_produto= $detalhes_produto;
+
+//     $produto->id_departamento = $id_departamento;
+//     $produto->entrega_gratis = $entrega_gratis;
+//     $produto->em_estoque = $em_estoque;
+//     $produto->garantia = $garantia;
+
+   
+    
+
+//     $result = $produto->cadastrar();
+//     if($result){
+//         echo '<script> alert("Produto cadastrado com sucesso!!") </script>';
+//     }else{
+//         echo 'Error';
+//     }
+// }
+
+if (isset($_POST['cadastrar'])) {
+    $erros = [];
+
+    // Validação dos campos obrigatórios
+    if (empty($_POST['nome_produto'])) $erros[] = "O nome do produto é obrigatório.";
+    if (empty($_POST['marca_modelo'])) $erros[] = "A marca/modelo é obrigatória.";
+    if (empty($_POST['quantidade_produto'])) $erros[] = "A quantidade do produto é obrigatória.";
+    if (!isset($_FILES['imagem_produto']) || $_FILES['imagem_produto']['error'] == 4) $erros[] = "A imagem do produto é obrigatória.";
+    if (empty($_POST['numero_serie'])) $erros[] = "O número de série é obrigatório.";
+    if (empty($_POST['custo_produto'])) $erros[] = "O custo do produto é obrigatório.";
+    if (empty($_POST['cor_produto'])) $erros[] = "A cor do produto é obrigatória.";
+    if (empty($_POST['preco_unid'])) $erros[] = "O preço unitário é obrigatório.";
+    if (empty($_POST['descricao_produto'])) $erros[] = "A descrição do produto é obrigatória.";
+    if (empty($_POST['detalhes_produto'])) $erros[] = "Os detalhes do produto são obrigatórios.";
+    if (empty($_POST['id_departamento'])) $erros[] = "O departamento do produto é obrigatório.";
+
+    // Se houver erros, exibe-os e interrompe o cadastro
+    if (!empty($erros)) {
+        foreach ($erros as $erro) {
+            echo "<p style='color: red;'>$erro</p>";
+        }
+        return; // Interrompe o script
+    }
+
+    // Prossegue com o processamento e upload da imagem
     $nome_produto = $_POST['nome_produto'];
     $marca_modelo = $_POST['marca_modelo'];
-    $quantidade_produto = $_POST['quantidade_produto'];    
+    $quantidade_produto = $_POST['quantidade_produto'];
     $imagem_produto = $_FILES['imagem_produto'];
     $numero_serie = $_POST['numero_serie'];
     $custo_produto = $_POST['custo_produto'];
@@ -19,31 +106,24 @@ if(isset($_POST['cadastrar'])){
     $preco_unid = $_POST['preco_unid'];
     $descricao_produto = $_POST['descricao_produto'];
     $detalhes_produto = $_POST['detalhes_produto'];
-
-    $id_departamento= $_POST['id_departamento'];
+    $id_departamento = $_POST['id_departamento'];
     $entrega_gratis = isset($_POST['entrega_gratis']) ? 1 : 0;
     $em_estoque = isset($_POST['em_estoque']) ? 1 : 0;
     $garantia = isset($_POST['garantia']) ? 1 : 0;
 
-    
-     
-    ###Código para cadastrar foto no servidor de banco de dados###
-    $arquivo =$_FILES['imagem_produto'];
-    if ($arquivo['error'])die("Falha ao enviar a foto");
-    $pasta ='../../../../public/uploads/';
-    $nome_foto =$arquivo['name'];
+    // Processamento da imagem
+    $arquivo = $_FILES['imagem_produto'];
+    if ($arquivo['error']) die("Falha ao enviar a foto");
+    $pasta = '../../../../public/uploads/';
+    $nome_foto = $arquivo['name'];
     $novo_nome = uniqid();
-    // echo $novo_nome;
     $extensao = strtolower(pathinfo($nome_foto, PATHINFO_EXTENSION));
-    if ($extensao != 'png' && $extensao !='jpg') die('Falha ao enviar a foto');
+    if (!in_array($extensao, ['png', 'jpg', 'jpeg', 'gif', 'webp', 'bmp'])) die('Falha ao enviar a foto: formato inválido');
     $caminho = $pasta . $novo_nome . '.' . $extensao;
-    $foto =move_uploaded_file($arquivo['tmp_name'], $caminho);
+    $foto = move_uploaded_file($arquivo['tmp_name'], $caminho);
 
-    // echo '<br>CAMINHO ' . $caminho;
-    ###Código para cadastrar foto no servidor de banco de dados###
-
+    // Cadastro do produto
     $produto = new Produto();
-    // $produto->id_produto = $id_produto;
     $produto->nome_produto = $nome_produto;
     $produto->marca_modelo = $marca_modelo;
     $produto->quantidade_produto = $quantidade_produto;
@@ -53,23 +133,20 @@ if(isset($_POST['cadastrar'])){
     $produto->cor_produto  = $cor_produto;
     $produto->preco_unid = $preco_unid;
     $produto->descricao_produto = $descricao_produto;
-    $produto->detalhes_produto= $detalhes_produto;
-
+    $produto->detalhes_produto = $detalhes_produto;
     $produto->id_departamento = $id_departamento;
     $produto->entrega_gratis = $entrega_gratis;
     $produto->em_estoque = $em_estoque;
     $produto->garantia = $garantia;
 
-   
-    
-
     $result = $produto->cadastrar();
-    if($result){
-        echo '<script> alert("Produto cadastrado com sucesso!!") </script>';
-    }else{
-        echo 'Error';
+    if ($result) {
+        echo '<script>alert("Produto cadastrado com sucesso!!");</script>';
+    } else {
+        echo '<p style="color: red;">Erro ao cadastrar o produto.</p>';
     }
 }
+
 
 $id_produto = $_POST['id_produto'] ?? null;
 
@@ -123,7 +200,7 @@ if ($id_produto !== null) {
         }
         nav {
             display: flex;
-            border-bottom: 2px solid #ddd;
+            /* border-bottom: 2px solid #ddd; */
             margin-bottom: 20px;
         }
         nav a {
@@ -132,7 +209,7 @@ if ($id_produto !== null) {
             color: #333;
         }
         nav a.active {
-            border-bottom: 2px solid #ff6600;
+            border-bottom: 2px solid black;
         }
         h2, h3 {
             margin-bottom: 35px;
@@ -186,6 +263,7 @@ if ($id_produto !== null) {
             <nav>
                 <a href="#" class="active">Novo Produto</a>
                 <a href="listarProdutos.php">Cadastrados</a>
+                <a href="listarProdutos.php">Inativos</a>
             </nav>
             <h2 id='titulo-cadastro-produto'>Detalhes do Produto</h2>
             <form action="estoqueok.php" method="POST" enctype="multipart/form-data" id="product-form">
