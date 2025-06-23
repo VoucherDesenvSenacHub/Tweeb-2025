@@ -214,8 +214,8 @@ CREATE TABLE envio (
 
 
 //Leandrex da galera
-create database Tweeb25;
-use Tweeb25;
+
+use 140p2;
 CREATE TABLE usuarios (
     id INT PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(100) not null,
@@ -223,20 +223,27 @@ CREATE TABLE usuarios (
     email VARCHAR(100) not null UNIQUE,
     telefone VARCHAR(20),
     senha VARCHAR(255)not null ,
-    tipo ENUM('cliente', 'funcionario'),
+    tipo ENUM('cliente', 'funcionario', "administrador"),
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
     updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 
+desc funcionario;
+-- 1. Inserir o administrador geral na tabela usuarios
+INSERT INTO usuarios (nome, sobrenome, email, telefone, senha, tipo)
+VALUES ('Leandro', 'Silva', 'admgeral@empresa.com', '(67)99999-9999', 'adm123', 'administrador');
+INSERT INTO administrador (id_usuario, matricula, cargo)
+VALUES (90, 'ADM0001', 'Administrador Geral');
+
 select * from usuarios;
 select * from clientes;
 select * from enderecos;
-select * from cep;
-
+select * from administrador;
+show tables;
+select * from departamento
+;
+drop table funcionarios;
 drop table enderecos;
-drop table cep;
-
-drop table cep;
 
 CREATE TABLE clientes (
     id_usuario INT PRIMARY KEY,
@@ -245,13 +252,13 @@ CREATE TABLE clientes (
     updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     FOREIGN KEY (id_usuario) REFERENCES usuarios(id) ON DELETE CASCADE
 );
+
 CREATE TABLE enderecos (
     id_endereco INT PRIMARY KEY AUTO_INCREMENT,
     id_cliente INT,
     nome_endereco VARCHAR(100),
     rua VARCHAR(100),
     numero VARCHAR(20),
-    complemento VARCHAR(100),
     cep VARCHAR(8),
     bairro VARCHAR(100),
     cidade VARCHAR(50),
@@ -261,25 +268,33 @@ CREATE TABLE enderecos (
     FOREIGN KEY (id_cliente) REFERENCES clientes(id_usuario) ON DELETE CASCADE
 );
 
-create table funcionario (
-id_funcionario int not null auto_increment primary key,
-nome varchar(100) not null,
-email varchar(100) not null,
-senha varchar(255) not null,
-cpf char(11) not null,
-rg CHAR(10),
-cep CHAR(8),
-endereco VARCHAR(255),
-perfil CHAR(30),
-avatar VARCHAR(255),
-tipo ENUM('admin', 'funcionario') NOT NULL DEFAULT 'funcionario',
-data_criacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+
+
+CREATE TABLE administrador (
+    id_usuario INT PRIMARY KEY,
+    matricula VARCHAR(20),
+    cargo VARCHAR(50),
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (id_usuario) REFERENCES usuarios(id) ON DELETE CASCADE
 );
 
+
+
+CREATE TABLE funcionarios (
+    id_usuario INT PRIMARY KEY,
+    matricula VARCHAR(20),
+    cargo VARCHAR(50),
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (id_usuario) REFERENCES usuarios(id) ON DELETE CASCADE
+);
+
+
 drop table clientes;
-select * from usuarios;
 select * from clientes;
-select * from respostas_preferencias;
+select * from cpf;
+select * from enderecos;
 
 CREATE TABLE respostas_preferencias (
   id INT AUTO_INCREMENT PRIMARY KEY,
