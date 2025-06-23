@@ -26,7 +26,19 @@ body {
   max-width: 800px;
 }
 
-/* Saudação */
+select {
+  padding: 0.7rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  width: 100%;
+  font-size: 1rem;
+  background-color: #fff;
+  color: #055ff0; 
+  
+}
+
+
+
 .funcionario-form-saudacao {
   display: block;
   margin: 0 auto 2rem auto;
@@ -37,7 +49,7 @@ body {
   color: #374151;
 }
 
-/* Cabeçalho com foto e nome */
+
 .funcionario-form-header {
   text-align: center;
   margin-bottom: 2rem;
@@ -85,13 +97,13 @@ body {
   background-color: #e5e7eb;
 }
 
-/* Estrutura do formulário */
+
 .funcionario-form {
   display: flex;
   flex-direction: column;
 }
 
-/* Linha com dois campos */
+
 .funcionario-form-row {
   display: flex;
   gap: 1rem;
@@ -104,7 +116,6 @@ body {
   min-width: 200px;
 }
 
-/* Grupo de campo */
 .funcionario-form-group {
   display: flex;
   flex-direction: column;
@@ -112,7 +123,6 @@ body {
   margin-bottom: 1.2rem;
 }
 
-/* Remover margem superior do primeiro título (label ou h2) para alinhamento consistente */
 .funcionario-form-group label:first-child,
 .funcionario-form-group h2:first-child  {
   margin-top: 0;
@@ -145,12 +155,7 @@ label[for="sobrenome"] {
   width: 100%;
 }
 
-.sobrenome{
-  margin-left: 30px;
-  background-color: red;
-}
 
-/* Botões */
 .funcionario-form-botoes {
   display: flex;
   justify-content: space-between;
@@ -196,7 +201,6 @@ label[for="sobrenome"] {
   margin-top: 30px;
 }
 
-/* Responsivo */
 @media (max-width: 768px) {
   .funcionario-form-row {
     flex-direction: column;

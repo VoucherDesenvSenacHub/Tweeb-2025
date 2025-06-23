@@ -71,9 +71,14 @@
                 </div>
 
                 <div class="funcionario-form-group">
-                    <label for="cpf">CPF</label>
-                    <input type="text" id="cpf" name="cpf">
-                </div>
+                <label for="cargo">Cargo</label>
+                <select id="cargo" name="cargo">
+                    <option value="">Selecione um cargo</option>
+                    <option value="vendedor">Vendedor</option>
+                    <option value="tecnico">Técnico</option>
+                </select>
+            </div>
+
             </div>
 
             <div class="funcionario-form-row">
