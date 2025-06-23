@@ -1,5 +1,4 @@
 
-<body class="SideBar_adm">
   <nav class="adm_sidebar" id="sidebar">
 
         <div class="sidebar_contentAdm">
@@ -69,4 +68,3 @@
             </button> -->
         </div>
     </nav>
-</body>

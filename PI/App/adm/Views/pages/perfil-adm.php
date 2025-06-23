@@ -14,19 +14,6 @@
 <?php
 include __DIR__.'/../../../../includes/head-adm.php';
 ?>
-
-<?php
-
-if(isset($_SESSION['funcionario'])){
-    include __DIR__.'/../../../../includes/sidebar-Adm.php';
-}
-else{
-    header("Location: login-funcionario.php");
-    exit();
-}
-
-?>
-
 <!-- Contêiner do Perfil -->
 <div class="perfil-tweeb">
     <div class="perfil-tweeb-container">

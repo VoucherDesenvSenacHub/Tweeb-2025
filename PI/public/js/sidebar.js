@@ -53,27 +53,45 @@ document.getElementById('open_btn').addEventListener('click', function () {
 //     }
 // };
 
-window.onscroll = () => {
+window.addEventListener('scroll', function() {
+    // 1. IDENTIFIQUE SEUS ELEMENTOS
+    //    Certifique-se de que sua navbar e footer sejam fáceis de encontrar.
+    //    Pode ser pela tag (header, footer) ou por um ID (#navbar, #rodape).
+    const navbar = document.querySelector('header'); // Altere se sua navbar não for a tag <header>
     const sidebar = document.getElementById('sidebar');
-    const scrollPosition = window.scrollY;  // Posição de rolagem da página
-    const footer = document.querySelector('footer');
-    const footerOffset = footer.offsetTop; // Posição do rodapé
-    const footerHeight = footer.offsetHeight; // Altura do rodapé
-    const sidebarHeight = sidebar.offsetHeight; // Altura da sidebar
+    const footer = document.querySelector('footer'); // Altere se seu footer não for a tag <footer>
 
-    // Limite superior (onde a sidebar começa a rolar)
-    const minTop = 150;
-
-    // Limite inferior (onde a sidebar para de rolar)
-    const maxTop = footerOffset - sidebarHeight; // Corrigido para considerar apenas a altura da sidebar
-
-    // Atualiza a posição da sidebar, respeitando os limites
-    if (scrollPosition >= minTop && scrollPosition <= maxTop) {
-        sidebar.style.top = scrollPosition + 'px';
-    } else if (scrollPosition < minTop) {
-        sidebar.style.top = minTop + 'px';
-    } else if (scrollPosition > maxTop) {
-        sidebar.style.top = maxTop + 'px';
+    // Se algum dos elementos essenciais não for encontrado, o script para.
+    if (!sidebar || !navbar || !footer) {
+        // console.error("Atenção: Um dos elementos (sidebar, navbar ou footer) não foi encontrado no HTML.");
+        return;
     }
-};
+
+    // 2. CALCULE OS LIMITES DINAMICAMENTE
+    const scrollPosition = window.scrollY;
+
+    // Onde a sidebar deve PARAR no topo (ex: exatamente na altura da navbar)
+    const limiteSuperior = navbar.offsetHeight;
+
+    // Onde a sidebar deve PARAR embaixo para não sobrepor o footer
+    const alturaSidebar = sidebar.offsetHeight;
+    const posicaoTopoFooter = footer.offsetTop;
+    const espacoDeRespiro = 20; // Uma margem de segurança para não colar no footer
+    const limiteInferior = posicaoTopoFooter - alturaSidebar - espacoDeRespiro;
+
+
+    // 3. APLIQUE A LÓGICA DE POSICIONAMENTO COM OS LIMITES
+    if (scrollPosition < limiteSuperior) {
+        // Se o scroll está ACIMA do limite, trava a sidebar no ponto inicial
+        sidebar.style.top = limiteSuperior + 'px';
+
+    } else if (scrollPosition > limiteInferior) {
+        // Se o scroll passou do limite de BAIXO, trava a sidebar no fundo
+        sidebar.style.top = limiteInferior + 'px';
+
+    } else {
+        // Se estiver ENTRE os limites, a sidebar acompanha o scroll normalmente
+        sidebar.style.top = scrollPosition + 'px';
+    }
+});
 

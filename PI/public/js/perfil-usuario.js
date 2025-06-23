@@ -1,5 +1,4 @@
 let perfil_form = document.querySelector('.perfil-tweeb-form');
-console.log(perfil_form)
 let inputs = perfil_form.querySelectorAll('input:not([disabled])');
 let originalValues = {};
 
@@ -35,8 +34,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-console.log(originalValues);
-
 // Função para ativar/desativar modo de edição
 function toggleEditMode() {
     perfil_form.classList.toggle('editing');
@@ -66,7 +63,7 @@ function deletaUsuario() {
     let confirma = confirm("Tem certeza que deseja excluir sua conta?");
     if (!confirma) return;
 
-    fetch("http://localhost/tweeb-2025/PI/public/api/deletar_usuario.php", {
+    fetch("/Tweeb-2025/PI/app/user/Controllers/DeletarUsuario.php", {
         method: "DELETE",
         headers: {
             "Content-Type": "application/x-www-form-urlencoded"
