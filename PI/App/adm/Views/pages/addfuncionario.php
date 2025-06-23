@@ -71,8 +71,8 @@
                 </div>
 
                 <div class="funcionario-form-group">
-                    <label for="endereco">Endereço</label>
-                    <input type="text" id="endereco" name="endereco">
+                    <label for="cpf">CPF</label>
+                    <input type="text" id="cpf" name="cpf">
                 </div>
             </div>
 
