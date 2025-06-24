@@ -37,6 +37,7 @@ switch($_SERVER['REQUEST_METHOD']){
             echo json_encode(['status' => 200, 'msg' => "Senha alterada com sucesso"]);
             exit;
         }
+        
         else {
             echo json_encode(['status' => 0, 'msg' => "Não foi possivel alterar a senha"]);
             exit;            

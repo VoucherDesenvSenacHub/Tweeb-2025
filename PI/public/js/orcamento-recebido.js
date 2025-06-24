@@ -1,15 +1,29 @@
-document.addEventListener("DOMContentLoaded", function() {
-    // Selecionar todos os campos de input, textarea e botões dentro de forms
+document.addEventListener("DOMContentLoaded", function () {
+    // Tornar inputs e textareas readonly
     const inputs = document.querySelectorAll('.orcamento-recebido-form input, .orcamento-recebido-form textarea');
     const buttons = document.querySelectorAll('.orcamento-recebido-form button');
 
-    // Tornar os campos de input e textarea como somente leitura
     inputs.forEach(input => {
         input.setAttribute('readonly', 'readonly');
     });
 
-    // Impedir interação com os botões
     buttons.forEach(button => {
         button.setAttribute('disabled', 'disabled');
     });
+
+    // Abrir modal
+    document.querySelectorAll('.open-modal-resposta').forEach(btn => {
+        btn.addEventListener('click', () => {
+            document.getElementById('modal-responder-orcamento').style.display = 'flex';
+        });
+    });
+
+    // Fechar modal
+    document.querySelectorAll('.close-modal').forEach(btn => {
+        btn.addEventListener('click', () => {
+            document.getElementById('modal-responder-orcamento').style.display = 'none';
+        });
+    });
+
+    console.log("JS carregado");
 });

@@ -40,6 +40,8 @@ form_orcamento.addEventListener('submit', async function(event){
         body: formData
     });
 
+    alert("Orçamento enviado com sucesso");
+
     let response = await request.json();
     console.log(response);
 })

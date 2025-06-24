@@ -12,7 +12,7 @@ switch ($_SERVER['REQUEST_METHOD']) {
         $orcamento->descricao = $_POST['descricao'];
         $orcamento->status_orcamento = 'pendente';
 
-        // Pasta onde as imagens serão salvas (crie se não existir)
+        // Pasta onde as imagens serão salvas
         $pastaDestino = '../../../public/assets/img';
 
         // Se houver ao menos uma imagem

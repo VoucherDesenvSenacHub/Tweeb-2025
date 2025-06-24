@@ -1,5 +1,9 @@
 <?php
 session_start();
+include_once '../../Models/Orcamento.php';
+
+$orcamento = new Orcamento();
+$dados = $orcamento->buscar();
 
 ?>
 
@@ -12,6 +16,7 @@ session_start();
     <title>Enviados</title>
     <link rel="stylesheet" href="../../../../public/css/adm-enviados.css">
     <link rel="stylesheet" href="../../../../public/css/orcamento-recebido.css">
+    <script src="../../../../public/js/orcamento-recebido.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
@@ -150,68 +155,45 @@ session_start();
         </div>
     </div>
 
-    <div class="orcamento-recebido-container">
 
-    <div class="orcamento-recebido-header">
-        <span>Solicitação (1)</span>
-        <span>18/07/2024 11:50</span>
+    <?php
+    foreach ($dados as $orcamentos)
+    {
+      echo"
+      <div class='orcamento-recebido-container'>
+
+      <div class='orcamento-recebido-header'>
+          <span>Solicitação ({$orcamentos['id_orcamento']})</span>
+          <span>18/07/2024 11:50</span>
+      </div>
+      <form class='orcamento-recebido-form'>
+          <div class='orcamento-recebido-row'>
+              <input type='text' value='{$orcamentos['nome']}' readonly>
+              <input type='email' value='{$orcamentos['email']}' readonly>
+              <input type='tel' value='{$orcamentos['telefone']}' readonly>
+          </div>
+          <div class='orcamento-recebido-row'>
+              <input type='text' value='{$orcamentos['tipo_solicitacao']}' readonly>
+              <input type='text' value='Até {$orcamentos['prazo_estimado']}' readonly>
+              <button class='foto-orcamento-jpeg' type='button' readonly> <i class='fa-regular fa-circle-down'></i></button>
+        
+              
+          </div>
+          <textarea readonly>{$orcamentos['descricao']}</textarea>
+          <div class='orcamento-recebido-buttons'>
+              <button type='button' class='orcamento-recebido-negacao'>Negar</button>
+              <button type='button' class='orcamento-recebido-responder open-modal-resposta'>Responder</button>
+
+
+
+          </div>
+      </form>
     </div>
-    <form class="orcamento-recebido-form">
-        <div class="orcamento-recebido-row">
-            <input type="text" value="Igor" readonly>
-            <input type="email" value="Igor@gmail.com" readonly>
-            <input type="tel" value="67 12234-5678" readonly>
-        </div>
-        <div class="orcamento-recebido-row">
-            <input type="text" value="Concerto" readonly>
-            <input type="text" value="Até 10/10/2024" readonly>
-            <button class="foto-orcamento-jpeg" type="button" readonly> <i class="fa-regular fa-circle-down"></i></button>
-       
-            
-        </div>
-        <textarea readonly>Formatação do Notebook</textarea>
-        <div class="orcamento-recebido-buttons">
-            <button type="button" class="orcamento-recebido-negacao">Negar</button>
-            <button type="button" class="orcamento-recebido-responder open-modal-resposta">Responder</button>
+    ";
+    }
 
 
-
-        </div>
-    </form>
-    </div>
-
-    <div class="orcamento-recebido-container">
-
-    <div class="orcamento-recebido-header">
-        <span>Solicitação (1)</span>
-        <span>18/07/2024 11:50</span>
-    </div>
-    <form class="orcamento-recebido-form">
-        <div class="orcamento-recebido-row">
-            <input type="text" value="Igor" readonly>
-            <input type="email" value="Igor@gmail.com" readonly>
-            <input type="tel" value="67 12234-5678" readonly>
-        </div>
-        <div class="orcamento-recebido-row">
-            <input type="text" value="Concerto" readonly>
-            <input type="text" value="Até 10/10/2024" readonly>
-            <button class="foto-orcamento-jpeg" type="button" readonly> <i class="fa-regular fa-circle-down"></i></button>
-       
-            
-        </div>
-        <textarea readonly>Formatação do Notebook</textarea>
-        <div class="orcamento-recebido-buttons">
-            <button type="button" class="orcamento-recebido-negacao">Negar</button>
-            <button type="button" class="orcamento-recebido-responder open-modal-resposta">Responder</button>
-
-
-        </div>
-    </form>
-    </div>
-
-    
-</div>
-
+    ?>
     
     
 <?php include __DIR__.'/../../../../includes/footer-adm.php'; ?> 
@@ -219,17 +201,7 @@ session_start();
 
 
 <script>
-  document.querySelectorAll('.open-modal-resposta').forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.getElementById('modal-responder-orcamento').style.display = 'flex';
-    });
-  });
 
-  document.querySelectorAll('.close-modal').forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.getElementById('modal-responder-orcamento').style.display = 'none';
-    });
-  });
 </script>
 
 
