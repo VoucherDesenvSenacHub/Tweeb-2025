@@ -9,12 +9,6 @@ if (!isset($_SESSION['funcionario'])) {
     exit();
 }
 
-function mascararCPF($cpf) {
-    $cpf = preg_replace('/\D/', '', $cpf);
-    if (strlen($cpf) !== 11) return '';
-    return '***.***.***-' . substr($cpf, 9, 2);
-}
-
 $funcionario = $_SESSION['funcionario'];
 ?>
 <!DOCTYPE html>
@@ -95,14 +89,15 @@ $funcionario = $_SESSION['funcionario'];
                 <input type="text" id="cargo" name="cargo" value="<?php echo htmlspecialchars($funcionario['cargo'] ?? ''); ?>" readonly>
             </div>
 
-            <div class="perfil-tweeb-botoes">
-                <button type="button" class="perfil-tweeb-cancelar">Cancelar</button>
-                <button type="submit" class="perfil-tweeb-salvar">Salvar alteração</button>
+            <div class="perfil-tweeb-botoes-user">
+                <button type="button" class="perfil-tweeb-cancelar-end" onclick="cancelEdit()">Cancelar</button>
+                <button type="submit" class="perfil-tweeb-salvar-end" onClick="editarUsuario()">Salvar alteração</button>
+                <button type="button" class="perfil-tweeb-excluir-end" onClick="deletaUsuario()">Excluir Conta</button>
             </div>
         </form>
     </div>
 </div>
-
+<script src="../../../../public/js/perfil-adm.js"></script>
 <?php include __DIR__.'/../../../../includes/footer.php'; ?>
 </body>
 </html>
