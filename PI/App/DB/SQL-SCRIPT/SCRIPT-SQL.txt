@@ -305,3 +305,164 @@ CREATE TABLE respostas_preferencias (
   criado_em DATETIME DEFAULT CURRENT_TIMESTAMP,
   FOREIGN KEY (user_id) REFERENCES usuarios(id)
 );
+
+
+
+
+
+--------------------------nova versao (em testes)----------------------------------------
+
+
+
+use 140p2;
+CREATE TABLE usuarios (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(100) not null,
+    sobrenome VARCHAR(100),
+    email VARCHAR(100) not null UNIQUE,
+    telefone VARCHAR(20),
+    senha VARCHAR(255)not null ,
+    tipo ENUM('cliente', 'funcionario', "administrador"),
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+-- Primeiro insira o administrador na tabela usuarios com a senha bcrypt
+INSERT INTO usuarios (
+    nome, 
+    sobrenome, 
+    email, 
+    telefone, 
+    senha, 
+    tipo, 
+    foto_perfil
+) 
+VALUES (
+    'Leandro',  -- nome
+    'libera',  -- sobrenome
+    'admgeral@empresa.com',  -- email
+    '999999999',  -- telefone
+    '$2y$10$fdccgEqjaTzHBXPHK70/LOnJ.rhPj8L2D9Dhf3o.3BuLaNwT/JBSW',  -- senha bcrypt
+    'administrador',  -- tipo
+    'imagem_padrao.png'  -- foto_perfil (opcional)
+);
+
+
+desc funcionarios;
+-- 1. Inserir o administrador geral na tabela usuarios
+INSERT INTO usuarios (nome, sobrenome, email, telefone, senha, tipo)
+VALUES ('Leandro', 'Silva', 'admgeral@empresa.com', '(67)99999-9999', 'adm123', 'administrador');
+
+select * from usuarios;
+delete from usuarios where id = 107;
+SHOW COLUMNS FROM usuarios;
+ALTER TABLE usuarios MODIFY tipo ENUM('cliente', 'funcionario', 'administrador');
+
+delete from usuarios where id = 109;
+select * from usuarios;
+select * from clientes;
+select * from enderecos;
+select * from administrador;
+show tables;
+select * from departamento
+;
+drop table funcionarios;
+drop table enderecos;
+
+CREATE TABLE clientes (
+    id_usuario INT PRIMARY KEY,
+    cpf VARCHAR(14) UNIQUE,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (id_usuario) REFERENCES usuarios(id) ON DELETE CASCADE
+);
+
+CREATE TABLE enderecos (
+    id_endereco INT PRIMARY KEY AUTO_INCREMENT,
+    id_cliente INT,
+    nome_endereco VARCHAR(100),
+    rua VARCHAR(100),
+    numero VARCHAR(20),
+    cep VARCHAR(8),
+    bairro VARCHAR(100),
+    cidade VARCHAR(50),
+    estado VARCHAR(50),
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (id_cliente) REFERENCES clientes(id_usuario) ON DELETE CASCADE
+);
+
+
+
+CREATE TABLE administrador (
+    id_usuario INT PRIMARY KEY,
+    nome VARCHAR(50),
+    sobrenome VARCHAR(50),
+    matricula VARCHAR(20),
+    email VARCHAR(100),
+    telefone VARCHAR(20),
+    cpf varchar(11),
+    cargo VARCHAR(50),
+    senha VARCHAR(64),
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (id_usuario) REFERENCES usuarios(id) ON DELETE CASCADE
+);
+
+CREATE TABLE funcionarios (
+    id_usuario INT PRIMARY KEY,
+    nome VARCHAR(50),
+    sobrenome VARCHAR(50),
+    matricula VARCHAR(20),
+    email VARCHAR(100),
+    telefone VARCHAR(20),
+    cpf varchar(11),
+    cargo VARCHAR(50),
+    senha VARCHAR(64),
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (id_usuario) REFERENCES usuarios(id) ON DELETE CASCADE
+);
+
+
+
+INSERT INTO administrador (
+    id_usuario, 
+    nome, 
+    sobrenome, 
+    matricula, 
+    email, 
+    telefone, 
+    cpf, 
+    cargo, 
+    senha
+) 
+VALUES (
+    last_insert_id(),  -- id_usuario (gerado na tabela usuarios)
+    'Leandro',  -- nome
+    'Libera',  -- sobrenome
+    'ADM0001',  -- matrícula
+    'admgeral@empresa.com',  -- email
+    '999999999',  -- telefone
+    '12345678901',  -- CPF
+    'Administrador Geral',  -- cargo
+    '$2y$10$fdccgEqjaTzHBXPHK70/LOnJ.rhPj8L2D9Dhf3o.3BuLaNwT/JBSW'  -- senha bcrypt (a mesma que foi usada na tabela usuarios)
+);
+
+
+drop table administrador;
+drop table clientes;
+select * from clientes;
+select * from cpf;
+select * from enderecos;
+select * from funcionarios;
+
+CREATE TABLE respostas_preferencias (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  user_id INT,
+  resposta1 VARCHAR(255),
+  resposta2 VARCHAR(255),
+  resposta3 VARCHAR(255),
+  criado_em DATETIME DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (user_id) REFERENCES usuarios(id)
+);
