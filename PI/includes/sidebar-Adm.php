@@ -1,4 +1,6 @@
+<?php
 
+?>
   <nav class="adm_sidebar" id="sidebar">
 
         <div class="sidebar_contentAdm">
