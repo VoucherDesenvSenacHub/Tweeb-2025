@@ -38,7 +38,7 @@
             </div>
         </div>
 
-        <form class="funcionario-form">
+        <form class="funcionario-form" method="post">
 
             <div class="funcionario-form-row">
                 <div class="funcionario-form-group">
@@ -85,8 +85,7 @@
             
 
                 <div class="funcionario-form-group">
-                    <label for="senha-funcionario2">Senha</label>
-                    <label for="senha-funcionario">Funcionário</label>
+                    <label for="senha-funcionario">Senha Funcionário</label>
                     <input type="password" id="senha-funcionario" name="senha-funcionario" placeholder="Senha Novo Funcionario">
                 </div>
             </div>

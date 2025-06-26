@@ -14,18 +14,28 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         try {
-            const response = await fetch("TWEEB-2025/PI/App/adm/Controllers/CadastrarFuncionario.php", {
-                method: "POST",
-                body: formData
+            const response = await fetch('/Tweeb-2025/PI/app/adm/Controllers/CadastrarFuncionario.php', {
+                method: 'POST',
+                body: formData // Envia como multipart/form-data
             });
 
-            const resultado = await response.json();
+            const texto = await response.text();
+            console.log("Resposta bruta:", texto);
 
-            alert(resultado.mensagem);
+            try {
+                const resultado = JSON.parse(texto);
+                console.log("Resultado como JSON:", resultado);
 
-            if (resultado.sucesso) {
-                window.location.href = "/PI/home.php";
+                alert(resultado.mensagem);
+
+                if (resultado.sucesso) {
+                    window.location.href = "/PI/home.php";
+                }
+            } catch (e) {
+                console.error("Erro ao converter para JSON:", e);
+                alert("A resposta não está em formato JSON válido.");
             }
+
         } catch (erro) {
             console.error("Erro ao salvar funcionário:", erro);
             alert("Erro ao salvar funcionário. Tente novamente.");

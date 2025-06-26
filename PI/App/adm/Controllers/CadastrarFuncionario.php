@@ -17,6 +17,7 @@ $cpf = $_POST['cpf'] ?? '';
 $senha = $_POST['senha-funcionario'] ?? '';
 $confirmarSenha = $_POST['confirmar-senha'] ?? '';
 
+
 if (empty($nome) || empty($matricula) || empty($senha) || $senha !== $confirmarSenha) {
     echo json_encode([
         'sucesso' => false,
@@ -29,12 +30,13 @@ try {
     $senhaHash = password_hash($senha, PASSWORD_DEFAULT);
 
     $resultado = Funcionario::cadastrar([
-        'nome' => $nome . ' ' . $sobrenome,
-        'matricula' => $matricula,
-        'email' => $email,
-        'telefone' => $telefone,
-        'cpf' => $cpf,
-        'senha' => $senhaHash
+        'nome'       => $nome,
+        'sobrenome'  => $sobrenome,
+        'matricula'  => $matricula,
+        'email'      => $email,
+        'telefone'   => $telefone,
+        'cpf'        => $cpf,
+        'senha'      => $senhaHash
     ]);
 
     echo json_encode([

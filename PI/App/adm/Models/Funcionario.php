@@ -94,7 +94,7 @@ class Funcionario {
         return $dbFuncionario->insert([
             'id_usuario' => $idUsuario,
             'matricula'  => $dados['matricula'],
-            'cpf'        => $dados['cpf']
+            'cargo'        => 'Funcionario'
         ]);
     }
     
