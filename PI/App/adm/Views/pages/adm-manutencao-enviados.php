@@ -13,26 +13,13 @@ session_start();
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 
-<!-- Modal de Edição de OS -->
+
 <div id="editar-os-modal" class="editar-os-modal" style="display: none;">
   <div class="editar-os-modal-content">
     <span class="editar-os-modal-close" onclick="closeModal()">&times;</span>
-    <h2 class="editar-os-modal-title">Editar Ordem de Serviço</h2>
+    <h2 class="editar-os-modal-title">Editar Ordem de Serviço</h2><br>
     <form id="editar-os-form">
    
-
-      <div class="editar-os-modal-progresso">
-        <label for="progresso">Progresso da OS:</label>
-        <input type="range" id="progresso" name="progresso" min="0" max="100" value="0" oninput="updateProgresso(this.value)">
-        <span id="progresso-valor">0%</span>
-      </div>
-      
-      <div class="editar-os-modal-descricao">
-        <label for="descricao_progresso">Descrição do Progresso:</label>
-        <textarea id="descricao_progresso" name="descricao_progresso" placeholder="Digite o status do progresso" required></textarea>
-      </div>
-
-
 
         <div class="Ordem_Servico">
           <label for="Numero_da_Os">Número da OS</label>
