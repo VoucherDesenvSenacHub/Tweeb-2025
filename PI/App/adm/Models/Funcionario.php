@@ -74,6 +74,32 @@ class Funcionario {
         return $db->update(['foto_perfil' => $novoNome], "id = {$this->id}");
     }
     
+    
+    public static function cadastrar($dados)
+    {
+        // 1. Inserir na tabela `usuarios`
+        $dbUsuario = new Database('usuarios');
+        $idUsuario = $dbUsuario->insert([
+            'nome'        => $dados['nome'],
+            'sobrenome'        => $dados['sobrenome'],
+            'email'       => $dados['email'],
+            'telefone'    => $dados['telefone'],
+            'senha'       => $dados['senha'],
+            'tipo'        => 'funcionario',
+            'foto_perfil' => 'padrao.png' // ou outra imagem padrão
+        ]);
+
+        // 2. Inserir na tabela `funcionarios`
+        $dbFuncionario = new Database('funcionarios');
+        return $dbFuncionario->insert([
+            'id_usuario' => $idUsuario,
+            'matricula'  => $dados['matricula'],
+            'cpf'        => $dados['cpf']
+        ]);
+    }
+    
+
+
 
     // public function atualizar() {
     //     $db = new Database('usuarios');

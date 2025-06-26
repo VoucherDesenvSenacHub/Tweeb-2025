@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     senha: document.getElementById('senha-funcionario').value
                 };
 
-                const response = await fetch('/Tweeb-2025/PI/app/adm/Controllers/FuncionarioController.php', {
+                const response = await fetch('/Tweeb-2025/PI/app/adm/Controllers/LoginADM.php', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'

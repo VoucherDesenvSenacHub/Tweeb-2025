@@ -77,11 +77,11 @@
             </div>
 
             <div class="funcionario-form-row">
-                <div class="funcionario-form-group">
+                <!-- <div class="funcionario-form-group">
                     <h3>Cadastrar Senha</h3>
                     <label for="senha-mestre">Senha Mestre</label>
                     <input type="password" id="senha-mestre" name="senha-mestre" placeholder="Digite a senha atual">
-                </div>
+                </div> -->
             
 
                 <div class="funcionario-form-group">
@@ -104,11 +104,7 @@
         </form>
     </div>
 </div>
-
+<script src="../../../../public/js/adicionar-funcionario.js"></script>
 <?php include __DIR__.'/../../../../includes/footer.php'; ?>
 </body>
-
-
-
-
 </html>
