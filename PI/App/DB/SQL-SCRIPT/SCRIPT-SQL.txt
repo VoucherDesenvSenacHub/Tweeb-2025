@@ -396,14 +396,8 @@ CREATE TABLE enderecos (
 
 CREATE TABLE administrador (
     id_usuario INT PRIMARY KEY,
-    nome VARCHAR(50),
-    sobrenome VARCHAR(50),
     matricula VARCHAR(20),
-    email VARCHAR(100),
-    telefone VARCHAR(20),
-    cpf varchar(11),
     cargo VARCHAR(50),
-    senha VARCHAR(64),
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
     updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     FOREIGN KEY (id_usuario) REFERENCES usuarios(id) ON DELETE CASCADE
@@ -411,14 +405,8 @@ CREATE TABLE administrador (
 
 CREATE TABLE funcionarios (
     id_usuario INT PRIMARY KEY,
-    nome VARCHAR(50),
-    sobrenome VARCHAR(50),
     matricula VARCHAR(20),
-    email VARCHAR(100),
-    telefone VARCHAR(20),
-    cpf varchar(11),
     cargo VARCHAR(50),
-    senha VARCHAR(64),
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
     updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     FOREIGN KEY (id_usuario) REFERENCES usuarios(id) ON DELETE CASCADE

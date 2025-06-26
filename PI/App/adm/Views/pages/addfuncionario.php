@@ -104,11 +104,7 @@
         </form>
     </div>
 </div>
-
+<script src="../../../../public/js/adicionar-funcionario.js"></script>
 <?php include __DIR__.'/../../../../includes/footer.php'; ?>
 </body>
-
-
-
-
 </html>
