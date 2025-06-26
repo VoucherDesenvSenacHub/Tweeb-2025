@@ -40,9 +40,11 @@
                 </li>
 
 
-                <li class="sidebarAdm-item">
-                  <a href="addfuncionario.php"><img src="../../../../public/assets/img/addfun.png " alt=""><span class="itemAdm-descricao">Add funcionario </span></a>
-                </li>
+                <?php if (isset($_SESSION['adm'])): ?>
+                    <li class="sidebarAdm-item">
+                        <a href="addfuncionario.php"><img src="../../../../public/assets/img/addfun.png" alt=""><span class="itemAdm-descricao">Add funcionario</span></a>
+                    </li>
+                <?php endif; ?>
 
 
 

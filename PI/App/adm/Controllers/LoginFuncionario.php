@@ -20,36 +20,37 @@ if (empty($email) || empty($senha)) {
 }
 
 try {
-    $Administrador = Funcionario::buscarPorEmailADM($email);
+    error_log("Tentando buscar funcionário com email: " . $email);
+    $funcionario = Funcionario::buscarPorEmailFuncionario($email);
 
-    if (!$Administrador) {
+    if (!$funcionario) {
         echo json_encode(['sucesso' => false, 'mensagem' => 'Usuário não encontrado']);
         exit;
     }
 
-    if ($senha !== $Administrador['senha']) {
+    if (!password_verify($senha, $funcionario['senha'])) {
         echo json_encode(['sucesso' => false, 'mensagem' => 'Senha incorreta']);
         exit;
     }
 
-    $_SESSION['adm'] = [
-        'id' => $Administrador['id'],
-        'nome' => $Administrador['nome'],
-        'email' => $Administrador['email'],
-        'tipo' => $Administrador['tipo'],
-        'matricula' => $Administrador['matricula'],
-        'cargo' => $Administrador['cargo'],
-        'foto_perfil' => $Administrador['foto_perfil'] ?? 'imagem_padrao.png'
+    $_SESSION['funcionario'] = [
+        'id' => $funcionario['id'],
+        'nome' => $funcionario['nome'],
+        'email' => $funcionario['email'],
+        'tipo' => $funcionario['tipo'],
+        'matricula' => $funcionario['matricula'],
+        'cargo' => $funcionario['cargo'],
+        'foto_perfil' => $funcionario['foto_perfil'] ?? 'imagem_padrao.png'
     ];
 
     echo json_encode([
         'sucesso' => true,
         'mensagem' => 'Login realizado com sucesso!',
         'funcionario' => [
-            'id' => $Administrador['id'],
-            'nome' => $Administrador['nome'],
-            'email' => $Administrador['email'],
-            'tipo' => $Administrador['tipo']
+            'id' => $funcionario['id'],
+            'nome' => $funcionario['nome'],
+            'email' => $funcionario['email'],
+            'tipo' => $funcionario['tipo']
         ]
     ]);
 

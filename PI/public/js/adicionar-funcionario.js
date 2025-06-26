@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 alert(resultado.mensagem);
 
                 if (resultado.sucesso) {
-                    window.location.href = "/PI/home.php";
+                    window.location.href = "/Tweeb-2025/PI/app/adm/views/pages/addfuncionario.php";
                 }
             } catch (e) {
                 console.error("Erro ao converter para JSON:", e);

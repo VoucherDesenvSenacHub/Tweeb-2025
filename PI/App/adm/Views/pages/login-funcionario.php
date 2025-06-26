@@ -34,7 +34,9 @@
                     <input type="password" id="senha-funcionario" name="senha" placeholder="Digite sua senha" required>
                 </div>
 
-                <button type="submit" class="btn-esqueceu">Login</button>
+                <button type="submit" class="btn-esqueceu" id="btn-adm" name="action" value="adm">Login Administrador</button>
+                <p class="divisão"> --------- ou ---------</p>
+                <button type="submit" class="btn-esqueceu" id="btn-funcionario" name="action" value="funcionario">Login Funcionario</button>
                 <div class="linha">
 
                 </div>
@@ -52,5 +54,6 @@
     </div>
     </div>
     <script src="../../../../public/js/login-funcionario.js"></script>
+    <!-- <script src="../../../../public/js/login-adm.js"></script> -->
 </body>
 </html>

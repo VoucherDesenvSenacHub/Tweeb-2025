@@ -125,9 +125,14 @@ class Funcionario {
         return $db->select("id = $id")->fetchObject(self::class);
     }
 
-    public static function buscarPorEmail($email) {
+    public static function buscarPorEmailADM($email) {
         $db2 = new Database(); 
         $dados = $db2->buscarAdmPorEmail($email);
+        return $dados;
+    }
+    public static function buscarPorEmailFuncionario($email) {
+        $db2 = new Database(); 
+        $dados = $db2->buscarFuncionarioPorEmail($email);
         return $dados;
     }
 

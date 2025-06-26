@@ -97,7 +97,7 @@
             </div>
 
             <div class="funcionario-form-botoes">
-                <button type="button" class="funcionario-form-cancelar">Cancelar</button>
+                <button type="button" class="funcionario-form-cancelar">Limpar</button>
                 <button type="submit" class="funcionario-form-salvar">Salvar Funcionário</button>
             </div>
         </form>
