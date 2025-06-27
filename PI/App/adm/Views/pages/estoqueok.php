@@ -183,10 +183,15 @@ if ($id_produto !== null) {
     <?php include __DIR__.'/../../../../includes/sidebar-Adm.php'; ?>
     <div class="cadastrando-products-pai">
         <div class="cadastrando-products">
+
+        
             <nav>
                 <a href="#" class="active">Novo Produto</a>
                 <a href="listarProdutos.php">Cadastrados</a>
             </nav>
+
+
+
             <h2 id='titulo-cadastro-produto'>Detalhes do Produto</h2>
             <form action="estoqueok.php" method="POST" enctype="multipart/form-data" id="product-form">
     <div class="form-group">

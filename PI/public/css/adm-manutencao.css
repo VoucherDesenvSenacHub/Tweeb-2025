@@ -23,6 +23,7 @@ ul.categoria{
     display: flex;
 }
 
+
 .categoria {
     display:flex;
     justify-content: space-between;
@@ -524,6 +525,12 @@ font-weight: bold;
 
 h2 {
   color: black;
+  align-items: center;
+  color: black;
+  white-space: nowrap; /* Impede que o texto quebre a linha */
+  overflow: hidden;     /* Esconde qualquer coisa que ultrapasse */
+  text-overflow: ellipsis;
+  margin-left: 30px;
   
 }
 

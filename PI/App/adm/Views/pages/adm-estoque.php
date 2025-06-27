@@ -24,11 +24,6 @@ session_start();
           <p><a href="adm-enviados.php">Enviados</a></p>
         </div>  
 
-        <div class="estoque-busca">
-          <form action="">
-            <input type="text" placeholder="Busca">
-          </form>
-        </div>
     </div>
         
 
