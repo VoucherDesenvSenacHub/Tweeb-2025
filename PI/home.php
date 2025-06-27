@@ -137,8 +137,9 @@ $produtos = Produto::buscar(null, 'id_produto DESC', 8);
         
         <div class="produtos-grid" id="container-cards">
             <?php foreach ($produtos as $produto): ?>
-                <div class="produtos-card">
-                <img src="/Tweeb-2025/PI/public/uploads/<?= htmlspecialchars(basename($produto['imagem_produto'])) ?>" alt="Imagem do Produto" style="width: 160px; height: 160px;">
+            <div class="produtos-card">
+            <img src="/Tweeb-2025/PI/public/uploads/<?= htmlspecialchars(basename($produto['imagem_produto'])) ?>" alt="Imagem do Produto" style="width: 160px; height: 160px;">
+
                 <p><?= htmlspecialchars($produto['nome_produto']) ?></p>
                 <p><?= htmlspecialchars($produto['marca_modelo']) ?></p>
                 <h1>R$<?= number_format($produto['preco_unid'], 2, ',', '.') ?></h1>
@@ -146,9 +147,10 @@ $produtos = Produto::buscar(null, 'id_produto DESC', 8);
                 <a href="App/user/View/pages/Carrinho.php?id_produto=<?= $produto['id_produto'] ?>">
                     <button class="card-botao">Comprar Agora</button>
                 </a>
-    
-            <?php endforeach; ?>
+            </div>
+        <?php endforeach; ?>
         </div>
+
             <!-- <div class="produtos-card">
                 <img class="heart" src="public/assets/img/heart_disabled.png" alt="coração" onclick="AtivarCoracao(this)">
 
