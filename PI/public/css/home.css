@@ -239,6 +239,15 @@ span{
     /* background-color: rebeccapurple; */
 }
 
+.produtos-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 20px;
+    padding: 20px;
+    max-width: 900px;
+    max-width: 900px;     
+    margin-left: 120px;    
+}
 .card{
     display: flex;
     align-items: center;
@@ -411,7 +420,7 @@ span{
 }
 
 .card-botao{
-    position: absolute;
+    /* position: absolute; */
     bottom: 20px;
     padding: 10px;
     width: 235px;

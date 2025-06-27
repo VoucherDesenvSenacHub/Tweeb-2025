@@ -1,8 +1,12 @@
 <?php
 session_start(); 
+
+require_once __DIR__.'/App/adm/Controllers/Produto.php';
+$produtos = Produto::buscar(null, 'id_produto DESC', 8);
+
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -131,27 +135,21 @@ session_start();
         </div>
 
         
-        <div class="produtos-grid">
-            <div class="produtos-card">
-                <img class="heart" src="public/assets/img/heart_disabled.png" alt="coração" onclick="AtivarCoracao(this)">
+        <div class="produtos-grid" id="container-cards">
+            <?php foreach ($produtos as $produto): ?>
+                <div class="produtos-card">
+                <img src="/Tweeb-2025/PI/public/uploads/<?= htmlspecialchars(basename($produto['imagem_produto'])) ?>" alt="Imagem do Produto" style="width: 160px; height: 160px;">
+                <p><?= htmlspecialchars($produto['nome_produto']) ?></p>
+                <p><?= htmlspecialchars($produto['marca_modelo']) ?></p>
+                <h1>R$<?= number_format($produto['preco_unid'], 2, ',', '.') ?></h1>
 
-                <a href="../PI/App/user/View/pages/Carrinho.php"><img class="add-carrinho" src="public/assets/img/carrinho-card.png" alt=""></a>
-
-                <img class="image-produto" src="public/assets/img/card-produto.png" alt="">
-                <div class="card-rate">
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <span class="qnt-avaliacoes">(500+)</span>
-                </div>
-                <p>Cadeira Gamer</p>
-                <p>GAMING Tempest CG500</p>
-                <h1>R$900,99</h1>
-                <button class="card-botao"><a href="app/user/View/pages/descproduto.php" class="corad-botao-a">Comprar Agora</a></button>
-            </div>
-            <div class="produtos-card">
+                <a href="App/user/View/pages/Carrinho.php?id_produto=<?= $produto['id_produto'] ?>">
+                    <button class="card-botao">Comprar Agora</button>
+                </a>
+    
+            <?php endforeach; ?>
+        </div>
+            <!-- <div class="produtos-card">
                 <img class="heart" src="public/assets/img/heart_disabled.png" alt="coração" onclick="AtivarCoracao(this)">
 
                 <a href="../PI/App/user/View/pages/Carrinho.php"><img class="add-carrinho" src="public/assets/img/carrinho-card.png" alt=""></a>
@@ -366,7 +364,7 @@ session_start();
                 <h1>R$2535,99</h1>
                 <button class="card-botao">Comprar Agora</button>
             </div>
-        </div>
+        </div> -->
     </section>
 
     </div>
