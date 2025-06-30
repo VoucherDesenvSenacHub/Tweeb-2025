@@ -25,27 +25,27 @@ class Funcionario {
         }
     }
 
-    public function inserirFunc() {
-        $db = new Database('usuarios');
-        $idUsuario = $db->insert([
-            'nome' => $this->nome,
-            'email' => $this->email,
-            'senha' => $this->senha,
-            'tipo' => 'funcionario',
-            'foto_perfil' => $this->foto_perfil
-        ]);
+    // public function inserirFunc() {
+    //     $db = new Database('usuarios');
+    //     $idUsuario = $db->insert([
+    //         'nome' => $this->nome,
+    //         'email' => $this->email,
+    //         'senha' => $this->senha,
+    //         'tipo' => 'funcionario',
+    //         'foto_perfil' => $this->foto_perfil
+    //     ]);
 
-        if ($idUsuario) {
-            $dbfuncionario = new Database('funcionarios');
-            $dbfuncionario->insert([
-                'id_usuario' => $idUsuario,
-                'matricula' => $this->matricula,
-                'cargo' =>$this-> cargo
-            ]);
-        }
+    //     if ($idUsuario) {
+    //         $dbfuncionario = new Database('funcionarios');
+    //         $dbfuncionario->insert([
+    //             'id_usuario' => $idUsuario,
+    //             'matricula' => $this->matricula,
+    //             'cargo' =>$this-> cargo
+    //         ]);
+    //     }
 
-        return $idUsuario;
-    }
+    //     return $idUsuario;
+    // }
 
     public function inserirADM() {
         $db = new Database('usuarios');
@@ -81,20 +81,22 @@ class Funcionario {
         $dbUsuario = new Database('usuarios');
         $idUsuario = $dbUsuario->insert([
             'nome'        => $dados['nome'],
-            'sobrenome'        => $dados['sobrenome'],
+            'sobrenome'   => $dados['sobrenome'],
             'email'       => $dados['email'],
             'telefone'    => $dados['telefone'],
             'senha'       => $dados['senha'],
             'tipo'        => 'funcionario',
-            'foto_perfil' => 'padrao.png' // ou outra imagem padrão
+            'foto_perfil' => 'imagem_padrao.png' // ou outra imagem padrão
         ]);
+
+
 
         // 2. Inserir na tabela `funcionarios`
         $dbFuncionario = new Database('funcionarios');
-        return $dbFuncionario->insert([
+        return $dbFuncionario->insert_by([
             'id_usuario' => $idUsuario,
             'matricula'  => $dados['matricula'],
-            'cpf'        => $dados['cpf']
+            'cargo' => 'Funcionario'
         ]);
     }
     

@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '../../Models/Funcionario.php';
+require_once '../Models/Funcionario.php';
 
 header('Content-Type: application/json');
 
@@ -29,7 +29,8 @@ try {
     $senhaHash = password_hash($senha, PASSWORD_DEFAULT);
 
     $resultado = Funcionario::cadastrar([
-        'nome' => $nome . ' ' . $sobrenome,
+        'nome' => $nome,
+        'sobrenome' => $sobrenome,
         'matricula' => $matricula,
         'email' => $email,
         'telefone' => $telefone,
@@ -37,14 +38,24 @@ try {
         'senha' => $senhaHash
     ]);
 
-    echo json_encode([
-        'sucesso' => true,
-        'mensagem' => 'Funcionário cadastrado com sucesso!'
-    ]);
+    if($resultado){
+        echo json_encode([
+            'sucesso' => true,
+            'mensagem' => 'Funcionário cadastrado com sucesso!'
+        ]);
+    }else{
+        echo json_encode([
+            'sucesso' => false,
+            'mensagem' => 'Erro ao salvar funcionário.',
+            'erro' => $e->getMessage()
+        ]);
+    }
+
+    
 } catch (Exception $e) {
     echo json_encode([
         'sucesso' => false,
-        'mensagem' => 'Erro ao salvar funcionário. Tente novamente.',
-        'erro' => $e->getMessage() // 👈 Isso exibe a causa real
+        'mensagem' => 'Erro ao salvar funcionário.',
+        'erro' => $e->getMessage()
     ]);
 }

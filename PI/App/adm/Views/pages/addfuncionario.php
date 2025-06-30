@@ -38,7 +38,7 @@
             </div>
         </div>
 
-        <form class="funcionario-form">
+        <form class="funcionario-form" id="form-funcionario">
 
             <div class="funcionario-form-row">
                 <div class="funcionario-form-group">
