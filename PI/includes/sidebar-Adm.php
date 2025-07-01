@@ -10,10 +10,10 @@
     
                 <p class="userAdm_infos">
                     <span class="itemAdm-descricao">
-                      <?php echo htmlspecialchars($_SESSION['funcionario']['nome']); ?>
+                      <?php echo htmlspecialchars($_SESSION['adm']['nome']); ?>
                     </span>
                     <span class="itemAdm-descricao">
-                      <small><?php echo htmlspecialchars($_SESSION['funcionario']['cargo']); ?></small>
+                      <small><?php echo htmlspecialchars($_SESSION['adm']['cargo']); ?></small>
                     </span>
                 </p>
             </div>
@@ -49,7 +49,7 @@
 
 
                 <li class="sidebarAdm-item">
-                  <a href="#"><img src="../../../../public/assets/img/Vector (5).png" alt=""><span class="itemAdm-descricao">Aparência</span></a>
+                  <a href="../pages/aparencia.php"><img src="../../../../public/assets/img/Vector (5).png" alt=""><span class="itemAdm-descricao">Aparência</span></a>
                 </li>
                 <li class="sidebarAdm-item">
                   <a href="/Tweeb-2025/PI/app/adm/Controllers/FuncionarioLogout.php"><img src="../../../../public/assets/img/sair.png" alt=""><span class="itemAdm-descricao">Sair</span></a>
