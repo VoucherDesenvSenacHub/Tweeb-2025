@@ -34,9 +34,9 @@
                     <input type="password" id="senha-funcionario" name="senha" placeholder="Digite sua senha" required>
                 </div>
 
-                <button type="submit" class="btn-esqueceu" id="btn-adm" name="action" value="adm">Login Administrador</button>
-                <p class="divisão"> --------- ou ---------</p>
-                <button type="submit" class="btn-esqueceu" id="btn-funcionario" name="action" value="funcionario">Login Funcionario</button>
+                <button type="submit" class="btn-esqueceu" id="btn-adm" name="action" value="adm">Entrar como Administrador</button>
+                <!-- <p class="divisão"> --------- ou ---------</p> -->
+                <button type="submit" class="btn-esqueceu" id="btn-funcionario" name="action" value="funcionario">Entrar como Funcionario</button>
                 <div class="linha">
 
                 </div>

@@ -10,10 +10,10 @@
     
                 <p class="userAdm_infos">
                     <span class="itemAdm-descricao">
-                      <?php echo htmlspecialchars($_SESSION['adm']['nome']); ?>
+                      <?php echo htmlspecialchars($_SESSION['adm']['nome'] ?? $_SESSION['funcionario']['nome']); ?>
                     </span>
                     <span class="itemAdm-descricao">
-                      <small><?php echo htmlspecialchars($_SESSION['adm']['cargo']); ?></small>
+                      <small><?php echo htmlspecialchars($_SESSION['adm']['cargo']??$_SESSION['funcionario']['cargo']); ?></small>
                     </span>
                 </p>
             </div>
