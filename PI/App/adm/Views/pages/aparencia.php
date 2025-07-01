@@ -1,3 +1,14 @@
+<?php
+if (session_status() !== PHP_SESSION_ACTIVE) {
+    session_start();
+}
+if (!isset($_SESSION['adm']) && !isset($_SESSION['funcionario'])) {
+    header("Location: login-funcionario.php");
+    exit;
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
