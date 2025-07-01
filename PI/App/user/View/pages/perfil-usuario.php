@@ -101,8 +101,18 @@ function mascararCPF($cpf) {
             </div>
             
         </form>
-        <button type="button" class="perfil-tweeb-excluir" onClick="deletaUsuario()">Excluir</button>
+        <button type="button" class="perfil-tweeb-excluir" onClick="abriModal()">Excluir</button>
     </div>
+</div>
+
+<div id="modal" class="modal-perfil_usuario">
+  <div class="modal-conteudo_perfilUsuario">
+    <p>Tem certeza que deseja excluir sua conta?</p>
+    <div class="botoes-perfil_usuario">
+      <button class="btn-excluirPerfil" onclick="deletaUsuario()">Excluir</button>
+      <button class="btn-cancelarPerfil" onclick="fecharModal()">Cancelar</button>
+    </div>
+  </div>
 </div>
 
 <?php include __DIR__.'/../../../../includes/footer.php'; ?>
@@ -110,5 +120,7 @@ function mascararCPF($cpf) {
 <script>
     const usuarioID  = <?php echo json_encode($_SESSION['usuario']['id']);?>
 </script>
+
+<script src="../../../../public/js/modal_perfilUsuario.js"></script>
 </body>
 </html>
