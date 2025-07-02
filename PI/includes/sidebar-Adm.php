@@ -39,9 +39,14 @@
                 </li>
 
 
+              <?php if (isset($_SESSION['funcionario']) && $_SESSION['funcionario']['email'] === 'admgeral@empresa.com'): ?>
                 <li class="sidebarAdm-item">
-                  <a href="addfuncionario.php"><img src="../../../../public/assets/img/addfun.png " alt=""><span class="itemAdm-descricao">Add funcionario </span></a>
+                  <a href="addfuncionario.php">
+                      <img src="../../../../public/assets/img/addfun.png" alt="">
+                      <span class="itemAdm-descricao">Add funcionário</span>
+                  </a>
                 </li>
+              <?php endif; ?>
 
 
 
