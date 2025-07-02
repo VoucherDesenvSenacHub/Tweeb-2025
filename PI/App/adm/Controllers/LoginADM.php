@@ -27,11 +27,21 @@ try {
         exit;
     }
 
-    if ($senha !== $funcionario['senha']) {
-        echo json_encode(['sucesso' => false, 'mensagem' => 'Senha incorreta']);
-        exit;
+    // ⚠️ Exceção para adm geral (senha sem hash)
+    if ($funcionario['email'] === 'admgeral@empresa.com') {
+        if ($senha !== $funcionario['senha']) {
+            echo json_encode(['sucesso' => false, 'mensagem' => 'Senha incorreta']);
+            exit;
+        }
+    } else {
+        // Verificação com password_verify para os demais
+        if (!password_verify($senha, $funcionario['senha'])) {
+            echo json_encode(['sucesso' => false, 'mensagem' => 'Senha incorreta']);
+            exit;
+        }
     }
 
+    // Inicia sessão
     $_SESSION['funcionario'] = [
         'id' => $funcionario['id'],
         'nome' => $funcionario['nome'],
@@ -53,10 +63,7 @@ try {
         ]
     ]);
 
-    
-
 } catch (Exception $e) {
     error_log('Erro no login: ' . $e->getMessage());
-    echo json_encode(['sucesso' => false, 'mensagem' => 'Erro ao fazer login. Por favor, tente novamente.']);
-    
+    echo json_encode(['sucesso' => false, 'mensagem' => 'Erro ao fazer login.']);
 }
