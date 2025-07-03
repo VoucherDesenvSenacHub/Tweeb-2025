@@ -72,7 +72,7 @@ session_start();
           <input type="text" name="Relato_do_cliente" id="modal_Relato_do_cliente" placeholder="">
         </div>
         <div class="Ordem_Servico">
-          <label for="Parecer_Tecnico">Parecer Técnico</label>
+          <label for="Parecer_Tecnico">Técnico Responsável</label>
           <input type="text" name="Parecer_Tecnico" id="modal_Parecer_Tecnico" placeholder="">
         </div>
         <div class="Ordem_Servico">

@@ -65,7 +65,7 @@
         </div>
        
         <div class="Ordem_Servico21">
-            <label for="">Parecer Técnico</label>
+            <label for="">Técnico Responsável</label>
             <input type="text" name="Parecer_Tecnico" id="Parecer_Tecnico" placeholder="">
         </div>
         <div class="Ordem_Servico21">

@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 <p><strong>Número de Série:</strong> ${data.numeroSerie}</p>
                 <p><strong>Acessórios Entregues:</strong> ${data.acessorios}</p>
                 <p><strong>Relato do Cliente:</strong> ${data.relatoCliente}</p>
-                <p><strong>Parecer Técnico:</strong> ${data.parecerTecnico}</p>
+                <p><strong>Técnico Responsável:</strong> ${data.parecerTecnico}</p>
                 <p><strong>Serviços Solicitados:</strong> ${data.servicosSolicitados}</p>
                 <p><strong>Estimativa de Custo:</strong> ${data.estimativaCusto}</p>
                 <p><strong>Aprovação do Cliente:</strong> ${data.aprovacaoCliente}</p>
