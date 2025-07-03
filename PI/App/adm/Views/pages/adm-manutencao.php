@@ -152,7 +152,7 @@ session_start();
             
             <nav class="manutencao-tabs">
                 <a href="" class="active">Ordem de serviço</a>
-                <a href="adm-manutencao-enviados.php">Enviadas</a>
+                <a href="adm-manutencao-enviados.php">Finalizadas</a>
             </nav>
             
             <div class="manutencao-actions">
