@@ -329,7 +329,7 @@ session_start();
 
 
 
-    <div class="manutencoes-aceitas">
+    <!-- <div class="manutencoes-aceitas">
         <p>Manutenções Aceitas</p>
 
         <div class="botao-out" id="ativar-aceitas">
@@ -340,9 +340,9 @@ session_start();
 
         </div>
 
-    </div>
+    </div> -->
     
-    <div class="aceitas-table" id="manutencoes-aceitas" style="display: none;">
+    <!-- <div class="aceitas-table" id="manutencoes-aceitas" style="display: none;">
         <h1>Manutenções Aceitas</h2>
         <table>
             <tr>
@@ -386,7 +386,7 @@ session_start();
             <button>2</button>
         </div>
         
-    </div>
+    </div> -->
 
             
     
