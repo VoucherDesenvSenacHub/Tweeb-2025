@@ -319,10 +319,10 @@ session_start();
             </table>
         </div>
     
-            <div class="pagination">
+            <!-- <div class="pagination">
                 <button onclick="showPage(1)">1</button>
                 <button onclick="showPage(2)">2</button>
-            </div>
+            </div> -->
         </div>
     
     </div>
