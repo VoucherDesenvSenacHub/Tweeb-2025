@@ -11,9 +11,11 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Estoque</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    link
    
 </head>
 <body> 
+
 <?php include __DIR__.'/../../../../includes/head-adm.php'; ?>
 <?php include __DIR__.'/../../../../includes/sidebar-Adm.php'; ?>
 
@@ -77,19 +79,7 @@ session_start();
       </div>
     </div>
 
-    
-    <div class="buscar-filtros">
-      <div class="filtros-datas">
-          <div class="datas-botoes">
-              <!-- trocar isso aqui pra checkbox ou algum outro form quando iniciar o desenvolvimento do backend -->
-              <button class="botao-ativado">Hoje</button>
-              <button>Ontem</button>
-              <button>7 dias</button>
-              <button>30 dias</button>
-              <button>Último mês</button>
-              <button>Data <img src="../../../../public/assets/img/adm-calendario.png" alt=""></button>
-          </div>
-      </div>
+
 
       <div class="filtro-formulario">
           <form action="">
@@ -97,15 +87,12 @@ session_start();
                           
                   <label for="filtrar-nome">Nome</label>
                   <input type="text" id="filtrar-nome" name="filtrar-nome" placeholder="filtrar nome" >
+          
                   
-                  <label for="filtrar-email">Modelo</label>
-                  <input type="email" id="filtrar-email" name="filtrar-email" placeholder="filtrar modelo">
-                  
-                  <label for="filtrar-id">Número de série</label>
+                  <label for="filtrar-id">Número ID</label>
                   <input type="text" id="filtrar-id" name="filtrar-id" placeholder="filtrar nº">
 
-                  <label for="valor">Fornecedor</label>
-                  <input type="text" id="valor" name="valor" placeholder="filtrar fornecedor">
+                  
                   
                   <input class="form-botao-limpar" type="submit" value="Limpar">
                   <input class="form-botao-buscar" type="submit" value="Buscar">
@@ -125,7 +112,7 @@ session_start();
       <table class="estoque-table">
         <thead>
           <tr>
-                  <th>N</th>
+                  <th>N° ID</th>
                   <th>Imagem</th>
                   <th>Produto</th>
                   <th>Departamento</th>
@@ -135,7 +122,7 @@ session_start();
                   <th>Estoque</th>
                   <th>Fornecedor</th>
                   <th>Status</th>
-                  <th>NF</th>
+                  <th>Ação</th>
               </tr>
           </thead>
           <tbody id="page-1" class="product-page">
@@ -150,7 +137,12 @@ session_start();
                   <td>70 PCS</td>
                   <td>SONY.SA</td>
                   <td class="status-estoque">Estoque</td>
-                  <td class="centralizar-nota"><div class="tabela-nota-fiscal"><i class="fa-regular fa-file-lines"></i><p>Nota</p></div></td>
+                  <td class="centralizar-nota">
+                <button class="botao-editar-nota"><i class="fa-regular fa-file-lines"></i> Editar</button>
+                </td>
+                </td>
+
+
               </tr>
 
               <tr>
@@ -164,7 +156,9 @@ session_start();
                   <td>180 PCS</td>
                   <td>Mancer</td>
                   <td class="status-emfalta">Em falta</td>
-                  <td class="centralizar-nota"><div class="tabela-nota-fiscal"><i class="fa-regular fa-file-lines"></i><p>Nota</p></div></td>
+                  <td class="centralizar-nota">
+                <button class="botao-editar-nota"><i class="fa-regular fa-file-lines"></i> Editar</button>
+                </td>
               </tr>
 
               <tr>
@@ -178,7 +172,9 @@ session_start();
                   <td>40 PCS</td>
                   <td>Big Ben's Store</td>
                   <td class="status-poucasunid">Poucas unid.</td>
-                  <td class="centralizar-nota"><div class="tabela-nota-fiscal"><i class="fa-regular fa-file-lines"></i><p>Nota</p></div></td>
+                  <td class="centralizar-nota">
+                <button class="botao-editar-nota"><i class="fa-regular fa-file-lines"></i> Editar</button>
+                </td>
               </tr>
 
               <tr>
@@ -192,7 +188,9 @@ session_start();
                 <td>80 PCS</td>
                 <td>Big Ben's Store</td>
                 <td class="status-poucasunid">Poucas unid.</td>
-                <td class="centralizar-nota"><div class="tabela-nota-fiscal"><i class="fa-regular fa-file-lines"></i><p>Nota</p></div></td>
+                <td class="centralizar-nota">
+                <button class="botao-editar-nota"><i class="fa-regular fa-file-lines"></i> Editar</button>
+                </td>
             </tr>
 
             <tr>
@@ -206,7 +204,9 @@ session_start();
                   <td>70 PCS</td>
                   <td>SONY.SA</td>
                   <td class="status-estoque">Estoque</td>
-                  <td class="centralizar-nota"><div class="tabela-nota-fiscal"><i class="fa-regular fa-file-lines"></i><p>Nota</p></div></td>
+                  <td class="centralizar-nota">
+                <button class="botao-editar-nota"><i class="fa-regular fa-file-lines"></i> Editar</button>
+                </td>
               </tr>
 
               <tr>
@@ -220,7 +220,9 @@ session_start();
                   <td>180 PCS</td>
                   <td>Mancer</td>
                   <td class="status-emfalta">Em falta</td>
-                  <td class="centralizar-nota"><div class="tabela-nota-fiscal"><i class="fa-regular fa-file-lines"></i><p>Nota</p></div></td>
+                  <td class="centralizar-nota">
+                <button class="botao-editar-nota"><i class="fa-regular fa-file-lines"></i> Editar</button>
+                </td>
               </tr>
 
               <tr>
@@ -234,7 +236,9 @@ session_start();
                   <td>40 PCS</td>
                   <td>Big Ben's Store</td>
                   <td class="status-poucasunid">Poucas unid.</td>
-                  <td class="centralizar-nota"><div class="tabela-nota-fiscal"><i class="fa-regular fa-file-lines"></i><p>Nota</p></div></td>
+                  <td class="centralizar-nota">
+                <button class="botao-editar-nota"><i class="fa-regular fa-file-lines"></i> Editar</button>
+                </td>
               </tr>
 
               <tr>
@@ -248,11 +252,12 @@ session_start();
                 <td>80 PCS</td>
                 <td>Big Ben's Store</td>
                 <td class="status-poucasunid">Poucas unid.</td>
-                <td class="centralizar-nota"><div class="tabela-nota-fiscal"><i class="fa-regular fa-file-lines"></i><p>Nota</p></div></td>
+                <td class="centralizar-nota">
+                <button class="botao-editar-nota"><i class="fa-regular fa-file-lines"></i> Editar</button>
+                </td>
             </tr>
               
           </tbody>
-          <tbody id="page-2" class="product-page" style="display: none;">
               
       </table>
     </div>
@@ -264,7 +269,104 @@ session_start();
     </div>
 </div>
 
+
+<!-- Modal para editar produto -->
+<div id="modalEditarProduto" class="modal">
+  <div class="modal-content">
+    <span class="close-modal">&times;</span>
+    <h2>Editar Produto</h2>
+    <form id="formEditarProduto" method="post" action="processa-editar-produto.php">
+      <input type="hidden" name="id" id="produto-id">
+
+      <label for="produto-nome">Produto</label>
+      <input type="text" id="produto-nome" name="produto_nome" required>
+
+      <label for="produto-departamento">Departamento</label>
+      <input type="text" id="produto-departamento" name="produto_departamento" required>
+
+      <label for="produto-quantidade">QTD Entrada</label>
+      <input type="number" id="produto-quantidade" name="produto_quantidade" required>
+
+      <label for="produto-valor-und">Valor UND</label>
+      <input type="text" id="produto-valor-und" name="produto_valor_und" required>
+
+      <label for="produto-valor-total">Valor Total</label>
+      <input type="text" id="produto-valor-total" name="produto_valor_total" required>
+
+      <label for="produto-estoque">Estoque</label>
+      <input type="text" id="produto-estoque" name="produto_estoque" required>
+
+      <label for="produto-fornecedor">Fornecedor</label>
+      <input type="text" id="produto-fornecedor" name="produto_fornecedor" required>
+
+      <label for="produto-status">Status</label>
+      <input type="text" id="produto-status" name="produto_status" required>
+
+      <button type="submit">Salvar</button>
+    </form>
+  </div>
+
             
+
+
+
+<script>
+  // Elementos do modal
+  const modal = document.getElementById('modalEditarProduto');
+  const closeModalBtn = modal.querySelector('.close-modal');
+  const form = document.getElementById('formEditarProduto');
+
+  // Função para abrir modal e preencher dados da linha clicada
+  function abrirModalEditar(event) {
+    const btn = event.currentTarget;
+    const tr = btn.closest('tr');
+
+    // Captura dados da linha (colunas)
+    const id = tr.children[0].innerText.trim();
+    const produtoNome = tr.children[2].innerText.trim();
+    const departamento = tr.children[3].innerText.trim();
+    const quantidade = tr.children[4].innerText.trim();
+    const valorUnd = tr.children[5].innerText.trim();
+    const valorTotal = tr.children[6].innerText.trim();
+    const estoque = tr.children[7].innerText.trim();
+    const fornecedor = tr.children[8].innerText.trim();
+    const status = tr.children[9].innerText.trim();
+
+    // Preenche inputs do formulário
+    document.getElementById('produto-id').value = id;
+    document.getElementById('produto-nome').value = produtoNome;
+    document.getElementById('produto-departamento').value = departamento;
+    document.getElementById('produto-quantidade').value = quantidade;
+    document.getElementById('produto-valor-und').value = valorUnd;
+    document.getElementById('produto-valor-total').value = valorTotal;
+    document.getElementById('produto-estoque').value = estoque;
+    document.getElementById('produto-fornecedor').value = fornecedor;
+    document.getElementById('produto-status').value = status;
+
+    // Exibe modal
+    modal.style.display = 'block';
+  }
+
+  // Fecha modal ao clicar no "x"
+  closeModalBtn.onclick = () => {
+    modal.style.display = 'none';
+  };
+
+  // Fecha modal ao clicar fora da área do conteúdo
+  window.onclick = (event) => {
+    if (event.target === modal) {
+      modal.style.display = 'none';
+    }
+  };
+
+  // Aplica o evento a todos os botões editar
+  document.querySelectorAll('.botao-editar-nota').forEach(button => {
+    button.addEventListener('click', abrirModalEditar);
+  });
+</script>
+
+
+<?php include __DIR__.'/../../../../includes/footer-adm.php'; ?> 
     
 </body>
 </html>

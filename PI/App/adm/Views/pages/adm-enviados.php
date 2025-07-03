@@ -73,12 +73,10 @@ session_start();
         <div class="form-group-estoque">
             <label for="filtrar-nome">Nome</label>
             <input type="text" id="filtrar-nome" name="filtrar-nome" placeholder="filtrar nome" />
-            <label for="filtrar-email">Email</label>
-            <input type="email" id="filtrar-email" name="filtrar-email" placeholder="filtrar modelo" />
+            
             <label for="filtrar-id">ID Order</label>
             <input type="text" id="filtrar-id" name="filtrar-id" placeholder="filtrar nº" />
-            <label for="text">Produto</label>
-            <input type="text" id="filtrar-produto" name="filtrar-produto" placeholder="filtrar produto" />
+            
             <input class="form-botao-limpar" type="submit" value="Limpar" />
             <input class="form-botao-buscar" type="submit" value="Buscar" />
         </div>

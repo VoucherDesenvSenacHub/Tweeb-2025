@@ -90,7 +90,7 @@ if(isset($_POST['cadastrar'])){
             <form action="estoqueok.php" method="POST" enctype="multipart/form-data">
 
                 <div class="form-group">
-                    <label>Nº de Série</label>
+                    <label>ID Produto</label>
                     <input type="text" name="numero_serie" required>
                     <label>Imagem</label>
                     <input type="file" name="imagem_produto" required>
@@ -120,8 +120,7 @@ if(isset($_POST['cadastrar'])){
                 <div class="form-group">
                     <label>Valor Total</label>
                     <input type="number" name="valor_total" id="valor_total" step="0.01" readonly>
-                    <label>Estoque</label>
-                    <input type="checkbox" name="em_estoque" value="1">
+                 
                 </div>
 
                 <div class="form-group">

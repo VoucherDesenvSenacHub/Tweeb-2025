@@ -83,34 +83,19 @@ session_start();
     </div> -->
 
     
-    <div class="buscar-filtros">
-      <div class="filtros-datas">
-          <div class="datas-botoes">
-              <!-- trocar isso aqui pra checkbox ou algum outro form quando iniciar o desenvolvimento do backend -->
-              <button class="botao-ativado">Hoje</button>
-              <button>Ontem</button>
-              <button>7 dias</button>
-              <button>30 dias</button>
-              <button>Último mês</button>
-              <button>Data <img src="../../../../public/assets/img/adm-calendario.png" alt=""></button>
-          </div>
-      </div>
-
+   
       <div class="filtro-formulario">
           <form action="">
               <div class="form-group-estoque">
                           
                   <label for="filtrar-nome">Nome</label>
-                  <input type="text" id="filtrar-nome" name="filtrar-nome" placeholder="filtrar nome" >
-                  
-                  <label for="filtrar-email">Email</label>
-                  <input type="email" id="filtrar-email" name="filtrar-email" placeholder="filtrar modelo">
+                  <input type="text" id="filtrar-nome" name="filtrar-nome" placeholder="Nome Produto/Cliente" >
+                 
                   
                   <label for="filtrar-id">ID do Pedido</label>
                   <input type="text" id="filtrar-id" name="filtrar-id" placeholder="filtrar nº">
 
-                  <label for="valor">CPF</label>
-                  <input type="text" id="valor" name="valor" placeholder="filtrar fornecedor">
+          
                   
                   <input class="form-botao-limpar" type="submit" value="Limpar">
                   <input class="form-botao-buscar" type="submit" value="Buscar">
@@ -130,7 +115,7 @@ session_start();
       <table class="estoque-table">
         <thead>
           <tr>
-                  <th>N</th>
+                  <th>ID</th>
                   <th>Imagem</th>
                   <th>Produto</th>
                   <th>Data</th>
