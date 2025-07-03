@@ -74,11 +74,10 @@
             
         </div>
         <textarea readonly>Formatação do Notebook</textarea>
-        <div class="orcamento-recebido-buttons">
-            <a href="os-cadastrada-modal.php"><button class="orcamento-recebido-responder">Visualizar O.S</a></button>
+            <div class="orcamento-recebido-buttons">
+                <a href="os-cadastrada-modal.php" class="orcamento-recebido-responder">Visualizar O.S</a>
+            </div>
 
-
-        </div>
     </form>
     </div>
 

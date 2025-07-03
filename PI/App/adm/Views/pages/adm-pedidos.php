@@ -22,6 +22,8 @@ session_start();
           <p><a href="adm-estoque.php">Visão Geral</a></p>
           <span><p>Pedidos</p></span>
           <p><a href="adm-enviados.php">Enviados</a></p>
+          <a href="estoqueok.php"><p>Novo Produto</p></a>
+
         </div>  
 
         <!-- <div class="estoque-busca">

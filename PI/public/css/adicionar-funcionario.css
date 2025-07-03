@@ -1,165 +1,225 @@
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f3f4f6;
+}
+
+.funcionario-form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  min-height: 100vh;
+}
+
+.funcionario-form-box {
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 800px;
+}
+
+select {
+  padding: 0.7rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  width: 100%;
+  font-size: 1rem;
+  background-color: #fff;
+  color: #055ff0; 
   
-  body {
-    font-family: 'Poppins', sans-serif;
-    background-color: #f3f4f6;
-  }
+}
+
+
+
+.funcionario-form-saudacao {
+  display: block;
+  margin: 0 auto 2rem auto;
+  font-size: 1.25rem;
+  font-weight: 600;
+  background: none;
+  border: none;
+  color: #374151;
+}
+
+
+.funcionario-form-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.funcionario-form-foto {
+  position: relative;
+  display: inline-block;
+}
+
+.funcionario-form-foto img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid #ccc;
+}
+
+.funcionario-form-editar-foto {
+  position: absolute;
+  right: -5px;
+  bottom: -5px;
+  background-color: #e5e7eb;
+  border: none;
+  border-radius: 50%;
+  padding: 6px;
+  cursor: pointer;
+}
+
+.funcionario-form-nome {
+  font-size: 1.2rem;
+  color: #111827;
+  margin-top: 1rem;
+}
+
+.funcionario-form-email {
+  font-size: 0.9rem;
+  color: #6b7280;
+}
+
+.funcionario-form-divider {
+  margin-top: 1rem;
+  height: 1px;
+  width: 100%;
+  background-color: #e5e7eb;
+}
+
+
+.funcionario-form {
+  display: flex;
+  flex-direction: column;
+}
+
+
+.funcionario-form-row {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.2rem;
+  flex-wrap: wrap;
+}
+
+.funcionario-form-row .funcionario-form-group {
+  flex: 1;
+  min-width: 200px;
+}
+
+.funcionario-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.2rem;
+}
+
+.funcionario-form-group label:first-child,
+.funcionario-form-group h2:first-child  {
+  margin-top: 0;
   
-  /* Centraliza todo o conteúdo */
-  .funcionario-form-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 2rem;
-    min-height: 100vh;
-  }
   
-  .funcionario-form-box {
-    background-color: #ffffff;
-    padding: 2rem;
-    border-radius: 16px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 600px;
-  }
-  
-  /* Saudação */
-  .funcionario-form-saudacao {
-    display: block;
-    margin: 0 auto 2rem auto;
-    font-size: 1.25rem;
-    font-weight: 600;
-    background: none;
-    border: none;
-    color: #374151;
-  }
-  
-  /* Cabeçalho com foto e nome */
-  .funcionario-form-header {
-    text-align: center;
-    margin-bottom: 2rem;
-  }
-  
-  .funcionario-form-foto {
-    position: relative;
-    display: inline-block;
-  }
-  
-  .funcionario-form-foto img {
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
-    border-radius: 50%;
-    border: 2px solid #ccc;
-  }
-  
-  .funcionario-form-editar-foto {
-    position: absolute;
-    right: -5px;
-    bottom: -5px;
-    background-color: #e5e7eb;
-    border: none;
-    border-radius: 50%;
-    padding: 6px;
-    cursor: pointer;
-  }
-  
-  .funcionario-form-nome {
-    font-size: 1.2rem;
-    color: #111827;
-    margin-top: 1rem;
-  }
-  
-  .funcionario-form-email {
-    font-size: 0.9rem;
-    color: #6b7280;
-  }
-  
-  .funcionario-form-divider {
-    margin-top: 1rem;
-    height: 1px;
-    width: 100%;
-    background-color: #e5e7eb;
-  }
-  
-  /* Campos do formulário */
-  .funcionario-form,
-  .funcionario-form-group {
-    display: flex;
+}
+
+label[for="sobrenome"] {
+  color: #1d4ed8;
+}
+
+
+.funcionario-form-group label,
+.funcionario-form-group h2 {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #374151;
+  margin-bottom: 0.2rem;
+}
+
+.funcionario-form-group input {
+  padding: 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 1rem;
+  background-color: #f9fafb;
+}
+
+#primeiro-nome {
+  width: 100%;
+}
+
+
+.funcionario-form-botoes {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.funcionario-form-cancelar,
+.funcionario-form-salvar {
+  flex: 1;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.funcionario-form-cancelar {
+  background-color: #e5e7eb;
+  color: #111827;
+}
+
+.funcionario-form-cancelar:hover {
+  background-color: #d1d5db;
+}
+
+.funcionario-form-salvar {
+  background-color: #2563eb;
+  color: white;
+}
+
+.funcionario-form-salvar:hover {
+  background-color: #1e3a8a;
+}
+
+.senha-funcionario2{
+  color: white;
+}
+
+#senha-funcionarioo{
+  margin-top: 30px;
+}
+
+@media (max-width: 768px) {
+  .funcionario-form-row {
     flex-direction: column;
-    gap: 0.5rem;
-    margin-bottom: 1.2rem;
   }
-  
-  .funcionario-form-group label {
-    font-weight: 500;
-    color: #374151;
+}
+
+@media (max-width: 500px) {
+  .funcionario-form-box {
+    padding: 1rem;
   }
-  
-  .funcionario-form-group input {
-    padding: 0.75rem;
-    border: 1px solid #d1d5db;
-    border-radius: 8px;
-    font-size: 1rem;
-    background-color: #f9fafb;
-  }
-  
-  .funcionario-form-group h2 {
-    font-size: 1rem;
-    color: #111827;
-    margin-bottom: 0.5rem;
-  }
-  
-  /* Botões */
+
   .funcionario-form-botoes {
-    display: flex;
-    justify-content: space-between;
-    gap: 1rem;
-    margin-top: 2rem;
+    flex-direction: column;
   }
+}
+
+
+label[for="sobrenome"] {
   
-  .funcionario-form-cancelar,
-  .funcionario-form-salvar {
-    flex: 1;
-    padding: 0.75rem;
-    border: none;
-    border-radius: 8px;
-    font-size: 1rem;
-    font-weight: 500;
-    cursor: pointer;
-    transition: 0.3s ease;
-  }
-  
-  .funcionario-form-cancelar {
-    background-color: #e5e7eb;
-    color: #111827;
-  }
-  
-  .funcionario-form-cancelar:hover {
-    background-color: #d1d5db;
-  }
-  
-  .funcionario-form-salvar {
-    background-color: #2563eb;
-    color: white;
-  }
-  
-  .funcionario-form-salvar:hover {
-    background-color: #1e3a8a;
-  }
-  
-  /* Responsivo */
-  @media (max-width: 500px) {
-    .funcionario-form-box {
-      padding: 1rem;
-    }
-  
-    .funcionario-form-botoes {
-      flex-direction: column;
-    }
-  }
-  
+  margin-left: 2px;
+}
+

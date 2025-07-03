@@ -19,20 +19,9 @@ session_start();
     <span class="editar-os-modal-close" onclick="closeModal()">&times;</span>
     <h2 class="editar-os-modal-title">Editar Ordem de Serviço</h2>
     <form id="editar-os-form">
+
+    <h2 class="editar-os-modal-title">Editar Ordem de Serviço</h2><br><br>
    
-
-      <div class="editar-os-modal-progresso">
-        <label for="progresso">Progresso da OS:</label>
-        <input type="range" id="progresso" name="progresso" min="0" max="100" value="0" oninput="updateProgresso(this.value)">
-        <span id="progresso-valor">0%</span>
-      </div>
-      
-      <div class="editar-os-modal-descricao">
-        <label for="descricao_progresso">Descrição do Progresso:</label>
-        <textarea id="descricao_progresso" name="descricao_progresso" placeholder="Digite o status do progresso" required></textarea>
-      </div>
-
-
 
         <div class="Ordem_Servico">
           <label for="Numero_da_Os">Número da OS</label>
@@ -189,104 +178,104 @@ session_start();
             <table>
                 <thead>
                     <tr>
+                        <th>Order ID</th>
                         <th>Produto</th>
                         <th>Valor</th>
                         <th>Entrada</th>
-                        <th>Order ID</th>
                         <th>Saída</th>
                         <th>Status</th>
                     </tr>
                 </thead>
                 <tbody id="page-1" class="product-page">
                     <tr>
+                        <td>5724</td>
                         <td>Monitor</td>
                         <td>R$ 2557</td>
-                        <td>22 Unidades</td>
-                        <td>5724</td>
+                        <td>20/08/24</td>
                         <td>21/08/24</td>
                         <td class="entregue">Entregue</td>
                     </tr>
                     <tr>
+                        <td>2775</td>
                         <td>Computador Gamer</td>
                         <td>R$ 4075</td>
-                        <td>36 Unidades</td>
-                        <td>2775</td>
-                        <td>5/07/24</td>
+                        <td>03/07/24</td>
+                        <td>05/07/24</td>
                         <td class="garantia">Retorno Garantia</td>
                     </tr>
                     <tr>
+                        <td>2275</td>
                         <td>Mouse Gamer</td>
                         <td>R$ 5052</td>
-                        <td>14 Unidades</td>
-                        <td>2275</td>
-                        <td>8/03/24</td>
+                        <td>06/03/24</td>
+                        <td>08/03/24</td>
                         <td class="andamento">Em andamento</td>
                     </tr>
 
                     <tr>
+                        <td>2275</td>
                         <td>Mouse Gamer</td>
                         <td>R$ 5052</td>
-                        <td>14 Unidades</td>
-                        <td>2275</td>
-                        <td>8/03/24</td>
+                        <td>07/03/24</td>
+                        <td>08/03/24</td>
                         <td class="andamento">Em andamento</td>
                     </tr>
 
                     <tr>
+                        <td>2275</td>
                         <td>Mouse Gamer</td>
                         <td>R$ 5052</td>
-                        <td>14 Unidades</td>
-                        <td>2275</td>
-                        <td>8/03/24</td>
+                        <td>06/03/24</td>
+                        <td>08/03/24</td>
                         <td class="atrasado">Atrasado</td>
                     </tr>
                     <tr>
+                        <td>7535</td>
                         <td>Notebook Dell</td>
                         <td>R$ 4306</td>
-                        <td>43 Unidades</td>
-                        <td>7535</td>
+                        <td>09/08/24</td>
                         <td>11/08/24</td>
                         <td class="atrasado">Atrasado</td>
                     </tr>
                     <tr>
+                        <td>5724</td>
                         <td>Monitor</td>
                         <td>R$ 2557</td>
-                        <td>22 Unidades</td>
-                        <td>5724</td>
+                        <td>18/08/24</td>
                         <td>21/08/24</td>
                         <td class="entregue">Entregue</td>
                     </tr>
                     <tr>
+                        <td>2775</td>
                         <td>Computador Gamer</td>
                         <td>R$ 4075</td>
-                        <td>36 Unidades</td>
-                        <td>2775</td>
-                        <td>5/07/24</td>
+                        <td>04/06/24</td>
+                        <td>05/07/24</td>
                         <td class="garantia">Retorno Garantia</td>
                     </tr>
                     <tr>
+                        <td>2275</td>
                         <td>Mouse Gamer</td>
                         <td>R$ 5052</td>
-                        <td>14 Unidades</td>
-                        <td>2275</td>
-                        <td>8/03/24</td>
+                        <td>06/03/24</td>
+                        <td>08/03/24</td>
                         <td class="andamento">Em andamento</td>
                     </tr>
 
                     <tr>
+                        <td>2275</td>
                         <td>Mouse Gamer</td>
                         <td>R$ 5052</td>
-                        <td>14 Unidades</td>
-                        <td>2275</td>
-                        <td>8/03/24</td>
+                        <td>05/03/24</td>
+                        <td>08/03/24</td>
                         <td class="andamento">Em andamento</td>
                     </tr>
 
                     <tr>
+                        <td>2275</td>
                         <td>Mouse Gamer</td>
                         <td>R$ 5052</td>
-                        <td>14 Unidades</td>
-                        <td>2275</td>
+                        <td>06/03/24</td>
                         <td>8/03/24</td>
                         <td class="atrasado">Atrasado</td>
                     </tr>

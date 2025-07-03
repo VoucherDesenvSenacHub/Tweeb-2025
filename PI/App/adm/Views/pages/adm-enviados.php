@@ -43,6 +43,7 @@ session_start();
         <a href="adm-estoque.php"><p>Visão Geral</p></a>
         <a href="adm-pedidos.php"><p>Pedidos</p></a>
         <a href=""><span><p>Enviados</p></span></a>
+        <a href="estoqueok.php"><p>Novo Produto</p></a>
     </div>
 </div>
 
@@ -215,7 +216,8 @@ session_start();
             <select id="select-etapa" name="etapa" required>
                 <option value="Ativo">Ativo</option>
                 <option value="Cancelado">Cancelado</option>
-                <option value="Pendente">Pendente</option>
+                <option value="Pendente">Finalizado</option>
+                <option value="Finalizado">Finalizado</option>
             </select>
 
             <button class="botaoenviar" type="submit">Adicionar</button>

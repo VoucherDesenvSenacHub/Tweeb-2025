@@ -1,0 +1,251 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+}
+
+.os-title {
+    margin: 30px 40px 10px 40px;
+    font-size: 28px;
+    color: #333;
+    margin-left: 150px;
+}
+
+.search-container {
+    margin: 0 40px 20px 40px;
+    margin-left: 150px;
+}
+
+#filtroOS {
+    width: 100%;
+    max-width: 600px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.servicos-table {
+    margin: 0 40px 40px 40px;
+    overflow-x: auto;
+}
+
+.servicos-table table {
+    width: 90%;
+    border-collapse: collapse;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-left: 80px;
+}
+
+.servicos-table th,
+.servicos-table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+
+.servicos-table th {
+    background-color: #f0f0f0;
+    font-weight: bold;
+}
+
+.servicos-table tr:hover {
+    background-color: #f5f5f5;
+    cursor: pointer;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 600px;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+}
+
+.modal-header h2 {
+    margin-top: 0;
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 22px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+body > main {
+    flex: 1;
+}
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #f1f1f1;
+    padding: 15px;
+    text-align: center;
+    z-index: 10; /* z-index mais baixo */
+}
+
+
+.btn-voltar {
+    display: flex;
+    margin: 30px 40px 0 150px;
+    padding: 10px 18px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+    width: 7%;
+}
+
+.btn-voltar:hover {
+    background-color: #388E3C;
+}
+
+
+      /* Modal principal */
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 9999;
+        left: 0; top: 0;
+        width: 100%; height: 100%;
+        background-color: rgba(0,0,0,0.6);
+        align-items: center;
+        justify-content: center;
+    }
+    .modal-content {
+        background: white;
+        padding: 25px;
+        border-radius: 8px;
+        max-width: 600px;
+        width: 90%;
+        position: relative;
+        font-family: 'Montserrat', sans-serif;
+    }
+    .close {
+        position: absolute;
+        top: 12px; right: 18px;
+        font-size: 24px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+    .btn-editar {
+        margin-top: 15px;
+        padding: 10px 18px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 14px;
+    }
+    .btn-editar:hover {
+        background-color: #0056b3;
+    }
+
+    /* Modal de edição */
+    .editar-os-modal {
+        display: none;
+        position: fixed;
+        z-index: 10000;
+        left: 0; top: 0;
+        width: 100%; height: 100%;
+        background-color: rgba(0,0,0,0.6);
+        align-items: center;
+        justify-content: center;
+        font-family: 'Montserrat', sans-serif;
+    }
+    .editar-os-modal-content {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        max-width: 600px;
+        width: 90%;
+        max-height: 90vh;
+        overflow-y: auto;
+        position: relative;
+    }
+    .editar-os-modal-close {
+        position: absolute;
+        top: 10px; right: 15px;
+        font-size: 25px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+    .Ordem_Servico {
+        margin-bottom: 12px;
+        display: flex;
+        flex-direction: column;
+    }
+    .Ordem_Servico label {
+        margin-bottom: 4px;
+        font-weight: 600;
+    }
+    .Ordem_Servico input {
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 14px;
+    }
+    .editar-os-modal-buttons {
+        margin-top: 20px;
+        display: flex;
+        justify-content: flex-end;
+        gap: 10px;
+    }
+    .btn_cancelar, .btn_salvar {
+        padding: 10px 16px;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 14px;
+    }
+    .btn_cancelar {
+        background-color: #ccc;
+        color: #333;
+    }
+    .btn_cancelar:hover {
+        background-color: #999;
+    }
+    .btn_salvar {
+        background-color: #28a745;
+        color: white;
+    }
+    .btn_salvar:hover {
+        background-color: #1e7e34;
+    }

@@ -104,17 +104,6 @@
   border-bottom: 2px solid black;
 }
 
-.estoque-busca input{
-  background-color: #F5F5F5;
-  border: none;
-  outline: none;
-  padding: 16px;
-  height: 45px;
-  width: 300px;
-  border-radius: 8px;
-  color: #656565;
-  font-weight: 500;
-}
 
 .adm-estoque-caterogias{
   display: flex;

@@ -22,13 +22,10 @@ session_start();
           <span><p>Visão Geral</p></span>
           <p><a href="adm-pedidos.php">Pedidos</a></p>
           <p><a href="adm-enviados.php">Enviados</a></p>
+          <a href="estoqueok.php"><p>Novo Produto</p></a>
+
         </div>  
 
-        <div class="estoque-busca">
-          <form action="">
-            <input type="text" placeholder="Busca">
-          </form>
-        </div>
     </div>
         
 

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -5,8 +6,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Adicionar Funcionário</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="adicionar-funcionario.css"> 
+    <link rel="stylesheet" href="../../../../public/css/adicionar-funcionario.css" />
+    <script src="../../../../public/js/foto-funcionario.js"></script>
+
+   
+
+ 
 </head>
 <body>
 
@@ -19,10 +24,12 @@
 
         <div class="funcionario-form-header">
             <div class="funcionario-form-foto">
-                <img src="../../../../public/assets/img/Avatar.png" alt="Foto de perfil">
-                <button class="funcionario-form-editar-foto">
+                <img src="../../../../public/assets/img/transferir.png" alt="Foto de perfil">
+                <button type="button" class="funcionario-form-editar-foto" onclick="document.getElementById('input-foto').click();">
                     <i class="fa-regular fa-pen-to-square" style="color: #4b5563;"></i>
                 </button>
+                <input type="file" id="input-foto" accept="image/*" style="display: none;">
+
             </div>
             <div class="funcionario-form-info">
                 <h1 class="funcionario-form-nome">Novo Funcionário</h1>
@@ -32,60 +39,81 @@
         </div>
 
         <form class="funcionario-form">
-            <div class="funcionario-form-group">
-                <label for="primeiro-nome">Primeiro nome</label>
-                <input type="text" id="primeiro-nome" name="primeiro-nome">
+
+            <div class="funcionario-form-row">
+                <div class="funcionario-form-group">
+                    <label for="primeiro-nome">Primeiro nome</label>
+                    <input type="text" id="primeiro-nome" name="primeiro-nome">
+                </div>
+
+                <div class="funcionario-form-group">
+                    <label for="sobrenome">Sobrenome</label>
+                    <input type="text" id="sobrenome" name="sobrenome">
+                </div>
             </div>
 
-            <div class="funcionario-form-group">
-                <label for="sobrenome">Sobrenome</label>
-                <input type="text" id="sobrenome" name="sobrenome">
+            <div class="funcionario-form-row">
+                <div class="funcionario-form-group">
+                    <label for="matricula">Matrícula*</label>
+                    <input type="text" id="matricula" name="matricula">
+                </div>
+
+                <div class="funcionario-form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email">
+                </div>
             </div>
 
-            <div class="funcionario-form-group">
-                <label for="matricula">Matrícula*</label>
-                <input type="text" id="matricula" name="matricula">
+            <div class="funcionario-form-row">
+                <div class="funcionario-form-group">
+                    <label for="telefone">Telefone</label>
+                    <input type="text" id="telefone" name="telefone">
+                </div>
+
+                <div class="funcionario-form-group">
+                <label for="cargo">Cargo</label>
+                <select id="cargo" name="cargo">
+                    <option value="">Selecione um cargo</option>
+                    <option value="vendedor">Vendedor</option>
+                    <option value="tecnico">Técnico</option>
+                </select>
             </div>
 
-            <div class="funcionario-form-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email">
             </div>
 
-            <div class="funcionario-form-group">
-                <label for="telefone">Telefone</label>
-                <input type="text" id="telefone" name="telefone">
+            <div class="funcionario-form-row">
+                <div class="funcionario-form-group">
+                    <h3>Cadastrar Senha</h3>
+                    <label for="senha-mestre">Senha Mestre</label>
+                    <input type="password" id="senha-mestre" name="senha-mestre" placeholder="Digite a senha atual">
+                </div>
+            
+
+                <div class="funcionario-form-group">
+                    <label for="senha-funcionario2">Senha</label>
+                    <label for="senha-funcionario">Funcionário</label>
+                    <input type="password" id="senha-funcionario" name="senha-funcionario" placeholder="Senha Novo Funcionario">
+                </div>
             </div>
 
+
             <div class="funcionario-form-group">
-                <label for="endereco">Endereço</label>
-                <input type="text" id="endereco" name="endereco">
+                <label for="confirmar-senha">Confirmar Senha Funcionário</label>
+                <input type="password" id="confirmar-senha" name="confirmar-senha" placeholder="Confirme a nova senha">
+            </div>
+
+            <div class="funcionario-form-botoes">
+                <button type="button" class="funcionario-form-cancelar">Cancelar</button>
+                <button type="submit" class="funcionario-form-salvar">Salvar Funcionário</button>
             </div>
         </form>
-
-        <div class="funcionario-form-group">
-            <h2>Alterar Senha</h2>
-            <label for="senha-atual">Senha Atual</label>
-            <input type="password" id="senha-atual" name="senha-atual" placeholder="Digite a senha atual">
-        </div>
-
-        <div class="funcionario-form-group">
-            <label for="nova-senha">Nova Senha</label>
-            <input type="password" id="nova-senha" name="nova-senha" placeholder="Digite a nova senha">
-        </div>
-
-        <div class="funcionario-form-group">
-            <label for="confirmar-senha">Confirmar Nova Senha</label>
-            <input type="password" id="confirmar-senha" name="confirmar-senha" placeholder="Confirme a nova senha">
-        </div>
-
-        <div class="funcionario-form-botoes">
-            <button type="button" class="funcionario-form-cancelar">Cancelar</button>
-            <button type="submit" class="funcionario-form-salvar">Salvar Funcionário</button>
-        </div>
     </div>
 </div>
 
 <?php include __DIR__.'/../../../../includes/footer.php'; ?>
 </body>
+
+
+
+
 </html>
