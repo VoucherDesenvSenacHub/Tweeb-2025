@@ -90,7 +90,6 @@ CREATE TABLE produto (
     FOREIGN KEY (id_fornecedor) REFERENCES fornecedor (id_fornecedor),
     FOREIGN KEY (id_favorito) REFERENCES favoritos (id_favorito),
     FOREIGN KEY (id_compra_personalizada) REFERENCES compra_personalizada (id_compra_personalizada)
-
 );
 
 

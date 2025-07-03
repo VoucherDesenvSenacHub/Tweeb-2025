@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
         try {
             const response = await fetch('/Tweeb-2025/PI/app/adm/Controllers/CadastrarFuncionario.php', {
                 method: 'POST',
-                body: formData // Envia como multipart/form-data
+                body: formData 
             });
 
             const texto = await response.text();

@@ -16,9 +16,10 @@ $telefone = $_POST['telefone'] ?? '';
 $cpf = $_POST['cpf'] ?? '';
 $senha = $_POST['senha-funcionario'] ?? '';
 $confirmarSenha = $_POST['confirmar-senha'] ?? '';
+$cargo = $_POST['cargo'] ?? '';
 
 
-if (empty($nome) || empty($matricula) || empty($senha) || $senha !== $confirmarSenha) {
+if (empty($nome) || empty($matricula) || empty($cargo) ||empty($senha) || $senha !== $confirmarSenha) {
     echo json_encode([
         'sucesso' => false,
         'mensagem' => 'Preencha os campos obrigatórios e confirme a senha corretamente.'
@@ -36,6 +37,7 @@ try {
         'email'      => $email,
         'telefone'   => $telefone,
         'cpf'        => $cpf,
+        'cargo'      => $cargo,
         'senha'      => $senhaHash
     ]);
 
@@ -47,6 +49,6 @@ try {
     echo json_encode([
         'sucesso' => false,
         'mensagem' => 'Erro ao salvar funcionário. Tente novamente.',
-        'erro' => $e->getMessage() // 👈 Isso exibe a causa real
+        'erro' => $e->getMessage() 
     ]);
 }

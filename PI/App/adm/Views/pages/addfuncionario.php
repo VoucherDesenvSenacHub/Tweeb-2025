@@ -20,7 +20,7 @@
 
 <div class="funcionario-form-container">
     <div class="funcionario-form-box">
-        <button class="funcionario-form-saudacao">👋🏼 Novo Funcionário</button>
+        <button class="funcionario-form-saudacao">👋🏼 Novo Colaborador</button>
 
         <div class="funcionario-form-header">
             <div class="funcionario-form-foto">
@@ -32,7 +32,7 @@
 
             </div>
             <div class="funcionario-form-info">
-                <h1 class="funcionario-form-nome">Novo Funcionário</h1>
+                <h1 class="funcionario-form-nome">Novo Colaborador</h1>
                 <p class="funcionario-form-email">email@empresa.com</p>
                 <div class="funcionario-form-divider"></div>
             </div>
@@ -75,15 +75,18 @@
                     <input type="text" id="cpf" name="cpf">
                 </div>
             </div>
+            <div class="funcionario-form-row">
+              <div class="funcionario-form-group">
+                  <label for="cargo">Cargo</label>
+                  <select id="cargo" name="cargo">
+                      <option value="" disabled selected>Selecione o cargo</option>
+                      <option value="tecnico">Técnico</option>
+                      <option value="funcionario">Funcionário</option>
+                  </select>
+              </div>
+          </div>
 
             <div class="funcionario-form-row">
-                <!-- <div class="funcionario-form-group">
-                    <h3>Cadastrar Senha</h3>
-                    <label for="senha-mestre">Senha Mestre</label>
-                    <input type="password" id="senha-mestre" name="senha-mestre" placeholder="Digite a senha atual">
-                </div> -->
-            
-
                 <div class="funcionario-form-group">
                     <label for="senha-funcionario">Senha Funcionário</label>
                     <input type="password" id="senha-funcionario" name="senha-funcionario" placeholder="Senha Novo Funcionario">
