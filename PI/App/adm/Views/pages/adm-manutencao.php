@@ -154,7 +154,12 @@ session_start();
                 <a href="" class="active">Ordem de serviço</a>
                 <a href="adm-manutencao-enviados.php">Finalizadas</a>
             </nav>
+          
             
+            <div class="search-os">
+              <input type="text" id="filtroOS" placeholder="Buscar O.S. , Equipamento" />
+            </div>
+
             <div class="manutencao-actions">
             <a href="#" class="pedidos-adicionar-envio" onclick="openModal(); return false;">
                 <img src="../../../../public/assets/img/plus-circle.svg" alt="Adicionar OS">

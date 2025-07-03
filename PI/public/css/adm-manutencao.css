@@ -68,7 +68,18 @@ ul.categoria{
 
 
 
+.search-os {
+  margin: 0 40px 20px 40px;
+  margin-left: 0px;
+}
 
+#filtroOS {
+  width: 100%;
+  max-width: 400px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
 
 
 
