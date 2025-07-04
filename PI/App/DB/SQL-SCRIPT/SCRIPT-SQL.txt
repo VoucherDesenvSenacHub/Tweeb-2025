@@ -309,3 +309,46 @@ CREATE TABLE respostas_preferencias (
   criado_em DATETIME DEFAULT CURRENT_TIMESTAMP,
   FOREIGN KEY (user_id) REFERENCES usuarios(id)
 );
+
+CREATE TABLE orcamento (
+    id_orcamento INT AUTO_INCREMENT PRIMARY KEY,
+    nome varchar(100) NOT NULL,
+    email varchar(100) NOT NULL,
+    telefone VARCHAR(20) NOT NULL,
+    tipo varchar(50) NOT NULL,
+    prazo varchar(30) NOT NULL,
+    imagem varchar(255) NOT NULL,
+    descricao text not null,
+    status_orcamento ENUM('pendente', 'aceito')
+);
+
+CREATE TABLE ordem_servico (
+    id_os INT AUTO_INCREMENT PRIMARY KEY,
+    data_abertura TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    tipo_equipamento VARCHAR(50) NOT NULL,
+    nome VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    marca_modelo VARCHAR(100),
+    telefone VARCHAR(11) NOT NULL,
+    endereco VARCHAR(100),
+    cep VARCHAR(8),
+    numero_serie VARCHAR(50),
+    acessorios_entregues TEXT,
+    relato_cliente TEXT,
+    tecnico_responsavel VARCHAR(150),
+    servicos_solicitados ENUM(
+    'atualização de firmware',
+    'backup e recuperação',
+    'configuração de sistema',
+    'formatação',
+    'limpeza e manutenção preventiva',
+    'serviços de software: instalação, configuração e atualização',
+    'substituição peças') NOT NULL,
+    estimativa_custo DECIMAL(10,2),
+    aprovacao_cliente ENUM('aceito') DEFAULT 'aceito',
+    servicos_realizados TEXT,
+    pecas_substituidas TEXT,
+    testes_realizados TEXT,
+    data_conclusao DATE NOT NULL,
+    observacoes TEXT
+);
