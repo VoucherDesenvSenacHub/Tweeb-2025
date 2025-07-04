@@ -16,7 +16,7 @@ $produto->status_produto = $status_produto;
 
 if ($produto->update2()) {
     echo '<script>alert("Status atualizado com sucesso!");</script>';
-    echo "<meta http-equiv='refresh' content='0.5;url=listarProdutos.php'>";
+    echo "<meta http-equiv='refresh' content='0.5;url=estoqueok.php'>";
 } else {
     echo '<script>alert("Erro ao atualizar status!");</script>';
 }

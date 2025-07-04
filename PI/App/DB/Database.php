@@ -161,5 +161,26 @@ class Database{
         $stmt = $this->execute($query, [$email]);
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
+    
+    // atualiza o status_produto no banco, pois um produto não pode ser apagado apenas ativado ou desativado
+    public function update2(array $where, array $values) {
+        $fields = array_keys($values);
+        $set = implode(' = ?, ', $fields) . ' = ?';
+    
+        $whereFields = array_keys($where);
+        $whereClause = implode(' = ? AND ', $whereFields) . ' = ?';
+    
+        $query = 'UPDATE ' . $this->table . ' SET ' . $set . ' WHERE ' . $whereClause;
+    
+        try {
+            $params = array_merge(array_values($values), array_values($where));
+            $stmt = $this->conn->prepare($query);
+            return $stmt->execute($params);
+        } catch (PDOException $e) {
+            die("Update failed: " . $e->getMessage());
+        }
+    }
+    
 }
+
 ?>

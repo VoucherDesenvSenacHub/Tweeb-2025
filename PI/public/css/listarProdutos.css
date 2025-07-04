@@ -215,7 +215,7 @@
     border-collapse: separate;
     border-spacing: 0 30px;
     font-family: 'Poppins', sans-serif;
-    min-width: 600px;
+    min-width: 900px;
     table-layout: fixed;
     margin-left: -90px;
 }

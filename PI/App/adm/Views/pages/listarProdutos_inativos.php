@@ -25,7 +25,7 @@
             <button type="submit" class="listarP-search-btn">
                 <i class="bx bx-search"></i>
             </button>
-            <input type="text" id="searchInput" class="listarP-srch" placeholder="Buscar Produto">
+            <input type="text" id="searchInput" class="listarP-srch" placeholder="Buscar">
         </div>
     </div> -->
 
@@ -57,6 +57,7 @@
     </section>
     
 
-<script src="../../js_adm/load_table.js" defer></script>
+<script src="../../js_adm/load_table2.js" defer></script>
+<!-- <?php include __DIR__.'/../../../../includes/footer-adm.php'; ?>  -->
 </body>
 </html>
