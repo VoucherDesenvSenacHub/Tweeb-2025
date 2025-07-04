@@ -309,3 +309,15 @@ CREATE TABLE respostas_preferencias (
   criado_em DATETIME DEFAULT CURRENT_TIMESTAMP,
   FOREIGN KEY (user_id) REFERENCES usuarios(id)
 );
+
+CREATE TABLE orcamento (
+    id_orcamento INT AUTO_INCREMENT PRIMARY KEY,
+    nome varchar(100) NOT NULL,
+    email varchar(100) NOT NULL,
+    telefone VARCHAR(20) NOT NULL,
+    tipo varchar(50) NOT NULL,
+    prazo varchar(30) NOT NULL,
+    imagem varchar(255) NOT NULL,
+    descricao text not null,
+    status_orcamento ENUM('pendente', 'aceito')
+);
