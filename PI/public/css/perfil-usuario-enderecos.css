@@ -1,4 +1,3 @@
-
 .perfil-tweeb-botoes-user {
     
     display: flex;
@@ -54,4 +53,45 @@
 .perfil-tweeb-excluir-end:hover {
     background-color: #170e2b;
     transform: translateY(-2px);
+}
+
+/* Modal de sucesso para exclusão de usuário */
+.modal-sucesso-exclusao {
+    display: none;
+    position: fixed;
+    top: 18px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9999;
+    background: #323232;
+    color: #fff;
+    padding: 8px 0;
+    border-radius: 8px;
+    font-size: 1rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+    min-width: 120px;
+    max-width: 180px;
+    width: auto;
+    text-align: center;
+}
+
+.modal-sucesso-exclusao .modal-conteudo_perfilUsuario {
+    background: none;
+    box-shadow: none;
+    padding: 0;
+}
+
+.modal-sucesso-exclusao p {
+    margin-bottom: 8px;
+    font-size: 1rem;
+}
+
+.modal-sucesso-exclusao .botoes-perfil_usuario {
+    justify-content: center;
+}
+
+.modal-sucesso-exclusao .perfil-tweeb-excluir-end {
+    height: 36px;
+    padding: 0 18px;
+    font-size: 1rem;
 }
