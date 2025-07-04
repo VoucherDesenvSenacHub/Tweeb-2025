@@ -882,7 +882,30 @@
     width: 250px;
     background-color: #F6F6F6;
     border-radius: 9px;
+    margin-left: -10px;
+    padding: 20px;
 }
+
+.card-botao-produto {
+    padding: 10px 20px;
+    margin: 5px;
+    border: 1px solid #ccc;
+    background-color: #f2f2f2;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.card-botao-produto:hover {
+    background-color: #e0e0e0;
+}
+
+.card-botao-produto.ativo {
+    background-color: #007bff;
+    color: #fff;
+    border-color: #007bff;
+}
+
 
 .produtos-card p {
     font-size: 14px;

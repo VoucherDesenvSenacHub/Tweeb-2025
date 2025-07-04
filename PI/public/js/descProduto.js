@@ -26,3 +26,16 @@ function AtivarCoracao(coracao) {
         coracao.src = '../../../../public/assets/img/heart_disabled.png';
     }
 }
+
+
+
+    const botoesMemoria = document.querySelectorAll('.card-botao-produto');
+
+    botoesMemoria.forEach(botao => {
+        botao.addEventListener('click', () => {
+            // Remove "ativo" de todos
+            botoesMemoria.forEach(btn => btn.classList.remove('ativo'));
+            // Adiciona "ativo" ao botão clicado
+            botao.classList.add('ativo');
+        });
+    });

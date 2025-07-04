@@ -16,10 +16,11 @@
 
             <div class="tabs-memoria">
                 <button class="card-botao-produto">4GB</button>
-                <button class="card-botao-produto" id="ativo">6GB</button>
+                <button class="card-botao-produto ativo">6GB</button>
                 <button class="card-botao-produto">8GB</button>
                 <button class="card-botao-produto">12GB</button>
             </div>
+
 
             <div class="details">
                 <div class="memoria">
@@ -384,5 +385,7 @@
       </section>
 <script defer src="public/js/descProduto.js"></script>
 <?php include __DIR__.'/../../../../includes/footer.php'; ?>
+
+
 </body>
 </html>

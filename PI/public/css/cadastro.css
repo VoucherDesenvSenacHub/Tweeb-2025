@@ -22,7 +22,7 @@
 } 
     
 .Task2a-card { 
-    height: 620px;
+    height: 650px;
     background-color: #fff; 
     padding: 25px 70px;
     border-radius: 46px; 
@@ -75,6 +75,7 @@
     font-weight: 500;
     cursor: pointer; 
     margin-bottom: 24px;
+    margin-block-end: 40px;
 } 
 
 .Task2a-btn-email:hover { 

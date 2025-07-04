@@ -3,9 +3,23 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
     session_start();
 }
 if (!isset($_SESSION['usuario']['id'])) {
-    // Redireciona para login se não estiver logado
     header('Location: login.php');
     exit();
+}
+
+// Salvar novo endereço se enviado via POST
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['nome-endereco'])) {
+    $novo_endereco = [
+        'nome' => $_POST['nome-endereco'],
+        'endereco' => $_POST['endereco-detalhes'],
+        'cep' => $_POST['telefone-endereco']
+    ];
+
+    if (!isset($_SESSION['enderecos_adicionados'])) {
+        $_SESSION['enderecos_adicionados'] = [];
+    }
+
+    $_SESSION['enderecos_adicionados'][] = $novo_endereco;
 }
 ?>
 <!DOCTYPE html>
@@ -13,7 +27,7 @@ if (!isset($_SESSION['usuario']['id'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Endereços</title>
     <link rel="stylesheet" href="../../../../public/css/escolha-endereco.css">
     <?php include __DIR__.'/../../../../includes/headernavb.php'; ?>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -21,8 +35,6 @@ if (!isset($_SESSION['usuario']['id'])) {
 </head>
 <body>
 <?php include __DIR__.'/../../../../includes/navbar-logada.php'; ?>
-
-
 
 <div class="container">
     <div class="step-indicator">
@@ -33,32 +45,29 @@ if (!isset($_SESSION['usuario']['id'])) {
                 <p>Endereço</p>
             </div>
         </span>
-        
         <img src="../../../../public/assets/img/linha-pontilhada.png" alt="">
-        <span class="">
-            <i class="fa-solid fa-cart-flatbed"></i>
+        <span class=""><i class="fa-solid fa-cart-flatbed"></i>
             <div class="span-information">
                 <p id="step-passo">Passo 2</p>
                 <p>Entrega</p>
             </div>
         </span>
         <img src="../../../../public/assets/img/linha-pontilhada.png" alt="">
-        <span class="">
-            <i class="fa-solid fa-credit-card"></i>
+        <span class=""><i class="fa-solid fa-credit-card"></i>
             <div class="span-information">
                 <p id="step-passo">Passo 3</p>
                 <p>Pagamento</p>
             </div>
         </span>
-      
     </div>
 
     <div class="enderecos">
         <h1 class="metodoh1">Selecione Endereço</h1>
+
         <div class="endereco-card">
             <label>
-                <input type="radio" id="endereco" name="endereco" value="casa" checked>
-                <label class="endereco-label" for="endereco">Casa</label>
+                <input type="radio" name="endereco" value="casa" checked>
+                <label class="endereco-label">Casa</label>
                 <div class="endereco-details">
                     <p>240 Rua Capiatá, Novos Estados, Campo Grande MS 79034331</p>
                     <p>(209) 555-0104</p>
@@ -70,10 +79,11 @@ if (!isset($_SESSION['usuario']['id'])) {
             </div>
         </div>
 
+       
         <div class="endereco-card">
             <label>
-                <input type="radio" id="endereco" name="endereco" value="trabalho">
-                <label class="endereco-label" for="endereco">Trabalho <span class="default-tag">PADRÃO</span></label>
+                <input type="radio" name="endereco" value="trabalho">
+                <label class="endereco-label">Trabalho <span class="default-tag">PADRÃO</span></label>
                 <div class="endereco-details">
                     <p>2715 RUA Dr Jose, Caranda Bosque, Campo Grande MS 79034331</p>
                     <p>(67) 555-0127</p>
@@ -82,33 +92,44 @@ if (!isset($_SESSION['usuario']['id'])) {
             <div class="endereco-actions">
                 <button class="edit"><i class="fa fa-pencil"></i></button>
                 <button class="delete"><i class="fa-solid fa-xmark"></i></button>
-                
             </div>
         </div>
+
+        
+        <?php if (!empty($_SESSION['enderecos_adicionados'])): ?>
+            <?php foreach ($_SESSION['enderecos_adicionados'] as $i => $e): ?>
+                <div class="endereco-card">
+                    <label>
+                        <input type="radio" name="endereco" value="extra<?= $i ?>">
+                        <label class="endereco-label"><?= htmlspecialchars($e['nome']) ?></label>
+                        <div class="endereco-details">
+                            <p><?= htmlspecialchars($e['endereco']) ?></p>
+                            <p><?= htmlspecialchars($e['cep']) ?></p>
+                        </div>
+                    </label>
+                    <div class="endereco-actions">
+                        <button class="edit"><i class="fa fa-pencil"></i></button>
+                        <button class="delete"><i class="fa-solid fa-xmark"></i></button>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        <?php endif; ?>
     </div>
 
-  
-    
     <div id="new-endereco-form" style="display: none;">
         <h2>Adicionar Novo Endereço</h2>
-        <form id="form-novo-endereco">
+        <form id="form-novo-endereco" method="post">
             <label for="nome-endereco">Nome (ex: Casa, Trabalho):</label>
-            <input type="text" id="nome-endereco" required>
-    
+            <input type="text" id="nome-endereco" name="nome-endereco" required>
+
             <label for="endereco-detalhes">Endereço Completo:</label>
-            <input type="text" id="endereco-detalhes" required>
-    
+            <input type="text" id="endereco-detalhes" name="endereco-detalhes" required>
+
             <label for="telefone-endereco">CEP:</label>
-            <input type="text" id="telefone-endereco" required>
-    
+            <input type="text" id="telefone-endereco" name="telefone-endereco" required>
+
             <button type="submit" class="btoes-endereco">Salvar Endereço</button>
-
-
         </form>
-    </div>
-    
-    <div class="enderecos" id="enderecos-list">
-        <!-- Endereços existentes estarão aqui -->
     </div>
 
     <div class="add-new-endereco" id="add-new-endereco-btn">
@@ -116,25 +137,20 @@ if (!isset($_SESSION['usuario']['id'])) {
         <p>Adicionar novo endereço</p>
     </div>
 
-
     <div class="endereco-botoes">
         <a href="../../../../home.php"><button class="botao-sair">Sair</button></a>
         <a href="metodo-envio.php"><button class="botao-avancar">Avançar</button></a>
     </div>
-
-  
-
-
 </div>
+
 <?php include __DIR__.'/../../../../includes/footer.php'; ?>
+<script>
+    document.getElementById('add-new-endereco-btn').addEventListener('click', function () {
+        document.getElementById('new-endereco-form').style.display = 'block';
+    });
+</script>
 </body>
-
 </html>
-
-
-
-
-
 
 
 
