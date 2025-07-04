@@ -103,19 +103,26 @@ class Funcionario {
 
 
 
-    // public function atualizar() {
-    //     $db = new Database('usuarios');
-    //     return $db->update([
-    //         'nome' => $this->nome,
-    //         'email' => $this->email,
-    //         'telefone' => $this->telefone,
-    //         'cep' => $this->cep,
-    //         'rua' => $this->rua,
-    //         'bairro' => $this->bairro,
-    //         'cidade' => $this->cidade,
-    //         'estado' => $this->estado
-    //     ], "id = {$this->id}");
-    // }
+    public function atualizar() {
+        // Atualiza tabela usuarios
+        $dbUsuarios = new Database('usuarios');
+        $dbUsuarios->update([
+            'nome' => $this->nome,
+            'sobrenome' => $this->sobrenome,
+            'email' => $this->email,
+            'telefone' => $this->telefone,
+            'foto_perfil' => $this->foto_perfil
+        ], "id = {$this->id}");
+
+        // Atualiza tabela administrador
+        $dbAdm = new Database('administrador');
+        $dbAdm->update([
+            'matricula' => $this->matricula,
+            'cargo' => $this->cargo
+        ], "id_usuario = {$this->id}");
+
+        return true;
+    }
 
     public static function buscarTodos() {
         $db = new Database('usuarios');
@@ -136,5 +143,11 @@ class Funcionario {
     public function excluir($id) {
         $db = new Database('usuarios');
         return $db->delete("id = $id");
+    }
+
+    public static function buscarAdministradorPorEmail($email) {
+        $db2 = new \Database();
+        $dados = $db2->buscarAdministradorPorEmail($email);
+        return $dados;
     }
 }
