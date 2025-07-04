@@ -67,7 +67,7 @@ if (!isset($_SESSION['usuario']['id'])) {
         <p class="preco">R$ 3.299,99</p>
         <button class="remover"><i class="bi bi-x-lg"></i></i> </button>
       </div>
-      <button class="continuar"><a href="#">Continuar comprando</a></button>
+      <button class="continuar"><a href="../../../../home.php">Continuar comprando</a></button>
     </div>
     <div class="revisao-itens">
       <div class="cod-promo">

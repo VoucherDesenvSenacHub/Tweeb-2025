@@ -10,6 +10,7 @@ if (!isset($_SESSION['funcionario'])) {
 }
 
 $funcionario = $_SESSION['funcionario'];
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -98,6 +99,7 @@ $funcionario = $_SESSION['funcionario'];
     </div>
 </div>
 <script src="../../../../public/js/perfil-adm.js"></script>
+<script src="../../../../public/js/editar-foto-fun.js"></script>
 <?php include __DIR__.'/../../../../includes/footer.php'; ?>
 </body>
 </html>

@@ -1,5 +1,11 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const form = document.querySelector(".funcionario-form");
+    let form = document.querySelector(".funcionario-form");
+
+    document.querySelector('.funcionario-form-cancelar').addEventListener('click', function () {
+        let formreset = document.getElementById('form-funcionario');
+        formreset.reset();
+
+    });
 
     form.addEventListener("submit", async function (e) {
         e.preventDefault();

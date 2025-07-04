@@ -53,10 +53,7 @@ try {
         ]
     ]);
 
-    
-
 } catch (Exception $e) {
     error_log('Erro no login: ' . $e->getMessage());
-    echo json_encode(['sucesso' => false, 'mensagem' => 'Erro ao fazer login. Por favor, tente novamente.']);
-    
+    echo json_encode(['sucesso' => false, 'mensagem' => 'Erro ao fazer login.']);
 }
