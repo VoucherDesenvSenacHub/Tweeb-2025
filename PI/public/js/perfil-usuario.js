@@ -116,14 +116,32 @@ function deletaUsuario() {
     .catch(err => mostrarAviso("Erro inesperado ao excluir usuário."));
 }
 
-    perfil_form.addEventListener('submit', async function(event) {
-        event.preventDefault();
+function abrirModalConfirmarAlteracao() {
+    document.getElementById('modalConfirmarAlteracao').style.display = 'flex';
+}
 
+function fecharModalConfirmarAlteracao() {
+    document.getElementById('modalConfirmarAlteracao').style.display = 'none';
+}
+
+function confirmarAlteracao() {
+    fecharModalConfirmarAlteracao();
+    submitAlteracao();
+}
+
+// Refatorar o submit do formulário para exibir o modal de confirmação
+perfil_form.addEventListener('submit', function(event) {
+    event.preventDefault();
+    abrirModalConfirmarAlteracao();
+});
+
+// Função que realmente faz a alteração após confirmação
+async function submitAlteracao() {
     let formData = {
-        nome: this.nome.value,
-        sobrenome: this.sobrenome.value,
-        email: this.email.value,
-        telefone: this.telefone.value,
+        nome: perfil_form.nome.value,
+        sobrenome: perfil_form.sobrenome.value,
+        email: perfil_form.email.value,
+        telefone: perfil_form.telefone.value,
     };
 
     let response = await fetch('/Tweeb-2025/PI/app/user/Controllers/UserEditController.php', {
@@ -135,48 +153,12 @@ function deletaUsuario() {
     let result = await response.json();
 
     if (result.sucesso) {
-        alert(result.mensagem);
-        location.reload();
+        document.getElementById('modalSucessoAtualizacao').style.display = 'flex';
     } else {
         alert('Erro: ' + result.mensagem);
     }
-});
+}
 
-
-function editarUsuario() {
-    let formData = {
-        nome: perfil_form.nome.value,
-        sobrenome: perfil_form.sobrenome.value,
-        email: perfil_form.email.value,
-        telefone: perfil_form.telefone.value,
-    };
-
-    async function editar(form){ 
-
-    let dados_php = await fetch('/Tweeb-2025/PI/app/user/Controllers/UserEditController.php', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form)
-    });
-
-    let response = await dados_php.json();
-
-    console.log(response);
-
-    }
-
-    editar(formData);
-
-
-    // .then(response => response.json())
-    // .then(result => {
-    //     alert(result.mensagem);
-    //     if (result.sucesso) {
-    //         location.reload();
-    //     }
-    // })
-    // .catch(error => {
-    //     console.error('Erro ao atualizar:', error);
-    //     alert('Erro ao atualizar. Tente novamente.');
-    // });
+function fecharModalSucessoAtualizacao() {
+    document.getElementById('modalSucessoAtualizacao').style.display = 'none';
 }

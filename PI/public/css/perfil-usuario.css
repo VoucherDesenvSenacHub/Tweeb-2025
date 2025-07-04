@@ -479,3 +479,7 @@ label[for="sobrenome"] {
 #modalSucessoExclusao .botoes-perfil_usuario {
     justify-content: center;
 }
+
+#modalSucessoAtualizacao .botoes-perfil_usuario {
+    justify-content: center;
+}
