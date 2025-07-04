@@ -80,16 +80,7 @@
             </div>
 
             </div>
-            <div class="funcionario-form-row">
-              <div class="funcionario-form-group">
-                  <label for="cargo">Cargo</label>
-                  <select id="cargo" name="cargo">
-                      <option value="" disabled selected>Selecione o cargo</option>
-                      <option value="tecnico">Técnico</option>
-                      <option value="funcionario">Funcionário</option>
-                  </select>
-              </div>
-          </div>
+            
 
             <div class="funcionario-form-row">
                 <div class="funcionario-form-group">
