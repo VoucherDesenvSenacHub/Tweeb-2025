@@ -108,12 +108,58 @@ function mascararCPF($cpf) {
             <div class="perfil-tweeb-botoes-user">
                 <button type="button" class="perfil-tweeb-cancelar-end" onclick="cancelEdit()">Cancelar</button>
                 <button type="submit" class="perfil-tweeb-salvar-end" onClick="editarUsuario()">Salvar alteração</button>
-                <button type="button" class="perfil-tweeb-excluir-end" onClick="deletaUsuario()">Excluir Conta</button>
+                <button type="button" class="perfil-tweeb-excluir-end" onClick="abriModal()">Excluir Conta</button>
             </div>
             
         </form>
         
     </div>
+</div>
+
+<div id="modal" class="modal-perfil_usuario">
+  <div class="modal-conteudo_perfilUsuario">
+    <p>Tem certeza que deseja excluir sua conta?</p>
+    <div class="botoes-perfil_usuario">
+      <button class="btn-excluirPerfil" onclick="deletaUsuario()">Excluir</button>
+      <button class="btn-cancelarPerfil" onclick="fecharModal()">Cancelar</button>
+    </div>
+  </div>
+</div>
+<!-- Modal de mensagem para feedback da exclusão -->
+<div id="modalMensagem" class="modal-perfil_usuario">
+  <div class="modal-conteudo_perfilUsuario">
+    <p id="modalMensagemTexto"></p>
+    <div class="botoes-perfil_usuario">
+      <button onclick="document.getElementById('modalMensagem').style.display='none'">OK</button>
+    </div>
+  </div>
+</div>
+
+<div id="modalAviso" class="modal-aviso">
+  <div class="modal-aviso-conteudo">
+    <span id="modalAvisoTexto"></span>
+  </div>
+</div>
+
+<!-- Modal de sucesso para atualização de dados -->
+<div id="modalSucessoAtualizacao" class="modal-perfil_usuario">
+  <div class="modal-conteudo_perfilUsuario">
+    <p id="modalSucessoAtualizacaoTexto">Dados atualizados com sucesso!</p>
+    <div class="botoes-perfil_usuario">
+      <button class="btn-excluirPerfil" onclick="fecharModalSucessoAtualizacao()">OK</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal de confirmação de alteração de dados -->
+<div id="modalConfirmarAlteracao" class="modal-perfil_usuario">
+  <div class="modal-conteudo_perfilUsuario">
+    <p>Deseja alterar?</p>
+    <div class="botoes-perfil_usuario">
+      <button class="btn-excluirPerfil" onclick="confirmarAlteracao()">Confirmar</button>
+      <button class="btn-cancelarPerfil" onclick="fecharModalConfirmarAlteracao()">Cancelar</button>
+    </div>
+  </div>
 </div>
 <?php include __DIR__.'/../../../../includes/footer.php'; ?>
 <script>

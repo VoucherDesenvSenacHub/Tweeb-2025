@@ -127,6 +127,60 @@ class Database{
         $stmt = $this->execute($query, [$email]);
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
+
+    public function buscarFuncionarioPorEmail(string $email) {
+        $query = "
+            SELECT u.id, u.nome, u.email, u.senha, u.tipo, f.matricula, f.cargo
+            FROM usuarios u
+            INNER JOIN funcionarios f ON u.id = f.id_usuario
+            WHERE u.email = ?
+            LIMIT 1
+        ";
+        $stmt = $this->execute($query, [$email]);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+    
+    public function buscarAdministradorPorEmail(string $email) {
+        $query = "
+            SELECT 
+                u.id, 
+                u.nome, 
+                u.sobrenome,        
+                u.email, 
+                u.telefone,         
+                u.senha, 
+                u.tipo, 
+                u.foto_perfil, 
+                a.matricula,        
+                a.cargo             
+            FROM usuarios u
+            LEFT JOIN administrador a ON u.id = a.id_usuario
+            WHERE u.email = ?
+            LIMIT 1
+        ";
+        $stmt = $this->execute($query, [$email]);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+    
+    // atualiza o status_produto no banco, pois um produto não pode ser apagado apenas ativado ou desativado
+    public function update2(array $where, array $values) {
+        $fields = array_keys($values);
+        $set = implode(' = ?, ', $fields) . ' = ?';
+    
+        $whereFields = array_keys($where);
+        $whereClause = implode(' = ? AND ', $whereFields) . ' = ?';
+    
+        $query = 'UPDATE ' . $this->table . ' SET ' . $set . ' WHERE ' . $whereClause;
+    
+        try {
+            $params = array_merge(array_values($values), array_values($where));
+            $stmt = $this->conn->prepare($query);
+            return $stmt->execute($params);
+        } catch (PDOException $e) {
+            die("Update failed: " . $e->getMessage());
+        }
+    }
     
 }
+
 ?>

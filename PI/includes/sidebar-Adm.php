@@ -1,5 +1,6 @@
+<?php
 
-<body class="SideBar_adm">
+?>
   <nav class="adm_sidebar" id="sidebar">
 
         <div class="sidebar_contentAdm">
@@ -9,10 +10,10 @@
     
                 <p class="userAdm_infos">
                     <span class="itemAdm-descricao">
-                      <?php echo htmlspecialchars($_SESSION['funcionario']['nome']); ?>
+                      <?php echo htmlspecialchars($_SESSION['adm']['nome'] ?? $_SESSION['funcionario']['nome']); ?>
                     </span>
                     <span class="itemAdm-descricao">
-                      <small><?php echo htmlspecialchars($_SESSION['funcionario']['cargo']); ?></small>
+                      <small><?php echo htmlspecialchars($_SESSION['adm']['cargo']??$_SESSION['funcionario']['cargo']); ?></small>
                     </span>
                 </p>
             </div>
@@ -37,8 +38,18 @@
                 <li class="sidebarAdm-item">
                   <a href="../pages/ListarClientescopy.php"><img src="../../../../public/assets/img/Vector (4).png" alt=""><span class="itemAdm-descricao">Clientes</span></a>
                 </li>
+
+
+                <?php if (isset($_SESSION['adm'])): ?>
+                    <li class="sidebarAdm-item">
+                        <a href="addfuncionario.php"><img src="../../../../public/assets/img/addfun.png" alt=""><span class="itemAdm-descricao">Add funcionario</span></a>
+                    </li>
+                <?php endif; ?>
+
+
+
                 <li class="sidebarAdm-item">
-                  <a href="#"><img src="../../../../public/assets/img/Vector (5).png" alt=""><span class="itemAdm-descricao">Aparência</span></a>
+                  <a href="../pages/aparencia.php"><img src="../../../../public/assets/img/Vector (5).png" alt=""><span class="itemAdm-descricao">Aparência</span></a>
                 </li>
                 <li class="sidebarAdm-item">
                   <a href="/Tweeb-2025/PI/app/adm/Controllers/FuncionarioLogout.php"><img src="../../../../public/assets/img/sair.png" alt=""><span class="itemAdm-descricao">Sair</span></a>
@@ -61,4 +72,3 @@
             </button> -->
         </div>
     </nav>
-</body>

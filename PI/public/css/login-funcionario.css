@@ -87,9 +87,15 @@
     font-size: 15px;
     color: rgb(114, 113, 113);
     font-weight: 600;
-    margin-top: 20px;
+    margin-top: 10px;
 }
-
+.divisão{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: gray;
+    margin-top: 5px;
+}
 .forms-esqueceu .btn-esqueceu:hover {
     color: #333;
 }

@@ -13,26 +13,15 @@ session_start();
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 
-<!-- Modal de Edição de OS -->
+
 <div id="editar-os-modal" class="editar-os-modal" style="display: none;">
   <div class="editar-os-modal-content">
     <span class="editar-os-modal-close" onclick="closeModal()">&times;</span>
-    <h2 class="editar-os-modal-title">Editar Ordem de Serviço</h2>
-    <form id="editar-os-form">
    
+    <form id="editar-os-form">
 
-      <div class="editar-os-modal-progresso">
-        <label for="progresso">Progresso da OS:</label>
-        <input type="range" id="progresso" name="progresso" min="0" max="100" value="0" oninput="updateProgresso(this.value)">
-        <span id="progresso-valor">0%</span>
-      </div>
-      
-      <div class="editar-os-modal-descricao">
-        <label for="descricao_progresso">Descrição do Progresso:</label>
-        <textarea id="descricao_progresso" name="descricao_progresso" placeholder="Digite o status do progresso" required></textarea>
-      </div>
-
-
+      <h2>Editar Ordem de Serviço</h2><br><br>
+   
 
         <div class="Ordem_Servico">
           <label for="Numero_da_Os">Número da OS</label>
@@ -189,105 +178,105 @@ session_start();
             <table>
                 <thead>
                     <tr>
+                        <th>Order ID</th>
                         <th>Produto</th>
                         <th>Valor</th>
                         <th>Entrada</th>
-                        <th>Order ID</th>
                         <th>Saída</th>
                         <th>Status</th>
                     </tr>
                 </thead>
                 <tbody id="page-1" class="product-page">
                     <tr>
+                        <td>5724</td>
                         <td>Monitor</td>
                         <td>R$ 2557</td>
-                        <td>22 Unidades</td>
-                        <td>5724</td>
+                        <td>20/08/24</td>
                         <td>21/08/24</td>
                         <td class="entregue">Entregue</td>
                     </tr>
                     <tr>
+                        <td>545454</td>
                         <td>Computador Gamer</td>
                         <td>R$ 4075</td>
-                        <td>36 Unidades</td>
-                        <td>2775</td>
-                        <td>5/07/24</td>
+                        <td>02/07/24</td>
+                        <td>05/07/24</td>
                         <td class="entregue">Entregue</td>
                     </tr>
                     <tr>
+                        <td>2275</td>
                         <td>Mouse Gamer</td>
                         <td>R$ 5052</td>
-                        <td>14 Unidades</td>
-                        <td>2275</td>
-                        <td>8/03/24</td>
+                        <td>06/03/24</td>
+                        <td>08/03/24</td>
                         <td class="entregue">Entregue</td>
                     </tr>
 
                     <tr>
+                        <td>2275</td>
                         <td>Mouse Gamer</td>
                         <td>R$ 5052</td>
-                        <td>14 Unidades</td>
-                        <td>2275</td>
-                        <td>8/03/24</td>
+                        <td>06/03/24</td>
+                        <td>08/03/24</td>
                         <td class="entregue">Entregue</td>
                     </tr>
 
                     <tr>
+                         <td>2275</td>
                         <td>Mouse Gamer</td>
                         <td>R$ 5052</td>
-                        <td>14 Unidades</td>
-                        <td>2275</td>
+                        <td>08/03/24</td>
                         <td>8/03/24</td>
                         <td class="entregue">Entregue</td>
                     </tr>
                     <tr>
+                        <td>7535</td>
                         <td>Notebook Dell</td>
                         <td>R$ 4306</td>
-                        <td>43 Unidades</td>
-                        <td>7535</td>
+                        <td>09/08/24</td>
                         <td>11/08/24</td>
                         <td class="entregue">Entregue</td>
                     </tr>
                     <tr>
+                        <td>5724</td>
                         <td>Monitor</td>
                         <td>R$ 2557</td>
-                        <td>22 Unidades</td>
-                        <td>5724</td>
+                        <td>20/08/24</td>
                         <td>21/08/24</td>
                         <td class="entregue">Entregue</td>
                     </tr>
                     <tr>
+                        <td>2775</td>
                         <td>Computador Gamer</td>
                         <td>R$ 4075</td>
-                        <td>36 Unidades</td>
-                        <td>2775</td>
-                        <td>5/07/24</td>
+                        <td>02/07//24</td>
+                        <td>05/07/24</td>
                         <td class="entregue">Entregue</td>
                     </tr>
                     <tr>
+                        <td>2275</td>
                         <td>Mouse Gamer</td>
                         <td>R$ 5052</td>
-                        <td>14 Unidades</td>
-                        <td>2275</td>
-                        <td>8/03/24</td>
-                        <td class="entregue">Entregue</td>
-                    </tr>
-
-                    <tr>
-                        <td>Mouse Gamer</td>
-                        <td>R$ 5052</td>
-                        <td>14 Unidades</td>
-                        <td>2275</td>
-                        <td>8/03/24</td>
+                        <td>06/03/24</td>
+                        <td>08/03/24</td>
                         <td class="entregue">Entregue</td>
                     </tr>
 
                     <tr>
+                        <td>2275</td>
                         <td>Mouse Gamer</td>
                         <td>R$ 5052</td>
-                        <td>14 Unidades</td>
+                        <td>06/03/24</td>
+                        <td>08/03/24</td>
+                        <td class="entregue">Entregue</td>
+                    </tr>
+
+                    <tr>
                         <td>2275</td>
-                        <td>8/03/24</td>
+                        <td>Mouse Gamer</td>
+                        <td>R$ 5052</td>
+                        <td>06/03/24</td>
+                        <td>08/03/24</td>
                         <td class="entregue">Entregue</td>
                     </tr>
 
@@ -295,34 +284,34 @@ session_start();
                 </tbody>
                 <tbody id="page-2" class="product-page" style="display: none;">
                     <tr>
+                        <td>8923</td>
                         <td>Teclado Mecânico</td>
                         <td>R$ 329</td>
-                        <td>50 Unidades</td>
-                        <td>8923</td>
+                        <td>10/09/24</td>
                         <td>12/09/24</td>
                         <td class="entregue">Entregue</td>
                     </tr>
                     <tr>
+                        <td>7123</td>
                         <td>Headset Gamer</td>
                         <td>R$ 499</td>
-                        <td>30 Unidades</td>
-                        <td>7123</td>
+                        <td>10/09/24</td>
                         <td>15/09/24</td>
                         <td class="entregue">Entregue</td>
                     </tr>
                     <tr>
+                        <td>6201</td>
                         <td>Placa de Vídeo RTX</td>
                         <td>R$ 3599</td>
-                        <td>20 Unidades</td>
-                        <td>6201</td>
+                        <td>17/08/24</td>
                         <td>20/09/24</td>
                         <td class="entregue">Entregue</td>
                     </tr>
                     <tr>
+                        <td>4902</td>
                         <td>SSD NVMe 1TB</td>
                         <td>R$ 850</td>
-                        <td>40 Unidades</td>
-                        <td>4902</td>
+                        <td>22/09/24</td>
                         <td>25/09/24</td>
                         <td class="entregue">Entregue</td>
                     </tr>

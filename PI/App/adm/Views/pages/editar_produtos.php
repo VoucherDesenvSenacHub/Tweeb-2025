@@ -5,10 +5,12 @@ $id_recebido = $_GET['id_produto'];
 //echo "ID RECEBIDO :" .$id_recebido;
 
 if(!isset($id_recebido) or !is_numeric($id_recebido)){
-    header('location: editar_produtos.php');
+    header('location: estoqueok.php');
     exit;
 }
 $produto = Produto::buscar_by_id($id_recebido);
+
+
 $nome_produto = $produto->nome_produto;
 $marca_modelo = $produto->marca_modelo;
 $quantidade_produto = $produto->quantidade_produto;
@@ -26,38 +28,120 @@ $em_estoque = $produto->em_estoque;
 $garantia = $produto->garantia;
 
 
+
+// if(isset($_POST['editar'])){
+//     // $id_produto = $_POST['id_produto'];
+//     $nome_produto = $_POST['nome_produto'];
+//     $marca_modelo = $_POST['marca_modelo'];
+//     $quantidade_produto = $_POST['quantidade_produto'];
+
+//     if (isset($_FILES['imagem_produto']) && $_FILES['imagem_produto']['error'] === UPLOAD_ERR_OK) {
+//         // Processar o upload da imagem
+//     } else {
+//         // Nenhuma imagem foi enviada ou ocorreu um erro
+//         $caminho = null; // Ou mantenha o valor atual, se preferir
+//     }
+    
+    
+
+//     ###Código para cadastrar foto no servidor de banco de dados###
+//     $arquivo =$_FILES['imagem_produto'];
+//     if ($arquivo['error'])die("Falha ao enviar a foto");
+//     $pasta ='../../../../public/uploads/';
+//     $nome_foto =$arquivo['name'];
+//     $novo_nome = uniqid();
+  
+//     $extensao = strtolower(pathinfo($nome_foto, PATHINFO_EXTENSION));
+//     if ($extensao != 'png' && $extensao !='jpg') die('Falha ao enviar a foto');
+//     $caminho = $pasta . $novo_nome . '.' . $extensao;
+//     $foto =move_uploaded_file($arquivo['tmp_name'], $caminho);
+
+
+
+//     $pro_editado = new Produto();
+//     $pro_editado->id_produto = $id_recebido;
+//     $pro_editado->nome_produto = $nome_produto;
+//     $pro_editado->marca_modelo = $marca_modelo;
+//     $pro_editado->quantidade_produto = $quantidade_produto;
+//     $pro_editado->imagem_produto = $caminho; // Pode ser null
+//     $pro_editado->numero_serie = $numero_serie;
+//     $pro_editado->custo_produto = $custo_produto;
+//     $pro_editado->cor_produto = $cor_produto;
+//     $pro_editado->preco_unid = $preco_unid;
+//     $pro_editado->descricao_produto = $descricao_produto;
+//     $pro_editado->detalhes_produto = $detalhes_produto;
+
+//     $pro_editado->id_departamento = $id_departamento;
+//     $pro_editado->entrega_gratis = $entrega_gratis;
+//     $pro_editado->em_estoque = $em_estoque;
+//     $pro_editado->garantia = $garantia;
+
+
+//     $pro_editado = new Produto();
+//     $pro_editado->id_produto = $id_recebido;
+//     $pro_editado->nome_produto = $nome_produto;
+//     $pro_editado->marca_modelo = $marca_modelo;
+//     $pro_editado->quantidade_produto = $quantidade_produto;
+//     $pro_editado->imagem_produto = $caminho;
+//     $pro_editado->numero_serie = $numero_serie;
+//     $pro_editado->custo_produto = $custo_produto;
+//     $pro_editado->cor_produto = $cor_produto;
+//     $pro_editado->preco_unid = $preco_unid;
+//     $pro_editado->descricao_produto = $descricao_produto;
+//     $pro_editado->detalhes_produto = $detalhes_produto;
+
+//     $pro_editado->id_departamento = $id_departamento;
+//     $pro_editado->entrega_gratis = $entrega_gratis;
+//     $pro_editado->em_estoque = $em_estoque;
+//     $pro_editado->garantia = $garantia;
+
+//     $result = $pro_editado->atualizar();
+//     if($result){
+//         echo '<script> alert("Atualizado com sucesso!") </script>' ;
+//     }else{
+//         echo 'Erro ao atualizar';
+//     }
+
+//     echo $result;
+// }
+
 if(isset($_POST['editar'])){
-   
-    // $id_produto = $_POST['id_produto'];
     $nome_produto = $_POST['nome_produto'];
     $marca_modelo = $_POST['marca_modelo'];
-    $quantidade_produto = $_POST['quantidade_produto'];    
-    $imagem_produto = $_FILES['imagem_produto'];
-    $numero_serie = $_POST['numero_serie'];
-    $custo_produto = $_POST['custo_produto'];
-    $cor_produto = $_POST['cor_produto'];
-    $preco_unid = $_POST['preco_unid'];
-    $descricao_produto = $_POST['descricao_produto'];
-    $detalhes_produto = $_POST['detalhes_produto'];
+    $quantidade_produto = $_POST['quantidade_produto'];
+    $imagem_antiga = $_POST['imagem_produto_antiga'] ?? null;
 
-    $id_departamento= $_POST['id_departamento'];
-    $entrega_gratis = isset($_POST['entrega_gratis']) ? 1 : 0;
-    $em_estoque = isset($_POST['em_estoque']) ? 1 : 0;
-    $garantia = isset($_POST['garantia']) ? 1 : 0;
+    $caminho = $imagem_antiga; // valor padrão é a imagem antiga
+
+    if (isset($_FILES['imagem_produto']) && $_FILES['imagem_produto']['error'] === UPLOAD_ERR_OK) {
+        $arquivo = $_FILES['imagem_produto'];
+        $pasta = '../../../../public/uploads/';
+        $nome_foto = $arquivo['name'];
+        $novo_nome = uniqid();
+
+        $extensao = strtolower(pathinfo($nome_foto, PATHINFO_EXTENSION));
+        if ($extensao != 'png' && $extensao != 'jpg') die('Falha ao enviar a foto');
+
+        $caminho = $pasta . $novo_nome . '.' . $extensao;
+        $foto = move_uploaded_file($arquivo['tmp_name'], $caminho);
+
+        if (!$foto) {
+            die('Erro ao mover o arquivo');
+        }
+    }
 
     $pro_editado = new Produto();
     $pro_editado->id_produto = $id_recebido;
     $pro_editado->nome_produto = $nome_produto;
     $pro_editado->marca_modelo = $marca_modelo;
     $pro_editado->quantidade_produto = $quantidade_produto;
-    $pro_editado->imagem_produto = $imagem_produto;
+    $pro_editado->imagem_produto = $caminho;
     $pro_editado->numero_serie = $numero_serie;
     $pro_editado->custo_produto = $custo_produto;
     $pro_editado->cor_produto = $cor_produto;
     $pro_editado->preco_unid = $preco_unid;
     $pro_editado->descricao_produto = $descricao_produto;
     $pro_editado->detalhes_produto = $detalhes_produto;
-
     $pro_editado->id_departamento = $id_departamento;
     $pro_editado->entrega_gratis = $entrega_gratis;
     $pro_editado->em_estoque = $em_estoque;
@@ -65,13 +149,14 @@ if(isset($_POST['editar'])){
 
     $result = $pro_editado->atualizar();
     if($result){
-        echo '<script> alert("Atualizado com sucesso!") </script>' ;
-    }else{
+        echo '<script> alert("Atualizado com sucesso!") </script>';
+    } else {
         echo 'Erro ao atualizar';
     }
 
     echo $result;
 }
+
 
 
 ?>
@@ -112,7 +197,7 @@ if(isset($_POST['editar'])){
         }
         nav {
             display: flex;
-            border-bottom: 2px solid #ddd;
+            /* border-bottom: 2px solid #ddd; */
             margin-bottom: 20px;
         }
         nav a {
@@ -154,8 +239,8 @@ if(isset($_POST['editar'])){
         #save-button {
             width: 150px;
             padding: 10px;
-            background: #ff6600;
-            color: #fff;
+            background: #CEF5A4;
+            color: #00000;
             border: none;
             border-radius: 5px;
             cursor: pointer;
@@ -163,7 +248,23 @@ if(isset($_POST['editar'])){
             margin-top: 30px;
         }
         #save-button:hover {
-            background: #e05500;
+            background: green;
+        }
+
+        #cancel-button{
+            width: 150px;
+            padding: 10px;
+            background: #ff6600;
+            color: #00000;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 30px;
+        }
+
+        #cancel-button:hover{
+            background: orange;
         }
     </style>
 </head>
@@ -172,12 +273,12 @@ if(isset($_POST['editar'])){
     <?php include __DIR__.'/../../../../includes/sidebar-Adm.php'; ?>
     <div class="cadastrando-products-pai">
         <div class="cadastrando-products">
-            <nav>
+            <!-- <nav>
                 <a href="#" class="active">Novo Produto</a>
                 <a href="listarProdutos.php">Cadastrados</a>
-            </nav>
+            </nav> -->
             <h2 id='titulo-cadastro-produto'>Editar Produto</h2>
-            <form action="estoqueok.php" method="POST" enctype="multipart/form-data" id="product-form">
+            <form action="" method="POST" enctype="multipart/form-data" id="product-form">
     <div class="form-group">
         <label for="product-name">Nome do Produto</label>
         <input autocomplete="off" type="text" name="nome_produto" class="form_field" placeholder="" id="nome_produto" value="<?=$produto->nome_produto;?>" required>
@@ -200,11 +301,25 @@ if(isset($_POST['editar'])){
         <option value="6" <?= ($produto->id_departamento == 6) ? 'selected' : '' ?>>jogos</option>
         </select>
     </div>
-
+   
     <div class="form-group">
-        <label for="product-image">Imagem</label>
-        <input autocomplete="off" type="file" name="imagem_produto" class="form_field" placeholder="" id="imagem_produto" value="<?=$produto->imagem_produto;?>" required>
-    </div>
+
+        <label>Imagem atual:</label>
+        <?php if (!empty($produto->imagem_produto)) : ?>
+            <img src="<?= htmlspecialchars($produto->imagem_produto) ?>" style="max-width:50px;" alt="Imagem do Produto"><br>
+        <?php endif; ?>
+        </div>
+
+        <div>
+            <label>Alterar imagem:</label>
+            <!-- <input type="file" name="imagem_produto"> -->
+            <input type="file" name="imagem_produto">
+            <input type="hidden" name="imagem_produto_antiga" value="<?= $imagem_produto ?>">
+        </div>
+
+        
+        
+    
 
     <div class="form-group">
         <label for="serial-number">Número de Série</label>
@@ -268,7 +383,9 @@ if(isset($_POST['editar'])){
 </div>
 
 
-    <button type="submit" name="cadastrar" value="cadastrar" id="save-button">Salvar</button>
+    <button type="submit" name="editar" value="editar" id="save-button">Salvar</button>
+    <button type="button" id="cancel-button" onclick="window.location.href='estoqueok.php'">Cancelar</button>
+
 </form>
 
 <!-- <?php include __DIR__.'/../../../../includes/footer-adm.php'; ?>  -->

@@ -1,0 +1,166 @@
+let perfil_form = document.querySelector('.perfil-tweeb-form');
+console.log(perfil_form)
+let inputs = perfil_form.querySelectorAll('input:not([disabled])');
+let originalValues = {};
+
+// Salva os valores originais dos campos
+function salvarValoresOriginais() {
+    inputs.forEach(input => {
+        originalValues[input.name] = input.value;
+    });
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    const botaoEditar = document.querySelector(".perfil-tweeb-editar-foto");
+    const camposEditaveis = document.querySelectorAll(".perfil-tweeb-form input:not(#cpf):not([disabled])");
+    const botaoSalvar = document.querySelector(".perfil-tweeb-salvar-end");
+    const botaoExcluir = document.querySelector(".perfil-tweeb-excluir-end");
+    const botaoCancelar = document.querySelector(".perfil-tweeb-cancelar-end");
+
+    // Começa com os campos readonly
+    camposEditaveis.forEach(input => input.setAttribute("readonly", "true"));
+
+    // Botões Salvar e Cancelar inicialmente escondidos
+    botaoSalvar.style.display = "none";
+    botaoCancelar.style.display = "none";
+    botaoExcluir.style.display = "none";
+
+    botaoEditar.addEventListener("click", () => {
+        ativarEdicao();
+    });
+
+    botaoCancelar.addEventListener("click", () => {
+        cancelEdit(); // Chama a função cancelEdit para reverter e ocultar botões
+    });
+});
+
+console.log(originalValues);
+
+// Função para ativar/desativar modo de edição
+function toggleEditMode() {
+    perfil_form.classList.toggle('editing');
+    inputs.forEach(input => {
+        input.readOnly = !input.readOnly;
+    });
+}
+
+// Chame ao entrar no modo de edição
+function ativarEdicao() {
+    salvarValoresOriginais();
+    inputs.forEach(input => input.removeAttribute("readonly"));
+    document.querySelector(".perfil-tweeb-salvar-end").style.display = "inline-block";
+    document.querySelector(".perfil-tweeb-cancelar-end").style.display = "inline-block";
+    document.querySelector(".perfil-tweeb-excluir-end").style.display = "inline-block";
+}
+
+// Função para cancelar a edição
+function cancelEdit() {
+    perfil_form.classList.remove("editing");
+    perfil_form.querySelectorAll("input").forEach(input => {
+        input.setAttribute("readonly", true);
+        // Restaurar valor original se existir
+        if (originalValues.hasOwnProperty(input.name)) {
+            input.value = originalValues[input.name];
+        }
+    });
+    document.querySelector(".perfil-tweeb-salvar-end").style.display = "none";
+    document.querySelector(".perfil-tweeb-cancelar-end").style.display = "none";
+    document.querySelector(".perfil-tweeb-excluir-end").style.display = "none";
+}
+
+
+function deletaUsuario() {
+    let confirma = confirm("Tem certeza que deseja excluir sua conta?");
+    if (!confirma) return;
+
+    fetch("http://localhost/tweeb-2025/PI/public/api/deletar_usuario.php", {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+        },
+        body: `id=${encodeURIComponent(usuarioID)}`
+    })
+    .then(res => res.text())
+    .then(data => {
+        try {
+            let result = JSON.parse(data);
+            alert(result.mensagem || "Operação realizada com sucesso!");
+            if (result.mensagem) {
+                console.log("Redirecionando...");
+                window.location.href = "/Tweeb-2025/PI/app/user/view/pages/login.php";
+            }
+        } catch (e) {
+            alert(data); 
+        }
+    })
+    .catch(err => console.error("Erro:", err));
+}
+
+    perfil_form.addEventListener('submit', async function(event) {
+        event.preventDefault();
+
+    let formData = {
+        nome: this.nome.value,
+        sobrenome: this.sobrenome.value,
+        email: this.email.value,
+        telefone: this.telefone.value,
+        matricula: this.matricula.value,
+        cargo: this.cargo.value
+    };
+
+    let response = await fetch('/Tweeb-2025/PI/App/adm/Controllers/AdmEditController.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
+    });
+
+    let result = await response.json();
+
+    if (result.sucesso) {
+        alert(result.mensagem);
+        location.reload();
+    } else {
+        alert('Erro: ' + result.mensagem);
+    }
+});
+
+
+function editarUsuario() {
+    let formData = {
+        nome: perfil_form.nome.value,
+        sobrenome: perfil_form.sobrenome.value,
+        email: perfil_form.email.value,
+        telefone: perfil_form.telefone.value,
+        matricula: perfil_form.matricula.value,
+        cargo: perfil_form.cargo.value
+    };
+
+    async function editar(form){ 
+
+    let dados_php = await fetch('/Tweeb-2025/PI/App/adm/Controllers/AdmEditController.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form)
+    });
+
+    let response = await dados_php.json();
+
+    console.log(response);
+
+    }
+
+    editar(formData);
+
+
+    // .then(response => response.json())
+    // .then(result => {
+    //     alert(result.mensagem);
+    //     if (result.sucesso) {
+    //         location.reload();
+    //     }
+    // })
+    // .catch(error => {
+    //     console.error('Erro ao atualizar:', error);
+    //     alert('Erro ao atualizar. Tente novamente.');
+    // });
+}

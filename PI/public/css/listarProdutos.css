@@ -215,8 +215,9 @@
     border-collapse: separate;
     border-spacing: 0 30px;
     font-family: 'Poppins', sans-serif;
-    min-width: 600px;
+    min-width: 900px;
     table-layout: fixed;
+    margin-left: -90px;
 }
 
 .listarP-table th, .listarP-table .td-listarP {
@@ -293,8 +294,7 @@
 .listarP-delete-icon {
     width: 20px;
     height: 20px; 
-    transition: transform 0.3s; 
-
+    transition: transform 0.3s;  
 }
 
 .listarP-edit-icon:hover {
@@ -308,7 +308,7 @@
     display: flex;           
     gap: 10px;               
     justify-content: center; 
-    align-items: center;     
+    align-items: center;        
 }
 
 tr:hover {
@@ -317,7 +317,6 @@ tr:hover {
 
 .listarP-section{
     margin-top: 20px;
-    padding: 100px;
     display: flex;
     justify-content: center;
     align-items: center;

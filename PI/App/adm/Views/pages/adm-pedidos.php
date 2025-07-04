@@ -22,6 +22,8 @@ session_start();
           <p><a href="adm-estoque.php">Visão Geral</a></p>
           <span><p>Pedidos</p></span>
           <p><a href="adm-enviados.php">Enviados</a></p>
+          <a href="estoqueok.php"><p>Novo Produto</p></a>
+
         </div>  
 
         <!-- <div class="estoque-busca">
@@ -96,7 +98,7 @@ session_start();
 
       <div class="filtro-formulario">
           <form action="">
-              <div class="form-group">
+              <div class="form-group-estoque">
                           
                   <label for="filtrar-nome">Nome</label>
                   <input type="text" id="filtrar-nome" name="filtrar-nome" placeholder="filtrar nome" >

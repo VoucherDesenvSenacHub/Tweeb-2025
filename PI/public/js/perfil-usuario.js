@@ -61,11 +61,38 @@ function cancelEdit() {
     });
 }
 
+function abriModal() {
+    document.getElementById('modal').style.display = 'flex';
+}
+function fecharModal(){
+    document.getElementById('modal').style.display = 'none';
+}
+
+function mostrarModal(mensagem) {
+    document.getElementById('modalMensagemTexto').innerText = mensagem;
+    document.getElementById('modalMensagem').style.display = 'flex';
+}
+
+function mostrarAviso(mensagem) {
+    const aviso = document.getElementById('modalAviso');
+    const avisoTexto = document.getElementById('modalAvisoTexto');
+    avisoTexto.innerText = mensagem;
+    aviso.style.display = 'block';
+    setTimeout(() => {
+        aviso.style.display = 'none';
+    }, 2000);
+}
+
+function mostrarModalSucessoExclusao(mensagem) {
+    document.getElementById('modalSucessoExclusaoTexto').innerText = mensagem || 'Usuário excluído com sucesso!';
+    document.getElementById('modalSucessoExclusao').style.display = 'flex';
+}
+
+function redirecionarLogin() {
+    window.location.href = "/Tweeb-2025/PI/app/user/view/pages/login.php";
+}
 
 function deletaUsuario() {
-    let confirma = confirm("Tem certeza que deseja excluir sua conta?");
-    if (!confirma) return;
-
     fetch("http://localhost/tweeb-2025/PI/public/api/deletar_usuario.php", {
         method: "DELETE",
         headers: {
@@ -77,26 +104,44 @@ function deletaUsuario() {
     .then(data => {
         try {
             let result = JSON.parse(data);
-            alert(result.mensagem || "Operação realizada com sucesso!");
             if (result.mensagem) {
-                console.log("Redirecionando...");
-                window.location.href = "/Tweeb-2025/PI/app/user/view/pages/login.php";
+                mostrarModalSucessoExclusao(result.mensagem);
+            } else {
+                mostrarAviso("Operação realizada com sucesso!");
             }
         } catch (e) {
-            alert(data); 
+            mostrarAviso(data);
         }
     })
-    .catch(err => console.error("Erro:", err));
+    .catch(err => mostrarAviso("Erro inesperado ao excluir usuário."));
 }
 
-    perfil_form.addEventListener('submit', async function(event) {
-        event.preventDefault();
+function abrirModalConfirmarAlteracao() {
+    document.getElementById('modalConfirmarAlteracao').style.display = 'flex';
+}
 
+function fecharModalConfirmarAlteracao() {
+    document.getElementById('modalConfirmarAlteracao').style.display = 'none';
+}
+
+function confirmarAlteracao() {
+    fecharModalConfirmarAlteracao();
+    submitAlteracao();
+}
+
+// Refatorar o submit do formulário para exibir o modal de confirmação
+perfil_form.addEventListener('submit', function(event) {
+    event.preventDefault();
+    abrirModalConfirmarAlteracao();
+});
+
+// Função que realmente faz a alteração após confirmação
+async function submitAlteracao() {
     let formData = {
-        nome: this.nome.value,
-        sobrenome: this.sobrenome.value,
-        email: this.email.value,
-        telefone: this.telefone.value,
+        nome: perfil_form.nome.value,
+        sobrenome: perfil_form.sobrenome.value,
+        email: perfil_form.email.value,
+        telefone: perfil_form.telefone.value,
     };
 
     let response = await fetch('/Tweeb-2025/PI/app/user/Controllers/UserEditController.php', {
@@ -108,48 +153,12 @@ function deletaUsuario() {
     let result = await response.json();
 
     if (result.sucesso) {
-        alert(result.mensagem);
-        location.reload();
+        document.getElementById('modalSucessoAtualizacao').style.display = 'flex';
     } else {
         alert('Erro: ' + result.mensagem);
     }
-});
+}
 
-
-function editarUsuario() {
-    let formData = {
-        nome: perfil_form.nome.value,
-        sobrenome: perfil_form.sobrenome.value,
-        email: perfil_form.email.value,
-        telefone: perfil_form.telefone.value,
-    };
-
-    async function editar(form){ 
-
-    let dados_php = await fetch('/Tweeb-2025/PI/app/user/Controllers/UserEditController.php', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form)
-    });
-
-    let response = await dados_php.json();
-
-    console.log(response);
-
-    }
-
-    editar(formData);
-
-
-    // .then(response => response.json())
-    // .then(result => {
-    //     alert(result.mensagem);
-    //     if (result.sucesso) {
-    //         location.reload();
-    //     }
-    // })
-    // .catch(error => {
-    //     console.error('Erro ao atualizar:', error);
-    //     alert('Erro ao atualizar. Tente novamente.');
-    // });
+function fecharModalSucessoAtualizacao() {
+    document.getElementById('modalSucessoAtualizacao').style.display = 'none';
 }

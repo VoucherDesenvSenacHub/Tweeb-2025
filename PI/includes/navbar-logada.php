@@ -18,17 +18,17 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
             </form>
         </div>
         <div class="responsive-menu">
-            <a href="quemsomos.php">Sobre</a>
-            <a href="orcamento.php">Orçamento</a>
+            <a href="/Tweeb-2025/PI/App/user/View/pages/quemsomos.php">Sobre</a>
+            <a href="/Tweeb-2025/PI/App/user/View/pages/orcamento.php">Orçamento</a>
         </div>
         <nav class="navb">
             <ul>
                 <li><a class="op" href="/Tweeb-2025/PI/home.php">Home</a></li>
-                <li><a class="op" href="quemsomos.php">Sobre</a></li>
-                <li><a class="op" href="orcamento.php">Orçamento</a></li>
+                <li><a class="op" href="/Tweeb-2025/PI/App/user/View/pages/quemsomos.php">Sobre</a></li>
+                <li><a class="op" href="/Tweeb-2025/PI/App/user/View/pages/orcamento.php">Orçamento</a></li>
                 <li><a class="op" href="/Tweeb-2025/PI/app/user/Controllers/LogoutController.php">Sair</a></li>
                 <li>
-                    <a class="op"href="#"><i class='bx bx-cart-alt'></i></a>
+                    <a class="op"href="/Tweeb-2025/PI/App/user/View/pages/carrinho.php"><i class='bx bx-cart-alt'></i></a>
                     <a href="../../../Tweeb-2025/PI/App/user/View/pages/perfil-usuario.php" class="user-icon">
                         <?php 
                         $foto_perfil = !empty($_SESSION['usuario']['foto_perfil']) ? $_SESSION['usuario']['foto_perfil'] : 'imagem_padrao.png';

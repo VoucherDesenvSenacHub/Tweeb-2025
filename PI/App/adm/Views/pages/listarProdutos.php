@@ -9,15 +9,15 @@
 </head>
 <body  onload='load_table()' class="listarP">
     
-<?php include __DIR__.'/../../../../includes/head-adm.php'; ?>
-<?php include __DIR__.'/../../../../includes/sidebar-Adm.php'; ?>
-
+<!-- 
     <div class="listarP-titulo-contain">
         <a href="estoqueok.php">
             <div class="listarP-titulo">Novo Produto</div>
         </a>
         
         <div class="listarP-titulo2">Cadastrados</div>
+
+        
     </div>
 
     <div class="listarP-search-box">
@@ -27,7 +27,7 @@
             </button>
             <input type="text" id="searchInput" class="listarP-srch" placeholder="Buscar Produto">
         </div>
-    </div>
+    </div> -->
 
 
     <!-- <div class="listarP-filtro-box">
@@ -58,6 +58,5 @@
     
 
 <script src="../../js_adm/load_table.js" defer></script>
-<!-- <?php include __DIR__.'/../../../../includes/footer-adm.php'; ?>  -->
 </body>
 </html>

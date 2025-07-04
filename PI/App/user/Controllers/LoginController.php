@@ -1,6 +1,7 @@
 <?php
 
 require_once __DIR__ . '/../Models/Usuario.php';
+require_once __DIR__ . '/../../DB/Database.php';
 
 session_start();
 header('Content-Type: application/json');
@@ -22,19 +23,13 @@ if (empty($email) || empty($senha)) {
 }
 
 try {
-    // Conecta ao banco de dados
-    $pdo = new PDO(
-        'mysql:host=192.168.22.9;dbname=140p2',
-        'devwebp2',
-        'voucher@140'
-    );
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $db = new Database();
+    $pdo = $db->conn;
 
     // Busca o usuário
     $stmt = $pdo->prepare('SELECT * FROM usuarios WHERE email = ?');
     $stmt->execute([$email]);
     $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
-
     // Verifica se encontrou o usuário
     if (!$usuario) {
         echo json_encode(['sucesso' => false, 'mensagem' => 'Usuário não encontrado']);

@@ -34,16 +34,11 @@
                     <input type="password" id="senha-funcionario" name="senha" placeholder="Digite sua senha" required>
                 </div>
 
-                <button type="submit" class="btn-esqueceu">Login</button>
+                <button type="submit" class="btn-esqueceu" id="btn-adm" name="action" value="adm">Entrar como Administrador</button>
+                <!-- <p class="divisão"> --------- ou ---------</p> -->
+                <button type="submit" class="btn-esqueceu" id="btn-funcionario" name="action" value="funcionario">Entrar como Colaborador</button>
                 <div class="linha">
-
                 </div>
-                <!-- <div class="remember-forgot">
-                    <label><input type="checkbox"> Lembrar senha</label>
-                    <a href="../../../user/View/pages/codVerificacao.php" class="forgot-password">Esqueceu sua senha</a>
-                </div> -->
-               
-                
             </form>
         </div>
         <div class="image-container-esqueceu">
@@ -52,5 +47,6 @@
     </div>
     </div>
     <script src="../../../../public/js/login-funcionario.js"></script>
+    <!-- <script src="../../../../public/js/login-adm.js"></script> -->
 </body>
 </html>
