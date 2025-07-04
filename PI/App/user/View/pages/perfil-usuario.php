@@ -141,12 +141,23 @@ function mascararCPF($cpf) {
   </div>
 </div>
 
-<!-- Modal de sucesso para exclusão de usuário (cópia exata do modal de confirmação) -->
-<div id="modalSucessoExclusao" class="modal-perfil_usuario">
+<!-- Modal de sucesso para atualização de dados -->
+<div id="modalSucessoAtualizacao" class="modal-perfil_usuario">
   <div class="modal-conteudo_perfilUsuario">
-    <p id="modalSucessoExclusaoTexto">Usuário excluído com sucesso!</p>
+    <p id="modalSucessoAtualizacaoTexto">Dados atualizados com sucesso!</p>
     <div class="botoes-perfil_usuario">
-      <button class="btn-excluirPerfil" onclick="redirecionarLogin()">OK</button>
+      <button class="btn-excluirPerfil" onclick="fecharModalSucessoAtualizacao()">OK</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal de confirmação de alteração de dados -->
+<div id="modalConfirmarAlteracao" class="modal-perfil_usuario">
+  <div class="modal-conteudo_perfilUsuario">
+    <p>Deseja alterar?</p>
+    <div class="botoes-perfil_usuario">
+      <button class="btn-excluirPerfil" onclick="confirmarAlteracao()">Confirmar</button>
+      <button class="btn-cancelarPerfil" onclick="fecharModalConfirmarAlteracao()">Cancelar</button>
     </div>
   </div>
 </div>
