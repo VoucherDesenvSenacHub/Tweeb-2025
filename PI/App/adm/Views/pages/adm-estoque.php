@@ -262,19 +262,16 @@ session_start();
       </table>
     </div>
 
-        <div class="pagination">
-            <button onclick="showPage(1)">1</button>
-            <button onclick="showPage(2)">2</button>
-        </div>
+       
     </div>
 </div>
-
+<?php include __DIR__.'/../../../../includes/footer-adm.php'; ?>
 
 <!-- Modal para editar produto -->
 <div id="modalEditarProduto" class="modal">
   <div class="modal-content">
     <span class="close-modal">&times;</span>
-    <h2>Editar Produto</h2>
+    <h2 class="titulo-modal">Editar Produto</h2>
     <form id="formEditarProduto" method="post" action="processa-editar-produto.php">
       <input type="hidden" name="id" id="produto-id">
 
@@ -302,11 +299,10 @@ session_start();
       <label for="produto-status">Status</label>
       <input type="text" id="produto-status" name="produto_status" required>
 
-      <button type="submit">Salvar</button>
+      <button class="btao-salvar">Salvar</button>
     </form>
   </div>
 
-            
 
 
 
@@ -366,7 +362,6 @@ session_start();
 </script>
 
 
-<?php include __DIR__.'/../../../../includes/footer-adm.php'; ?> 
     
 </body>
 </html>

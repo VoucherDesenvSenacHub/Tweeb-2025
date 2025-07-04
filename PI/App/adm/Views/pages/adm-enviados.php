@@ -47,26 +47,7 @@ session_start();
     </div>
 </div>
 
-<button class="btn-adicionar-envio">Adicionar Envio</button>
 
-
-<div class="pedidos-envios-recentes">
-    <h1>Envios Recentes</h1>
-    <div class="radio-inputs">
-        <label class="radio">
-          <input type="radio" name="radio" />
-          <span class="name">Mês</span>
-        </label>
-        <label class="radio">
-          <input type="radio" name="radio" />
-          <span class="name">Semana</span>
-        </label>
-        <label class="radio">
-          <input type="radio" name="radio" checked="" />
-          <span class="name">Hoje</span>
-        </label>
-    </div>
-</div>
 
 <div class="filtro-formulario">
     <form action="">
@@ -79,6 +60,8 @@ session_start();
             
             <input class="form-botao-limpar" type="submit" value="Limpar" />
             <input class="form-botao-buscar" type="submit" value="Buscar" />
+
+            <button class="btn-adicionar-envio">Adicionar Envio</button>
         </div>
     </form>
 </div>

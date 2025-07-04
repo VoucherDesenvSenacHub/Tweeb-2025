@@ -572,6 +572,11 @@
   color: red;
 }
 
+.titulo-modal{
+  margin-left: 170px;
+  padding: 20px;
+}
+
         /* Estilos do modal */
 .modal {
 display: none;
@@ -588,9 +593,22 @@ background: #fff;
 margin: auto;
 padding: 20px;
 border-radius: 6px;
-width: 400px;
+width: 600px;
 max-width: 90%;
 position: relative;
+margin-block-end: 50px;
+}
+
+.modalEditarProduto{
+background: #fff;
+margin: auto;
+padding: 20px;
+border-radius: 6px;
+width: 600px;
+max-width: 90%;
+position: relative;
+background-color: red;
+
 }
 .close-modal {
 position: absolute;
@@ -636,4 +654,21 @@ transition: background-color 0.2s ease;
 }
 .botao-editar-nota:hover {
 background-color: #0056b3;
+}
+
+.btao-salvar{
+cursor: pointer;
+background-color: #007bff;
+border: none;
+color: white;
+padding: 5px 15px;
+border-radius: 3px;
+font-size: 14px;
+display: inline-flex;
+align-items: center;
+gap: 5px;
+transition: background-color 0.2s ease;
+margin-left: 490px;
+padding: 20px;
+  
 }
