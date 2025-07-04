@@ -127,6 +127,19 @@ class Database{
         $stmt = $this->execute($query, [$email]);
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
+
+    public function buscarFuncionarioPorEmail(string $email) {
+        $query = "
+            SELECT u.id, u.nome, u.email, u.senha, u.tipo, f.matricula, f.cargo
+            FROM usuarios u
+            INNER JOIN funcionarios f ON u.id = f.id_usuario
+            WHERE u.email = ?
+            LIMIT 1
+        ";
+        $stmt = $this->execute($query, [$email]);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
     
 }
 ?>

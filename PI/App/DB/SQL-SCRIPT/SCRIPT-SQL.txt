@@ -90,7 +90,6 @@ CREATE TABLE produto (
     FOREIGN KEY (id_fornecedor) REFERENCES fornecedor (id_fornecedor),
     FOREIGN KEY (id_favorito) REFERENCES favoritos (id_favorito),
     FOREIGN KEY (id_compra_personalizada) REFERENCES compra_personalizada (id_compra_personalizada)
-
 );
 
 
@@ -215,6 +214,7 @@ CREATE TABLE envio (
 
 //Leandrex da galera
 
+
 use 140p2;
 CREATE TABLE usuarios (
     id INT PRIMARY KEY AUTO_INCREMENT,
@@ -233,11 +233,12 @@ desc funcionario;
 INSERT INTO usuarios (nome, sobrenome, email, telefone, senha, tipo)
 VALUES ('Leandro', 'Silva', 'admgeral@empresa.com', '(67)99999-9999', 'adm123', 'administrador');
 INSERT INTO administrador (id_usuario, matricula, cargo)
-VALUES (90, 'ADM0001', 'Administrador Geral');
+VALUES (110, 'ADM0001', 'Administrador Geral');
 
 select * from usuarios;
 select * from clientes;
 select * from enderecos;
+select * from funcionarios;
 select * from administrador;
 show tables;
 select * from departamento
@@ -268,7 +269,7 @@ CREATE TABLE enderecos (
     FOREIGN KEY (id_cliente) REFERENCES clientes(id_usuario) ON DELETE CASCADE
 );
 
-
+select * from produtos;
 
 CREATE TABLE administrador (
     id_usuario INT PRIMARY KEY,
@@ -295,7 +296,10 @@ drop table clientes;
 select * from clientes;
 select * from cpf;
 select * from enderecos;
-
+SELECT u.id, u.nome, u.email, f.matricula, f.cargo
+FROM usuarios u
+INNER JOIN funcionarios f ON u.id = f.id_usuario
+WHERE u.email = 'lelelelele@gmail.com';
 CREATE TABLE respostas_preferencias (
   id INT AUTO_INCREMENT PRIMARY KEY,
   user_id INT,

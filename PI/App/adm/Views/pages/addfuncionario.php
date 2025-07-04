@@ -20,7 +20,7 @@
 
 <div class="funcionario-form-container">
     <div class="funcionario-form-box">
-        <button class="funcionario-form-saudacao">👋🏼 Novo Funcionário</button>
+        <button class="funcionario-form-saudacao">👋🏼 Novo Colaborador</button>
 
         <div class="funcionario-form-header">
             <div class="funcionario-form-foto">
@@ -32,13 +32,13 @@
 
             </div>
             <div class="funcionario-form-info">
-                <h1 class="funcionario-form-nome">Novo Funcionário</h1>
+                <h1 class="funcionario-form-nome">Novo Colaborador</h1>
                 <p class="funcionario-form-email">email@empresa.com</p>
                 <div class="funcionario-form-divider"></div>
             </div>
         </div>
 
-        <form class="funcionario-form">
+        <form class="funcionario-form" method="post">
 
             <div class="funcionario-form-row">
                 <div class="funcionario-form-group">
@@ -80,18 +80,20 @@
             </div>
 
             </div>
+            <div class="funcionario-form-row">
+              <div class="funcionario-form-group">
+                  <label for="cargo">Cargo</label>
+                  <select id="cargo" name="cargo">
+                      <option value="" disabled selected>Selecione o cargo</option>
+                      <option value="tecnico">Técnico</option>
+                      <option value="funcionario">Funcionário</option>
+                  </select>
+              </div>
+          </div>
 
             <div class="funcionario-form-row">
                 <div class="funcionario-form-group">
-                    <h3>Cadastrar Senha</h3>
-                    <label for="senha-mestre">Senha Mestre</label>
-                    <input type="password" id="senha-mestre" name="senha-mestre" placeholder="Digite a senha atual">
-                </div>
-            
-
-                <div class="funcionario-form-group">
-                    <label for="senha-funcionario2">Senha</label>
-                    <label for="senha-funcionario">Funcionário</label>
+                    <label for="senha-funcionario">Senha Funcionário</label>
                     <input type="password" id="senha-funcionario" name="senha-funcionario" placeholder="Senha Novo Funcionario">
                 </div>
             </div>
@@ -103,17 +105,13 @@
             </div>
 
             <div class="funcionario-form-botoes">
-                <button type="button" class="funcionario-form-cancelar">Cancelar</button>
+                <button type="button" class="funcionario-form-cancelar">Limpar</button>
                 <button type="submit" class="funcionario-form-salvar">Salvar Funcionário</button>
             </div>
         </form>
     </div>
 </div>
-
+<script src="../../../../public/js/adicionar-funcionario.js"></script>
 <?php include __DIR__.'/../../../../includes/footer.php'; ?>
 </body>
-
-
-
-
 </html>

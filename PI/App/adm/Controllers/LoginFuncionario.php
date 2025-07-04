@@ -20,14 +20,15 @@ if (empty($email) || empty($senha)) {
 }
 
 try {
-    $funcionario = Funcionario::buscarPorEmail($email);
+    error_log("Tentando buscar funcionário com email: " . $email);
+    $funcionario = Funcionario::buscarPorEmailFuncionario($email);
 
     if (!$funcionario) {
         echo json_encode(['sucesso' => false, 'mensagem' => 'Usuário não encontrado']);
         exit;
     }
 
-    if ($senha !== $funcionario['senha']) {
+    if (!password_verify($senha, $funcionario['senha'])) {
         echo json_encode(['sucesso' => false, 'mensagem' => 'Senha incorreta']);
         exit;
     }
