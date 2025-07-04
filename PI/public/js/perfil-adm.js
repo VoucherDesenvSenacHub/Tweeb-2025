@@ -4,9 +4,11 @@ let inputs = perfil_form.querySelectorAll('input:not([disabled])');
 let originalValues = {};
 
 // Salva os valores originais dos campos
-inputs.forEach(input => {
-    originalValues[input.name] = input.value;
-});
+function salvarValoresOriginais() {
+    inputs.forEach(input => {
+        originalValues[input.name] = input.value;
+    });
+}
 
 document.addEventListener("DOMContentLoaded", () => {
     const botaoEditar = document.querySelector(".perfil-tweeb-editar-foto");
@@ -24,10 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
     botaoExcluir.style.display = "none";
 
     botaoEditar.addEventListener("click", () => {
-        camposEditaveis.forEach(input => input.removeAttribute("readonly"));
-        botaoSalvar.style.display = "inline-block";
-        botaoCancelar.style.display = "inline-block";
-        botaoExcluir.style.display = "inline-block";
+        ativarEdicao();
     });
 
     botaoCancelar.addEventListener("click", () => {
@@ -45,20 +44,28 @@ function toggleEditMode() {
     });
 }
 
+// Chame ao entrar no modo de edição
+function ativarEdicao() {
+    salvarValoresOriginais();
+    inputs.forEach(input => input.removeAttribute("readonly"));
+    document.querySelector(".perfil-tweeb-salvar-end").style.display = "inline-block";
+    document.querySelector(".perfil-tweeb-cancelar-end").style.display = "inline-block";
+    document.querySelector(".perfil-tweeb-excluir-end").style.display = "inline-block";
+}
+
 // Função para cancelar a edição
 function cancelEdit() {
     perfil_form.classList.remove("editing");
     perfil_form.querySelectorAll("input").forEach(input => {
         input.setAttribute("readonly", true);
+        // Restaurar valor original se existir
+        if (originalValues.hasOwnProperty(input.name)) {
+            input.value = originalValues[input.name];
+        }
     });
     document.querySelector(".perfil-tweeb-salvar-end").style.display = "none";
     document.querySelector(".perfil-tweeb-cancelar-end").style.display = "none";
     document.querySelector(".perfil-tweeb-excluir-end").style.display = "none";
-    let camposParaLimpar = ["sobrenome", "telefone"];
-    camposParaLimpar.forEach(id => {
-        let input = document.getElementById(id);
-        if (input) input.value = "";
-    });
 }
 
 
@@ -97,6 +104,8 @@ function deletaUsuario() {
         sobrenome: this.sobrenome.value,
         email: this.email.value,
         telefone: this.telefone.value,
+        matricula: this.matricula.value,
+        cargo: this.cargo.value
     };
 
     let response = await fetch('/Tweeb-2025/PI/App/adm/Controllers/AdmEditController.php', {
@@ -122,6 +131,8 @@ function editarUsuario() {
         sobrenome: perfil_form.sobrenome.value,
         email: perfil_form.email.value,
         telefone: perfil_form.telefone.value,
+        matricula: perfil_form.matricula.value,
+        cargo: perfil_form.cargo.value
     };
 
     async function editar(form){ 

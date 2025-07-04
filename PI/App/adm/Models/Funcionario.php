@@ -103,8 +103,28 @@ class Funcionario
         ]);
     }
 
-    public static function buscarTodos()
-    {
+    public function atualizar() {
+        // Atualiza tabela usuarios
+        $dbUsuarios = new Database('usuarios');
+        $dbUsuarios->update([
+            'nome' => $this->nome,
+            'sobrenome' => $this->sobrenome,
+            'email' => $this->email,
+            'telefone' => $this->telefone,
+            'foto_perfil' => $this->foto_perfil
+        ], "id = {$this->id}");
+
+        // Atualiza tabela administrador
+        $dbAdm = new Database('administrador');
+        $dbAdm->update([
+            'matricula' => $this->matricula,
+            'cargo' => $this->cargo
+        ], "id_usuario = {$this->id}");
+
+        return true;
+    }
+
+    public static function buscarTodos() {
         $db = new Database('usuarios');
         return $db->select()->fetchAll(PDO::FETCH_ASSOC);
     }
@@ -132,5 +152,11 @@ class Funcionario
     {
         $db = new Database('usuarios');
         return $db->delete("id = $id");
+    }
+
+    public static function buscarAdministradorPorEmail($email) {
+        $db2 = new \Database();
+        $dados = $db2->buscarAdministradorPorEmail($email);
+        return $dados;
     }
 }

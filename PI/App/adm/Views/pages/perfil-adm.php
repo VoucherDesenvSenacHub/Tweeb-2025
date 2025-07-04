@@ -29,7 +29,7 @@ $funcionario = $_SESSION['funcionario'];
 
 <div class="perfil-tweeb">
     <div class="perfil-tweeb-container">
-        <button class="perfil-tweeb-editar">Oi <?php echo htmlspecialchars($funcionario['nome']); ?>, 👋🏼 </button>
+        <button type="button" class="perfil-tweeb-editar">Oi <?php echo htmlspecialchars($funcionario['nome']); ?>, 👋🏼 </button>
         
         <div class="perfil-tweeb-header">
             <div class="perfil-tweeb-imagem">
@@ -45,7 +45,7 @@ $funcionario = $_SESSION['funcionario'];
                     <i class="bi bi-cloud-arrow-up carregar-foto"></i>
                 </label>
 
-                <button class="perfil-tweeb-editar-foto" title="Editar">
+                <button type="button" class="perfil-tweeb-editar-foto" title="Editar">
                     <i class="fa-regular fa-pen-to-square" style="color: #4b5563;"></i>
                 </button>
             </div>
@@ -57,6 +57,7 @@ $funcionario = $_SESSION['funcionario'];
         </div>
 
         <form class="perfil-tweeb-form" method="POST" enctype="multipart/form-data">
+            <input type="hidden" name="id" value="<?php echo htmlspecialchars($funcionario['id']); ?>">
             <input type="file" id="inputFotoPerfil" name="foto_perfil" accept="image/*" style="display: none;">
 
             <div class="perfil-tweeb-input-group">
@@ -90,9 +91,9 @@ $funcionario = $_SESSION['funcionario'];
             </div>
 
             <div class="perfil-tweeb-botoes-user">
-                <button type="button" class="perfil-tweeb-cancelar-end" onclick="cancelEdit()">Cancelar</button>
-                <button type="submit" class="perfil-tweeb-salvar-end" onClick="editarUsuario()">Salvar alteração</button>
-                <button type="button" class="perfil-tweeb-excluir-end" onClick="deletaUsuario()">Excluir Conta</button>
+                <button type="button" class="perfil-tweeb-cancelar-end" onclick="cancelEdit()" style="display:none;">Cancelar</button>
+                <button type="button" class="perfil-tweeb-salvar-end" onclick="editarUsuario()" style="display:none;">Salvar alteração</button>
+                <button type="button" class="perfil-tweeb-excluir-end" onclick="deletaUsuario()">Excluir Conta</button>
             </div>
         </form>
     </div>
