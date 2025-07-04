@@ -101,6 +101,19 @@ class Produto{
        
         return (new Database('produtos'))->select($condicaoBase, $order, $limit)->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    public static function buscar_inativo($where = null, $order = null, $limit = null) {
+        // Adiciona a condição de status_produto = 1 ao where
+        $condicaoBase = 'status_produto = 0';
+    
+        // Se já houver uma condição passada pelo usuário, concatena com AND
+        if ($where) {
+            $condicaoBase .= ' AND ' . $where;
+        }
+    
+       
+        return (new Database('produtos'))->select($condicaoBase, $order, $limit)->fetchAll(PDO::FETCH_ASSOC);
+    }
     
 
     // public static function buscar_by_id($id_produto){

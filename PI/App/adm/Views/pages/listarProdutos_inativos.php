@@ -57,6 +57,7 @@
     </section>
     
 
-<script src="../../js_adm/load_table.js" defer></script>
+<script src="../../js_adm/load_table2.js" defer></script>
+<!-- <?php include __DIR__.'/../../../../includes/footer-adm.php'; ?>  -->
 </body>
 </html>

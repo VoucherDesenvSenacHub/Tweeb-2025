@@ -119,6 +119,7 @@ if (isset($_POST['cadastrar'])) {
     $novo_nome = uniqid();
     $extensao = strtolower(pathinfo($nome_foto, PATHINFO_EXTENSION));
     if (!in_array($extensao, ['png', 'jpg', 'jpeg', 'gif', 'webp', 'bmp'])) die('Falha ao enviar a foto: formato inválido');
+
     $caminho = $pasta . $novo_nome . '.' . $extensao;
     $foto = move_uploaded_file($arquivo['tmp_name'], $caminho);
 
@@ -190,7 +191,12 @@ if ($id_produto !== null) {
             border-radius: 8px;
             /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
             margin-top: 20px;
-            
+          
+        }
+
+        .form-listarP_editar{
+            border: none;
+            background: none;
         }
 
         .cadastrando-products-pai{
@@ -255,107 +261,299 @@ if ($id_produto !== null) {
         }
     </style>
 </head>
-<body>
+<body class='produtos_listados'>
     <?php include __DIR__.'/../../../../includes/head-adm.php'; ?>
     <?php include __DIR__.'/../../../../includes/sidebar-Adm.php'; ?>
     <div class="cadastrando-products-pai">
         <div class="cadastrando-products">
             <nav>
-                <a href="#" class="active">Novo Produto</a>
-                <a href="listarProdutos.php">Cadastrados</a>
-                <a href="listarProdutos.php">Inativos</a>
+                <a href="#" class="active" id="btn-novo-produto">Novo Produto</a>
+                <a href="#" id="btn-cadastrados">Cadastrados</a>
+                <a href="#" id="btn-inativos">Inativos</a>
             </nav>
             <h2 id='titulo-cadastro-produto'>Detalhes do Produto</h2>
+
+            <!-- Formulário de cadastro -->
             <form action="estoqueok.php" method="POST" enctype="multipart/form-data" id="product-form">
-    <div class="form-group">
-        <label for="product-name">Nome do Produto</label>
-        <input autocomplete="off" type="text" name="nome_produto" class="form_field" placeholder="" id="nome_produto" required>
+                <div class="form-group">
+                    <label for="product-name">Nome do Produto</label>
+                    <input autocomplete="off" type="text" name="nome_produto" class="form_field" id="nome_produto" required>
 
-        <label for="product-brand">Marca/Modelo</label>
-        <input autocomplete="off" type="text" name="marca_modelo" class="form_field" placeholder="" id="marca_modelo" required>
+                    <label for="product-brand">Marca/Modelo</label>
+                    <input autocomplete="off" type="text" name="marca_modelo" class="form_field" id="marca_modelo" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="product-quantity">Quantidade</label>
+                    <input autocomplete="off" type="number" name="quantidade_produto" class="form_field" id="quantidade_produto" required>
+
+                    <label for="product-department">Departamento</label>
+                    <select name="id_departamento" id="id_departamento">
+                        <option value="1">hardwares</option>
+                        <option value="2">computadores</option>
+                        <option value="3">periféricos</option>
+                        <option value="4">energia</option>
+                        <option value="5">áudio</option>
+                        <option value="6">jogos</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="product-image">Imagem</label>
+                    <input autocomplete="off" type="file" name="imagem_produto" class="form_field" id="imagem_produto" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="serial-number">Número de Série</label>
+                    <input autocomplete="off" type="number" name="numero_serie" class="form_field" id="numero_serie" required>
+
+                    <label for="product-cost">Custo</label>
+                    <input autocomplete="off" type="number" name="custo_produto" step="0.01" class="form_field" id="custo_produto" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="product-color">Cor</label>
+                    <input autocomplete="off" type="text" name="cor_produto" class="form_field" id="cor_produto" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="product-description">Descrição</label>
+                    <textarea name="descricao_produto" id="descricao_produto" maxlength="1000"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="product-description">Detalhes produto</label>
+                    <textarea name="detalhes_produto" id="detalhes_produto" maxlength="1000"></textarea>
+                </div>
+
+                <h3>Especificações Promocionais</h3>
+                <div class="form-group">
+                    <label for="promo-value">Valor</label>
+                    <input autocomplete="off" type="number" name="preco_unid" step="0.01" class="form_field" id="preco_unid" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="related-products">Produtos Relacionados</label>
+                    <select name="related-products" id="related-products">
+                        <option value="">hardwares</option>
+                        <option value="">computadores</option>
+                        <option value="">periféricos</option>
+                        <option value="">energia</option>
+                        <option value="">áudio</option>
+                        <option value="">jogos</option>
+                    </select>
+                </div>
+
+                <div class="icons">
+                    <label>
+                        <input type="checkbox" name="em_estoque" value="1" <?= !empty($produto_banco['em_estoque']) ? "checked" : "" ?>>
+                        📦 Em estoque Hoje
+                    </label><br>
+
+                    <label>
+                        <input type="checkbox" name="garantia" value="1" <?= !empty($produto_banco['garantia']) ? "checked" : "" ?>>
+                        🔒 Garantia 1 ano
+                    </label><br>
+
+                    <label>
+                        <input type="checkbox" name="entrega_gratis" value="1" <?= !empty($produto_banco['entrega_gratis']) ? "checked" : "" ?>>
+                        🚚 Entrega Grátis 1-2 dias
+                    </label>
+                </div>
+
+                <button type="submit" name="cadastrar" value="cadastrar" id="save-button">Salvar</button>
+            </form>
+
+            <!-- Div para carregar a tabela via AJAX -->
+            <div id="tabela-produtos" style="margin-top:20px;"></div>
+        </div>
     </div>
 
-    <div class="form-group">
-        <label for="product-quantity">Quantidade</label>
-        <input autocomplete="off" type="number" name="quantidade_produto" class="form_field" placeholder="" id="quantidade_produto" required>
+    <!-- Alternar a exibição -->
+<script>
 
-        <label for="product-department">Departamento</label>
-        <select name="id_departamento" id="id_departamento">
-            <option value="1">hardwares</option>
-            <option value="2">computadores</option>
-            <option value="3">periféricos</option>
-            <option value="4">energia</option>
-            <option value="5">áudio</option>
-            <option value="6">jogos</option>
-        </select>
-    </div>
+// Seleciona o tbody da tabela (onde as linhas serão inseridas)
+let dados_tabela = document.getElementById('rows_products');
 
-    <div class="form-group">
-        <label for="product-image">Imagem</label>
-        <input autocomplete="off" type="file" name="imagem_produto" class="form_field" placeholder="" id="imagem_produto" required>
-    </div>
+async function load_table() {
+    console.log("AQuiiiiiii 2.0");
 
-    <div class="form-group">
-        <label for="serial-number">Número de Série</label>
-        <input autocomplete="off" type="number" name="numero_serie" class="form_field" placeholder="" id="numero_serie" required>
+    let dados_php = await fetch('../../../../actions/listar_produtos.php');
+    let response = await dados_php.json();
 
-        <label for="product-cost">Custo</label>
-        <input autocomplete="off" type="number" name="custo_produto" step="0.01" class="form_field" placeholder="" id="custo_produto" required>
-    </div>
+    let html = '';
 
-    <div class="form-group">
-        <label for="product-color">Cor</label>
-        <input autocomplete="off" type="text" name="cor_produto" class="form_field" placeholder="" id="cor_produto" required>
-    </div>
+    console.log(response);
 
-    <div class="form-group">
-        <label for="product-description">Descrição</label>
-        <textarea name="descricao_produto" id="descricao_produto" maxlength="1000"></textarea>
-    </div>
+    for(let i = 0; i < response.length; i++) {
+        html += `<tr class="tr-tr-listarP">`;
+        html += `<td class="td-listarP"><img src="${response[i].imagem_produto}" id="userAdm_avatar" alt="Avatar" class="listarP-produto-img"></td>`;
+        html += `<td class="td-listarP">${response[i].nome_produto}</td>`;
+        html += `<td class="td-listarP">${response[i].preco_unid}</td>`;
+        html += `<td class="td-listarP">${response[i].quantidade_produto}</td>`;
+        html += `<td class="td-listarP">${response[i].id_departamento}</td>`;
+        html += `<td class="td-listarP"><div class="td_botao">`;
+        html += `<a href="editar_produtos.php?id_produto=${response[i].id_produto}">`;
+        html += `<button type="submit" class="form-listarP_editar">`;
+        html += `<img src="../../../../public/assets/img/edit-03.png" alt="Editar" class="listarP-edit-icon">`;
+        html += `</button></a>`;
+
+        html += `<a href="excluir_produtos.php?id_produto=${response[i].id_produto}">`;
+        html += `<button type="submit" class="listarP-delete-btn">`;
+        html += `<img src="../../../../public/assets/img/trash-2.png" alt="Excluir" class="listarP-delete-icon">`;
+        html += `</button></a>`;
+        html += `</div></td></tr>`;
+
+        console.log(response[i].nome_produto);
+    }
+
+    dados_tabela.innerHTML = html;
+}
+
+
+
+// Ao clicar no botão "Cadastrados"
+document.getElementById("btn-cadastrados").addEventListener("click", async function(event) {
+    event.preventDefault();
+
+    // Esconde o formulário
+    document.getElementById('product-form').style.display = 'none';
+
+    // Cria a estrutura básica da tabela com tbody id "rows_products"
+    const tabelaHTML = `
+        <table class="listarP-table">
+            <thead class="thead-listarP">
+                <tr class="tr-listarP">
+                    <th class="th-listarP">Foto</th>
+                    <th class="th-listarP">Produto</th>
+                    <th class="th-listarP">Valor</th>
+                    <th class="th-listarP">Quantidade</th>
+                    <th class="th-listarP">Departamentos</th>
+                    <th class="th-listarP">Alterar</th>
+                </tr>
+            </thead>
+            <tbody id="rows_products" class="tbody-listarP"></tbody>
+        </table>
+    `;
+    document.getElementById('tabela-produtos').innerHTML = tabelaHTML;
+
+    // Atualiza a variável dados_tabela para o novo tbody inserido
+    dados_tabela = document.getElementById('rows_products');
+
+    // Chama a função que carrega os produtos
+    await load_table();
+
+    // Altera o título
+    document.getElementById('titulo-cadastro-produto').textContent = 'Produtos Cadastrados';
+
+    // Ajusta navegação ativa
+    document.getElementById('btn-novo-produto').classList.remove('active');
+    this.classList.add('active');
+    document.getElementById('btn-inativos').classList.remove('active');
+    this.classList.add('active');
+
+});
+
+async function load_table2() {
+    console.log("AQuiiiiiii 2.0");
+
+    let dados_php = await fetch('../../../../actions/listar_produtos_inativos.php');
+    let response = await dados_php.json();
+
+    let html = '';
+
+    console.log(response);
+
+    for(let i = 0; i < response.length; i++) {
+        html += `<tr class="tr-tr-listarP">`;
+        html += `<td class="td-listarP"><img src="${response[i].imagem_produto}" id="userAdm_avatar" alt="Avatar" class="listarP-produto-img"></td>`;
+        html += `<td class="td-listarP">${response[i].nome_produto}</td>`;
+        html += `<td class="td-listarP">${response[i].preco_unid}</td>`;
+        html += `<td class="td-listarP">${response[i].quantidade_produto}</td>`;
+        html += `<td class="td-listarP">${response[i].id_departamento}</td>`;
+        html += `<td class="td-listarP"><div class="td_botao">`;
+        html += `<a href="editar_produtos.php?id_produto=${response[i].id_produto}">`;
+        html += `<button type="submit" class="form-listarP_editar">`;
+        html += `<img src="../../../../public/assets/img/edit-03.png" alt="Editar" class="listarP-edit-icon">`;
+        html += `</button></a>`;
+
+        html += `<a href="excluir_produtos.php?id_produto=${response[i].id_produto}">`;
+        html += `<button type="submit" class="listarP-delete-btn">`;
+        html += `<img src="../../../../public/assets/img/trash-2.png" alt="Excluir" class="listarP-delete-icon">`;
+        html += `</button></a>`;
+        html += `</div></td></tr>`;
+
+        console.log(response[i].nome_produto);
+    }
+
+    dados_tabela.innerHTML = html;
+}
+
+// Ao clicar no botão "Inativos"
+document.getElementById("btn-inativos").addEventListener("click", async function(event) {
+    event.preventDefault();
+
+    // Esconde o formulário
+    document.getElementById('product-form').style.display = 'none';
     
-    <div class="form-group">
-        <label for="product-description">Detalhes produto</label>
-        <textarea name="detalhes_produto" id="detalhes_produto" maxlength="1000"></textarea>
-    </div>
 
-    <h3>Especificações Promocionais</h3>
-    <div class="form-group">
-        <label for="promo-value">Valor</label>
-        <input autocomplete="off" type="number" name="preco_unid" step="0.01" class="form_field" placeholder="" id="preco_unid" required>
-    </div>
+    // Cria a estrutura básica da tabela com tbody id "rows_products"
+    const tabelaHTML = `
+        <table class="listarP-table">
+            <thead class="thead-listarP">
+                <tr class="tr-listarP">
+                    <th class="th-listarP">Foto</th>
+                    <th class="th-listarP">Produto</th>
+                    <th class="th-listarP">Valor</th>
+                    <th class="th-listarP">Quantidade</th>
+                    <th class="th-listarP">Departamentos</th>
+                    <th class="th-listarP">Alterar</th>
+                </tr>
+            </thead>
+            <tbody id="rows_products" class="tbody-listarP"></tbody>
+        </table>
+    `;
+    document.getElementById('tabela-produtos').innerHTML = tabelaHTML;
 
-    <div class="form-group">
-        <label for="related-products">Produtos Relacionados</label>
-        <select name="related-products" id="related-products">
-            <option value="">hardwares</option>
-            <option value="">computadores</option>
-            <option value="">periféricos</option>
-            <option value="">energia</option>
-            <option value="">áudio</option>
-            <option value="">jogos</option>
-        </select>
-    </div>
+    // Atualiza a variável dados_tabela para o novo tbody inserido
+    dados_tabela = document.getElementById('rows_products');
 
-    <div class="icons">
-        <label>
-            <input type="checkbox" name="em_estoque" value="1" <?= !empty($produto_banco['em_estoque']) ? "checked" : "" ?>>
-            📦 Em estoque Hoje
-        </label><br>
+    // Chama a função que carrega os produtos
+    await load_table2();
 
-        <label>
-            <input type="checkbox" name="garantia" value="1" <?= !empty($produto_banco['garantia']) ? "checked" : "" ?>>
-            🔒 Garantia 1 ano
-        </label><br>
+    // Altera o título
+    document.getElementById('titulo-cadastro-produto').textContent = 'Produtos Inativos';
 
-        <label>
-            <input type="checkbox" name="entrega_gratis" value="1" <?= !empty($produto_banco['entrega_gratis']) ? "checked" : "" ?>>
-            🚚 Entrega Grátis 1-2 dias
-        </label>
-    </div>
+    // Ajusta navegação ativa
+    document.getElementById('btn-novo-produto').classList.remove('active');
+    this.classList.add('active');
+    document.getElementById('btn-cadastrados').classList.remove('active');
+    this.classList.add('active');
+});
 
-    <button type="submit" name="cadastrar" value="cadastrar" id="save-button">Salvar</button>
-</form>
 
-<!-- <?php include __DIR__.'/../../../../includes/footer-adm.php'; ?>  -->
+        // Quando clicar em "Novo Produto"
+        document.getElementById("btn-novo-produto").addEventListener("click", function(event) {
+            event.preventDefault();
+
+            // Mostrar formulário
+            document.getElementById('product-form').style.display = 'block';
+
+            // Limpar tabela
+            document.getElementById('tabela-produtos').innerHTML = '';
+
+            // Alterar título
+            document.getElementById('titulo-cadastro-produto').textContent = 'Detalhes do Produto';
+
+            // Ajustar navegação ativa
+            document.getElementById('btn-cadastrados').classList.remove('active');
+            this.classList.add('active');
+        });
+    </script>
+    <script src="../../js_adm/load_table.js"></script>
+
 </body>
 </html>
+
+
+        
