@@ -62,31 +62,6 @@ class Database{
         }
     }
 
-    public function insert_by($values){
-        //DEBUG
-        //echo "<pre>";print_r($values);echo "</pre>";
-        //Dados query $fields=campos $binds=parametros
-        $fields = array_keys($values);
-        //$data = array_values($values); TESTE DE RECEBIMENTO
-        $binds = array_pad([],count($fields),'?');
-
-        //Montar query
-        $query = 'INSERT INTO ' . $this->table .'  (' .implode(',',$fields). ') VALUES (' .implode(',',$binds).')';
-        //DEBUG para saber se está montando a query corretamente
-        // print_r($query);
-        // print_r(array_values($values));
-        
-        //Método para executar a Query
-        $result = $this->execute($query,array_values($values));
-        
-        if($result){
-            return true;
-        }
-        else{
-            return false;
-        }
-    }
-
     public function update($values, $where) {
         if (empty($values)) {
             throw new InvalidArgumentException("Valores de atualização não podem estar vazios.");
@@ -143,19 +118,9 @@ class Database{
 
     public function buscarAdmPorEmail(string $email) {
         $query = "
-            SELECT 
-                u.id, 
-                u.nome, 
-                u.sobrenome,        
-                u.email, 
-                u.telefone,         
-                u.senha, 
-                u.tipo, 
-                u.foto_perfil, 
-                f.matricula,        
-                f.cargo             
+            SELECT u.id, u.nome, u.email, u.senha, u.tipo, a.matricula, a.cargo
             FROM usuarios u
-            LEFT JOIN funcionarios f ON u.id = f.id_usuario
+            LEFT JOIN administrador a ON u.id = a.id_usuario
             WHERE u.email = ?
             LIMIT 1
         ";
@@ -175,7 +140,6 @@ class Database{
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
-    
     
 }
 ?>

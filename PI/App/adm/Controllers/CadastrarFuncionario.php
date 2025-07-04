@@ -1,5 +1,5 @@
 <?php
-require_once '../Models/Funcionario.php';
+require_once __DIR__ . '../../Models/Funcionario.php';
 
 header('Content-Type: application/json');
 
@@ -41,20 +41,10 @@ try {
         'senha'      => $senhaHash
     ]);
 
-    if($resultado){
-        echo json_encode([
-            'sucesso' => true,
-            'mensagem' => 'Funcionário cadastrado com sucesso!'
-        ]);
-    }else{
-        echo json_encode([
-            'sucesso' => false,
-            'mensagem' => 'Erro ao salvar funcionário.',
-            'erro' => $e->getMessage()
-        ]);
-    }
-
-    
+    echo json_encode([
+        'sucesso' => true,
+        'mensagem' => 'Funcionário cadastrado com sucesso!'
+    ]);
 } catch (Exception $e) {
     echo json_encode([
         'sucesso' => false,

@@ -47,8 +47,8 @@ class Funcionario
             ]);
         }
 
-    //     return $idUsuario;
-    // }
+        return $idUsuario;
+    }
 
     public function inserirADM()
     {
@@ -96,7 +96,7 @@ class Funcionario
         }
 
         $dbFuncionario = new Database('funcionarios');
-        return $dbFuncionario->insert_by([
+        return $dbFuncionario->insert([
             'id_usuario' => $idUsuario,
             'matricula'  => $dados['matricula'],
             'cargo'      => $dados['cargo']

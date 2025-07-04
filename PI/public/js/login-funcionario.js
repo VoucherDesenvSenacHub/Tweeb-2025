@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     headers: {
                         'Content-Type': 'application/json'
                     },
-                    body: JSON.stringify({ email, senha })
+                    body: JSON.stringify(formData)
                 });
 
                 // Captura como texto para tratar HTML inesperado
