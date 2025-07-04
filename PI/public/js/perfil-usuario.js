@@ -1,4 +1,5 @@
 let perfil_form = document.querySelector('.perfil-tweeb-form');
+console.log(perfil_form)
 let inputs = perfil_form.querySelectorAll('input:not([disabled])');
 let originalValues = {};
 
@@ -34,6 +35,8 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
+console.log(originalValues);
+
 // Função para ativar/desativar modo de edição
 function toggleEditMode() {
     perfil_form.classList.toggle('editing');
@@ -58,12 +61,39 @@ function cancelEdit() {
     });
 }
 
+function abriModal() {
+    document.getElementById('modal').style.display = 'flex';
+}
+function fecharModal(){
+    document.getElementById('modal').style.display = 'none';
+}
+
+function mostrarModal(mensagem) {
+    document.getElementById('modalMensagemTexto').innerText = mensagem;
+    document.getElementById('modalMensagem').style.display = 'flex';
+}
+
+function mostrarAviso(mensagem) {
+    const aviso = document.getElementById('modalAviso');
+    const avisoTexto = document.getElementById('modalAvisoTexto');
+    avisoTexto.innerText = mensagem;
+    aviso.style.display = 'block';
+    setTimeout(() => {
+        aviso.style.display = 'none';
+    }, 2000);
+}
+
+function mostrarModalSucessoExclusao(mensagem) {
+    document.getElementById('modalSucessoExclusaoTexto').innerText = mensagem || 'Usuário excluído com sucesso!';
+    document.getElementById('modalSucessoExclusao').style.display = 'flex';
+}
+
+function redirecionarLogin() {
+    window.location.href = "/Tweeb-2025/PI/app/user/view/pages/login.php";
+}
 
 function deletaUsuario() {
-    let confirma = confirm("Tem certeza que deseja excluir sua conta?");
-    if (!confirma) return;
-
-    fetch("/Tweeb-2025/PI/app/user/Controllers/DeletarUsuario.php", {
+    fetch("http://localhost/tweeb-2025/PI/public/api/deletar_usuario.php", {
         method: "DELETE",
         headers: {
             "Content-Type": "application/x-www-form-urlencoded"
@@ -74,16 +104,16 @@ function deletaUsuario() {
     .then(data => {
         try {
             let result = JSON.parse(data);
-            alert(result.mensagem || "Operação realizada com sucesso!");
             if (result.mensagem) {
-                console.log("Redirecionando...");
-                window.location.href = "/Tweeb-2025/PI/app/user/view/pages/login.php";
+                mostrarModalSucessoExclusao(result.mensagem);
+            } else {
+                mostrarAviso("Operação realizada com sucesso!");
             }
         } catch (e) {
-            alert(data); 
+            mostrarAviso(data);
         }
     })
-    .catch(err => console.error("Erro:", err));
+    .catch(err => mostrarAviso("Erro inesperado ao excluir usuário."));
 }
 
     perfil_form.addEventListener('submit', async function(event) {
