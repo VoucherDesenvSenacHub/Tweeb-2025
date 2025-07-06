@@ -163,7 +163,10 @@
     font-weight: 500;
     cursor: pointer;
 }
-
+.departments-bar .department a{
+    text-decoration: none;
+    color: white;
+}
 
 .department img {
     width: 20px;  
@@ -179,15 +182,6 @@
 }
 
 
-.department i {
-    font-size: 16px;
-    transition: transform 0.3s ease;
-}
-
-
-.department.open i {
-    transform: rotate(180deg);
-}
 
 .submenu {
     position: absolute;  

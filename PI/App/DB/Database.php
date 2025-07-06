@@ -2,10 +2,10 @@
     
 class Database{
     public $conn;
-    public string $local="192.168.22.9";
-    public string $db="140p2";
-    public string $user="devwebp2";
-    public string $password="voucher@140";
+    public string $local="localhost";
+    public string $db="Tweeb25";
+    public string $user="root";
+    public string $password="Oliveira@87185";
     public $table;
 
    
@@ -81,17 +81,16 @@ class Database{
     
 
     public function select($where = null,$order = null,$limit = null, $fields = '*'){
-            //montando a query
         $where = strlen($where) ? 'WHERE ' . $where : '';
         $order = strlen($order) ? 'ORDER BY ' . $order : '';
         $limit = strlen($limit) ? 'LIMIT ' . $limit : '';
 
         $query = 'SELECT '.$fields. ' FROM ' .$this->table. ' '.$where;
-        //SELECT * FROM pessoa;
+
         return $this->execute($query);
 
     }
-        //FUNÇÃO PARA DELETAR NO DB - $query = $sql 
+       
     public function delete($where){
 
         $query= 'DELETE FROM '.$this->table.' WHERE '.$where;
@@ -162,7 +161,7 @@ class Database{
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
     
-    // atualiza o status_produto no banco, pois um produto não pode ser apagado apenas ativado ou desativado
+
     public function update2(array $where, array $values) {
         $fields = array_keys($values);
         $set = implode(' = ?, ', $fields) . ' = ?';
@@ -180,7 +179,26 @@ class Database{
             die("Update failed: " . $e->getMessage());
         }
     }
-    
+
+     public function count($where = null)
+    {
+        $whereClause = !empty($where) ? 'WHERE ' . $where : '';
+        $query = 'SELECT COUNT(*) as total FROM ' . $this->table . ' ' . $whereClause;
+        $stmt = $this->execute($query);
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $result ? (int)$result['total'] : 0;
+    }
+
+    public function selectPaginado($where = null, $order = null, $limit = null, $offset = null, $fields = '*')
+    {
+        $where = strlen($where) ? 'WHERE ' . $where : '';
+        $order = strlen($order) ? 'ORDER BY ' . $order : '';
+        $limit = strlen($limit) ? 'LIMIT ' . $limit : '';
+        $offset = strlen($offset) ? 'OFFSET ' . $offset : '';
+        $query = 'SELECT ' . $fields . ' FROM ' . $this->table . ' ' . $where . ' ' . $order . ' ' . $limit . ' ' . $offset;
+        
+        return $this->execute($query);
+    }
 }
 
 ?>
