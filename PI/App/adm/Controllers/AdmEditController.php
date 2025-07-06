@@ -1,10 +1,17 @@
 <?php
 require_once __DIR__ . '/../Models/Funcionario.php';
+require_once __DIR__ . '/../../DB/Database.php';
 session_start();
 header('Content-Type: application/json');
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     echo json_encode(['sucesso' => false, 'mensagem' => 'Requisição inválida']);
+    exit;
+}
+
+// Verifica se o usuário está logado como admin ou funcionário
+if (!isset($_SESSION['adm']) && !isset($_SESSION['funcionario'])) {
+    echo json_encode(['sucesso' => false, 'mensagem' => 'Usuário não autenticado']);
     exit;
 }
 
@@ -14,31 +21,48 @@ if (!$dados) {
     exit;
 }
 
-$idUsuario = $_SESSION['funcionario']['id'] ?? null;
-if (!$idUsuario) {
-    echo json_encode(['sucesso' => false, 'mensagem' => 'Usuário não autenticado']);
+// Define qual sessão usar
+$usuario = isset($_SESSION['adm']) ? $_SESSION['adm'] : $_SESSION['funcionario'];
+$tipo_sessao = isset($_SESSION['adm']) ? 'adm' : 'funcionario';
+$idUsuario = $usuario['id'];
+
+// Validações
+if (empty(trim($dados['nome'] ?? ''))) {
+    echo json_encode(['sucesso' => false, 'mensagem' => 'Nome é obrigatório']);
     exit;
 }
 
-$usuario = new Funcionario();
-$usuario->id = $idUsuario;
-$usuario->nome = trim($dados['nome'] ?? '');
-$usuario->sobrenome = trim($dados['sobrenome'] ?? '');
-$usuario->email = trim($dados['email'] ?? '');
-$usuario->telefone = trim($dados['telefone'] ?? '');
-$usuario->foto_perfil = !empty($dados['foto_perfil']) 
-    ? trim($dados['foto_perfil']) 
-    : ($_SESSION['funcionario']['foto_perfil'] ?? 'imagem_padrao.png');
-$usuario->matricula = trim($dados['matricula'] ?? '');
-$usuario->cargo = trim($dados['cargo'] ?? '');
+if (empty(trim($dados['email'] ?? ''))) {
+    echo json_encode(['sucesso' => false, 'mensagem' => 'Email é obrigatório']);
+    exit;
+}
 
-$sucesso = $usuario->atualizar(); 
+// Verificar se o email já existe para outro usuário
+$db = new Database('usuarios');
+$emailExistente = $db->select("email = '" . trim($dados['email']) . "' AND id != $idUsuario")->fetch(PDO::FETCH_ASSOC);
+if ($emailExistente) {
+    echo json_encode(['sucesso' => false, 'mensagem' => 'Este email já está em uso']);
+    exit;
+}
+
+// Atualizar apenas os campos permitidos (nome, sobrenome, email, telefone)
+$dadosAtualizacao = [
+    'nome' => trim($dados['nome']),
+    'sobrenome' => trim($dados['sobrenome'] ?? ''),
+    'email' => trim($dados['email']),
+    'telefone' => trim($dados['telefone'] ?? '')
+];
+
+$sucesso = $db->update($dadosAtualizacao, "id = $idUsuario");
 
 if ($sucesso) {
-    // Buscar dados atualizados do banco (agora usando o método correto para administrador)
-    $dadosAtualizados = Funcionario::buscarAdministradorPorEmail($usuario->email);
+    // Buscar dados atualizados do banco
+    $db2 = new Database();
+    $dadosAtualizados = $db2->buscarDadosCompletosPorId($idUsuario, $usuario['tipo']);
+    
     if ($dadosAtualizados) {
-        $_SESSION['funcionario'] = [
+        // Atualizar a sessão correta
+        $_SESSION[$tipo_sessao] = [
             'id' => $dadosAtualizados['id'],
             'nome' => $dadosAtualizados['nome'],
             'sobrenome' => $dadosAtualizados['sobrenome'],
@@ -50,6 +74,7 @@ if ($sucesso) {
             'foto_perfil' => $dadosAtualizados['foto_perfil'] ?? 'imagem_padrao.png'
         ];
     }
+    
     echo json_encode(['sucesso' => true, 'mensagem' => 'Dados atualizados com sucesso!']);
 } else {
     echo json_encode(['sucesso' => false, 'mensagem' => 'Erro ao atualizar dados']);

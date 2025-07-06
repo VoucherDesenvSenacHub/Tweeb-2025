@@ -1,15 +1,30 @@
 <?php
 require_once __DIR__ . '/../../Models/Funcionario.php';
+require_once __DIR__ . '/../../../DB/Database.php';
 
 if (session_status() !== PHP_SESSION_ACTIVE) {
     session_start();
 }
-if (!isset($_SESSION['funcionario'])) {
+
+// Verifica se o usuário está logado como admin ou funcionário
+if (!isset($_SESSION['adm']) && !isset($_SESSION['funcionario'])) {
     header('Location: login-funcionario.php');
     exit();
 }
 
-$funcionario = $_SESSION['funcionario'];
+// Define qual sessão usar (admin tem prioridade)
+$funcionario = isset($_SESSION['adm']) ? $_SESSION['adm'] : $_SESSION['funcionario'];
+
+// Busca dados completos do banco para garantir que temos todos os campos
+$db = new Database();
+$dadosCompletos = $db->buscarDadosCompletosPorId($funcionario['id'], $funcionario['tipo']);
+
+// Se encontrou dados completos, atualiza a sessão e usa eles
+if ($dadosCompletos) {
+    $tipo_sessao = isset($_SESSION['adm']) ? 'adm' : 'funcionario';
+    $_SESSION[$tipo_sessao] = array_merge($_SESSION[$tipo_sessao], $dadosCompletos);
+    $funcionario = $dadosCompletos;
+}
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -20,7 +35,7 @@ $funcionario = $_SESSION['funcionario'];
     <title>Meu Perfil</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="/Tweeb-2025/PI/public/css/perfil-usuario.css">
+    <link rel="stylesheet" href="/Tweeb-2025/PI/public/css/perfil-adm.css">
 </head>
 <body>
 
@@ -35,9 +50,13 @@ $funcionario = $_SESSION['funcionario'];
             <div class="perfil-tweeb-imagem">
                 <?php 
                     $foto_perfil = !empty($funcionario['foto_perfil']) ? $funcionario['foto_perfil'] : 'imagem_padrao.png';
-                    $caminho_foto = strpos($foto_perfil, 'imagem_padrao.png') !== false ? 
-                        '/Tweeb-2025/PI/public/uploads/imagem_padrao.png' : 
-                        '/Tweeb-2025/PI/public/uploads/' . $foto_perfil;
+                    
+                    // Verifica se é a imagem padrão ou uma foto personalizada
+                    if ($foto_perfil === 'imagem_padrao.png' || empty($foto_perfil) || $foto_perfil === null) {
+                        $caminho_foto = '/Tweeb-2025/PI/public/uploads/imagem_padrao.png';
+                    } else {
+                        $caminho_foto = '/Tweeb-2025/PI/public/uploads/' . $foto_perfil;
+                    }
                 ?>
                 <img src="<?php echo htmlspecialchars($caminho_foto); ?>" alt="Foto de perfil" class="foto-perfil">
                 
@@ -81,24 +100,25 @@ $funcionario = $_SESSION['funcionario'];
             </div>
 
             <div class="perfil-tweeb-input-group">
-                <label for="matricula">Matrícula</label>
-                <input type="text" id="matricula" name="matricula" value="<?php echo htmlspecialchars($funcionario['matricula'] ?? ''); ?>" readonly>
+                <label for="matricula">Matrícula <span class="campo-fixo">(Não editável)</span></label>
+                <input type="text" id="matricula" name="matricula" value="<?php echo htmlspecialchars($funcionario['matricula'] ?? ''); ?>" readonly disabled>
             </div>
 
             <div class="perfil-tweeb-input-group">
-                <label for="cargo">Cargo</label>
-                <input type="text" id="cargo" name="cargo" value="<?php echo htmlspecialchars($funcionario['cargo'] ?? ''); ?>" readonly>
+                <label for="cargo">Cargo <span class="campo-fixo">(Não editável)</span></label>
+                <input type="text" id="cargo" name="cargo" value="<?php echo htmlspecialchars($funcionario['cargo'] ?? ''); ?>" readonly disabled>
             </div>
 
             <div class="perfil-tweeb-botoes-user">
-                <button type="button" class="perfil-tweeb-cancelar-end" onclick="cancelEdit()" style="display:none;">Cancelar</button>
-                <button type="button" class="perfil-tweeb-salvar-end" onclick="editarUsuario()" style="display:none;">Salvar alteração</button>
+                <button type="button" class="perfil-tweeb-cancelar-end" onclick="cancelEdit()">Cancelar</button>
+                <button type="button" class="perfil-tweeb-salvar-end" onclick="editarUsuario()">Salvar alteração</button>
                 <button type="button" class="perfil-tweeb-excluir-end" onclick="deletaUsuario()">Excluir Conta</button>
             </div>
         </form>
     </div>
 </div>
 <script src="../../../../public/js/perfil-adm.js"></script>
+<script src="../../../../public/js/alterar-foto-adm.js"></script>
 <?php include __DIR__.'/../../../../includes/footer.php'; ?>
 </body>
 </html>

@@ -8,6 +8,8 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     exit;
 }
 
+
+
 $nome = $_POST['primeiro-nome'] ?? '';
 $sobrenome = $_POST['sobrenome'] ?? '';
 $matricula = $_POST['matricula'] ?? '';
@@ -19,7 +21,7 @@ $confirmarSenha = $_POST['confirmar-senha'] ?? '';
 $cargo = $_POST['cargo'] ?? '';
 
 
-if (empty($nome) || empty($matricula) || empty($cargo) ||empty($senha) || $senha !== $confirmarSenha) {
+if (empty($nome) || empty($matricula) || empty($cargo) || empty($senha) || $senha !== $confirmarSenha) {
     echo json_encode([
         'sucesso' => false,
         'mensagem' => 'Preencha os campos obrigatórios e confirme a senha corretamente.'

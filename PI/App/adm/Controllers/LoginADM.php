@@ -26,7 +26,7 @@ try {
         echo json_encode(['sucesso' => false, 'mensagem' => 'Usuário não encontrado']);
         exit;
     }
-
+    
     if ($senha !== $Administrador['senha']) {
         echo json_encode(['sucesso' => false, 'mensagem' => 'Senha incorreta']);
         exit;
@@ -35,7 +35,9 @@ try {
     $_SESSION['adm'] = [
         'id' => $Administrador['id'],
         'nome' => $Administrador['nome'],
+        'sobrenome' => $Administrador['sobrenome'] ?? '',
         'email' => $Administrador['email'],
+        'telefone' => $Administrador['telefone'] ?? '',
         'tipo' => $Administrador['tipo'],
         'matricula' => $Administrador['matricula'],
         'cargo' => $Administrador['cargo'],

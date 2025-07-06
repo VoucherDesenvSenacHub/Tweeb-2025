@@ -2,10 +2,10 @@
     
 class Database{
     public $conn;
-    public string $local="192.168.22.9";
-    public string $db="140p2";
-    public string $user="devwebp2";
-    public string $password="voucher@140";
+    public string $local="localhost";
+    public string $db="tweeb25";
+    public string $user="root";
+    public string $password="suporte@22";
     public $table;
 
    
@@ -118,7 +118,7 @@ class Database{
 
     public function buscarAdmPorEmail(string $email) {
         $query = "
-            SELECT u.id, u.nome, u.email, u.senha, u.tipo, a.matricula, a.cargo
+            SELECT u.id, u.nome, u.sobrenome, u.email, u.senha, u.tipo, u.telefone, u.foto_perfil, a.matricula, a.cargo
             FROM usuarios u
             LEFT JOIN administrador a ON u.id = a.id_usuario
             WHERE u.email = ?
@@ -130,7 +130,7 @@ class Database{
 
     public function buscarFuncionarioPorEmail(string $email) {
         $query = "
-            SELECT u.id, u.nome, u.email, u.senha, u.tipo, f.matricula, f.cargo
+            SELECT u.id, u.nome, u.sobrenome, u.email, u.senha, u.tipo, u.telefone, u.foto_perfil, f.matricula, f.cargo
             FROM usuarios u
             INNER JOIN funcionarios f ON u.id = f.id_usuario
             WHERE u.email = ?
@@ -159,6 +159,46 @@ class Database{
             LIMIT 1
         ";
         $stmt = $this->execute($query, [$email]);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
+    public function buscarDadosCompletosPorId($id, $tipo) {
+        if ($tipo === 'administrador') {
+            $query = "
+                SELECT 
+                    u.id, 
+                    u.nome, 
+                    u.sobrenome,        
+                    u.email, 
+                    u.telefone,         
+                    u.tipo, 
+                    u.foto_perfil, 
+                    a.matricula,        
+                    a.cargo             
+                FROM usuarios u
+                LEFT JOIN administrador a ON u.id = a.id_usuario
+                WHERE u.id = ?
+                LIMIT 1
+            ";
+        } else {
+            $query = "
+                SELECT 
+                    u.id, 
+                    u.nome, 
+                    u.sobrenome,        
+                    u.email, 
+                    u.telefone,         
+                    u.tipo, 
+                    u.foto_perfil, 
+                    f.matricula,        
+                    f.cargo             
+                FROM usuarios u
+                LEFT JOIN funcionarios f ON u.id = f.id_usuario
+                WHERE u.id = ?
+                LIMIT 1
+            ";
+        }
+        $stmt = $this->execute($query, [$id]);
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
     

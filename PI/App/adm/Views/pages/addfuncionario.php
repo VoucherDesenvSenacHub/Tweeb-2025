@@ -1,4 +1,16 @@
 
+<?php
+// Inicia a sessão se não estiver ativa
+if (session_status() !== PHP_SESSION_ACTIVE) {
+    session_start();
+}
+
+// Verifica se o usuário está logado como admin ou funcionário
+if (!isset($_SESSION['adm']) && !isset($_SESSION['funcionario'])) {
+    header('Location: login-funcionario.php');
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -7,7 +19,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Adicionar Funcionário</title>
     <link rel="stylesheet" href="../../../../public/css/adicionar-funcionario.css" />
-    <script src="../../../../public/js/foto-funcionario.js"></script>
 
    
 
@@ -25,11 +36,6 @@
         <div class="funcionario-form-header">
             <div class="funcionario-form-foto">
                 <img src="../../../../public/assets/img/transferir.png" alt="Foto de perfil">
-                <button type="button" class="funcionario-form-editar-foto" onclick="document.getElementById('input-foto').click();">
-                    <i class="fa-regular fa-pen-to-square" style="color: #4b5563;"></i>
-                </button>
-                <input type="file" id="input-foto" accept="image/*" style="display: none;">
-
             </div>
             <div class="funcionario-form-info">
                 <h1 class="funcionario-form-nome">Novo Colaborador</h1>
