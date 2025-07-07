@@ -1,0 +1,355 @@
+/* Estilos para a página de confirmação de compra */
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.confirmacao-header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 30px;
+    background: linear-gradient(135deg, #28a745, #20c997);
+    border-radius: 15px;
+    color: white;
+}
+
+.success-icon {
+    font-size: 60px;
+    margin-bottom: 20px;
+    animation: bounce 1s ease-in-out;
+}
+
+.confirmacao-header h1 {
+    font-size: 2.5em;
+    margin: 0 0 10px 0;
+    font-weight: 700;
+}
+
+.confirmacao-header p {
+    font-size: 1.2em;
+    margin: 0;
+    opacity: 0.9;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+.pedido-detalhes {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.pedido-info, .endereco-entrega {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.pedido-info h2, .endereco-entrega h3 {
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    border-bottom: 2px solid #28a745;
+    padding-bottom: 10px;
+}
+
+.info-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.info-item:last-child {
+    border-bottom: none;
+}
+
+.label {
+    font-weight: 600;
+    color: #555;
+}
+
+.value {
+    color: #333;
+    font-weight: 500;
+}
+
+.endereco-entrega p {
+    margin: 8px 0;
+    color: #666;
+    line-height: 1.5;
+}
+
+.produtos-comprados {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+.produtos-comprados h3 {
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    border-bottom: 2px solid #28a745;
+    padding-bottom: 10px;
+}
+
+.produto-item {
+    display: flex;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.produto-item:last-child {
+    border-bottom: none;
+}
+
+.produto-item img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-right: 20px;
+}
+
+.produto-info {
+    flex: 1;
+}
+
+.produto-info h4 {
+    margin: 0 0 5px 0;
+    color: #333;
+    font-size: 1.1em;
+}
+
+.produto-marca {
+    color: #666;
+    margin: 0 0 5px 0;
+    font-size: 0.9em;
+}
+
+.produto-quantidade, .produto-preco {
+    color: #888;
+    margin: 2px 0;
+    font-size: 0.9em;
+}
+
+.produto-subtotal {
+    font-weight: 600;
+    color: #28a745;
+    font-size: 1.1em;
+}
+
+.resumo-valores {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+.valor-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.valor-item:last-child {
+    border-bottom: none;
+}
+
+.valor-item.total {
+    font-size: 1.3em;
+    font-weight: 700;
+    color: #28a745;
+    border-top: 2px solid #28a745;
+    padding-top: 15px;
+    margin-top: 10px;
+}
+
+.acoes-pedido {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.btn-continuar, .btn-meus-pedidos {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 30px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+.btn-continuar {
+    background: #28a745;
+    color: white;
+}
+
+.btn-continuar:hover {
+    background: #218838;
+    transform: translateY(-2px);
+}
+
+.btn-meus-pedidos {
+    background: #6c757d;
+    color: white;
+}
+
+.btn-meus-pedidos:hover {
+    background: #5a6268;
+    transform: translateY(-2px);
+}
+
+.informacoes-adicionais {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.informacoes-adicionais h3 {
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    border-bottom: 2px solid #28a745;
+    padding-bottom: 10px;
+}
+
+.passos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.passo {
+    display: flex;
+    align-items: flex-start;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.passo:hover {
+    background: #e9ecef;
+    transform: translateY(-2px);
+}
+
+.passo-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #28a745;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+    flex-shrink: 0;
+}
+
+.passo-texto h4 {
+    margin: 0 0 5px 0;
+    color: #333;
+    font-size: 1.1em;
+}
+
+.passo-texto p {
+    margin: 0;
+    color: #666;
+    font-size: 0.9em;
+    line-height: 1.4;
+}
+
+/* Status colors */
+.status-pendente { color: #ffc107; font-weight: 600; }
+.status-pago { color: #28a745; font-weight: 600; }
+.status-preparando { color: #17a2b8; font-weight: 600; }
+.status-enviado { color: #007bff; font-weight: 600; }
+.status-entregue { color: #28a745; font-weight: 600; }
+.status-cancelado { color: #dc3545; font-weight: 600; }
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .pedido-detalhes {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .acoes-pedido {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .btn-continuar, .btn-meus-pedidos {
+        width: 100%;
+        max-width: 300px;
+        justify-content: center;
+    }
+    
+    .passos {
+        grid-template-columns: 1fr;
+    }
+    
+    .produto-item {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .produto-item img {
+        margin-right: 0;
+        margin-bottom: 15px;
+    }
+    
+    .produto-subtotal {
+        margin-top: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 10px;
+    }
+    
+    .confirmacao-header {
+        padding: 20px;
+    }
+    
+    .confirmacao-header h1 {
+        font-size: 2em;
+    }
+    
+    .pedido-info, .endereco-entrega, .produtos-comprados, 
+    .resumo-valores, .informacoes-adicionais {
+        padding: 20px;
+    }
+} 

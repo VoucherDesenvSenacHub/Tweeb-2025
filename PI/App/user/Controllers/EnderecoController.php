@@ -20,9 +20,8 @@ if (!isset($_SESSION['usuario']['id'])) {
 $id_usuario = $_SESSION['usuario']['id'];
 
 // Buscar o ID do cliente baseado no ID do usuário
-$db = Database::getInstance();
-$stmt = $db->prepare("SELECT id_cliente FROM clientes WHERE id_usuario = ?");
-$stmt->execute([$id_usuario]);
+$db = new Database('clientes');
+$stmt = $db->execute("SELECT id_usuario FROM clientes WHERE id_usuario = ?", [$id_usuario]);
 $id_cliente = $stmt->fetchColumn();
 
 if (!$id_cliente) {

@@ -1,11 +1,11 @@
 <?php
     
 class Database{
-    public $conn;
-    public string $local="localhost";
-    public string $db="tweeb25";
-    public string $user="root";
-    public string $password="suporte@22";
+public $conn;
+    public string $local="192.168.22.9";
+    public string $db="140p2";
+    public string $user="devwebp2";
+    public string $password="voucher@140";
     public $table;
 
    
@@ -81,9 +81,9 @@ class Database{
     
 
     public function select($where = null,$order = null,$limit = null, $fields = '*'){
-        $where = strlen($where) ? 'WHERE ' . $where : '';
-        $order = strlen($order) ? 'ORDER BY ' . $order : '';
-        $limit = strlen($limit) ? 'LIMIT ' . $limit : '';
+        $where = (!empty($where) && strlen($where) > 0) ? 'WHERE ' . $where : '';
+        $order = (!empty($order) && strlen($order) > 0) ? 'ORDER BY ' . $order : '';
+        $limit = (!empty($limit) && strlen($limit) > 0) ? 'LIMIT ' . $limit : '';
 
         $query = 'SELECT '.$fields. ' FROM ' .$this->table. ' '.$where;
 
@@ -231,10 +231,10 @@ class Database{
 
     public function selectPaginado($where = null, $order = null, $limit = null, $offset = null, $fields = '*')
     {
-        $where = strlen($where) ? 'WHERE ' . $where : '';
-        $order = strlen($order) ? 'ORDER BY ' . $order : '';
-        $limit = strlen($limit) ? 'LIMIT ' . $limit : '';
-        $offset = strlen($offset) ? 'OFFSET ' . $offset : '';
+        $where = (!empty($where) && strlen($where) > 0) ? 'WHERE ' . $where : '';
+        $order = (!empty($order) && strlen($order) > 0) ? 'ORDER BY ' . $order : '';
+        $limit = (!empty($limit) && strlen($limit) > 0) ? 'LIMIT ' . $limit : '';
+        $offset = (!empty($offset) && strlen($offset) > 0) ? 'OFFSET ' . $offset : '';
         $query = 'SELECT ' . $fields . ' FROM ' . $this->table . ' ' . $where . ' ' . $order . ' ' . $limit . ' ' . $offset;
         
         return $this->execute($query);
