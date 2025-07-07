@@ -7,10 +7,10 @@ session_start();
 <?php include __DIR__.'/../../../../includes/headernavb.php'; ?>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../../../public/css/Perifericos.css">
-    <title>Tweeb - Periféricos</title>
+    <link rel="stylesheet" href="../../../../public/css/Computadores.css">
+    <title>Tweeb - Computadores</title>
 </head>
-<body class="Perifericos">
+<body class="Computadores">
 <?php
     if (isset($_SESSION['usuario'])) {
         include __DIR__.'/../../../../includes/navbar.php'; 
@@ -20,13 +20,13 @@ session_start();
     }
     ?>
 
-<div class="Perifericos-container_banner">
-    <img src="../../../../public/assets/img/banner-departamento-computador.png" alt="banner-Perifericos" class="Perifericos-banner">
+<div class="Computadores-container_banner">
+    <img src="../../../../public/assets/img/banner-departamento-computador.png" alt="banner-Computadores" class="Computadores-banner">
 </div>
 
-<div class="Perifericos-container_titles">
-    <h1 class="Perifericos-h1">Periféricos</h1>
-    <p class="Perifericos-p">Escolha a oferta que mais combina com você.</p>
+<div class="Computadores-container_titles">
+    <h1 class="Computadores-h1">Computadores</h1>
+    <p class="Computadores-p">Escolha a oferta que mais combina com você.</p>
 </div>
 
 <div class="container-favoritos-depto">
@@ -51,41 +51,41 @@ session_start();
 <?php endif; ?>
 </div>
 
-<div class="Perifericos-pages-container">
-    <div class="Perifericos-pages">
+<div class="Computadores-pages-container">
+    <div class="Computadores-pages">
         <?php
         $adjacents = 2;
         if ($total_paginas > 1):
             if ($pagina_atual > 1): ?>
-                <a href="?page=<?= $pagina_atual - 1 ?>" class="Perifericos-page2-button">&laquo; Anterior</a>
+                <a href="?page=<?= $pagina_atual - 1 ?>" class="Computadores-page2-button">&laquo; Anterior</a>
             <?php endif;
             if ($pagina_atual < ($adjacents + 3)) {
                 for ($i = 1; $i < ($adjacents + 4) && $i <= $total_paginas; $i++) {
-                    echo '<a href="?page=' . $i . '" class="' . ($i == $pagina_atual ? 'Perifericos-page1-button' : 'Perifericos-page2-button') . '"><span class="' . ($i == $pagina_atual ? 'Perifericos-page-number' : 'Perifericos-page2-number') . '">' . $i . '</span></a>';
+                    echo '<a href="?page=' . $i . '" class="' . ($i == $pagina_atual ? 'Computadores-page1-button' : 'Computadores-page2-button') . '"><span class="' . ($i == $pagina_atual ? 'Computadores-page-number' : 'Computadores-page2-number') . '">' . $i . '</span></a>';
                 }
                 if ($total_paginas > ($adjacents + 3)) {
-                    echo '<span class="Perifericos-page2-number">...</span>';
-                    echo '<a href="?page=' . $total_paginas . '" class="Perifericos-page2-button"><span class="Perifericos-page2-number">' . $total_paginas . '</span></a>';
+                    echo '<span class="Computadores-page2-number">...</span>';
+                    echo '<a href="?page=' . $total_paginas . '" class="Computadores-page2-button"><span class="Computadores-page2-number">' . $total_paginas . '</span></a>';
                 }
             }
             elseif ($pagina_atual >= ($adjacents + 3) && $pagina_atual < ($total_paginas - ($adjacents + 1))) {
-                echo '<a href="?page=1" class="Perifericos-page2-button"><span class="Perifericos-page2-number">1</span></a>';
-                echo '<span class="Perifericos-page2-number">...</span>';
+                echo '<a href="?page=1" class="Computadores-page2-button"><span class="Computadores-page2-number">1</span></a>';
+                echo '<span class="Computadores-page2-number">...</span>';
                 for ($i = $pagina_atual - $adjacents; $i <= $pagina_atual + $adjacents; $i++) {
-                    echo '<a href="?page=' . $i . '" class="' . ($i == $pagina_atual ? 'Perifericos-page1-button' : 'Perifericos-page2-button') . '"><span class="' . ($i == $pagina_atual ? 'Perifericos-page-number' : 'Perifericos-page2-number') . '">' . $i . '</span></a>';
+                    echo '<a href="?page=' . $i . '" class="' . ($i == $pagina_atual ? 'Computadores-page1-button' : 'Computadores-page2-button') . '"><span class="' . ($i == $pagina_atual ? 'Computadores-page-number' : 'Computadores-page2-number') . '">' . $i . '</span></a>';
                 }
-                echo '<span class="Perifericos-page2-number">...</span>';
-                echo '<a href="?page=' . $total_paginas . '" class="Perifericos-page2-button"><span class="Perifericos-page2-number">' . $total_paginas . '</span></a>';
+                echo '<span class="Computadores-page2-number">...</span>';
+                echo '<a href="?page=' . $total_paginas . '" class="Computadores-page2-button"><span class="Computadores-page2-number">' . $total_paginas . '</span></a>';
             }
             else {
-                echo '<a href="?page=1" class="Perifericos-page2-button"><span class="Perifericos-page2-number">1</span></a>';
-                echo '<span class="Perifericos-page2-number">...</span>';
+                echo '<a href="?page=1" class="Computadores-page2-button"><span class="Computadores-page2-number">1</span></a>';
+                echo '<span class="Computadores-page2-number">...</span>';
                 for ($i = $total_paginas - ($adjacents + 2); $i <= $total_paginas; $i++) {
-                    echo '<a href="?page=' . $i . '" class="' . ($i == $pagina_atual ? 'Perifericos-page1-button' : 'Perifericos-page2-button') . '"><span class="' . ($i == $pagina_atual ? 'Perifericos-page-number' : 'Perifericos-page2-number') . '">' . $i . '</span></a>';
+                    echo '<a href="?page=' . $i . '" class="' . ($i == $pagina_atual ? 'Computadores-page1-button' : 'Computadores-page2-button') . '"><span class="' . ($i == $pagina_atual ? 'Computadores-page-number' : 'Computadores-page2-number') . '">' . $i . '</span></a>';
                 }
             }
             if ($pagina_atual < $total_paginas): ?>
-                <a href="?page=<?= $pagina_atual + 1 ?>" class="Perifericos-page2-button">Próximo &raquo;</a>
+                <a href="?page=<?= $pagina_atual + 1 ?>" class="Computadores-page2-button">Próximo &raquo;</a>
             <?php endif;
         endif;
         ?>
