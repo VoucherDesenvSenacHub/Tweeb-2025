@@ -70,31 +70,31 @@
 <section id="departaments" class="departments-bar">
     <div class="department">
         <img src="public/assets/img/Hardwares.png" alt="Hardwares">
-        <a href="/Tweeb-2025/PI/app/user/Controllers/ControllerProd">Hardwares</a>
+        <a href="/Tweeb-2025/PI/app/user/Controllers/ControllerProd/Departamento_Hardwares.php">Hardwares</a>
     </div>
 
     <span class="separator">|</span>
     <div class="department">
         <img src="public/assets/img/Computadores.png" alt="Computadores">
-        <a href="/Tweeb-2025/PI/app/user/Controllers/ControllerProd">Computadores</a>
+        <a href="/Tweeb-2025/PI/app/user/Controllers/ControllerProd/Departamento_Computadores.php">Computadores</a>
     </div>
 
     <span class="separator">|</span>
     <div class="department">
         <img src="public/assets/img/Perifericos.png" alt="Periféricos">
-        <a href="/Tweeb-2025/PI/app/user/Controllers/ControllerProd">Periféricos</a>
+        <a href="/Tweeb-2025/PI/app/user/Controllers/ControllerProd/Departamento_Periféricos.php">Periféricos</a>
     </div>
 
     <span class="separator">|</span>
     <div class="department">
         <img src="public/assets/img/Energia.png" alt="Energia">
-        <a href="/Tweeb-2025/PI/app/user/Controllers/ControllerProd">Energia</a>
+        <a href="/Tweeb-2025/PI/app/user/Controllers/ControllerProd/Departamento_Energia.php">Energia</a>
     </div>
 
     <span class="separator">|</span>
     <div class="department">
         <img src="public/assets/img/Audio.png" alt="Áudio">
-        <a href="/Tweeb-2025/PI/app/user/Controllers/ControllerProd">Áudio</a>
+        <a href="/Tweeb-2025/PI/app/user/Controllers/ControllerProd/Departamento_Áudio.php">Áudio</a>
     </div>
 
     <span class="separator">|</span>

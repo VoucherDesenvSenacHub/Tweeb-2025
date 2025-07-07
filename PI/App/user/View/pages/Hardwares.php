@@ -4,19 +4,19 @@
 <?php include __DIR__.'/../../../../includes/headernavb.php'; ?>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../../../public/css/Audio.css">
-    <title>Tweeb - Áudio</title>
+    <link rel="stylesheet" href="../../../../public/css/Hardwares.css">
+    <title>Tweeb - Hardware</title>
 </head>
-<body class="Audio">
+<body class="Hardware">
 <?php include __DIR__.'/../../../../includes/navbar-logada.php'; ?>
 
-<div class="Audio-container_banner">
-    <img src="../../../../public/assets/img/banner-departamento-computador.png" alt="banner-Games" class="Games-banner">
+<div class="Hardware-container_banner">
+    <img src="../../../../public/assets/img/banner-departamento-computador.png" alt="banner-Hardware" class="Hardware-banner">
 </div>
 
-<div class="Audio-container_titles">
-    <h1 class="Audio-h1">Áudio</h1>
-    <p class="Audio-p">Escolha a oferta que mais combina com você.</p>
+<div class="Hardware-container_titles">
+    <h1 class="Hardware-h1">Hardware</h1>
+    <p class="Hardware-p">Escolha a oferta que mais combina com você.</p>
 </div>
 
 <div class="container-favoritos-depto">
@@ -41,41 +41,41 @@
 <?php endif; ?>
 </div>
 
-<div class="Audio-pages-container">
-    <div class="Audio-pages">
+<div class="Hardware-pages-container">
+    <div class="Hardware-pages">
         <?php
         $adjacents = 2;
         if ($total_paginas > 1):
             if ($pagina_atual > 1): ?>
-                <a href="?page=<?= $pagina_atual - 1 ?>" class="Audio-page2-button">&laquo; Anterior</a>
+                <a href="?page=<?= $pagina_atual - 1 ?>" class="Hardware-page2-button">&laquo; Anterior</a>
             <?php endif;
             if ($pagina_atual < ($adjacents + 3)) {
                 for ($i = 1; $i < ($adjacents + 4) && $i <= $total_paginas; $i++) {
-                    echo '<a href="?page=' . $i . '" class="' . ($i == $pagina_atual ? 'Audio-page1-button' : 'Audio-page2-button') . '"><span class="' . ($i == $pagina_atual ? 'Audio-page-number' : 'Audio-page2-number') . '">' . $i . '</span></a>';
+                    echo '<a href="?page=' . $i . '" class="' . ($i == $pagina_atual ? 'Hardware-page1-button' : 'Hardware-page2-button') . '"><span class="' . ($i == $pagina_atual ? 'Hardware-page-number' : 'Hardware-page2-number') . '">' . $i . '</span></a>';
                 }
                 if ($total_paginas > ($adjacents + 3)) {
-                    echo '<span class="Audio-page2-number">...</span>';
-                    echo '<a href="?page=' . $total_paginas . '" class="Audio-page2-button"><span class="Audio-page2-number">' . $total_paginas . '</span></a>';
+                    echo '<span class="Hardware-page2-number">...</span>';
+                    echo '<a href="?page=' . $total_paginas . '" class="Hardware-page2-button"><span class="Hardware-page2-number">' . $total_paginas . '</span></a>';
                 }
             }
             elseif ($pagina_atual >= ($adjacents + 3) && $pagina_atual < ($total_paginas - ($adjacents + 1))) {
-                echo '<a href="?page=1" class="Audio-page2-button"><span class="Audio-page2-number">1</span></a>';
-                echo '<span class="Audio-page2-number">...</span>';
+                echo '<a href="?page=1" class="Hardware-page2-button"><span class="Hardware-page2-number">1</span></a>';
+                echo '<span class="Hardware-page2-number">...</span>';
                 for ($i = $pagina_atual - $adjacents; $i <= $pagina_atual + $adjacents; $i++) {
-                    echo '<a href="?page=' . $i . '" class="' . ($i == $pagina_atual ? 'Audio-page1-button' : 'Audio-page2-button') . '"><span class="' . ($i == $pagina_atual ? 'Audio-page-number' : 'Audio-page2-number') . '">' . $i . '</span></a>';
+                    echo '<a href="?page=' . $i . '" class="' . ($i == $pagina_atual ? 'Hardware-page1-button' : 'Hardware-page2-button') . '"><span class="' . ($i == $pagina_atual ? 'Hardware-page-number' : 'Hardware-page2-number') . '">' . $i . '</span></a>';
                 }
-                echo '<span class="Audio-page2-number">...</span>';
-                echo '<a href="?page=' . $total_paginas . '" class="Audio-page2-button"><span class="Audio-page2-number">' . $total_paginas . '</span></a>';
+                echo '<span class="Hardware-page2-number">...</span>';
+                echo '<a href="?page=' . $total_paginas . '" class="Hardware-page2-button"><span class="Hardware-page2-number">' . $total_paginas . '</span></a>';
             }
             else {
-                echo '<a href="?page=1" class="Audio-page2-button"><span class="Audio-page2-number">1</span></a>';
-                echo '<span class="Audio-page2-number">...</span>';
+                echo '<a href="?page=1" class="Hardware-page2-button"><span class="Hardware-page2-number">1</span></a>';
+                echo '<span class="Hardware-page2-number">...</span>';
                 for ($i = $total_paginas - ($adjacents + 2); $i <= $total_paginas; $i++) {
-                    echo '<a href="?page=' . $i . '" class="' . ($i == $pagina_atual ? 'Audio-page1-button' : 'Audio-page2-button') . '"><span class="' . ($i == $pagina_atual ? 'Audio-page-number' : 'Audio-page2-number') . '">' . $i . '</span></a>';
+                    echo '<a href="?page=' . $i . '" class="' . ($i == $pagina_atual ? 'Hardware-page1-button' : 'Hardware-page2-button') . '"><span class="' . ($i == $pagina_atual ? 'Hardware-page-number' : 'Hardware-page2-number') . '">' . $i . '</span></a>';
                 }
             }
             if ($pagina_atual < $total_paginas): ?>
-                <a href="?page=<?= $pagina_atual + 1 ?>" class="Audio-page2-button">Próximo &raquo;</a>
+                <a href="?page=<?= $pagina_atual + 1 ?>" class="Hardware-page2-button">Próximo &raquo;</a>
             <?php endif;
         endif;
         ?>
