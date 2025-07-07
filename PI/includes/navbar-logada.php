@@ -28,7 +28,10 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
                 <li><a class="op" href="/Tweeb-2025/PI/App/user/View/pages/orcamento.php">Orçamento</a></li>
                 <li><a class="op" href="/Tweeb-2025/PI/app/user/Controllers/LogoutController.php">Sair</a></li>
                 <li>
-                    <a class="op"href="/Tweeb-2025/PI/App/user/View/pages/carrinho.php"><i class='bx bx-cart-alt'></i></a>
+                    <a class="op" href="/Tweeb-2025/PI/App/user/View/pages/telaCarrinho.php">
+                        <i class='bx bx-cart-alt'></i>
+                        <span class="carrinho-contador" style="display: none; position: absolute; top: -8px; right: -8px; background-color: #ff4444; color: white; border-radius: 50%; width: 20px; height: 20px; font-size: 12px; display: flex; align-items: center; justify-content: center; font-weight: bold;">0</span>
+                    </a>
                     <a href="../../../Tweeb-2025/PI/App/user/View/pages/perfil-usuario.php" class="user-icon">
                         <?php 
                         $foto_perfil = !empty($_SESSION['usuario']['foto_perfil']) ? $_SESSION['usuario']['foto_perfil'] : 'imagem_padrao.png';
@@ -106,6 +109,32 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
         </div>
     </div>
 </header> 
+
+<script>
+// Função para carregar contador do carrinho
+function carregarContadorCarrinho() {
+    fetch('/Tweeb-2025/PI/App/user/Controllers/CarrinhoController.php?action=contar_itens')
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            const contador = document.querySelector('.carrinho-contador');
+            if (contador) {
+                contador.textContent = data.contagem;
+                contador.style.display = data.contagem > 0 ? 'flex' : 'none';
+            }
+        }
+    })
+    .catch(error => {
+        console.error('Erro ao carregar contador do carrinho:', error);
+    });
+}
+
+// Carregar contador quando a página carregar
+document.addEventListener('DOMContentLoaded', function() {
+    carregarContadorCarrinho();
+});
+</script>
+
     <!-- Barra de departamentos -->
     <section id="departaments" class="departments-bar">
         <div class="department">

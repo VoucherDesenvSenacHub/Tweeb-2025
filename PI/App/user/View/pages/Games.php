@@ -22,9 +22,9 @@
 <div class="container-favoritos-depto">
 <?php if (!empty($produtos)): ?>
     <?php foreach ($produtos as $produto): ?>
-        <div class="produtos-card">
+        <div class="produtos-card" data-produto-id="<?= $produto['id_produto'] ?>">
             <img class="heart" src="../../../../public/assets/img/heart_disabled.png" alt="coração" onclick="AtivarCoracao(this)">
-            <a href="../PI/App/user/View/pages/Carrinho.php"><img class="add-carrinho" src="../../../../public/assets/img/carrinho-card.png" alt=""></a>
+            <img class="add-carrinho" src="../../../../public/assets/img/carrinho-card.png" alt="Adicionar ao carrinho" onclick="adicionarAoCarrinho(<?= $produto['id_produto'] ?>)">
             <img class="image-produto" src="../../../../public/assets/img/<?= htmlspecialchars($produto['imagem_produto']) ?>" alt="<?= htmlspecialchars($produto['nome_produto']) ?>">
             <div class="card-rate">
                 <?php for ($i = 0; $i < 5; $i++): ?><i class="fa-solid fa-star"></i><?php endfor; ?>
@@ -33,7 +33,7 @@
             <p><?= htmlspecialchars($produto['nome_produto']) ?></p>
             <p><?= htmlspecialchars($produto['marca_modelo']) ?></p>
             <h1>R$<?= number_format($produto['preco_unid'], 2, ',', '.') ?></h1>
-            <button class="card-botao">Comprar Agora</button>
+            <button class="card-botao" onclick="adicionarAoCarrinho(<?= $produto['id_produto'] ?>)">Adicionar ao Carrinho</button>
         </div>
     <?php endforeach; ?>
 <?php else: ?>
@@ -82,6 +82,116 @@
     </div>
 </div>
 <script src="../../../../public/js/task20-modal.js"></script>
+<script>
+// Função para adicionar produto ao carrinho
+function adicionarAoCarrinho(idProduto) {
+    fetch('/Tweeb-2025/PI/App/user/Controllers/CarrinhoController.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: 'action=adicionar&id_produto=' + idProduto + '&quantidade=1'
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            // Mostrar mensagem de sucesso
+            mostrarNotificacao('Produto adicionado ao carrinho!', 'success');
+            // Atualizar contador do carrinho na navbar
+            atualizarContadorCarrinho();
+        } else {
+            mostrarNotificacao('Erro ao adicionar produto: ' + data.message, 'error');
+        }
+    })
+    .catch(error => {
+        console.error('Erro:', error);
+        mostrarNotificacao('Erro ao adicionar produto ao carrinho', 'error');
+    });
+}
+
+// Função para mostrar notificações
+function mostrarNotificacao(mensagem, tipo) {
+    // Criar elemento de notificação
+    const notificacao = document.createElement('div');
+    notificacao.className = `notificacao ${tipo}`;
+    notificacao.textContent = mensagem;
+    notificacao.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        padding: 15px 20px;
+        border-radius: 5px;
+        color: white;
+        font-weight: bold;
+        z-index: 10000;
+        animation: slideIn 0.3s ease-out;
+        ${tipo === 'success' ? 'background-color: #28a745;' : 'background-color: #dc3545;'}
+    `;
+    
+    document.body.appendChild(notificacao);
+    
+    // Remover notificação após 3 segundos
+    setTimeout(() => {
+        notificacao.style.animation = 'slideOut 0.3s ease-in';
+        setTimeout(() => {
+            if (notificacao.parentNode) {
+                notificacao.parentNode.removeChild(notificacao);
+            }
+        }, 300);
+    }, 3000);
+}
+
+// Função para atualizar contador do carrinho
+function atualizarContadorCarrinho() {
+    fetch('/Tweeb-2025/PI/App/user/Controllers/CarrinhoController.php?action=contar_itens')
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            // Atualizar contador na navbar (se existir)
+            const contador = document.querySelector('.carrinho-contador');
+            if (contador) {
+                contador.textContent = data.contagem;
+                contador.style.display = data.contagem > 0 ? 'block' : 'none';
+            }
+        }
+    })
+    .catch(error => {
+        console.error('Erro ao atualizar contador:', error);
+    });
+}
+
+// Adicionar estilos CSS para animações
+const style = document.createElement('style');
+style.textContent = `
+    @keyframes slideIn {
+        from {
+            transform: translateX(100%);
+            opacity: 0;
+        }
+        to {
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+    
+    @keyframes slideOut {
+        from {
+            transform: translateX(0);
+            opacity: 1;
+        }
+        to {
+            transform: translateX(100%);
+            opacity: 0;
+        }
+    }
+`;
+document.head.appendChild(style);
+
+// Carregar contador do carrinho ao carregar a página
+document.addEventListener('DOMContentLoaded', function() {
+    atualizarContadorCarrinho();
+});
+</script>
 </body>
 <?php include __DIR__.'/../../../../includes/voltar-ao-topo.php'; ?>
 <?php include __DIR__.'/../../../../includes/footer.php'; ?>
