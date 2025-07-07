@@ -1,30 +1,30 @@
-.Perifericos {
+.Hardware {
     overflow-x: hidden;
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
 
-.Perifericos-container_banner img {
+.Hardware-container_banner img {
     width: 100%;
     height: 472px;
     margin-top: 40px;
 }
 
-.Perifericos-h1 {
+.Hardware-h1 {
     font-size: 62px;
     font-family: "Inter", serif;
     display: flex;
     margin-left: 5%;
 }
 
-.Perifericos-p {
+.Hardware-p {
     font-size: 22px;
     font-family: "Nunito", serif;
     font-weight: bold;
     margin-left: 7%;
 }
-.Perifericos-container_titles {
+.Hardware-container_titles {
     margin-top: 20px;
     margin-left: 130px;
 }
@@ -109,7 +109,7 @@
 /* CSS PARA PAGINAÇÃO - VERSÃO REFINADA */
 /* ================================== */
 
-.Perifericos-pages-container {
+.Hardware-pages-container {
     display: flex;
     justify-content: flex-end;
     width: 100%;
@@ -118,15 +118,15 @@
     box-sizing: border-box;
 }
 
-.Perifericos-pages {
+.Hardware-pages {
     display: flex;
     flex-wrap: wrap;
     gap: 6px;
     align-items: center;
 }
 
-.Perifericos-pages a,
-.Perifericos-pages span {
+.Hardware-pages a,
+.Hardware-pages span {
     text-decoration: none;
     padding: 6px 12px;
     border: 1px solid #e0e0e0;
@@ -139,65 +139,65 @@
     color: #555;
 }
 
-.Perifericos-page2-button:hover {
+.Hardware-page2-button:hover {
     background-color: #291E40 !important;
     color: white !important;
     border-color: #291E40;
     transform: translateY(-1px);
 }
 
-.Perifericos-page1-button {
+.Hardware-page1-button {
     background-color: #291E40;
     color: white;
     border-color: #291E40;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.Perifericos-pages span.Perifericos-page2-number {
+.Hardware-pages span.Hardware-page2-number {
     background-color: transparent;
     border: none;
     padding: 0 5px;
 }
 
 @media (max-width: 1440px) {
-    .Perifericos-container_banner img {
+    .Hardware-container_banner img {
         height: 400px;
     }
-    .Perifericos-h1 {
+    .Hardware-h1 {
         font-size: 52px;
         margin: 0%;
     }
 }
 
 @media (max-width: 1024px) {
-    .Perifericos-container_banner img {
+    .Hardware-container_banner img {
         height: 350px;
     }
-    .Perifericos-h1 {
+    .Hardware-h1 {
         font-size: 42px;
     }
-    .Perifericos-container_titles {
+    .Hardware-container_titles {
         margin-left: 80px;
     }
     .produtos-card {
         width: 47%;
     }
-    .Perifericos-pages-container {
+    .Hardware-pages-container {
         padding-left: 80px;
     }
 }
 
 @media (max-width: 768px) {
-    .Perifericos-container_banner img {
+    .Hardware-container_banner img {
         height: 300px;
     }
-    .Perifericos-h1 {
+    .Hardware-h1 {
         font-size: 36px;
     }
-    .Perifericos-p {
+    .Hardware-p {
         font-size: 18px;
     }
-    .Perifericos-container_titles {
+    .Hardware-container_titles {
         margin-left: 20px;
         padding: 0 15px;
     }
@@ -208,7 +208,7 @@
         flex-direction: column;
         align-items: center;
     }
-    .Perifericos-pages-container {
+    .Hardware-pages-container {
         justify-content: center;
         padding-left: 0;
     }

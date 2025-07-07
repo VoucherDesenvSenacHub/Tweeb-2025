@@ -36,7 +36,9 @@ try {
     $_SESSION['funcionario'] = [
         'id' => $funcionario['id'],
         'nome' => $funcionario['nome'],
+        'sobrenome' => $funcionario['sobrenome'] ?? '',
         'email' => $funcionario['email'],
+        'telefone' => $funcionario['telefone'] ?? '',
         'tipo' => $funcionario['tipo'],
         'matricula' => $funcionario['matricula'],
         'cargo' => $funcionario['cargo'],
