@@ -1,0 +1,160 @@
+
+.Audio-container_banner img {
+    width: 100%;
+    height: 472px;
+    margin-top: 40px;
+}
+
+.Audio-container_titles {
+    margin-top: 60px;
+    margin-left: 130px;
+}
+
+.Audio-h1 {
+    font-size: 62px;
+    font-family: "Inter", serif;
+    display: flex;
+    margin-left: 5%;
+}
+
+.Audio-p {
+    font-size: 22px;
+    font-family: "Nunito", serif;
+    font-weight: bold;
+    margin-left: 7%;
+}
+
+.container-favoritos-depto {
+    max-width: 950px;     
+    margin-left: auto;    
+    margin-right: auto;   
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 24px;
+    padding: 20px;
+    margin-top: 40px;
+}
+
+
+.produtos-card {
+    width: 270px;
+    min-height: 432px; 
+    background-color: #F6F6F6;
+    border-radius: 9px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative; 
+}
+
+.produtos-card .icone-topo {
+    position: absolute;   /* Posiciona os ícones sobre a imagem */
+    top: 15px;            /* Distância do topo */
+    left: 0;              /* Alinha com a borda esquerda do card */
+    width: 100%;          /* Ocupa toda a largura do card */
+    padding: 0 15px;      /* Adiciona um respiro nas laterais */
+    box-sizing: border-box; /* Garante que o padding não afete a largura */
+
+    display: flex;                  /* Ativa o layout flexível */
+    justify-content: space-between; /* <<-- ESTA É A LINHA QUE FAZ A MÁGICA */
+}
+
+/* Estilo dos próprios ícones */
+.produtos-card .heart,
+.produtos-card .add-carrinho {
+    width: 28px; /* ou o tamanho que preferir */
+    height: 28px;
+    cursor: pointer;
+}
+
+.produtos-card .image-produto {
+    width: 100%;
+    height: 180px;
+    object-fit: contain; 
+    margin-top: 40px; 
+}
+
+.produtos-card .card-rate {
+    margin-top: 15px;
+    color: #f9a825;
+}
+
+.produtos-card .card-rate .qnt-avaliacoes {
+    color: #666;
+    font-size: 12px;
+    margin-left: 5px;
+}
+
+.produtos-card p {
+    font-family: "Nunito", serif;
+    font-size: 16px;
+    margin: 5px 0;
+    color: #333;
+    height: 40px; 
+    overflow: hidden; 
+}
+
+.produtos-card h1 {
+    font-family: "Inter", serif;
+    font-size: 24px;
+    font-weight: 600;
+    color: #000;
+    margin: 10px 0;
+}
+
+.produtos-card .card-botao {
+    width: 100%;
+    height: 48px;
+    background-color: #291E40;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: auto; 
+}
+
+
+
+@media (max-width: 1024px) {
+    .Audio-container_titles {
+        margin-left: 40px;
+        text-align: center;
+    }
+    .Audio-h1, .Audio-p {
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .Audio-container_banner img {
+        height: 300px;
+    }
+    .Audio-h1 {
+        font-size: 42px;
+    }
+    .Audio-p {
+        font-size: 18px;
+    }
+    .produtos-card {
+        width: 45%; 
+    }
+}
+
+@media (max-width: 480px) {
+    .Audio-container_banner img {
+        height: 200px;
+    }
+    .Audio-h1 {
+        font-size: 32px;
+    }
+    .Audio-p {
+        font-size: 16px;
+    }
+    .produtos-card {
+        width: 90%;
+    }
+}

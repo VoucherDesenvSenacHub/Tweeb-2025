@@ -1,8 +1,16 @@
 
 <?php
 
-//require '../DB/Database.php';
-require_once ('../../DB/Database.php');
+$path1 = __DIR__ . '/../../DB/Database.php';
+$path2 = __DIR__ . '/../../../DB/Database.php';
+
+if (file_exists($path1)) {
+    require_once $path1;
+} elseif (file_exists($path2)) {
+    require_once $path2;
+} else {
+    die('Erro: Arquivo Database.php não encontrado.');
+}
 
 class Produto{
 
@@ -78,17 +86,25 @@ class Produto{
         ]);
     }
 
-    public static function buscar($where=null,$order=null,$limit=null){
-        //FETCHALL
-        return (new Database('produtos'))->select()->fetchAll(PDO::FETCH_ASSOC);
+    public static function buscar($where = null, $order = null, $limit = null) {
+        return (new Database('produtos'))->select($where, $order, $limit)->fetchAll(PDO::FETCH_ASSOC);
     }
 
     public static function buscar_by_id($id){
-        //FETCHALL
-        return (new Database('produtos'))->select($id)->fetchObject(self::class);
+        return (new Database('produtos'))->select('id_produto = ' . (int)$id)->fetchObject(self::class);
     }
+
 
     public function excluir($id_produto){
         return (new Database('produtos'))->delete('id_produto = '.$id_produto);
+    }
+    public static function buscarPaginado($where = null, $order = null, $limit = null, $offset = null)
+    {
+    
+        return (new Database('produtos'))->selectPaginado($where, $order, $limit, $offset)->fetchAll(PDO::FETCH_ASSOC);
+    }
+    public static function contar($where = null)
+    {
+        return (new Database('produtos'))->count($where);
     }
 }
