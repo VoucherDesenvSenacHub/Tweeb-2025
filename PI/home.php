@@ -94,30 +94,30 @@ session_start();
                 </div>
             </div>
             <div class="categorias-card">
-                <div class="card card1">
+                <a href="/Tweeb-2025/PI/app/user/Controllers/ControllerProd/Departamento_Hardwares.php" class="card card1">
                     <img src="public/assets/img/phone-icon.png" alt="hardware">
                     <p>Hardwares</p>
-                </div>
-                <div class="card card2">
+                </a>
+                <a href="/Tweeb-2025/PI/app/user/Controllers/ControllerProd/Departamento_Hardwares.php" class="card card2">
                     <img src="public/assets/img/perifericos-icon.png" alt="periféricos">
                     <p>Periféricos</p>
-                </div>
-                <div class="card card3">
-                    <img src="public/assets/img/energia-icon.png" alt="periféricos">
+                </a>
+                <a href="/Tweeb-2025/PI/app/user/Controllers/ControllerProd/Departamento_Energia.php" class="card card3">
+                    <img src="public/assets/img/energia-icon.png" alt="energia">
                     <p>Energia</p>
-                </div>
-                <div class="card card4">
-                    <img src="public/assets/img/audio-icon.png" alt="periféricos">
-                    <p>Aúdio</p>
-                </div>
-                <div class="card card5">
-                <a href="../PI/App/user/View/pages/departamento01.php"><img src="public/assets/img/computadores-icon.png" alt="periféricos"></a>
+                </a>
+                <a href="/Tweeb-2025/PI/app/user/Controllers/ControllerProd/Departamento_Audio.php" class="card card4">
+                    <img src="public/assets/img/audio-icon.png" alt="áudio">
+                    <p>Áudio</p>
+                </a>
+                <a href="/Tweeb-2025/PI/app/user/Controllers/ControllerProd/Departamento_Computadores.php" class="card card5">
+                    <img src="public/assets/img/computadores-icon.png" alt="computadores">
                     <p>Computadores</p>
-                </div>
-                <div class="card card6">
-                    <img src="public/assets/img/jogos-icon.png" alt="periféricos">
+                </a>
+                <a href="/Tweeb-2025/PI/app/user/Controllers/ControllerProd/Departamento_Games.php" class="card card6">
+                    <img src="public/assets/img/jogos-icon.png" alt="jogos">
                     <p>Jogos</p>
-                </div>
+                </a>
             </div>
         </div>
     </div>
