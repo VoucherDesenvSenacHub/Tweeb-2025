@@ -141,6 +141,17 @@ $numero_pedido = 'PED' . date('Ymd') . rand(1000, 9999);
             <button class="botao-sair">Voltar</button>
         </a>
         <button class="botao-finalizar" id="btn-finalizar" style="display: none;">Finalizar Compra</button>
+        <button class="botao-cancelar" id="btn-cancelar-pedido" style="background:#d9534f;color:#fff;margin-left:10px;">Cancelar Pedido</button>
+    </div>
+
+    <!-- Modal de cancelamento -->
+    <div id="modal-cancelamento" class="modal" style="display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.5);z-index:9999;align-items:center;justify-content:center;">
+        <div style="background:#fff;padding:30px 40px;border-radius:8px;max-width:400px;text-align:center;">
+            <h2>Cancelar Pedido</h2>
+            <p>Tem certeza que deseja cancelar este pedido?<br>O estorno do pagamento será realizado automaticamente.</p>
+            <button id="confirmar-cancelamento" style="background:#d9534f;color:#fff;padding:10px 20px;border:none;border-radius:4px;margin:10px 5px;">Sim, cancelar</button>
+            <button id="fechar-modal-cancelamento" style="background:#ccc;padding:10px 20px;border:none;border-radius:4px;margin:10px 5px;">Não</button>
+        </div>
     </div>
 </div>
 
@@ -255,6 +266,41 @@ setInterval(() => {
         verificarPagamento();
     }
 }, 10000);
+
+// Botão cancelar pedido
+const btnCancelarPedido = document.getElementById('btn-cancelar-pedido');
+const modalCancelamento = document.getElementById('modal-cancelamento');
+const btnConfirmarCancelamento = document.getElementById('confirmar-cancelamento');
+const btnFecharModalCancelamento = document.getElementById('fechar-modal-cancelamento');
+
+btnCancelarPedido.addEventListener('click', function() {
+    modalCancelamento.style.display = 'flex';
+});
+
+btnFecharModalCancelamento.addEventListener('click', function() {
+    modalCancelamento.style.display = 'none';
+});
+
+btnConfirmarCancelamento.addEventListener('click', function() {
+    // Pega o id do pedido atual da sessão PHP via AJAX
+    fetch('/Tweeb-2025/PI/App/user/Controllers/PedidoController.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: 'action=cancelar_pedido'
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            alert('Pedido cancelado com sucesso! O estorno será realizado automaticamente.');
+            window.location.href = 'pedidos-cancelados.php';
+        } else {
+            alert('Erro ao cancelar pedido: ' + data.message);
+        }
+    })
+    .catch(error => {
+        alert('Erro ao cancelar pedido.');
+    });
+});
 </script>
 </body>
 </html>

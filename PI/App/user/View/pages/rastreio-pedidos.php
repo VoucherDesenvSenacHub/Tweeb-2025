@@ -20,906 +20,137 @@ if (!isset($_SESSION['usuario']['id'])) {
 <?php include __DIR__.'/../../../../includes/navbar-logada.php'; ?>
 <?php include __DIR__.'/../../../../includes/sidebar-User.php'; ?>
 
-    <div class="container-rastreio">
-        <!-- Pedido 1 -->
-         <h1 class="pedidosenviadostitulo">Pedidos Enviados</h1>
-        <div class="pedido-rastreio">
-            <div class="header-rastreio">
-                <p class="id-rastreio">Ordem ID: 9632145632152</p>
-                <div class="rastreio-botoes">
-                <button class="rastreio-icone2">
-                        <img src="../../../../public/assets/img/nota-rastreio.png" alt="Ícone">
-                    </button>
-                    <button class="rastreio-botao" onclick="toggleDetalhes(this)">Acompanhar Pedido  <i class="fa-solid fa-location-dot"></i></button>
-                </div>
-            </div>
-            
-            <div class="rastreio-info-entrega">
-                <p class="data-rastreio">Data: 01 de janeiro</p>
-                <img src="../../../../public/assets/img/truck-tick.png" alt="Ícone Caminhão" class="rastreio-truck">
-                <p class="entrega-prevista-rastreio verde">Entrega prevista: 16 de Janeiro</p>
-            </div>
-        </div>
-
-        <!-- div do rastreio -->
-        <div class="rastreio-status">
-        <div class="rastreio-etapa ativo">
-            <p class="rastreio-status-texto">Pagamento</p>
-            <i class="fas fa-credit-card rastreio-icone"></i>
-            <p class="rastreio-data">Qua, 1 de Agosto</p>
-            <div class="line"></div>
-        </div>
-        <div class="rastreio-etapa ativo">
-            <p class="rastreio-status-texto">Enviado</p>
-            <i class="fas fa-box rastreio-icone"></i>
-            <p class="rastreio-data">Ter, 06 de Agosto</p>
-            <div class="line"></div>
-        </div>
-        <div class="rastreio-etapa">
-            <p class="rastreio-status-texto">A Caminho</p>
-            <i class="fas fa-truck rastreio-icone"></i>
-            <p class="rastreio-data">Qui, 10 de Agosto</p>
-            <div class="line"></div>
-        </div>
-        <div class="rastreio-etapa">
-            <p class="rastreio-status-texto">Entregue</p>
-            <i class="fas fa-check-circle rastreio-icone"></i>
-            <p class="rastreio-data">Sex, 16 de Agosto</p>
-        </div>
-            
-        </div>
-
-        <!-- div do item pedido -->
-        <div class="rastreio-item">
-            <img src="../../../../public/assets/img/pedido-enviado1.png" alt="Placa de vídeo GTX 1660" class="rastreio-img">
-            <div class="rastreio-info-preco">
-                <div class="rastreio-info">
-                    <p class="rastreio-nome">Placa de vídeo GTX 1660</p>
-                    <p class="rastreio-detalhes">GDDR6 | 6GB | 192-BIT</p>
-                </div>
-                <div class="rastreio-preco">
-                    <h3 class="rastreio-valor"><strong>R$ 1.399,99</strong></h3>
-                    <h3 class="rastreio-quantidade">Quantidade: 1</h3>
-                </div>
-            </div>
-        </div>
-        
-        <div class="rastreio-pagamento-entrega">
-            <div class="rastreio-pagamento-entrega-flex">
-                <div class="rastreio-pagamento">
-                    <h3>Pagamento</h3>
-                    <p class="rastreio-metodo-pagamento">PIX</p>
-                </div>
-                <div class="rastreio-entrega">
-                    <h3>Entrega</h3>
-                    <p class="rastreio-endereco-titulo"><strong>Endereço</strong></p>
-                    <p class="rastreio-endereco">Rua Capiatá, nº 240</p>
-                    <p class="rastreio-bairro-cidade">Novos Estados, Campo Grande - MS</p>
-                    <p class="rastreio-cep">CEP 79034331</p>
-                </div>
-            </div>
-        </div>
-        
-        
-        <div class="rastreio-resumo">
-            <p>Subtotal <span>R$ 6.599,99</span></p>
-            <p>Imposto estimado <span>R$ 50</span></p>
-            <p>Frete <span>Grátis</span></p>
-            <p>Cupons <span>R$ 0,00</span></p>
-            <p class="rastreio-total"><strong>Total</strong> <span><strong>R$ 6.649,97</strong></span></p>
-        </div>
+    <div class="container-rastreio" id="container-pedidos-rastreio">
+        <!-- Os pedidos serão carregados dinamicamente aqui -->
     </div>
 
-   
-    <div class="container-rastreio">
-        <!-- Pedido 1 -->
-        <div class="pedido-rastreio">
-            <div class="header-rastreio">
-                <p class="id-rastreio">Ordem ID: 9632145632152</p>
-                <div class="rastreio-botoes">
-                <button class="rastreio-icone2">
-                        <img src="../../../../public/assets/img/nota-rastreio.png" alt="Ícone">
-                    </button>
-                    <button class="rastreio-botao" onclick="toggleDetalhes(this)">Acompanhar Pedido  <i class="fa-solid fa-location-dot"></i></button>
-                </div>
-            </div>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        fetch('/Tweeb-2025/PI/App/user/Controllers/PedidoController.php?action=obter_pedidos')
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    const pedidos = data.pedidos.filter(p => p.status_pedido !== 'cancelado');
+                    renderizarPedidosRastreio(pedidos);
+                } else {
+                    document.getElementById('container-pedidos-rastreio').innerHTML = '<p>Erro ao carregar pedidos.</p>';
+                }
+            });
+    });
+
+    function renderizarPedidosRastreio(pedidos) {
+        const container = document.getElementById('container-pedidos-rastreio');
+        if (!pedidos.length) {
+            container.innerHTML = '<p>Você não possui pedidos em andamento.</p>';
+            return;
+        }
+        container.innerHTML = '';
+        pedidos.forEach(pedido => {
+            let etapas = [
+                {nome: 'Pagamento', icone: 'fa-credit-card'},
+                {nome: 'Enviado', icone: 'fa-box'},
+                {nome: 'A Caminho', icone: 'fa-truck'},
+                {nome: 'Entregue', icone: 'fa-check-circle'}
+            ];
+            let etapaAtiva = 0;
+            if (pedido.status_pedido === 'pago') etapaAtiva = 1;
+            if (pedido.status_pedido === 'enviado') etapaAtiva = 2;
+            if (pedido.status_pedido === 'entregue') etapaAtiva = 3;
             
-            <div class="rastreio-info-entrega">
-                <p class="data-rastreio">Data: 01 de janeiro</p>
-                <img src="../../../../public/assets/img/truck-tick.png" alt="Ícone Caminhão" class="rastreio-truck">
-                <p class="entrega-prevista-rastreio verde">Entrega prevista: 16 de Janeiro</p>
+            container.innerHTML += `
+            <div class="pedido-rastreio" data-id="${pedido.id_pedido}">
+                <div class="header-rastreio">
+                    <p class="id-rastreio">Ordem ID: ${pedido.id_pedido}</p>
+                    <div class="rastreio-botoes">
+                        <button class="rastreio-icone2">
+                            <img src="../../../../public/assets/img/nota-rastreio.png" alt="Ícone">
+                        </button>
+                        <button class="rastreio-botao toggle-detalhes">Acompanhar Pedido  <i class="fa-solid fa-location-dot"></i></button>
+                    </div>
+                </div>
+                <div class="rastreio-detalhes" style="display:none;">
+                    <div class="rastreio-info-entrega">
+                        <p class="data-rastreio">Data: ${pedido.data_pedido ? new Date(pedido.data_pedido).toLocaleDateString() : ''}</p>
+                        <img src="../../../../public/assets/img/truck-tick.png" alt="Ícone Caminhão" class="rastreio-truck">
+                        <p class="entrega-prevista-rastreio verde">Entrega prevista: ${pedido.data_entrega_estimada ? new Date(pedido.data_entrega_estimada).toLocaleDateString() : ''}</p>
+                    </div>
+                    <div class="rastreio-status">
+                        ${etapas.map((etapa, idx) => `
+                            <div class="rastreio-etapa${idx <= etapaAtiva ? ' ativo' : ''}">
+                                <p class="rastreio-status-texto">${etapa.nome}</p>
+                                <i class="fas ${etapa.icone} rastreio-icone"></i>
+                                <p class="rastreio-data"></p>
+                                <div class="line"></div>
+                            </div>
+                        `).join('')}
+                    </div>
+                    <div class="rastreio-itens-pedido"></div>
+                    <div class="rastreio-pagamento-entrega">
+                        <div class="rastreio-pagamento-entrega-flex">
+                            <div class="rastreio-pagamento">
+                                <h3>Pagamento</h3>
+                                <p class="rastreio-metodo-pagamento">${pedido.metodo_pagamento}</p>
+                            </div>
+                            <div class="rastreio-entrega">
+                                <h3>Entrega</h3>
+                                <p class="rastreio-endereco-titulo"><strong>Endereço</strong></p>
+                                <p class="rastreio-endereco">${pedido.nome_endereco}</p>
+                                <p class="rastreio-bairro-cidade">${pedido.cidade} - ${pedido.estado}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="rastreio-resumo">
+                        <p>Subtotal <span>R$ ${Number(pedido.valor_total).toLocaleString('pt-BR', {minimumFractionDigits:2})}</span></p>
+                        <p>Frete <span>R$ ${Number(pedido.valor_frete).toLocaleString('pt-BR', {minimumFractionDigits:2})}</span></p>
+                        <p class="rastreio-total"><strong>Total</strong> <span><strong>R$ ${Number(pedido.valor_total).toLocaleString('pt-BR', {minimumFractionDigits:2})}</strong></span></p>
+                    </div>
+                </div>
             </div>
-        </div>
+            `;
+        });
+        // Adiciona evento de toggle para cada botão
+        document.querySelectorAll('.toggle-detalhes').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const pedidoDiv = btn.closest('.pedido-rastreio');
+                const detalhes = pedidoDiv.querySelector('.rastreio-detalhes');
+                if (detalhes.style.display === 'none') {
+                    // Fecha todos os outros detalhes
+                    document.querySelectorAll('.rastreio-detalhes').forEach(d => d.style.display = 'none');
+                    detalhes.style.display = 'block';
+                    // Carrega os itens do pedido dinamicamente
+                    const idPedido = pedidoDiv.getAttribute('data-id');
+                    const itensDiv = detalhes.querySelector('.rastreio-itens-pedido');
+                    fetch(`/Tweeb-2025/PI/App/user/Controllers/PedidoController.php?action=obter_pedido&id_pedido=${idPedido}`)
+                        .then(resp => resp.json())
+                        .then(data => {
+                            if (data.success && data.itens.length) {
+                                itensDiv.innerHTML = data.itens.map(item => `
+                                    <div class='rastreio-item'>
+                                        <img src='../../../../public/assets/img/${item.imagem_produto}' alt='${item.nome_produto}' class='rastreio-img'>
+                                        <div class='rastreio-info-preco'>
+                                            <div class='rastreio-info'>
+                                                <p class='rastreio-nome'>${item.nome_produto}</p>
+                                                <p class='rastreio-detalhes'>${item.marca_modelo || ''}</p>
+                                            </div>
+                                            <div class='rastreio-preco'>
+                                                <h3 class='rastreio-valor'><strong>R$ ${(item.subtotal).toLocaleString('pt-BR', {minimumFractionDigits:2})}</strong></h3>
+                                                <h3 class='rastreio-quantidade'>Quantidade: ${item.quantidade}</h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                `).join('');
+                            } else {
+                                itensDiv.innerHTML = '<p>Nenhum item encontrado.</p>';
+                            }
+                        });
+                } else {
+                    detalhes.style.display = 'none';
+                }
+            });
+        });
+    }
+    </script>
 
-        <!-- div do rastreio -->
-        <div class="rastreio-status">
-        <div class="rastreio-etapa ativo">
-            <p class="rastreio-status-texto">Pagamento</p>
-            <i class="fas fa-credit-card rastreio-icone"></i>
-            <p class="rastreio-data">Qua, 1 de Agosto</p>
-            <div class="line"></div>
-        </div>
-        <div class="rastreio-etapa ativo">
-            <p class="rastreio-status-texto">Enviado</p>
-            <i class="fas fa-box rastreio-icone"></i>
-            <p class="rastreio-data">Ter, 06 de Agosto</p>
-            <div class="line"></div>
-        </div>
-        <div class="rastreio-etapa">
-            <p class="rastreio-status-texto">A Caminho</p>
-            <i class="fas fa-truck rastreio-icone"></i>
-            <p class="rastreio-data">Qui, 10 de Agosto</p>
-            <div class="line"></div>
-        </div>
-        <div class="rastreio-etapa">
-            <p class="rastreio-status-texto">Entregue</p>
-            <i class="fas fa-check-circle rastreio-icone"></i>
-            <p class="rastreio-data">Sex, 16 de Agosto</p>
-        </div>
-            
-        </div>
-
-        <!-- div do item pedido -->
-        <div class="rastreio-item">
-            <img src="../../../../public/assets/img/pedido-enviado1.png" alt="Placa de vídeo GTX 1660" class="rastreio-img">
-            <div class="rastreio-info-preco">
-                <div class="rastreio-info">
-                    <p class="rastreio-nome">Placa de vídeo GTX 1660</p>
-                    <p class="rastreio-detalhes">GDDR6 | 6GB | 192-BIT</p>
-                </div>
-                <div class="rastreio-preco">
-                    <h3 class="rastreio-valor"><strong>R$ 1.399,99</strong></h3>
-                    <h3 class="rastreio-quantidade">Quantidade: 1</h3>
-                </div>
-            </div>
-        </div>
-        
-        <div class="rastreio-pagamento-entrega">
-            <div class="rastreio-pagamento-entrega-flex">
-                <div class="rastreio-pagamento">
-                    <h3>Pagamento</h3>
-                    <p class="rastreio-metodo-pagamento">PIX</p>
-                </div>
-                <div class="rastreio-entrega">
-                    <h3>Entrega</h3>
-                    <p class="rastreio-endereco-titulo"><strong>Endereço</strong></p>
-                    <p class="rastreio-endereco">Rua Capiatá, nº 240</p>
-                    <p class="rastreio-bairro-cidade">Novos Estados, Campo Grande - MS</p>
-                    <p class="rastreio-cep">CEP 79034331</p>
-                </div>
-            </div>
-        </div>
-        
-        
-        <div class="rastreio-resumo">
-            <p>Subtotal <span>R$ 6.599,99</span></p>
-            <p>Imposto estimado <span>R$ 50</span></p>
-            <p>Frete <span>Grátis</span></p>
-            <p>Cupons <span>R$ 0,00</span></p>
-            <p class="rastreio-total"><strong>Total</strong> <span><strong>R$ 6.649,97</strong></span></p>
-        </div>
-    </div>
-
-    
-    <div class="container-rastreio">
-        <!-- Pedido 1 -->
-        <div class="pedido-rastreio">
-            <div class="header-rastreio">
-                <p class="id-rastreio">Ordem ID: 9632145632152</p>
-                <div class="rastreio-botoes">
-                <button class="rastreio-icone2">
-                        <img src="../../../../public/assets/img/nota-rastreio.png" alt="Ícone">
-                    </button>
-                    <button class="rastreio-botao" onclick="toggleDetalhes(this)">Acompanhar Pedido  <i class="fa-solid fa-location-dot"></i></button>
-                </div>
-            </div>
-            
-            <div class="rastreio-info-entrega">
-                <p class="data-rastreio">Data: 01 de janeiro</p>
-                <img src="../../../../public/assets/img/truck-tick.png" alt="Ícone Caminhão" class="rastreio-truck">
-                <p class="entrega-prevista-rastreio verde">Entrega prevista: 16 de Janeiro</p>
-            </div>
-        </div>
-
-        <!-- div do rastreio -->
-        <div class="rastreio-status">
-        <div class="rastreio-etapa ativo">
-            <p class="rastreio-status-texto">Pagamento</p>
-            <i class="fas fa-credit-card rastreio-icone"></i>
-            <p class="rastreio-data">Qua, 1 de Agosto</p>
-            <div class="line"></div>
-        </div>
-        <div class="rastreio-etapa ativo">
-            <p class="rastreio-status-texto">Enviado</p>
-            <i class="fas fa-box rastreio-icone"></i>
-            <p class="rastreio-data">Ter, 06 de Agosto</p>
-            <div class="line"></div>
-        </div>
-        <div class="rastreio-etapa">
-            <p class="rastreio-status-texto">A Caminho</p>
-            <i class="fas fa-truck rastreio-icone"></i>
-            <p class="rastreio-data">Qui, 10 de Agosto</p>
-            <div class="line"></div>
-        </div>
-        <div class="rastreio-etapa">
-            <p class="rastreio-status-texto">Entregue</p>
-            <i class="fas fa-check-circle rastreio-icone"></i>
-            <p class="rastreio-data">Sex, 16 de Agosto</p>
-        </div>
-            
-        </div>
-
-        <!-- div do item pedido -->
-        <div class="rastreio-item">
-            <img src="../../../../public/assets/img/pedido-enviado1.png" alt="Placa de vídeo GTX 1660" class="rastreio-img">
-            <div class="rastreio-info-preco">
-                <div class="rastreio-info">
-                    <p class="rastreio-nome">Placa de vídeo GTX 1660</p>
-                    <p class="rastreio-detalhes">GDDR6 | 6GB | 192-BIT</p>
-                </div>
-                <div class="rastreio-preco">
-                    <h3 class="rastreio-valor"><strong>R$ 1.399,99</strong></h3>
-                    <h3 class="rastreio-quantidade">Quantidade: 1</h3>
-                </div>
-            </div>
-        </div>
-        
-        <div class="rastreio-pagamento-entrega">
-            <div class="rastreio-pagamento-entrega-flex">
-                <div class="rastreio-pagamento">
-                    <h3>Pagamento</h3>
-                    <p class="rastreio-metodo-pagamento">PIX</p>
-                </div>
-                <div class="rastreio-entrega">
-                    <h3>Entrega</h3>
-                    <p class="rastreio-endereco-titulo"><strong>Endereço</strong></p>
-                    <p class="rastreio-endereco">Rua Capiatá, nº 240</p>
-                    <p class="rastreio-bairro-cidade">Novos Estados, Campo Grande - MS</p>
-                    <p class="rastreio-cep">CEP 79034331</p>
-                </div>
-            </div>
-        </div>
-        
-        
-        <div class="rastreio-resumo">
-            <p>Subtotal <span>R$ 6.599,99</span></p>
-            <p>Imposto estimado <span>R$ 50</span></p>
-            <p>Frete <span>Grátis</span></p>
-            <p>Cupons <span>R$ 0,00</span></p>
-            <p class="rastreio-total"><strong>Total</strong> <span><strong>R$ 6.649,97</strong></span></p>
-        </div>
-    </div>
-    
-    
-    <div class="container-rastreio">
-        <!-- Pedido 1 -->
-        <div class="pedido-rastreio">
-            <div class="header-rastreio">
-                <p class="id-rastreio">Ordem ID: 9632145632152</p>
-                <div class="rastreio-botoes">
-                <button class="rastreio-icone2">
-                        <img src="../../../../public/assets/img/nota-rastreio.png" alt="Ícone">
-                    </button>
-                    <button class="rastreio-botao" onclick="toggleDetalhes(this)">Acompanhar Pedido  <i class="fa-solid fa-location-dot"></i></button>
-                </div>
-            </div>
-            
-            <div class="rastreio-info-entrega">
-                <p class="data-rastreio">Data: 01 de janeiro</p>
-                <img src="../../../../public/assets/img/avaliar-vetor.png" alt="Ícone Caminhão" class="rastreio-truck">
-                <p class="entrega-prevista-rastreio-avaliar">Avalie sua compra!</p>
-            </div>
-        </div>
-
-        <!-- div do rastreio -->
-        <div class="rastreio-status">
-        <div class="rastreio-etapa ativo">
-            <p class="rastreio-status-texto">Pagamento</p>
-            <i class="fas fa-credit-card rastreio-icone"></i>
-            <p class="rastreio-data">Qua, 1 de Agosto</p>
-            <div class="line"></div>
-        </div>
-        <div class="rastreio-etapa ativo">
-            <p class="rastreio-status-texto">Enviado</p>
-            <i class="fas fa-box rastreio-icone"></i>
-            <p class="rastreio-data">Ter, 06 de Agosto</p>
-            <div class="line"></div>
-        </div>
-        <div class="rastreio-etapa">
-            <p class="rastreio-status-texto">A Caminho</p>
-            <i class="fas fa-truck rastreio-icone"></i>
-            <p class="rastreio-data">Qui, 10 de Agosto</p>
-            <div class="line"></div>
-        </div>
-        <div class="rastreio-etapa">
-            <p class="rastreio-status-texto">Entregue</p>
-            <i class="fas fa-check-circle rastreio-icone"></i>
-            <p class="rastreio-data">Sex, 16 de Agosto</p>
-        </div>
-            
-        </div>
-
-        <!-- div do item pedido -->
-        <div class="rastreio-item">
-            <img src="../../../../public/assets/img/pedido-enviado1.png" alt="Placa de vídeo GTX 1660" class="rastreio-img">
-            <div class="rastreio-info-preco">
-                <div class="rastreio-info">
-                    <p class="rastreio-nome">Placa de vídeo GTX 1660</p>
-                    <p class="rastreio-detalhes">GDDR6 | 6GB | 192-BIT</p>
-                </div>
-                <div class="rastreio-preco">
-                    <h3 class="rastreio-valor"><strong>R$ 1.399,99</strong></h3>
-                    <h3 class="rastreio-quantidade">Quantidade: 1</h3>
-                </div>
-            </div>
-        </div>
-        
-        <div class="rastreio-pagamento-entrega">
-            <div class="rastreio-pagamento-entrega-flex">
-                <div class="rastreio-pagamento">
-                    <h3>Pagamento</h3>
-                    <p class="rastreio-metodo-pagamento">PIX</p>
-                </div>
-                <div class="rastreio-entrega">
-                    <h3>Entrega</h3>
-                    <p class="rastreio-endereco-titulo"><strong>Endereço</strong></p>
-                    <p class="rastreio-endereco">Rua Capiatá, nº 240</p>
-                    <p class="rastreio-bairro-cidade">Novos Estados, Campo Grande - MS</p>
-                    <p class="rastreio-cep">CEP 79034331</p>
-                </div>
-            </div>
-        </div>
-        
-        
-        <div class="rastreio-resumo">
-            <p>Subtotal <span>R$ 6.599,99</span></p>
-            <p>Imposto estimado <span>R$ 50</span></p>
-            <p>Frete <span>Grátis</span></p>
-            <p>Cupons <span>R$ 0,00</span></p>
-            <p class="rastreio-total"><strong>Total</strong> <span><strong>R$ 6.649,97</strong></span></p>
-        </div>
-    </div>
-    
-    
-    <div class="container-rastreio">
-        <!-- Pedido 1 -->
-        <div class="pedido-rastreio">
-            <div class="header-rastreio">
-                <p class="id-rastreio">Ordem ID: 9632145632152</p>
-                <div class="rastreio-botoes">
-                <button class="rastreio-icone2">
-                        <img src="../../../../public/assets/img/nota-rastreio.png" alt="Ícone">
-                    </button>
-                    <button class="rastreio-botao" onclick="toggleDetalhes(this)">Acompanhar Pedido  <i class="fa-solid fa-location-dot"></i></button>
-                </div>
-            </div>
-            
-            <div class="rastreio-info-entrega">
-                <p class="data-rastreio">Data: 01 de janeiro</p>
-                <img src="../../../../public/assets/img/truck-tick.png" alt="Ícone Caminhão" class="rastreio-truck">
-                <p class="entrega-prevista-rastreio verde">Entrega prevista: 16 de Janeiro</p>
-            </div>
-        </div>
-
-        <!-- div do rastreio -->
-        <div class="rastreio-status">
-        <div class="rastreio-etapa ativo">
-            <p class="rastreio-status-texto">Pagamento</p>
-            <i class="fas fa-credit-card rastreio-icone"></i>
-            <p class="rastreio-data">Qua, 1 de Agosto</p>
-            <div class="line"></div>
-        </div>
-        <div class="rastreio-etapa ativo">
-            <p class="rastreio-status-texto">Enviado</p>
-            <i class="fas fa-box rastreio-icone"></i>
-            <p class="rastreio-data">Ter, 06 de Agosto</p>
-            <div class="line"></div>
-        </div>
-        <div class="rastreio-etapa">
-            <p class="rastreio-status-texto">A Caminho</p>
-            <i class="fas fa-truck rastreio-icone"></i>
-            <p class="rastreio-data">Qui, 10 de Agosto</p>
-            <div class="line"></div>
-        </div>
-        <div class="rastreio-etapa">
-            <p class="rastreio-status-texto">Entregue</p>
-            <i class="fas fa-check-circle rastreio-icone"></i>
-            <p class="rastreio-data">Sex, 16 de Agosto</p>
-        </div>
-            
-        </div>
-
-        <!-- div do item pedido -->
-        <div class="rastreio-item">
-            <img src="../../../../public/assets/img/pedido-enviado1.png" alt="Placa de vídeo GTX 1660" class="rastreio-img">
-            <div class="rastreio-info-preco">
-                <div class="rastreio-info">
-                    <p class="rastreio-nome">Placa de vídeo GTX 1660</p>
-                    <p class="rastreio-detalhes">GDDR6 | 6GB | 192-BIT</p>
-                </div>
-                <div class="rastreio-preco">
-                    <h3 class="rastreio-valor"><strong>R$ 1.399,99</strong></h3>
-                    <h3 class="rastreio-quantidade">Quantidade: 1</h3>
-                </div>
-            </div>
-        </div>
-        
-        <div class="rastreio-pagamento-entrega">
-            <div class="rastreio-pagamento-entrega-flex">
-                <div class="rastreio-pagamento">
-                    <h3>Pagamento</h3>
-                    <p class="rastreio-metodo-pagamento">PIX</p>
-                </div>
-                <div class="rastreio-entrega">
-                    <h3>Entrega</h3>
-                    <p class="rastreio-endereco-titulo"><strong>Endereço</strong></p>
-                    <p class="rastreio-endereco">Rua Capiatá, nº 240</p>
-                    <p class="rastreio-bairro-cidade">Novos Estados, Campo Grande - MS</p>
-                    <p class="rastreio-cep">CEP 79034331</p>
-                </div>
-            </div>
-        </div>
-        
-        
-        <div class="rastreio-resumo">
-            <p>Subtotal <span>R$ 6.599,99</span></p>
-            <p>Imposto estimado <span>R$ 50</span></p>
-            <p>Frete <span>Grátis</span></p>
-            <p>Cupons <span>R$ 0,00</span></p>
-            <p class="rastreio-total"><strong>Total</strong> <span><strong>R$ 6.649,97</strong></span></p>
-        </div>
-    </div>
-    
-    
-    <div class="container-rastreio">
-        <!-- Pedido 1 -->
-        <div class="pedido-rastreio">
-            <div class="header-rastreio">
-                <p class="id-rastreio">Ordem ID: 9632145632152</p>
-                <div class="rastreio-botoes">
-                <button class="rastreio-icone2">
-                        <img src="../../../../public/assets/img/nota-rastreio.png" alt="Ícone">
-                    </button>
-                    <button class="rastreio-botao" onclick="toggleDetalhes(this)">Acompanhar Pedido  <i class="fa-solid fa-location-dot"></i></button>
-                </div>
-            </div>
-            
-            <div class="rastreio-info-entrega">
-                <p class="data-rastreio">Data: 01 de janeiro</p>
-                <img src="../../../../public/assets/img/avaliar-vetor.png" alt="Ícone avaliar" class="rastreio-truck">
-                <p class="entrega-prevista-rastreio-avaliar">Avalie sua compra!</p>
-            </div>
-        </div>
-
-        <!-- div do rastreio -->
-        <div class="rastreio-status">
-        <div class="rastreio-etapa ativo">
-            <p class="rastreio-status-texto">Pagamento</p>
-            <i class="fas fa-credit-card rastreio-icone"></i>
-            <p class="rastreio-data">Qua, 1 de Agosto</p>
-            <div class="line"></div>
-        </div>
-        <div class="rastreio-etapa ativo">
-            <p class="rastreio-status-texto">Enviado</p>
-            <i class="fas fa-box rastreio-icone"></i>
-            <p class="rastreio-data">Ter, 06 de Agosto</p>
-            <div class="line"></div>
-        </div>
-        <div class="rastreio-etapa">
-            <p class="rastreio-status-texto">A Caminho</p>
-            <i class="fas fa-truck rastreio-icone"></i>
-            <p class="rastreio-data">Qui, 10 de Agosto</p>
-            <div class="line"></div>
-        </div>
-        <div class="rastreio-etapa">
-            <p class="rastreio-status-texto">Entregue</p>
-            <i class="fas fa-check-circle rastreio-icone"></i>
-            <p class="rastreio-data">Sex, 16 de Agosto</p>
-        </div>
-            
-        </div>
-
-        <!-- div do item pedido -->
-        <div class="rastreio-item">
-            <img src="../../../../public/assets/img/pedido-enviado1.png" alt="Placa de vídeo GTX 1660" class="rastreio-img">
-            <div class="rastreio-info-preco">
-                <div class="rastreio-info">
-                    <p class="rastreio-nome">Placa de vídeo GTX 1660</p>
-                    <p class="rastreio-detalhes">GDDR6 | 6GB | 192-BIT</p>
-                </div>
-                <div class="rastreio-preco">
-                    <h3 class="rastreio-valor"><strong>R$ 1.399,99</strong></h3>
-                    <h3 class="rastreio-quantidade">Quantidade: 1</h3>
-                </div>
-            </div>
-        </div>
-        
-        <div class="rastreio-pagamento-entrega">
-            <div class="rastreio-pagamento-entrega-flex">
-                <div class="rastreio-pagamento">
-                    <h3>Pagamento</h3>
-                    <p class="rastreio-metodo-pagamento">PIX</p>
-                </div>
-                <div class="rastreio-entrega">
-                    <h3>Entrega</h3>
-                    <p class="rastreio-endereco-titulo"><strong>Endereço</strong></p>
-                    <p class="rastreio-endereco">Rua Capiatá, nº 240</p>
-                    <p class="rastreio-bairro-cidade">Novos Estados, Campo Grande - MS</p>
-                    <p class="rastreio-cep">CEP 79034331</p>
-                </div>
-            </div>
-        </div>
-        
-        
-        <div class="rastreio-resumo">
-            <p>Subtotal <span>R$ 6.599,99</span></p>
-            <p>Imposto estimado <span>R$ 50</span></p>
-            <p>Frete <span>Grátis</span></p>
-            <p>Cupons <span>R$ 0,00</span></p>
-            <p class="rastreio-total"><strong>Total</strong> <span><strong>R$ 6.649,97</strong></span></p>
-        </div>
-    </div>
-    
-    
-    <div class="container-rastreio">
-        <!-- Pedido 1 -->
-        <div class="pedido-rastreio">
-            <div class="header-rastreio">
-                <p class="id-rastreio">Ordem ID: 9632145632152</p>
-                <div class="rastreio-botoes">
-                <button class="rastreio-icone2">
-                        <img src="../../../../public/assets/img/nota-rastreio.png" alt="Ícone">
-                    </button>
-                    <button class="rastreio-botao" onclick="toggleDetalhes(this)">Acompanhar Pedido  <i class="fa-solid fa-location-dot"></i></button>
-                </div>
-            </div>
-            
-            <div class="rastreio-info-entrega">
-                <p class="data-rastreio">Data: 01 de janeiro</p>
-                <img src="../../../../public/assets/img/avaliar-vetor.png" alt="Ícone Caminhão" class="rastreio-truck">
-                <p class="entrega-prevista-rastreio-avaliar">Avalie sua compra!</p>
-            </div>
-        </div>
-
-        <!-- div do rastreio -->
-        <div class="rastreio-status">
-        <div class="rastreio-etapa ativo">
-            <p class="rastreio-status-texto">Pagamento</p>
-            <i class="fas fa-credit-card rastreio-icone"></i>
-            <p class="rastreio-data">Qua, 1 de Agosto</p>
-            <div class="line"></div>
-        </div>
-        <div class="rastreio-etapa ativo">
-            <p class="rastreio-status-texto">Enviado</p>
-            <i class="fas fa-box rastreio-icone"></i>
-            <p class="rastreio-data">Ter, 06 de Agosto</p>
-            <div class="line"></div>
-        </div>
-        <div class="rastreio-etapa">
-            <p class="rastreio-status-texto">A Caminho</p>
-            <i class="fas fa-truck rastreio-icone"></i>
-            <p class="rastreio-data">Qui, 10 de Agosto</p>
-            <div class="line"></div>
-        </div>
-        <div class="rastreio-etapa">
-            <p class="rastreio-status-texto">Entregue</p>
-            <i class="fas fa-check-circle rastreio-icone"></i>
-            <p class="rastreio-data">Sex, 16 de Agosto</p>
-        </div>
-            
-        </div>
-
-        <!-- div do item pedido -->
-        <div class="rastreio-item">
-            <img src="../../../../public/assets/img/pedido-enviado1.png" alt="Placa de vídeo GTX 1660" class="rastreio-img">
-            <div class="rastreio-info-preco">
-                <div class="rastreio-info">
-                    <p class="rastreio-nome">Placa de vídeo GTX 1660</p>
-                    <p class="rastreio-detalhes">GDDR6 | 6GB | 192-BIT</p>
-                </div>
-                <div class="rastreio-preco">
-                    <h3 class="rastreio-valor"><strong>R$ 1.399,99</strong></h3>
-                    <h3 class="rastreio-quantidade">Quantidade: 1</h3>
-                </div>
-            </div>
-        </div>
-        
-        <div class="rastreio-pagamento-entrega">
-            <div class="rastreio-pagamento-entrega-flex">
-                <div class="rastreio-pagamento">
-                    <h3>Pagamento</h3>
-                    <p class="rastreio-metodo-pagamento">PIX</p>
-                </div>
-                <div class="rastreio-entrega">
-                    <h3>Entrega</h3>
-                    <p class="rastreio-endereco-titulo"><strong>Endereço</strong></p>
-                    <p class="rastreio-endereco">Rua Capiatá, nº 240</p>
-                    <p class="rastreio-bairro-cidade">Novos Estados, Campo Grande - MS</p>
-                    <p class="rastreio-cep">CEP 79034331</p>
-                </div>
-            </div>
-        </div>
-        
-        
-        <div class="rastreio-resumo">
-            <p>Subtotal <span>R$ 6.599,99</span></p>
-            <p>Imposto estimado <span>R$ 50</span></p>
-            <p>Frete <span>Grátis</span></p>
-            <p>Cupons <span>R$ 0,00</span></p>
-            <p class="rastreio-total"><strong>Total</strong> <span><strong>R$ 6.649,97</strong></span></p>
-        </div>
-    </div>
-    
-    
-    <div class="container-rastreio">
-        <!-- Pedido 1 -->
-        <div class="pedido-rastreio">
-            <div class="header-rastreio">
-                <p class="id-rastreio">Ordem ID: 9632145632152</p>
-                <div class="rastreio-botoes">
-                <button class="rastreio-icone2">
-                        <img src="../../../../public/assets/img/nota-rastreio.png" alt="Ícone">
-                    </button>
-                    <button class="rastreio-botao" onclick="toggleDetalhes(this)">Acompanhar Pedido  <i class="fa-solid fa-location-dot"></i></button>
-                </div>
-            </div>
-            
-            <div class="rastreio-info-entrega">
-                <p class="data-rastreio">Data: 01 de janeiro</p>
-                <img src="../../../../public/assets/img/truck-tick.png" alt="Ícone Caminhão" class="rastreio-truck">
-                <p class="entrega-prevista-rastreio verde">Entrega prevista: 16 de Janeiro</p>
-            </div>
-        </div>
-
-        <!-- div do rastreio -->
-        <div class="rastreio-status">
-        <div class="rastreio-etapa ativo">
-            <p class="rastreio-status-texto">Pagamento</p>
-            <i class="fas fa-credit-card rastreio-icone"></i>
-            <p class="rastreio-data">Qua, 1 de Agosto</p>
-            <div class="line"></div>
-        </div>
-        <div class="rastreio-etapa ativo">
-            <p class="rastreio-status-texto">Enviado</p>
-            <i class="fas fa-box rastreio-icone"></i>
-            <p class="rastreio-data">Ter, 06 de Agosto</p>
-            <div class="line"></div>
-        </div>
-        <div class="rastreio-etapa">
-            <p class="rastreio-status-texto">A Caminho</p>
-            <i class="fas fa-truck rastreio-icone"></i>
-            <p class="rastreio-data">Qui, 10 de Agosto</p>
-            <div class="line"></div>
-        </div>
-        <div class="rastreio-etapa">
-            <p class="rastreio-status-texto">Entregue</p>
-            <i class="fas fa-check-circle rastreio-icone"></i>
-            <p class="rastreio-data">Sex, 16 de Agosto</p>
-        </div>
-            
-        </div>
-
-        <!-- div do item pedido -->
-        <div class="rastreio-item">
-            <img src="../../../../public/assets/img/pedido-enviado1.png" alt="Placa de vídeo GTX 1660" class="rastreio-img">
-            <div class="rastreio-info-preco">
-                <div class="rastreio-info">
-                    <p class="rastreio-nome">Placa de vídeo GTX 1660</p>
-                    <p class="rastreio-detalhes">GDDR6 | 6GB | 192-BIT</p>
-                </div>
-                <div class="rastreio-preco">
-                    <h3 class="rastreio-valor"><strong>R$ 1.399,99</strong></h3>
-                    <h3 class="rastreio-quantidade">Quantidade: 1</h3>
-                </div>
-            </div>
-        </div>
-        
-        <div class="rastreio-pagamento-entrega">
-            <div class="rastreio-pagamento-entrega-flex">
-                <div class="rastreio-pagamento">
-                    <h3>Pagamento</h3>
-                    <p class="rastreio-metodo-pagamento">PIX</p>
-                </div>
-                <div class="rastreio-entrega">
-                    <h3>Entrega</h3>
-                    <p class="rastreio-endereco-titulo"><strong>Endereço</strong></p>
-                    <p class="rastreio-endereco">Rua Capiatá, nº 240</p>
-                    <p class="rastreio-bairro-cidade">Novos Estados, Campo Grande - MS</p>
-                    <p class="rastreio-cep">CEP 79034331</p>
-                </div>
-            </div>
-        </div>
-        
-        
-        <div class="rastreio-resumo">
-            <p>Subtotal <span>R$ 6.599,99</span></p>
-            <p>Imposto estimado <span>R$ 50</span></p>
-            <p>Frete <span>Grátis</span></p>
-            <p>Cupons <span>R$ 0,00</span></p>
-            <p class="rastreio-total"><strong>Total</strong> <span><strong>R$ 6.649,97</strong></span></p>
-        </div>
-    </div>
-    
-    
-    <div class="container-rastreio">
-        <!-- Pedido 1 -->
-        <div class="pedido-rastreio">
-            <div class="header-rastreio">
-                <p class="id-rastreio">Ordem ID: 9632145632152</p>
-                <div class="rastreio-botoes">
-                <button class="rastreio-icone2">
-                        <img src="../../../../public/assets/img/nota-rastreio.png" alt="Ícone">
-                    </button>
-                    <button class="rastreio-botao" onclick="toggleDetalhes(this)">Acompanhar Pedido  <i class="fa-solid fa-location-dot"></i></button>
-                </div>
-            </div>
-            
-            <div class="rastreio-info-entrega">
-                <p class="data-rastreio">Data: 01 de janeiro</p>
-                <img src="../../../../public/assets/img/truck-tick.png" alt="Ícone Caminhão" class="rastreio-truck">
-                <p class="entrega-prevista-rastreio verde">Entrega prevista: 16 de Janeiro</p>
-            </div>
-        </div>
-
-        <!-- div do rastreio -->
-        <div class="rastreio-status">
-        <div class="rastreio-etapa ativo">
-            <p class="rastreio-status-texto">Pagamento</p>
-            <i class="fas fa-credit-card rastreio-icone"></i>
-            <p class="rastreio-data">Qua, 1 de Agosto</p>
-            <div class="line"></div>
-        </div>
-        <div class="rastreio-etapa ativo">
-            <p class="rastreio-status-texto">Enviado</p>
-            <i class="fas fa-box rastreio-icone"></i>
-            <p class="rastreio-data">Ter, 06 de Agosto</p>
-            <div class="line"></div>
-        </div>
-        <div class="rastreio-etapa">
-            <p class="rastreio-status-texto">A Caminho</p>
-            <i class="fas fa-truck rastreio-icone"></i>
-            <p class="rastreio-data">Qui, 10 de Agosto</p>
-            <div class="line"></div>
-        </div>
-        <div class="rastreio-etapa">
-            <p class="rastreio-status-texto">Entregue</p>
-            <i class="fas fa-check-circle rastreio-icone"></i>
-            <p class="rastreio-data">Sex, 16 de Agosto</p>
-        </div>
-            
-        </div>
-
-        <!-- div do item pedido -->
-        <div class="rastreio-item">
-            <img src="../../../../public/assets/img/pedido-enviado1.png" alt="Placa de vídeo GTX 1660" class="rastreio-img">
-            <div class="rastreio-info-preco">
-                <div class="rastreio-info">
-                    <p class="rastreio-nome">Placa de vídeo GTX 1660</p>
-                    <p class="rastreio-detalhes">GDDR6 | 6GB | 192-BIT</p>
-                </div>
-                <div class="rastreio-preco">
-                    <h3 class="rastreio-valor"><strong>R$ 1.399,99</strong></h3>
-                    <h3 class="rastreio-quantidade">Quantidade: 1</h3>
-                </div>
-            </div>
-        </div>
-        
-        <div class="rastreio-pagamento-entrega">
-            <div class="rastreio-pagamento-entrega-flex">
-                <div class="rastreio-pagamento">
-                    <h3>Pagamento</h3>
-                    <p class="rastreio-metodo-pagamento">PIX</p>
-                </div>
-                <div class="rastreio-entrega">
-                    <h3>Entrega</h3>
-                    <p class="rastreio-endereco-titulo"><strong>Endereço</strong></p>
-                    <p class="rastreio-endereco">Rua Capiatá, nº 240</p>
-                    <p class="rastreio-bairro-cidade">Novos Estados, Campo Grande - MS</p>
-                    <p class="rastreio-cep">CEP 79034331</p>
-                </div>
-            </div>
-        </div>
-        
-        
-        <div class="rastreio-resumo">
-            <p>Subtotal <span>R$ 6.599,99</span></p>
-            <p>Imposto estimado <span>R$ 50</span></p>
-            <p>Frete <span>Grátis</span></p>
-            <p>Cupons <span>R$ 0,00</span></p>
-            <p class="rastreio-total"><strong>Total</strong> <span><strong>R$ 6.649,97</strong></span></p>
-        </div>
-    </div>
-    
-    
-    <div class="container-rastreio">
-        <!-- Pedido 1 -->
-        <div class="pedido-rastreio">
-            <div class="header-rastreio">
-                <p class="id-rastreio">Ordem ID: 9632145632152</p>
-                <div class="rastreio-botoes">
-                <button class="rastreio-icone2">
-                        <img src="../../../../public/assets/img/nota-rastreio.png" alt="Ícone">
-                    </button>
-                    <button class="rastreio-botao" onclick="toggleDetalhes(this)">Acompanhar Pedido  <i class="fa-solid fa-location-dot"></i></button>
-                </div>
-            </div>
-            
-            <div class="rastreio-info-entrega">
-                <p class="data-rastreio">Data: 01 de janeiro</p>
-                <img src="../../../../public/assets/img/truck-tick.png" alt="Ícone Caminhão" class="rastreio-truck">
-                <p class="entrega-prevista-rastreio verde">Entrega prevista: 16 de Janeiro</p>
-            </div>
-        </div>
-
-        <!-- div do rastreio -->
-        <div class="rastreio-status">
-        <div class="rastreio-etapa ativo">
-            <p class="rastreio-status-texto">Pagamento</p>
-            <i class="fas fa-credit-card rastreio-icone"></i>
-            <p class="rastreio-data">Qua, 1 de Agosto</p>
-            <div class="line"></div>
-        </div>
-        <div class="rastreio-etapa ativo">
-            <p class="rastreio-status-texto">Enviado</p>
-            <i class="fas fa-box rastreio-icone"></i>
-            <p class="rastreio-data">Ter, 06 de Agosto</p>
-            <div class="line"></div>
-        </div>
-        <div class="rastreio-etapa">
-            <p class="rastreio-status-texto">A Caminho</p>
-            <i class="fas fa-truck rastreio-icone"></i>
-            <p class="rastreio-data">Qui, 10 de Agosto</p>
-            <div class="line"></div>
-        </div>
-        <div class="rastreio-etapa">
-            <p class="rastreio-status-texto">Entregue</p>
-            <i class="fas fa-check-circle rastreio-icone"></i>
-            <p class="rastreio-data">Sex, 16 de Agosto</p>
-        </div>
-            
-        </div>
-
-        <!-- div do item pedido -->
-        <div class="rastreio-item">
-            <img src="../../../../public/assets/img/pedido-enviado1.png" alt="Placa de vídeo GTX 1660" class="rastreio-img">
-            <div class="rastreio-info-preco">
-                <div class="rastreio-info">
-                    <p class="rastreio-nome">Placa de vídeo GTX 1660</p>
-                    <p class="rastreio-detalhes">GDDR6 | 6GB | 192-BIT</p>
-                </div>
-                <div class="rastreio-preco">
-                    <h3 class="rastreio-valor"><strong>R$ 1.399,99</strong></h3>
-                    <h3 class="rastreio-quantidade">Quantidade: 1</h3>
-                </div>
-            </div>
-        </div>
-        
-        <div class="rastreio-pagamento-entrega">
-            <div class="rastreio-pagamento-entrega-flex">
-                <div class="rastreio-pagamento">
-                    <h3>Pagamento</h3>
-                    <p class="rastreio-metodo-pagamento">PIX</p>
-                </div>
-                <div class="rastreio-entrega">
-                    <h3>Entrega</h3>
-                    <p class="rastreio-endereco-titulo"><strong>Endereço</strong></p>
-                    <p class="rastreio-endereco">Rua Capiatá, nº 240</p>
-                    <p class="rastreio-bairro-cidade">Novos Estados, Campo Grande - MS</p>
-                    <p class="rastreio-cep">CEP 79034331</p>
-                </div>
-            </div>
-        </div>
-        
-        
-        <div class="rastreio-resumo">
-            <p>Subtotal <span>R$ 6.599,99</span></p>
-            <p>Imposto estimado <span>R$ 50</span></p>
-            <p>Frete <span>Grátis</span></p>
-            <p>Cupons <span>R$ 0,00</span></p>
-            <p class="rastreio-total"><strong>Total</strong> <span><strong>R$ 6.649,97</strong></span></p>
-        </div>
-    </div>
-    
     <?php include __DIR__.'/../../../../includes/footer.php'; ?>
 </body>
 </html>

@@ -20,220 +20,90 @@ if (!isset($_SESSION['usuario']['id'])) {
 <body class="body-pcancelados">
 
 <?php include __DIR__.'/../../../../includes/navbar-logada.php'; ?>
-    <div class="container-pcancelados">
-        <h2 class="titulo-pcancelados">Pedidos Cancelados</h2>
-
-        <div class="pedido-pcancelados">
-            <div class="info-produto-pcancelados">
-                <img src="../../../../public/assets/img/Iphone 14 pro 1.png" alt="Notebook" class="imagem-pcancelados">
-                <div>
-                    <p class="nome-produto-pcancelados">Notebook Samsung Book Intel Celeron</p>
-                    <p class="codigo-produto-pcancelados">#25139526913984</p>
-                </div>
-                <input type="number" class="quantidade-pcancelados" value="1" readonly>
-            </div>
-
-            <div class="detalhes-pcancelados" style="display: none;">
-                <p>Imposto estimado: <strong>R$50</strong></p>
-                <p>Frete: <strong>Grátis</strong></p>
-                <p>Cupons: <strong>R$0,00</strong></p>
-                <p class="total-pcancelados">Total: <strong>R$2.754,99</strong></p>
-            </div>
-
-            <p class="data-cancelamento-pcancelados">Pedido Cancelado em 12/07/2024</p>
-            
-            <button class="toggle-pcancelados">
-                <img src="../../../../public/assets/img/vermais-pcancelados.png" alt="Ver mais">
-            </button>
-        </div>
-
-        <div class="pedido-pcancelados">
-            <div class="info-produto-pcancelados">
-                <img src="../../../../public/assets/img/mouse-pcancelados.png" alt="Mouse Gamer" class="imagem-pcancelados">
-                <div>
-                    <p class="nome-produto-pcancelados">Mouse Gamer Sem Fio Logitech G PRO Wireless</p>
-                    <p class="codigo-produto-pcancelados">#25139526913984</p>
-                </div>
-                <input type="number" class="quantidade-pcancelados" value="1" readonly>
-            </div>
-
-            <div class="detalhes-pcancelados" style="display: none;">
-                <p>Imposto estimado: <strong>R$50</strong></p>
-                <p>Frete: <strong>Grátis</strong></p>
-                <p>Cupons: <strong>R$0,00</strong></p>
-                <p class="total-pcancelados">Total: <strong>R$XXX,XX</strong></p>
-            </div>
-
-            <p class="data-cancelamento-pcancelados">Pedido Cancelado em 12/07/2024</p>
-            
-            <button class="toggle-pcancelados">
-                <img src="../../../../public/assets/img/vermais-pcancelados.png" alt="Ver mais">
-            </button>
-        </div>
-
-        <div class="pedido-pcancelados">
-            <div class="info-produto-pcancelados">
-                <img src="../../../../public/assets/img/gabinete-pcancelados.png" alt="Gabinete Gamer" class="imagem-pcancelados">
-                <div>
-                    <p class="nome-produto-pcancelados">Gabinete Gamer Rise Mode Glass</p>
-                    <p class="codigo-produto-pcancelados">#25139526913984</p>
-                </div>
-                <input type="number" class="quantidade-pcancelados" value="1" readonly>
-            </div>
-
-            <div class="detalhes-pcancelados" style="display: none;">
-                <p>Imposto estimado: <strong>R$50</strong></p>
-                <p>Frete: <strong>Grátis</strong></p>
-                <p>Cupons: <strong>R$0,00</strong></p>
-                <p class="total-pcancelados">Total: <strong>R$XXX,XX</strong></p>
-            </div>
-
-            <p class="data-cancelamento-pcancelados">Pedido Cancelado em 12/07/2024</p>
-            
-            <button class="toggle-pcancelados">
-                <img src="../../../../public/assets/img/vermais-pcancelados.png" alt="Ver mais">
-            </button>
-        </div>
-        <div class="pedido-pcancelados">
-            <div class="info-produto-pcancelados">
-                <img src="../../../../public/assets/img/mouse-pcancelados.png" alt="Mouse Gamer" class="imagem-pcancelados">
-                <div>
-                    <p class="nome-produto-pcancelados">Mouse Gamer Sem Fio Logitech G PRO Wireless</p>
-                    <p class="codigo-produto-pcancelados">#25139526913984</p>
-                </div>
-                <input type="number" class="quantidade-pcancelados" value="1" readonly>
-            </div>
-
-            <div class="detalhes-pcancelados" style="display: none;">
-                <p>Imposto estimado: <strong>R$50</strong></p>
-                <p>Frete: <strong>Grátis</strong></p>
-                <p>Cupons: <strong>R$0,00</strong></p>
-                <p class="total-pcancelados">Total: <strong>R$XXX,XX</strong></p>
-            </div>
-
-            <p class="data-cancelamento-pcancelados">Pedido Cancelado em 12/07/2024</p>
-            
-            <button class="toggle-pcancelados">
-                <img src="../../../../public/assets/img/vermais-pcancelados.png" alt="Ver mais">
-            </button>
-        </div>
-        <div class="pedido-pcancelados">
-            <div class="info-produto-pcancelados">
-                <img src="../../../../public/assets/img/mouse-pcancelados.png" alt="Mouse Gamer" class="imagem-pcancelados">
-                <div>
-                    <p class="nome-produto-pcancelados">Mouse Gamer Sem Fio Logitech G PRO Wireless</p>
-                    <p class="codigo-produto-pcancelados">#25139526913984</p>
-                </div>
-                <input type="number" class="quantidade-pcancelados" value="1" readonly>
-            </div>
-
-            <div class="detalhes-pcancelados" style="display: none;">
-                <p>Imposto estimado: <strong>R$50</strong></p>
-                <p>Frete: <strong>Grátis</strong></p>
-                <p>Cupons: <strong>R$0,00</strong></p>
-                <p class="total-pcancelados">Total: <strong>R$XXX,XX</strong></p>
-            </div>
-
-            <p class="data-cancelamento-pcancelados">Pedido Cancelado em 12/07/2024</p>
-            
-            <button class="toggle-pcancelados">
-                <img src="../../../../public/assets/img/vermais-pcancelados.png" alt="Ver mais">
-            </button>
-        </div>
-        <div class="pedido-pcancelados">
-            <div class="info-produto-pcancelados">
-                <img src="../../../../public/assets/img/mouse-pcancelados.png" alt="Mouse Gamer" class="imagem-pcancelados">
-                <div>
-                    <p class="nome-produto-pcancelados">Mouse Gamer Sem Fio Logitech G PRO Wireless</p>
-                    <p class="codigo-produto-pcancelados">#25139526913984</p>
-                </div>
-                <input type="number" class="quantidade-pcancelados" value="1" readonly>
-            </div>
-
-            <div class="detalhes-pcancelados" style="display: none;">
-                <p>Imposto estimado: <strong>R$50</strong></p>
-                <p>Frete: <strong>Grátis</strong></p>
-                <p>Cupons: <strong>R$0,00</strong></p>
-                <p class="total-pcancelados">Total: <strong>R$XXX,XX</strong></p>
-            </div>
-
-            <p class="data-cancelamento-pcancelados">Pedido Cancelado em 12/07/2024</p>
-            
-            <button class="toggle-pcancelados">
-                <img src="../../../../public/assets/img/vermais-pcancelados.png" alt="Ver mais">
-            </button>
-        </div>
-        <div class="pedido-pcancelados">
-            <div class="info-produto-pcancelados">
-                <img src="../../../../public/assets/img/mouse-pcancelados.png" alt="Mouse Gamer" class="imagem-pcancelados">
-                <div>
-                    <p class="nome-produto-pcancelados">Mouse Gamer Sem Fio Logitech G PRO Wireless</p>
-                    <p class="codigo-produto-pcancelados">#25139526913984</p>
-                </div>
-                <input type="number" class="quantidade-pcancelados" value="1" readonly>
-            </div>
-
-            <div class="detalhes-pcancelados" style="display: none;">
-                <p>Imposto estimado: <strong>R$50</strong></p>
-                <p>Frete: <strong>Grátis</strong></p>
-                <p>Cupons: <strong>R$0,00</strong></p>
-                <p class="total-pcancelados">Total: <strong>R$XXX,XX</strong></p>
-            </div>
-
-            <p class="data-cancelamento-pcancelados">Pedido Cancelado em 12/07/2024</p>
-            
-            <button class="toggle-pcancelados">
-                <img src="../../../../public/assets/img/vermais-pcancelados.png" alt="Ver mais">
-            </button>
-        </div>
-        <div class="pedido-pcancelados">
-            <div class="info-produto-pcancelados">
-                <img src="../../../../public/assets/img/mouse-pcancelados.png" alt="Mouse Gamer" class="imagem-pcancelados">
-                <div>
-                    <p class="nome-produto-pcancelados">Mouse Gamer Sem Fio Logitech G PRO Wireless</p>
-                    <p class="codigo-produto-pcancelados">#25139526913984</p>
-                </div>
-                <input type="number" class="quantidade-pcancelados" value="1" readonly>
-            </div>
-
-            <div class="detalhes-pcancelados" style="display: none;">
-                <p>Imposto estimado: <strong>R$50</strong></p>
-                <p>Frete: <strong>Grátis</strong></p>
-                <p>Cupons: <strong>R$0,00</strong></p>
-                <p class="total-pcancelados">Total: <strong>R$XXX,XX</strong></p>
-            </div>
-
-            <p class="data-cancelamento-pcancelados">Pedido Cancelado em 12/07/2024</p>
-            
-            <button class="toggle-pcancelados">
-                <img src="../../../../public/assets/img/vermais-pcancelados.png" alt="Ver mais">
-            </button>
-        </div>
-        <div class="pedido-pcancelados">
-            <div class="info-produto-pcancelados">
-                <img src="../../../../public/assets/img/mouse-pcancelados.png" alt="Mouse Gamer" class="imagem-pcancelados">
-                <div>
-                    <p class="nome-produto-pcancelados">Mouse Gamer Sem Fio Logitech G PRO Wireless</p>
-                    <p class="codigo-produto-pcancelados">#25139526913984</p>
-                </div>
-                <input type="number" class="quantidade-pcancelados" value="1" readonly>
-            </div>
-
-            <div class="detalhes-pcancelados" style="display: none;">
-                <p>Imposto estimado: <strong>R$50</strong></p>
-                <p>Frete: <strong>Grátis</strong></p>
-                <p>Cupons: <strong>R$0,00</strong></p>
-                <p class="total-pcancelados">Total: <strong>R$XXX,XX</strong></p>
-            </div>
-
-            <p class="data-cancelamento-pcancelados">Pedido Cancelado em 12/07/2024</p>
-            
-            <button class="toggle-pcancelados">
-                <img src="../../../../public/assets/img/vermais-pcancelados.png" alt="Ver mais">
-            </button>
-        </div>
-        
+    <div class="container-pcancelados" id="container-pedidos-cancelados">
+        <!-- Os pedidos cancelados serão carregados dinamicamente aqui -->
     </div>
     <?php include __DIR__.'/../../../../includes/footer.php'; ?>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    fetch('/Tweeb-2025/PI/App/user/Controllers/PedidoController.php?action=obter_pedidos')
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                const pedidos = data.pedidos.filter(p => p.status_pedido === 'cancelado');
+                renderizarPedidosCancelados(pedidos);
+            } else {
+                document.getElementById('container-pedidos-cancelados').innerHTML = '<p>Erro ao carregar pedidos cancelados.</p>';
+            }
+        });
+});
+
+function renderizarPedidosCancelados(pedidos) {
+    const container = document.getElementById('container-pedidos-cancelados');
+    if (!pedidos.length) {
+        container.innerHTML = '<p>Você não possui pedidos cancelados.</p>';
+        return;
+    }
+    container.innerHTML = '';
+    pedidos.forEach(pedido => {
+        container.innerHTML += `
+        <div class="pedido-pcancelados" data-id="${pedido.id_pedido}">
+            <div class="info-produto-pcancelados">
+                <img src="../../../../public/assets/img/pedido-enviado1.png" alt="Produto" class="imagem-pcancelados">
+                <div>
+                    <p class="nome-produto-pcancelados">Pedido #${pedido.id_pedido}</p>
+                    <p class="codigo-produto-pcancelados">${pedido.data_pedido ? new Date(pedido.data_pedido).toLocaleDateString() : ''}</p>
+                </div>
+                <input type="number" class="quantidade-pcancelados" value="1" readonly>
+            </div>
+            <div class="detalhes-pcancelados" style="display: none;"></div>
+            <p class="data-cancelamento-pcancelados">Pedido Cancelado</p>
+            <button class="toggle-pcancelados">
+                <img src="../../../../public/assets/img/vermais-pcancelados.png" alt="Ver mais">
+            </button>
+        </div>
+        `;
+    });
+    // Adiciona evento de toggle para cada botão
+    document.querySelectorAll('.toggle-pcancelados').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const pedidoDiv = btn.closest('.pedido-pcancelados');
+            const detalhes = pedidoDiv.querySelector('.detalhes-pcancelados');
+            if (detalhes.style.display === 'none' || detalhes.style.display === '') {
+                // Fecha todos os outros detalhes
+                document.querySelectorAll('.detalhes-pcancelados').forEach(d => d.style.display = 'none');
+                detalhes.style.display = 'block';
+                // Carrega os itens do pedido dinamicamente
+                const idPedido = pedidoDiv.getAttribute('data-id');
+                fetch(`/Tweeb-2025/PI/App/user/Controllers/PedidoController.php?action=obter_pedido&id_pedido=${idPedido}`)
+                    .then(resp => resp.json())
+                    .then(data => {
+                        if (data.success && data.itens.length) {
+                            detalhes.innerHTML = data.itens.map(item => `
+                                <div class='rastreio-item'>
+                                    <img src='../../../../public/assets/img/${item.imagem_produto}' alt='${item.nome_produto}' class='imagem-pcancelados'>
+                                    <div class='rastreio-info-preco'>
+                                        <div class='rastreio-info'>
+                                            <p class='rastreio-nome'>${item.nome_produto}</p>
+                                            <p class='rastreio-detalhes'>${item.marca_modelo || ''}</p>
+                                        </div>
+                                        <div class='rastreio-preco'>
+                                            <h3 class='rastreio-valor'><strong>R$ ${(item.subtotal).toLocaleString('pt-BR', {minimumFractionDigits:2})}</strong></h3>
+                                            <h3 class='rastreio-quantidade'>Quantidade: ${item.quantidade}</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            `).join('');
+                        } else {
+                            detalhes.innerHTML = '<p>Nenhum item encontrado.</p>';
+                        }
+                    });
+            } else {
+                detalhes.style.display = 'none';
+            }
+        });
+    });
+}
+</script>
 </body>
 </html>

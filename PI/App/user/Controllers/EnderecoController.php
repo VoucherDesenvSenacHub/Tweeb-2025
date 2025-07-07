@@ -44,6 +44,12 @@ switch ($action) {
             $enderecos_array[] = [
                 'id_endereco' => $endereco->id_endereco,
                 'nome_endereco' => $endereco->nome_endereco,
+                'rua' => $endereco->rua,
+                'numero' => $endereco->numero,
+                'cep' => $endereco->cep,
+                'bairro' => $endereco->bairro,
+                'cidade' => $endereco->cidade,
+                'estado' => $endereco->estado,
                 'endereco_completo' => "{$endereco->rua}, {$endereco->numero}, {$endereco->bairro}, {$endereco->cidade} - {$endereco->estado}, {$endereco->cep}"
             ];
         }
