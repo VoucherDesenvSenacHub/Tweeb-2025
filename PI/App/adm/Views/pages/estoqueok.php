@@ -162,7 +162,6 @@ if ($id_produto !== null) {
 }
 
 
-
 ?>
 
 <!DOCTYPE html>
@@ -174,102 +173,18 @@ if ($id_produto !== null) {
     <title>Cadastro de Produto</title>
     <link rel="stylesheet" href="styles.css">
     <script defer src="script.js"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap');
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Montserrat', sans-serif;
-        }
-       
-        .cadastrando-products {
-            width: 90%;
-            max-width: 1100px;
-            /* background: #fff; */
-            padding: 20px;
-            border-radius: 8px;
-            /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
-            margin-top: 20px;
-          
-        }
-
-        .form-listarP_editar{
-            border: none;
-            background: none;
-        }
-
-        .cadastrando-products-pai{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        nav {
-            display: flex;
-            /* border-bottom: 2px solid #ddd; */
-            margin-bottom: 20px;
-        }
-        nav a {
-            text-decoration: none;
-            padding: 10px 15px;
-            color: #333;
-        }
-        nav a.active {
-            border-bottom: 2px solid black;
-        }
-        h2, h3 {
-            margin-bottom: 35px;
-        }
-        .form-group {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-bottom: 25px;
-        }
-        .form-group label {
-            flex: 1 1 30%;
-        }
-        .form-group input, .form-group select, .form-group textarea {
-            flex: 2 1 65%;
-            padding: 8px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-        textarea {
-            height: 80px;
-        }
-        .icons {
-            display: flex;
-            justify-content: space-around;
-            margin-top: 15px;
-            font-size: 14px;
-            color: #666;
-        }
-        #save-button {
-            width: 150px;
-            padding: 10px;
-            background: #ff6600;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-            margin-top: 30px;
-        }
-        #save-button:hover {
-            background: #e05500;
-        }
-    </style>
-</head>
+    </head>
 <body class='produtos_listados'>
     <?php include __DIR__.'/../../../../includes/head-adm.php'; ?>
     <?php include __DIR__.'/../../../../includes/sidebar-Adm.php'; ?>
     <div class="cadastrando-products-pai">
         <div class="cadastrando-products">
             <nav>
-                <a href="#" class="active" id="btn-novo-produto">Novo Produto</a>
-                <a href="#" id="btn-cadastrados">Cadastrados</a>
-                <a href="#" id="btn-inativos">Inativos</a>
+            <a href="#" class="active" id="btn-cadastrados">Visão Geral</a>
+            <a href="#" class="" id="btn-pedidos">Pedidos</a>
+            <a href="#" class="" id="btn-enviados">Enviados</a>
+            <a href="#" class="active" id="btn-novo-produto">Novo Produto</a>
+            <a href="#" id="btn-inativos">Inativos</a>
             </nav>
             <h2 id='titulo-cadastro-produto'>Detalhes do Produto</h2>
 
@@ -376,7 +291,7 @@ if ($id_produto !== null) {
 let dados_tabela = document.getElementById('rows_products');
 
 async function load_table() {
-    console.log("AQuiiiiiii 2.0");
+    
 
     let dados_php = await fetch('../../../../actions/listar_produtos.php');
     let response = await dados_php.json();
@@ -412,14 +327,122 @@ async function load_table() {
 
 
 
-// Ao clicar no botão "Cadastrados"
+// // Ao clicar no botão "Cadastrados"
+// document.getElementById("btn-cadastrados").addEventListener("click", async function(event) {
+//     event.preventDefault();
+
+//     // Esconde o formulário
+//     document.getElementById('product-form').style.display = 'none';
+
+//     // Cria a estrutura básica da tabela com tbody id "rows_products"
+//     const tabelaHTML = `
+    
+//         <table class="listarP-table">
+//             <thead class="thead-listarP">
+//                 <tr class="tr-listarP">
+//                     <th class="th-listarP">Foto</th>
+//                     <th class="th-listarP">Produto</th>
+//                     <th class="th-listarP">Valor</th>
+//                     <th class="th-listarP">Quantidade</th>
+//                     <th class="th-listarP">Departamentos</th>
+//                     <th class="th-listarP">Alterar</th>
+//                 </tr>
+//             </thead>
+//             <tbody id="rows_products" class="tbody-listarP"></tbody>
+//         </table>
+//     `;
+//     document.getElementById('tabela-produtos').innerHTML = tabelaHTML;
+
+//     // Atualiza a variável dados_tabela para o novo tbody inserido
+//     dados_tabela = document.getElementById('rows_products');
+
+//     // Chama a função que carrega os produtos
+//     await load_table();
+
+//     // Altera o título
+//     document.getElementById('titulo-cadastro-produto').textContent = 'Produtos Cadastrados';
+
+//     // Ajusta navegação ativa
+//     document.getElementById('btn-novo-produto').classList.remove('active');
+//     this.classList.add('active');
+//     document.getElementById('btn-inativos').classList.remove('active');
+//     this.classList.add('active');
+
+// });
+
 document.getElementById("btn-cadastrados").addEventListener("click", async function(event) {
     event.preventDefault();
 
-    // Esconde o formulário
+    // Esconde o formulário de novo produto
     document.getElementById('product-form').style.display = 'none';
 
-    // Cria a estrutura básica da tabela com tbody id "rows_products"
+    // Cria o HTML com as categorias + filtros
+    const infoEstoqueHTML = `
+        <div class="centralizar-categorias">
+            <div class="adm-estoque-caterogias">
+
+                <div class="estoque-categoria">
+                    <img src="../../../../public/assets/img/computadores-icon.png" alt="">
+                    <h1 class="visao-geral-adm-estoque">Computadores</h1>
+                    <div class="estoque-progresso"></div>
+                    <p><span>200</span> | Estoque min: 35</p>
+                </div>
+
+                <div class="estoque-categoria">
+                    <img src="../../../../public/assets/img/phone-icon.png" alt="">
+                    <h1 class="visao-geral-adm-estoque">Hardwares</h1>
+                    <div class="estoque-progresso"></div>
+                    <p><span>600</span> | Estoque min: 100</p>
+                </div>
+
+                <div class="estoque-categoria">
+                    <img src="../../../../public/assets/img/perifericos-icon.png" alt="">
+                    <h1 class="visao-geral-adm-estoque">Periféricos</h1>
+                    <div class="estoque-progresso"></div>
+                    <p><span>500</span> | Estoque min: 142</p>
+                </div>
+
+                <div class="estoque-categoria">
+                    <img src="../../../../public/assets/img/energia-icon.png" alt="">
+                    <h1 class="visao-geral-adm-estoque">Energia</h1>
+                    <div class="estoque-progresso"></div>
+                    <p><span>160</span> | Estoque min: 67</p>
+                </div>
+
+                <div class="estoque-categoria">
+                    <img src="../../../../public/assets/img/audio-icon.png" alt="">
+                    <h1 class="visao-geral-adm-estoque">Áudio</h1>
+                    <div class="estoque-progresso"></div>
+                    <p><span>256</span> | Estoque min: 108</p>
+                </div>
+
+                <div class="estoque-categoria">
+                    <img src="../../../../public/assets/img/jogos-icon.png" alt="">
+                    <h1 class="visao-geral-adm-estoque">Jogos</h1>
+                    <div class="estoque-progresso"></div>
+                    <p><span>123</span> | Estoque min: 50</p>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="filtro-formulario">
+            <form action="">
+                <div class="form-group-estoque">
+                    <label for="filtrar-nome">Nome</label>
+                    <input type="text" id="filtrar-nome" name="filtrar-nome" placeholder="filtrar nome">
+
+                    <label for="filtrar-id">Número ID</label>
+                    <input type="text" id="filtrar-id" name="filtrar-id" placeholder="filtrar nº">
+
+                    <input class="form-botao-limpar" type="submit" value="Limpar">
+                    <input class="form-botao-buscar" type="submit" value="Buscar">
+                </div>
+            </form>
+        </div>
+    `;
+
+    // Cria a tabela
     const tabelaHTML = `
         <table class="listarP-table">
             <thead class="thead-listarP">
@@ -435,24 +458,26 @@ document.getElementById("btn-cadastrados").addEventListener("click", async funct
             <tbody id="rows_products" class="tbody-listarP"></tbody>
         </table>
     `;
-    document.getElementById('tabela-produtos').innerHTML = tabelaHTML;
 
-    // Atualiza a variável dados_tabela para o novo tbody inserido
+    // Junta tudo no container principal (tabela-produtos)
+    document.getElementById('tabela-produtos').innerHTML = infoEstoqueHTML + tabelaHTML;
+
+    // Atualiza referência do tbody
     dados_tabela = document.getElementById('rows_products');
 
-    // Chama a função que carrega os produtos
+    // Carrega os dados da tabela
     await load_table();
 
-    // Altera o título
+    // Atualiza o título da seção
     document.getElementById('titulo-cadastro-produto').textContent = 'Produtos Cadastrados';
 
-    // Ajusta navegação ativa
+    // Ativa o botão "Cadastrados" e desativa os outros
     document.getElementById('btn-novo-produto').classList.remove('active');
-    this.classList.add('active');
     document.getElementById('btn-inativos').classList.remove('active');
     this.classList.add('active');
-
 });
+
+
 
 async function load_table2() {
     console.log("AQuiiiiiii 2.0");
@@ -549,8 +574,102 @@ document.getElementById("btn-inativos").addEventListener("click", async function
             document.getElementById('btn-cadastrados').classList.remove('active');
             this.classList.add('active');
         });
+
+        
+      
+        
     </script>
     <script src="../../js_adm/load_table.js"></script>
+
+    <!-- Modal para editar produto -->
+<div id="modalEditarProduto" class="modal">
+  <div class="modal-content">
+    <span class="close-modal">&times;</span>
+    <h2 class="titulo-modal">Editar Produto</h2>
+    <form id="formEditarProduto" method="post" action="processa-editar-produto.php">
+      <input type="hidden" name="id" id="produto-id">
+
+      <label for="produto-nome">Produto</label>
+      <input type="text" id="produto-nome" name="produto_nome" required>
+
+      <label for="produto-departamento">Departamento</label>
+      <input type="text" id="produto-departamento" name="produto_departamento" required>
+
+      <label for="produto-quantidade">QTD Entrada</label>
+      <input type="number" id="produto-quantidade" name="produto_quantidade" required>
+
+      <label for="produto-valor-und">Valor UND</label>
+      <input type="text" id="produto-valor-und" name="produto_valor_und" required>
+
+      <label for="produto-valor-total">Valor Total</label>
+      <input type="text" id="produto-valor-total" name="produto_valor_total" required>
+
+      <label for="produto-estoque">Estoque</label>
+      <input type="text" id="produto-estoque" name="produto_estoque" required>
+
+      <label for="produto-fornecedor">Fornecedor</label>
+      <input type="text" id="produto-fornecedor" name="produto_fornecedor" required>
+
+      <label for="produto-status">Status</label>
+      <input type="text" id="produto-status" name="produto_status" required>
+
+      <button class="btao-salvar">Salvar</button>
+    </form>
+
+    <script>
+  // Elementos do modal
+  const modal = document.getElementById('modalEditarProduto');
+  const closeModalBtn = modal.querySelector('.close-modal');
+  const form = document.getElementById('formEditarProduto');
+
+  // Função para abrir modal e preencher dados da linha clicada
+  function abrirModalEditar(event) {
+    const btn = event.currentTarget;
+    const tr = btn.closest('tr');
+
+    // Captura dados da linha (colunas)
+    const id = tr.children[0].innerText.trim();
+    const produtoNome = tr.children[2].innerText.trim();
+    const departamento = tr.children[3].innerText.trim();
+    const quantidade = tr.children[4].innerText.trim();
+    const valorUnd = tr.children[5].innerText.trim();
+    const valorTotal = tr.children[6].innerText.trim();
+    const estoque = tr.children[7].innerText.trim();
+    const fornecedor = tr.children[8].innerText.trim();
+    const status = tr.children[9].innerText.trim();
+
+    // Preenche inputs do formulário
+    document.getElementById('produto-id').value = id;
+    document.getElementById('produto-nome').value = produtoNome;
+    document.getElementById('produto-departamento').value = departamento;
+    document.getElementById('produto-quantidade').value = quantidade;
+    document.getElementById('produto-valor-und').value = valorUnd;
+    document.getElementById('produto-valor-total').value = valorTotal;
+    document.getElementById('produto-estoque').value = estoque;
+    document.getElementById('produto-fornecedor').value = fornecedor;
+    document.getElementById('produto-status').value = status;
+
+    // Exibe modal
+    modal.style.display = 'block';
+  }
+
+  // Fecha modal ao clicar no "x"
+  closeModalBtn.onclick = () => {
+    modal.style.display = 'none';
+  };
+
+  // Fecha modal ao clicar fora da área do conteúdo
+  window.onclick = (event) => {
+    if (event.target === modal) {
+      modal.style.display = 'none';
+    }
+  };
+
+  // Aplica o evento a todos os botões editar
+  document.querySelectorAll('.botao-editar-nota').forEach(button => {
+    button.addEventListener('click', abrirModalEditar);
+  });
+</script>
 
 </body>
 </html>

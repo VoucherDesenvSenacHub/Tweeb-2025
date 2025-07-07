@@ -13,7 +13,7 @@ class Produto{
     public string $marca_modelo;
     public int $quantidade_produto;
     public string $imagem_produto;
-    public int $numero_serie;
+    public string $numero_serie;
     public float $custo_produto;
     public string $cor_produto;
     public float $preco_unid;
