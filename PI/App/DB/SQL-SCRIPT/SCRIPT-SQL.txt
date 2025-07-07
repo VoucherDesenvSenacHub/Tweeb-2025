@@ -616,3 +616,102 @@ CREATE TABLE IF NOT EXISTS carrinho_items (
 -- Índices para melhor performance
 CREATE INDEX idx_carrinho_usuario ON carrinho_items (id_usuario);
 CREATE INDEX idx_carrinho_produto ON carrinho_items (id_produto);
+
+
+
+
+
+
+
+
+
+
+
+CREATE TABLE IF NOT EXISTS pedidos (
+    id_pedido INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    id_usuario INT NOT NULL,
+    id_endereco INT NOT NULL,
+    valor_total DECIMAL(10,2) NOT NULL,
+    valor_frete DECIMAL(10,2) DEFAULT 0.00,
+    metodo_envio VARCHAR(50) NOT NULL,
+    data_entrega_estimada DATE,
+    status_pedido ENUM('pendente', 'pago', 'preparando', 'enviado', 'entregue', 'cancelado') DEFAULT 'pendente',
+    metodo_pagamento VARCHAR(50) NOT NULL,
+    status_pagamento ENUM('pendente', 'aprovado', 'rejeitado') DEFAULT 'pendente',
+    codigo_rastreio VARCHAR(100),
+    observacoes TEXT,
+    data_pedido TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    data_atualizacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (id_usuario) REFERENCES usuarios (id) ON DELETE CASCADE,
+    FOREIGN KEY (id_endereco) REFERENCES enderecos (id_endereco) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Tabela de itens do pedido
+CREATE TABLE IF NOT EXISTS pedido_itens (
+    id_item_pedido INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    id_pedido INT NOT NULL,
+    id_produto INT NOT NULL,
+    quantidade INT NOT NULL,
+    preco_unitario DECIMAL(10,2) NOT NULL,
+    subtotal DECIMAL(10,2) NOT NULL,
+    FOREIGN KEY (id_pedido) REFERENCES pedidos (id_pedido) ON DELETE CASCADE,
+    FOREIGN KEY (id_produto) REFERENCES produtos (id_produto) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Tabela de histórico de status do pedido
+CREATE TABLE IF NOT EXISTS pedido_status_historico (
+    id_historico INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    id_pedido INT NOT NULL,
+    status_anterior VARCHAR(50),
+    status_novo VARCHAR(50) NOT NULL,
+    observacao TEXT,
+    data_mudanca TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (id_pedido) REFERENCES pedidos (id_pedido) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Tabela de configurações de frete
+CREATE TABLE IF NOT EXISTS config_frete (
+    id_config INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    nome_servico VARCHAR(100) NOT NULL,
+    valor_frete DECIMAL(10,2) NOT NULL,
+    prazo_entrega_dias INT NOT NULL,
+    ativo BOOLEAN DEFAULT TRUE,
+    descricao TEXT
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Inserir configurações padrão de frete (apenas se a tabela estiver vazia)
+INSERT INTO config_frete (nome_servico, valor_frete, prazo_entrega_dias, descricao) 
+SELECT * FROM (
+    SELECT 'Envio Comum' as nome_servico, 0.00 as valor_frete, 7 as prazo_entrega_dias, 'Entrega padrão gratuita' as descricao
+) AS temp
+WHERE NOT EXISTS (SELECT 1 FROM config_frete WHERE nome_servico = 'Envio Comum');
+
+INSERT INTO config_frete (nome_servico, valor_frete, prazo_entrega_dias, descricao) 
+SELECT * FROM (
+    SELECT 'Envio Expresso' as nome_servico, 8.50 as valor_frete, 3 as prazo_entrega_dias, 'Entrega rápida com prazo reduzido' as descricao
+) AS temp
+WHERE NOT EXISTS (SELECT 1 FROM config_frete WHERE nome_servico = 'Envio Expresso');
+
+INSERT INTO config_frete (nome_servico, valor_frete, prazo_entrega_dias, descricao) 
+SELECT * FROM (
+    SELECT 'Envio Agendado' as nome_servico, 5.00 as valor_frete, 10 as prazo_entrega_dias, 'Entrega em data específica' as descricao
+) AS temp
+WHERE NOT EXISTS (SELECT 1 FROM config_frete WHERE nome_servico = 'Envio Agendado');
+
+-- Índices para melhor performance
+CREATE INDEX  idx_pedidos_usuario ON pedidos (id_usuario);
+CREATE INDEX  idx_pedidos_status ON pedidos (status_pedido);
+CREATE INDEX  idx_pedidos_data ON pedidos (data_pedido);
+CREATE INDEX  idx_pedido_itens_pedido ON pedido_itens (id_pedido);
+CREATE INDEX idx_pedido_itens_produto ON pedido_itens (id_produto);
+CREATE INDEX  idx_historico_pedido ON pedido_status_historico (id_pedido);
+
+-- Verificar se as tabelas foram criadas
+SHOW TABLES LIKE '%pedido%';
+SHOW TABLES LIKE '%frete%';
+
+-- Mostrar estrutura das tabelas criadas
+DESCRIBE pedidos;
+DESCRIBE pedido_itens;
+DESCRIBE pedido_status_historico;
+DESCRIBE config_frete;
