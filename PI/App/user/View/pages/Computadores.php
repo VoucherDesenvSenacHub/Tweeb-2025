@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -8,7 +11,14 @@
     <title>Tweeb - Computadores</title>
 </head>
 <body class="Computadores">
-<?php include __DIR__.'/../../../../includes/navbar-logada.php'; ?>
+<?php
+    if (isset($_SESSION['usuario'])) {
+        include __DIR__.'/../../../../includes/navbar.php'; 
+        include __DIR__.'/../../../../includes/sidebar-User.php'; 
+    } else {
+        include __DIR__.'/../../../../includes/navbar.php'; 
+    }
+    ?>
 
 <div class="Computadores-container_banner">
     <img src="../../../../public/assets/img/banner-departamento-computador.png" alt="banner-Computadores" class="Computadores-banner">
