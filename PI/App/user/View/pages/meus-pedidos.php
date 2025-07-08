@@ -20,6 +20,7 @@ $pedidos = Pedido::obterPedidosUsuario($id_usuario);
     <title>Meus Pedidos - Tweeb</title>
     <link rel="stylesheet" href="../../../../public/css/meus-pedidos.css">
     <?php include __DIR__.'/../../../../includes/headernavb.php'; ?>
+    <?php include __DIR__.'/../../../../includes/sidebar-User.php'; ?>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 </head>
