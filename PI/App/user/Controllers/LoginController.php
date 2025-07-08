@@ -1,14 +1,19 @@
 <?php
 
-require_once __DIR__ . '/../Models/Usuario.php';
-require_once __DIR__ . '/../../DB/Database.php';
 
-session_start();
+require_once __DIR__ . '/../Models/Usuario.php';
+
+
+if (session_status() !== PHP_SESSION_ACTIVE) {
+    session_start();
+}
+
+
 header('Content-Type: application/json');
 
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    echo json_encode(['sucesso' => false, 'mensagem' => 'Método não permitido']);
+    echo json_encode(['sucesso' => false, 'mensagem' => 'Método não permitido. Use POST.']);
     exit;
 }
 
@@ -16,62 +21,42 @@ $dados = json_decode(file_get_contents('php://input'), true);
 $email = trim($dados['email'] ?? '');
 $senha = $dados['senha'] ?? '';
 
-// Valida os dados
 if (empty($email) || empty($senha)) {
-    echo json_encode(['sucesso' => false, 'mensagem' => 'Email e senha são obrigatórios']);
+    echo json_encode(['sucesso' => false, 'mensagem' => 'Email e senha são obrigatórios.']);
     exit;
 }
 
 try {
-    $db = new Database();
-    $pdo = $db->conn;
-
-    // Busca o usuário
-    $stmt = $pdo->prepare('SELECT * FROM usuarios WHERE email = ?');
-    $stmt->execute([$email]);
-    $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
-    // Verifica se encontrou o usuário
-    if (!$usuario) {
-        echo json_encode(['sucesso' => false, 'mensagem' => 'Usuário não encontrado']);
+    $usuario = Usuario::buscarPorEmail($email);
+    if (!$usuario || !password_verify($senha, $usuario['senha'])) {
+        echo json_encode(['sucesso' => false, 'mensagem' => 'Email ou senha inválidos.']);
+        exit;
+    }
+    if ($usuario['tipo'] !== 'cliente') {
+        echo json_encode([
+            'sucesso' => false, 
+            'mensagem' => 'Acesso negado. Este login é exclusivo para clientes.'
+        ]);
         exit;
     }
 
-    // Verifica a senha
-    if (!password_verify($senha, $usuario['senha'])) {
-        echo json_encode(['sucesso' => false, 'mensagem' => 'Senha incorreta']);
-        exit;
-    }
-
-    // Busca o CPF do usuário na tabela clientes
-    $stmt = $pdo->prepare('SELECT cpf FROM clientes WHERE id_usuario = ?');
-    $stmt->execute([$usuario['id']]);
-    $cliente = $stmt->fetch(PDO::FETCH_ASSOC);
-
-    // Cria a sessão
+    // 9. Se tudo deu certo, cria a Sessão
     $_SESSION['usuario'] = [
-        'id'           => $usuario['id'],
-        'nome'         => $usuario['nome'],
-        'sobrenome'    => $usuario['sobrenome'] ?? '',
-        'email'        => $usuario['email'],
-        'telefone'     => $usuario['telefone'] ?? '',
-        'tipo'         => $usuario['tipo'],
-        'cpf'          => $cliente['cpf'] ?? '',
-        'foto_perfil'  => $usuario['foto_perfil'] ?? 'imagem_padrao.png'
+        'id'          => $usuario['id'],
+        'nome'        => $usuario['nome'],
+        'sobrenome'   => $usuario['sobrenome'] ?? '',
+        'email'       => $usuario['email'],
+        'telefone'    => $usuario['telefone'] ?? '',
+        'tipo'        => $usuario['tipo'],
+        'cpf'         => $usuario['cpf'] ?? '',
+        'foto_perfil' => $usuario['foto_perfil'] ?? 'imagem_padrao.png'
     ];
-
-    // Retorna sucesso
     echo json_encode([
         'sucesso' => true,
-        'mensagem' => 'Login realizado com sucesso!',
-        'usuario' => [
-            'id' => $usuario['id'],
-            'nome' => $usuario['nome'],
-            'email' => $usuario['email'],
-            'tipo' => $usuario['tipo']
-        ]
+        'mensagem' => 'Login realizado com sucesso!'
     ]);
 
-} catch (PDOException $e) {
-    error_log('Erro no login: ' . $e->getMessage());
-    echo json_encode(['sucesso' => false, 'mensagem' => 'Erro ao fazer login. Por favor, tente novamente.']);
+} catch (Exception $e) {
+    error_log('Erro crítico no LoginController: ' . $e->getMessage());
+    echo json_encode(['sucesso' => false, 'mensagem' => 'Ocorreu um erro inesperado no servidor. Tente novamente mais tarde.']);
 }

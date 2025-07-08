@@ -16,7 +16,7 @@ class Usuario {
         if (!empty($dados)) {
             $this->id           = $dados['id'] ?? 0;
             $this->nome         = $dados['nome'] ?? '';
-            $this->sobrenome    = $dados['sobrenome'] ?? null; // ✅ agora incluso corretamente
+            $this->sobrenome    = $dados['sobrenome'] ?? null; 
             $this->email        = $dados['email'] ?? '';
             $this->senha        = $dados['senha'] ?? '';
             $this->cpf          = $dados['cpf'] ?? '';
@@ -74,10 +74,18 @@ class Usuario {
         return $db->select("id = $id")->fetchObject(self::class);
     }
 
-    public static function buscarPorEmail($email) {
-        $db2 = new Database(); 
-        $dados = $db2->buscarUsuarioComCpfPorEmail($email);
-        return $dados;
+    public static function buscarPorEmail(string $email) {
+        try {
+          
+            $db = new Database();
+            return $db->buscarUsuarioComCpfPorEmail($email);
+
+        } catch (Exception $e) {
+            
+            error_log("Erro no Model Usuario ao buscar por email: " . $e->getMessage());
+            
+            return false;
+        }
     }
 
     public function excluir($id) {

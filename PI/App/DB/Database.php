@@ -20,7 +20,8 @@ class Database{
             $this->conn->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
         } catch (PDOException $err) {
             //retirar msg em produção
-            die("Connection Failed: " . $err->getMessage());
+            error_log("Erro de Conexão com o Banco: " . $err->getMessage());
+            throw new Exception("Não foi possível conectar ao banco de dados.");
         }
     }
 
@@ -33,7 +34,7 @@ class Database{
             return $stmt;
         }catch (PDOException $err) {
             //retirar msg em produção
-            die("Connection Failed " . $err->getMessage());
+            throw $err;
         }
     }
 
