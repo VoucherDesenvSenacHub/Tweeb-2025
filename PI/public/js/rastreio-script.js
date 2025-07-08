@@ -1,4 +1,3 @@
-
 function toggleDetalhes(botao) {
     let pedidoContainer = botao.closest('.container-rastreio');
     let detalhes = pedidoContainer.querySelectorAll('.rastreio-status, .rastreio-item, .rastreio-pagamento-entrega, .rastreio-resumo');
@@ -34,4 +33,3 @@ function toggleDetalhes(botao) {
 
     botao.firstChild.textContent = estaAberto ? "Acompanhar Pedido" : "Ocultar Detalhes";
 }
-
