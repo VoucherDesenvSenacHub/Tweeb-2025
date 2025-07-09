@@ -1,6 +1,18 @@
+
+<?php
+if (session_status() !== PHP_SESSION_ACTIVE) {
+    session_start();
+}
+if (!isset($_SESSION['usuario']['id'])) {
+    header('Location: login.php');
+    exit();
+}
+?>
+
+
 <?php include __DIR__.'/../../../../includes/headernavb.php'; ?>
 <body>
-<?php include __DIR__.'/../../../../includes/navbar-logada.php'; ?>
+<?php include __DIR__.'/../../../../includes/navbar.php'; ?>
 
     <div class="container-produto">
         <div class="produto-img">

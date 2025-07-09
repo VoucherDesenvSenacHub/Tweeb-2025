@@ -50,7 +50,7 @@
     <div class="container-resetar">
         <div class="forms-resetar">
             <form method="POST" id="form-resetar-senha">
-                <input name="token" id="token" type="hidden" value="<?php echo($_GET['token']); ?>">
+            <input name="token" id="token" type="hidden" value="<?php echo isset($_GET['token']) ? htmlspecialchars($_GET['token']) : ''; ?>">
                 <a href="./login.php" class="voltar"><i class='bx bx-chevron-left'></i>< Voltar</a>
                 <h1 class="titulo">Refazer Senha</h1>
                 <p class="sutitulo">Sua conta irá ser resetada. Por favor, digite uma nova senha para sua conta.</p>
