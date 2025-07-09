@@ -1,30 +1,30 @@
-.Audio {
+.Search {
     overflow-x: hidden;
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
 
-.Audio-container_banner img {
+.Search-container_banner img {
     width: 100%;
     height: 472px;
     margin-top: 40px;
 }
 
-.Audio-h1 {
+.Search-h1 {
     font-size: 62px;
     font-family: "Inter", serif;
     display: flex;
     margin-left: 5%;
 }
 
-.Audio-p {
+.Search-p {
     font-size: 22px;
     font-family: "Nunito", serif;
     font-weight: bold;
     margin-left: 7%;
 }
-.Audio-container_titles {
+.Search-container_titles {
     margin-top: 20px;
     margin-left: 130px;
 }
@@ -44,7 +44,6 @@
     border-radius: 9px;
     padding: 15px;
     box-sizing: border-box;
-    /* LARGURA AJUSTADA AQUI para criar espaço para o alinhamento */
     width: 31%;
     display: flex;
     flex-direction: column;
@@ -107,102 +106,98 @@
 }
 
 /* ================================== */
-/* CSS PARA PAGINAÇÃO - VERSÃO REFINADA */
+/* CSS PARA PAGINAÇÃO - VERSÃO SEARCH */
 /* ================================== */
 
-.Audio-pages-container {
+.Search-pages-container {
     display: flex;
     justify-content: flex-end;
     width: 100%;
     margin: 30px 0;
-    padding-right: 5%; /* Usando porcentagem para ser mais responsivo */
+    padding-right: 5%; 
     box-sizing: border-box;
 }
 
-.Audio-pages {
+.Search-pages {
     display: flex;
     flex-wrap: wrap;
-    gap: 6px; /* Espaço reduzido entre botões */
+    gap: 6px; 
     align-items: center;
 }
 
-/* Estilo base compacto */
-.Audio-pages a,
-.Audio-pages span {
+/* Estilo base para todos os botões de página */
+.Search-pages a {
     text-decoration: none;
-    padding: 6px 12px; /* Tamanho reduzido */
+    padding: 6px 12px;
     border: 1px solid #e0e0e0;
     border-radius: 4px;
     font-family: "Nunito", sans-serif;
-    font-size: 0.9rem; /* Fonte um pouco menor */
+    font-size: 0.9rem;
     display: inline-block;
     transition: all 0.2s ease;
     background-color: #f8f8f8;
     color: #555;
 }
 
-/* Hover elegante */
-.Audio-page2-button:hover {
+/* Efeito hover para botões não ativos */
+.Search-page-button:hover {
     background-color: #291E40 !important;
     color: white !important;
     border-color: #291E40;
-    transform: translateY(-1px); /* Efeito sutil de levantar */
+    transform: translateY(-1px);
 }
 
-/* Página ativa */
-.Audio-page1-button {
+/* Estilo para o botão da página ativa */
+.Search-page-active {
     background-color: #291E40;
     color: white;
     border-color: #291E40;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* Elementos de texto */
-.Audio-pages span.Audio-page2-number {
-    background-color: transparent;
-    border: none;
-    padding: 0 5px;
-}
+/* ================================== */
+/* MEDIA QUERIES             */
+/* ================================== */
 
 @media (max-width: 1440px) {
-    .Audio-container_banner img {
+    .Search-container_banner img {
         height: 400px;
     }
-    .Audio-h1 {
+    .Search-h1 {
         font-size: 52px;
         margin: 0%;
     }
 }
 
 @media (max-width: 1024px) {
-    .Audio-container_banner img {
+    .Search-container_banner img {
         height: 350px;
     }
-    .Audio-h1 {
+    .Search-h1 {
         font-size: 42px;
     }
-    .Audio-container_titles {
+    .Search-container_titles {
         margin-left: 80px;
     }
     .produtos-card {
         width: 47%;
     }
-    .Audio-pages-container {
-        padding-left: 80px; /* Ajusta o alinhamento da paginação */
+    .Search-pages-container {
+        padding-left: 80px; 
     }
 }
 
 @media (max-width: 768px) {
-    .Audio-container_banner img {
+    .Search-container_banner img {
         height: 300px;
     }
-    .Audio-h1 {
+    .Search-h1 {
         font-size: 36px;
     }
-    .Audio-p {
+    .Search-p {
         font-size: 18px;
     }
-    .Audio-container_titles {
+    .Search-container_titles {
         margin-left: 20px;
         padding: 0 15px;
     }
@@ -213,8 +208,8 @@
         flex-direction: column;
         align-items: center;
     }
-    .Audio-pages-container {
-        justify-content: center; /* Centraliza em telas menores */
+    .Search-pages-container {
+        justify-content: center; 
         padding-left: 0;
     }
 }

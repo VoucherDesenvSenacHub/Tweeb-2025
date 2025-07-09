@@ -23,8 +23,9 @@ $is_logged_in = isset($_SESSION['usuario']) && !empty($_SESSION['usuario']);
     </div>
 
     <!-- Barra de busca unificada -->
+    
     <div class="searchn-box">
-        <form class="search-form-nav"action="">
+        <form class="search-form-nav"action="/Tweeb-2025/PI/app/user/Controllers/ControllerProd/SearchController.php">
             <button class="search-button" type="submit"><i class='bx bx-search'></i></button>
             <input type="text" name="search" class="search-input" placeholder="Buscar">
         </form>

@@ -22,7 +22,7 @@ if (!isset($_SESSION['usuario']['id'])) {
 </head>
 <body class="orcamento-body">
 
-<?php include __DIR__.'/../../../../includes/navbar-logada.php'; ?>
+<?php include __DIR__.'/../../../../includes/navbar.php'; ?>
 
 <div class="orcamento-geral">
 

@@ -200,6 +200,69 @@ class Database{
         
         return $this->execute($query);
     }
+
+    public function searchProductsByTerm(string $term): array {
+        $sql = "SELECT id_produto, nome_produto, descricao_produto, preco_unid, imagem_produto 
+                FROM produto 
+                WHERE nome_produto LIKE ? OR descricao_produto LIKE ?";
+        
+        $params = ["%{$term}%", "%{$term}%"];
+        
+        return $this->execute($sql, $params)->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    
+    public function findProductById(int $id) {
+        $sql = "SELECT * FROM produto WHERE id_produto = ?";
+        return $this->execute($sql, [$id])->fetchObject('Produto');
+    }
+
+    
+    public function deleteProductById(int $id): bool {
+        $sql = "DELETE FROM produto WHERE id_produto = ?";
+        $stmt = $this->execute($sql, [$id]);
+        return $stmt->rowCount() > 0;
+    }
+
+    
+    public function updateProductById(int $id, array $productData): bool {
+
+        unset($productData['id_produto']);
+
+        $fields = array_keys($productData);
+        $setClause = implode(' = ?, ', $fields) . ' = ?';
+
+        $sql = "UPDATE produto SET {$setClause} WHERE id_produto = ?";
+        $params = array_values($productData);
+        $params[] = $id;
+        
+        $stmt = $this->execute($sql, $params);
+        return $stmt->rowCount() > 0;
+    }
+
+    public function countSearchResults(string $term): int {
+        $sql = $sql = "SELECT COUNT(*) FROM produtos WHERE nome_produto LIKE ? OR descricao_produto LIKE ?";
+        $params = ["%{$term}%", "%{$term}%"];
+        $stmt = $this->execute($sql, $params);
+        return (int) $stmt->fetchColumn();
+    }
+    public function searchProductsPaginated(string $term, int $limit, int $offset): array {
+        $sql = "SELECT * FROM produtos 
+                WHERE nome_produto LIKE ? OR descricao_produto LIKE ? 
+                ORDER BY nome_produto ASC 
+                LIMIT ? OFFSET ?";
+
+        $params = ["%{$term}%", "%{$term}%", $limit, $offset];
+        
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindValue(1, $params[0]); 
+        $stmt->bindValue(2, $params[1]); 
+        $stmt->bindValue(3, $params[2], PDO::PARAM_INT); 
+        $stmt->bindValue(4, $params[3], PDO::PARAM_INT); 
+        $stmt->execute();
+        
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 }
 
 ?>
