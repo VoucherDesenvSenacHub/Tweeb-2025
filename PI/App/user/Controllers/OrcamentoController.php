@@ -10,6 +10,7 @@ switch ($_SERVER['REQUEST_METHOD']) {
         $orcamento->tipo_solicitacao = $_POST['tipo-solicitacao'];
         $orcamento->prazo_estimado = $_POST['prazo-estimado'];
         $orcamento->descricao = $_POST['descricao'];
+        $orcamento->tipo_equipamento = $_POST['tipo_equipamento'];
         $orcamento->status_orcamento = 'pendente';
 
         // Pasta onde as imagens serão salvas

@@ -38,19 +38,37 @@
                     <input class="orcamento-input" type="email" name="email" placeholder="Email *" required>
                     <input class="orcamento-input" type="tel" name="telefone" placeholder="Telefone *" required>
                 </div>
+
+
                 <div class="orcamento-input-group">
+                    <input class="orcamento-input" type="date" name="prazo-estimado" placeholder="Prazo Estimado *" required>
+
+                    
+
                     <select class="orcamento-select" name="tipo-solicitacao" required>
                         <option value="" disabled selected>Tipo de Solicitação *</option>
-                        <option value="Manutencao">Manutenção</option>
-                        <option value="opcao2">Formatação</option>
+                        <option value="Formatação">Formatação</option>
+                        <option value="Manutencão">Manutenção</option>
+                        <option value="atualização de firmware">Atualização</option>
+                        <option value="backup e recuperação">Backup e Recuperação</option>
+                        <option value="configuração de sistema">Configuração de Sistema</option>
+                        <option value="limpeza e manutenção preventiva">Limpeza e Manutenção preventiva</option>
+                        <option value="serviços de software: instalação, configuração e atualização">Instalação, configuração e atualização de Software</option>
+                        <option value="substituição peças">Substituição de peças</option>
                     </select>
-                    <select class="orcamento-select" name="prazo-estimado" required>
+
+                    <!-- <select class="orcamento-select" name="prazo-estimado" required>
                         <option value="" disabled selected>Prazo estimado *</option>
                         <option value="2025-06-20">48 horas</option>
                         <option value="prazo2">Conforme demanda</option>
-                    </select>
+                    </select> -->
                     <button class="orcamento-botao-media" type="button" onclick="document.getElementById('imageInput').click()">Adicionar Imagem</button>
                     <input type="file" name="imagem[]" id="imageInput" accept="image/*" multiple style="display: none" onchange="previewImages(event)" enctype="multipart/form-data">
+                </div>
+
+                
+                <div class="orcamento-input-group">
+                    <input class="orcamento-input" type="text" name="tipo_equipamento" placeholder="Tipo Equipamento *" required>
                 </div>
 
                 <!-- PRÉVIA DAS IMAGENS -->

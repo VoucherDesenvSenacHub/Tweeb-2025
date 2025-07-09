@@ -11,6 +11,7 @@ class Orcamento{
     public string $prazo_estimado;
     public string $imagem;
     public string $descricao;
+    public string $tipo_equipamento;
     public string $status_orcamento;
 
     public function cadastrar(){
@@ -24,6 +25,7 @@ class Orcamento{
                             'prazo_estimado' => $this->prazo_estimado,
                             'imagem' => $this->imagem,
                             'descricao' => $this->descricao,
+                            'tipo_equipamento' => $this->tipo_equipamento,
                             'status_orcamento' => $this->status_orcamento,
                             ]
                         );

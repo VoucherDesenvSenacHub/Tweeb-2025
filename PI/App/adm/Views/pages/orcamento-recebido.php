@@ -1,9 +1,9 @@
 <?php
 session_start();
-include_once '../../Models/Orcamento.php';
+// include_once '../../Models/Orcamento.php';
 
-$orcamento = new Orcamento();
-$dados = $orcamento->buscar();
+// $orcamento = new Orcamento();
+// $dados = $orcamento->buscar();
 
 ?>
 
@@ -16,6 +16,7 @@ $dados = $orcamento->buscar();
     <title>Enviados</title>
     <link rel="stylesheet" href="../../../../public/css/adm-enviados.css">
     <link rel="stylesheet" href="../../../../public/css/orcamento-recebido.css">
+    <script src="../../Controllers/js_adm/OrcamentoRecebido.js"></script>
     <script src="../../../../public/js/orcamento-recebido.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
