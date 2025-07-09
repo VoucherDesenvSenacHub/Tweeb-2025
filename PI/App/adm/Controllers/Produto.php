@@ -143,5 +143,12 @@ class Produto{
             ['status_produto' => $this->status_produto] // ← dados para atualizar
         );
     }
-}
+
     
+   
+
+  
+}
+        
+
+   

@@ -7,69 +7,6 @@ require_once(__DIR__ . '/../../Controllers/Produto.php');
 $dados_produto = new Produto();
 $produto_banco = $dados_produto->buscar();
 
-// if(isset($_POST['cadastrar'])){
-//     // $id_produto = $_POST['id_produto'];
-//     $nome_produto = $_POST['nome_produto'];
-//     $marca_modelo = $_POST['marca_modelo'];
-//     $quantidade_produto = $_POST['quantidade_produto'];    
-//     $imagem_produto = $_FILES['imagem_produto'];
-//     $numero_serie = $_POST['numero_serie'];
-//     $custo_produto = $_POST['custo_produto'];
-//     $cor_produto = $_POST['cor_produto'];
-//     $preco_unid = $_POST['preco_unid'];
-//     $descricao_produto = $_POST['descricao_produto'];
-//     $detalhes_produto = $_POST['detalhes_produto'];
-
-//     $id_departamento= $_POST['id_departamento'];
-//     $entrega_gratis = isset($_POST['entrega_gratis']) ? 1 : 0;
-//     $em_estoque = isset($_POST['em_estoque']) ? 1 : 0;
-//     $garantia = isset($_POST['garantia']) ? 1 : 0;
-
-    
-     
-//     ###Código para cadastrar foto no servidor de banco de dados###
-//     $arquivo =$_FILES['imagem_produto'];
-//     if ($arquivo['error'])die("Falha ao enviar a foto");
-//     $pasta ='../../../../public/uploads/';
-//     $nome_foto =$arquivo['name'];
-//     $novo_nome = uniqid();
-//     // echo $novo_nome;
-//     $extensao = strtolower(pathinfo($nome_foto, PATHINFO_EXTENSION));
-//     if ($extensao != 'png' && $extensao !='jpg') die('Falha ao enviar a foto');
-//     $caminho = $pasta . $novo_nome . '.' . $extensao;
-//     $foto =move_uploaded_file($arquivo['tmp_name'], $caminho);
-
-//     // echo '<br>CAMINHO ' . $caminho;
-//     ###Código para cadastrar foto no servidor de banco de dados###
-
-//     $produto = new Produto();
-//     // $produto->id_produto = $id_produto;
-//     $produto->nome_produto = $nome_produto;
-//     $produto->marca_modelo = $marca_modelo;
-//     $produto->quantidade_produto = $quantidade_produto;
-//     $produto->imagem_produto = $caminho;
-//     $produto->numero_serie = $numero_serie;
-//     $produto->custo_produto = $custo_produto;
-//     $produto->cor_produto  = $cor_produto;
-//     $produto->preco_unid = $preco_unid;
-//     $produto->descricao_produto = $descricao_produto;
-//     $produto->detalhes_produto= $detalhes_produto;
-
-//     $produto->id_departamento = $id_departamento;
-//     $produto->entrega_gratis = $entrega_gratis;
-//     $produto->em_estoque = $em_estoque;
-//     $produto->garantia = $garantia;
-
-   
-    
-
-//     $result = $produto->cadastrar();
-//     if($result){
-//         echo '<script> alert("Produto cadastrado com sucesso!!") </script>';
-//     }else{
-//         echo 'Error';
-//     }
-// }
 
 if (isset($_POST['cadastrar'])) {
     $erros = [];
@@ -160,6 +97,7 @@ if ($id_produto !== null) {
     $produto->atualizarFlags($id_produto, $em_estoque, $garantia, $entrega_gratis);
     exit;
 }
+
 
 
 ?>
@@ -302,6 +240,7 @@ async function load_table() {
 
     for(let i = 0; i < response.length; i++) {
         html += `<tr class="tr-tr-listarP">`;
+        html += `<td class="td-listarP">${response[i].id_produto}</td>`;
         html += `<td class="td-listarP"><img src="${response[i].imagem_produto}" id="userAdm_avatar" alt="Avatar" class="listarP-produto-img"></td>`;
         html += `<td class="td-listarP">${response[i].nome_produto}</td>`;
         html += `<td class="td-listarP">${response[i].preco_unid}</td>`;
@@ -312,7 +251,6 @@ async function load_table() {
         html += `<button type="submit" class="form-listarP_editar">`;
         html += `<img src="../../../../public/assets/img/edit-03.png" alt="Editar" class="listarP-edit-icon">`;
         html += `</button></a>`;
-
         html += `<a href="excluir_produtos.php?id_produto=${response[i].id_produto}">`;
         html += `<button type="submit" class="listarP-delete-btn">`;
         html += `<img src="../../../../public/assets/img/trash-2.png" alt="Excluir" class="listarP-delete-icon">`;
@@ -327,50 +265,9 @@ async function load_table() {
 
 
 
-// // Ao clicar no botão "Cadastrados"
-// document.getElementById("btn-cadastrados").addEventListener("click", async function(event) {
-//     event.preventDefault();
 
-//     // Esconde o formulário
-//     document.getElementById('product-form').style.display = 'none';
-
-//     // Cria a estrutura básica da tabela com tbody id "rows_products"
-//     const tabelaHTML = `
-    
-//         <table class="listarP-table">
-//             <thead class="thead-listarP">
-//                 <tr class="tr-listarP">
-//                     <th class="th-listarP">Foto</th>
-//                     <th class="th-listarP">Produto</th>
-//                     <th class="th-listarP">Valor</th>
-//                     <th class="th-listarP">Quantidade</th>
-//                     <th class="th-listarP">Departamentos</th>
-//                     <th class="th-listarP">Alterar</th>
-//                 </tr>
-//             </thead>
-//             <tbody id="rows_products" class="tbody-listarP"></tbody>
-//         </table>
-//     `;
-//     document.getElementById('tabela-produtos').innerHTML = tabelaHTML;
-
-//     // Atualiza a variável dados_tabela para o novo tbody inserido
-//     dados_tabela = document.getElementById('rows_products');
-
-//     // Chama a função que carrega os produtos
-//     await load_table();
-
-//     // Altera o título
-//     document.getElementById('titulo-cadastro-produto').textContent = 'Produtos Cadastrados';
-
-//     // Ajusta navegação ativa
-//     document.getElementById('btn-novo-produto').classList.remove('active');
-//     this.classList.add('active');
-//     document.getElementById('btn-inativos').classList.remove('active');
-//     this.classList.add('active');
-
-// });
-
-document.getElementById("btn-cadastrados").addEventListener("click", async function(event) {
+// Pedidos
+document.getElementById("btn-pedidos").addEventListener("click", async function(event) {
     event.preventDefault();
 
     // Esconde o formulário de novo produto
@@ -378,53 +275,6 @@ document.getElementById("btn-cadastrados").addEventListener("click", async funct
 
     // Cria o HTML com as categorias + filtros
     const infoEstoqueHTML = `
-        <div class="centralizar-categorias">
-            <div class="adm-estoque-caterogias">
-
-                <div class="estoque-categoria">
-                    <img src="../../../../public/assets/img/computadores-icon.png" alt="">
-                    <h1 class="visao-geral-adm-estoque">Computadores</h1>
-                    <div class="estoque-progresso"></div>
-                    <p><span>200</span> | Estoque min: 35</p>
-                </div>
-
-                <div class="estoque-categoria">
-                    <img src="../../../../public/assets/img/phone-icon.png" alt="">
-                    <h1 class="visao-geral-adm-estoque">Hardwares</h1>
-                    <div class="estoque-progresso"></div>
-                    <p><span>600</span> | Estoque min: 100</p>
-                </div>
-
-                <div class="estoque-categoria">
-                    <img src="../../../../public/assets/img/perifericos-icon.png" alt="">
-                    <h1 class="visao-geral-adm-estoque">Periféricos</h1>
-                    <div class="estoque-progresso"></div>
-                    <p><span>500</span> | Estoque min: 142</p>
-                </div>
-
-                <div class="estoque-categoria">
-                    <img src="../../../../public/assets/img/energia-icon.png" alt="">
-                    <h1 class="visao-geral-adm-estoque">Energia</h1>
-                    <div class="estoque-progresso"></div>
-                    <p><span>160</span> | Estoque min: 67</p>
-                </div>
-
-                <div class="estoque-categoria">
-                    <img src="../../../../public/assets/img/audio-icon.png" alt="">
-                    <h1 class="visao-geral-adm-estoque">Áudio</h1>
-                    <div class="estoque-progresso"></div>
-                    <p><span>256</span> | Estoque min: 108</p>
-                </div>
-
-                <div class="estoque-categoria">
-                    <img src="../../../../public/assets/img/jogos-icon.png" alt="">
-                    <h1 class="visao-geral-adm-estoque">Jogos</h1>
-                    <div class="estoque-progresso"></div>
-                    <p><span>123</span> | Estoque min: 50</p>
-                </div>
-
-            </div>
-        </div>
 
         <div class="filtro-formulario">
             <form action="">
@@ -447,6 +297,7 @@ document.getElementById("btn-cadastrados").addEventListener("click", async funct
         <table class="listarP-table">
             <thead class="thead-listarP">
                 <tr class="tr-listarP">
+                <th class="th-listarP">ID</th>
                     <th class="th-listarP">Foto</th>
                     <th class="th-listarP">Produto</th>
                     <th class="th-listarP">Valor</th>
@@ -475,12 +326,124 @@ document.getElementById("btn-cadastrados").addEventListener("click", async funct
     document.getElementById('btn-novo-produto').classList.remove('active');
     document.getElementById('btn-inativos').classList.remove('active');
     this.classList.add('active');
+    document.getElementById('btn-cadastrados').classList.remove('active');
+    this.classList.add('active');
+});
+
+// Visão Geral
+document.getElementById("btn-cadastrados").addEventListener("click", async function(event) {
+    event.preventDefault();
+
+    // Esconde o formulário de novo produto
+    document.getElementById('product-form').style.display = 'none';
+
+    // Cria o HTML com as categorias + filtros
+    const infoEstoqueHTML = `
+        <div class="centralizar-categorias">
+            <div class="adm-estoque-caterogias">
+
+        <div class="estoque-categoria"> 
+        <img src="../../../../public/assets/img/computadores-icon.png" alt="">
+        <h1 class="visao-geral-adm-estoque">Computadores</h1>
+        <div class="estoque-progresso"></div>
+        <p><span><<?php echo isset($quantidades['Computadores']) ? $quantidades['Computadores'] : 0; ?></span></p>
+         </div>
+
+                <div class="estoque-categoria">
+                    <img src="../../../../public/assets/img/phone-icon.png" alt="">
+                    <h1 class="visao-geral-adm-estoque">Hardwares</h1>
+                    <div class="estoque-progresso"></div>
+                    <p><span>600</span></p>
+                </div>
+
+                <div class="estoque-categoria">
+                    <img src="../../../../public/assets/img/perifericos-icon.png" alt="">
+                    <h1 class="visao-geral-adm-estoque">Periféricos</h1>
+                    <div class="estoque-progresso"></div>
+                    <p><span>500</span></p>
+                </div>
+
+                <div class="estoque-categoria">
+                    <img src="../../../../public/assets/img/energia-icon.png" alt="">
+                    <h1 class="visao-geral-adm-estoque">Energia</h1>
+                    <div class="estoque-progresso"></div>
+                    <p><span>160</span></p>
+                </div>
+
+                <div class="estoque-categoria">
+                    <img src="../../../../public/assets/img/audio-icon.png" alt="">
+                    <h1 class="visao-geral-adm-estoque">Áudio</h1>
+                    <div class="estoque-progresso"></div>
+                    <p><span>256</span></p>
+                </div>
+
+                <div class="estoque-categoria">
+                    <img src="../../../../public/assets/img/jogos-icon.png" alt="">
+                    <h1 class="visao-geral-adm-estoque">Jogos</h1>
+                    <div class="estoque-progresso"></div>
+                    <p><span>123</span></p>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="filtro-formulario">
+            <form action="">
+                <div class="form-group-estoque">
+                    <label for="filtrar-nome">Nome</label>
+                    <input type="text" id="filtrar-nome" name="filtrar-nome" placeholder="filtrar nome">
+
+                    <label for="filtrar-id">Número ID</label>
+                    <input type="text" id="filtrar-id" name="filtrar-id" placeholder="filtrar nº">
+
+                    <input class="form-botao-limpar" type="submit" value="Limpar">
+                    <input class="form-botao-buscar" type="submit" value="Buscar">
+                </div>
+            </form>
+        </div>
+    `;
+
+    // Cria a tabela
+    const tabelaHTML = `
+        <table class="listarP-table">
+            <thead class="thead-listarP">
+                <tr class="tr-listarP">
+                <th class="th-listarP">ID</th>
+                    <th class="th-listarP">Foto</th>
+                    <th class="th-listarP">Produto</th>
+                    <th class="th-listarP">Valor</th>
+                    <th class="th-listarP">Quantidade</th>
+                    <th class="th-listarP">Departamentos</th>
+                    <th class="th-listarP">Alterar</th>
+                </tr>
+            </thead>
+            <tbody id="rows_products" class="tbody-listarP"></tbody>
+        </table>
+    `;
+
+    // Junta tudo no container principal (tabela-produtos)
+    document.getElementById('tabela-produtos').innerHTML = infoEstoqueHTML + tabelaHTML;
+
+    // Atualiza referência do tbody
+    dados_tabela = document.getElementById('rows_products');
+
+    // Carrega os dados da tabela
+    await load_table();
+
+    // Atualiza o título da seção
+    document.getElementById('titulo-cadastro-produto').textContent = 'Produtos Cadastrados';
+
+    // Ativa o botão "Cadastrados" e desativa os outros
+    document.getElementById('btn-novo-produto').classList.remove('active');
+    document.getElementById('btn-inativos').classList.remove('active');
+    this.classList.add('active');
+    document.getElementById('btn-pedidos').classList.remove('active');
+    this.classList.add('active');
 });
 
 
 
 async function load_table2() {
-    console.log("AQuiiiiiii 2.0");
 
     let dados_php = await fetch('../../../../actions/listar_produtos_inativos.php');
     let response = await dados_php.json();
@@ -554,6 +517,7 @@ document.getElementById("btn-inativos").addEventListener("click", async function
     this.classList.add('active');
     document.getElementById('btn-cadastrados').classList.remove('active');
     this.classList.add('active');
+    
 });
 
 
@@ -573,10 +537,15 @@ document.getElementById("btn-inativos").addEventListener("click", async function
             // Ajustar navegação ativa
             document.getElementById('btn-cadastrados').classList.remove('active');
             this.classList.add('active');
+            document.getElementById('btn-inativos').classList.remove('active');
+            this.classList.add('active');
+            document.getElementById('btn-pedidos').classList.remove('active');
+            this.classList.add('active');
         });
 
         
       
+        
         
     </script>
     <script src="../../js_adm/load_table.js"></script>
