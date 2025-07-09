@@ -28,6 +28,8 @@ session_start();
     <h1 class="Computadores-h1">Computadores</h1>
     <p class="Computadores-p">Escolha a oferta que mais combina com você.</p>
 </div>
+<?php include __DIR__.'/../../../../includes/filtro-departamentos.php'; ?>
+
 
 <div class="container-favoritos-depto">
 <?php if (!empty($produtos)): ?>

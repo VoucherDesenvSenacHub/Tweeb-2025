@@ -27,6 +27,8 @@ session_start();
     <h1 class="Games-h1">Games</h1>
     <p class="Games-p">Escolha a oferta que mais combina com você.</p>
 </div>
+<?php include __DIR__.'/../../../../includes/filtro-departamentos.php'; ?>
+
 
 <div class="container-favoritos-depto">
 <?php if (!empty($produtos)): ?>
