@@ -25,8 +25,21 @@ session_start();
     } else {
         include __DIR__.'/../PI/includes/navbar-home.php';
         // include __DIR__.'/includes/sidebar-User.php';
-    }
     ?>
+    <div id="modalHome" class="modal-home">
+        <div class="modal-conteudo_home">
+            <div class="modal-header">
+                <img src="public/assets/img/logo_img copy.png" alt="Logo Tweeb" class="modal-logo">
+                <button class="modal-close" onclick="fecharModalAviso()">&times;</button>
+            </div>
+            <p class="modal-msg">Você não está logado!</p>
+            <div class="botoes-home">
+                <button class="btn-home" onclick="fecharModalAviso()">OK</button>
+                <button class="btn-logar" onclick="irParaLogin()">Logar</button>
+            </div>
+        </div>
+    </div>
+    <?php } ?>
     
     <section class="slider">
         <div class="slider-content">
@@ -531,25 +544,6 @@ session_start();
                 <h1>R$2535,99</h1>
                 <button class="card-botao">Comprar Agora</button>
             </div>
-            <div class="produtos-card">
-                <img class="heart" src="public/assets/img/heart_disabled.png" alt="coração" onclick="AtivarCoracao(this)">
-
-                <a href="../PI/App/user/View/pages/Carrinho.php"><img class="add-carrinho" src="public/assets/img/carrinho-card.png" alt=""></a>
-
-                <img class="image-produto" src="public/assets/img/card-produto2.png" alt="">
-                <div class="card-rate">
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <span class="qnt-avaliacoes">(500+)</span>
-                </div>
-                <p>Monitor Gamer Curvo</p>
-                <p>GAMING MG700 27</p>
-                <h1>R$2535,99</h1>
-                <button class="card-botao">Comprar Agora</button>
-            </div>
         </div>
       </section>
        
@@ -558,7 +552,20 @@ session_start();
         <a href="#"><img src="public/assets/img/banner tweeb carnaval.png" alt="anuncio carnaval"></a>
       </div>
 
+<div id="modalHome" class="modal-home">
+    <div class="modal-conteudo_home">
+        <div class="modal-navbar">
+            <img src="public/assets/img/logo_img copy.png" alt="Logo Tweeb" class="modal-logo">
+        </div>
+        <p>Você não está logado!</p>
+        <div class="botoes-home">
+            <button class="btn-home" onclick="fecharModalAviso()">OK</button>
+            <button class="btn-logar" onclick="irParaLogin()">Logar</button>
+        </div>
+    </div>
+</div>
 
+<script src="public/js/modal_Home.js"></script>
     <?php include __DIR__.'/includes/voltar-ao-topo.php'; ?>
     <?php include __DIR__.'/includes/footer-home.php'; ?>
 </body>

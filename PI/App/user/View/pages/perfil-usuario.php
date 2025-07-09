@@ -141,7 +141,6 @@ function mascararCPF($cpf) {
   </div>
 </div>
 
-<!-- Modal de sucesso para atualização de dados -->
 <div id="modalSucessoAtualizacao" class="modal-perfil_usuario">
   <div class="modal-conteudo_perfilUsuario">
     <p id="modalSucessoAtualizacaoTexto">Dados atualizados com sucesso!</p>
@@ -151,7 +150,7 @@ function mascararCPF($cpf) {
   </div>
 </div>
 
-<!-- Modal de confirmação de alteração de dados -->
+
 <div id="modalConfirmarAlteracao" class="modal-perfil_usuario">
   <div class="modal-conteudo_perfilUsuario">
     <p>Deseja alterar?</p>
