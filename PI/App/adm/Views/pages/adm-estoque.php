@@ -78,18 +78,7 @@ session_start();
     </div>
 
     
-    <div class="buscar-filtros">
-      <div class="filtros-datas">
-          <div class="datas-botoes">
-              <!-- trocar isso aqui pra checkbox ou algum outro form quando iniciar o desenvolvimento do backend -->
-              <button class="botao-ativado">Hoje</button>
-              <button>Ontem</button>
-              <button>7 dias</button>
-              <button>30 dias</button>
-              <button>Último mês</button>
-              <button>Data <img src="../../../../public/assets/img/adm-calendario.png" alt=""></button>
-          </div>
-      </div>
+
 
       <div class="filtro-formulario">
           <form action="">

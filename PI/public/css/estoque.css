@@ -261,10 +261,10 @@
 .form-group-estoque, .form-group-breakline{
   height: auto;
   position: inherit;
-  max-height: 100px;
+  max-height: 150px;
 }
 
-/* .form-group-breakline{
+.form-group-breakline{
   display: flex;
   justify-content: flex-start;
   margin-top: 1rem;
