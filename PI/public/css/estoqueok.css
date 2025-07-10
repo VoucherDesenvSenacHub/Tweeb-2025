@@ -135,3 +135,22 @@ margin-left: -150px;
 .pedidos-envios-recentes h1{
     font-size: 20px;
 }
+
+
+
+.botao-voltar {
+    background: none;
+    border: none;
+    color: #333;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+    margin-left: 250px;
+    margin-top: 20px;
+  }
+  
+  .botao-voltar:hover {
+    background-color: #f0f0f0;
+  }

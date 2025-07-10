@@ -118,6 +118,20 @@
   align-items: center;
   justify-content: center;
 }
+.btn-editar {
+  display: inline-block;
+  padding: 6px 12px;
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: bold;
+  transition: background-color 0.2s ease;
+}
+
+.btn-editar:hover {
+  background-color: #0056b3;
+}
 
 .estoque-categoria{
   width: 165px;
@@ -209,19 +223,24 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  width: 100%;
+  max-width: 300px;
+  max-height: 200px;
+  background-color: red;
 }
 
 .filtros-datas{
   width: 95%;
   margin-left: 250px;
+  background-color: red;
+
 
 }
 
 .datas-botoes{
   margin-top: 2rem;
   display: flex;
-  width: 280px;
+  background-color: red;
+
 }
 
 .datas-botoes .botao-ativado{
@@ -260,79 +279,80 @@
 
 .form-group-estoque, .form-group-breakline{
   height: auto;
-  position: inherit;
-  max-height: 150px;
+  flex-direction: column;
+  max-height: 100px;
 }
 
-.form-group-breakline{
+.filtro-formulario {
   display: flex;
-  justify-content: flex-start;
-  margin-top: 1rem;
-} */
-
-.filtro-formulario{
+  align-items: center;
+  flex-wrap: nowrap;  /* Impede quebra de linha */
+  gap: 12px;           /* Espaço entre os campos */
   width: 100%;
+  padding: 20px;
+  margin-left: 350px;
 }
 
-.filtro-formulario label{
-  margin-right: -8px;
+/* Rótulo */
+.filtro-formulario label {
   font-size: 14px;
-  font-weight: 400;
   height: 32px;
   padding: 5px 12px;
   border-radius: 4px;
-  background-color: #fafafa;
+  background-color: #5a5a5a;
   border: 1px solid #d9d9d9;
-  color: #595959;
+  color: #fff;
+  display: flex;
+  align-items: center;
 }
 
-.filtro-formulario label, .filtro-formulario input{
-  margin-bottom: 1rem;
-}
-
-.filtro-formulario input{
-  margin-right: 10px;
-  /* height: 29.5px; */
-  padding: 5.5px 12px;
+/* Campo de entrada */
+.filtro-formulario input {
+  height: 32px;
+  padding: 0 10px;
   border: 1px solid #d9d9d9;
-  border-top-right-radius:  4px;
-  border-bottom-right-radius:  4px;
-  /* z-index: -2; */ 
+  border-radius: 4px;
+  max-width: 200px;
 }
 
-.filtro-formulario input::placeholder{
-  color: rgba(0, 0, 0, 25%);
+/* Placeholder */
+.filtro-formulario input::placeholder {
+  color: rgba(0, 0, 0, 0.25);
 }
 
-.form-botao-buscar{
-  cursor: pointer;
+/* Botão Buscar */
+.form-botao-buscar {
+  height: 32px;
+  padding: 5px 16px;
+  border-radius: 4px;
   background-color: #1890ff;
   color: white;
-  padding: 5px 16px;
-  height: 32px;
+  border: none;
+  cursor: pointer;
   transition: background-color 0.15s ease;
-  border-radius: 4px;
 }
 
-.form-botao-buscar:hover{
+.form-botao-buscar:hover {
   background-color: #1372ca;
 }
 
-.form-botao-limpar{
-  cursor: pointer;
+/* Botão Limpar */
+.form-botao-limpar {
+  height: 32px;
+  padding: 5px 16px;
+  border-radius: 4px;
   background-color: transparent;
   color: #595959;
-  padding: 5px 16px;
-  height: 32px;
+  border: 1px solid #d9d9d9;
+  cursor: pointer;
   transition: background-color 0.15s ease;
-  border-radius: 4px;
-  border: 1px solid #D9D9D9;
 }
 
-.form-botao-limpar:hover{
+.form-botao-limpar:hover {
   background-color: #d9d9d9;
   color: black;
 }
+
 
 
 .tabela-nota-fiscal {
@@ -346,13 +366,57 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: #00B8FA;
   cursor: pointer;
   border-radius: 8px;
   gap: 0.5rem;
   height: 38px;
   width: 86px;
   border: 2px solid #D0D5DD;
+  border: none;      /* Removido o contorno */
+  outline: none;     /* Removido o destaque de foco */
+  box-shadow: none; 
+  
 }
+
+
+
+/* Remove completamente bordas e estilos nativos do botão */
+.botao-editar-nota {
+  all: unset;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+/* Estilo da div interna, sem borda ou linha */
+.tabela-nota-fiscal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #00B8FA;
+  cursor: pointer;
+  border-radius: 8px;
+  gap: 0.5rem;
+  height: 38px;
+  width: 86px;
+  border: none;        /* Remove qualquer borda */
+  outline: none;       /* Remove contorno ao focar */
+  box-shadow: none;    /* Remove qualquer sombra */
+}
+
+.tabela-nota-fiscal p {
+  font-size: 14px;
+  font-weight: 600;
+  color: #667085;
+  margin: 0; /* Garante que não haja margem que force borda */
+}
+
+.tabela-nota-fiscal i {
+  color: #667085;
+}
+
 
 .tabela-nota-fiscal p{
   font-size: 14px;
@@ -378,8 +442,8 @@
 
 .overflow-estoque{
   overflow: auto;
-  width: 80%;
-  margin-left: 200px;
+  width: 90%;
+  margin-left: 150px;
 }
 
 @media only screen and (max-width: 800px){
@@ -443,4 +507,174 @@
     flex-direction: column;
   }
 
+}
+
+
+
+
+
+
+
+
+
+
+
+.modal-editar-produto {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  background-color: rgba(0, 0, 0, 0.7);
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.modal-editar-produto form {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 700px;
+}
+
+.modal-editar-produto .form-group {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 15px;
+}
+
+.modal-editar-produto label {
+  display: block;
+  font-weight: bold;
+}
+
+.modal-editar-produto input,
+.modal-editar-produto select,
+.modal-editar-produto textarea {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+}
+
+.modal-editar-produto .icons {
+  margin: 10px 0;
+}
+
+.modal-editar-produto button {
+  padding: 10px 20px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.fechar-modal {
+  float: right;
+  cursor: pointer;
+  font-size: 18px;
+  color: red;
+}
+
+.titulo-modal{
+  margin-left: 170px;
+  padding: 20px;
+}
+
+        /* Estilos do modal */
+.modal {
+display: none;
+position: fixed;
+z-index: 9999;
+padding-top: 80px;
+left: 0; top: 0;
+width: 100%; height: 100%;
+overflow: auto;
+background-color: rgba(0,0,0,0.5);
+}
+.modal-content {
+background: #fff;
+margin: auto;
+padding: 20px;
+border-radius: 6px;
+width: 600px;
+max-width: 90%;
+position: relative;
+margin-block-end: 50px;
+}
+
+.modalEditarProduto{
+background: #fff;
+margin: auto;
+padding: 20px;
+border-radius: 6px;
+width: 600px;
+max-width: 90%;
+position: relative;
+background-color: red;
+
+}
+.close-modal {
+position: absolute;
+top: 10px; right: 15px;
+font-size: 28px;
+font-weight: bold;
+color: #aaa;
+cursor: pointer;
+}
+.close-modal:hover {
+color: #000;
+}
+.modal form label {
+display: block;
+margin-top: 10px;
+font-weight: 600;
+}
+.modal form input[type="text"],
+.modal form input[type="number"] {
+width: 100%;
+padding: 6px 8px;
+margin-top: 4px;
+box-sizing: border-box;
+}
+.modal form button {
+margin-top: 15px;
+padding: 8px 15px;
+cursor: pointer;
+}
+/* Botão editar estilo */
+.botao-editar-nota {
+cursor: pointer;
+background-color: #007bff;
+border: none;
+color: white;
+padding: 5px 10px;
+border-radius: 3px;
+font-size: 14px;
+display: inline-flex;
+align-items: center;
+gap: 5px;
+transition: background-color 0.2s ease;
+}
+.botao-editar-nota:hover {
+background-color: #0056b3;
+}
+
+.btao-salvar{
+cursor: pointer;
+background-color: #007bff;
+border: none;
+color: white;
+padding: 5px 15px;
+border-radius: 3px;
+font-size: 14px;
+display: inline-flex;
+align-items: center;
+gap: 5px;
+transition: background-color 0.2s ease;
+margin-left: 490px;
+padding: 20px;
+  
 }

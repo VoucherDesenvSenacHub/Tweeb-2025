@@ -47,49 +47,28 @@ session_start();
     </div>
 </div>
 
-<button class="btn-adicionar-envio">Adicionar Envio</button>
 
 
-<div class="pedidos-envios-recentes">
-    <h1>Envios Recentes</h1>
-    <div class="radio-inputs">
-        <label class="radio">
-          <input type="radio" name="radio" />
-          <span class="name">Mês</span>
-        </label>
-        <label class="radio">
-          <input type="radio" name="radio" />
-          <span class="name">Semana</span>
-        </label>
-        <label class="radio">
-          <input type="radio" name="radio" checked="" />
-          <span class="name">Hoje</span>
-        </label>
-    </div>
-</div>
 
-<div class="filtro-formulario">
-    <form action="">
-        <div class="form-group-estoque">
-            <label for="filtrar-nome">Nome</label>
-            <input type="text" id="filtrar-nome" name="filtrar-nome" placeholder="filtrar nome" />
-            <label for="filtrar-email">Email</label>
-            <input type="email" id="filtrar-email" name="filtrar-email" placeholder="filtrar modelo" />
-            <label for="filtrar-id">ID Order</label>
-            <input type="text" id="filtrar-id" name="filtrar-id" placeholder="filtrar nº" />
-            <label for="text">Produto</label>
-            <input type="text" id="filtrar-produto" name="filtrar-produto" placeholder="filtrar produto" />
-            <input class="form-botao-limpar" type="submit" value="Limpar" />
-            <input class="form-botao-buscar" type="submit" value="Buscar" />
-        </div>
-    </form>
-</div>
+<form class="filtro-formulario">
+    <label for="id">ID order:</label>
+    <input type="text" id="id" name="id" placeholder="Digite a Order">
+
+    <label for="cliente">Cliente:</label>
+    <input type="text" id="cliente" name="cliente" placeholder="Nome do Cliente">
+
+    <button type="submit" class="form-botao-buscar">Buscar</button>
+    <button type="reset" class="form-botao-limpar">Limpar</button>
+
+    
+  </form>
 
 
 
 <div class="envios-container">
     <table class="tabela-envios">
         <h1 class="envio-titulo-adm">Envios</h1>
+        <button class="btn-adicionar-envio">Adicionar Envio</button>
         <tbody id="envios-tbody">
             <tr>
                 <td>

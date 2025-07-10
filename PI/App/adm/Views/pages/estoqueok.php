@@ -1,3 +1,11 @@
+
+<?php
+session_start();
+
+?>
+
+
+
 <?php 
 require_once(__DIR__ . '/../../Controllers/Produto.php');
 
@@ -266,6 +274,10 @@ if ($id_produto !== null) {
 <body class='produtos_listados'>
     <?php include __DIR__.'/../../../../includes/head-adm.php'; ?>
     <?php include __DIR__.'/../../../../includes/sidebar-Adm.php'; ?>
+
+    <button onclick="history.back()" class="botao-voltar">← Estoque</button>
+
+
 
     <div class="cadastrando-products-pai">
         <div class="cadastrando-products">

@@ -23,106 +23,22 @@ session_start();
           <span><p>Pedidos</p></span>
           <p><a href="adm-enviados.php">Enviados</a></p>
           <a href="estoqueok.php"><p>Novo Produto</p></a>
-
-        </div>  
-
-        <!-- <div class="estoque-busca">
-          <form action="">
-            <input type="text" placeholder="Busca">
-          </form>
-        </div> -->
+        </div>   
     </div>
         
 
-    <!-- <div class="centralizar-categorias">
-      <div class="adm-estoque-caterogias">
+   
+    <form class="filtro-formulario">
+    <label for="pedido">N° Pedido:</label>
+    <input type="text" id="pedido" name="pedido" placeholder="Número Pedido">
 
-        <div class="estoque-categoria">
-          <img src="../../../../public/assets/img/computadores-icon.png" alt="">
-          <h1 class="visao-geral-adm-estoque">Computadores</h1>
-          <div class="estoque-progresso"></div>
-          <p><span>200</span> | Estoque min: 35</p>
-        </div>
-        
-        <div class="estoque-categoria">
-          <img src="../../../../public/assets/img/phone-icon.png" alt="">
-          <h1 class="visao-geral-adm-estoque">Hardwares</h1>
-          <div class="estoque-progresso"></div>
-          <p><span>600</span> | Estoque min: 100</p>
-        </div>
+    <label for="cliente">Cliente:</label>
+    <input type="text" id="cliente" name="cliente" placeholder="Nome do Cliente">
 
-        <div class="estoque-categoria">
-          <img src="../../../../public/assets/img/perifericos-icon.png" alt="">
-          <h1 class="visao-geral-adm-estoque">Periféricos</h1>
-          <div class="estoque-progresso"></div>
-          <p><span>500</span> | Estoque min: 142</p>
-        </div>
+    <button type="submit" class="form-botao-buscar">Buscar</button>
+    <button type="reset" class="form-botao-limpar">Limpar</button>
+  </form>
 
-        <div class="estoque-categoria">
-          <img src="../../../../public/assets/img/energia-icon.png" alt="">
-          <h1 class="visao-geral-adm-estoque">Energia</h1>
-          <div class="estoque-progresso"></div>
-          <p><span>160</span> | Estoque min: 67</p>
-        </div>  
-
-        <div class="estoque-categoria">
-          <img src="../../../../public/assets/img/audio-icon.png" alt="">
-          <h1 class="visao-geral-adm-estoque">Áudio</h1>
-          <div class="estoque-progresso"></div>
-          <p><span>256</span> | Estoque min: 108</p>
-        </div>
-
-        <div class="estoque-categoria">
-          <img src="../../../../public/assets/img/jogos-icon.png" alt="">
-          <h1 class="visao-geral-adm-estoque">Jogos</h1>
-          <div class="estoque-progresso"></div>
-          <p><span>123</span> | Estoque min: 50</p>
-        </div>  
-
-      </div>
-    </div> -->
-
-    
-    <div class="buscar-filtros">
-      <div class="filtros-datas">
-          <div class="datas-botoes">
-              <!-- trocar isso aqui pra checkbox ou algum outro form quando iniciar o desenvolvimento do backend -->
-              <button class="botao-ativado">Hoje</button>
-              <button>Ontem</button>
-              <button>7 dias</button>
-              <button>30 dias</button>
-              <button>Último mês</button>
-              <button>Data <img src="../../../../public/assets/img/adm-calendario.png" alt=""></button>
-          </div>
-      </div>
-
-      <div class="filtro-formulario">
-          <form action="">
-              <div class="form-group-estoque">
-                          
-                  <label for="filtrar-nome">Nome</label>
-                  <input type="text" id="filtrar-nome" name="filtrar-nome" placeholder="filtrar nome" >
-                  
-                  <label for="filtrar-email">Email</label>
-                  <input type="email" id="filtrar-email" name="filtrar-email" placeholder="filtrar modelo">
-                  
-                  <label for="filtrar-id">ID do Pedido</label>
-                  <input type="text" id="filtrar-id" name="filtrar-id" placeholder="filtrar nº">
-
-                  <label for="valor">CPF</label>
-                  <input type="text" id="valor" name="valor" placeholder="filtrar fornecedor">
-                  
-                  <input class="form-botao-limpar" type="submit" value="Limpar">
-                  <input class="form-botao-buscar" type="submit" value="Buscar">
-
-                 
-                    
-            </div>
-
-                  
-
-          </form>
-      </div>
   </div>
 
     <div class="overflow-estoque">
@@ -130,7 +46,7 @@ session_start();
       <table class="estoque-table">
         <thead>
           <tr>
-                  <th>N</th>
+                  <th>N° Pedido</th>
                   <th>Imagem</th>
                   <th>Produto</th>
                   <th>Data</th>

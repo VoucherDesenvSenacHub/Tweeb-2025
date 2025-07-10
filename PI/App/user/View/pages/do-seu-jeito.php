@@ -1,4 +1,6 @@
-
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -20,7 +22,7 @@
     <title>Tweeb</title>
 </head>
 <body class="do-seu-jeito-body">
-<?php include __DIR__.'/../../../../includes/navbar-logada.php'; ?>
+<?php include __DIR__.'/../../../../includes/navbar.php'; ?>
 
     <img src="../../../../public/assets/img/banner-do-seu-jeito.png" alt="Banner" class="do-seu-jeito-banner1">
 
