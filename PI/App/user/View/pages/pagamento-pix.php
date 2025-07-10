@@ -1,4 +1,7 @@
 <?php
+// pagamento-pix.php
+// Página de pagamento PIX (Front-end).
+
 if (session_status() !== PHP_SESSION_ACTIVE) {
     session_start();
 }
@@ -8,31 +11,35 @@ if (!isset($_SESSION['usuario']['id'])) {
     exit();
 }
 
-// Verificar se há dados de envio
-if (!isset($_SESSION['dados_envio'])) {
-    header('Location: escolha-endereco.php');
-    exit();
-}
-
-require_once __DIR__ . '/../../Models/Carrinho.php';
-require_once __DIR__ . '/../../Models/Pedido.php';
+// Inclui o Controller para obter os dados necessários
+include_once __DIR__ . '/../../Controllers/PagamentoPixController.php';
 
 $id_usuario = $_SESSION['usuario']['id'];
-$itens_carrinho = Carrinho::obterCarrinho($id_usuario);
-$dados_envio = $_SESSION['dados_envio'];
-$endereco_selecionado = $_SESSION['endereco_selecionado'] ?? null;
+$pagamentoPixController = new PagamentoPixController($id_usuario);
 
-if (empty($itens_carrinho)) {
-    header('Location: /Tweeb-2025/PI/App/user/Controllers/ControllerProd/Departamento_Games.php');
-    exit();
+try {
+    $dados_pagina = $pagamentoPixController->prepararDadosPagina();
+
+    $itens_carrinho = $dados_pagina['itens_carrinho'];
+    $dados_envio = $dados_pagina['dados_envio'];
+    $endereco_selecionado = $dados_pagina['endereco_selecionado'];
+    $valor_subtotal = $dados_pagina['valor_subtotal'];
+    $valor_frete = $dados_pagina['valor_frete'];
+    $valor_total = $dados_pagina['valor_total'];
+    $numero_pedido = $dados_pagina['numero_pedido'];
+
+} catch (Exception $e) {
+    // Em caso de erro, exibe uma mensagem e redireciona ou lida de forma apropriada
+    error_log("Erro ao carregar dados da página de pagamento PIX: " . $e->getMessage());
+    // Você pode exibir uma mensagem de erro amigável ao usuário aqui
+    // ou redirecionar para uma página de erro.
+    die("Erro ao carregar a página de pagamento: " . htmlspecialchars($e->getMessage()));
 }
 
-$valor_subtotal = Carrinho::calcularTotal($id_usuario);
-$valor_frete = $dados_envio['valor'];
-$valor_total = $valor_subtotal + $valor_frete;
-
-// Gerar número do pedido
-$numero_pedido = 'PED' . date('Ymd') . rand(1000, 9999);
+// Função auxiliar para formatar valores monetários
+function formatarMoeda($valor) {
+    return number_format($valor, 2, ',', '.');
+}
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -40,8 +47,10 @@ $numero_pedido = 'PED' . date('Ymd') . rand(1000, 9999);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pagamento PIX - Tweeb</title>
+    <!-- Inclui o CSS principal da página -->
     <link rel="stylesheet" href="../../../../public/css/pagamento-pix.css">
     <?php include __DIR__.'/../../../../includes/headernavb.php'; ?>
+    <!-- Inclui ícones Boxicons e Font Awesome -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 </head>
@@ -59,15 +68,15 @@ $numero_pedido = 'PED' . date('Ymd') . rand(1000, 9999);
             </div>
         </span>
         
-        <img src="../../../../public/assets/img/linha-pontilhada.png" alt="">
-        <span class="" id="">
+        <img src="../../../../public/assets/img/linha-pontilhada.png" alt="Linha pontilhada">
+        <span class="">
             <i class="fa-solid fa-cart-flatbed"></i>
             <div class="span-information">
                 <p id="step-passo">Passo 2</p>
                 <p>Entrega</p>
             </div>
         </span>
-        <img src="../../../../public/assets/img/linha-pontilhada.png" alt="">
+        <img src="../../../../public/assets/img/linha-pontilhada.png" alt="Linha pontilhada">
         <span class="" id="step-ativo">
             <i class="fa-solid fa-credit-card"></i>
             <div class="span-information">
@@ -83,39 +92,41 @@ $numero_pedido = 'PED' . date('Ymd') . rand(1000, 9999);
             
             <?php foreach ($itens_carrinho as $item): ?>
             <div class="pix-pago-item">
-                <img src="../../../../public/assets/img/<?php echo $item['imagem_produto']; ?>" alt="<?php echo $item['nome_produto']; ?>">
-                <span class="nome-produto-pix"><?php echo strtoupper($item['nome_produto']); ?></span>
-                <span>R$ <?php echo number_format($item['preco_unitario'] * $item['quantidade'], 2, ',', '.'); ?></span>
+                <img src="../../../../public/assets/img/<?php echo htmlspecialchars($item['imagem_produto']); ?>" alt="<?php echo htmlspecialchars($item['nome_produto']); ?>" onerror="this.onerror=null;this.src='https://placehold.co/50x50/cccccc/333333?text=Produto';">
+                <span class="nome-produto-pix"><?php echo strtoupper(htmlspecialchars($item['nome_produto'])); ?></span>
+                <span>R$ <?php echo formatarMoeda($item['preco_unitario'] * $item['quantidade']); ?></span>
             </div>
             <?php endforeach; ?>
             
             <?php if ($endereco_selecionado): ?>
             <p class="pix-pago-endereco">
-                Endereço: <?php echo $endereco_selecionado['endereco_completo']; ?>
+                Endereço: <?php echo htmlspecialchars($endereco_selecionado['endereco_completo'] ?? 'Endereço não disponível'); ?>
             </p>
             <?php endif; ?>
             
             <p class="pix-pago-envio">
-                Método de envio: <?php echo $dados_envio['metodo']; ?>
-                <?php if ($dados_envio['data_agendada']): ?>
-                    - Data: <?php echo $dados_envio['data_agendada']; ?>
+                Método de envio: <?php echo htmlspecialchars($dados_envio['metodo']); ?>
+                <?php if (!empty($dados_envio['data_agendada'])): ?>
+                    - Data: <?php echo htmlspecialchars($dados_envio['data_agendada']); ?>
                 <?php endif; ?>
             </p>
             
             <div class="pix-pago-total">
-                <p class="pix-resumo-compra">Subtotal: R$ <?php echo number_format($valor_subtotal, 2, ',', '.'); ?></p>
+                <p class="pix-resumo-compra">Subtotal: R$ <?php echo formatarMoeda($valor_subtotal); ?></p>
                 <p class="pix-resumo-compra">
-                    Frete: <?php echo $valor_frete > 0 ? 'R$ ' . number_format($valor_frete, 2, ',', '.') : 'Grátis'; ?>
+                    Frete: <?php echo $valor_frete > 0 ? 'R$ ' . formatarMoeda($valor_frete) : 'Grátis'; ?>
                 </p>
-                <h3 class="pix-resumo-compra">Total: R$ <?php echo number_format($valor_total, 2, ',', '.'); ?></h3>
+                <h3 class="pix-resumo-compra">Total: R$ <?php echo formatarMoeda($valor_total); ?></h3>
             </div>
         </div>
         
         <div class="pix-pago-pagamento">
             <h2 class="pix-pago-titulo">Pagamento via PIX</h2>
-            <img src="../../../../public/assets/img/qrcode.png" alt="QR Code Pix" class="pix-pago-qrcode">
-            <p class="pix-pago-fatura">Pedido #<?php echo $numero_pedido; ?></p>
-            <p class="pix-pago-valor">Valor: R$ <?php echo number_format($valor_total, 2, ',', '.'); ?></p>
+            <!-- Imagem de QR Code de placeholder padrão -->
+            <img src="../../../../public/assets/img/qrcode.png" alt="QR Code Pix" class="pix-pago-qrcode" onerror="this.onerror=null;this.src='https://placehold.co/150x150/cccccc/333333?text=QR+Code';">
+            <p class="pix-pago-fatura">Pedido #<?php echo htmlspecialchars($numero_pedido); ?></p>
+            <!-- Exibe o valor total real da compra -->
+            <p class="pix-pago-valor">Valor: R$ <?php echo formatarMoeda($valor_total); ?></p>
             
             <div class="pix-pago-instrucoes">
                 <p><strong>Passo a passo para pagamento via Pix:</strong></p>
@@ -125,13 +136,14 @@ $numero_pedido = 'PED' . date('Ymd') . rand(1000, 9999);
                 <p>4. Confirme as informações e finalize o pagamento.</p>
             </div>
             
-            <button class="pix-pago-botao" onclick="copiarChavePix()">COPIAR CHAVE PIX</button>
+            <button class="pix-pago-botao" id="btn-copiar-pix">COPIAR CHAVE PIX</button>
             
             <div class="pix-pago-status">
                 <p id="status-pagamento">Aguardando pagamento...</p>
                 <div class="loading-spinner" id="loading-spinner" style="display: none;">
                     <i class="fa fa-spinner fa-spin"></i>
                 </div>
+                <!-- O botão de confirmação manual foi removido daqui -->
             </div>
         </div>
     </div>
@@ -157,150 +169,7 @@ $numero_pedido = 'PED' . date('Ymd') . rand(1000, 9999);
 
 <?php include __DIR__.'/../../../../includes/footer.php'; ?>
 
-<script>
-let pedidoCriado = false;
-let pagamentoVerificado = false;
-
-// Criar pedido quando a página carregar
-document.addEventListener('DOMContentLoaded', function() {
-    criarPedido();
-});
-
-function criarPedido() {
-    fetch('/Tweeb-2025/PI/App/user/Controllers/PedidoController.php', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        body: 'action=criar_pedido'
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.success) {
-            pedidoCriado = true;
-            console.log('Pedido criado:', data.id_pedido);
-            // Iniciar verificação de pagamento
-            iniciarVerificacaoPagamento();
-        } else {
-            alert('Erro ao criar pedido: ' + data.message);
-        }
-    })
-    .catch(error => {
-        console.error('Erro:', error);
-        alert('Erro ao criar pedido');
-    });
-}
-
-function iniciarVerificacaoPagamento() {
-    // Simular verificação de pagamento (em produção, isso seria integrado com a API do banco)
-    setTimeout(() => {
-        verificarPagamento();
-    }, 5000); // Verificar após 5 segundos
-}
-
-function verificarPagamento() {
-    if (!pedidoCriado) return;
-    
-    // Simular pagamento aprovado (em produção, verificar status real)
-    const statusElement = document.getElementById('status-pagamento');
-    const loadingElement = document.getElementById('loading-spinner');
-    const btnFinalizar = document.getElementById('btn-finalizar');
-    
-    loadingElement.style.display = 'block';
-    statusElement.textContent = 'Verificando pagamento...';
-    
-    setTimeout(() => {
-        // Simular pagamento aprovado
-        statusElement.textContent = 'Pagamento aprovado!';
-        statusElement.style.color = '#28a745';
-        loadingElement.style.display = 'none';
-        btnFinalizar.style.display = 'block';
-        pagamentoVerificado = true;
-    }, 3000);
-}
-
-function copiarChavePix() {
-    // Chave PIX fictícia para demonstração
-    const chavePix = 'tweeb@empresa.com';
-    
-    navigator.clipboard.writeText(chavePix).then(function() {
-        alert('Chave PIX copiada: ' + chavePix);
-    }).catch(function(err) {
-        console.error('Erro ao copiar chave PIX:', err);
-        alert('Erro ao copiar chave PIX');
-    });
-}
-
-// Finalizar compra
-document.getElementById('btn-finalizar').addEventListener('click', function() {
-    if (!pagamentoVerificado) {
-        alert('Aguarde a confirmação do pagamento');
-        return;
-    }
-    
-    fetch('/Tweeb-2025/PI/App/user/Controllers/PedidoController.php', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        body: 'action=finalizar_compra'
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.success) {
-            alert('Compra finalizada com sucesso! Seu pedido foi confirmado.');
-            window.location.href = 'confirmacao-compra.php?id_pedido=' + data.id_pedido;
-        } else {
-            alert('Erro ao finalizar compra: ' + data.message);
-        }
-    })
-    .catch(error => {
-        console.error('Erro:', error);
-        alert('Erro ao finalizar compra');
-    });
-});
-
-// Verificação automática a cada 10 segundos
-setInterval(() => {
-    if (pedidoCriado && !pagamentoVerificado) {
-        verificarPagamento();
-    }
-}, 10000);
-
-// Botão cancelar pedido
-const btnCancelarPedido = document.getElementById('btn-cancelar-pedido');
-const modalCancelamento = document.getElementById('modal-cancelamento');
-const btnConfirmarCancelamento = document.getElementById('confirmar-cancelamento');
-const btnFecharModalCancelamento = document.getElementById('fechar-modal-cancelamento');
-
-btnCancelarPedido.addEventListener('click', function() {
-    modalCancelamento.style.display = 'flex';
-});
-
-btnFecharModalCancelamento.addEventListener('click', function() {
-    modalCancelamento.style.display = 'none';
-});
-
-btnConfirmarCancelamento.addEventListener('click', function() {
-    // Pega o id do pedido atual da sessão PHP via AJAX
-    fetch('/Tweeb-2025/PI/App/user/Controllers/PedidoController.php', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: 'action=cancelar_pedido'
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.success) {
-            alert('Pedido cancelado com sucesso! O estorno será realizado automaticamente.');
-            window.location.href = 'pedidos-cancelados.php';
-        } else {
-            alert('Erro ao cancelar pedido: ' + data.message);
-        }
-    })
-    .catch(error => {
-        alert('Erro ao cancelar pedido.');
-    });
-});
-</script>
+<!-- Inclui o arquivo JavaScript da página -->
+<script src="../../../../public/assets/js/pagamento-pix.js"></script>
 </body>
 </html>

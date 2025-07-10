@@ -1,20 +1,32 @@
+/* rastreio.css */
+/* Este arquivo contém os estilos para a tela de rastreio de pedidos. */
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
+/* Aplica a fonte Poppins globalmente */
+body {
+    font-family: 'Poppins', sans-serif;
+}
 
-
+/* Estilos para o container principal de cada pedido */
 .container-rastreio {
-    
     padding: 20px;
     max-width: 1000px;
     margin: auto;
+    background-color: #fff; /* Adicionado para garantir fundo branco */
+    border-radius: 8px; /* Adicionado para consistência */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Adicionado para consistência */
+    margin-bottom: 20px; /* Adicionado para espaçamento entre containers */
 }
 
+/* Estilos para o cabeçalho do pedido (Ordem ID, botões) */
 .pedido-rastreio {
     background: #fff;
     padding: 20px;
     margin-bottom: 15px;
     border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    /* box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Removido para evitar sombra dupla com .container-rastreio */
+    border-bottom: 1px solid #eee; /* Adicionado para separar do conteúdo abaixo */
 }
 
 .header-rastreio {
@@ -29,7 +41,6 @@
     font-size: 18px;
     font-weight: bold;
     color:#291E40;
-    
 }
 
 .rastreio-botao {
@@ -39,8 +50,11 @@
     padding: 8px 12px;
     border-radius: 5px;
     cursor: pointer;
-    margin-top: 10px;
+    margin-top: 10px; /* Ajustado para melhor alinhamento em telas menores */
     height: 50px;
+    display: flex; /* Para alinhar ícone e texto */
+    align-items: center;
+    gap: 5px; /* Espaçamento entre texto e ícone */
 }
 
 .rastreio-botao:hover {
@@ -57,63 +71,146 @@
     font-weight: bold;
 }
 
-/* .rastreio-icone{
+/* Estilos para o título "Pedidos Enviados" */
+.pedidosenviadostitulo {
+    color: #291E40;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    text-align: center; /* Centralizado por padrão */
+    font-size: 22px;
+}
+
+/* Estilos para as seções que serão ocultadas/exibidas (toggle) */
+.rastreio-status,
+.rastreio-item,
+.rastreio-pagamento-entrega,
+.rastreio-resumo {
+    display: none; /* Oculta por padrão */
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.5s ease-in-out; /* Adiciona transição suave */
+}
+
+/* Estilos para as seções quando ativas (visíveis) */
+.rastreio-status.active {
+    display: flex; /* Para o layout de barra de progresso */
+    opacity: 1;
+    max-height: 1000px; /* Um valor grande o suficiente para mostrar o conteúdo */
+}
+
+.rastreio-item.active {
+    display: flex; /* Para o layout de item do pedido */
+    opacity: 1;
+    max-height: 1000px;
+}
+
+.rastreio-pagamento-entrega.active,
+.rastreio-resumo.active {
+    display: block; /* Para o layout de bloco */
+    opacity: 1;
+    max-height: 1000px;
+}
+
+/* Estilos para a barra de progresso do rastreio */
+.rastreio-status {
+    /* Propriedades já definidas acima no .rastreio-status (quando visível) */
+    justify-content: space-between;
+    align-items: flex-start;
+    position: relative; /* Essencial para os pseudo-elementos ::before e ::after */
+    padding: 20px; /* Mantém o padding */
+    border-radius: 8px; /* Mantém o border-radius */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Mantém a sombra */
+    background-color: #f9f9f9; /* Fundo mais claro para a barra de progresso */
+}
+
+/* Linha de fundo cinza da barra de progresso */
+.rastreio-status::before {
+    content: '';
+    position: absolute;
+    top: 30px; /* Alinha com o centro dos ícones */
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: #ccc; /* Cor da linha de fundo */
+    z-index: 0;
+}
+
+/* Linha de progresso verde (preenchimento) */
+.rastreio-status::after {
+    content: '';
+    position: absolute;
+    top: 30px;
+    left: 0;
+    height: 2px;
+    background-color: #28a745; /* Cor da linha de progresso */
+    z-index: 0;
+    width: var(--progress-width, 0%); /* Controlado por JavaScript */
+    transition: width 0.5s ease;
+}
+
+.rastreio-etapa {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    flex: 1;
+    position: relative;
+    z-index: 1; /* Garante que o ícone e texto fiquem acima das linhas */
+}
+
+.rastreio-status-texto {
+    font-weight: bold;
+    color: #555;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.rastreio-icone {
+    font-size: 28px;
+    border-radius: 50%; /* Alterado para círculo para os ícones de status */
+    margin: 8px 0;
+    padding: 10px; /* Aumentado o padding para o ícone */
+    color: #ccc; /* Cor padrão para ícones inativos */
+    background-color: #fff; /* Fundo branco para os ícones */
+    border: 2px solid #ccc; /* Borda padrão para ícones inativos */
+    transition: all 0.3s ease;
+}
+
+.rastreio-icone2 {
+    font-size: 28px;
     background: transparent; 
     border: 2px solid #D0D5DD;
     border-radius: 10px;
-} */
+    margin: 8px 0;
+    padding: 5px 20px;
+}
 
-/* .rastreio-status {
-    background: #fff;
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    outline: 4px;
-    
-} */
+.ativo .rastreio-icone {
+    color: #28a745; /* Cor verde para ícones ativos */
+    border-color: #28a745; /* Borda verde para ícones ativos */
+}
 
-/* 
-.rastreio-linha {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-top: 20px;
-    position: relative;
-} */
+.rastreio-data {
+    font-size: 14px;
+    color: #777;
+    margin-top: 5px;
+}
 
-/* .rastreio-etapa {
-    text-align: center;
-    position: relative;
-    flex: 1;
-} */
-
-/* .rastreio-bolinha {
-    width: 14px;
-    height: 14px;
-    background: #ddd;
-    border-radius: 50%;
-    display: block;
-    margin: 0 auto;
-    position: absolute;
-    top: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 1;
-} */
-
-/* .ativo .rastreio-bolinha {
-    background: #28a745;
-} */
-
+/* Estilos para o item do pedido (produto) */
 .rastreio-item {
     display: flex;
     align-items: center;
     background: #fff;
     padding: 15px;
     border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); /* Sombra mais leve */
     margin-bottom: 10px;
     flex-wrap: wrap;
+    border-bottom: 1px solid #eee; /* Adicionado para separar itens */
+}
+.rastreio-item:last-of-type {
+    border-bottom: none; /* Remove a borda do último item */
 }
 
 .rastreio-info-preco {
@@ -124,11 +221,12 @@
     flex-wrap: wrap;
 }
 
-
 .rastreio-img {
     width: 90px;
     height: 90px;
+    object-fit: cover;
     border-radius: 5px;
+    margin-right: 15px;
 }
 
 .rastreio-info {
@@ -155,7 +253,12 @@
     margin: 0;
     font-size: 14px;
 }
+.rastreio-valor {
+    color: #28a745; /* Cor verde para o valor */
+}
 
+
+/* Estilos para pagamento e entrega */
 .rastreio-pagamento-entrega {
     display: flex;
     justify-content: space-between;
@@ -163,16 +266,45 @@
     padding: 15px;
     background: #fff;
     border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); /* Sombra mais leve */
     flex-wrap: wrap;
     gap: 20px;
+    border-top: 1px solid #eee; /* Adicionado para separar */
 }
 
+.rastreio-pagamento-entrega-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    width: 100%;
+}
+
+.rastreio-pagamento, .rastreio-entrega {
+    flex: 1; /* Ambos ocupam espaço igual */
+}
+.rastreio-pagamento h3, .rastreio-entrega h3 {
+    margin-bottom: 10px;
+    color: #333;
+}
+.rastreio-endereco-titulo {
+    font-weight: bold;
+    margin-top: 5px;
+}
+.rastreio-metodo-pagamento, .rastreio-endereco, .rastreio-bairro-cidade, .rastreio-cep {
+    font-size: 0.9em;
+    color: #666;
+}
+
+
+/* Estilos para o resumo do pedido */
 .rastreio-resumo {
     background: #fff;
     padding: 15px;
     border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); /* Sombra mais leve */
+    text-align: right;
+    border-top: 1px solid #eee; /* Adicionado para separar */
 }
 
 .rastreio-resumo p {
@@ -182,18 +314,26 @@
     margin: 5px 0;
 }
 
+.rastreio-resumo span {
+    font-weight: bold;
+}
+
 .rastreio-total {
     font-size: 16px;
     margin-top: 10px;
     border-top: 1px solid #ddd;
     padding-top: 10px;
+    color: #28a745; /* Cor verde para o total */
+    font-weight: bold;
 }
 
+/* Estilos para informações de entrega/avaliação */
 .rastreio-info-entrega {
     display: flex;
     align-items: center;
     gap: 10px;
     flex-wrap: wrap;
+    margin-top: 10px;
 }
 
 .rastreio-info-entrega-avaliar {
@@ -201,7 +341,7 @@
     align-items: center;
     gap: 10px;
     flex-wrap: wrap;
-    color: #BF99FE;
+    color: #BF99FE; /* Cor específica para avaliação */
 }
 
 .rastreio-truck {
@@ -217,133 +357,19 @@
     gap: 10px;
     flex-wrap: wrap;
 }
-/* 
-.line {
-    position: relative;
-    top: -55px;
-    left: 5%;
-    width: 90%;
-    height: 4px;
-    background-color: #ccc;
-    z-index: 0;
-} */
 
-.rastreio-pagamento-entrega-flex {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 20px;
-    width: 100%;
-}
-
-.rastreio-pagamento, .rastreio-entrega {
-    flex: 1; /* Ambos ocupam espaço igual */
-}
-
-.pedidosenviadostitulo{
-    color: #291E40;
-    margin-top: 30px;
-    margin-bottom: 20px;
-    align-items: center;
-    display: flex;
-    justify-content: left;
-    font-size: 22px;
-}
-
-
-
-.rastreio-status,
-.rastreio-item,
-.rastreio-pagamento-entrega,
-.rastreio-resumo {
-    display: none;
-}
-
-
-.rastreio-status {
-    width: 100%;
-    max-width: 960px;
-    background: white;
-    padding: 20px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    flex-direction: row;
-}
-
-/* Alinhamento horizontal no desktop */
-.rastreio-linha {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: relative;
-    width: 100%;
-}
-
-.rastreio-etapa {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    flex: 1;
-    position: relative;
-}
-
-.rastreio-status-texto {
-    font-weight: bold;
-    color: #555;
-    font-size: 16px;
-    margin-bottom: 5px;
-}
-
-.rastreio-icone {
-    font-size: 28px;
-    border-radius: 10px;
-    margin: 8px 0;
-    padding: 5px 20px;
-    color: #555;
-}
-
-.rastreio-icone2 {
-    font-size: 28px;
-    background: transparent; 
-    border: 2px solid #D0D5DD;
-    border-radius: 10px;
-    margin: 8px 0;
-    padding: 5px 20px;
-}
-.ativo .rastreio-icone {
-    color: green;
-}
-
-.rastreio-data {
-    font-size: 14px;
-    color: #777;
-    margin-top: 5px;
-}
-
-
+/* Media Queries para Responsividade */
 @media (max-width: 1024px) {
     .container-rastreio {
         padding: 10px;
     }
-
-    .line{
-        display: none;
-    }
-
-    .pedidosenviadostitulo{
-        color: #291E40;
-        margin-top: 30px;
-        margin-bottom: 20px;
-        align-items: center;
-        display: flex;
-        justify-content: center;
-        font-size: 22px;
+    .pedidosenviadostitulo {
+        justify-content: center; /* Centraliza o título em telas menores */
     }
 }
 
 @media (max-width: 768px) {
-    .rastreio-info-preco, .rastreio-pagamento-entrega {
+    .rastreio-info-preco, .rastreio-pagamento-entrega-flex {
         flex-direction: column;
         align-items: flex-start;
     }
@@ -351,8 +377,8 @@
         text-align: left;
         margin-top: 10px;
     }
-    .line{
-        display: none;
+    .rastreio-pagamento, .rastreio-entrega {
+        width: 100%; /* Ocupa toda a largura em mobile */
     }
 }
 
@@ -361,12 +387,10 @@
         flex-direction: column;
         align-items: flex-start;
     }
-    .line{
-        display: none;
-    }
     .rastreio-botoes {
         margin-top: 10px;
         width: 100%;
+        justify-content: flex-start; /* Alinha botões à esquerda em mobile */
     }
     .rastreio-info-entrega {
         flex-direction: column;
@@ -376,77 +400,32 @@
         flex-direction: column;
         align-items: flex-start;
     }
-    .rastreio-pagamento-entrega {
-        flex-direction: column;
-    }
-    .line {
-        top: -85px;
-    }
-    .ativo .rastreio-bolinha {
-        background: #28a745;
-    }
-    .rastreio-linha {
-        display: flex;
-        justify-content: space-between; /* Para distribuir os itens igualmente, com espaços entre eles */
-        align-items: center; /* Para garantir que os itens fiquem centralizados verticalmente */
-    }
-.element.style{
-    display: inline-flex;
-}
-    teste */
-
     .rastreio-status {
-        width: 100%;
-        max-width: 400px;
-        display: flex;
-        flex-direction: column;
+        flex-direction: column; /* Alinha os passos verticalmente em mobile */
         align-items: center;
-        background: white;
-        padding: 20px;
-        /* border-radius: 10px; */
-        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        max-width: 400px; /* Mantém a largura máxima do seu CSS */
+        margin-left: auto; /* Centraliza */
+        margin-right: auto; /* Centraliza */
     }
-
-    .rastreio-etapa {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        margin-bottom: 20px;
-        position: relative;
+    /* Oculta as linhas horizontais da barra de progresso em mobile */
+    .rastreio-status::before,
+    .rastreio-status::after {
+        display: none;
     }
-
-    .rastreio-status-texto {
-        font-weight: bold;
-        color: #555;
-        font-size: 18px;
-        margin-bottom: 5px;
+    /* Adiciona linhas verticais entre os passos em mobile */
+    .rastreio-etapa:not(:last-child)::after {
+        content: '';
+        position: absolute;
+        bottom: -10px; /* Posição abaixo do ícone */
+        left: 50%;
+        width: 2px;
+        height: 30px; /* Comprimento da linha vertical */
+        background-color: #ccc;
+        transform: translateX(-50%);
+        z-index: 0;
     }
-    .rastreio-icone {
-        font-size: 28px;
-        border-radius: 10px;
-        margin: 8px 0;
-        padding: 5px 20px;
-        color: #555;
+    .rastreio-etapa.ativo + .rastreio-etapa:not(:last-child)::after,
+    .rastreio-etapa.ativo:not(:last-child)::after {
+        background-color: #28a745; /* Linha verde para passos ativos */
     }
-    
-    .rastreio-icone2 {
-        font-size: 28px;
-        background: transparent; 
-        border: 2px solid #D0D5DD;
-        border-radius: 10px;
-        margin: 8px 0;
-        padding: 5px 20px;
-    }
-
-    .ativo .rastreio-icone {
-        color: green;
-    }
-
-    .rastreio-data {
-        font-size: 14px;
-        color: #777;
-        margin-top: 5px;
-    }
-   
 }

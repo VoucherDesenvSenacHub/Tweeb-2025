@@ -32,6 +32,7 @@ if (empty($itens_carrinho)) {
 </head>
 <body>
 <?php include __DIR__.'/../../../../includes/navbar-logada.php'; ?>
+<?php include __DIR__.'/../../../../includes/sidebar-User.php'; ?>
 
 <div class="container">
     <div class="step-indicator">
