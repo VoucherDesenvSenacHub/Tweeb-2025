@@ -68,3 +68,4 @@ window.onscroll = function() {
 botaoVoltarAoTopo.onclick = function() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 };
+

@@ -1,20 +1,37 @@
+<?php
+require_once(__DIR__ . '/../../../adm/Controllers/Produto.php');
+
+
+$id_produto = (int) $_GET['id_produto'];
+$produto = Produto::buscar_by_id($id_produto);
+
+if (!$produto) {
+    echo "Produto não encontrado.";
+    exit;
+}
+?>
 <?php include __DIR__.'/../../../../includes/headernavb.php'; ?>
 <body>
 <?php include __DIR__.'/../../../../includes/navbar-logada.php'; ?>
 
+
+    
+
     <div class="container-produto">
         <div class="produto-img">
-            <img src="../../../../public/assets/img/gtx-desc.png" alt="placa de video">
+        <img src="<?= htmlspecialchars($produto->imagem_produto) ?>" alt="Imagem do Produto">
+            
         </div>
         <div class="produto-desc">
-            <h1>PLACA DE VIDEO MANCER GTX 1660 SUPER HEIMDALL, 6GB, GDDR6, 192-BIT, MCR-GTX1660S-HDLL
+            <h1><?=htmlspecialchars($produto->detalhes_produto ?? '')?>
             </h1>
+            <br>
             <div class="preco">
-                <p>R$1399</p>
-                <p id="promocao">R$1499</p>
+                <p>R$<?=$produto->preco_unid;?></p>
+                
             </div>
 
-            <div class="tabs-memoria">
+            <!-- <div class="tabs-memoria">
                 <button class="card-botao-produto">4GB</button>
                 <button class="card-botao-produto" id="ativo">6GB</button>
                 <button class="card-botao-produto">8GB</button>
@@ -36,11 +53,10 @@
                         <p id="destacado">APCI-Express 3.0</p>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
             <div class="info">
-                <p>Desenvolvida para ter um ótimo desempenho em diversos jogos, esta placa é ideal para suas novas gameplays. Com a Mancer GTX Super Heimdall 1660 no seu setup, você terá uma performance incrível!
-                </p>
+                <p></p>
             </div>
 
             <div class="buy-buttons">
@@ -49,6 +65,8 @@
             </div>
 
             <div class="card-infos">
+    
+                <?php if ($produto->entrega_gratis == 1): ?>
                 <div class="card-subinfos">
                     <div class="card-quadrado">
                         <img src="../../../../public/assets/img/desc-produto-carro.png" alt="carro">
@@ -58,36 +76,44 @@
                         <p>1-2 dias</p>
                     </div>
                 </div>
+                <?php endif; ?>
+
+                <?php if ($produto->em_estoque == 1): ?>
                 <div class="card-subinfos">
                     <div class="card-quadrado">
-                        <img src="../../../../public/assets/img/desc-produto-casa.png" alt="carro">
+                        <img src="../../../../public/assets/img/desc-produto-casa.png" alt="estoque">
                     </div>
                     <div class="subinfo-info">
                         <p id="p-titulo">Em estoque</p>
                         <p>hoje</p>
                     </div>
                 </div>
+                <?php endif; ?>
+
+                <?php if ($produto->garantia == 1): ?>
                 <div class="card-subinfos">
                     <div class="card-quadrado">
-                        <img src="../../../../public/assets/img/desc-produto-verify.png" alt="carro">
+                        <img src="../../../../public/assets/img/desc-produto-verify.png" alt="garantia">
                     </div>
                     <div class="subinfo-info">
                         <p id="p-titulo">Garantia</p>
                         <p>1 ano</p>
                     </div>
                 </div>
+                <?php endif; ?>
+
             </div>
+
 
             
         </div>
     </div>
 
-    <!--                  -->
 
     <div class="products-detail-background">
 
         <div class="product-details-container">
-            <ul class="product-attributes">
+            <!-- <ul class="product-attributes">
                 <h2>Detalhes do Produto</h2>
                 <li>Rgb: rgb não</li>
                 <li>Overclocked não</li>
@@ -95,59 +121,49 @@
                 <li>Categoria do produto: Placas Gráficas de Desktop</li>
                 <li>Cenário de uso: GAMING, Áudio & Video, Família, Escritório de escritório, DESIGN, Estação de trabalho</li>
                 <li>Características do produto: CROSSFIRE</li>
+            </ul> -->
+            <ul class="product-attributes">
+                <h2>Detalhes do Produto</h2>
+                <?php 
+                // Explode pelo separador vírgula
+                $detalhes = explode(',', $produto->detalhes_produto ?? '');
+
+                foreach ($detalhes as $linha): 
+                    $linha = trim($linha); // remove espaços em branco
+                    if ($linha): 
+                ?>
+                    <li><?=htmlspecialchars($linha)?></li>
+                <?php 
+                    endif; 
+                endforeach; 
+                ?>
             </ul>
 
-        <div class="product-especifications">
-            <h2>GTX 1660</h2>
 
-            <table class="product-specs">
-                <tr>
-                    <td>- Marca</td>
-                    <td class="product-right">Mancer</td>
-                </tr>
-                <tr>
-                    <td>- Modelo</td>
-                    <td class="product-right">MCR-GTX1660S-HDLL</td>
-                </tr>
-                <tr>
-                    <td>- Frequência do núcleo</td>
-                    <td class="product-right">1530 MHz</td>
-                </tr>
-                <tr>
-                    <td>- Núcleos CUDA</td>
-                    <td class="product-right">1408</td>
-                </tr>
-                <tr>
-                    <td>- Interface</td>
-                    <td class="product-right">PCI Express 3.0</td>
-                </tr>
-                <tr>
-                    <td>- Sistema de refrigeração</td>
-                    <td class="product-right">Dual Fan</td>
-                </tr>
-                <tr>
-                    <td>- GPU</td>
-                    <td class="product-right">GeForce GTX 1660 Super</td>
-                </tr>
-            </table>
-        </div>
 
-        
-        <div class="product-especifications">
-            <h2>- GPU</h2>
 
-            <table class="product-specs">
-                <tr>
-                    <td>- GPU</td>
-                    <td class="product-right">GeForce GTX 1660 Super</td>
-                </tr>
+
+                <div class="product-especifications">
+                    <h2><?=htmlspecialchars($produto->nome_produto ?? '')?></h2>
+
+                    <table class="product-specs">
+                        <tr>
+                            <td>- Marca</td>
+                            <td class="product-right"><?=htmlspecialchars($produto->marca_modelo ?? '')?></td>
+                        </tr>
+                        <tr>
+                            <td>- Cor</td>
+                            <td class="product-right"><?=htmlspecialchars($produto->cor_produto ?? '')?></td>
+                        </tr>
+                        
+                    </table>
+                </div>
+
                 
-            </table>
-        </div>
-
-            <!-- <div class="more-info-btn-container">
-                <button class="more-info-btn">Saiba Mais <i class="fa-solid fa-chevron-down"></i></button>
-            </div> -->
+                
+                    <!-- <div class="more-info-btn-container">
+                        <button class="more-info-btn">Saiba Mais <i class="fa-solid fa-chevron-down"></i></button>
+                    </div> -->
         </div>
     </div>
 
@@ -213,42 +229,48 @@
                     </div>
                 </div>
             </div>
-
+<!-- 
             <form class="form-comentario" action="">
                 <input type="text" name="add_comentario" placeholder="Deixe Comentário">
+            </form> --> 
+        
+            <form method="POST" action="avaliar.php" class="form-comentario">
+            <div class="estrelas" id="estrelas">
+                    <input type="hidden" name="nota" id="notaSelecionada" value="0">
+                                    <i class="fa-regular fa-star" data-nota="1"></i>
+                                    <i class="fa-regular fa-star" data-nota="2"></i>
+                                    <i class="fa-regular fa-star" data-nota="3"></i>
+                                    <i class="fa-regular fa-star" data-nota="4"></i>
+                                    <i class="fa-regular fa-star" data-nota="5"></i>
+                </div>
+
+                                <input type="text" name="comentario" placeholder="Deixe um comentário..." required>
+                                <button type="submit" class="avaliacao_btn">Enviar Avaliação</button>
             </form>
 
-            <div class="reviews-comentarios" id="reviews-comentarios">
-                <?php
-                    for($x = 0; $x < 30; $x++){
-                        echo '<div class="card-comentario">
-                        <div class="card-details">
-                            <div class="card-profile-img">
-                                <img src="../../../../public/assets/img/cliente1.jpg" alt="">
-                            </div>
-                            <div class="card-user-info">
-                                <p class="card-data">22 junho 2024</p>
-                                <h1 class="card-user-name">Cleber Machado</h1>
-                                <div class="card-user-stars">
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-regular fa-star"></i>
-                                </div>
-                            </div>
+                                <script>
+                                    const estrelas = document.querySelectorAll('#estrelas i');
+                                    const inputNota = document.getElementById('notaSelecionada');
 
-                            
-                        </div>
+                                    estrelas.forEach((estrela, index) => {
+                                    estrela.addEventListener('click', () => {
+                                        const nota = estrela.dataset.nota;
+                                        inputNota.value = nota;
 
-                        <div class="user-comentario">
-                            <p>Eu estava um pouco nervosa, mas eu não poderia estar mais feliz com a minha compra!  Um excelente produto e está tudo PERFEITO. Foi super fácil de instalar e parece ótimo.</p>
-                        </div>
-                    </div>';
-                    }
-                ?>
-
-            </div>
+                                        estrelas.forEach((el, i) => {
+                                        if (i < nota) {
+                                            el.classList.remove('fa-regular');
+                                            el.classList.add('fa-solid', 'preenchida');
+                                        } else {
+                                            el.classList.remove('fa-solid', 'preenchida');
+                                            el.classList.add('fa-regular');
+                                        }
+                                        });
+                                    });
+                                    });
+                                </script>
+     
+           
             <div class="more-info-btn-container">
                 <button class="more-info-btn" onclick="VerMaisComentarios()">Ver Mais <i class="fa-solid fa-chevron-down"></i></button>
             </div>
@@ -381,7 +403,7 @@
                 <button class="card-botao">Comprar Agora</button>
             </div>
         </div>
-      </section>
+    </section>
 <script defer src="public/js/descProduto.js"></script>
 <?php include __DIR__.'/../../../../includes/footer.php'; ?>
 </body>

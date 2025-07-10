@@ -397,6 +397,11 @@ span{
     width: 29px;
     height: 27px;
     cursor: pointer;
+    margin-bottom: 50px;
+}
+.favorito-ativo {
+    color: red;
+    transition: color 0.3s ease;
 }
 
 .produtos-card .add-carrinho{
@@ -407,6 +412,27 @@ span{
     height: 27px;
     cursor: pointer;
 }
+.produtos-card #favoritar{
+    position: absolute; /* sem isso a imagem não vai pro canto. */
+    top: 20px;
+    left: 20px;
+    width: 29x;
+    height: 27px;
+    cursor: pointer;
+    border: none;
+    background-color: #F6F6F6;
+}
+.produtos-card #favoritar i{
+    font-size: 25px; 
+    color: #909090C4;
+   
+}
+.estrelas{
+    
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
 
 .produtos-card .image-produto{
     width: 160px;

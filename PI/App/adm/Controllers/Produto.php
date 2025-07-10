@@ -13,7 +13,7 @@ class Produto{
     public string $marca_modelo;
     public int $quantidade_produto;
     public string $imagem_produto;
-    public int $numero_serie;
+    public string $numero_serie;
     public float $custo_produto;
     public string $cor_produto;
     public float $preco_unid;
@@ -130,5 +130,31 @@ class Produto{
             ['status_produto' => $this->status_produto] // ← dados para atualizar
         );
     }
+    public static function buscarnovos($filtros = null, $ordenacao = null, $limite = null) {
+        require_once __DIR__ . '/../../DB/Database.php'; // Ajuste o caminho conforme seu projeto
+    
+        $conexao = Database::conectar();
+    
+        $sql = "SELECT * FROM produtos";
+    
+        if ($filtros) {
+            $sql .= " WHERE " . $filtros;
+        }
+    
+        if ($ordenacao) {
+            $sql .= " ORDER BY " . $ordenacao;
+        }
+    
+        if ($limite) {
+            $sql .= " LIMIT " . intval($limite);
+        }
+    
+        $stmt = $conexao->prepare($sql);
+        $stmt->execute();
+    
+        $resultado = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $resultado;
+    }
+    
 }
     

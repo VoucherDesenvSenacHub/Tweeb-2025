@@ -154,6 +154,23 @@ class Database{
             die("Update failed: " . $e->getMessage());
         }
     }
+
+    public function select_avaliacao(){
+        $query = "SELECT avaliacao_produto.comentario, avaliacao_produto.notas, usuarios.nome, usuarios.sobrenome, usuarios.foto_perfil
+        FROM avaliacao_produto JOIN usuarios ON 
+        avaliacao_produto.id = usuarios.id JOIN usuarios ON usuarios.id = usuarios.id ORDER BY avaliacao_produto.id_avaliacao_produto DESC";
+        $stmt = $this->execute($query)->fetchAll(PDO::FETCH_ASSOC);
+        
+        if($stmt){
+            return $stmt;
+        }
+        else{
+            return false;
+        }
+    
+    
+    }    
+    
     
 }
 
