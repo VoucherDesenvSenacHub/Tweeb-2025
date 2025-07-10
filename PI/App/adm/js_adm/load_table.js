@@ -1,4 +1,5 @@
 
+console.log("load_table.js carregado com sucesso");
 
 let dados_tabela = document.getElementById('rows_products')
 let html = "";

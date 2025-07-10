@@ -24,11 +24,10 @@ session_start();
 <body>
     <?php
     if (isset($_SESSION['usuario'])) {
-        include __DIR__.'/../PI/includes/navbar-logada.php'; 
+        include __DIR__.'/../PI/includes/navbar.php'; 
         include __DIR__.'/../PI/includes/sidebar-User.php'; 
     } else {
-        include __DIR__.'/../PI/includes/navbar-home.php';
-        // include __DIR__.'/includes/sidebar-User.php';
+        include __DIR__.'/../PI/includes/navbar.php'; 
     }
     ?>
     
@@ -407,28 +406,54 @@ session_start();
         <a href="App/user/View/pages/do-seu-jeito.php" class="img-responsiva"><img src="public/assets/img/Do seu jeito 2.png" alt=""></a>
         <a href="App/user/View/pages/corporativo.php" class="img-responsiva"><img src="public/assets/img/Do seu jeito 3.png" alt=""></a>
       </div>
-      <br>
 
+      <section class="produtos produtos2">
+        <div class="promo-text">
+            <p>Promoções de natal</p>
+        </div>
+        <div class="produtos-grid">
+            <div class="produtos-card">
+                <img class="heart" src="public/assets/img/heart_disabled.png" alt="coração" onclick="AtivarCoracao(this)">
 
-     <section class="produtos">
-    <div class="produtos-grid" id="container-cards-2">
-        <?php 
-            $contador = 0;
-            $limite = 0;
-            foreach ($produtos as $produto): 
-                $contador++;
-                if ($contador <= 12) continue; // pula os 12 primeiros
-                if ($limite >= 12) break;      // mostra só os 12 seguintes
-                $limite++;
-        ?>
-        <div class="produtos-card">
+                <a href="../PI/App/user/View/pages/Carrinho.php"><img class="add-carrinho" src="public/assets/img/carrinho-card.png" alt=""></a>
 
-             <button id="favoritar" data-id="123"><i class="fa-regular fa-heart"></i></button>
-            
+                <img class="image-produto" src="public/assets/img/card-produto.png" alt="">
+                <div class="card-rate">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <span class="qnt-avaliacoes">(500+)</span>
+                </div>
+                <p>Cadeira Gamer</p>
+                <p>GAMING Tempest CG500</p>
+                <h1>R$900,99</h1>
+                <button class="card-botao"><a href="app/user/View/pages/descproduto.php" class="corad-botao-a">Comprar Agora</a></button>
+            </div>
+            <div class="produtos-card">
+                <img class="heart" src="public/assets/img/heart_disabled.png" alt="coração" onclick="AtivarCoracao(this)">
 
-            <a href="../PI/App/user/View/pages/Carrinho.php">
-                <img class="add-carrinho" src="public/assets/img/carrinho-card.png" alt="">
-            </a>
+                <a href="../PI/App/user/View/pages/Carrinho.php"><img class="add-carrinho" src="public/assets/img/carrinho-card.png" alt=""></a>
+
+                <img class="image-produto" src="public/assets/img/card-produto2.png" alt="">
+                <div class="card-rate">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <span class="qnt-avaliacoes">(500+)</span>
+                </div>
+                <p>Monitor Gamer Curvo</p>
+                <p>GAMING MG700 27</p>
+                <h1>R$2535,99</h1>
+                <button class="card-botao">Comprar Agora</button>
+            </div>
+            <div class="produtos-card">
+                <img class="heart" src="public/assets/img/heart_disabled.png" alt="coração" onclick="AtivarCoracao(this)">
+
+                <a href="../PI/App/user/View/pages/Carrinho.php"><img class="add-carrinho" src="public/assets/img/carrinho-card.png" alt=""></a>
 
             <img class="image-produto" src="/Tweeb-2025/PI/public/uploads/<?= htmlspecialchars(basename($produto['imagem_produto'])) ?>" alt="Imagem do Produto" style="width: 160px; height: 160px;">
 
@@ -441,7 +466,7 @@ session_start();
                     <button class="card-botao">Comprar Agora</button>
                 </a>
         </div>
-        <?php endforeach; ?>
+        
     </div>
 </section>
 

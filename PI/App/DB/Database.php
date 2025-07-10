@@ -55,38 +55,22 @@ class Database{
         $result = $this->execute($query,array_values($values));
         
         if($result){
-            return $this->conn->lastInsertId();;
+            return $this->conn->lastInsertId();
         }
         else{
             return false;
         }
     }
 
-    // inserir por Id
-    public function insert_LastId($values){
-        $fields = array_keys($values);
-        $binds = array_pad([],count($fields),'?');
-
-        $query = 'INSERT INTO ' . $this->table .'  (' .implode(',',$fields). ') VALUES (' .implode(',',$binds).')';
-
-
-        $res = $this->execute($query, array_values($values));   
-
-        $lastId = $this->conection->lastInsertId();  
-
-        if($res){
-            return $lastId;
+    public function update($values, $where) {
+        if (empty($values)) {
+            throw new InvalidArgumentException("Valores de atualização não podem estar vazios.");
         }
-        else{
-            return false;
-        }
-        
-    }
-
-    public function update($values, $where){
+    
         $fields = array_keys($values);
         $set = implode(' = ?, ', $fields) . ' = ?';
         $query = 'UPDATE ' . $this->table . ' SET ' . $set . ' WHERE ' . $where;
+    
         try {
             $result = $this->execute($query, array_values($values));
             return $result ? true : false;
@@ -97,31 +81,16 @@ class Database{
     
 
     public function select($where = null,$order = null,$limit = null, $fields = '*'){
-            //montando a query
         $where = strlen($where) ? 'WHERE ' . $where : '';
         $order = strlen($order) ? 'ORDER BY ' . $order : '';
         $limit = strlen($limit) ? 'LIMIT ' . $limit : '';
 
         $query = 'SELECT '.$fields. ' FROM ' .$this->table. ' '.$where;
-        //SELECT * FROM pessoa;
+
         return $this->execute($query);
 
     }
-
-
-    public function select2($where = null, $order = null, $limit = null, $fields = '*') {
-        $where = strlen($where) ? 'WHERE ' . $where : '';
-        $order = strlen($order) ? 'ORDER BY ' . $order : '';
-        $limit = strlen($limit) ? 'LIMIT ' . $limit : '';
-    
-        $query = 'SELECT ' . $fields . ' FROM ' . $this->table . ' ' . $where . ' ' . $order . ' ' . $limit;
-        
-        return $this->execute($query);
-    }
-    
-
-
-        //FUNÇÃO PARA DELETAR NO DB - $query = $sql 
+       
     public function delete($where){
 
         $query= 'DELETE FROM '.$this->table.' WHERE '.$where;
@@ -134,9 +103,105 @@ class Database{
         }
         
     }
+    public function buscarUsuarioComCpfPorEmail(string $email) {
+        $query = "
+            SELECT u.id, u.nome, u.sobrenome, u.email, u.senha, u.tipo, u.telefone, u.foto_perfil, c.cpf
+            FROM usuarios u
+            LEFT JOIN clientes c ON u.id = c.id_usuario
+            WHERE u.email = ?
+            LIMIT 1
+        ";
+        $stmt = $this->execute($query, [$email]);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
 
+    public function buscarAdmPorEmail(string $email) {
+        $query = "
+            SELECT u.id, u.nome, u.sobrenome, u.email, u.senha, u.tipo, u.telefone, u.foto_perfil, a.matricula, a.cargo
+            FROM usuarios u
+            LEFT JOIN administrador a ON u.id = a.id_usuario
+            WHERE u.email = ?
+            LIMIT 1
+        ";
+        $stmt = $this->execute($query, [$email]);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
+    public function buscarFuncionarioPorEmail(string $email) {
+        $query = "
+            SELECT u.id, u.nome, u.sobrenome, u.email, u.senha, u.tipo, u.telefone, u.foto_perfil, f.matricula, f.cargo
+            FROM usuarios u
+            INNER JOIN funcionarios f ON u.id = f.id_usuario
+            WHERE u.email = ?
+            LIMIT 1
+        ";
+        $stmt = $this->execute($query, [$email]);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
     
-    // atualiza o status_produto no banco, pois um produto não pode ser apagado apenas ativado ou desativado
+    public function buscarAdministradorPorEmail(string $email) {
+        $query = "
+            SELECT 
+                u.id, 
+                u.nome, 
+                u.sobrenome,        
+                u.email, 
+                u.telefone,         
+                u.senha, 
+                u.tipo, 
+                u.foto_perfil, 
+                a.matricula,        
+                a.cargo             
+            FROM usuarios u
+            LEFT JOIN administrador a ON u.id = a.id_usuario
+            WHERE u.email = ?
+            LIMIT 1
+        ";
+        $stmt = $this->execute($query, [$email]);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
+    public function buscarDadosCompletosPorId($id, $tipo) {
+        if ($tipo === 'administrador') {
+            $query = "
+                SELECT 
+                    u.id, 
+                    u.nome, 
+                    u.sobrenome,        
+                    u.email, 
+                    u.telefone,         
+                    u.tipo, 
+                    u.foto_perfil, 
+                    a.matricula,        
+                    a.cargo             
+                FROM usuarios u
+                LEFT JOIN administrador a ON u.id = a.id_usuario
+                WHERE u.id = ?
+                LIMIT 1
+            ";
+        } else {
+            $query = "
+                SELECT 
+                    u.id, 
+                    u.nome, 
+                    u.sobrenome,        
+                    u.email, 
+                    u.telefone,         
+                    u.tipo, 
+                    u.foto_perfil, 
+                    f.matricula,        
+                    f.cargo             
+                FROM usuarios u
+                LEFT JOIN funcionarios f ON u.id = f.id_usuario
+                WHERE u.id = ?
+                LIMIT 1
+            ";
+        }
+        $stmt = $this->execute($query, [$id]);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+    
+
     public function update2(array $where, array $values) {
         $fields = array_keys($values);
         $set = implode(' = ?, ', $fields) . ' = ?';

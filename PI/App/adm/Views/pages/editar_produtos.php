@@ -5,7 +5,7 @@ $id_recebido = $_GET['id_produto'];
 //echo "ID RECEBIDO :" .$id_recebido;
 
 if(!isset($id_recebido) or !is_numeric($id_recebido)){
-    header('location: editar_produtos.php');
+    header('location: estoqueok.php');
     exit;
 }
 $produto = Produto::buscar_by_id($id_recebido);
@@ -239,8 +239,8 @@ if(isset($_POST['editar'])){
         #save-button {
             width: 150px;
             padding: 10px;
-            background: #ff6600;
-            color: #fff;
+            background: #CEF5A4;
+            color: #00000;
             border: none;
             border-radius: 5px;
             cursor: pointer;
@@ -248,7 +248,23 @@ if(isset($_POST['editar'])){
             margin-top: 30px;
         }
         #save-button:hover {
-            background: #e05500;
+            background: green;
+        }
+
+        #cancel-button{
+            width: 150px;
+            padding: 10px;
+            background: #ff6600;
+            color: #00000;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 30px;
+        }
+
+        #cancel-button:hover{
+            background: orange;
         }
     </style>
 </head>
@@ -257,10 +273,10 @@ if(isset($_POST['editar'])){
     <?php include __DIR__.'/../../../../includes/sidebar-Adm.php'; ?>
     <div class="cadastrando-products-pai">
         <div class="cadastrando-products">
-            <nav>
+            <!-- <nav>
                 <a href="#" class="active">Novo Produto</a>
                 <a href="listarProdutos.php">Cadastrados</a>
-            </nav>
+            </nav> -->
             <h2 id='titulo-cadastro-produto'>Editar Produto</h2>
             <form action="" method="POST" enctype="multipart/form-data" id="product-form">
     <div class="form-group">
@@ -368,6 +384,8 @@ if(isset($_POST['editar'])){
 
 
     <button type="submit" name="editar" value="editar" id="save-button">Salvar</button>
+    <button type="button" id="cancel-button" onclick="window.location.href='estoqueok.php'">Cancelar</button>
+
 </form>
 
 <!-- <?php include __DIR__.'/../../../../includes/footer-adm.php'; ?>  -->

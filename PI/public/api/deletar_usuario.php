@@ -11,7 +11,7 @@ if (!$id) {
 }
 
 $db = new Database();
-$usuario = new  Usuario($db);
+$usuario = new  Usuario();
 
 if($usuario->excluir($id)) {
     session_start();

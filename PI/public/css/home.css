@@ -457,6 +457,11 @@ span{
     color: white;
     cursor: pointer;
     transition: 0.1s ease;
+    text-decoration: none; /* Remove o sublinhado */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
 }
 
 .card-botao-a{

@@ -1,4 +1,7 @@
 <?php
+
+require_once __DIR__ . '../../../Models/Usuario.php';
+
 if (session_status() !== PHP_SESSION_ACTIVE) {
     session_start();
 }
@@ -11,7 +14,6 @@ function mascararCPF($cpf) {
     if (strlen($cpf) !== 11) return '';
     return '***.***.***-' . substr($cpf, 9, 2);
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -22,10 +24,10 @@ function mascararCPF($cpf) {
     <title>Meu Perfil</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="../../../../public/css/perfil-usuario-enderecos.css">
 </head>
 <body>
     
-
 <?php include __DIR__.'/../../../../includes/navbar-logada.php'; ?>
 <?php include __DIR__.'/../../../../includes/sidebar-User.php'; ?>
 
@@ -35,18 +37,28 @@ function mascararCPF($cpf) {
         <button class="perfil-tweeb-editar">Oi <?php echo htmlspecialchars($_SESSION['usuario']['nome']); ?>, 👋🏼 </button>
         
         <div class="perfil-tweeb-header">
+            <?php if(isset($_SESSION['erro'])): ?>
+                <div class="alert alert-danger">
+                    <?php 
+                    echo htmlspecialchars($_SESSION['erro']); 
+                    unset($_SESSION['erro']);
+                    ?>
+                </div>
+            <?php endif; ?>
+            
             <div class="perfil-tweeb-imagem">
-                <img src="../../../../public/uploads/<?php echo htmlspecialchars($_SESSION['usuario']['foto_perfil'] ?? ''); ?>" 
-                onerror="this.onerror=null; this.src='../../../../public/uploads/imagem_padrao.png';" 
-                alt="" 
-                class="foto-perfil">
+                <?php 
+                $foto_perfil = !empty($_SESSION['usuario']['foto_perfil']) ? $_SESSION['usuario']['foto_perfil'] : 'imagem_padrao.png';
+                $caminho_foto = strpos($foto_perfil, 'imagem_padrao.png') !== false ? 
+                '/Tweeb-2025/PI/public/uploads/imagem_padrao.png' : 
+                '/Tweeb-2025/PI/public/uploads/' . $foto_perfil;
+
+                ?>
+                <img src="<?php echo htmlspecialchars($caminho_foto); ?>" 
+                     alt="Foto de Perfil" 
+                     class="foto-perfil">
+                
                 <!-- Input oculto de upload -->
-                <form method="POST" action="../../Controllers/userEdit.php" enctype="multipart/form-data" id="formFotoPerfil">
-                    <input type="file" id="inputFotoPerfil" name="foto_perfil" accept="image/*" style="display: none;">
-                    <label for="inputFotoPerfil" class="btn-upload-foto" title="Alterar foto">
-                        <i class="bi bi-cloud-arrow-up carregar-foto"></i>
-                    </label>
-                </form>
 
                 <!-- Botão de upload (ícone Bootstrap) -->
                 <label for="inputFotoPerfil" class="btn-upload-foto" title="Alterar foto">
@@ -54,7 +66,7 @@ function mascararCPF($cpf) {
                 </label>
 
                 <!-- Botão de editar (ícone lápis) -->
-                <button class="perfil-tweeb-editar-foto" title="Editar">
+                <button class="perfil-tweeb-editar-foto" title="Editar" onclick="toggleEditMode()">
                     <i class="fa-regular fa-pen-to-square" style="color: #4b5563;"></i>
                 </button>
             </div>
@@ -65,15 +77,17 @@ function mascararCPF($cpf) {
             </div>
         </div>
 
-        <form class="perfil-tweeb-form" method="POST" action="../../Controllers/userEdit.php" enctype="multipart/form-data">
+        <form class="perfil-tweeb-form" id="perfil-tweeb-form" method="POST" enctype="multipart/form-data">
+            <input type="file" id="inputFotoPerfil" name="foto_perfil" accept="image/*" style="display: none;">
+
             <div class="perfil-tweeb-input-group">
                 <label for="primeiro-nome">Primeiro nome</label>
-                <input type="text" id="primeiro-nome" name="nome" value="<?php echo htmlspecialchars($_SESSION['usuario']['nome']); ?>">
+                <input type="text" id="primeiro-nome" name="nome" value="<?php echo htmlspecialchars($_SESSION['usuario']['nome']); ?>" readonly>
             </div>
 
             <div class="perfil-tweeb-input-group">
                 <label for="sobrenome">Sobrenome</label>
-                <input type="text" id="sobrenome" name="sobrenome"value="<?php echo htmlspecialchars($_SESSION['usuario']['sobrenome'] ?? ''); ?>">
+                <input type="text" id="sobrenome" name="sobrenome" value="<?php echo htmlspecialchars($_SESSION['usuario']['sobrenome'] ?? ''); ?>" readonly>
             </div>
 
             <div class="perfil-tweeb-input-group">
@@ -83,43 +97,18 @@ function mascararCPF($cpf) {
 
             <div class="perfil-tweeb-input-group">
                 <label for="email">Email</label>
-                <input type="email" id="email" name="email" value="<?php echo htmlspecialchars($_SESSION['usuario']['email']); ?>">
+                <input type="email" id="email" name="email" value="<?php echo htmlspecialchars($_SESSION['usuario']['email']); ?>" readonly>
             </div>
 
             <div class="perfil-tweeb-input-group">
                 <label for="telefone">Telefone</label>
-                <input type="text" id="telefone" name="telefone"value="<?php echo htmlspecialchars($_SESSION['usuario']['telefone'] ?? ''); ?>">
-            </div>
-            <div class="perfil-tweeb-input-group">
-                <label for="cep">CEP</label>
-                <input type="text" id="cep" name="cep" value="<?php echo htmlspecialchars($_SESSION['usuario']['cep'] ?? ''); ?>">
+                <input type="text" id="telefone" name="telefone" value="<?php echo htmlspecialchars($_SESSION['usuario']['telefone'] ?? ''); ?>" readonly>
             </div>
 
-            <div class="perfil-tweeb-input-group">
-                <label for="rua">Rua</label>
-                <input type="text" id="rua" name="rua" value="<?php echo htmlspecialchars($_SESSION['usuario']['rua'] ?? ''); ?>">
-            </div>
-
-            <div class="perfil-tweeb-input-group">
-                <label for="bairro">Bairro</label>
-                <input type="text" id="bairro" name="bairro" value="<?php echo htmlspecialchars($_SESSION['usuario']['bairro'] ?? ''); ?>">
-            </div>
-            <div class="perfil-tweeb-input-group">
-                <label for="cidade">Cidade</label>
-                <input type="text" id="cidade" name="cidade" value="<?php echo htmlspecialchars($_SESSION['usuario']['cidade'] ?? ''); ?>">
-            </div>
-
-            <div class="perfil-tweeb-input-group">
-                <label for="estado">Estado</label>
-                <input type="text" id="estado" name="estado" value="<?php echo htmlspecialchars($_SESSION['usuario']['estado'] ?? ''); ?>">
-            </div>
-
-            <div class="perfil-tweeb-botoes">
-                <button type="button" class="perfil-tweeb-cancelar">Cancelar</button>
-                <button type="button" class="perfil-tweeb-excluir" onClick="deletaUsuario()">Excluir</button>
-                <button type="submit" class="perfil-tweeb-salvar">Salvar alteração</button>
-                
-                
+            <div class="perfil-tweeb-botoes-user">
+                <button type="button" class="perfil-tweeb-cancelar-end" onclick="cancelEdit()">Cancelar</button>
+                <button type="submit" class="perfil-tweeb-salvar-end" onClick="editarUsuario()">Salvar alteração</button>
+                <button type="button" class="perfil-tweeb-excluir-end" onClick="abriModal()">Excluir Conta</button>
             </div>
             
         </form>
@@ -127,10 +116,56 @@ function mascararCPF($cpf) {
     </div>
 </div>
 
-<?php include __DIR__.'/../../../../includes/footer.php'; ?>
+<div id="modal" class="modal-perfil_usuario">
+  <div class="modal-conteudo_perfilUsuario">
+    <p>Tem certeza que deseja excluir sua conta?</p>
+    <div class="botoes-perfil_usuario">
+      <button class="btn-excluirPerfil" onclick="deletaUsuario()">Excluir</button>
+      <button class="btn-cancelarPerfil" onclick="fecharModal()">Cancelar</button>
+    </div>
+  </div>
+</div>
+<!-- Modal de mensagem para feedback da exclusão -->
+<div id="modalMensagem" class="modal-perfil_usuario">
+  <div class="modal-conteudo_perfilUsuario">
+    <p id="modalMensagemTexto"></p>
+    <div class="botoes-perfil_usuario">
+      <button onclick="document.getElementById('modalMensagem').style.display='none'">OK</button>
+    </div>
+  </div>
+</div>
 
+<div id="modalAviso" class="modal-aviso">
+  <div class="modal-aviso-conteudo">
+    <span id="modalAvisoTexto"></span>
+  </div>
+</div>
+
+<!-- Modal de sucesso para atualização de dados -->
+<div id="modalSucessoAtualizacao" class="modal-perfil_usuario">
+  <div class="modal-conteudo_perfilUsuario">
+    <p id="modalSucessoAtualizacaoTexto">Dados atualizados com sucesso!</p>
+    <div class="botoes-perfil_usuario">
+      <button class="btn-excluirPerfil" onclick="fecharModalSucessoAtualizacao()">OK</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal de confirmação de alteração de dados -->
+<div id="modalConfirmarAlteracao" class="modal-perfil_usuario">
+  <div class="modal-conteudo_perfilUsuario">
+    <p>Deseja alterar?</p>
+    <div class="botoes-perfil_usuario">
+      <button class="btn-excluirPerfil" onclick="confirmarAlteracao()">Confirmar</button>
+      <button class="btn-cancelarPerfil" onclick="fecharModalConfirmarAlteracao()">Cancelar</button>
+    </div>
+  </div>
+</div>
+<?php include __DIR__.'/../../../../includes/footer.php'; ?>
 <script>
     const usuarioID  = <?php echo json_encode($_SESSION['usuario']['id']);?>
 </script>
+<script src="/Tweeb-2025/PI/public/js/alterar-foto.js"></script>
+<script src="/Tweeb-2025/PI/public/js/perfil-usuario.js"></script>
 </body>
 </html>

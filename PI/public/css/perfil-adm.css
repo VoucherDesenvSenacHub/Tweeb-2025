@@ -1,0 +1,233 @@
+/* Estilos dos botões do perfil */
+.perfil-tweeb-botoes-user {
+    grid-column: 1 / -1; /* Ocupa todas as colunas do grid */
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.perfil-tweeb-botoes-user button {
+    height: 50px;
+    padding: 0 25px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.perfil-tweeb-cancelar-end {
+    background-color: transparent;
+    border: 2px solid #291E40;
+    color: #291E40;
+}
+
+.perfil-tweeb-cancelar-end:hover {
+    background-color: #e0e0e0;
+    transform: translateY(-2px);
+}
+
+.perfil-tweeb-salvar-end {
+    background-color: #291E40;
+    border: none;
+    color: white;
+}
+
+.perfil-tweeb-salvar-end:hover {
+    background-color: #170e2b;
+    transform: translateY(-2px);
+}
+
+.perfil-tweeb-excluir-end{
+    background-color: #291E40;
+    border: none;
+    color: white;
+}
+
+.perfil-tweeb-excluir-end:hover {
+    background-color: #170e2b;
+    transform: translateY(-2px);
+}
+
+/* Campo fixo (não editável) */
+.campo-fixo {
+    color: #6b7280;
+    font-size: 0.875rem;
+    font-weight: normal;
+}
+
+/* Campos desabilitados */
+input[disabled] {
+    background-color: #f3f4f6;
+    color: #6b7280;
+    cursor: not-allowed;
+    border: 1px solid #d1d5db;
+}
+
+/* Layout principal do perfil */
+.perfil-tweeb {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; 
+    margin-top: 50px;
+    height: 100%; 
+    width: 100%; 
+    box-sizing: border-box; 
+    overflow: hidden; 
+}
+
+.perfil-tweeb-container {
+    padding: 20px;
+    border-radius: 10px;
+    width: 900px;
+    max-width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 50px;
+}
+
+.perfil-tweeb-editar {
+    background: transparent;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    color: #6B7280;
+    font-size: 20px;
+    font-family: 'Poppins';
+    float: right;
+}
+
+.perfil-tweeb-header {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.perfil-tweeb-imagem {
+    position: relative;
+    margin-right: 15px;
+}
+
+.perfil-tweeb-imagem img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 3px solid #ccc;
+}
+
+.fio {
+    width: 100%; 
+    height: 2px; 
+    background-color: #ccc; 
+    margin-top: 10px; 
+}
+
+.perfil-tweeb-editar-foto {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 50px; 
+    height: 50px; 
+    background-color: #FFFFFF; 
+    border: 1px solid #ddd; 
+    border-radius: 50%; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.perfil-tweeb-editar-foto i {
+    font-size: 20px; 
+}
+
+.perfil-tweeb-editar-foto:hover {
+    background-color: #FF8661;
+}
+
+.perfil-tweeb-editar-foto:hover i {
+    color: #f5f5f5; 
+}
+
+.perfil-tweeb-info h1 {
+    font-size: 28px;
+    margin: 0px;
+    margin-bottom: 10px;
+    font-family: 'Poppins';
+    color: #1F2937;
+}
+
+.perfil-tweeb-email {
+    color: #6B7280;
+    font-family: 'Poppins';
+    margin-top: -6px;
+}
+
+.perfil-tweeb-form {
+    margin-top: 24px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    color: #000000;
+    font-family: 'Poppins';
+}
+
+/* Garantir que os botões ocupem toda a largura do grid */
+.perfil-tweeb-botoes-user {
+    grid-column: 1 / -1; /* Ocupa todas as colunas do grid */
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.perfil-tweeb-input-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.perfil-tweeb-input-group label {
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.perfil-tweeb-input-group input {
+    padding: 8px;
+    border: 1px solid #f5f5f5;
+    border-radius: 4px;
+    background-color: #f5f5f5;
+    height: 50px;
+    font-family: 'Poppins';
+}
+
+/* Botão de upload de foto */
+.btn-upload-foto {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50px;
+    height: 50px;
+    background-color: #FFFFFF;
+    border: 1px solid #ddd;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.carregar-foto {
+    font-size: 20px;
+    color: #4b5563;
+}
+
+.btn-upload-foto:hover {
+    background-color: #FF8661;
+}
+
+.btn-upload-foto:hover .carregar-foto {
+    color: #f5f5f5;
+} 

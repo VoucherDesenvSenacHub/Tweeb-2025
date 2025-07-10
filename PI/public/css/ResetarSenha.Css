@@ -160,3 +160,80 @@
     text-decoration: none;
     color: unset;
 }
+
+/* <div class="modal-resetar-senha hide">
+<div class="modal-sucesso">
+    
+</div>
+</div> */
+
+.modal-hide{
+    visibility: hidden;
+}
+
+.modal-show{
+    visibility: visible;
+}
+
+.modal-resetar-senha{
+    height: 100vh;
+    width: 100%;
+    
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(3px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+#modal_esqueceu .modal-sucesso{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 288px;
+    width: 465px;
+    background-color: white;
+    border-radius: 8px;
+    padding: 40px;
+    gap: 0.5rem;
+}
+
+#modal_esqueceu .modal-sucesso img{
+    width: 48px;
+    height: 48px;
+}
+
+.modal-sucesso h1{
+    color: rgb(84, 89, 94);
+    line-height: 0;
+}
+
+.modal-sucesso p{
+    color: rgb(152, 155, 158);
+    line-height: 0;
+}
+
+.modal-sucesso #esqueceu-button{
+    width: 80%;
+    height: 44px;
+    border-radius: 8px;
+    border: none;
+    padding: 14px 20px;
+    background-color: #291E40;
+    color: white;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.modal-sucesso #esqueceu-button:hover{
+    background-color: #3a3053;
+}

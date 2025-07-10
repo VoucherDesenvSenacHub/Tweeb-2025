@@ -33,7 +33,7 @@ if (!isset($_SESSION['usuario']['id'])) {
         </span>
         
         <img src="../../../../public/assets/img/linha-pontilhada.png" alt="">
-        <span class="" id="step-ativo">
+        <span class="" id="">
             <i class="fa-solid fa-cart-flatbed"></i>
             <div class="span-information">
                 <p id="step-passo">Passo 2</p>
@@ -41,7 +41,7 @@ if (!isset($_SESSION['usuario']['id'])) {
             </div>
         </span>
         <img src="../../../../public/assets/img/linha-pontilhada.png" alt="">
-        <span class="">
+        <span class="" id="step-ativo">
             <i class="fa-solid fa-credit-card"></i>
             <div class="span-information">
                 <p id="step-passo">Passo 3</p>

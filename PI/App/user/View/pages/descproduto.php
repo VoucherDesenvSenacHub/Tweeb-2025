@@ -12,7 +12,7 @@ if (!$produto) {
 ?>
 <?php include __DIR__.'/../../../../includes/headernavb.php'; ?>
 <body>
-<?php include __DIR__.'/../../../../includes/navbar-logada.php'; ?>
+
 
 
     

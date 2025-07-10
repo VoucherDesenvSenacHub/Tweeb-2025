@@ -1,0 +1,264 @@
+
+        :root {
+            --primary-color: #FE8C67;
+            --secondary-color: #f8f9fa;
+            --text-color: #333;
+            --border-color: #e0e0e0;
+        }
+        #body-aparencia {
+            background-color: #f5f5f5;
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        .h1-title {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+        }
+
+        .panel {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .panel-title {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .banners-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .banner-card {
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            overflow: hidden;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .banner-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .banner-image {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+        }
+
+        .banner-controls {
+            padding: 1rem;
+            background-color: var(--secondary-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .banner-info {
+            flex: 1;
+            overflow: hidden;
+        }
+
+        .banner-title {
+            font-weight: 600;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            margin-bottom: 0.25rem;
+        }
+
+        .banner-date {
+            font-size: 0.8rem;
+            color: #666;
+        }
+
+        .control-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 4px;
+            color: #666;
+            font-size: 1rem;
+        }
+
+        .control-btn:hover {
+            background-color: rgba(0, 0, 0, 0.05);
+            color: var(--primary-color);
+        }
+
+        .upload-area {
+            border: 2px dashed var(--border-color);
+            border-radius: 8px;
+            padding: 2rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .upload-area:hover {
+            border-color: var(--primary-color);
+            background-color: rgba(74, 107, 255, 0.05);
+        }
+
+        .upload-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .upload-text {
+            margin-bottom: 1rem;
+        }
+
+        .upload-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.6rem 1.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background-color 0.2s;
+        }
+
+        .upload-btn:hover {
+            background-color: #3a59e8;
+        }
+
+        #file-input {
+            display: none;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .label-banner {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        input[type="text"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background-color 0.2s;
+        }
+
+        .btn-primary:hover {
+            background-color: #3a59e8;
+        }
+
+        .btn-secondary {
+            background-color: #666;
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background-color 0.2s;
+            margin-left: 0.5rem;
+        }
+
+        .btn-secondary:hover {
+            background-color: #555;
+        }
+
+        .actions-bar {
+            display: flex;
+            justify-content: flex-end;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .preview-section {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .preview-title {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .preview-container {
+            width: 100%;
+            height: 300px;
+            overflow: hidden;
+            position: relative;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+        }
+
+        .preview-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 2rem;
+            color: #666;
+        }
+
+        .empty-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #ccc;
+        }
+
+        .sortable-ghost {
+            opacity: 0.5;
+            background: #c8ebfb;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+
+            .banners-grid {
+                grid-template-columns: 1fr;
+            }
+        }

@@ -52,7 +52,7 @@ session_start(); // Iniciando a sessão para manipulação das respostas
         <h2 class="pesquisa2-cadastro-h2-title">Pense nos produtos que você frequentemente tem intenção de comprar.</h2>
     </div>
 
-    <form action="../../controllers/processar_preferencia2.php" method="POST">
+    <form method="POST" onsubmit="return irParaProximaPagina(event)">
         <div class="pesquisa2-cadastro-cards-container">
             <div class="pesquisa2-cadastro-card1 card-opcao">
                 <img src="../../../../public/assets/img/Instagram Post Dia Internacional do Gamer Tech Preto e Rosa (3) 3.png" alt="card 1" class="pesquisa2-cadastro-img-card1" />
@@ -83,7 +83,22 @@ session_start(); // Iniciando a sessão para manipulação das respostas
     <footer class="pesquisa2-cadastro-footer">
         <div class="pesquisa2-cadastro-barra-roxa-footer"></div>
     </footer>
-    <script src="../../../../public/js/pesquisa2.js"></script>
+    
+    <script>
+    function irParaProximaPagina(event) {
+        event.preventDefault();
+        const categoria = document.querySelector('input[name="categoria"]:checked');
+        if (categoria) {
+            // Armazena a resposta no sessionStorage
+            sessionStorage.setItem('categoria', categoria.value);
+            // Redireciona para a próxima página
+            window.location.href = 'pagina_3_pesquisa_cadastro.php';
+        } else {
+            alert('Por favor, selecione uma opção para continuar.');
+        }
+        return false;
+    }
+    </script>
 </body>
 
 </html>

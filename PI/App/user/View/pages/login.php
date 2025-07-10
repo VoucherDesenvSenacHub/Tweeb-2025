@@ -11,10 +11,16 @@
 
 <body class="body-login">
     <div class="forms">
-        <form action="../../controllers/login_process.php" method="POST">
+        <form method="POST" class="login-form" id="login-form">
             <a href="/Tweeb-2025/PI/home.php" class="back-links"><i class='bx bx-chevron-left'></i> Voltar</a>
             <h1 class="tit">Login</h1>
             <p class="descrit">Faça login para acessar sua conta.</p>
+
+            <?php if (isset($_GET['erro'])): ?>
+                <p class="error-message" style="color: red; text-align: center; margin: 10px 0;">
+                    <?php echo htmlspecialchars($_GET['erro']); ?>
+                </p>
+            <?php endif; ?>
 
             <div class="input-box">
                 <label for="email">Email</label>
@@ -52,5 +58,6 @@
         <img src="/Tweeb-2025/PI/public/assets/img/Groupo4.png" alt="img-login" class="login-image">
     </div>
     <script src="../../../../public/js/lembrarSenhaUser.js"></script>
+    <script src="../../../../public/js/login-usuario.js"></script>
 </body>
 </html>
