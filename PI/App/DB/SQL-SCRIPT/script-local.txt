@@ -57,13 +57,14 @@ CREATE TABLE respostas_preferencias (
 );
 
 CREATE TABLE orcamento (
-	id_orcamento INT AUTO_INCREMENT PRIMARY KEY,
+    id_orcamento INT AUTO_INCREMENT PRIMARY KEY,
     nome varchar(100) NOT NULL,
     email varchar(100) NOT NULL,
     telefone VARCHAR(20) NOT NULL,
-    tipo varchar(50) NOT NULL,
-    prazo varchar(30) NOT NULL,
+    tipo_solicitacao varchar(50) NOT NULL,
+    prazo_estimado varchar(30) NOT NULL,
     imagem varchar(255) NOT NULL,
     descricao text not null,
+    tipo_equipamento varchar(50) not null,
     status_orcamento ENUM('pendente', 'aceito')
 );
