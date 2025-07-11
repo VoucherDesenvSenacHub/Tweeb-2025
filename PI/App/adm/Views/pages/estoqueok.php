@@ -4,8 +4,12 @@
 
 require_once(__DIR__ . '/../../Controllers/Produto.php');
 
+
+
+
 $dados_produto = new Produto();
 $produto_banco = $dados_produto->buscar();
+
 
 
 if (isset($_POST['cadastrar'])) {
@@ -86,6 +90,8 @@ if (isset($_POST['cadastrar'])) {
 }
 
 
+
+
 $id_produto = $_POST['id_produto'] ?? null;
 
 $em_estoque = isset($_POST['em_estoque']) ? 1 : 0;
@@ -101,6 +107,8 @@ if ($id_produto !== null) {
 
 
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -225,6 +233,11 @@ if ($id_produto !== null) {
     <!-- Alternar a exibição -->
 <script>
 
+  document.addEventListener('DOMContentLoaded', async function () {
+    // Simula clique no botão Visão Geral para manter como página inicial de carregamento e mostrar a tabela
+    document.getElementById('btn-cadastrados').click();
+});
+
 // Seleciona o tbody da tabela (onde as linhas serão inseridas)
 let dados_tabela = document.getElementById('rows_products');
 
@@ -264,9 +277,40 @@ async function load_table() {
 }
 
 
+async function load_table3_pedidos() {
+    console.log("AQuiiiiiii 2.0");
+
+    let dados_php = await fetch('../../../../actions/listar_pedidos.php');
+    let response = await dados_php.json();
+
+    let html = '';
+
+    console.log(response);
+
+
+    for (let i = 0; i < response.length; i++) {
+        html += `<tr class="tr-tr-listarP">`;
+        html += `<td class="td-listarP">${response[i].id_pedido}</td>`;              // ID do Pedido
+        html += `<td class="td-listarP">${response[i].id_usuario}</td>`;            // ID do Cliente
+        html += `<td class="td-listarP">R$ ${parseFloat(response[i].valor_total).toFixed(2)}</td>`; // Valor Total
+        html += `<td class="td-listarP">R$ ${parseFloat(response[i].valor_frete).toFixed(2)}</td>`;       // Frete
+        html += `<td class="td-listarP">${response[i].id_endereco}</td>`;      // Endereço
+         html += `<td class="td-listarP">${response[i].metodo_envio}</td>`;     // Método de Envio
+        html += `<td class="td-listarP">${response[i].data_pedido}</td>`;           // Data do Pedido
+        html += `<td class="td-listarP">${response[i].data_entrega_estimada ?? 'Pendente'}</td>`; // Data de Entrega
+        html += `<td class="td-listarP">${response[i].status_pedido}</td>`;         // Status
+        html += `</tr>`;
+    }
+
+    dados_tabela.innerHTML = html;
+}
+
+
 
 
 // Pedidos
+
+
 document.getElementById("btn-pedidos").addEventListener("click", async function(event) {
     event.preventDefault();
 
@@ -297,13 +341,15 @@ document.getElementById("btn-pedidos").addEventListener("click", async function(
         <table class="listarP-table">
             <thead class="thead-listarP">
                 <tr class="tr-listarP">
-                <th class="th-listarP">ID</th>
-                    <th class="th-listarP">Foto</th>
-                    <th class="th-listarP">Produto</th>
-                    <th class="th-listarP">Valor</th>
-                    <th class="th-listarP">Quantidade</th>
-                    <th class="th-listarP">Departamentos</th>
-                    <th class="th-listarP">Alterar</th>
+                <th class="th-listarP">ID do Pedido</th>
+                    <th class="th-listarP">ID do cliente</th>
+                    <th class="th-listarP">Valor Total</th>
+                    <th class="th-listarP">Frete</th>
+                    <th class="th-listarP">Endereço</th>
+                    <th class="th-listarP">Método de Envio</th>
+                    <th class="th-listarP">Data do Pedido</th>
+                    <th class="th-listarP">Data de Entrega</th>
+                    <th class="th-listarP">Status do Pedido</th>
                 </tr>
             </thead>
             <tbody id="rows_products" class="tbody-listarP"></tbody>
@@ -317,10 +363,10 @@ document.getElementById("btn-pedidos").addEventListener("click", async function(
     dados_tabela = document.getElementById('rows_products');
 
     // Carrega os dados da tabela
-    await load_table();
+    await load_table3_pedidos();
 
     // Atualiza o título da seção
-    document.getElementById('titulo-cadastro-produto').textContent = 'Produtos Cadastrados';
+    document.getElementById('titulo-cadastro-produto').textContent = 'Pedidos Enviados';
 
     // Ativa o botão "Cadastrados" e desativa os outros
     document.getElementById('btn-novo-produto').classList.remove('active');
@@ -332,7 +378,7 @@ document.getElementById("btn-pedidos").addEventListener("click", async function(
 
 
 
-
+// carregando tabela de inativos
 async function load_table2() {
 
     let dados_php = await fetch('../../../../actions/listar_produtos_inativos.php');
@@ -395,56 +441,58 @@ function limparFiltro() {
 }
 
 
-// Listener botão Cadastrados (ajustado para associar eventos do filtro)
-document.getElementById("btn-cadastrados").addEventListener("click", async function(event) {
+
+document.getElementById("btn-cadastrados").addEventListener("click", async function (event) {
   event.preventDefault();
 
-  document.getElementById('product-form').style.display = 'none';
+  // Esconde o formulário
+  document.getElementById("product-form").style.display = "none";
 
+  /* ---------- HTML das categorias + filtro ---------- */
   const infoEstoqueHTML = `
     <div class="centralizar-categorias">
       <div class="adm-estoque-caterogias">
 
-        <div class="estoque-categoria"> 
+        <div class="estoque-categoria" data-depto="2">
           <img src="../../../../public/assets/img/computadores-icon.png" alt="">
           <h1 class="visao-geral-adm-estoque">Computadores</h1>
           <div class="estoque-progresso"></div>
-          <p><span><?php echo isset($quantidades['Computadores']) ? $quantidades['Computadores'] : 0; ?></span></p>
+          <p><span class="qtd-depto">0</span></p>
         </div>
 
-        <div class="estoque-categoria">
+        <div class="estoque-categoria" data-depto="1">
           <img src="../../../../public/assets/img/phone-icon.png" alt="">
           <h1 class="visao-geral-adm-estoque">Hardwares</h1>
           <div class="estoque-progresso"></div>
-          <p><span>600</span></p>
+          <p><span class="qtd-depto">0</span></p>
         </div>
 
-        <div class="estoque-categoria">
+        <div class="estoque-categoria" data-depto="3">
           <img src="../../../../public/assets/img/perifericos-icon.png" alt="">
           <h1 class="visao-geral-adm-estoque">Periféricos</h1>
           <div class="estoque-progresso"></div>
-          <p><span>500</span></p>
+          <p><span class="qtd-depto">0</span></p>
         </div>
 
-        <div class="estoque-categoria">
+        <div class="estoque-categoria" data-depto="4">
           <img src="../../../../public/assets/img/energia-icon.png" alt="">
           <h1 class="visao-geral-adm-estoque">Energia</h1>
           <div class="estoque-progresso"></div>
-          <p><span>160</span></p>
+          <p><span class="qtd-depto">0</span></p>
         </div>
 
-        <div class="estoque-categoria">
+        <div class="estoque-categoria" data-depto="5">
           <img src="../../../../public/assets/img/audio-icon.png" alt="">
           <h1 class="visao-geral-adm-estoque">Áudio</h1>
           <div class="estoque-progresso"></div>
-          <p><span>256</span></p>
+          <p><span class="qtd-depto">0</span></p>
         </div>
 
-        <div class="estoque-categoria">
+        <div class="estoque-categoria" data-depto="6">
           <img src="../../../../public/assets/img/jogos-icon.png" alt="">
           <h1 class="visao-geral-adm-estoque">Jogos</h1>
           <div class="estoque-progresso"></div>
-          <p><span>123</span></p>
+          <p><span class="qtd-depto">0</span></p>
         </div>
 
       </div>
@@ -466,6 +514,7 @@ document.getElementById("btn-cadastrados").addEventListener("click", async funct
     </div>
   `;
 
+  /* ---------- HTML da tabela ---------- */
   const tabelaHTML = `
     <table class="listarP-table">
       <thead class="thead-listarP">
@@ -483,23 +532,81 @@ document.getElementById("btn-cadastrados").addEventListener("click", async funct
     </table>
   `;
 
-  document.getElementById('tabela-produtos').innerHTML = infoEstoqueHTML + tabelaHTML;
+  document.getElementById("tabela-produtos").innerHTML = infoEstoqueHTML + tabelaHTML;
 
-  dados_tabela = document.getElementById('rows_products');
+  /* ---------- Carrega produtos e conta por departamento ---------- */
+  const tbody = document.getElementById("rows_products");
+  let htmlRows = "";
+  const contagemDepto = { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0 };
 
-  await load_table();
+  try {
+    const dados_php = await fetch("../../../../actions/listar_produtos.php");
+    const produtos = await dados_php.json();
 
-  document.getElementById('titulo-cadastro-produto').textContent = 'Produtos Cadastrados';
+    produtos.forEach((p) => {
+      // monta as linhas da tabela
+      htmlRows += `
+        <tr class="tr-tr-listarP">
+          <td class="td-listarP">${p.id_produto}</td>
+          <td class="td-listarP"><img src="${p.imagem_produto}" class="listarP-produto-img"></td>
+          <td class="td-listarP">${p.nome_produto}</td>
+          <td class="td-listarP">${p.preco_unid}</td>
+          <td class="td-listarP">${p.quantidade_produto}</td>
+          <td class="td-listarP">${p.id_departamento}</td>
+          <td class="td-listarP">
+            <div class="td_botao">
+              <a href="editar_produtos.php?id_produto=${p.id_produto}">
+                <button type="submit" class="form-listarP_editar">
+                  <img src="../../../../public/assets/img/edit-03.png" class="listarP-edit-icon">
+                </button>
+              </a>
+              <a href="excluir_produtos.php?id_produto=${p.id_produto}">
+                <button type="submit" class="listarP-delete-btn">
+                  <img src="../../../../public/assets/img/trash-2.png" class="listarP-delete-icon">
+                </button>
+              </a>
+            </div>
+          </td>
+        </tr>`;
 
-  document.getElementById('btn-novo-produto').classList.remove('active');
-  document.getElementById('btn-inativos').classList.remove('active');
-  this.classList.add('active');
-  document.getElementById('btn-pedidos').classList.remove('active');
+      // incrementa contador
+      if (contagemDepto[p.id_departamento] !== undefined) {
+        contagemDepto[p.id_departamento]++;
+      }
+    });
 
-  // Associa eventos dos botões do filtro (IMPORTANTE: fazer só após o HTML existir)
-  document.querySelector('.form-botao-buscar').addEventListener('click', filtrarTabela);
-  document.querySelector('.form-botao-limpar').addEventListener('click', limparFiltro);
+    tbody.innerHTML = htmlRows;
+  } catch (err) {
+    console.error(err);
+    tbody.innerHTML = `<tr><td colspan="7">Erro ao carregar produtos</td></tr>`;
+  }
+
+  /* ---------- Atualiza os <span> dentro de cada categoria ---------- */
+  document
+    .querySelectorAll(".estoque-categoria")
+    .forEach((cat) => {
+      const depto = cat.getAttribute("data-depto");
+      const spanQtd = cat.querySelector(".qtd-depto");
+      spanQtd.textContent = contagemDepto[depto] ?? 0;
+    });
+
+  /* ---------- Ajusta título e botões ---------- */
+  document.getElementById("titulo-cadastro-produto").textContent =
+    "Produtos Cadastrados";
+  document.getElementById("btn-novo-produto").classList.remove("active");
+  document.getElementById("btn-inativos").classList.remove("active");
+  document.getElementById("btn-pedidos").classList.remove("active");
+  this.classList.add("active");
+
+  /* ---------- Eventos de filtro ---------- */
+  document
+    .querySelector(".form-botao-buscar")
+    .addEventListener("click", filtrarTabela);
+  document
+    .querySelector(".form-botao-limpar")
+    .addEventListener("click", limparFiltro);
 });
+
 
 
 // Exemplo corrigido da função load_table (ajuste para ordem correta das colunas)

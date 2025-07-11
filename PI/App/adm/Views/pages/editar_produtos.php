@@ -240,7 +240,7 @@ if(isset($_POST['editar'])){
             width: 150px;
             padding: 10px;
             background: #CEF5A4;
-            color: #00000;
+            color: #333;
             border: none;
             border-radius: 5px;
             cursor: pointer;
@@ -255,7 +255,7 @@ if(isset($_POST['editar'])){
             width: 150px;
             padding: 10px;
             background: #ff6600;
-            color: #00000;
+            color: #333;
             border: none;
             border-radius: 5px;
             cursor: pointer;

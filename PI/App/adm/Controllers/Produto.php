@@ -114,7 +114,8 @@ class Produto{
        
         return (new Database('produtos'))->select($condicaoBase, $order, $limit)->fetchAll(PDO::FETCH_ASSOC);
     }
-    
+
+
 
     // public static function buscar_by_id($id_produto){
     //     //FETCHALL
@@ -134,7 +135,7 @@ class Produto{
 
     
         $stmt = $conn->prepare("UPDATE produtos SET em_estoque = ?, garantia = ?, entrega_gratis = ? WHERE id_produto = ?");
-        $stmt->execute([$em_estoque, $garantia, $entrega_gratis, $id]);
+        $stmt->execute([$em_estoque, $garantia, $entrega_gratis, $id_produto]);
     }
 
     public function update2() {
