@@ -20,14 +20,17 @@ session_start();
         <div class="listarC-titulo3">Clientes Cadastrados</div>
     </div>
 
-    <div class="listarP-search-box">
-        <div class="listarP-search-contain">
-            <button type="submit" class="listarP-search-btn">
-                <i class="bx bx-search"></i>
-            </button>
-            <input type="text" id="searchInput" class="listarP-srch" placeholder="Buscar Cliente">
-        </div>
-    </div>
+    <form class="filtro-formulario">
+    <label for="id">ID:</label>
+    <input type="text" id="id" name="id" placeholder="Digite O id">
+
+    <label for="nome">Nome:</label>
+    <input type="text" id="nome" name="nome" placeholder="Nome do cliente">
+
+    <button type="submit" class="form-botao-buscar">Buscar</button>
+    <button type="reset" class="form-botao-limpar">Limpar</button>
+  </form>
+
 
  
 

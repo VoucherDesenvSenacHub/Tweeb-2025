@@ -182,11 +182,6 @@ session_start();
       </table>
     </div>
 
-        <div class="pagination">
-            <button onclick="showPage(1)">1</button>
-            <button onclick="showPage(2)">2</button>
-        </div>
-    </div>
 </div>
 
 <?php include __DIR__.'/../../../../includes/footer-adm.php'; ?> 

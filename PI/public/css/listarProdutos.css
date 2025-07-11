@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inder&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
@@ -59,12 +60,13 @@
 .listarC-titulo3 {
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
-    font-size: 18px;
+    font-size: 20px;
     line-height: 32px;
     letter-spacing: 0%;
     text-align: center;
     color:  #000000;
     border-bottom: 2px solid #000;
+    margin-left: 50px;
 }
 
 /* Search */
@@ -89,6 +91,7 @@
     font-family: 'Poppins', sans-serif;
     transition: border-color 0.3s ease;
     margin-left: 13px;
+
 }
 
 .listarP-srch:focus {
@@ -215,9 +218,9 @@
     border-collapse: separate;
     border-spacing: 0 30px;
     font-family: 'Poppins', sans-serif;
-    min-width: 900px;
+    min-width: 600px;
     table-layout: fixed;
-    margin-left: 90px;
+    margin-left: -30px;
 }
 
 .listarP-table th, .listarP-table .td-listarP {
