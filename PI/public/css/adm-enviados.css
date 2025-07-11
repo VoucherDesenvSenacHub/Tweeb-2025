@@ -279,46 +279,6 @@ body {
   }
 
 
-.filtro-formulario label{
-    margin-right: -8px;
-    font-size: 14px;
-    font-weight: 400;
-    height: 32px;
-    padding: 5px 12px;
-    border-radius: 4px;
-    background-color: #fafafa;
-    border: 1px solid #d9d9d9;
-    color: #595959;
-    
-}
-
-.filtro-formulario input{
-    margin-right: 10px;
-    height: 29.5px;
-    padding: 5px 12px;
-    border: 1px solid #d9d9d9;
-    border-top-right-radius:  4px;
-    border-bottom-right-radius:  4px;
-    z-index: -2;
-}
-
-.filtro-formulario input::placeholder{
-    color: rgba(0, 0, 0, 25%);
-}
-
-.form-botao-buscar{
-    cursor: pointer;
-    background-color: #1890ff;
-    color: white;
-    padding: 5px 16px;
-    height: 32px;
-    transition: background-color 0.15s ease;
-    border-radius: 4px;
-}
-
-.form-botao-buscar:hover{
-    background-color: #1372ca;
-}
 
 /* chatgpt teve que dar aulas aqui, muita burocracia trocar o estilo padrão de um checkbox */
 
@@ -733,12 +693,12 @@ AC1616
     box-sizing: border-box;
   }
   .btn-adicionar-envio {
-    margin: 20px 0;
+    margin: 0px 0;
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
     background-color: rgb(26, 21, 66);
-    margin-left: 1160px;
+    margin-left: 1100px;
     border-radius: 20px;
     font-size: white;
 
@@ -757,3 +717,102 @@ AC1616
     font-size: 15px;
     margin-top: 10px;
   }
+
+
+
+
+  @media screen and (max-width: 1024px) {
+    .form-group-estoque {
+      flex-direction: column;
+      gap: 1rem;
+    }
+  
+    .form-group-estoque input,
+    .form-group-estoque label {
+      width: 100%;
+    }
+  
+    .categorias-adm-enviados {
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+  
+    .pedidos-ui-card {
+      width: 100%;
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .radio-inputs {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  
+    .btn-adicionar-envio {
+      display: block;
+      margin: 1rem auto;
+    }
+  }
+  
+  @media screen and (max-width: 768px) {
+    .tabela-envios,
+    .tabela-envios thead,
+    .tabela-envios tbody,
+    .tabela-envios tr,
+    .tabela-envios td {
+      display: block;
+      width: 100%;
+    }
+  
+    .tabela-envios tr {
+      margin-bottom: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 10px;
+    }
+  
+    .tabela-envios td {
+      text-align: left;
+      padding: 5px 0;
+    }
+  
+    .tabela-envios td:before {
+      content: attr(data-label);
+      font-weight: bold;
+      display: block;
+      margin-bottom: 3px;
+    }
+  
+    .envios-tbody .envios-information td {
+      border: none;
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    .modal-content {
+      width: 90%;
+      padding: 1rem;
+    }
+  
+    .form-group-estoque {
+      padding: 0 10px;
+    }
+  
+    .form-botao-buscar,
+    .form-botao-limpar {
+      width: 100%;
+      margin-top: 0.5rem;
+    }
+  
+    .envio-titulo-adm,
+    .pedidos-envios-recentes h1 {
+      font-size: 1.2rem;
+      text-align: center;
+    }
+  
+    .table-data p {
+      font-size: 0.9rem;
+    }
+  }
+  

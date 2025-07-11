@@ -81,9 +81,9 @@ class Database{
     
 
     public function select($where = null,$order = null,$limit = null, $fields = '*'){
-        $where = strlen($where) ? 'WHERE ' . $where : '';
-        $order = strlen($order) ? 'ORDER BY ' . $order : '';
-        $limit = strlen($limit) ? 'LIMIT ' . $limit : '';
+        $where = (!empty($where) && strlen($where) > 0) ? 'WHERE ' . $where : '';
+        $order = (!empty($order) && strlen($order) > 0) ? 'ORDER BY ' . $order : '';
+        $limit = (!empty($limit) && strlen($limit) > 0) ? 'LIMIT ' . $limit : '';
 
         $query = 'SELECT '.$fields. ' FROM ' .$this->table. ' '.$where;
 
@@ -231,10 +231,10 @@ class Database{
 
     public function selectPaginado($where = null, $order = null, $limit = null, $offset = null, $fields = '*')
     {
-        $where = strlen($where) ? 'WHERE ' . $where : '';
-        $order = strlen($order) ? 'ORDER BY ' . $order : '';
-        $limit = strlen($limit) ? 'LIMIT ' . $limit : '';
-        $offset = strlen($offset) ? 'OFFSET ' . $offset : '';
+        $where = (!empty($where) && strlen($where) > 0) ? 'WHERE ' . $where : '';
+        $order = (!empty($order) && strlen($order) > 0) ? 'ORDER BY ' . $order : '';
+        $limit = (!empty($limit) && strlen($limit) > 0) ? 'LIMIT ' . $limit : '';
+        $offset = (!empty($offset) && strlen($offset) > 0) ? 'OFFSET ' . $offset : '';
         $query = 'SELECT ' . $fields . ' FROM ' . $this->table . ' ' . $where . ' ' . $order . ' ' . $limit . ' ' . $offset;
         
         return $this->execute($query);

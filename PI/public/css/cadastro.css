@@ -22,7 +22,7 @@
 } 
     
 .Task2a-card { 
-    height: 620px;
+    height: 660px;
     background-color: #fff; 
     padding: 25px 70px;
     border-radius: 46px; 
@@ -88,6 +88,7 @@
     color: #828282; 
     margin-top: -8%;
     line-height: 20px;
+    padding: 10px;
 } 
     
 .Task2a-terms a { 

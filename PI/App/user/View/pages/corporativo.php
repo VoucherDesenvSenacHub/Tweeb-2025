@@ -1,3 +1,15 @@
+<?php
+if (session_status() !== PHP_SESSION_ACTIVE) {
+    session_start();
+}
+if (!isset($_SESSION['usuario']['id'])) {
+    // Redireciona para login se não estiver logado
+    header('Location: login.php');
+    exit();
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -8,7 +20,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body class="Planos_corporativos">
-<?php include __DIR__.'/../../../../includes/navbar-logada.php'; ?>
+<?php include __DIR__.'/../../../../includes/navbar.php'; ?>
     <div class="banner_corporativo">
         <img src="../../../../public/assets/img/3 3.png" alt="">
     </div>

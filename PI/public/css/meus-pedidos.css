@@ -1,0 +1,442 @@
+/* Estilos para a página de meus pedidos */
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.page-header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 30px;
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    border-radius: 15px;
+    color: white;
+}
+
+.page-header h1 {
+    font-size: 2.5em;
+    margin: 0 0 10px 0;
+    font-weight: 700;
+}
+
+.page-header p {
+    font-size: 1.2em;
+    margin: 0;
+    opacity: 0.9;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.empty-icon {
+    font-size: 80px;
+    color: #ccc;
+    margin-bottom: 20px;
+}
+
+.empty-state h3 {
+    color: #333;
+    margin: 0 0 10px 0;
+    font-size: 1.5em;
+}
+
+.empty-state p {
+    color: #666;
+    margin: 0 0 30px 0;
+    font-size: 1.1em;
+}
+
+.btn-comprar {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 30px;
+    background: #28a745;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-comprar:hover {
+    background: #218838;
+    transform: translateY(-2px);
+}
+
+.pedidos-grid {
+    display: grid;
+    gap: 20px;
+}
+
+.pedido-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.pedido-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+}
+
+.pedido-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background: #f8f9fa;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.pedido-info h3 {
+    margin: 0 0 5px 0;
+    color: #333;
+    font-size: 1.3em;
+}
+
+.pedido-data {
+    margin: 0;
+    color: #666;
+    font-size: 0.9em;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.status-badge {
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.85em;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.status-pendente {
+    background: #fff3cd;
+    color: #856404;
+}
+
+.status-pago {
+    background: #d4edda;
+    color: #155724;
+}
+
+.status-preparando {
+    background: #d1ecf1;
+    color: #0c5460;
+}
+
+.status-enviado {
+    background: #cce5ff;
+    color: #004085;
+}
+
+.status-entregue {
+    background: #d4edda;
+    color: #155724;
+}
+
+.status-cancelado {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+.pedido-details {
+    padding: 20px;
+}
+
+.detail-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.detail-item:last-child {
+    border-bottom: none;
+}
+
+.label {
+    font-weight: 600;
+    color: #555;
+}
+
+.value {
+    color: #333;
+}
+
+.value.rastreio {
+    font-family: monospace;
+    background: #f8f9fa;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.9em;
+}
+
+.pedido-actions {
+    display: flex;
+    gap: 10px;
+    padding: 20px;
+    background: #f8f9fa;
+    border-top: 1px solid #e9ecef;
+}
+
+.btn-detalhes, .btn-cancelar, .btn-rastrear {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    font-size: 0.9em;
+}
+
+.btn-detalhes {
+    background: #007bff;
+    color: white;
+}
+
+.btn-detalhes:hover {
+    background: #0056b3;
+}
+
+.btn-cancelar {
+    background: #dc3545;
+    color: white;
+}
+
+.btn-cancelar:hover {
+    background: #c82333;
+}
+
+.btn-rastrear {
+    background: #28a745;
+    color: white;
+}
+
+.btn-rastrear:hover {
+    background: #218838;
+}
+
+/* Modal */
+.modal {
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: white;
+    margin: 5% auto;
+    padding: 30px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 800px;
+    max-height: 80vh;
+    overflow-y: auto;
+    position: relative;
+}
+
+.close {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #aaa;
+}
+
+.close:hover {
+    color: #000;
+}
+
+.modal-section {
+    margin-bottom: 30px;
+}
+
+.modal-section h2 {
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 1.8em;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 10px;
+}
+
+.modal-section h3 {
+    color: #333;
+    margin-bottom: 15px;
+    font-size: 1.3em;
+    border-bottom: 1px solid #e9ecef;
+    padding-bottom: 8px;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+.info-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background: #f8f9fa;
+    border-radius: 6px;
+}
+
+.produtos-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.produto-item {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 8px;
+}
+
+.produto-item img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 6px;
+    margin-right: 15px;
+}
+
+.produto-info {
+    flex: 1;
+}
+
+.produto-info h4 {
+    margin: 0 0 5px 0;
+    color: #333;
+    font-size: 1.1em;
+}
+
+.produto-info p {
+    margin: 2px 0;
+    color: #666;
+    font-size: 0.9em;
+}
+
+.produto-subtotal {
+    font-weight: 600;
+    color: #28a745;
+    font-size: 1.1em;
+}
+
+.historico {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.historico-item {
+    padding: 12px;
+    background: #f8f9fa;
+    border-radius: 6px;
+    border-left: 4px solid #007bff;
+}
+
+.historico-data {
+    font-size: 0.85em;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.historico-status {
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.historico-obs {
+    font-size: 0.9em;
+    color: #666;
+    font-style: italic;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .pedido-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+    
+    .pedido-actions {
+        flex-direction: column;
+    }
+    
+    .btn-detalhes, .btn-cancelar, .btn-rastrear {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .modal-content {
+        width: 95%;
+        margin: 10% auto;
+        padding: 20px;
+    }
+    
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .produto-item {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .produto-item img {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+    
+    .produto-subtotal {
+        margin-top: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 10px;
+    }
+    
+    .page-header {
+        padding: 20px;
+    }
+    
+    .page-header h1 {
+        font-size: 2em;
+    }
+    
+    .pedido-header, .pedido-details, .pedido-actions {
+        padding: 15px;
+    }
+} 

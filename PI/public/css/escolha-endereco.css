@@ -677,3 +677,241 @@ input[type="radio"]:not(:checked) {
         align-items: stretch; /* Estica os botões para a largura total */
     }
 }
+
+/* Estilos para o modal de endereço */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 5% auto;
+    padding: 30px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 600px;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    animation: modalSlideIn 0.3s ease-out;
+}
+
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.close {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    color: #aaa;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+}
+
+#modal-title {
+    margin-bottom: 25px;
+    color: #17183B;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #333;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #e1e1e1;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    background-color: #fff;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #17183B;
+    box-shadow: 0 0 0 3px rgba(23, 24, 59, 0.1);
+}
+
+.form-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: flex-end;
+    margin-top: 30px;
+}
+
+.btn-cancelar,
+.btn-salvar {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-cancelar {
+    background-color: #f8f9fa;
+    color: #6c757d;
+    border: 2px solid #e9ecef;
+}
+
+.btn-cancelar:hover {
+    background-color: #e9ecef;
+    color: #495057;
+}
+
+.btn-salvar {
+    background-color: #17183B;
+    color: white;
+}
+
+.btn-salvar:hover {
+    background-color: #0f1028;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(23, 24, 59, 0.3);
+}
+
+/* Estilos para mensagem de sem endereços */
+.sem-enderecos {
+    text-align: center;
+    color: #6c757d;
+    font-size: 16px;
+    padding: 40px 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    border: 2px dashed #dee2e6;
+}
+
+/* Botão avançar desabilitado */
+.botao-avancar:disabled {
+    background-color: #6c757d;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.botao-avancar:disabled:hover {
+    background-color: #6c757d;
+    transform: none;
+    box-shadow: none;
+}
+
+/* Responsividade do modal */
+@media (max-width: 768px) {
+    .modal-content {
+        margin: 10% auto;
+        width: 95%;
+        padding: 20px;
+    }
+    
+    .form-buttons {
+        flex-direction: column;
+    }
+    
+    .btn-cancelar,
+    .btn-salvar {
+        width: 100%;
+    }
+}
+
+/* Estilos para busca de CEP */
+.cep-input-group {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.cep-input-group input {
+    flex: 1;
+}
+
+.btn-buscar-cep {
+    padding: 12px 15px;
+    background-color: #17183B;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s;
+    min-width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-buscar-cep:hover {
+    background-color: #0f1028;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(23, 24, 59, 0.3);
+}
+
+.btn-buscar-cep:disabled {
+    background-color: #6c757d;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.cep-status {
+    display: block;
+    margin-top: 5px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.cep-status.success {
+    color: #28a745;
+}
+
+.cep-status.error {
+    color: #dc3545;
+}
+
+.cep-status.loading {
+    color: #007bff;
+}
+
+/* Animação de rotação para o spinner */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.fa-spin {
+    animation: spin 1s linear infinite;
+}

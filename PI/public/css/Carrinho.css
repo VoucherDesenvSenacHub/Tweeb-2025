@@ -9,12 +9,12 @@
 }
 .Carrinho .container{
   display: flex;
-  height: 768px;
+  min-height: 768px;
   width: 1180px;
   padding: 50px;
   margin-left: 198px;
   margin-top: 50px;
-  margin-bottom: 400px;
+  margin-bottom: 100px;
   gap: 48px;
   opacity: 0px;
   justify-content: space-between; 
@@ -30,12 +30,10 @@
 .Carrinho .container .cart-items {
   display: flex;
   flex-direction: column;
-  height: 700px;
+  min-height: 700px;
   width: 570px;
-  display: flex;
   gap: 15px;
   /* background-color: #291E40; */
-  flex-direction: column;
 }
 .Carrinho .container .cart-items .item{
   width: 556px;
@@ -153,9 +151,52 @@
   text-align: center;
   text-decoration: none;
 }
+
+/* Estilos para carrinho vazio */
+.Carrinho .carrinho-vazio {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 400px;
+  text-align: center;
+  gap: 20px;
+}
+
+.Carrinho .carrinho-vazio p {
+  font-size: 18px;
+  color: #666;
+  margin: 0;
+}
+
+.Carrinho .btn-continuar-comprando {
+  display: inline-block;
+  padding: 16px 32px;
+  background-color: #291E40;
+  color: #FFFFFF;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+.Carrinho .btn-continuar-comprando:hover {
+  background-color: #1a1429;
+}
+
+/* Estilo para botão desabilitado */
+.Carrinho .desconto[disabled] {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.Carrinho .desconto[disabled] a {
+  color: #666;
+  cursor: not-allowed;
+}
 .Carrinho .revisao-itens{
   width:566px;
-  height: 450px;
+  min-height: 450px;
   padding: 56px ;
   gap: 10px;
   border: 1px 0px 0px 0px;

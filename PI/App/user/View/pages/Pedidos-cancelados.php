@@ -19,7 +19,7 @@ if (!isset($_SESSION['usuario']['id'])) {
 </head>
 <body class="body-pcancelados">
 
-<?php include __DIR__.'/../../../../includes/navbar-logada.php'; ?>
+<?php include __DIR__.'/../../../../includes/navbar.php'; ?>
     <div class="container-pcancelados">
         <h2 class="titulo-pcancelados">Pedidos Cancelados</h2>
 

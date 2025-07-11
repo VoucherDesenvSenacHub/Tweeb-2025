@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once __DIR__ . '/../Produto.php'; 
 
 $produtos_por_pagina = 9;

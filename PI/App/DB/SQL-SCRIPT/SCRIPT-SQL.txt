@@ -352,3 +352,366 @@ CREATE TABLE ordem_servico (
     data_conclusao DATE NOT NULL,
     observacoes TEXT
 );
+
+
+
+
+
+
+
+
+
+
+
+
+
+------------NOVO-------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+CREATE DATABASE Tweeb25;
+USE Tweeb25;
+SELECT * FROM usuarios;
+SELECT * FROM clientes;
+SELECT * FROM administrador;
+SELECT * FROM funcionarios;
+SELECT * FROM departamento;
+SELECT * FROM produtos;
+SELECT * FROM avaliacao_produto;
+SELECT * FROM enderecos;
+SELECT * FROM fornecedor;
+SELECT * FROM questionario;
+SELECT * FROM respostas_preferencias;
+SELECT * FROM orcamento;
+SELECT * FROM ordem_servico;
+desc usuarios;
+-- Tabela base: USUÁRIOS
+CREATE TABLE `usuarios` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `nome` VARCHAR(100) NOT NULL,
+  `sobrenome` VARCHAR(100) DEFAULT NULL,
+  `email` VARCHAR(100) NOT NULL,
+  `telefone` VARCHAR(20) DEFAULT NULL,
+  `senha` VARCHAR(255) NOT NULL,
+  `tipo` ENUM('cliente', 'funcionario', 'administrador') DEFAULT NULL,
+  `created_at` DATETIME DEFAULT CURRENT_TIMESTAMP(),
+  `updated_at` DATETIME DEFAULT CURRENT_TIMESTAMP() ON UPDATE CURRENT_TIMESTAMP(),
+  `foto_perfil` VARCHAR(255) DEFAULT NULL,
+  `token_recuperacao` VARCHAR(64) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `email` (`email`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- CLIENTES
+CREATE TABLE `clientes` (
+  `id_usuario` INT(11) NOT NULL,
+  `cpf` VARCHAR(14) DEFAULT NULL,
+  `created_at` DATETIME DEFAULT CURRENT_TIMESTAMP(),
+  `updated_at` DATETIME DEFAULT CURRENT_TIMESTAMP() ON UPDATE CURRENT_TIMESTAMP(),
+  PRIMARY KEY (`id_usuario`),
+  UNIQUE KEY `cpf` (`cpf`),
+  CONSTRAINT `clientes_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- ADMINISTRADOR
+CREATE TABLE `administrador` (
+  `id_usuario` INT(11) NOT NULL,
+  `matricula` VARCHAR(20) DEFAULT NULL,
+  `cargo` VARCHAR(50) DEFAULT NULL,
+  `created_at` DATETIME DEFAULT CURRENT_TIMESTAMP(),
+  `updated_at` DATETIME DEFAULT CURRENT_TIMESTAMP() ON UPDATE CURRENT_TIMESTAMP(),
+  PRIMARY KEY (`id_usuario`),
+  CONSTRAINT `administrador_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- FUNCIONÁRIOS
+CREATE TABLE `funcionarios` (
+  `id_usuario` INT(11) NOT NULL,
+  `matricula` VARCHAR(20) DEFAULT NULL,
+  `cargo` VARCHAR(50) DEFAULT NULL,
+  `created_at` DATETIME DEFAULT CURRENT_TIMESTAMP(),
+  `updated_at` DATETIME DEFAULT CURRENT_TIMESTAMP() ON UPDATE CURRENT_TIMESTAMP(),
+  PRIMARY KEY (`id_usuario`),
+  CONSTRAINT `funcionarios_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- DEPARTAMENTO
+CREATE TABLE `departamento` (
+  `id_departamento` INT(11) NOT NULL AUTO_INCREMENT,
+  `nome_departamento` VARCHAR(150) NOT NULL,
+  PRIMARY KEY (`id_departamento`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- PRODUTOS
+CREATE TABLE `produtos` (
+  `id_produto` INT(11) NOT NULL AUTO_INCREMENT,
+  `nome_produto` VARCHAR(100) NOT NULL,
+  `marca_modelo` VARCHAR(100) NOT NULL,
+  `quantidade_produto` INT(11) NOT NULL,
+  `imagem_produto` VARCHAR(250) NOT NULL,
+  `numero_serie` VARCHAR(25) NOT NULL,
+  `custo_produto` DECIMAL(10,2) NOT NULL,
+  `cor_produto` VARCHAR(20) NOT NULL,
+  `preco_unid` DECIMAL(10,2) NOT NULL,
+  `descricao_produto` VARCHAR(250) NOT NULL,
+  `detalhes_produto` VARCHAR(500) NOT NULL,
+  `id_departamento` INT(11) DEFAULT NULL,
+  `entrega_gratis` TINYINT(4) NOT NULL CHECK (`entrega_gratis` IN (0,1)),
+  `em_estoque` TINYINT(4) NOT NULL CHECK (`em_estoque` IN (0,1)),
+  `garantia` TINYINT(4) NOT NULL CHECK (`garantia` IN (0,1)),
+  `status_produto` TINYINT(4) DEFAULT NULL CHECK (`status_produto` IN (0,1)),
+  PRIMARY KEY (`id_produto`),
+  KEY `id_departamento` (`id_departamento`),
+  CONSTRAINT `produtos_ibfk_1` FOREIGN KEY (`id_departamento`) REFERENCES `departamento` (`id_departamento`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- AVALIAÇÃO DE PRODUTO
+CREATE TABLE `avaliacao_produto` (
+  `id_avaliacao` INT(11) NOT NULL AUTO_INCREMENT,
+  `id` INT(11) NOT NULL,
+  `id_produto` INT(11) NOT NULL,
+  `notas` TINYINT(4) NOT NULL CHECK (`notas` BETWEEN 1 AND 5),
+  `comentario` VARCHAR(255) DEFAULT NULL,
+  `data_avaliacao` DATETIME DEFAULT CURRENT_TIMESTAMP(),
+  PRIMARY KEY (`id_avaliacao`),
+  KEY `id` (`id`),
+  KEY `id_produto` (`id_produto`),
+  CONSTRAINT `avaliacao_produto_ibfk_1` FOREIGN KEY (`id`) REFERENCES `usuarios` (`id`),
+  CONSTRAINT `avaliacao_produto_ibfk_2` FOREIGN KEY (`id_produto`) REFERENCES `produtos` (`id_produto`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- ENDEREÇOS
+CREATE TABLE `enderecos` (
+  `id_endereco` INT(11) NOT NULL AUTO_INCREMENT,
+  `id_cliente` INT(11) DEFAULT NULL,
+  `nome_endereco` VARCHAR(100) DEFAULT NULL,
+  `rua` VARCHAR(100) DEFAULT NULL,
+  `numero` VARCHAR(20) DEFAULT NULL,
+  `cep` VARCHAR(8) DEFAULT NULL,
+  `bairro` VARCHAR(100) DEFAULT NULL,
+  `cidade` VARCHAR(50) DEFAULT NULL,
+  `estado` VARCHAR(50) DEFAULT NULL,
+  `created_at` DATETIME DEFAULT CURRENT_TIMESTAMP(),
+  `updated_at` DATETIME DEFAULT CURRENT_TIMESTAMP() ON UPDATE CURRENT_TIMESTAMP(),
+  PRIMARY KEY (`id_endereco`),
+  KEY `id_cliente` (`id_cliente`),
+  CONSTRAINT `enderecos_ibfk_1` FOREIGN KEY (`id_cliente`) REFERENCES `clientes` (`id_usuario`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- FORNECEDOR
+CREATE TABLE `fornecedor` (
+  `id_fornecedor` INT(11) NOT NULL AUTO_INCREMENT,
+  `nome_fornecedor` VARCHAR(150) NOT NULL,
+  `marca_fornecedor` VARCHAR(150) NOT NULL,
+  `cnpj` CHAR(14) NOT NULL,
+  `nome_fantasia` VARCHAR(50) NOT NULL,
+  `endereco_fornecedor` VARCHAR(255) NOT NULL,
+  PRIMARY KEY (`id_fornecedor`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- QUESTIONÁRIO
+CREATE TABLE `questionario` (
+  `id_questionario` INT(11) NOT NULL AUTO_INCREMENT,
+  `conhecimento_tecnico` TINYINT(4) NOT NULL CHECK (`conhecimento_tecnico` IN (0,1)),
+  `tipo_hardware_periferico` TINYINT(4) NOT NULL CHECK (`tipo_hardware_periferico` IN (0,1)),
+  `tipo_compra_pessoal_corporativa` TINYINT(4) NOT NULL CHECK (`tipo_compra_pessoal_corporativa` IN (0,1)),
+  `id_usuario` INT(11) DEFAULT NULL,
+  PRIMARY KEY (`id_questionario`),
+  KEY `id_usuario` (`id_usuario`),
+  CONSTRAINT `questionario_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `clientes` (`id_usuario`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- RESPOSTAS DE PREFERÊNCIAS
+CREATE TABLE `respostas_preferencias` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `user_id` INT(11) DEFAULT NULL,
+  `resposta1` VARCHAR(255) DEFAULT NULL,
+  `resposta2` VARCHAR(255) DEFAULT NULL,
+  `resposta3` VARCHAR(255) DEFAULT NULL,
+  `criado_em` DATETIME DEFAULT CURRENT_TIMESTAMP(),
+  PRIMARY KEY (`id`),
+  KEY `user_id` (`user_id`),
+  CONSTRAINT `respostas_preferencias_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `usuarios` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- ORÇAMENTO
+CREATE TABLE `orcamento` (
+  `id_orcamento` INT(11) NOT NULL AUTO_INCREMENT,
+  `nome` VARCHAR(100) NOT NULL,
+  `email` VARCHAR(100) NOT NULL,
+  `telefone` VARCHAR(20) NOT NULL,
+  `tipo` VARCHAR(50) NOT NULL,
+  `prazo` VARCHAR(30) NOT NULL,
+  `imagem` VARCHAR(255) NOT NULL,
+  `descricao` TEXT NOT NULL,
+  `status_orcamento` ENUM('pendente','aceito') DEFAULT NULL,
+  PRIMARY KEY (`id_orcamento`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- ORDEM DE SERVIÇO
+CREATE TABLE `ordem_servico` (
+  `id_os` INT(11) NOT NULL AUTO_INCREMENT,
+  `data_abertura` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP(),
+  `tipo_equipamento` VARCHAR(100) DEFAULT NULL,
+  `nome_cliente` VARCHAR(150) DEFAULT NULL,
+  `email_cliente` VARCHAR(150) DEFAULT NULL,
+  `marca_modelo` VARCHAR(100) DEFAULT NULL,
+  `telefone` VARCHAR(11) DEFAULT NULL,
+  `endereco` VARCHAR(255) DEFAULT NULL,
+  `cep` VARCHAR(9) DEFAULT NULL,
+  `numero_serie` VARCHAR(50) DEFAULT NULL,
+  `acessorios_entregues` TEXT DEFAULT NULL,
+  `relato_cliente` TEXT DEFAULT NULL,
+  `tecnico_responsavel` VARCHAR(150) DEFAULT NULL,
+  `servicos_solicitados` ENUM(
+    'atualização de firmware','backup e recuperação','configuração de sistema',
+    'formatação','limpeza e manutenção preventiva',
+    'serviços de software: instalação, configuração e atualização',
+    'substituição peças') DEFAULT NULL,
+  `estimativa_custo` DECIMAL(10,2) DEFAULT NULL,
+  `aprovacao_cliente` ENUM('aceito') DEFAULT 'aceito',
+  `servicos_realizados` TEXT DEFAULT NULL,
+  `pecas_substituidas` TEXT DEFAULT NULL,
+  `testes_realizados` TEXT DEFAULT NULL,
+  `data_conclusao` DATE DEFAULT NULL,
+  `observacoes` TEXT DEFAULT NULL,
+  PRIMARY KEY (`id_os`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+
+
+INSERT INTO usuarios (nome, sobrenome, email, telefone, senha, tipo)
+VALUES ('Leandro', 'Silva', 'admgeral@empresa.com', '(67)99999-9999', 'adm123', 'administrador');
+INSERT INTO administrador (id_usuario, matricula, cargo)
+VALUES (2, 'ADM0001', 'Administrador Geral');
+INSERT INTO departamento (nome_departamento) VALUES 
+('Hardwares'),
+('Computadores'),
+('Periféricos'),
+('Energia'),
+('Áudio'),
+('Jogos');
+
+-- Tabela para itens do carrinho (corrigida para o seu banco)
+CREATE TABLE IF NOT EXISTS carrinho_items (
+    id_item INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    id_usuario INT NOT NULL,
+    id_produto INT NOT NULL,
+    quantidade INT NOT NULL DEFAULT 1,
+    preco_unitario DECIMAL(10,2) NOT NULL,
+    data_adicionado TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (id_usuario) REFERENCES usuarios (id) ON DELETE CASCADE,
+    FOREIGN KEY (id_produto) REFERENCES produtos (id_produto) ON DELETE CASCADE,
+    UNIQUE KEY unique_user_product (id_usuario, id_produto)
+);
+
+-- Índices para melhor performance
+CREATE INDEX idx_carrinho_usuario ON carrinho_items (id_usuario);
+CREATE INDEX idx_carrinho_produto ON carrinho_items (id_produto);
+
+
+
+
+
+
+
+
+
+
+
+CREATE TABLE IF NOT EXISTS pedidos (
+    id_pedido INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    id_usuario INT NOT NULL,
+    id_endereco INT NOT NULL,
+    valor_total DECIMAL(10,2) NOT NULL,
+    valor_frete DECIMAL(10,2) DEFAULT 0.00,
+    metodo_envio VARCHAR(50) NOT NULL,
+    data_entrega_estimada DATE,
+    status_pedido ENUM('pendente', 'pago', 'preparando', 'enviado', 'entregue', 'cancelado') DEFAULT 'pendente',
+    metodo_pagamento VARCHAR(50) NOT NULL,
+    status_pagamento ENUM('pendente', 'aprovado', 'rejeitado') DEFAULT 'pendente',
+    codigo_rastreio VARCHAR(100),
+    observacoes TEXT,
+    data_pedido TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    data_atualizacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (id_usuario) REFERENCES usuarios (id) ON DELETE CASCADE,
+    FOREIGN KEY (id_endereco) REFERENCES enderecos (id_endereco) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Tabela de itens do pedido
+CREATE TABLE IF NOT EXISTS pedido_itens (
+    id_item_pedido INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    id_pedido INT NOT NULL,
+    id_produto INT NOT NULL,
+    quantidade INT NOT NULL,
+    preco_unitario DECIMAL(10,2) NOT NULL,
+    subtotal DECIMAL(10,2) NOT NULL,
+    FOREIGN KEY (id_pedido) REFERENCES pedidos (id_pedido) ON DELETE CASCADE,
+    FOREIGN KEY (id_produto) REFERENCES produtos (id_produto) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Tabela de histórico de status do pedido
+CREATE TABLE IF NOT EXISTS pedido_status_historico (
+    id_historico INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    id_pedido INT NOT NULL,
+    status_anterior VARCHAR(50),
+    status_novo VARCHAR(50) NOT NULL,
+    observacao TEXT,
+    data_mudanca TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (id_pedido) REFERENCES pedidos (id_pedido) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Tabela de configurações de frete
+CREATE TABLE IF NOT EXISTS config_frete (
+    id_config INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    nome_servico VARCHAR(100) NOT NULL,
+    valor_frete DECIMAL(10,2) NOT NULL,
+    prazo_entrega_dias INT NOT NULL,
+    ativo BOOLEAN DEFAULT TRUE,
+    descricao TEXT
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Inserir configurações padrão de frete (apenas se a tabela estiver vazia)
+INSERT INTO config_frete (nome_servico, valor_frete, prazo_entrega_dias, descricao) 
+SELECT * FROM (
+    SELECT 'Envio Comum' as nome_servico, 0.00 as valor_frete, 7 as prazo_entrega_dias, 'Entrega padrão gratuita' as descricao
+) AS temp
+WHERE NOT EXISTS (SELECT 1 FROM config_frete WHERE nome_servico = 'Envio Comum');
+
+INSERT INTO config_frete (nome_servico, valor_frete, prazo_entrega_dias, descricao) 
+SELECT * FROM (
+    SELECT 'Envio Expresso' as nome_servico, 8.50 as valor_frete, 3 as prazo_entrega_dias, 'Entrega rápida com prazo reduzido' as descricao
+) AS temp
+WHERE NOT EXISTS (SELECT 1 FROM config_frete WHERE nome_servico = 'Envio Expresso');
+
+INSERT INTO config_frete (nome_servico, valor_frete, prazo_entrega_dias, descricao) 
+SELECT * FROM (
+    SELECT 'Envio Agendado' as nome_servico, 5.00 as valor_frete, 10 as prazo_entrega_dias, 'Entrega em data específica' as descricao
+) AS temp
+WHERE NOT EXISTS (SELECT 1 FROM config_frete WHERE nome_servico = 'Envio Agendado');
+
+-- Índices para melhor performance
+CREATE INDEX  idx_pedidos_usuario ON pedidos (id_usuario);
+CREATE INDEX  idx_pedidos_status ON pedidos (status_pedido);
+CREATE INDEX  idx_pedidos_data ON pedidos (data_pedido);
+CREATE INDEX  idx_pedido_itens_pedido ON pedido_itens (id_pedido);
+CREATE INDEX idx_pedido_itens_produto ON pedido_itens (id_produto);
+CREATE INDEX  idx_historico_pedido ON pedido_status_historico (id_pedido);
+
+-- Verificar se as tabelas foram criadas
+SHOW TABLES LIKE '%pedido%';
+SHOW TABLES LIKE '%frete%';
+
+-- Mostrar estrutura das tabelas criadas
+DESCRIBE pedidos;
+DESCRIBE pedido_itens;
+DESCRIBE pedido_status_historico;
+DESCRIBE config_frete;
