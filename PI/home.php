@@ -190,6 +190,7 @@ session_start();
         <a href="App/user/View/pages/do-seu-jeito.php" class="img-responsiva"><img src="public/assets/img/Do seu jeito 2.png" alt=""></a>
         <a href="App/user/View/pages/corporativo.php" class="img-responsiva"><img src="public/assets/img/Do seu jeito 3.png" alt=""></a>
       </div>
+      <br>
 
       <section class="produtos">
     <div class="produtos-grid" id="container-cards-2">
