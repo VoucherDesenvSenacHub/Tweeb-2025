@@ -18,8 +18,12 @@ if (!isset($_SESSION['usuario']['id'])) {
 </head>
 <body class="favoritos-usuario">
 
-<?php include __DIR__.'/../../../../includes/navbar-logada.php'; ?>
-<?php include __DIR__.'/../../../../includes/sidebar-User.php'; ?>
+<?php
+    if (isset($_SESSION['usuario'])) {
+        include __DIR__.'/../../../../includes/navbar.php'; 
+        include __DIR__.'/../../../../includes/sidebar-User.php'; 
+    }
+?>
 
 <div class="container-favoritos-5">
 <div class="produtos-card">
