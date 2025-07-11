@@ -20,10 +20,6 @@
                 <p class="error-message" style="color: red;"><?php echo htmlspecialchars($_GET['erro']); ?></p>
             <?php endif; ?>
 
-            <?php if (isset($_GET['sucesso'])): ?>
-                <p class="success-message" style="color: green;"><?php echo htmlspecialchars($_GET['sucesso']); ?></p>
-            <?php endif; ?>
-
             <form method="post" action="#" class="cadastro-form" id="form-cadastro">
                 <div class="input-group">
                     <input name='nome' type="text" placeholder="Nome" class="Task2a-input" required>
@@ -43,6 +39,18 @@
                 <button type="submit" class="Task2a-btn-email">Cadastre-se</button>
             </form>
 
+            <div id="modalCadastroSucesso" class="modal-cadastro" style="display:none;">
+                <div class="modal-conteudo_cadastro">
+                    <div class="modal-navbar-cadastro">
+                        <img src="../../../../public/assets/img/logo_img copy.png" alt="Logo Tweeb" class="modal-logo-cadastro">
+                    </div>
+                    <p class="modal-msg-cadastro">Cadastrado com sucesso!</p>
+                    <div class="Task2a-botoes-cadastro">
+                        <button class="Task2abtn-cadastroOk" onclick="irParaLoginCadastro()">OK</button>
+                    </div>
+                </div>
+            </div>
+
             <p class="Task2a-terms">
                 Ao clicar em continuar, você concorda com nossos 
                 <a href="#">Termos de Serviço</a> e 
@@ -57,6 +65,23 @@
 
     <script src="../../../../public/js/validacao-cpf.js"></script>
     <script src="../../../../public/js/cadastro_usuario.js"></script>
+    <script src="../../../../public/js/modal_cadastro_usuario.js"></script>
+    <script>
+document.getElementById('form-cadastro').addEventListener('submit', function(e) {
+    if (!this.checkValidity()) {
+        // Se o formulário não for válido, deixa o navegador mostrar os erros
+        return;
+    }
+    e.preventDefault();
+    document.getElementById('modalCadastroSucesso').style.display = 'flex';
+});
+function fecharModalCadastroSucesso() {
+    document.getElementById('modalCadastroSucesso').style.display = 'none';
+}
+function irParaLoginCadastro() {
+    window.location.href = 'login.php';
+}
+</script>
 </body>
 </html>
 

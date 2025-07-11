@@ -25,21 +25,8 @@ session_start();
     } else {
         include __DIR__.'/../PI/includes/navbar-home.php';
         // include __DIR__.'/includes/sidebar-User.php';
+    }
     ?>
-    <div id="modalHome" class="modal-home">
-        <div class="modal-conteudo_home">
-            <div class="modal-header">
-                <img src="public/assets/img/logo_img copy.png" alt="Logo Tweeb" class="modal-logo">
-                <button class="modal-close" onclick="fecharModalAviso()">&times;</button>
-            </div>
-            <p class="modal-msg">Você não está logado!</p>
-            <div class="botoes-home">
-                <button class="btn-home" onclick="fecharModalAviso()">OK</button>
-                <button class="btn-logar" onclick="irParaLogin()">Logar</button>
-            </div>
-        </div>
-    </div>
-    <?php } ?>
     
     <section class="slider">
         <div class="slider-content">
@@ -554,10 +541,11 @@ session_start();
 
 <div id="modalHome" class="modal-home">
     <div class="modal-conteudo_home">
-        <div class="modal-navbar">
+        <div class="modal-header">
             <img src="public/assets/img/logo_img copy.png" alt="Logo Tweeb" class="modal-logo">
+            <button class="modal-close" onclick="fecharModalAviso()">&times;</button>
         </div>
-        <p>Você não está logado!</p>
+        <p class="modal-msg">Você não está logado!</p>
         <div class="botoes-home">
             <button class="btn-home" onclick="fecharModalAviso()">OK</button>
             <button class="btn-logar" onclick="irParaLogin()">Logar</button>
