@@ -118,59 +118,51 @@ include_once '../../Models/Orcamento.php';
 
 <div class="orcamento-recebido">
 
-<div class="quantidade-pedidos2">
+    <div class="quantidade-pedidos2">
         <div class="pedidos-ui-card2">
-
             <div class="ui-pedidos-frame">
                 <p>Orçamentos</p>
                 <img src="../../../../public/assets/img/project-icon-2.png" alt="">
             </div>
-
             <div class="ui-pedidos-label">
                 <h1 class="numero-item-minicard">12</h1>
                 <p><span>1</span> fechado</p>
             </div>
-
         </div>
 
-        
         <div class="pedidos-ui-card3">
-
             <div class="ui-pedidos-frame">
                 <p>Aceitos</p>
                 <img src="../../../../public/assets/img/project-icon-2.png" alt="">
             </div>
-
             <div class="ui-pedidos-label">
                 <h1 class="numero-item-minicard">37</h1>
                 <p><span>1</span> Garantia</p>
             </div>
-
         </div>
     </div>
 
     <div class="pedidos-categoria-selecionado">
         <div class="categorias-adm-enviados">
-        <span><p>Pendentes</p></span>
-        <a href="orcamento-aceitos.php"><p>Aceitos</p></a>
+            <span><p>Pendentes</p></span>
+            <a href="orcamento-aceitos.php"><p>Aceitos</p></a>
         </div>
     </div>
 
-    <div class='orcamento-recebido-container' id="container_orcamentos">
-      <!-- Informações inseridas via JavaScript -->
-  </div>
-    
-<?php include __DIR__.'/../../../../includes/footer-adm.php'; ?> 
+    <!-- ✅ Adicionamos aqui a div que receberá os orçamentos -->
+    <div id="orcamentos-dinamicos"></div>
+
+</div> <!-- fim do .orcamento-recebido -->
+
+<!-- ✅ Footer fora do container -->
+<footer class="footer-adm">
+    <div class="footer-content-adm">
+        <div class="footer-logo-adm">
+            <div><img src="../../../../public/assets/img/logo.png" alt="Logo Tweeb" /></div>
+            <div class="footer-text-adm">Você faz parte da nossa conexão com o futuro.</div>
+        </div>
+    </div>
+</footer>
+
 </body>
-
-
-<script>
-
-</script>
-
-
-
-
-
-
 </html>
