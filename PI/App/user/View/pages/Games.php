@@ -1,6 +1,3 @@
-<?php
-session_start();
-?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -11,14 +8,8 @@ session_start();
     <title>Tweeb - Games</title>
 </head>
 <body class="Games">
-<?php
-    if (isset($_SESSION['usuario'])) {
-        include __DIR__.'/../../../../includes/navbar.php'; 
-        include __DIR__.'/../../../../includes/sidebar-User.php'; 
-    } else {
-        include __DIR__.'/../../../../includes/navbar.php'; 
-    }
-    ?>
+<?php include __DIR__.'/../../../../includes/navbar-logada.php'; ?>
+
 <div class="Games-container_banner">
     <img src="../../../../public/assets/img/banner-departamento-computador.png" alt="banner-Games" class="Games-banner">
 </div>

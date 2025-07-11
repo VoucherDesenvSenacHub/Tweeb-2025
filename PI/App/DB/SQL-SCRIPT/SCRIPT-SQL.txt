@@ -377,8 +377,7 @@ CREATE TABLE ordem_servico (
 
 
 
-CREATE DATABASE Tweeb25;
-USE Tweeb25;
+USE 140p2;
 SELECT * FROM usuarios;
 SELECT * FROM clientes;
 SELECT * FROM administrador;
@@ -392,6 +391,8 @@ SELECT * FROM questionario;
 SELECT * FROM respostas_preferencias;
 SELECT * FROM orcamento;
 SELECT * FROM ordem_servico;
+SELECT * FROM pedidos;
+SELECT * FROM pedido_itens;
 desc usuarios;
 -- Tabela base: USUÁRIOS
 CREATE TABLE `usuarios` (
@@ -632,6 +633,7 @@ CREATE TABLE IF NOT EXISTS pedidos (
     id_usuario INT NOT NULL,
     id_endereco INT NOT NULL,
     valor_total DECIMAL(10,2) NOT NULL,
+    imagem_prouto VARCHAR(255),
     valor_frete DECIMAL(10,2) DEFAULT 0.00,
     metodo_envio VARCHAR(50) NOT NULL,
     data_entrega_estimada DATE,

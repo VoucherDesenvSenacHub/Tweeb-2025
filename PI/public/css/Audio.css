@@ -1,35 +1,36 @@
-.Audio {
+.Audio{
     overflow-x: hidden;
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
 
-.Audio-container_banner img {
+.Audio-container_banner img{
     width: 100%;
     height: 472px;
     margin-top: 40px;
 }
 
-.Audio-h1 {
+
+.Audio-h1{
     font-size: 62px;
     font-family: "Inter", serif;
     display: flex;
     margin-left: 5%;
 }
 
-.Audio-p {
+.Audio-p{
     font-size: 22px;
     font-family: "Nunito", serif;
     font-weight: bold;
     margin-left: 7%;
 }
-.Audio-container_titles {
-    margin-top: 20px;
+.Audio-container_titles{
+    margin-top: 60px;
     margin-left: 130px;
 }
 
-.container-favoritos-depto {
+.Audio-container_products{
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-end !important;
@@ -39,132 +40,300 @@
     margin: 0 auto;
 }
 
-.produtos-card {
+.Audio-products_box{
+    width: 270px;
+    height: 432px;
     background-color: #F6F6F6;
     border-radius: 9px;
-    padding: 15px;
-    box-sizing: border-box;
-    /* LARGURA AJUSTADA AQUI para criar espaço para o alinhamento */
-    width: 31%;
+    margin-top: 40px;
+}
+
+.Audio-config-box{
+    width: 107px;
+    height: 37px;
+    background-color: #291E40;
+    border-radius: 40px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 19px;
+    margin-left: 12px;
+    cursor: pointer;
+}
+
+.Audio-config-box-p{
+    color: white;
+    font-size: 8px;
+    margin-left: 15px;
+}
+
+.Audio-info-box{
+    width: 24px;
+    height: 24px;
+    background-color: #BF99FE;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Audio-header-product-box{
+    height: 30%;
+    display: flex;
+    flex-direction: row;
+    cursor: pointer;
+}
+
+.Audio-heart-icon-box img{
+    width: 32px;
+    height: 32px;
+    margin-top: 24px;
+    margin-left: 102px;
+}
+
+.Audio-product-image{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Audio-product-name-box h1{
+    font-size: 16px;
+    font-family: "Montserrat", serif;
+    font-weight: 500;
+    width: 237px;
+    height: 48px;
+    text-align: center;
+}
+
+.Audio-product-name-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 16px;
+}
+
+.Audio-product-price-box h1{
+    font-size: 24px;
+    font-family: "Montserrat", serif;
+    font-weight: 600;
+    width: 237px;
+    height: 48px;
+    text-align: center;
+}
+
+.Audio-product-price-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 16px;
+}
+
+.Audio-buy-product-button-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.Audio-buy-product-button{
+    width: 235px;
+    height: 48px;
+    background-color: #291E40;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin-top: 19px;
+}
+
+.Audio-buy-product-text{
+    color: white;
+}
+
+.Audio-main-product-contant{
     display: flex;
     flex-direction: column;
+    transform: translateY(-18%);
+}
+
+.Audio-pages-container{
+    display: flex;
+    cursor: pointer;
+    margin-bottom: 112px;
+}
+
+
+.Audio-pages{
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
     align-items: center;
-    text-align: center;
-    position: relative;
-    min-height: 480px;
 }
 
-.heart {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    cursor: pointer;
-}
-
-.add-carrinho {
-    position: absolute;
-    top: 50px;
-    right: 15px;
-    cursor: pointer;
-}
-
-.image-produto {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-    margin-bottom: 10px;
+.Audio-page1-button{
+    width: 30px;
+    height: 32px;
     border-radius: 5px;
+    background-color: #000000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.card-rate {
-    margin-bottom: 10px;
+.Audio-page2-button{
+    width: 30px;
+    height: 32px;
+    border-radius: 5px;
+    background-color: #F6F6F6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.card-rate i {
-    color: #fdd835;
-}
-
-.produtos-card p {
-    margin: 4px 0;
-    font-family: "Nunito", sans-serif;
-}
-
-.produtos-card h1 {
-    font-family: "Inter", sans-serif;
-    font-size: 1.5rem;
-    margin: 10px 0;
-}
-
-.card-botao {
-    background-color: #291E40;
+.Audio-page-number{
     color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 8px;
-    cursor: pointer;
-    width: 100%;
-    margin-top: auto;
 }
 
-/* ================================== */
-/* CSS PARA PAGINAÇÃO - VERSÃO REFINADA */
-/* ================================== */
+.Audio-page2-number{
+    color: black;
+}
 
-.Audio-pages-container {
+.Audio-left-arrow{
+    width: 6px;
+    height: 12px;
+    cursor: pointer;
+}
+
+.Audio-right-arrow{
+    width: 6px;
+    height: 12px;
+    cursor: pointer;
+}
+
+.Audio-pages-button-container{
+    gap: 8px;
+    display: flex;
+    cursor: pointer;
+}
+
+.Audio-pages-container{
     display: flex;
     justify-content: flex-end;
-    width: 100%;
-    margin: 30px 0;
-    padding-right: 5%; /* Usando porcentagem para ser mais responsivo */
-    box-sizing: border-box;
+    margin-right: 13%;
+    margin-top: 32px;
 }
 
-.Audio-pages {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px; /* Espaço reduzido entre botões */
+
+
+
+
+
+
+/* CSS MODAL*/
+
+
+.Audio-info-modal-container{
+    display: none;
+    justify-content: center;
     align-items: center;
 }
 
-/* Estilo base compacto */
-.Audio-pages a,
-.Audio-pages span {
+
+.Audio-info-modal{
+    width: 270px;
+    height: 432px;
+    background-color: #D4E3FF;
+    border-radius: 9px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+
+
+.Audio-info-modal-title{
+    font-size: 14px;
+    font-family: "Inter", serif;
+    font-weight: 700;
+    display: flex;
+    margin-left: 35px;
+    margin-top: 16px;
+}
+
+.Audio-info-modal-placa-mae{
+    font-size: 10px;
+    font-family: "Nunito", serif;
+    width: 200px;
+    display: flex;
+    margin-left: 56px;
+    margin-top: 10px;
+    line-height: 15px;
+}
+
+.Audio-info-modal-armazenamento{
+    font-size: 10px;
+    font-family: "Nunito", serif;
+    width: 200px;
+    display: flex;
+    margin-left: 56px;
+    margin-top: 10px;
+    line-height: 15px;
+}
+
+.Audio-info-modal-fonte{
+    font-size: 10px;
+    font-family: "Nunito", serif;
+    width: 200px;
+    display: flex;
+    margin-left: 56px;
+    margin-top: 10px;
+    line-height: 15px;
+}
+
+.Audio-info-modal-gabinete{
+    font-size: 10px;
+    font-family: "Nunito", serif;
+    width: 200px;
+    display: flex;
+    margin-left: 56px;
+    margin-top: 10px;
+    line-height: 15px;
+}
+
+.Audio-info-modal-alimentacao{
+    font-size: 10px;
+    font-family: "Nunito", serif;
+    width: 200px;
+    display: flex;
+    margin-left: 56px;
+    margin-top: 10px;
+    line-height: 15px;
+}
+
+.Audio-info-modal-placa-de-video{
+    font-size: 10px;
+    font-family: "Nunito", serif;
+    width: 200px;
+    display: flex;
+    margin-left: 56px;
+    margin-top: 10px;
+    line-height: 15px;
+}
+
+.Audio-icons-model{
+    width: 16px;
+    height: 16px;
+    transform: translateX(-4px);
+}
+
+.Audio-buy-now{
     text-decoration: none;
-    padding: 6px 12px; /* Tamanho reduzido */
-    border: 1px solid #e0e0e0;
-    border-radius: 4px;
-    font-family: "Nunito", sans-serif;
-    font-size: 0.9rem; /* Fonte um pouco menor */
-    display: inline-block;
-    transition: all 0.2s ease;
-    background-color: #f8f8f8;
-    color: #555;
-}
-
-/* Hover elegante */
-.Audio-page2-button:hover {
-    background-color: #291E40 !important;
-    color: white !important;
-    border-color: #291E40;
-    transform: translateY(-1px); /* Efeito sutil de levantar */
-}
-
-/* Página ativa */
-.Audio-page1-button {
-    background-color: #291E40;
     color: white;
-    border-color: #291E40;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* Elementos de texto */
-.Audio-pages span.Audio-page2-number {
-    background-color: transparent;
-    border: none;
-    padding: 0 5px;
-}
-
-@media (max-width: 1440px) {
+@media (max-width: 1440px) { /* Ajustes para telas menores */
     .Audio-container_banner img {
         height: 400px;
     }
@@ -174,7 +343,7 @@
     }
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1024px) { /* Tablets e notebooks pequenos */
     .Audio-container_banner img {
         height: 350px;
     }
@@ -184,15 +353,13 @@
     .Audio-container_titles {
         margin-left: 80px;
     }
-    .produtos-card {
-        width: 47%;
-    }
-    .Audio-pages-container {
-        padding-left: 80px; /* Ajusta o alinhamento da paginação */
+    .Audio-container_products {
+        flex-wrap: wrap;
+        justify-content: center;
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 768px) { /* Tablets em modo retrato */
     .Audio-container_banner img {
         height: 300px;
     }
@@ -203,18 +370,228 @@
         font-size: 18px;
     }
     .Audio-container_titles {
-        margin-left: 20px;
-        padding: 0 15px;
+        margin-left: 40px;
     }
-    .produtos-card {
-        width: 95%;
+    .Audio-products_box {
+        width: 220px;
+        height: 450px;
     }
-    .container-favoritos-depto {
+    .Audio-pages-container {
+        justify-content: center;
+        margin-right: 0;
+    }
+    .Audio-container_products {
         flex-direction: column;
         align-items: center;
     }
-    .Audio-pages-container {
-        justify-content: center; /* Centraliza em telas menores */
-        padding-left: 0;
+}
+
+@media (max-width: 600px) { /* Smartphones grandes */
+    .Audio-container_banner img {
+        height: 250px;
+        margin-top: 20px;
+    }
+    .Audio-h1 {
+        font-size: 28px;
+    }
+    .Audio-p {
+        font-size: 16px;
+    }
+    .Audio-container_titles {
+        margin-left: 20px;
+    }
+    .Audio-products_box {
+        width: 200px;
+        height: 450px;
+    }
+    .Audio-heart-icon-box img {
+        margin-left: 35px;
+    }
+    .Audio-buy-product-button {
+        width: 200px;
+    }
+    .Audio-container_products {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (max-width: 480px) { /* Smartphones médios e pequenos */
+    .Audio-container_banner img {
+        height: 200px;
+    }
+    .Audio-h1 {
+        font-size: 24px;
+    }
+    .Audio-p {
+        font-size: 14px;
+        width: 90%;
+    }
+    .Audio-container_titles {
+        margin-left: 10px;
+    }
+    .Audio-products_box {
+        width: 256px;
+        height: 445px;
+    }
+    .Audio-config-box {
+        height: 30px;
+        margin-left: 8px;
+    }
+   /* Modal Container */
+.Audio-info-modal-container {
+    display: none; /* Inicialmente invisível */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fundo escuro para dar o efeito de bloqueio */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Garante que o modal fique sobre o conteúdo */
+}
+
+/* Modal */
+.Audio-info-modal {
+    width: 100%; /* Responsivo: 90% da largura da tela */
+    max-width: 600px; /* Limita a largura máxima */
+    background-color: #D4E3FF;
+    border-radius: 9px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    overflow-y: auto;
+}
+
+/* Modal Title */
+.Audio-info-modal-title {
+    font-size: 18px;
+    font-family: "Inter", serif;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+/* Modal Content */
+.Audio-info-modal p {
+    font-size: 12px;
+    font-family: "Nunito", serif;
+    line-height: 1.5;
+    margin-left: 20px;
+}
+
+.Audio-info-modal img {
+    width: 16px;
+    height: 16px;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+/* Ajuste para a Responsividade */
+@media (max-width: 768px) {
+    .Audio-info-modal {
+        width: 100%; /* Reduz a largura para 90% em telas menores */
+    }
+    .Audio-info-modal-title {
+        font-size: 16px; /* Ajusta o tamanho do título em telas menores */
+    }
+    .Audio-info-modal p {
+        font-size: 10px; /* Diminui o tamanho do texto */
+    }
+}
+
+@media (max-width: 480px) {
+    .Audio-info-modal {
+        width: 100%; /* Reduz mais a largura em telas muito pequenas */
+    }
+    .Audio-info-modal-title {
+        font-size: 14px; /* Título menor */
+    }
+    .Audio-info-modal p {
+        font-size: 9px; /* Texto ainda menor */
+    }
+}
+
+/* Responsividade do botão de fechar */
+.Audio-config-box {
+    width: 60%; /* Responsivo */
+    height: 40px;
+    background-color: #291E40;
+    color: white;
+    border-radius: 40px;
+    text-align: center;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0;
+    margin-left: 10px;
+}
+
+.Audio-config-box p {
+    font-size: 12px;
+    color: white;
+}
+
+.Audio-heart-icon-box img{
+    width: 32px;
+    height: 32px;
+    margin-top: 14px;
+    margin-left: 30px;
+}
+
+/* Ajustes finais para dispositivos menores */
+@media (max-width: 360px) {
+    .Audio-info-modal {
+        width: 100%; /* Modal ocupa toda a tela em dispositivos pequenos */
+    }
+    .Audio-info-modal-title {
+        font-size: 12px; /* Ajuste no título para telas muito pequenas */
+    }
+    .Audio-info-modal p {
+        font-size: 8px; /* Texto muito pequeno em telas pequenas */
+    }
+}
+
+    .Audio-buy-product-button {
+        width: 180px;
+    }
+    .Audio-container_products {
+        flex-direction: column;
+        align-items: center;
+    }
+
+   
+}
+
+@media (max-width: 360px) { /* Smartphones menores */
+    .Audio-container_banner img {
+        height: 180px;
+    }
+    .Audio-h1 {
+        font-size: 20px;
+    }
+    .Audio-p {
+        font-size: 12px;
+    }
+    .Audio-products_box {
+        width: 160px;
+        height: 400px;
+    }
+    .Audio-buy-product-button {
+        width: 160px;
+    }
+    .Audio-heart-icon-box img {
+        width: 24px;
+        height: 24px;
+        margin-left: 30px;
+    }
+    .Audio-pages{
+        margin-top: 50px;
+    }
+    .Audio-container_products {
+        flex-direction: column;
+        align-items: center;
     }
 }

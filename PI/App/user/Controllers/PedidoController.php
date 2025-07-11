@@ -1,244 +1,130 @@
 <?php
-if (session_status() !== PHP_SESSION_ACTIVE) {
-    session_start();
+// PedidoController.php
+// Este arquivo contém a lógica para buscar e preparar os dados dos pedidos.
+
+// Garante que este arquivo não seja acessado diretamente.
+if (basename($_SERVER['PHP_SELF']) == 'PedidoController.php') {
+    die('Acesso direto negado.');
 }
 
-require_once __DIR__ . '/../Models/Pedido.php';
-require_once __DIR__ . '/../Models/Carrinho.php';
-require_once __DIR__ . '/../Models/Endereco.php';
 
-header('Content-Type: application/json');
+include __DIR__ . '/../../DB/Database.php'; 
 
-if (!isset($_SESSION['usuario']['id'])) {
-    echo json_encode(['success' => false, 'message' => 'Usuário não autenticado']);
-    exit();
-}
+/**
+ * Classe PedidoController
+ * Responsável por gerenciar a recuperação de dados de pedidos.
+ */
+class PedidoController {
+    private $database;
+    private $usuario_id;
 
-$action = $_POST['action'] ?? $_GET['action'] ?? '';
-
-switch ($action) {
-    case 'salvar_envio':
-        salvarDadosEnvio();
-        break;
-        
-    case 'criar_pedido':
-        criarPedido();
-        break;
-        
-    case 'finalizar_compra':
-        finalizarCompra();
-        break;
-        
-    case 'obter_pedidos':
-        obterPedidosUsuario();
-        break;
-        
-    case 'obter_pedido':
-        obterPedido();
-        break;
-        
-    case 'cancelar_pedido':
-        cancelarPedido();
-        break;
-        
-    case 'atualizar_status':
-        atualizarStatusPedido();
-        break;
-        
-    default:
-        echo json_encode(['success' => false, 'message' => 'Ação não reconhecida']);
-        break;
-}
-
-function salvarDadosEnvio() {
-    $metodo = $_POST['metodo'] ?? '';
-    $valor = floatval($_POST['valor'] ?? 0);
-    $data_agendada = $_POST['data_agendada'] ?? '';
-    
-    if (empty($metodo)) {
-        echo json_encode(['success' => false, 'message' => 'Método de envio não informado']);
-        return;
+    /**
+     * Construtor da classe PedidoController.
+     * @param int $usuario_id O ID do usuário logado.
+     */
+    public function __construct(int $usuario_id) {
+        $this->database = new Database(); // Instancia a sua classe Database
+        $this->usuario_id = $usuario_id;
     }
-    
-    // Salvar dados na sessão
-    $_SESSION['dados_envio'] = [
-        'metodo' => $metodo,
-        'valor' => $valor,
-        'data_agendada' => $data_agendada
-    ];
-    
-    echo json_encode(['success' => true, 'message' => 'Dados de envio salvos']);
-}
 
-function criarPedido() {
-    $id_usuario = $_SESSION['usuario']['id'];
-    
-    // Verificar se há dados de envio
-    if (!isset($_SESSION['dados_envio'])) {
-        echo json_encode(['success' => false, 'message' => 'Dados de envio não encontrados']);
-        return;
-    }
-    
-    // Verificar se há endereço selecionado
-    if (!isset($_SESSION['endereco_selecionado'])) {
-        echo json_encode(['success' => false, 'message' => 'Endereço não selecionado']);
-        return;
-    }
-    
-    $dados_envio = $_SESSION['dados_envio'];
-    $endereco = $_SESSION['endereco_selecionado'];
-    
-    // Verificar se há itens no carrinho
-    $itens_carrinho = Carrinho::obterCarrinho($id_usuario);
-    if (empty($itens_carrinho)) {
-        echo json_encode(['success' => false, 'message' => 'Carrinho vazio']);
-        return;
-    }
-    
-    try {
-        $resultado = Pedido::criarPedido(
-            $id_usuario,
-            $endereco['id_endereco'],
-            $dados_envio['metodo'],
-            'PIX', // Método de pagamento padrão
-            $dados_envio['valor']
-        );
-        
-        if ($resultado['success']) {
-            // Salvar ID do pedido na sessão
-            $_SESSION['pedido_atual'] = $resultado['id_pedido'];
-            
-            // Limpar dados temporários
-            unset($_SESSION['dados_envio']);
-            unset($_SESSION['endereco_selecionado']);
-            
-            echo json_encode([
-                'success' => true, 
-                'id_pedido' => $resultado['id_pedido'],
-                'message' => 'Pedido criado com sucesso'
-            ]);
-        } else {
-            echo json_encode($resultado);
+    /**
+     * Busca todos os pedidos de um usuário, incluindo itens e histórico de status.
+     * @return array Um array de pedidos, cada um contendo seus itens e histórico de status.
+     */
+    public function getPedidosDoUsuario(): array {
+        $pedidos = [];
+
+        try {
+            // 1. Buscar todos os pedidos do usuário logado
+            // Realiza um JOIN com a tabela 'enderecos' para obter os detalhes do endereço de entrega
+            $query_pedidos = "
+                SELECT 
+                    p.id_pedido, 
+                    p.data_pedido, 
+                    p.data_entrega_estimada, 
+                    p.status_pedido,
+                    p.metodo_pagamento,
+                    p.valor_total,
+                    p.valor_frete,
+                    e.rua,
+                    e.numero,
+                    e.bairro,
+                    e.cidade,
+                    e.estado,
+                    e.cep
+                FROM 
+                    pedidos p
+                JOIN 
+                    enderecos e ON p.id_endereco = e.id_endereco
+                WHERE 
+                    p.id_usuario = ?
+                ORDER BY 
+                    p.data_pedido DESC
+            ";
+            // Usa o método execute da sua classe Database
+            $stmt_pedidos = $this->database->execute($query_pedidos, [$this->usuario_id]);
+            $pedidos_db = $stmt_pedidos->fetchAll(PDO::FETCH_ASSOC);
+
+            // Itera sobre cada pedido encontrado para buscar seus itens e histórico de status
+            foreach ($pedidos_db as $pedido) {
+                $pedido_id = $pedido['id_pedido'];
+
+                // 2. Buscar itens para cada pedido
+                // Realiza um JOIN com a tabela 'produtos' para obter os detalhes do produto
+                $query_itens = "
+                    SELECT 
+                        pi.quantidade, 
+                        pi.preco_unitario,
+                        pr.nome_produto, 
+                        pr.detalhes_produto, 
+                        pr.imagem_produto
+                    FROM 
+                        pedido_itens pi
+                    JOIN 
+                        produtos pr ON pi.id_produto = pr.id_produto
+                    WHERE 
+                        pi.id_pedido = ?
+                ";
+                $stmt_itens = $this->database->execute($query_itens, [$pedido_id]);
+                $itens_do_pedido = $stmt_itens->fetchAll(PDO::FETCH_ASSOC);
+                $pedido['itens'] = $itens_do_pedido;
+
+                // Calcula o subtotal do pedido somando os subtotais de cada item
+                $subtotal_calculado = 0;
+                foreach ($itens_do_pedido as $item) {
+                    $subtotal_calculado += ($item['quantidade'] * $item['preco_unitario']);
+                }
+                $pedido['subtotal_calculado'] = $subtotal_calculado;
+
+                // 3. Buscar o histórico de status para cada pedido
+                $query_status_historico = "
+                    SELECT 
+                        psh.status_novo, 
+                        psh.data_mudanca
+                    FROM 
+                        pedido_status_historico psh
+                    WHERE 
+                        psh.id_pedido = ?
+                    ORDER BY 
+                        psh.data_mudanca ASC
+                ";
+                $stmt_status_historico = $this->database->execute($query_status_historico, [$pedido_id]);
+                $pedido['historico_status'] = $stmt_status_historico->fetchAll(PDO::FETCH_ASSOC);
+
+                // Adiciona o pedido completo (com itens e histórico) ao array de pedidos
+                $pedidos[] = $pedido;
+            }
+
+        } catch (PDOException $e) {
+            // Em caso de erro no banco de dados, você pode logar o erro e/ou relançar uma exceção mais genérica.
+            // Para depuração, um die() pode ser útil, mas em produção, evite expor detalhes do erro.
+            error_log("Erro ao carregar pedidos: " . $e->getMessage()); // Loga o erro
+            throw new Exception("Não foi possível carregar os pedidos no momento. Tente novamente mais tarde.");
+        } catch (Exception $e) {
+            error_log("Ocorreu um erro inesperado: " . $e->getMessage());
+            throw new Exception("Ocorreu um erro inesperado ao processar os pedidos.");
         }
-        
-    } catch (Exception $e) {
-        echo json_encode(['success' => false, 'message' => 'Erro ao criar pedido: ' . $e->getMessage()]);
-    }
-}
 
-function finalizarCompra() {
-    $id_pedido = $_SESSION['pedido_atual'] ?? null;
-    
-    if (!$id_pedido) {
-        echo json_encode(['success' => false, 'message' => 'Pedido não encontrado']);
-        return;
-    }
-    
-    try {
-        // Atualizar status do pagamento
-        $resultado = Pedido::atualizarStatusPagamento($id_pedido, 'aprovado');
-        
-        if ($resultado) {
-            // Atualizar status do pedido
-            Pedido::atualizarStatusPedido($id_pedido, 'pago', 'Pagamento aprovado via PIX');
-            
-            // Limpar pedido atual da sessão
-            unset($_SESSION['pedido_atual']);
-            
-            echo json_encode([
-                'success' => true, 
-                'message' => 'Compra finalizada com sucesso',
-                'id_pedido' => $id_pedido
-            ]);
-        } else {
-            echo json_encode(['success' => false, 'message' => 'Erro ao finalizar compra']);
-        }
-        
-    } catch (Exception $e) {
-        echo json_encode(['success' => false, 'message' => 'Erro ao finalizar compra: ' . $e->getMessage()]);
+        return $pedidos;
     }
 }
-
-function obterPedidosUsuario() {
-    $id_usuario = $_SESSION['usuario']['id'];
-    
-    try {
-        $pedidos = Pedido::obterPedidosUsuario($id_usuario);
-        echo json_encode(['success' => true, 'pedidos' => $pedidos]);
-        
-    } catch (Exception $e) {
-        echo json_encode(['success' => false, 'message' => 'Erro ao obter pedidos: ' . $e->getMessage()]);
-    }
-}
-
-function obterPedido() {
-    $id_pedido = $_GET['id_pedido'] ?? null;
-    
-    if (!$id_pedido) {
-        echo json_encode(['success' => false, 'message' => 'ID do pedido não informado']);
-        return;
-    }
-    
-    try {
-        $pedido = Pedido::obterPedido($id_pedido);
-        $itens = Pedido::obterItensPedido($id_pedido);
-        $historico = Pedido::obterHistoricoPedido($id_pedido);
-        
-        if ($pedido) {
-            echo json_encode([
-                'success' => true, 
-                'pedido' => $pedido,
-                'itens' => $itens,
-                'historico' => $historico
-            ]);
-        } else {
-            echo json_encode(['success' => false, 'message' => 'Pedido não encontrado']);
-        }
-        
-    } catch (Exception $e) {
-        echo json_encode(['success' => false, 'message' => 'Erro ao obter pedido: ' . $e->getMessage()]);
-    }
-}
-
-function cancelarPedido() {
-    $id_pedido = $_POST['id_pedido'] ?? null;
-    $motivo = $_POST['motivo'] ?? '';
-    
-    if (!$id_pedido) {
-        echo json_encode(['success' => false, 'message' => 'ID do pedido não informado']);
-        return;
-    }
-    
-    try {
-        $resultado = Pedido::cancelarPedido($id_pedido, $motivo);
-        echo json_encode($resultado);
-        
-    } catch (Exception $e) {
-        echo json_encode(['success' => false, 'message' => 'Erro ao cancelar pedido: ' . $e->getMessage()]);
-    }
-}
-
-function atualizarStatusPedido() {
-    $id_pedido = $_POST['id_pedido'] ?? null;
-    $novo_status = $_POST['status'] ?? '';
-    $observacao = $_POST['observacao'] ?? '';
-    
-    if (!$id_pedido || !$novo_status) {
-        echo json_encode(['success' => false, 'message' => 'Dados incompletos']);
-        return;
-    }
-    
-    try {
-        $resultado = Pedido::atualizarStatusPedido($id_pedido, $novo_status, $observacao);
-        
-        if ($resultado) {
-            echo json_encode(['success' => true, 'message' => 'Status atualizado com sucesso']);
-        } else {
-            echo json_encode(['success' => false, 'message' => 'Erro ao atualizar status']);
-        }
-        
-    } catch (Exception $e) {
-        echo json_encode(['success' => false, 'message' => 'Erro ao atualizar status: ' . $e->getMessage()]);
-    }
-}
-?> 

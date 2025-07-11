@@ -25,6 +25,7 @@ $total_carrinho = Carrinho::calcularTotal($id_usuario);
 </head>
 <body class="Carrinho">
   <?php include __DIR__.'/../../../../includes/navbar-logada.php'; ?>
+  <?php include __DIR__.'/../../../../includes/sidebar-User.php'; ?>
   <div class="container">
     <div class="cart-items">
       <h1>Carrinho de compras</h1>

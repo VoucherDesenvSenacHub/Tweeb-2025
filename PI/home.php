@@ -20,10 +20,11 @@ session_start();
 <body>
     <?php
     if (isset($_SESSION['usuario'])) {
-        include __DIR__.'/../PI/includes/navbar.php'; 
+        include __DIR__.'/../PI/includes/navbar-logada.php'; 
         include __DIR__.'/../PI/includes/sidebar-User.php'; 
     } else {
-        include __DIR__.'/../PI/includes/navbar.php'; 
+        include __DIR__.'/../PI/includes/navbar-home.php';
+        // include __DIR__.'/includes/sidebar-User.php';
     }
     ?>
     

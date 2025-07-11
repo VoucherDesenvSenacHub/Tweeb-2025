@@ -36,10 +36,7 @@ main{
 #sidebar {
     position: absolute; 
     top: 150px;
-    /* width: 100px; */
-    /*   */
     left: 0;
-    height: 71vh; /* Altura da sidebar */
     z-index: 100; 
     display: flex;
     flex-direction: column;
@@ -140,7 +137,6 @@ main{
 
 #sidebar.open-sidebar .has-segundomenu:hover .segundomenu{
     display: block;
-    
 }
 #sidebar.open-sidebar .has-segundomenu a #arrow{
     display: inline; 

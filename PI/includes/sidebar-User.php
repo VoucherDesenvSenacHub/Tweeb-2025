@@ -30,6 +30,7 @@
                   <ul class="segundomenu">
                     <li><a href="/Tweeb-2025/PI/app/user/View/pages/rastreio-pedidos.php"><span class="item-description">Pedidos Enviados</span></a></li>
                     <li><a href="/Tweeb-2025/PI/app/user/View/pages/Pedidos-cancelados.php"><span class="item-description">Pedidos Cancelados</span></a></li>
+                    <li><a href="/Tweeb-2025/PI/app/user/View/pages/meus-pedidos.php"><span class="item-description">Meus Pedidos</span></a></li>
                   </ul>
                 </li>
                 <li class="menu-item" id="Favoritos">

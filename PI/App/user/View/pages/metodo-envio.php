@@ -1,4 +1,7 @@
 <?php
+// metodo-envio.php
+// Página de seleção de método de envio (Front-end).
+
 if (session_status() !== PHP_SESSION_ACTIVE) {
     session_start();
 }
@@ -8,28 +11,32 @@ if (!isset($_SESSION['usuario']['id'])) {
     exit();
 }
 
-// Verificar se há itens no carrinho
-require_once __DIR__ . '/../../Models/Carrinho.php';
-require_once __DIR__ . '/../../Models/Pedido.php';
+// Inclui o Controller para obter os dados necessários
+include_once __DIR__ . '/../../Controllers/MetodoEnvioController.php';
 
 $id_usuario = $_SESSION['usuario']['id'];
-$itens_carrinho = Carrinho::obterCarrinho($id_usuario);
+$metodoEnvioController = new MetodoEnvioController($id_usuario);
 
-if (empty($itens_carrinho)) {
-    // Se o carrinho estiver vazio, redirecionar para a página de produtos
-    header('Location: /Tweeb-2025/PI/App/user/Controllers/ControllerProd/Departamento_Games.php');
-    exit();
+try {
+    $dados_pagina = $metodoEnvioController->prepararDadosPagina($id_usuario);
+
+    $itens_carrinho = $dados_pagina['itens_carrinho'];
+    $endereco_selecionado = $dados_pagina['endereco_selecionado'];
+    $configuracoes_frete = $dados_pagina['configuracoes_frete'];
+    $valor_subtotal = $dados_pagina['valor_subtotal'];
+
+} catch (Exception $e) {
+    // Em caso de erro, exibe uma mensagem e redireciona ou lida de forma apropriada
+    error_log("Erro ao carregar dados da página de método de envio: " . $e->getMessage());
+    // Você pode exibir uma mensagem de erro amigável ao usuário aqui
+    // ou redirecionar para uma página de erro.
+    die("Erro ao carregar a página de envio: " . htmlspecialchars($e->getMessage()));
 }
 
-// Verificar se há endereço selecionado
-if (!isset($_SESSION['endereco_selecionado'])) {
-    header('Location: escolha-endereco.php');
-    exit();
+// Função auxiliar para formatar valores monetários
+function formatarMoeda($valor) {
+    return number_format($valor, 2, ',', '.');
 }
-
-$endereco_selecionado = $_SESSION['endereco_selecionado'];
-$configuracoes_frete = Pedido::obterConfiguracoesFrete();
-$valor_subtotal = Carrinho::calcularTotal($id_usuario);
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -37,8 +44,10 @@ $valor_subtotal = Carrinho::calcularTotal($id_usuario);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Método de Envio - Tweeb</title>
+    <!-- Inclui o CSS principal da página -->
     <link rel="stylesheet" href="../../../../public/css/metodo-envio.CSS">
     <?php include __DIR__.'/../../../../includes/headernavb.php'; ?>
+    <!-- Inclui ícones Boxicons e Font Awesome -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 </head>
@@ -55,7 +64,7 @@ $valor_subtotal = Carrinho::calcularTotal($id_usuario);
             </div>
         </span>
         
-        <img src="../../../../public/assets/img/linha-pontilhada.png" alt="">
+        <img src="../../../../public/assets/img/linha-pontilhada.png" alt="Linha pontilhada">
         <span class="" id="step-ativo">
             <i class="fa-solid fa-cart-flatbed"></i>
             <div class="span-information">
@@ -63,7 +72,7 @@ $valor_subtotal = Carrinho::calcularTotal($id_usuario);
                 <p>Entrega</p>
             </div>
         </span>
-        <img src="../../../../public/assets/img/linha-pontilhada.png" alt="">
+        <img src="../../../../public/assets/img/linha-pontilhada.png" alt="Linha pontilhada">
         <span class="">
             <i class="fa-solid fa-credit-card"></i>
             <div class="span-information">
@@ -78,32 +87,32 @@ $valor_subtotal = Carrinho::calcularTotal($id_usuario);
         
         <div class="resumo-pedido">
             <h3>Resumo do Pedido</h3>
-            <p><strong>Endereço:</strong> <?php echo $endereco_selecionado['endereco_completo']; ?></p>
-            <p><strong>Subtotal:</strong> R$ <?php echo number_format($valor_subtotal, 2, ',', '.'); ?></p>
+            <p><strong>Endereço:</strong> <?php echo htmlspecialchars($endereco_selecionado['endereco_completo'] ?? 'Endereço não selecionado'); ?></p>
+            <p><strong>Subtotal:</strong> R$ <span id="valor-subtotal-php" data-value="<?php echo $valor_subtotal; ?>"><?php echo formatarMoeda($valor_subtotal); ?></span></p>
         </div>
         
         <div id="opcoes-envio">
             <?php foreach ($configuracoes_frete as $index => $frete): ?>
                 <div class="endereco-card">
                     <label class="envio-descricao">
-                        <input type="radio" id="envio<?php echo $index; ?>" name="envio" value="<?php echo $frete['nome_servico']; ?>" 
-                               data-valor="<?php echo $frete['valor_frete']; ?>" data-prazo="<?php echo $frete['prazo_entrega_dias']; ?>"
+                        <input type="radio" id="envio<?php echo $index; ?>" name="envio" value="<?php echo htmlspecialchars($frete['nome_servico']); ?>" 
+                               data-valor="<?php echo htmlspecialchars($frete['valor_frete']); ?>" data-prazo="<?php echo htmlspecialchars($frete['prazo_entrega_dias']); ?>"
                                <?php echo $index === 0 ? 'checked' : ''; ?>>
                         <label class="endereco-label" for="envio<?php echo $index; ?>">
-                            <?php echo $frete['valor_frete'] > 0 ? 'R$ ' . number_format($frete['valor_frete'], 2, ',', '.') : 'Grátis'; ?>
+                            <?php echo $frete['valor_frete'] > 0 ? 'R$ ' . formatarMoeda($frete['valor_frete']) : 'Grátis'; ?>
                         </label>
                         <div class="endereco-details">
-                            <p><?php echo $frete['descricao']; ?></p>
+                            <p><?php echo htmlspecialchars($frete['descricao']); ?></p>
                         </div>
                     </label>
                     <div class="endereco-actions">
-                        <p><?php echo date('d/m/Y', strtotime('+' . $frete['prazo_entrega_dias'] . ' days')); ?></p>
+                        <p>Entrega em até <?php echo htmlspecialchars($frete['prazo_entrega_dias']); ?> dias úteis</p>
                     </div>
                 </div>
             <?php endforeach; ?>
         </div>
 
-        <!-- Opção de envio agendado -->
+        <!-- Opção de envio agendado (inicialmente oculta) -->
         <div class="endereco-card" id="envio-agendado" style="display: none;">
             <label class="envio-descricao">
                 <input type="radio" id="envio_agendado" name="envio" value="Envio Agendado" data-valor="5.00" data-prazo="10">
@@ -117,9 +126,10 @@ $valor_subtotal = Carrinho::calcularTotal($id_usuario);
                     <select name="data_agendada" id="selecionar-data">
                         <option value="">Selecionar data</option>
                         <?php 
+                        // Gera opções de data para os próximos 30 dias
                         for ($i = 1; $i <= 30; $i++) {
-                            $data = date('d/m', strtotime('+' . $i . ' days'));
-                            echo "<option value=\"$data\">$data</option>";
+                            $data_futura = date('d/m/Y', strtotime('+' . $i . ' days'));
+                            echo "<option value=\"" . htmlspecialchars($data_futura) . "\">" . htmlspecialchars($data_futura) . "</option>";
                         }
                         ?>
                     </select>
@@ -131,7 +141,7 @@ $valor_subtotal = Carrinho::calcularTotal($id_usuario);
     <div class="resumo-total">
         <div class="total-item">
             <span>Subtotal:</span>
-            <span>R$ <?php echo number_format($valor_subtotal, 2, ',', '.'); ?></span>
+            <span>R$ <?php echo formatarMoeda($valor_subtotal); ?></span>
         </div>
         <div class="total-item">
             <span>Frete:</span>
@@ -139,7 +149,7 @@ $valor_subtotal = Carrinho::calcularTotal($id_usuario);
         </div>
         <div class="total-item total-final">
             <span>Total:</span>
-            <span id="valor-total">R$ <?php echo number_format($valor_subtotal, 2, ',', '.'); ?></span>
+            <span id="valor-total">R$ <?php echo formatarMoeda($valor_subtotal); ?></span>
         </div>
     </div>
 
@@ -153,91 +163,7 @@ $valor_subtotal = Carrinho::calcularTotal($id_usuario);
 
 <?php include __DIR__.'/../../../../includes/footer.php'; ?>
 
-<script>
-let metodoEnvioSelecionado = 'Envio Comum';
-let valorFrete = 0.00;
-let valorSubtotal = <?php echo $valor_subtotal; ?>;
-let dataAgendada = '';
-
-// Atualizar valores quando método de envio for selecionado
-document.addEventListener('change', function(e) {
-    if (e.target.name === 'envio') {
-        metodoEnvioSelecionado = e.target.value;
-        valorFrete = parseFloat(e.target.dataset.valor) || 0.00;
-        
-        // Mostrar/ocultar opção de data agendada
-        if (metodoEnvioSelecionado === 'Envio Agendado') {
-            document.getElementById('envio-agendado').style.display = 'block';
-        } else {
-            document.getElementById('envio-agendado').style.display = 'none';
-        }
-        
-        atualizarValores();
-    }
-});
-
-// Atualizar data agendada
-document.getElementById('selecionar-data').addEventListener('change', function(e) {
-    dataAgendada = e.target.value;
-});
-
-function atualizarValores() {
-    const valorFreteElement = document.getElementById('valor-frete');
-    const valorTotalElement = document.getElementById('valor-total');
-    
-    if (valorFrete > 0) {
-        valorFreteElement.textContent = `R$ ${valorFrete.toFixed(2).replace('.', ',').replace(/\B(?=(\d{3})+(?!\d))/g, '.')}`;
-    } else {
-        valorFreteElement.textContent = 'Grátis';
-    }
-    
-    const valorTotal = valorSubtotal + valorFrete;
-    valorTotalElement.textContent = `R$ ${valorTotal.toFixed(2).replace('.', ',').replace(/\B(?=(\d{3})+(?!\d))/g, '.')}`;
-}
-
-// Avançar para pagamento
-document.getElementById('btn-avancar').addEventListener('click', function() {
-    if (!metodoEnvioSelecionado) {
-        alert('Selecione um método de envio para continuar');
-        return;
-    }
-    
-    if (metodoEnvioSelecionado === 'Envio Agendado' && !dataAgendada) {
-        alert('Selecione uma data para entrega agendada');
-        return;
-    }
-    
-    // Salvar dados do envio na sessão
-    const dadosEnvio = {
-        metodo: metodoEnvioSelecionado,
-        valor: valorFrete,
-        data_agendada: dataAgendada
-    };
-    
-    // Enviar dados para o servidor
-    fetch('/Tweeb-2025/PI/App/user/Controllers/PedidoController.php', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        body: 'action=salvar_envio&' + new URLSearchParams(dadosEnvio)
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.success) {
-            window.location.href = 'pagamento-pix.php';
-        } else {
-            alert('Erro ao salvar dados de envio: ' + data.message);
-        }
-    })
-    .catch(error => {
-        console.error('Erro:', error);
-        alert('Erro ao processar dados de envio');
-    });
-});
-
-// Inicializar valores
-atualizarValores();
-</script>
+<!-- Inclui o arquivo JavaScript da página -->
+<script src="../../../../public/js/metodo-envio.js"></script>
 </body>
 </html>

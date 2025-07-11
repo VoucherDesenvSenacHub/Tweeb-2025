@@ -32,7 +32,7 @@
 .container-favoritos-depto {
     display: flex;
     flex-wrap: wrap;
-    justify-content: flex-end !important;
+    justify-content: center;
     gap: 20px;
     padding: 320px;
     max-width: 1200px;
@@ -44,16 +44,14 @@
     border-radius: 9px;
     padding: 15px;
     box-sizing: border-box;
-    /* LARGURA AJUSTADA AQUI para criar espaço para o alinhamento */
-    width: 31%; 
+    width: calc(33.333% - 20px);
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
     position: relative;
-    min-height: 480px;
+    min-height: 440px;
 }
-
 
 .heart {
     position: absolute;
@@ -186,7 +184,7 @@
         margin-left: 80px;
     }
     .produtos-card {
-        width: 47%; 
+        width: calc(50% - 20px);
     }
     .Games-pages-container {
         padding-left: 80px; /* Ajusta o alinhamento da paginação */
@@ -208,7 +206,7 @@
         padding: 0 15px;
     }
     .produtos-card {
-        width: 95%;
+        width: calc(100% - 20px);
     }
     .container-favoritos-depto {
         flex-direction: column;
