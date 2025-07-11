@@ -1,70 +1,98 @@
+let perfil_form = document.querySelector('.perfil-tweeb-form');
+console.log(perfil_form)
+let inputs = perfil_form.querySelectorAll('input:not([disabled])');
+let originalValues = {};
+
+// Salva os valores originais dos campos
+inputs.forEach(input => {
+    originalValues[input.name] = input.value;
+});
 
 document.addEventListener("DOMContentLoaded", () => {
-    const botaoEditarFoto = document.querySelector(".perfil-tweeb-editar-foto");  // Ícone de editar
-    const camposInput = document.querySelectorAll(".perfil-tweeb-form input:not(#cpf)");
-    const botaoSalvar = document.querySelector(".perfil-tweeb-salvar");
-    const botaoCancelar = document.querySelector(".perfil-tweeb-cancelar");
-    const botaoExcluir = document.querySelector(".perfil-tweeb-excluir")
-    const header = document.querySelector(".perfil-tweeb-header");  // Seleciona o cabeçalho
+    const botaoEditar = document.querySelector(".perfil-tweeb-editar-foto");
+    const camposEditaveis = document.querySelectorAll(".perfil-tweeb-form input:not(#cpf):not([disabled])");
+    const botaoSalvar = document.querySelector(".perfil-tweeb-salvar-end");
+    const botaoExcluir = document.querySelector(".perfil-tweeb-excluir-end");
+    const botaoCancelar = document.querySelector(".perfil-tweeb-cancelar-end");
 
-    // Inicia desativando os campos
-    camposInput.forEach(input => input.setAttribute("disabled", "true"));
+    // Começa com os campos readonly
+    camposEditaveis.forEach(input => input.setAttribute("readonly", "true"));
 
-    // Oculta botões "Salvar" e "Cancelar" no início
+    // Botões Salvar e Cancelar inicialmente escondidos
     botaoSalvar.style.display = "none";
     botaoCancelar.style.display = "none";
-    botaoExcluir.style.display  = "none";
+    botaoExcluir.style.display = "none";
 
-   
-
-    // Torna os campos editáveis ao clicar no ícone de editar
-    botaoEditarFoto.addEventListener("click", () => {
-        camposInput.forEach(input => input.removeAttribute("disabled"));
-        
-        // Exibe botões de ação
+    botaoEditar.addEventListener("click", () => {
+        camposEditaveis.forEach(input => input.removeAttribute("readonly"));
         botaoSalvar.style.display = "inline-block";
         botaoCancelar.style.display = "inline-block";
-        botaoExcluir.style.display  = "inline-block";
-
-        // Adiciona a classe para aumentar o margin-top
-        header.classList.add("margin-top-aumentado");
+        botaoExcluir.style.display = "inline-block";
     });
 
-    // // Simula o envio do formulário ao clicar em "Salvar alteração"
-    // botaoSalvar.addEventListener("click", (event) => {
-    //     event.preventDefault();
-    //     alert("Alterações salvas com sucesso!");
-    //     camposInput.forEach(input => input.setAttribute("disabled", "true"));
-        
-    //     // Esconde os botões novamente
-    //     botaoSalvar.style.display = "none";
-    //     botaoCancelar.style.display = "none";
-
-    //     // Remove a classe para voltar o margin-top ao normal
-    //     header.classList.remove("margin-top-aumentado");
-    // });
-    
-    // Cancela edição e restaura os valores originais ao clicar em "Cancelar"
-    botaoCancelar.addEventListener("click", (event) => {
-        event.preventDefault();
-        camposInput.forEach(input => {
-            input.value = input.defaultValue; // Restaura valor original
-            input.setAttribute("disabled", "true");
-        });
-
-        // Esconde os botões novamente
-        botaoSalvar.style.display = "none";
-        botaoCancelar.style.display = "none";
-
-        // Remove a classe para voltar o margin-top ao normal
-        header.classList.remove("margin-top-aumentado");
+    botaoCancelar.addEventListener("click", () => {
+        cancelEdit(); // Chama a função cancelEdit para reverter e ocultar botões
     });
 });
 
-function deletaUsuario() {
-    const confirma = confirm("Tem certeza que deseja excluir sua conta?");
-    if (!confirma) return;
+console.log(originalValues);
 
+// Função para ativar/desativar modo de edição
+function toggleEditMode() {
+    perfil_form.classList.toggle('editing');
+    inputs.forEach(input => {
+        input.readOnly = !input.readOnly;
+    });
+}
+
+// Função para cancelar a edição
+function cancelEdit() {
+    perfil_form.classList.remove("editing");
+    perfil_form.querySelectorAll("input").forEach(input => {
+        input.setAttribute("readonly", true);
+    });
+    document.querySelector(".perfil-tweeb-salvar-end").style.display = "none";
+    document.querySelector(".perfil-tweeb-cancelar-end").style.display = "none";
+    document.querySelector(".perfil-tweeb-excluir-end").style.display = "none";
+    let camposParaLimpar = ["sobrenome", "telefone"];
+    camposParaLimpar.forEach(id => {
+        let input = document.getElementById(id);
+        if (input) input.value = "";
+    });
+}
+
+function abriModal() {
+    document.getElementById('modal').style.display = 'flex';
+}
+function fecharModal(){
+    document.getElementById('modal').style.display = 'none';
+}
+
+function mostrarModal(mensagem) {
+    document.getElementById('modalMensagemTexto').innerText = mensagem;
+    document.getElementById('modalMensagem').style.display = 'flex';
+}
+
+function mostrarAviso(mensagem) {
+    const aviso = document.getElementById('modalAviso');
+    const avisoTexto = document.getElementById('modalAvisoTexto');
+    avisoTexto.innerText = mensagem;
+    aviso.style.display = 'block';
+    setTimeout(() => {
+        aviso.style.display = 'none';
+    }, 2000);
+}
+
+function mostrarModalSucessoExclusao(mensagem) {
+    document.getElementById('modalSucessoExclusaoTexto').innerText = mensagem || 'Usuário excluído com sucesso!';
+    document.getElementById('modalSucessoExclusao').style.display = 'flex';
+}
+
+function redirecionarLogin() {
+    window.location.href = "/Tweeb-2025/PI/app/user/view/pages/login.php";
+}
+
+function deletaUsuario() {
     fetch("http://localhost/tweeb-2025/PI/public/api/deletar_usuario.php", {
         method: "DELETE",
         headers: {
@@ -75,41 +103,62 @@ function deletaUsuario() {
     .then(res => res.text())
     .then(data => {
         try {
-            const result = JSON.parse(data);
-            alert(result.mensagem || "Operação realizada com sucesso!");
+            let result = JSON.parse(data);
             if (result.mensagem) {
-                console.log("Redirecionando...");
-                window.location.href = "/Tweeb-2025/PI/app/user/view/pages/login.php";
+                mostrarModalSucessoExclusao(result.mensagem);
+            } else {
+                mostrarAviso("Operação realizada com sucesso!");
             }
         } catch (e) {
-            alert(data); 
+            mostrarAviso(data);
         }
     })
-    .catch(err => console.error("Erro:", err));
+    .catch(err => mostrarAviso("Erro inesperado ao excluir usuário."));
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-    document.getElementById("cep").addEventListener("blur", async function () {
-        const cep = this.value.replace(/\D/g, "");
+function abrirModalConfirmarAlteracao() {
+    document.getElementById('modalConfirmarAlteracao').style.display = 'flex';
+}
 
-        if (cep.length === 8) {
-            const response = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
-            const data = await response.json();
+function fecharModalConfirmarAlteracao() {
+    document.getElementById('modalConfirmarAlteracao').style.display = 'none';
+}
 
-            if (!data.erro) {
-                document.getElementById("rua").value = 
-                    `${data.logradouro}`;
-                document.getElementById("bairro").value = 
-                    `${data.bairro}`;
-                document.getElementById("cidade").value = 
-                    `${data.localidade}`;
-                document.getElementById("estado").value = 
-                    `${data.estado}`;
-            } else {
-                alert("CEP não encontrado. Preencha o endereço manualmente.");
-            }
-        }
-    });
+function confirmarAlteracao() {
+    fecharModalConfirmarAlteracao();
+    submitAlteracao();
+}
+
+// Refatorar o submit do formulário para exibir o modal de confirmação
+perfil_form.addEventListener('submit', function(event) {
+    event.preventDefault();
+    abrirModalConfirmarAlteracao();
 });
 
+// Função que realmente faz a alteração após confirmação
+async function submitAlteracao() {
+    let formData = {
+        nome: perfil_form.nome.value,
+        sobrenome: perfil_form.sobrenome.value,
+        email: perfil_form.email.value,
+        telefone: perfil_form.telefone.value,
+    };
 
+    let response = await fetch('/Tweeb-2025/PI/app/user/Controllers/UserEditController.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
+    });
+
+    let result = await response.json();
+
+    if (result.sucesso) {
+        document.getElementById('modalSucessoAtualizacao').style.display = 'flex';
+    } else {
+        alert('Erro: ' + result.mensagem);
+    }
+}
+
+function fecharModalSucessoAtualizacao() {
+    document.getElementById('modalSucessoAtualizacao').style.display = 'none';
+}

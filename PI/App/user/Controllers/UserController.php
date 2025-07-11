@@ -1,35 +1,52 @@
 <?php
 
-require __DIR__.'/../Models/CadastroUsuario.php';
-session_start();
+require_once __DIR__ . '/../Models/Usuario.php';
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    header('Content-Type: application/json');
+    $dados = json_decode(file_get_contents('php://input'), true);
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $nome = trim($dados['nome'] ?? '');
+    $email = trim($dados['email'] ?? '');
+    $cpf = trim($dados['cpf'] ?? '');
+    $senha = $dados['senha'] ?? '';
+    $confirmacao = $dados['confirmar_senha'] ?? '';
 
-    $nome = $_POST['nome'];
-    $email = $_POST['email'];
-    $cpf = $_POST['cpf'];
-    $senha = $_POST['senha'];
-    $confirmacao = $_POST['confirmacao'];
-
-
-    $client = new CadastroUsuario($nome, $email, $cpf ,$senha, $confirmacao);
-
-
-    $validacao = $client->validarCampos();
-    if ($validacao !== true) {
-     
-        header('location: /Tweeb-2025/PI/App/user/View/pages/cadastro.php?status=' . urlencode($validacao));
-        exit();
+    if (empty($nome) || empty($cpf) || empty($email) || empty($senha) || empty($confirmacao)) {
+        echo json_encode(['sucesso' => false, 'mensagem' => 'Preencha todos os campos']);
+        exit;
     }
+   
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        echo json_encode(['sucesso' => false, 'mensagem' => 'Email inválido']);
+        exit;
+    }
+ 
+    if ($senha !== $confirmacao) {
+        echo json_encode(['sucesso' => false, 'mensagem' => 'Senhas não conferem']);
+        exit;
+    }
+ 
+    $usuario = new Usuario();
+    $usuarioExistente = $usuario->buscarPorEmail($email);
+    if ($usuarioExistente) {
+        echo json_encode(['sucesso' => false, 'mensagem' => 'Email já cadastrado']);
+        exit;
+    }
+   
+    $senhaHash = password_hash($senha, PASSWORD_DEFAULT);
 
-    if ($client->cadastrar()) {
+    $usuario->nome = $nome;
+    $usuario->email = $email;
+    $usuario->cpf = $cpf;
+    $usuario->senha = $senhaHash;
+    $usuario->tipo = 'cliente';
 
-        header('location: /Tweeb-2025/PI/App/user/View/pages/pagina_1_pesquisa_cadastro.php');
-        exit();
+    $id = $usuario->inserir();
+
+    if ($id) {
+        echo json_encode(['sucesso' => true, 'mensagem' => 'Usuário cadastrado com sucesso!']);
     } else {
-
-        header('location: /Tweeb-2025/PI/App/user/View/pages/cadastro.php?status=erro_cadastro');
-        exit();
+        echo json_encode(['sucesso' => false, 'mensagem' => 'Erro ao cadastrar.']);
     }
+    exit;
 }
-?>

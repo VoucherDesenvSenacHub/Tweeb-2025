@@ -17,38 +17,36 @@
 
     <div class="container-esqueceu">
         <div class="forms-esqueceu">
-            <form action="">
-                
+            <form method="POST" id="login-funcionario">
+                <a href="/Tweeb-2025/PI/home.php" class="back-links-func"><i class='bx bx-chevron-left'></i> Voltar</a>
                 <h1 class="tit">Acesso Corporativo</h1>
                 <p class="descrit">Faça login para acessar a conta de administrador.</p>
                 
                 <div class="input-box-esqueceu">
                     <label for="email">Email Corporativo</label>
-                    <input type="email" id="email" placeholder="Digite seu email" required>
+                    <input type="text" id="email-funcionario" name="email" placeholder="Digite seu email" required>
                     <i class='bx bxs-envelop'></i>
 
                 </div>
 
                 <div class="input-box">
                     <label for="senha">Senha</label>
-                    <input type="password" id="senha" placeholder="Digite sua senha" required>
+                    <input type="password" id="senha-funcionario" name="senha" placeholder="Digite sua senha" required>
                 </div>
 
-                <button type="submit" class="btn-esqueceu"><a class="botaolinkar" href="painel-adm.php">Login</a></button>
+                <button type="submit" class="btn-esqueceu" id="btn-adm" name="action" value="adm">Entrar como Administrador</button>
+                <!-- <p class="divisão"> --------- ou ---------</p> -->
+                <button type="submit" class="btn-esqueceu" id="btn-funcionario" name="action" value="funcionario">Entrar como Colaborador</button>
                 <div class="linha">
-
                 </div>
-                <!-- <div class="remember-forgot">
-                    <label><input type="checkbox"> Lembrar senha</label>
-                    <a href="../../../user/View/pages/codVerificacao.php" class="forgot-password">Esqueceu sua senha</a>
-                </div> -->
-               
-                
             </form>
         </div>
         <div class="image-container-esqueceu">
             <img src="../../../../public/assets/img/Rectangle 20.png" alt="Imagem de Recuperação">
         </div>
     </div>
+    </div>
+    <script src="../../../../public/js/login-funcionario.js"></script>
+    <!-- <script src="../../../../public/js/login-adm.js"></script> -->
 </body>
 </html>

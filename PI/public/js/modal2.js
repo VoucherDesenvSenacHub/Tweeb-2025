@@ -1,96 +1,159 @@
 document.addEventListener('DOMContentLoaded', function () {
-    // Seleciona todas as linhas da tabela
     const tableRows = document.querySelectorAll('.servicos-table table tbody tr');
-    
-    // Adiciona o evento de duplo clique a cada linha da tabela
-    tableRows.forEach(function(row) {
-        row.addEventListener('dblclick', function() {
-            // Cria o modal dinamicamente
+
+    tableRows.forEach(function (row) {
+        row.addEventListener('dblclick', function () {
+            // Coleta os dados da linha
+            const cells = row.querySelectorAll('td');
+            const data = {
+                numeroOS: cells[0]?.textContent || '',
+                tipoEquipamento: cells[1]?.textContent || '',
+                valor: cells[2]?.textContent || '',
+                dataEntrada: cells[3]?.textContent || '',
+                dataSaida: cells[4]?.textContent || '',
+                status: cells[5]?.textContent || '',
+                nomeCliente: 'Josivaldo Arantes',
+                email: 'josivaldo@gmail.com',
+                marcaModelo: 'Indefinido',
+                telefone: '(11) 98765-4321',
+                endereco: 'Rua das Flores, 123 - São Paulo, SP',
+                cep: '12345-678',
+                numeroSerie: 'SN987654321',
+                acessorios: 'Cabo de alimentação, Toner',
+                relatoCliente: 'A impressora não está ligando',
+                parecerTecnico: 'Fonte de alimentação danificada',
+                servicosSolicitados: 'Troca da fonte e revisão geral',
+                estimativaCusto: 'R$ 350,00',
+                aprovacaoCliente: 'Aprovado',
+                servicosRealizados: 'Troca da fonte, limpeza interna',
+                pecasSubstituidas: 'Fonte de alimentação',
+                testesRealizados: 'Teste de impressão',
+                dataConclusao: cells[4]?.textContent || '',
+                observacoes: 'Garantia de 90 dias para a peça substituída'
+            };
+
+            // Cria o primeiro modal (resumo e botões)
             const modal = document.createElement('div');
             modal.classList.add('modal');
-            
+            modal.style.display = 'flex';
+
             const modalContent = document.createElement('div');
             modalContent.classList.add('modal-content');
-            
-            // Criação do botão de fechar
+
             const closeBtn = document.createElement('span');
             closeBtn.classList.add('close');
             closeBtn.innerHTML = '&times;';
-            closeBtn.addEventListener('click', function() {
-                modal.style.display = 'none'; // Fecha o modal
-            });
-            
-            modalContent.appendChild(closeBtn);
-            
-            // Preencher o conteúdo do modal com os dados da linha selecionada
-            const cells = row.querySelectorAll('td');
-            const data = {
-                numeroOS: cells[0].textContent, // Número da OS
-                dataAbertura: cells[1].textContent, // Data de Abertura
-                tipoEquipamento: cells[2].textContent, // Tipo de Equipamento
-                nomeCliente: cells[3].textContent, // Nome do Cliente
-                email: cells[4].textContent, // Email
-                marcaModelo: cells[5].textContent, // Marca e Modelo
-                // Aqui você pode adicionar mais dados conforme necessário
-            };
-            
-            // Criar os dados no modal
+            closeBtn.addEventListener('click', () => modal.remove());
+
             const modalBody = document.createElement('div');
             modalBody.classList.add('modal-body');
             modalBody.innerHTML = `
                 <p><strong>Número da OS:</strong> ${data.numeroOS}</p>
-                <p><strong>Data de Abertura:</strong> ${data.dataAbertura}</p>
-                <p><strong>Tipo de Equipamento:</strong> ${data.tipoEquipamento}</p>
+                <p><strong>Data de Abertura:</strong> ${data.dataEntrada}</p>
+                <p><strong>Tipo de Equipamento:</strong> ${data.tipoEquipamento}</p> 
                 <p><strong>Nome do Cliente:</strong> ${data.nomeCliente}</p>
                 <p><strong>Email:</strong> ${data.email}</p>
                 <p><strong>Marca e Modelo:</strong> ${data.marcaModelo}</p>
-                <p><strong>Telefone:</strong> (Exemplo: (11) 98765-4321)</p>
-                <p><strong>Endereço:</strong> (Exemplo: Rua das Flores, 123 - São Paulo, SP)</p>
-                <p><strong>CEP:</strong> (Exemplo: 12345-678)</p>
-                <p><strong>Número de Série:</strong> (Exemplo: SN987654321)</p>
-                <p><strong>Acessórios Entregues:</strong> (Exemplo: Cabo de alimentação, Toner)</p>
-                <p><strong>Relato do Cliente:</strong> (Exemplo: A impressora não está ligando, suspeito de defeito na fonte)</p>
-                <p><strong>Parecer Técnico:</strong> (Exemplo: Fonte de alimentação danificada, necessitando de troca)</p>
-                <p><strong>Serviços Solicitados:</strong> (Exemplo: Troca da fonte de alimentação e revisão geral)</p>
-                <p><strong>Estimativa de Custo:</strong> (Exemplo: R$ 350,00)</p>
-                <p><strong>Aprovação do Cliente:</strong> (Exemplo: Aprovado)</p>
-                <p><strong>Serviços Realizados:</strong> (Exemplo: Troca da fonte de alimentação e limpeza interna)</p>
-                <p><strong>Peças Substituídas:</strong> (Exemplo: Fonte de alimentação)</p>
-                <p><strong>Testes Realizados:</strong> (Exemplo: Teste de impressão e funcionalidade completa)</p>
-                <p><strong>Data de Conclusão:</strong> (Exemplo: 21/03/2025)</p>
-                <p><strong>Observações:</strong> (Exemplo: Garantia de 90 dias para a peça substituída)</p>
+                <p><strong>Telefone:</strong> ${data.telefone}</p>
+                <p><strong>Endereço:</strong> ${data.endereco}</p>
+                <p><strong>CEP:</strong> ${data.cep}</p>
+                <p><strong>Número de Série:</strong> ${data.numeroSerie}</p>
+                <p><strong>Acessórios Entregues:</strong> ${data.acessorios}</p>
+                <p><strong>Relato do Cliente:</strong> ${data.relatoCliente}</p>
+                <p><strong>Parecer Técnico:</strong> ${data.parecerTecnico}</p>
+                <p><strong>Serviços Solicitados:</strong> ${data.servicosSolicitados}</p>
+                <p><strong>Estimativa de Custo:</strong> ${data.estimativaCusto}</p>
+                <p><strong>Aprovação do Cliente:</strong> ${data.aprovacaoCliente}</p>
+                <p><strong>Serviços Realizados:</strong> ${data.servicosRealizados}</p>
+                <p><strong>Peças Substituídas:</strong> ${data.pecasSubstituidas}</p>
+                <p><strong>Testes Realizados:</strong> ${data.testesRealizados}</p>
+                <p><strong>Data de Conclusão:</strong> ${data.dataConclusao}</p>
+                <p><strong>Observações:</strong> ${data.observacoes}</p>
             `;
-            
-            modalContent.appendChild(modalBody);
-            
-            // Botões de Ação (Editar e Excluir)
+
+            // Botões de ação
             const modalActions = document.createElement('div');
             modalActions.classList.add('modal-actions');
-            
-            const editButton = document.createElement('button');
-            editButton.classList.add('btn', 'btn-edit');
-            editButton.innerHTML = '<i class="fas fa-edit"></i> Editar';
-            
+
+            const editLink = document.createElement('a');
+            editLink.classList.add('btn', 'btn-edit');
+            editLink.innerHTML = '<i class="fas fa-edit"></i> Editar';
+            editLink.href = '#';
+            Object.assign(editLink.style, {
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '6px',
+                padding: '8px 12px',
+                textDecoration: 'none',
+                color: 'inherit'
+            });
+
+            editLink.onclick = function (e) {
+                e.preventDefault();
+                modal.remove(); // fecha o primeiro modal
+
+                // Preenche o modal de edição
+                document.getElementById('modal_Numero_da_Os').value = data.numeroOS;
+                document.getElementById('modal_Data_de_Abertura').value = data.dataEntrada;
+                document.getElementById('modal_Tipo_de_equipamento').value = data.tipoEquipamento;
+                document.getElementById('modal_Nome_do_Cliente').value = data.nomeCliente;
+                document.getElementById('modal_Email').value = data.email;
+                document.getElementById('modal_Marca_e_modelo').value = data.marcaModelo;
+                document.getElementById('modal_Telefone').value = data.telefone;
+                document.getElementById('modal_Endereco').value = data.endereco;
+                document.getElementById('modal_CEP').value = data.cep;
+                document.getElementById('modal_Numero_de_série').value = data.numeroSerie;
+                document.getElementById('modal_Acessorios_entregues').value = data.acessorios;
+                document.getElementById('modal_Relato_do_cliente').value = data.relatoCliente;
+                document.getElementById('modal_Parecer_Tecnico').value = data.parecerTecnico;
+                document.getElementById('modal_Serviços_solicitados').value = data.servicosSolicitados;
+                document.getElementById('modal_Estimativa_de_custo').value = data.estimativaCusto;
+                document.getElementById('modal_Aprovação_do_Cliente').value = data.aprovacaoCliente;
+                document.getElementById('modal_Serviços_realizados').value = data.servicosRealizados;
+                document.getElementById('modal_Peças_substituidas').value = data.pecasSubstituidas;
+                document.getElementById('modal_Testes_realizados').value = data.testesRealizados;
+                document.getElementById('modal_Data_de_conclusao').value = data.dataConclusao;
+                document.getElementById('modal_Observacoes').value = data.observacoes;
+
+                openModal(); // chama modal principal
+            };
+
+            // Botão excluir (aqui só fecha por enquanto)
             const deleteButton = document.createElement('button');
             deleteButton.classList.add('btn', 'btn-delete');
             deleteButton.innerHTML = '<i class="fas fa-trash-alt"></i> Excluir';
+            deleteButton.onclick = function () {
+                const confirmDelete = confirm('Tem certeza que deseja excluir esta O.S.?');
+                if (confirmDelete) {
+                    row.remove(); // Remove a linha da tabela
+                    modal.remove(); // Fecha o modal
+                    // Aqui você pode adicionar um fetch/AJAX se quiser excluir do banco
+                    // Exemplo:
+                    // fetch('excluir-os.php', {
+                    //     method: 'POST',
+                    //     body: JSON.stringify({ os: data.numeroOS }),
+                    //     headers: { 'Content-Type': 'application/json' }
+                    // }).then(res => res.json()).then(response => {
+                    //     console.log(response);
+                    // });
+                }
+            };
             
-            modalActions.appendChild(editButton);
+            modalActions.appendChild(editLink);
             modalActions.appendChild(deleteButton);
-            
+
+            modalContent.appendChild(closeBtn);
+            modalContent.appendChild(modalBody);
             modalContent.appendChild(modalActions);
-            
-            // Adiciona o conteúdo do modal no corpo da página
+
             modal.appendChild(modalContent);
             document.body.appendChild(modal);
-            
-            // Exibe o modal
-            modal.style.display = 'flex';
-            
-            // Fecha o modal se clicar fora da área de conteúdo
-            window.addEventListener('click', function(event) {
+
+            // Fecha se clicar fora
+            window.addEventListener('click', function (event) {
                 if (event.target === modal) {
-                    modal.style.display = 'none';
+                    modal.remove();
                 }
             });
         });

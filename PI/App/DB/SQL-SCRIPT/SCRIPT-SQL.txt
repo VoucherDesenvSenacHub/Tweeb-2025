@@ -90,7 +90,6 @@ CREATE TABLE produto (
     FOREIGN KEY (id_fornecedor) REFERENCES fornecedor (id_fornecedor),
     FOREIGN KEY (id_favorito) REFERENCES favoritos (id_favorito),
     FOREIGN KEY (id_compra_personalizada) REFERENCES compra_personalizada (id_compra_personalizada)
-
 );
 
 
@@ -213,7 +212,10 @@ CREATE TABLE envio (
 
 
 
-//Leandrex
+//Leandrex da galera
+
+
+use 140p2;
 CREATE TABLE usuarios (
     id INT PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(100) not null,
@@ -221,17 +223,27 @@ CREATE TABLE usuarios (
     email VARCHAR(100) not null UNIQUE,
     telefone VARCHAR(20),
     senha VARCHAR(255)not null ,
-    tipo ENUM('cliente', 'funcionario'),
+    tipo ENUM('cliente', 'funcionario', "administrador"),
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    token_recuperacao varchar(64)
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
+
+desc funcionario;
+-- 1. Inserir o administrador geral na tabela usuarios
+INSERT INTO usuarios (nome, sobrenome, email, telefone, senha, tipo)
+VALUES ('Leandro', 'Silva', 'admgeral@empresa.com', '(67)99999-9999', 'adm123', 'administrador');
+INSERT INTO administrador (id_usuario, matricula, cargo)
+VALUES (110, 'ADM0001', 'Administrador Geral');
 
 select * from usuarios;
 select * from clientes;
 select * from enderecos;
-select * from cep;
-
+select * from funcionarios;
+select * from administrador;
+show tables;
+select * from departamento
+;
+drop table funcionarios;
 drop table enderecos;
 
 CREATE TABLE clientes (
@@ -241,11 +253,14 @@ CREATE TABLE clientes (
     updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     FOREIGN KEY (id_usuario) REFERENCES usuarios(id) ON DELETE CASCADE
 );
+
 CREATE TABLE enderecos (
-    id INT PRIMARY KEY AUTO_INCREMENT,
+    id_endereco INT PRIMARY KEY AUTO_INCREMENT,
     id_cliente INT,
     nome_endereco VARCHAR(100),
     rua VARCHAR(100),
+    numero VARCHAR(20),
+    cep VARCHAR(8),
     bairro VARCHAR(100),
     cidade VARCHAR(50),
     estado VARCHAR(50),
@@ -254,14 +269,17 @@ CREATE TABLE enderecos (
     FOREIGN KEY (id_cliente) REFERENCES clientes(id_usuario) ON DELETE CASCADE
 );
 
-CREATE TABLE cep (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    codigo VARCHAR(8) NOT NULL,          
-    endereco_id INT NOT NULL,             
-    criado_em DATETIME DEFAULT CURRENT_TIMESTAMP,
-	updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    FOREIGN KEY (endereco_id) REFERENCES enderecos(id) ON DELETE CASCADE
+select * from produtos;
+
+CREATE TABLE administrador (
+    id_usuario INT PRIMARY KEY,
+    matricula VARCHAR(20),
+    cargo VARCHAR(50),
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (id_usuario) REFERENCES usuarios(id) ON DELETE CASCADE
 );
+
 
 
 CREATE TABLE funcionarios (
@@ -274,14 +292,14 @@ CREATE TABLE funcionarios (
 );
 
 
-ALTER TABLE usuarios ADD COLUMN foto_perfil VARCHAR(255);
-
-
-drop table usuarios;
-select * from usuarios;
+drop table clientes;
 select * from clientes;
-select * from respostas_preferencias;
-
+select * from cpf;
+select * from enderecos;
+SELECT u.id, u.nome, u.email, f.matricula, f.cargo
+FROM usuarios u
+INNER JOIN funcionarios f ON u.id = f.id_usuario
+WHERE u.email = 'lelelelele@gmail.com';
 CREATE TABLE respostas_preferencias (
   id INT AUTO_INCREMENT PRIMARY KEY,
   user_id INT,
@@ -290,4 +308,47 @@ CREATE TABLE respostas_preferencias (
   resposta3 VARCHAR(255),
   criado_em DATETIME DEFAULT CURRENT_TIMESTAMP,
   FOREIGN KEY (user_id) REFERENCES usuarios(id)
+);
+
+CREATE TABLE orcamento (
+    id_orcamento INT AUTO_INCREMENT PRIMARY KEY,
+    nome varchar(100) NOT NULL,
+    email varchar(100) NOT NULL,
+    telefone VARCHAR(20) NOT NULL,
+    tipo varchar(50) NOT NULL,
+    prazo varchar(30) NOT NULL,
+    imagem varchar(255) NOT NULL,
+    descricao text not null,
+    status_orcamento ENUM('pendente', 'aceito')
+);
+
+CREATE TABLE ordem_servico (
+    id_os INT AUTO_INCREMENT PRIMARY KEY,
+    data_abertura TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    tipo_equipamento VARCHAR(50) NOT NULL,
+    nome VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    marca_modelo VARCHAR(100),
+    telefone VARCHAR(11) NOT NULL,
+    endereco VARCHAR(100),
+    cep VARCHAR(8),
+    numero_serie VARCHAR(50),
+    acessorios_entregues TEXT,
+    relato_cliente TEXT,
+    tecnico_responsavel VARCHAR(150),
+    servicos_solicitados ENUM(
+    'atualização de firmware',
+    'backup e recuperação',
+    'configuração de sistema',
+    'formatação',
+    'limpeza e manutenção preventiva',
+    'serviços de software: instalação, configuração e atualização',
+    'substituição peças') NOT NULL,
+    estimativa_custo DECIMAL(10,2),
+    aprovacao_cliente ENUM('aceito') DEFAULT 'aceito',
+    servicos_realizados TEXT,
+    pecas_substituidas TEXT,
+    testes_realizados TEXT,
+    data_conclusao DATE NOT NULL,
+    observacoes TEXT
 );

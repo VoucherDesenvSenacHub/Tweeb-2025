@@ -473,6 +473,10 @@ footer {
     align-self: center;
 }
 
+/* h2{
+    margin-left: 260px;
+} */
+
 .endereco-botoes{
     margin-top: 4rem;
     display: flex;
@@ -506,6 +510,7 @@ footer {
     border: 2px solid black;
     color: black;
     cursor: pointer;
+    
 }
 
 #new-endereco-form{
@@ -521,6 +526,7 @@ footer {
     width: 500px;
     gap: 2rem;
     margin: 2rem 0;
+    margin-left: 180px;
 }
 
 #form-novo-endereco input{
@@ -609,7 +615,11 @@ footer {
 .pix-pago-titulo {
     font-size: 20px;
     font-weight: 600;
-    /* margin-bottom: 20px; */
+    margin-bottom: 40px;
+    align-items: center;
+    position: flex;
+    margin-left: 100px;
+    
 }
 .pix-pago-item {
     display: flex;

@@ -22,6 +22,8 @@ if (!isset($_SESSION['usuario']['id'])) {
 <body>
 <?php include __DIR__.'/../../../../includes/navbar-logada.php'; ?>
 
+
+
 <div class="container">
     <div class="step-indicator">
         <span class="" id="step-ativo">
@@ -96,7 +98,7 @@ if (!isset($_SESSION['usuario']['id'])) {
             <label for="endereco-detalhes">Endereço Completo:</label>
             <input type="text" id="endereco-detalhes" required>
     
-            <label for="telefone-endereco">Telefone:</label>
+            <label for="telefone-endereco">CEP:</label>
             <input type="text" id="telefone-endereco" required>
     
             <button type="submit" class="btoes-endereco">Salvar Endereço</button>

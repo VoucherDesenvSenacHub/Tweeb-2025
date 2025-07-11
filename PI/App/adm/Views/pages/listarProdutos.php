@@ -25,7 +25,7 @@
             <button type="submit" class="listarP-search-btn">
                 <i class="bx bx-search"></i>
             </button>
-            <input type="text" id="searchInput" class="listarP-srch" placeholder="Buscar">
+            <input type="text" id="searchInput" class="listarP-srch" placeholder="Buscar Produto">
         </div>
     </div> -->
 

@@ -1,7 +1,4 @@
-<?php
-// require '../../Controllers/Produto.php';
-
-
+<?php 
 require_once(__DIR__ . '/../../Controllers/Produto.php');
 
 
@@ -51,6 +48,10 @@ if (isset($_POST['cadastrar'])) {
     $entrega_gratis = isset($_POST['entrega_gratis']) ? 1 : 0;
     $em_estoque = isset($_POST['em_estoque']) ? 1 : 0;
     $garantia = isset($_POST['garantia']) ? 1 : 0;
+    $valor_total = $_POST['valor_total'];
+    $fornecedor = $_POST['fornecedor'];
+    $status = $_POST['status'];
+    $nf = $_POST['nf'];
 
     // Processamento da imagem
     $arquivo = $_FILES['imagem_produto'];
@@ -113,9 +114,10 @@ if ($id_produto !== null) {
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<?php include __DIR__.'/../../../../includes/headernavb.php'; ?>
+    <?php include __DIR__.'/../../../../includes/headernavb.php'; ?>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../../../public/css/estoqueok.css" />
     <title>Cadastro de Produto</title>
     <link rel="stylesheet" href="styles.css">
     <script defer src="script.js"></script>
@@ -123,6 +125,7 @@ if ($id_produto !== null) {
 <body class='produtos_listados'>
     <?php include __DIR__.'/../../../../includes/head-adm.php'; ?>
     <?php include __DIR__.'/../../../../includes/sidebar-Adm.php'; ?>
+
     <div class="cadastrando-products-pai">
         <div class="cadastrando-products">
             <nav>

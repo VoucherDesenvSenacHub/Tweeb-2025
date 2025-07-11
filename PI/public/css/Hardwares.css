@@ -1,0 +1,215 @@
+.Hardware {
+    overflow-x: hidden;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.Hardware-container_banner img {
+    width: 100%;
+    height: 472px;
+    margin-top: 40px;
+}
+
+.Hardware-h1 {
+    font-size: 62px;
+    font-family: "Inter", serif;
+    display: flex;
+    margin-left: 5%;
+}
+
+.Hardware-p {
+    font-size: 22px;
+    font-family: "Nunito", serif;
+    font-weight: bold;
+    margin-left: 7%;
+}
+.Hardware-container_titles {
+    margin-top: 20px;
+    margin-left: 130px;
+}
+
+.container-favoritos-depto {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end !important;
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.produtos-card {
+    background-color: #F6F6F6;
+    border-radius: 9px;
+    padding: 15px;
+    box-sizing: border-box;
+    width: 31%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    min-height: 480px;
+}
+
+.heart {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    cursor: pointer;
+}
+
+.add-carrinho {
+    position: absolute;
+    top: 50px;
+    right: 15px;
+    cursor: pointer;
+}
+
+.image-produto {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.card-rate {
+    margin-bottom: 10px;
+}
+
+.card-rate i {
+    color: #fdd835;
+}
+
+.produtos-card p {
+    margin: 4px 0;
+    font-family: "Nunito", sans-serif;
+}
+
+.produtos-card h1 {
+    font-family: "Inter", sans-serif;
+    font-size: 1.5rem;
+    margin: 10px 0;
+}
+
+.card-botao {
+    background-color: #291E40;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: auto;
+}
+
+/* ================================== */
+/* CSS PARA PAGINAÇÃO - VERSÃO REFINADA */
+/* ================================== */
+
+.Hardware-pages-container {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    margin: 30px 0;
+    padding-right: 5%;
+    box-sizing: border-box;
+}
+
+.Hardware-pages {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    align-items: center;
+}
+
+.Hardware-pages a,
+.Hardware-pages span {
+    text-decoration: none;
+    padding: 6px 12px;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    font-family: "Nunito", sans-serif;
+    font-size: 0.9rem;
+    display: inline-block;
+    transition: all 0.2s ease;
+    background-color: #f8f8f8;
+    color: #555;
+}
+
+.Hardware-page2-button:hover {
+    background-color: #291E40 !important;
+    color: white !important;
+    border-color: #291E40;
+    transform: translateY(-1px);
+}
+
+.Hardware-page1-button {
+    background-color: #291E40;
+    color: white;
+    border-color: #291E40;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.Hardware-pages span.Hardware-page2-number {
+    background-color: transparent;
+    border: none;
+    padding: 0 5px;
+}
+
+@media (max-width: 1440px) {
+    .Hardware-container_banner img {
+        height: 400px;
+    }
+    .Hardware-h1 {
+        font-size: 52px;
+        margin: 0%;
+    }
+}
+
+@media (max-width: 1024px) {
+    .Hardware-container_banner img {
+        height: 350px;
+    }
+    .Hardware-h1 {
+        font-size: 42px;
+    }
+    .Hardware-container_titles {
+        margin-left: 80px;
+    }
+    .produtos-card {
+        width: 47%;
+    }
+    .Hardware-pages-container {
+        padding-left: 80px;
+    }
+}
+
+@media (max-width: 768px) {
+    .Hardware-container_banner img {
+        height: 300px;
+    }
+    .Hardware-h1 {
+        font-size: 36px;
+    }
+    .Hardware-p {
+        font-size: 18px;
+    }
+    .Hardware-container_titles {
+        margin-left: 20px;
+        padding: 0 15px;
+    }
+    .produtos-card {
+        width: 95%;
+    }
+    .container-favoritos-depto {
+        flex-direction: column;
+        align-items: center;
+    }
+    .Hardware-pages-container {
+        justify-content: center;
+        padding-left: 0;
+    }
+}

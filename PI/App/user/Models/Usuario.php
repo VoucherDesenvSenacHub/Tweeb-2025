@@ -1,31 +1,94 @@
 <?php
-require_once __DIR__ . '/../../DB/Database.php';
+require_once __DIR__ . '../../../DB/Database.php';
 
 class Usuario {
-    private $db;
+    public int $id;
+    public string $nome;
+    public ?string $sobrenome = null;
+    public string $email;
+    public string $senha;
+    public string $cpf;
+    public string $tipo;
+    public ?string $telefone = null;
+    public string $foto_perfil = 'imagem_padrao.png';
 
-    public function __construct() {
-        $this->db = new Database('usuarios'); 
+    public function __construct($dados = []) {
+        if (!empty($dados)) {
+            $this->id           = $dados['id'] ?? 0;
+            $this->nome         = $dados['nome'] ?? '';
+            $this->sobrenome    = $dados['sobrenome'] ?? null; // ✅ agora incluso corretamente
+            $this->email        = $dados['email'] ?? '';
+            $this->senha        = $dados['senha'] ?? '';
+            $this->cpf          = $dados['cpf'] ?? '';
+            $this->tipo         = $dados['tipo'] ?? 'cliente';
+            $this->telefone     = $dados['telefone'] ?? null;
+            $this->foto_perfil  = $dados['foto_perfil'] ?? 'imagem_padrao.png';
+        }
     }
-    public function excluir($id){
-        // $endereco = new Database('enderecos');
-        // $endereco->delete("id = $id");
 
-        $clientes = new Database('clientes');
-        $clientes->delete ("id_usuario = $id");
+    public function inserir() {
+        $db = new Database('usuarios');
+        $idUsuario = $db->insert([
+            'nome'         => $this->nome,
+            'sobrenome'    => $this->sobrenome,
+            'email'        => $this->email,
+            'senha'        => $this->senha,
+            'tipo'         => $this->tipo,
+            'foto_perfil'  => $this->foto_perfil
+        ]);
 
-        $resposta_preferencia = new Database('respostas_preferencias');
-        $resposta_preferencia->delete("user_id = $id");
+        if ($idUsuario) {
+            $dbClientes = new Database('clientes');
+            $dbClientes->insert([
+                'id_usuario' => $idUsuario,
+                'cpf'        => $this->cpf
+            ]);
+        }
 
-        return $this->db->delete("id = $id");
+        return $idUsuario;
     }
 
-    public function buscarPorId($id) {
-        $result = $this->db->select("id = $id");
-        return $result->fetch(PDO::FETCH_ASSOC);
+    public function atualizar() {
+        $db = new Database('usuarios');
+        return $db->update([
+            'nome'         => $this->nome,
+            'sobrenome'    => $this->sobrenome,
+            'telefone'     => $this->telefone,
+            'email'        => $this->email,
+            'foto_perfil'  => $this->foto_perfil
+        ], "id = {$this->id}");
     }
 
-    public function atualizar($id, $dados) {
-        return $this->db->update($dados, "id = $id");
+    public function atualizarFoto($novoNome) {
+        $db = new Database('usuarios');
+        return $db->update(['foto_perfil' => $novoNome], "id = {$this->id}");
     }
+
+    public static function buscarTodos() {
+        $db = new Database('usuarios');
+        return $db->select()->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public static function buscarPorId($id) {
+        $db = new Database('usuarios');
+        return $db->select("id = $id")->fetchObject(self::class);
+    }
+
+    public static function buscarPorEmail($email) {
+        $db2 = new Database(); 
+        $dados = $db2->buscarUsuarioComCpfPorEmail($email);
+        return $dados;
+    }
+
+    public function excluir($id) {
+        $db = new Database('usuarios');
+        return $db->delete("id = $id");
+    }
+
+    public function atualizarSenha() {
+        $db = new Database('usuarios');
+        return $db->update(['senha' => $this->senha], "id = {$this->id}");
+    }
+    
+    
 }

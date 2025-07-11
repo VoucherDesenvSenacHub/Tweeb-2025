@@ -1,4 +1,3 @@
-
 /* body {
     margin: 0;
     padding: 0;
@@ -19,10 +18,8 @@
 
 
 .perfil-tweeb-container {
-
     padding: 20px;
     border-radius: 10px;
-    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
     width: 900px;
     max-width: 100%;
     box-sizing: border-box;
@@ -168,8 +165,9 @@
 label[for="sobrenome"] {
     margin-left: -60px;
 }
+
 .perfil-tweeb-botoes {
-    grid-column: span 2;
+    
     display: flex;
     justify-content: space-between;
     margin-top: 15px;
@@ -189,8 +187,7 @@ label[for="sobrenome"] {
     padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
-    margin-left: 40%;
-      
+    margin-left: 40%;  
 }
 
 .perfil-tweeb-salvar {
@@ -260,6 +257,53 @@ label[for="sobrenome"] {
     font-size: 16px;
     color: #4b5563;
   }
+
+  .modal-perfil_usuario {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    left: 0; top: 0;
+    width: 100%; 
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    justify-content: center;
+    align-items: center;
+  }
+  
+.modal-conteudo_perfilUsuario {
+    background: #fff;
+    padding: 40px;
+    border-radius: 16px;
+    text-align: center;
+    width: 450px;
+    min-height: 200px;
+    font-size: 1.2rem;
+}
+  
+.botoes-perfil_usuario {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+  
+.btn-excluirPerfil {
+    background-color: red;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+  
+.btn-cancelarPerfil {
+    background-color: gray;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+  
 
 /* RESPONSIVIDADE */
 @media (max-width: 768px) {
@@ -430,4 +474,12 @@ label[for="sobrenome"] {
             max-width: 250px;
         }
     }
+}
+
+#modalSucessoExclusao .botoes-perfil_usuario {
+    justify-content: center;
+}
+
+#modalSucessoAtualizacao .botoes-perfil_usuario {
+    justify-content: center;
 }

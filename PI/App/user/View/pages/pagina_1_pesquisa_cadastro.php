@@ -44,12 +44,12 @@ session_start();
     </div>
     
     <!-- Formulário de Preferências -->
-    <form action="../../controllers/processar_preferencia.php" method="POST">
+    <form method="POST" onsubmit="return irParaProximaPagina(event)">
         <div class="pesquisa1-cadastro-cards-container">
             <div class="pesquisa1-cadastro-card1">
                 <img src="../../../../public/assets/img/img1-cadastro2 (1).png" alt="" class="pesquisa1-cadastro-img-card1">
                 <h1 class="pesquisa1-cadastro-h1-card1">
-                    <input type="radio" name="conhecimento" value="pouco" id="pouco"> Tenho pouco conhecimento sobre tecnologia.
+                    <input type="radio" name="conhecimento" value="pouco" id="pouco" required> Tenho pouco conhecimento sobre tecnologia.
                 </h1>
                 <h2 class="pesquisa1-cadastro-h2-card1">
                     Consigo usar o básico, mas frequentemente preciso de ajuda com configurações e problemas mais complexos.
@@ -59,7 +59,7 @@ session_start();
             <div class="pesquisa1-cadastro-card2">
                 <img src="../../../../public/assets/img/img2-cadastro2 (1).png" alt="" class="pesquisa1-cadastro-img-card2">
                 <h1 class="pesquisa1-cadastro-h1-card2">
-                    <input type="radio" name="conhecimento" value="muito" id="muito"> Tenho conhecimento sobre tecnologia.
+                    <input type="radio" name="conhecimento" value="muito" id="muito" required> Tenho conhecimento sobre tecnologia.
                 </h1>
                 <h2 class="pesquisa1-cadastro-h2-card2">
                     Tenho facilidade em usar e configurar dispositivos, explorar novos aplicativos, produtos e suas especificações.
@@ -76,7 +76,21 @@ session_start();
         <button class="pesquisa1-cadastro-barra-roxa-footer"></button>
     </footer>
 
-    <script src="../../../../public/js/pesquisa1.js"></script>
+    <script>
+    function irParaProximaPagina(event) {
+        event.preventDefault();
+        const conhecimento = document.querySelector('input[name="conhecimento"]:checked');
+        if (conhecimento) {
+            // Armazena a resposta no sessionStorage
+            sessionStorage.setItem('conhecimento', conhecimento.value);
+            // Redireciona para a próxima página
+            window.location.href = 'pagina_2_pesquisa_cadastro.php';
+        } else {
+            alert('Por favor, selecione uma opção para continuar.');
+        }
+        return false;
+    }
+    </script>
 </body>
 
 </html>
