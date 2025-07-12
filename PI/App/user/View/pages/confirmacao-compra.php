@@ -139,7 +139,7 @@ if (!$pedido) {
             <i class="fa fa-shopping-cart"></i>
             Continuar Comprando
         </a>
-        <a href="meus-pedidos.php" class="btn-meus-pedidos">
+        <a href="rastreio-pedidos.php" class="btn-meus-pedidos">
             <i class="fa fa-list"></i>
             Meus Pedidos
         </a>

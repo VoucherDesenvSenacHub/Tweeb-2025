@@ -128,11 +128,12 @@ body {
 .rastreio-status::before {
     content: '';
     position: absolute;
-    top: 30px; /* Alinha com o centro dos ícones */
+    /* top: 30px;  Alinha com o centro dos ícones */
+    top: 70px; /* Ajustado para alinhar abaixo dos textos dos status */
     left: 0;
     right: 0;
     height: 2px;
-    background-color: #ccc; /* Cor da linha de fundo */
+    background-color: #ccc;
     z-index: 0;
 }
 
@@ -140,12 +141,13 @@ body {
 .rastreio-status::after {
     content: '';
     position: absolute;
-    top: 30px;
+    /* top: 30px; */
+    top: 70px; /* Ajustado para alinhar abaixo dos textos dos status */
     left: 0;
     height: 2px;
-    background-color: #28a745; /* Cor da linha de progresso */
+    background-color: #28a745;
     z-index: 0;
-    width: var(--progress-width, 0%); /* Controlado por JavaScript */
+    width: var(--progress-width, 0%);
     transition: width 0.5s ease;
 }
 

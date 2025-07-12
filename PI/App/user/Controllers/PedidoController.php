@@ -109,7 +109,42 @@ class PedidoController {
                         psh.data_mudanca ASC
                 ";
                 $stmt_status_historico = $this->database->execute($query_status_historico, [$pedido_id]);
-                $pedido['historico_status'] = $stmt_status_historico->fetchAll(PDO::FETCH_ASSOC);
+                $historico_status = $stmt_status_historico->fetchAll(PDO::FETCH_ASSOC);
+
+                // --- Ajuste de datas conforme regra do usuário ---
+                $data_pedido = $pedido['data_pedido'];
+                $data_pagamento = $data_pedido;
+                $data_preparando = $data_pedido;
+                $data_a_caminho = date('Y-m-d H:i:s', strtotime($data_pedido . ' +1 day'));
+                $data_entregue = date('Y-m-d H:i:s', strtotime($data_pedido . ' +1 day +12 hours'));
+
+                // Monta o histórico simulado se não houver todos os status
+                $status_necessarios = [
+                    'pago' => $data_pagamento,
+                    'preparando' => $data_preparando,
+                    'enviado' => $data_a_caminho,
+                    'entregue' => $data_entregue
+                ];
+                $historico_final = [];
+                $status_existentes = array_column($historico_status, 'status_novo');
+                foreach ($status_necessarios as $status => $data) {
+                    // Se já existe no histórico, usa a data real, senão usa a simulada
+                    $encontrado = false;
+                    foreach ($historico_status as $h) {
+                        if ($h['status_novo'] === $status) {
+                            $historico_final[] = $h;
+                            $encontrado = true;
+                            break;
+                        }
+                    }
+                    if (!$encontrado) {
+                        $historico_final[] = [
+                            'status_novo' => $status,
+                            'data_mudanca' => $data
+                        ];
+                    }
+                }
+                $pedido['historico_status'] = $historico_final;
 
                 // Adiciona o pedido completo (com itens e histórico) ao array de pedidos
                 $pedidos[] = $pedido;
@@ -127,4 +162,27 @@ class PedidoController {
 
         return $pedidos;
     }
+}
+
+// Suporte a AJAX para cancelar pedido
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['action'] === 'cancelar_pedido') {
+    header('Content-Type: application/json');
+    session_start();
+    $usuario_id = $_SESSION['usuario']['id'] ?? 0;
+    $id_pedido = $_POST['id_pedido'] ?? null;
+    if (!$usuario_id || !$id_pedido) {
+        echo json_encode(['success' => false, 'message' => 'Dados insuficientes.']);
+        exit;
+    }
+    try {
+        $db = new Database();
+        // Atualiza status do pedido
+        $db->execute("UPDATE pedidos SET status_pedido = 'cancelado' WHERE id_pedido = ? AND id_usuario = ?", [$id_pedido, $usuario_id]);
+        // Insere no histórico
+        $db->execute("INSERT INTO pedido_status_historico (id_pedido, status_novo, data_mudanca) VALUES (?, 'cancelado', NOW())", [$id_pedido]);
+        echo json_encode(['success' => true]);
+    } catch (Exception $e) {
+        echo json_encode(['success' => false, 'message' => 'Erro ao cancelar pedido.']);
+    }
+    exit;
 }

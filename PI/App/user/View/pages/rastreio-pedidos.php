@@ -36,9 +36,26 @@ try {
  * @return string 
  */
 function formatarData($data) {
-
-    setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8', 'portuguese');
-    return strftime('%a, %d de %B', strtotime($data));
+    // Dias da semana sem acento
+    $dias_semana = [
+        'Sun' => 'dom',
+        'Mon' => 'seg',
+        'Tue' => 'ter',
+        'Wed' => 'qua',
+        'Thu' => 'qui',
+        'Fri' => 'sex',
+        'Sat' => 'sab',
+    ];
+    $timestamp = strtotime($data);
+    $dia_semana = $dias_semana[date('D', $timestamp)];
+    $dia = date('d', $timestamp);
+    $meses = [
+        '01' => 'janeiro', '02' => 'fevereiro', '03' => 'março', '04' => 'abril',
+        '05' => 'maio', '06' => 'junho', '07' => 'julho', '08' => 'agosto',
+        '09' => 'setembro', '10' => 'outubro', '11' => 'novembro', '12' => 'dezembro'
+    ];
+    $mes = $meses[date('m', $timestamp)];
+    return "$dia_semana, $dia de $mes";
 }
 ?>
 <!DOCTYPE html>
@@ -51,7 +68,8 @@ function formatarData($data) {
     <!-- Inclui o Font Awesome para os ícones, se ainda não estiver no headernavb.php -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- Link para o seu arquivo CSS externo -->
-    <link rel="stylesheet" href="../../../../public/assets/css/rastreio.css">
+    <link rel="stylesheet" href="../../../../public/css/rastreio-pedidos.css">
+    <link rel="stylesheet" href="../../../../public/css/modal-cancelar-pedido.css">
 </head>
 <body class="body-rastreio">
     <?php include __DIR__.'/../../../../includes/navbar-logada.php'; ?>
@@ -73,6 +91,9 @@ function formatarData($data) {
                             </button>
                             <!-- O onclick agora chama a função JS global -->
                             <button class="rastreio-botao" onclick="toggleDetalhes(this)">Acompanhar Pedido <i class="fa-solid fa-location-dot"></i></button>
+                            <?php if ($pedido['status_pedido'] !== 'entregue' && $pedido['status_pedido'] !== 'cancelado'): ?>
+                                <button class="rastreio-cancelar-botao" data-id-pedido="<?php echo htmlspecialchars($pedido['id_pedido']); ?>">Cancelar Pedido <i class="fa fa-times"></i></button>
+                            <?php endif; ?>
                         </div>
                     </div>
                     
@@ -198,7 +219,48 @@ function formatarData($data) {
         <?php endforeach; ?>
     <?php endif; ?>
 
+    <?php include __DIR__.'/../../../../includes/footer.php'; ?>
+    <?php include __DIR__.'/../../../../includes/ModalCancelarPedido.php'; ?>
     <!-- Inclui o arquivo JavaScript para a interatividade da página -->
-    <script src="../../../../public/assets/js/rastreio.js"></script>
+    <script src="../../../../public/js/rastreio.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        let pedidoParaCancelar = null;
+        const modalCancelamento = document.getElementById('modal-cancelamento');
+        const btnConfirmarCancelamento = document.getElementById('confirmar-cancelamento');
+        const btnFecharModalCancelamento = document.getElementById('fechar-modal-cancelamento');
+
+        document.querySelectorAll('.rastreio-cancelar-botao').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                pedidoParaCancelar = this.getAttribute('data-id-pedido');
+                modalCancelamento.classList.add('show');
+            });
+        });
+        btnFecharModalCancelamento.onclick = function() {
+            modalCancelamento.classList.remove('show');
+            pedidoParaCancelar = null;
+        };
+        btnConfirmarCancelamento.onclick = function() {
+            if (!pedidoParaCancelar) return;
+            fetch('/Tweeb-2025/PI/App/user/Controllers/PedidoController.php', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: 'action=cancelar_pedido&id_pedido=' + encodeURIComponent(pedidoParaCancelar)
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    window.location.href = 'Pedidos-cancelados.php';
+                } else {
+                    alert('Erro ao cancelar pedido: ' + data.message);
+                }
+            })
+            .catch(error => {
+                alert('Erro ao cancelar pedido.');
+            });
+            modalCancelamento.classList.remove('show');
+        };
+    });
+    </script>
 </body>
 </html>

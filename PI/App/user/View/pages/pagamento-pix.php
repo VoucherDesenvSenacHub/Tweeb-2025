@@ -49,6 +49,7 @@ function formatarMoeda($valor) {
     <title>Pagamento PIX - Tweeb</title>
     <!-- Inclui o CSS principal da página -->
     <link rel="stylesheet" href="../../../../public/css/pagamento-pix.css">
+    <link rel="stylesheet" href="../../../../public/css/modal-cancelar-pedido.css">
     <?php include __DIR__.'/../../../../includes/headernavb.php'; ?>
     <!-- Inclui ícones Boxicons e Font Awesome -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -152,24 +153,45 @@ function formatarMoeda($valor) {
         <a href="metodo-envio.php">
             <button class="botao-sair">Voltar</button>
         </a>
+        <!-- O botão de finalizar só aparece após a aprovação do pagamento (controlado via JS) -->
         <button class="botao-finalizar" id="btn-finalizar" style="display: none;">Finalizar Compra</button>
-        <button class="botao-cancelar" id="btn-cancelar-pedido" style="background:#d9534f;color:#fff;margin-left:10px;">Cancelar Pedido</button>
+        <button class="botao-cancelar" id="btn-cancelar-pedido">Cancelar Pedido</button>
     </div>
 
     <!-- Modal de cancelamento -->
-    <div id="modal-cancelamento" class="modal" style="display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.5);z-index:9999;align-items:center;justify-content:center;">
-        <div style="background:#fff;padding:30px 40px;border-radius:8px;max-width:400px;text-align:center;">
+    <div id="modal-cancelamento" class="modal">
+        <div>
             <h2>Cancelar Pedido</h2>
             <p>Tem certeza que deseja cancelar este pedido?<br>O estorno do pagamento será realizado automaticamente.</p>
-            <button id="confirmar-cancelamento" style="background:#d9534f;color:#fff;padding:10px 20px;border:none;border-radius:4px;margin:10px 5px;">Sim, cancelar</button>
-            <button id="fechar-modal-cancelamento" style="background:#ccc;padding:10px 20px;border:none;border-radius:4px;margin:10px 5px;">Não</button>
+            <button id="confirmar-cancelamento">Sim, cancelar</button>
+            <button id="fechar-modal-cancelamento">Não</button>
         </div>
     </div>
 </div>
 
 <?php include __DIR__.'/../../../../includes/footer.php'; ?>
+<?php include __DIR__.'/../../../../includes/ModalCancelarPedido.php'; ?>
 
 <!-- Inclui o arquivo JavaScript da página -->
-<script src="../../../../public/assets/js/pagamento-pix.js"></script>
+<script src="../../../../public/js/pagamento-pix.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const btnCancelarPedido = document.getElementById('btn-cancelar-pedido');
+    const modalCancelamento = document.getElementById('modal-cancelamento');
+    const btnConfirmarCancelamento = document.getElementById('confirmar-cancelamento');
+    const btnFecharModalCancelamento = document.getElementById('fechar-modal-cancelamento');
+
+    btnCancelarPedido.addEventListener('click', function() {
+        modalCancelamento.classList.add('show');
+    });
+    btnFecharModalCancelamento.addEventListener('click', function() {
+        modalCancelamento.classList.remove('show');
+    });
+    btnConfirmarCancelamento.addEventListener('click', function() {
+        modalCancelamento.classList.remove('show');
+        // ... lógica de cancelamento AJAX ...
+    });
+});
+</script>
 </body>
 </html>

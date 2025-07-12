@@ -2,6 +2,8 @@
 // Lógica JavaScript para a página de pagamento PIX.
 
 document.addEventListener('DOMContentLoaded', function() {
+    console.log('JavaScript da página de pagamento PIX carregado!');
+    
     let pedidoCriado = false;
     let pagamentoVerificado = false;
 
@@ -10,9 +12,16 @@ document.addEventListener('DOMContentLoaded', function() {
     const loadingElement = document.getElementById('loading-spinner');
     const btnFinalizar = document.getElementById('btn-finalizar');
 
+    console.log('Elementos encontrados:', {
+        statusElement: statusElement,
+        loadingElement: loadingElement,
+        btnFinalizar: btnFinalizar
+    });
+
     // Função para criar o pedido via AJAX
     function criarPedido() {
-        statusElement.textContent = 'Criando pedido...';
+        console.log('Iniciando criação do pedido...');
+        statusElement.textContent = 'Aguardando pagamento...';
         loadingElement.style.display = 'block';
 
         fetch('/Tweeb-2025/PI/App/user/Controllers/PagamentoPixController.php', {
@@ -24,6 +33,7 @@ document.addEventListener('DOMContentLoaded', function() {
         })
         .then(response => response.json())
         .then(data => {
+            console.log('Resposta do servidor:', data);
             loadingElement.style.display = 'none'; // Esconde o spinner
             if (data.success) {
                 pedidoCriado = true;
@@ -31,15 +41,16 @@ document.addEventListener('DOMContentLoaded', function() {
                 statusElement.textContent = 'Aguardando pagamento...';
                 statusElement.style.color = '#333'; // Cor padrão
                 
-                // Inicia a simulação de pagamento aprovado após 5 segundos
+                // Inicia a simulação de pagamento aprovado após 3 segundos
+                console.log('Iniciando timer de 3 segundos para aprovação automática...');
                 setTimeout(() => {
+                    console.log('Timer concluído! Aprovando pagamento...');
                     atualizarStatusUI('Pagamento aprovado!', '#28a745', true);
-                }, 5000); // 5 segundos
+                }, 3000); // 3 segundos
             } else {
                 statusElement.textContent = 'Erro ao criar pedido.';
                 statusElement.style.color = 'red';
-                // Removido o alert aqui para não bloquear a UI
-                // alert('Erro ao criar pedido: ' + data.message); 
+                console.error('Erro ao criar pedido:', data.message);
             }
         })
         .catch(error => {
@@ -53,12 +64,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Função auxiliar para atualizar a UI do status
     function atualizarStatusUI(message, color, isVerified) {
+        console.log('Atualizando UI:', { message, color, isVerified });
         statusElement.textContent = message;
         statusElement.style.color = color;
         loadingElement.style.display = 'none';
         pagamentoVerificado = isVerified;
         if (isVerified) {
             btnFinalizar.style.display = 'block';
+            console.log('Botão Finalizar Compra exibido!');
         } else {
             btnFinalizar.style.display = 'none';
         }
