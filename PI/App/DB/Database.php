@@ -239,6 +239,13 @@ class Database{
         
         return $this->execute($query);
     }
+
+    /**
+     * Retorna a conexão PDO atual
+     */
+    public function getConnection() {
+        return $this->conn;
+    }
 }
 
 ?>
