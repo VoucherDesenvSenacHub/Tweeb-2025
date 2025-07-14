@@ -50,14 +50,16 @@ function toggleDetalhes(button) {
     });
 
     // Atualiza o texto e o ícone do botão com base no estado de visibilidade
+    const isCancelados = document.body.classList.contains('pedidos-cancelados');
     if (rastreioStatus.classList.contains('active')) {
-        button.innerHTML = 'Ocultar Detalhes <i class="fa-solid fa-chevron-up"></i>';
-        console.log('Detalhes exibidos - atualizando botão para "Ocultar"');
-        // Atualiza a linha de progresso quando os detalhes são exibidos
-        setTimeout(() => updateProgressBar(rastreioStatus), 100); // Pequeno delay para garantir que o CSS foi aplicado
+        button.innerHTML = (isCancelados ? 'Ocultar Detalhes <i class="fa-solid fa-chevron-up"></i>' : 'Ocultar Detalhes <i class="fa-solid fa-chevron-up"></i>');
+        setTimeout(() => updateProgressBar(rastreioStatus), 100);
     } else {
-        button.innerHTML = 'Acompanhar Pedido <i class="fa-solid fa-location-dot"></i>';
-        console.log('Detalhes ocultados - atualizando botão para "Acompanhar"');
+        if (isCancelados) {
+            button.innerHTML = 'Ver Detalhes <i class="fa-solid fa-chevron-down"></i>';
+        } else {
+            button.innerHTML = 'Acompanhar Pedido <i class="fa-solid fa-location-dot"></i>';
+        }
     }
 }
 
@@ -166,93 +168,100 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log('--- Verificando elementos do Modal de Cancelamento ---');
     console.log('Modal:', modalCancelamento);
     console.log('Botão Confirmar:', btnConfirmarCancelamento);
-    console.log('Botão Fechar:', btnFecharModalCancelamento); // Para o botão de fechar original
-    // Se você tiver um segundo botão 'Não' com um ID diferente, adicione-o aqui também para depuração
-    const btnFecharModalAlt = document.getElementById('fechar-modal-cancelamento-alt');
-    if (btnFecharModalAlt) {
-        console.log('Botão Fechar (Alt):', btnFecharModalAlt);
-    }
-
+    console.log('Botão Fechar:', btnFecharModalCancelamento);
 
     // Verifica se os elementos do modal existem antes de adicionar os event listeners
     if (modalCancelamento && btnConfirmarCancelamento && btnFecharModalCancelamento) {
         console.log('Elementos do modal encontrados. Adicionando event listeners...');
         
+        // Adiciona event listeners aos botões de cancelar
         document.querySelectorAll('.rastreio-cancelar-botao').forEach(function(btn) {
             console.log('Adicionando listener ao botão de cancelar pedido:', btn);
-            btn.addEventListener('click', function() {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
                 pedidoParaCancelar = this.getAttribute('data-id-pedido');
                 console.log('Botão "Cancelar Pedido" clicado. ID do pedido:', pedidoParaCancelar);
+                
+                // Mostra o modal
                 modalCancelamento.classList.add('show');
-                // Garante que o modal apareça, sobrescrevendo possíveis `display: none;` no CSS padrão
-                modalCancelamento.style.display = 'flex'; 
+                modalCancelamento.style.display = 'flex';
+                modalCancelamento.style.opacity = '1';
+                modalCancelamento.style.visibility = 'visible';
+                console.log('Modal aberto');
             });
         });
 
-        // Event listener para o botão de fechar principal (geralmente o 'x' ou o primeiro 'Não')
-        btnFecharModalCancelamento.onclick = function() {
-            console.log('Botão "Não" ou "Fechar" clicado. Fechando modal.');
-            modalCancelamento.classList.remove('show');
-            modalCancelamento.style.display = 'none'; // Esconde o modal
-            pedidoParaCancelar = null;
-        };
+        // Event listener para o botão de fechar
+        btnFecharModalCancelamento.addEventListener('click', function() {
+            console.log('Botão "Não" clicado. Fechando modal.');
+            fecharModal();
+        });
 
-        // Se você tiver um segundo botão "Não" (ex: com id fechar-modal-cancelamento-alt)
-        if (btnFecharModalAlt) {
-            btnFecharModalAlt.onclick = function() {
-                console.log('Botão "Não" (alternativo) clicado. Fechando modal.');
-                modalCancelamento.classList.remove('show');
-                modalCancelamento.style.display = 'none';
-                pedidoParaCancelar = null;
-            };
-        }
-
-
-        btnConfirmarCancelamento.onclick = function() {
+        // Event listener para o botão de confirmar
+        btnConfirmarCancelamento.addEventListener('click', function() {
             console.log('Botão "Sim, cancelar" clicado. Tentando cancelar pedido:', pedidoParaCancelar);
             if (!pedidoParaCancelar) {
                 console.warn('Nenhum pedido selecionado para cancelar.');
                 alert('Erro: Nenhum pedido selecionado para cancelar.');
                 return;
             }
-            fetch('/Tweeb-2025/PI/App/user/Controllers/PedidoController.php', {
+            
+            // Desabilita o botão para evitar cliques duplos
+            btnConfirmarCancelamento.disabled = true;
+            btnConfirmarCancelamento.textContent = 'Cancelando...';
+            
+            fetch('../../Controllers/PedidoController.php', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
                 body: 'action=cancelar_pedido&id_pedido=' + encodeURIComponent(pedidoParaCancelar)
             })
             .then(response => {
-                console.log('Resposta bruta da requisição de cancelamento:', response);
-                if (!response.ok) { // Verifica se a resposta HTTP não foi bem-sucedida (ex: 404, 500)
-                    return response.text().then(text => { throw new Error(`HTTP error! status: ${response.status}, message: ${text}`); });
+                console.log('Resposta da requisição:', response);
+                if (!response.ok) {
+                    return response.text().then(text => { 
+                        throw new Error(`HTTP error! status: ${response.status}, message: ${text}`); 
+                    });
                 }
                 return response.json();
             })
             .then(data => {
-                console.log('Dados recebidos do cancelamento (JSON):', data);
+                console.log('Dados recebidos:', data);
                 if (data.success) {
                     alert('Pedido cancelado com sucesso! Você será redirecionado.');
-                    window.location.href = 'pedidos-cancelados.php'; // Redireciona para a página de pedidos cancelados
+                    window.location.href = 'Pedidos-cancelados.php';
                 } else {
-                    alert('Erro ao cancelar pedido: ' + data.message);
+                    alert('Erro ao cancelar pedido: ' + (data.message || 'Erro desconhecido'));
                 }
             })
             .catch(error => {
-                console.error('Erro na requisição de cancelamento (fetch):', error);
-                alert('Erro ao cancelar pedido. Por favor, tente novamente mais tarde. Detalhes: ' + error.message);
+                console.error('Erro na requisição:', error);
+                alert('Erro ao cancelar pedido. Por favor, tente novamente mais tarde.');
+            })
+            .finally(() => {
+                // Reabilita o botão
+                btnConfirmarCancelamento.disabled = false;
+                btnConfirmarCancelamento.textContent = 'Sim, cancelar';
+                fecharModal();
             });
-            modalCancelamento.classList.remove('show');
-            modalCancelamento.style.display = 'none'; // Esconde o modal após a ação (se o redirecionamento não ocorrer imediatamente)
-        };
+        });
         
         // Fechar modal ao clicar fora dele
-        window.addEventListener('click', function(event) {
-            if (event.target == modalCancelamento) {
+        modalCancelamento.addEventListener('click', function(event) {
+            if (event.target === modalCancelamento) {
                 console.log('Clicado fora do modal. Fechando modal.');
-                modalCancelamento.classList.remove('show');
-                modalCancelamento.style.display = 'none';
-                pedidoParaCancelar = null;
+                fecharModal();
             }
         });
+
+        // Função para fechar o modal
+        function fecharModal() {
+            modalCancelamento.classList.remove('show');
+            modalCancelamento.style.display = 'none';
+            modalCancelamento.style.opacity = '0';
+            modalCancelamento.style.visibility = 'hidden';
+            pedidoParaCancelar = null;
+        }
 
     } else {
         console.error("ERRO: Elementos do modal de cancelamento NÃO encontrados. Verifique o arquivo 'ModalCancelarPedido.php' e certifique-se de que os IDs 'modal-cancelamento', 'confirmar-cancelamento', 'fechar-modal-cancelamento' existem e estão corretos.");

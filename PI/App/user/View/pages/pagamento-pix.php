@@ -158,13 +158,15 @@ function formatarMoeda($valor) {
         <button class="botao-cancelar" id="btn-cancelar-pedido">Cancelar Pedido</button>
     </div>
 
-    <!-- Modal de cancelamento -->
-    <div id="modal-cancelamento" class="modal">
-        <div>
+    <!-- Modal de cancelamento exclusivo para pagamento-pix -->
+    <div id="modal-cancelamento-pix" class="modal">
+        <div class="modal-content">
             <h2>Cancelar Pedido</h2>
             <p>Tem certeza que deseja cancelar este pedido?<br>O estorno do pagamento será realizado automaticamente.</p>
-            <button id="confirmar-cancelamento">Sim, cancelar</button>
-            <button id="fechar-modal-cancelamento">Não</button>
+            <div class="modal-buttons">
+                <button id="confirmar-cancelamento-pix" class="btn-confirmar">Sim, cancelar</button>
+                <button id="fechar-modal-cancelamento-pix" class="btn-cancelar">Não</button>
+            </div>
         </div>
     </div>
 </div>
@@ -177,9 +179,9 @@ function formatarMoeda($valor) {
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     const btnCancelarPedido = document.getElementById('btn-cancelar-pedido');
-    const modalCancelamento = document.getElementById('modal-cancelamento');
-    const btnConfirmarCancelamento = document.getElementById('confirmar-cancelamento');
-    const btnFecharModalCancelamento = document.getElementById('fechar-modal-cancelamento');
+    const modalCancelamento = document.getElementById('modal-cancelamento-pix');
+    const btnConfirmarCancelamento = document.getElementById('confirmar-cancelamento-pix');
+    const btnFecharModalCancelamento = document.getElementById('fechar-modal-cancelamento-pix');
 
     btnCancelarPedido.addEventListener('click', function() {
         modalCancelamento.classList.add('show');
@@ -189,7 +191,31 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     btnConfirmarCancelamento.addEventListener('click', function() {
         modalCancelamento.classList.remove('show');
-        // ... lógica de cancelamento AJAX ...
+        // Lógica AJAX de cancelamento com logs
+        var idPedido = <?php echo json_encode($numero_pedido); ?>;
+        console.log('ID do pedido para cancelar:', idPedido);
+        fetch('../../Controllers/PedidoController.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: 'action=cancelar_pedido&id_pedido=' + encodeURIComponent(idPedido)
+        })
+        .then(response => {a
+            console.log('Resposta bruta:', response);
+            return response.json();
+        })
+        .then(data => {
+            console.log('Dados recebidos:', data);
+            if (data.success) {
+                alert('Pedido cancelado com sucesso!');
+                window.location.href = 'Pedidos-cancelados.php';
+            } else {
+                alert('Erro ao cancelar pedido: ' + (data.message || 'Erro desconhecido'));
+            }
+        })
+        .catch(error => {
+            console.error('Erro no fetch:', error);
+            alert('Erro ao cancelar pedido. Por favor, tente novamente mais tarde.');
+        });
     });
 });
 </script>

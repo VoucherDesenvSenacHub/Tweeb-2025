@@ -2,9 +2,14 @@
 // PedidoController.php
 // Este arquivo contém a lógica para buscar e preparar os dados dos pedidos.
 
-// Garante que este arquivo não seja acessado diretamente.
-if (basename($_SERVER['PHP_SELF']) == 'PedidoController.php') {
+// Bloqueia apenas acessos diretos via GET, mas permite POST (AJAX)
+if ($_SERVER['REQUEST_METHOD'] === 'GET' && basename($_SERVER['PHP_SELF']) == 'PedidoController.php') {
     die('Acesso direto negado.');
+}
+
+// LOG DE DEPURAÇÃO PARA CANCELAMENTO
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    file_put_contents(__DIR__ . '/log_cancelamento.txt', date('Y-m-d H:i:s') . "\n" . print_r($_POST, true) . "\n\n", FILE_APPEND);
 }
 
 
@@ -167,22 +172,52 @@ class PedidoController {
 // Suporte a AJAX para cancelar pedido
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['action'] === 'cancelar_pedido') {
     header('Content-Type: application/json');
+    header('Access-Control-Allow-Origin: *');
+    header('Access-Control-Allow-Methods: POST');
+    header('Access-Control-Allow-Headers: Content-Type');
+    
     session_start();
     $usuario_id = $_SESSION['usuario']['id'] ?? 0;
     $id_pedido = $_POST['id_pedido'] ?? null;
+    
     if (!$usuario_id || !$id_pedido) {
         echo json_encode(['success' => false, 'message' => 'Dados insuficientes.']);
         exit;
     }
+    
     try {
         $db = new Database();
+        
+        // Verifica se o pedido existe e pertence ao usuário
+        $stmt = $db->execute("SELECT id_pedido, status_pedido FROM pedidos WHERE id_pedido = ? AND id_usuario = ?", [$id_pedido, $usuario_id]);
+        $pedido = $stmt->fetch(PDO::FETCH_ASSOC);
+        
+        if (!$pedido) {
+            echo json_encode(['success' => false, 'message' => 'Pedido não encontrado.']);
+            exit;
+        }
+        
+        // Verifica se o pedido pode ser cancelado
+        if ($pedido['status_pedido'] === 'cancelado') {
+            echo json_encode(['success' => false, 'message' => 'Pedido já foi cancelado.']);
+            exit;
+        }
+        
+        if ($pedido['status_pedido'] === 'entregue') {
+            echo json_encode(['success' => false, 'message' => 'Não é possível cancelar um pedido já entregue.']);
+            exit;
+        }
+        
         // Atualiza status do pedido
         $db->execute("UPDATE pedidos SET status_pedido = 'cancelado' WHERE id_pedido = ? AND id_usuario = ?", [$id_pedido, $usuario_id]);
+        
         // Insere no histórico
         $db->execute("INSERT INTO pedido_status_historico (id_pedido, status_novo, data_mudanca) VALUES (?, 'cancelado', NOW())", [$id_pedido]);
-        echo json_encode(['success' => true]);
+        
+        echo json_encode(['success' => true, 'message' => 'Pedido cancelado com sucesso.']);
     } catch (Exception $e) {
-        echo json_encode(['success' => false, 'message' => 'Erro ao cancelar pedido.']);
+        error_log("Erro ao cancelar pedido: " . $e->getMessage());
+        echo json_encode(['success' => false, 'message' => 'Erro interno ao cancelar pedido.']);
     }
     exit;
 }

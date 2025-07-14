@@ -223,44 +223,5 @@ function formatarData($data) {
     <?php include __DIR__.'/../../../../includes/ModalCancelarPedido.php'; ?>
     <!-- Inclui o arquivo JavaScript para a interatividade da página -->
     <script src="../../../../public/js/rastreio.js"></script>
-    <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        let pedidoParaCancelar = null;
-        const modalCancelamento = document.getElementById('modal-cancelamento');
-        const btnConfirmarCancelamento = document.getElementById('confirmar-cancelamento');
-        const btnFecharModalCancelamento = document.getElementById('fechar-modal-cancelamento');
-
-        document.querySelectorAll('.rastreio-cancelar-botao').forEach(function(btn) {
-            btn.addEventListener('click', function() {
-                pedidoParaCancelar = this.getAttribute('data-id-pedido');
-                modalCancelamento.classList.add('show');
-            });
-        });
-        btnFecharModalCancelamento.onclick = function() {
-            modalCancelamento.classList.remove('show');
-            pedidoParaCancelar = null;
-        };
-        btnConfirmarCancelamento.onclick = function() {
-            if (!pedidoParaCancelar) return;
-            fetch('/Tweeb-2025/PI/App/user/Controllers/PedidoController.php', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                body: 'action=cancelar_pedido&id_pedido=' + encodeURIComponent(pedidoParaCancelar)
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    window.location.href = 'Pedidos-cancelados.php';
-                } else {
-                    alert('Erro ao cancelar pedido: ' + data.message);
-                }
-            })
-            .catch(error => {
-                alert('Erro ao cancelar pedido.');
-            });
-            modalCancelamento.classList.remove('show');
-        };
-    });
-    </script>
 </body>
 </html>

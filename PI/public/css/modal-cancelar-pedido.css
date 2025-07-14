@@ -1,5 +1,5 @@
 /* Modal de confirmação de cancelamento de pedido (reutilizável) */
-.modal {
+#modal-cancelamento {
     display: none;
     position: fixed;
     top: 0;
@@ -10,11 +10,17 @@
     z-index: 9999;
     align-items: center;
     justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
 }
-.modal.show {
-    display: flex;
+#modal-cancelamento.show {
+    display: flex !important;
+    opacity: 1;
+    visibility: visible;
 }
-.modal > div {
+#modal-cancelamento .modal-content,
+#modal-cancelamento > div {
     background: #fff;
     padding: 30px 40px;
     border-radius: 10px;
@@ -22,54 +28,154 @@
     text-align: center;
     box-shadow: 0 8px 32px rgba(0,0,0,0.25);
     animation: modalFadeIn 0.3s;
+    position: relative;
+    z-index: 10000;
 }
 @keyframes modalFadeIn {
     from { transform: translateY(-30px); opacity: 0; }
     to { transform: translateY(0); opacity: 1; }
 }
-.modal h2 {
+#modal-cancelamento h2 {
     margin-top: 0;
     color: #d9534f;
     font-size: 1.5rem;
 }
-.modal p {
+#modal-cancelamento p {
     margin-bottom: 20px;
     line-height: 1.5;
     color: #333;
 }
-.modal button {
+#modal-cancelamento .modal-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 20px;
+}
+#modal-cancelamento button {
     padding: 10px 24px;
     border: none;
     border-radius: 5px;
-    margin: 10px 5px;
     cursor: pointer;
     font-weight: 600;
     font-size: 1rem;
     transition: background 0.2s;
+    min-width: 120px;
 }
-#confirmar-cancelamento {
+#modal-cancelamento .btn-confirmar {
     background: #d9534f;
     color: #fff;
 }
-#confirmar-cancelamento:hover {
+#modal-cancelamento .btn-confirmar:hover {
     background: #c9302c;
 }
-#fechar-modal-cancelamento {
+#modal-cancelamento .btn-cancelar {
     background: #ccc;
     color: #333;
 }
-#fechar-modal-cancelamento:hover {
+#modal-cancelamento .btn-cancelar:hover {
     background: #bbb;
 }
 @media (max-width: 500px) {
-    .modal > div {
+    #modal-cancelamento .modal-content,
+    #modal-cancelamento > div {
         padding: 20px 10px;
         max-width: 95vw;
     }
-    .modal h2 {
+    #modal-cancelamento h2 {
         font-size: 1.1rem;
     }
-    .modal button {
+    #modal-cancelamento .modal-buttons {
+        flex-direction: column;
+    }
+    #modal-cancelamento button {
+        width: 100%;
+        margin: 8px 0;
+    }
+}
+
+#modal-cancelamento-pix {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+#modal-cancelamento-pix.show {
+    display: flex !important;
+    opacity: 1;
+    visibility: visible;
+}
+#modal-cancelamento-pix .modal-content {
+    background: #fff;
+    padding: 30px 40px;
+    border-radius: 10px;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+    animation: modalFadeIn 0.3s;
+    position: relative;
+    z-index: 10000;
+}
+#modal-cancelamento-pix h2 {
+    margin-top: 0;
+    color: #d9534f;
+    font-size: 1.5rem;
+}
+#modal-cancelamento-pix p {
+    margin-bottom: 20px;
+    line-height: 1.5;
+    color: #333;
+}
+#modal-cancelamento-pix .modal-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 20px;
+}
+#modal-cancelamento-pix button {
+    padding: 10px 24px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: background 0.2s;
+    min-width: 120px;
+}
+#modal-cancelamento-pix .btn-confirmar {
+    background: #d9534f;
+    color: #fff;
+}
+#modal-cancelamento-pix .btn-confirmar:hover {
+    background: #c9302c;
+}
+#modal-cancelamento-pix .btn-cancelar {
+    background: #ccc;
+    color: #333;
+}
+#modal-cancelamento-pix .btn-cancelar:hover {
+    background: #bbb;
+}
+@media (max-width: 500px) {
+    #modal-cancelamento-pix .modal-content {
+        padding: 20px 10px;
+        max-width: 95vw;
+    }
+    #modal-cancelamento-pix h2 {
+        font-size: 1.1rem;
+    }
+    #modal-cancelamento-pix .modal-buttons {
+        flex-direction: column;
+    }
+    #modal-cancelamento-pix button {
         width: 100%;
         margin: 8px 0;
     }
