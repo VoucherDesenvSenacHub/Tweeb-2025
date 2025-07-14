@@ -181,7 +181,7 @@ body {
 
 .rastreio-icone2 {
     font-size: 28px;
-    background: transparent; 
+    background: transparent;
     border: 2px solid #D0D5DD;
     border-radius: 10px;
     margin: 8px 0;
@@ -352,13 +352,44 @@ body {
 }
 
 .rastreio-botao i {
-    margin-left: 8px; 
+    margin-left: 8px;
 }
 .rastreio-botoes {
     display: flex;
     gap: 10px;
     flex-wrap: wrap;
 }
+
+/* --- ESTILOS PARA STICKY FOOTER (SELETIVO) --- */
+
+/* Estas regras só se aplicarão se o body tiver a classe 'body-rastreio' */
+html {
+    height: 100%; /* Garante que o HTML ocupe 100% da altura da viewport */
+}
+
+.body-rastreio {
+    height: 100%; /* Garante que o body ocupe 100% da altura da viewport */
+    margin: 0;
+    padding: 0;
+    display: flex; /* Transforma o body em um contêiner flexível */
+    flex-direction: column; /* Organiza os itens em coluna */
+}
+
+/* O wrapper do conteúdo principal, que irá empurrar o footer */
+.body-rastreio .main-content-wrapper {
+    flex: 1; /* Faz com que este elemento ocupe todo o espaço disponível */
+    padding-bottom: 50px; /* Adiciona um padding na parte inferior para evitar que o conteúdo fique grudado no footer. Ajuste este valor se o seu footer tiver altura diferente. */
+    box-sizing: border-box; /* Garante que padding e border sejam incluídos na largura/altura total */
+}
+
+/* O footer, empurrado para baixo */
+.body-rastreio footer { /* Certifique-se de que este seletor 'footer' seja o correto para o seu rodapé */
+    margin-top: auto; /* Empurra o footer para o final do contêiner flexível */
+    width: 100%; /* Garante que o footer ocupe toda a largura */
+    /* Outros estilos do seu footer (background, padding, etc.) podem estar aqui ou em um CSS global, mas estas regras de posicionamento são específicas. */
+}
+/* --- FIM DOS NOVOS ESTILOS PARA STICKY FOOTER (SELETIVO) --- */
+
 
 /* Media Queries para Responsividade */
 @media (max-width: 1024px) {

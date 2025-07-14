@@ -13,29 +13,34 @@ if (!isset($_SESSION['usuario']['id'])) {
     exit();
 }
 
-
+// Inclui o controlador de Pedidos
 include __DIR__ . '/../../Controllers/PedidoController.php';
 
-
 $usuario_id = $_SESSION['usuario']['id'];
-$pedidos = []; 
+$pedidos = [];
 
 try {
-
     $pedidoController = new PedidoController($usuario_id);
-    $pedidos = $pedidoController->getPedidosDoUsuario();
+    // Chamando o método que traz APENAS os pedidos ATIVOS
+    $pedidos = $pedidoController->getPedidosAtivosDoUsuario();
 } catch (Exception $e) {
-
+    // Em um ambiente de produção, você pode querer logar o erro em vez de exibi-lo diretamente
+    // error_log('Erro ao buscar pedidos ativos: ' . $e->getMessage());
     echo '<p class="container-rastreio" style="text-align: center; padding: 20px; color: red;">' . htmlspecialchars($e->getMessage()) . '</p>';
-    $pedidos = [];
+    $pedidos = []; // Garante que a variável esteja vazia em caso de erro
 }
 
 /**
-
- * @param string 
- * @return string 
+ * Formata uma string de data para o formato "dia da semana, dia de mês".
+ * @param string $data String de data/hora no formato do banco de dados (e.g., 'YYYY-MM-DD HH:MM:SS').
+ * @return string Data formatada (e.g., 'seg, 15 de julho').
  */
 function formatarData($data) {
+    // Retorna vazio se a data for inválida ou vazia
+    if (empty($data) || !strtotime($data)) {
+        return '';
+    }
+
     // Dias da semana sem acento
     $dias_semana = [
         'Sun' => 'dom',
@@ -57,17 +62,32 @@ function formatarData($data) {
     $mes = $meses[date('m', $timestamp)];
     return "$dia_semana, $dia de $mes";
 }
+
+/**
+ * Função para buscar a data de um status específico no histórico do pedido.
+ * @param array $historico O array 'historico_status' do pedido.
+ * @param string $status_procurado O status a ser procurado (ex: 'pago', 'enviado').
+ * @return string Data formatada ou string vazia se não encontrada.
+ */
+function buscarDataNoHistorico($historico, $status_procurado) {
+    if (!is_array($historico)) {
+        return '';
+    }
+    foreach ($historico as $h) {
+        if (strtolower(trim($h['status_novo'])) === strtolower(trim($status_procurado))) {
+            return formatarData($h['data_mudanca']);
+        }
+    }
+    return '';
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <?php include __DIR__.'/../../../../includes/headernavb.php'; ?>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rastreio de Pedidos</title>
-    <!-- Inclui o Font Awesome para os ícones, se ainda não estiver no headernavb.php -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- Link para o seu arquivo CSS externo -->
     <link rel="stylesheet" href="../../../../public/css/rastreio-pedidos.css">
     <link rel="stylesheet" href="../../../../public/css/modal-cancelar-pedido.css">
 </head>
@@ -75,153 +95,147 @@ function formatarData($data) {
     <?php include __DIR__.'/../../../../includes/navbar-logada.php'; ?>
     <?php include __DIR__.'/../../../../includes/sidebar-User.php'; ?>
 
-    <h1 class="pedidosenviadostitulo">Pedidos Enviados</h1>
+    <div class="main-content-wrapper">
+        <h1 class="pedidosenviadostitulo">Pedidos Enviados</h1>
 
-    <?php if (empty($pedidos)): ?>
-        <p class="container-rastreio" style="text-align: center; padding: 20px;">Nenhum pedido encontrado.</p>
-    <?php else: ?>
-        <?php foreach ($pedidos as $pedido): ?>
-            <div class="container-rastreio">
-                <div class="pedido-rastreio">
-                    <div class="header-rastreio">
-                        <p class="id-rastreio">Ordem ID: <?php echo htmlspecialchars($pedido['id_pedido']); ?></p>
-                        <div class="rastreio-botoes">
-                            <button class="rastreio-icone2">
-                                <img src="../../../../public/assets/img/nota-rastreio.png" alt="Ícone Nota Fiscal" onerror="this.onerror=null;this.src='https://placehold.co/24x24/cccccc/333333?text=NF';">
-                            </button>
-                            <!-- O onclick agora chama a função JS global -->
-                            <button class="rastreio-botao" onclick="toggleDetalhes(this)">Acompanhar Pedido <i class="fa-solid fa-location-dot"></i></button>
-                            <?php if ($pedido['status_pedido'] !== 'entregue' && $pedido['status_pedido'] !== 'cancelado'): ?>
-                                <button class="rastreio-cancelar-botao" data-id-pedido="<?php echo htmlspecialchars($pedido['id_pedido']); ?>">Cancelar Pedido <i class="fa fa-times"></i></button>
+        <?php if (empty($pedidos)): ?>
+            <p class="container-rastreio" style="text-align: center; padding: 20px;">Nenhum pedido encontrado.</p>
+        <?php else: ?>
+            <?php foreach ($pedidos as $pedido): ?>
+                <div class="container-rastreio">
+                    <div class="pedido-rastreio">
+                        <div class="header-rastreio">
+                            <p class="id-rastreio">Ordem ID: <?php echo htmlspecialchars($pedido['id_pedido']); ?></p>
+                            <div class="rastreio-botoes">
+                                <button class="rastreio-icone2">
+                                    <img src="../../../../public/assets/img/nota-rastreio.png" alt="Ícone Nota Fiscal" onerror="this.onerror=null;this.src='https://placehold.co/24x24/cccccc/333333?text=NF';">
+                                </button>
+                                <button class="rastreio-botao" onclick="toggleDetalhes(this)">Acompanhar Pedido <i class="fa-solid fa-location-dot"></i></button>
+                                <?php
+                                // Botão de cancelar só aparece se o status não for "entregue" nem "cancelado"
+                                // O status 'cancelado' já é filtrado por getPedidosAtivosDoUsuario(), mas é bom manter a verificação para robustez
+                                if (strtolower(trim($pedido['status_pedido'])) !== 'entregue' && strtolower(trim($pedido['status_pedido'])) !== 'cancelado'):
+                                ?>
+                                    <button class="rastreio-cancelar-botao" data-id-pedido="<?php echo htmlspecialchars($pedido['id_pedido']); ?>">Cancelar Pedido <i class="fa fa-times"></i></button>
+                                <?php endif; ?>
+                            </div>
+                        </div>
+
+                        <div class="rastreio-info-entrega">
+                            <p class="data-rastreio">Data: <?php echo formatarData($pedido['data_pedido']); ?></p>
+                            <?php if (strtolower(trim($pedido['status_pedido'])) === 'entregue'): ?>
+                                <img src="../../../../public/assets/img/avaliar-vetor.png" alt="Ícone Avaliar" class="rastreio-truck" onerror="this.onerror=null;this.src='https://placehold.co/30x30/cccccc/333333?text=Avaliar';">
+                                <p class="entrega-prevista-rastreio-avaliar">Avalie sua compra!</p>
+                            <?php else: ?>
+                                <img src="../../../../public/assets/img/truck-tick.png" alt="Ícone Caminhão" class="rastreio-truck" onerror="this.onerror=null;this.src='https://placehold.co/30x30/cccccc/333333?text=Caminhão';">
+                                <p class="entrega-prevista-rastreio verde">Entrega prevista: <?php echo formatarData($pedido['data_entrega_estimada']); ?></p>
                             <?php endif; ?>
                         </div>
                     </div>
-                    
-                    <div class="rastreio-info-entrega">
-                        <p class="data-rastreio">Data: <?php echo formatarData($pedido['data_pedido']); ?></p>
-                        <?php if ($pedido['status_pedido'] === 'entregue'): ?>
-                            <img src="../../../../public/assets/img/avaliar-vetor.png" alt="Ícone Avaliar" class="rastreio-truck" onerror="this.onerror=null;this.src='https://placehold.co/30x30/cccccc/333333?text=Avaliar';">
-                            <p class="entrega-prevista-rastreio-avaliar">Avalie sua compra!</p>
-                        <?php else: ?>
-                            <img src="../../../../public/assets/img/truck-tick.png" alt="Ícone Caminhão" class="rastreio-truck" onerror="this.onerror=null;this.src='https://placehold.co/30x30/cccccc/333333?text=Caminhão';">
-                            <p class="entrega-prevista-rastreio verde">Entrega prevista: <?php echo formatarData($pedido['data_entrega_estimada']); ?></p>
-                        <?php endif; ?>
-                    </div>
-                </div>
 
-                <!-- div do rastreio (barra de progresso) -->
-                <?php
-                // Mapeamento dos status do DB para os status de exibição e seus ícones
-                $display_status_map = [
-                    'Pagamento' => [
-                        'text' => 'Pagamento',
-                        'icon' => 'fas fa-credit-card',
-                        'db_status_trigger' => 'pago' // Status no DB que ativa esta etapa
-                    ],
-                    'Preparando' => [
-                        'text' => 'Preparando',
-                        'icon' => 'fas fa-box',
-                        'db_status_trigger' => 'preparando'
-                    ],
-                    'A Caminho' => [
-                        'text' => 'A Caminho',
-                        'icon' => 'fas fa-truck',
-                        'db_status_trigger' => 'enviado'
-                    ],
-                    'Entregue' => [
-                        'text' => 'Entregue',
-                        'icon' => 'fas fa-check-circle',
-                        'db_status_trigger' => 'entregue'
-                    ]
-                ];
+                    <?php
+                    // Mapeamento dos status do DB para os status de exibição e seus ícones
+                    $display_status_map = [
+                        'Pagamento' => [
+                            'text' => 'Pagamento',
+                            'icon' => 'fas fa-credit-card',
+                            'db_status_trigger' => 'pago' // Status no DB que ativa esta etapa
+                        ],
+                        'Preparando' => [
+                            'text' => 'Preparando',
+                            'icon' => 'fas fa-box',
+                            'db_status_trigger' => 'preparando'
+                        ],
+                        'A Caminho' => [
+                            'text' => 'A Caminho',
+                            'icon' => 'fas fa-truck',
+                            'db_status_trigger' => 'enviado'
+                        ],
+                        'Entregue' => [
+                            'text' => 'Entregue',
+                            'icon' => 'fas fa-check-circle',
+                            'db_status_trigger' => 'entregue'
+                        ]
+                    ];
 
-                // Ordem de progressão dos status no banco de dados (completa, incluindo 'pendente')
-                $db_status_progression_order = ['pendente', 'pago', 'preparando', 'enviado', 'entregue', 'cancelado'];
-                $current_db_status_index = array_search($pedido['status_pedido'], $db_status_progression_order);
-                $active_steps_count = 0; // Contador para passos ativos na barra de progresso
-                ?>
-                <div class="rastreio-status">
-                    <?php foreach ($display_status_map as $display_key => $display_info):
-                        $is_active = false;
-                        $status_date = '';
-                        $trigger_index = array_search($display_info['db_status_trigger'], $db_status_progression_order);
+                    // Ordem de progressão dos status no banco de dados (completa)
+                    $db_status_progression_order = ['pendente', 'pago', 'preparando', 'enviado', 'entregue']; // 'cancelado' não faz parte da progressão normal
 
-                        // Se o status atual do pedido é igual ou "passou" por este status de gatilho, ele está ativo
-                        if ($current_db_status_index >= $trigger_index) {
-                            $is_active = true;
-                            $active_steps_count++;
+                    // Obtém o índice do status atual do pedido
+                    $current_db_status_index = array_search(strtolower(trim($pedido['status_pedido'])), $db_status_progression_order);
+                    ?>
+                    <div class="rastreio-status">
+                        <?php foreach ($display_status_map as $display_key => $display_info):
+                            $is_active = false;
+                            $status_date = '';
+                            $trigger_index = array_search($display_info['db_status_trigger'], $db_status_progression_order);
 
-                            // Tenta encontrar a data do status no histórico
-                            foreach ($pedido['historico_status'] as $hist_status) {
-                                if ($hist_status['status_novo'] === $display_info['db_status_trigger']) {
-                                    $status_date = formatarData($hist_status['data_mudanca']);
-                                    break;
-                                }
+                            // Se o status atual do pedido é igual ou "passou" por este status de gatilho, ele está ativo
+                            if ($current_db_status_index !== false && $current_db_status_index >= $trigger_index) {
+                                $is_active = true;
+                                // Busca a data no histórico real (ou simulada pelo controller)
+                                $status_date = buscarDataNoHistorico($pedido['historico_status'], $display_info['db_status_trigger']);
                             }
-                        }
                         ?>
-                        <div class="rastreio-etapa <?php echo $is_active ? 'ativo' : ''; ?>">
-                            <p class="rastreio-status-texto"><?php echo $display_info['text']; ?></p>
-                            <i class="<?php echo $display_info['icon']; ?> rastreio-icone"></i>
-                            <p class="rastreio-data"><?php echo $status_date; ?></p>
-                        </div>
-                    <?php endforeach; ?>
-                </div>
+                            <div class="rastreio-etapa <?php echo $is_active ? 'ativo' : ''; ?>">
+                                <p class="rastreio-status-texto"><?php echo $display_info['text']; ?></p>
+                                <i class="<?php echo $display_info['icon']; ?> rastreio-icone"></i>
+                                <p class="rastreio-data"><?php echo $status_date; ?></p>
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
 
-                <!-- div do item pedido -->
-                <?php if (!empty($pedido['itens'])): ?>
-                    <?php foreach ($pedido['itens'] as $item): ?>
-                        <div class="rastreio-item">
-                            <img src="../../../../public/assets/img/<?php echo htmlspecialchars($item['imagem_produto']); ?>" alt="<?php echo htmlspecialchars($item['nome_produto']); ?>" class="rastreio-img" onerror="this.onerror=null;this.src='https://placehold.co/80x80/cccccc/333333?text=Sem+Imagem';">
-                            <div class="rastreio-info-preco">
-                                <div class="rastreio-info">
-                                    <p class="rastreio-nome"><?php echo htmlspecialchars($item['nome_produto']); ?></p>
-                                    <p class="rastreio-detalhes"><?php echo htmlspecialchars($item['detalhes_produto']); ?></p>
-                                </div>
-                                <div class="rastreio-preco">
-                                    <h3 class="rastreio-valor"><strong>R$ <?php echo number_format($item['preco_unitario'], 2, ',', '.'); ?></strong></h3>
-                                    <h3 class="rastreio-quantidade">Quantidade: <?php echo htmlspecialchars($item['quantidade']); ?></h3>
+                    <?php if (!empty($pedido['itens'])): ?>
+                        <?php foreach ($pedido['itens'] as $item): ?>
+                            <div class="rastreio-item">
+                                <img src="../../../../public/assets/img/<?php echo htmlspecialchars($item['imagem_produto']); ?>" alt="<?php echo htmlspecialchars($item['nome_produto']); ?>" class="rastreio-img" onerror="this.onerror=null;this.src='https://placehold.co/80x80/cccccc/333333?text=Sem+Imagem';">
+                                <div class="rastreio-info-preco">
+                                    <div class="rastreio-info">
+                                        <p class="rastreio-nome"><?php echo htmlspecialchars($item['nome_produto']); ?></p>
+                                        <p class="rastreio-detalhes"><?php echo htmlspecialchars($item['detalhes_produto']); ?></p>
+                                    </div>
+                                    <div class="rastreio-preco">
+                                        <h3 class="rastreio-valor"><strong>R$ <?php echo number_format($item['preco_unitario'], 2, ',', '.'); ?></strong></h3>
+                                        <h3 class="rastreio-quantidade">Quantidade: <?php echo htmlspecialchars($item['quantidade']); ?></h3>
+                                    </div>
                                 </div>
                             </div>
+                        <?php endforeach; ?>
+                    <?php else: ?>
+                        <div class="rastreio-item">
+                            <p style="text-align: center; width: 100%; padding: 10px;">Nenhum item encontrado para este pedido.</p>
                         </div>
-                    <?php endforeach; ?>
-                <?php else: ?>
-                    <div class="rastreio-item">
-                        <p style="text-align: center; width: 100%; padding: 10px;">Nenhum item encontrado para este pedido.</p>
-                    </div>
-                <?php endif; ?>
-                
-                <div class="rastreio-pagamento-entrega">
-                    <div class="rastreio-pagamento-entrega-flex">
-                        <div class="rastreio-pagamento">
-                            <h3>Pagamento</h3>
-                            <p class="rastreio-metodo-pagamento"><?php echo htmlspecialchars($pedido['metodo_pagamento']); ?></p>
-                        </div>
-                        <div class="rastreio-entrega">
-                            <h3>Entrega</h3>
-                            <p class="rastreio-endereco-titulo"><strong>Endereço</strong></p>
-                            <p class="rastreio-endereco"><?php echo htmlspecialchars($pedido['rua'] . ', nº ' . $pedido['numero']); ?></p>
-                            <p class="rastreio-bairro-cidade"><?php echo htmlspecialchars($pedido['bairro'] . ', ' . $pedido['cidade'] . ' - ' . $pedido['estado']); ?></p>
-                            <p class="rastreio-cep">CEP <?php echo htmlspecialchars($pedido['cep']); ?></p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="rastreio-resumo">
-                    <p>Subtotal <span>R$ <?php echo number_format($pedido['subtotal_calculado'], 2, ',', '.'); ?></span></p>
-                    <!-- Imposto estimado e Cupons não estão diretamente na tabela 'pedidos' fornecida, usando 0.00 -->
-                    <p>Imposto estimado <span>R$ <?php echo number_format(0.00, 2, ',', '.'); ?></span></p>
-                    <p>Frete <span><?php echo ($pedido['valor_frete'] == 0) ? 'Grátis' : 'R$ ' . number_format($pedido['valor_frete'], 2, ',', '.'); ?></span></p>
-                    <p>Cupons <span>R$ <?php echo number_format(0.00, 2, ',', '.'); ?></span></p>
-                    <p class="rastreio-total"><strong>Total</strong> <span><strong>R$ <?php echo number_format($pedido['valor_total'], 2, ',', '.'); ?></strong></span></p>
-                </div>
-            </div>
-        <?php endforeach; ?>
-    <?php endif; ?>
+                    <?php endif; ?>
 
+                    <div class="rastreio-pagamento-entrega">
+                        <div class="rastreio-pagamento-entrega-flex">
+                            <div class="rastreio-pagamento">
+                                <h3>Pagamento</h3>
+                                <p class="rastreio-metodo-pagamento"><?php echo htmlspecialchars($pedido['metodo_pagamento']); ?></p>
+                            </div>
+                            <div class="rastreio-entrega">
+                                <h3>Entrega</h3>
+                                <p class="rastreio-endereco-titulo"><strong>Endereço</strong></p>
+                                <p class="rastreio-endereco"><?php echo htmlspecialchars($pedido['rua'] . ', nº ' . $pedido['numero']); ?></p>
+                                <p class="rastreio-bairro-cidade"><?php echo htmlspecialchars($pedido['bairro'] . ', ' . $pedido['cidade'] . ' - ' . $pedido['estado']); ?></p>
+                                <p class="rastreio-cep">CEP <?php echo htmlspecialchars($pedido['cep']); ?></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="rastreio-resumo">
+                        <p>Subtotal <span>R$ <?php echo number_format($pedido['subtotal_calculado'], 2, ',', '.'); ?></span></p>
+                        <p>Imposto estimado <span>R$ <?php echo number_format(0.00, 2, ',', '.'); ?></span></p>
+                        <p>Frete <span><?php echo ($pedido['valor_frete'] == 0) ? 'Grátis' : 'R$ ' . number_format($pedido['valor_frete'], 2, ',', '.'); ?></span></p>
+                        <p>Cupons <span>R$ <?php echo number_format(0.00, 2, ',', '.'); ?></span></p>
+                        <p class="rastreio-total"><strong>Total</strong> <span><strong>R$ <?php echo number_format($pedido['valor_total'], 2, ',', '.'); ?></strong></span></p>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        <?php endif; ?>
+    </div>
     <?php include __DIR__.'/../../../../includes/footer.php'; ?>
     <?php include __DIR__.'/../../../../includes/ModalCancelarPedido.php'; ?>
-    <!-- Inclui o arquivo JavaScript para a interatividade da página -->
     <script src="../../../../public/js/rastreio.js"></script>
 </body>
 </html>

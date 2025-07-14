@@ -70,11 +70,11 @@ class PagamentoPixController {
         }
 
         $id_usuario = $_SESSION['usuario']['id'];
-        $endereco_id = $_SESSION['endereco_selecionado']['id_endereco'] ?? null; 
+        $endereco_id = $_SESSION['endereco_selecionado']['id_endereco'] ?? null;    
         $dados_envio = $_SESSION['dados_envio'];
-        
+            
         if ($endereco_id === null) {
-             return ['success' => false, 'message' => 'ID do endereço não encontrado na sessão.'];
+            return ['success' => false, 'message' => 'ID do endereço não encontrado na sessão.'];
         }
 
         $itens_carrinho = Carrinho::obterCarrinho($id_usuario);
@@ -152,34 +152,7 @@ class PagamentoPixController {
             return ['success' => false, 'message' => $e->getMessage()];
         }
     }
-
-    /**
-     * Cancela um pedido, atualizando seu status.
-     * @return array Resultado da operação (success, message).
-     */
-    public function cancelarPedido(): array {
-        if (!isset($_SESSION['current_pedido_id'])) {
-            return ['success' => false, 'message' => 'Nenhum pedido para cancelar.'];
-        }
-
-        $id_pedido = $_SESSION['current_pedido_id'];
-
-        try {
-            $result = Pedido::cancelarPedido($id_pedido, 'Cancelado pelo usuário na tela de pagamento.');
-            if ($result['success']) {
-                // Limpa os dados de sessão relacionados ao pedido e envio
-                unset($_SESSION['dados_envio']);
-                unset($_SESSION['endereco_selecionado']);
-                unset($_SESSION['current_pedido_id']); 
-                return ['success' => true, 'message' => 'Pedido cancelado com sucesso.'];
-            } else {
-                return ['success' => false, 'message' => $result['message']];
-            }
-        } catch (Exception $e) {
-            error_log("Erro em PagamentoPixController::cancelarPedido: " . $e->getMessage());
-            return ['success' => false, 'message' => $e->getMessage()];
-        }
-    }
+    // O método cancelarPedido() foi removido daqui
 }
 
 // Lógica para lidar com requisições AJAX (POST)
@@ -193,14 +166,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
         case 'criar_pedido':
             $response = $controller->criarPedido();
             break;
-        // As ações de confirmação manual/automática foram removidas daqui,
-        // pois a lógica de status 'pago' e 'preparando' agora está na finalizarCompra.
         case 'finalizar_compra':
             $response = $controller->finalizarCompra();
             break;
-        case 'cancelar_pedido':
-            $response = $controller->cancelarPedido();
-            break;
+        // O case 'cancelar_pedido' foi removido daqui
         default:
             $response = ['success' => false, 'message' => 'Ação inválida.'];
             break;

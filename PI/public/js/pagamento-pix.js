@@ -41,12 +41,15 @@ document.addEventListener('DOMContentLoaded', function() {
                 statusElement.textContent = 'Aguardando pagamento...';
                 statusElement.style.color = '#333'; // Cor padrão
                 
-                // Inicia a simulação de pagamento aprovado após 3 segundos
+                // --- INÍCIO DA LÓGICA DE SIMULAÇÃO DE PAGAMENTO ---
+                // Esta parte é crucial para a aprovação em 3 segundos.
                 console.log('Iniciando timer de 3 segundos para aprovação automática...');
                 setTimeout(() => {
                     console.log('Timer concluído! Aprovando pagamento...');
                     atualizarStatusUI('Pagamento aprovado!', '#28a745', true);
                 }, 3000); // 3 segundos
+                // --- FIM DA LÓGICA DE SIMULAÇÃO DE PAGAMENTO ---
+
             } else {
                 statusElement.textContent = 'Erro ao criar pedido.';
                 statusElement.style.color = 'red';
@@ -120,43 +123,6 @@ document.addEventListener('DOMContentLoaded', function() {
         .catch(error => {
             console.error('Erro:', error);
             alert('Erro ao finalizar compra. Verifique o console para mais detalhes.');
-        });
-    });
-
-    // Lógica do Modal de Cancelamento
-    const btnCancelarPedido = document.getElementById('btn-cancelar-pedido');
-    const modalCancelamento = document.getElementById('modal-cancelamento');
-    const btnConfirmarCancelamento = document.getElementById('confirmar-cancelamento');
-    const btnFecharModalCancelamento = document.getElementById('fechar-modal-cancelamento');
-
-    btnCancelarPedido.addEventListener('click', function() {
-        modalCancelamento.style.display = 'flex'; 
-    });
-
-    btnFecharModalCancelamento.addEventListener('click', function() {
-        modalCancelamento.style.display = 'none'; 
-    });
-
-    btnConfirmarCancelamento.addEventListener('click', function() {
-        modalCancelamento.style.display = 'none';
-
-        fetch('/Tweeb-2025/PI/App/user/Controllers/PagamentoPixController.php', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-            body: 'action=cancelar_pedido'
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.success) {
-                alert('Pedido cancelado com sucesso! O estorno será realizado automaticamente.');
-                window.location.href = 'pedidos-cancelados.php'; 
-            } else {
-                alert('Erro ao cancelar pedido: ' + data.message);
-            }
-        })
-        .catch(error => {
-            console.error('Erro:', error);
-            alert('Erro ao cancelar pedido. Verifique o console para mais detalhes.');
         });
     });
 
