@@ -1,0 +1,22 @@
+/* Botão Finalizar Compra (pagamento-pix) */
+.botao-finalizar {
+    background-color: #291E40;
+    color: #fff;
+    border: 2px solid #291E40;
+    padding: 12px 32px;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(41,30,64,0.08);
+    transition: background 0.2s, color 0.2s, border 0.2s, transform 0.1s;
+    outline: none;
+    margin-left: 10px;
+}
+.botao-finalizar:hover, .botao-finalizar:focus {
+    background-color: #fff;
+    color: #291E40;
+    border: 2px solid #291E40;
+    transform: translateY(-2px) scale(1.03);
+} 

@@ -32,7 +32,7 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
                         <i class='bx bx-cart-alt'></i>
                         <span class="carrinho-contador" style="display: none; position: absolute; top: -8px; right: -8px; background-color: #ff4444; color: white; border-radius: 50%; width: 20px; height: 20px; font-size: 12px; display: flex; align-items: center; justify-content: center; font-weight: bold;">0</span>
                     </a>
-                    <a href="../../../Tweeb-2025/PI/App/user/View/pages/perfil-usuario.php" class="user-icon">
+                    <a href="/Tweeb-2025/PI/App/user/View/pages/perfil-usuario.php" class="user-icon">
                         <?php 
                         $foto_perfil = !empty($_SESSION['usuario']['foto_perfil']) ? $_SESSION['usuario']['foto_perfil'] : 'imagem_padrao.png';
                         $caminho_foto = '/Tweeb-2025/PI/public/uploads/' . $foto_perfil;

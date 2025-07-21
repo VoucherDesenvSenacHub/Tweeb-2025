@@ -356,8 +356,31 @@ body {
 }
 .rastreio-botoes {
     display: flex;
+    align-items: center;
     gap: 10px;
     flex-wrap: wrap;
+}
+
+/* Botão Cancelar Pedido */
+.rastreio-cancelar-botao {
+    background-color: #fff;
+    color: #e53935;
+    border: 2px solid #e53935;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 15px;
+    transition: background 0.2s, color 0.2s, border 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    box-shadow: 0 2px 6px rgba(229,57,53,0.06);
+}
+.rastreio-cancelar-botao:hover {
+    background-color: #e53935;
+    color: #fff;
+    border-color: #e53935;
 }
 
 /* --- ESTILOS PARA STICKY FOOTER (SELETIVO) --- */
