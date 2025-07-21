@@ -1,354 +1,311 @@
-CREATE DATABASE TWEEB;
+CREATE DATABASE Tweeb25;
+USE Tweeb25;
+SELECT * FROM usuarios;
+SELECT * FROM clientes;
+SELECT * FROM administrador;
+SELECT * FROM funcionarios;
+SELECT * FROM departamento;
+SELECT * FROM produtos;
+SELECT * FROM avaliacao_produto;
+SELECT * FROM enderecos;
+SELECT * FROM fornecedor;
+SELECT * FROM questionario;
+SELECT * FROM respostas_preferencias;
+SELECT * FROM orcamento;
+SELECT * FROM ordem_servico;
+CREATE TABLE `tipos_componente` (
+  `id_tipo_componente` INT(11) NOT NULL AUTO_INCREMENT,
+  `nome_componente` VARCHAR(100) NOT NULL,
+  `ordem_exibicao` INT(11) DEFAULT 0, -- Para controlar a ordem das abas na tela
+  PRIMARY KEY (`id_tipo_componente`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-USE TWEEB;
+INSERT INTO `tipos_componente` (`nome_componente`, `ordem_exibicao`) VALUES
+('Processador', 10),
+('Placa Mãe', 20),
+('Memória RAM', 30),
+('Placa de Vídeo', 40),
+('HD e SSD', 50),
+('Gabinete', 60),
+('Fonte de Alimentação', 70),
+('Periféricos', 80);
 
-SHOW TABLES;
-
-
-CREATE TABLE usuario (
-	id_usuario INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    nome VARCHAR(255),
-    email VARCHAR(150),
-    senha VARCHAR(100),
-    cpf CHAR(11),
-    rg CHAR(10),
-    cep CHAR(8),
-    endereco VARCHAR(255),
-    perfil CHAR(30),
-    avatar VARCHAR(255)
-        
-);
-
-
-CREATE TABLE favoritos (
-	id_favorito INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    nome_produto VARCHAR(255) NOT NULL,
-    id_usuario INT,
-    FOREIGN KEY (id_usuario) REFERENCES usuario (id_usuario)
-    
-);
-
-
-CREATE TABLE fornecedor (
-	id_fornecedor INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-	nome_fornecedor VARCHAR(150) NOT NULL,
-	marca_fornecedor VARCHAR(150) NOT NULL,
-	cnpj CHAR(14) NOT NULL,
-	nome_fantasia VARCHAR(50) NOT NULL,
-	endereco_fornecedor VARCHAR(255) NOT NULL
-    
-);
-
-
-
-CREATE TABLE departamento (
-	id_departamento INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    nome_departamento VARCHAR(150) NOT NULL
-
-);
-
-
-CREATE TABLE questionario (
-	id_questionario INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    conhecimento_tecnico VARCHAR(3) NOT NULL,
-    tipo_hardware_periferico VARCHAR(15) NOT NULL,
-    tipo_compra_pessoal_corporativa VARCHAR(15) NOT NULL,
-    id_usuario INT,
-    id_favorito INT,
-    FOREIGN KEY (id_usuario) REFERENCES usuario (id_usuario),
-    FOREIGN KEY (id_favorito) REFERENCES favoritos (id_favorito)
-
-);
-
-
-CREATE TABLE compra_personalizada (
-	id_compra_personalizada INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    classificacao_usuario VARCHAR(45) NOT NULL,
-    id_questionario INT,
-    id_usuario INT,
-    id_favorito INT,
-    FOREIGN KEY (id_questionario) REFERENCES questionario (id_questionario),
-    FOREIGN KEY (id_usuario) REFERENCES usuario (id_usuario),
-    FOREIGN KEY (id_favorito) REFERENCES favoritos (id_favorito)
-
-);
-
-
-CREATE TABLE produto (
-	id_produto INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-	nome VARCHAR(100) NOT NULL,
-	descricao TEXT NOT NULL,
-	quantidade INT NOT NULL,
-	preco_unid DECIMAL(10,2) NOT NULL,
-	marca VARCHAR(100) NOT NULL,
-	classificacao_produto VARCHAR(150) NOT NULL,
-	id_departamento INT,
-	id_fornecedor INT,
-	id_favorito INT ,
-	id_compra_personalizada INT,
-    FOREIGN KEY (id_departamento) REFERENCES departamento (id_departamento),
-    FOREIGN KEY (id_fornecedor) REFERENCES fornecedor (id_fornecedor),
-    FOREIGN KEY (id_favorito) REFERENCES favoritos (id_favorito),
-    FOREIGN KEY (id_compra_personalizada) REFERENCES compra_personalizada (id_compra_personalizada)
-);
-
-
-CREATE TABLE servico (
-	id_servico INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    tipo_produto VARCHAR(255) NOT NULL,
-    endereco VARCHAR(255) NOT NULL,
-    valor DECIMAL(10,2) NOT NULL,
-    prazo DATE NOT NULL,
-    tipo_conserto VARCHAR(255) NOT NULL,
-    descricao_defeito TEXT,
-    email VARCHAR(150) NOT NULL,
-    imagem VARCHAR(255) NOT NULL,
-    ordem_de_servico VARCHAR(45) NOT NULL,
-    status_da_ordem VARCHAR(45) NOT NULL,
-    id_usuario INT,
-    FOREIGN KEY (id_usuario) REFERENCES usuario (id_usuario)
-
-);
-
-
-CREATE TABLE compra (
-	id_compra INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    valor_compra DECIMAL (10,2) NOT NULL,
-    quantidade_compra INT NOT NULL,
-    id_produto INT,
-    id_servico INT,
-    id_usuario INT,
-    FOREIGN KEY (id_produto) REFERENCES produto (id_produto),
-    FOREIGN KEY (id_servico) REFERENCES servico (id_servico),
-    FOREIGN KEY (id_usuario) REFERENCES usuario (id_usuario)
-
-);
-
-
-CREATE TABLE carrinho (
-	id_carrinho INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    valor_total DECIMAL(10,2) NOT NULL,
-    quantidade_total VARCHAR(255) NOT NULL,
-    id_servico INT,
-    id_usuario INT,
-    id_compra INT,
-    FOREIGN KEY (id_servico) REFERENCES servico(id_servico),
-    FOREIGN KEY (id_usuario) REFERENCES  usuario (id_usuario),
-    FOREIGN KEY (id_compra) REFERENCES compra (id_compra)
-
-);
-
-
-CREATE TABLE pagamento (
-	id_pagamento INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    valor DECIMAL(10,2) NOT NULL,
-    data_p DATETIME NOT NULL,
-    id_servico INT,
-    id_carrinho INT,
-    id_compra INT,
-    id_usuario INT,
-    FOREIGN KEY (id_servico) REFERENCES servico (id_servico),
-    FOREIGN KEY (id_carrinho) REFERENCES carrinho (id_carrinho),
-    FOREIGN KEY (id_compra) REFERENCES compra (id_compra),
-    FOREIGN KEY (id_usuario) REFERENCES usuario (id_usuario)
-
-);
-
-
-CREATE TABLE comprovantepagamento (
-	id_comprovante INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    descricao_compra VARCHAR(255) NOT NULL,
-    pagamento VARCHAR(45) NOT NULL,
-    nome VARCHAR(100) NOT NULL,
-    endereco VARCHAR(150) NOT NULL,
-    telefone VARCHAR(11) NOT NULL,
-    email VARCHAR(150) NOT NULL,
-    id_pagamento INT,
-    id_servico INT,
-    id_usuario INT,
-    id_carrinho INT,
-    id_compra INT,
-    FOREIGN KEY (id_pagamento) REFERENCES pagamento (id_pagamento),
-    FOREIGN KEY (id_servico) REFERENCES servico (id_servico),
-    FOREIGN KEY (id_usuario) REFERENCES usuario (id_usuario),
-    FOREIGN KEY (id_carrinho) REFERENCES carrinho (id_carrinho),
-    FOREIGN KEY (id_compra) REFERENCES compra (id_compra)
-    
-);
-
-
-CREATE TABLE envio (
-	id_envio INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    nome_destinatario CHAR(50) NOT NULL,
-    cep CHAR(8) NOT NULL,
-    data_entrega DATETIME NOT NULL,
-    conteudo TEXT NOT NULL,
-    id_pagamento INT,
-    id_servico INT,
-    id_compra INT,
-    id_carrinho INT,
-    id_usuario INT,
-    FOREIGN KEY (id_pagamento) REFERENCES pagamento (id_pagamento),
-    FOREIGN KEY (id_servico) REFERENCES servico (id_servico),
-    FOREIGN KEY (id_compra) REFERENCES compra (id_compra),
-    FOREIGN KEY (id_carrinho) REFERENCES carrinho (id_carrinho),
-    FOREIGN KEY (id_usuario) REFERENCES usuario (id_usuario)
-    
-);
-
-
-
-
-
-
-
-----------------NOVO DATABASE-----------------
-
-
-
-
-
-
-
-
-
-//Leandrex da galera
-
-
-use 140p2;
-CREATE TABLE usuarios (
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    nome VARCHAR(100) not null,
-    sobrenome VARCHAR(100),
-    email VARCHAR(100) not null UNIQUE,
-    telefone VARCHAR(20),
-    senha VARCHAR(255)not null ,
-    tipo ENUM('cliente', 'funcionario', "administrador"),
-    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-);
-
-desc funcionario;
--- 1. Inserir o administrador geral na tabela usuarios
-INSERT INTO usuarios (nome, sobrenome, email, telefone, senha, tipo)
-VALUES ('Leandro', 'Silva', 'admgeral@empresa.com', '(67)99999-9999', 'adm123', 'administrador');
-INSERT INTO administrador (id_usuario, matricula, cargo)
-VALUES (110, 'ADM0001', 'Administrador Geral');
-
-select * from usuarios;
-select * from clientes;
-select * from enderecos;
-select * from funcionarios;
-select * from administrador;
-show tables;
-select * from departamento
-;
-drop table funcionarios;
-drop table enderecos;
-
-CREATE TABLE clientes (
-    id_usuario INT PRIMARY KEY,
-    cpf VARCHAR(14) UNIQUE,
-    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    FOREIGN KEY (id_usuario) REFERENCES usuarios(id) ON DELETE CASCADE
-);
-
-CREATE TABLE enderecos (
-    id_endereco INT PRIMARY KEY AUTO_INCREMENT,
-    id_cliente INT,
-    nome_endereco VARCHAR(100),
-    rua VARCHAR(100),
-    numero VARCHAR(20),
-    cep VARCHAR(8),
-    bairro VARCHAR(100),
-    cidade VARCHAR(50),
-    estado VARCHAR(50),
-    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    FOREIGN KEY (id_cliente) REFERENCES clientes(id_usuario) ON DELETE CASCADE
-);
-
+CREATE TABLE `produto_componente_link` (
+  `id_produto` INT(11) NOT NULL,
+  `id_tipo_componente` INT(11) NOT NULL,
+  PRIMARY KEY (`id_produto`, `id_tipo_componente`),
+  FOREIGN KEY (`id_produto`) REFERENCES `produtos`(`id_produto`),
+  FOREIGN KEY (`id_tipo_componente`) REFERENCES `tipos_componente`(`id_tipo_componente`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+INSERT INTO produto_componente_link (id_produto, id_tipo_componente) VALUES
 select * from produtos;
 
-CREATE TABLE administrador (
-    id_usuario INT PRIMARY KEY,
-    matricula VARCHAR(20),
-    cargo VARCHAR(50),
-    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    FOREIGN KEY (id_usuario) REFERENCES usuarios(id) ON DELETE CASCADE
-);
+-- Tabela base: USUÁRIOS
+CREATE TABLE `usuarios` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `nome` VARCHAR(100) NOT NULL,
+  `sobrenome` VARCHAR(100) DEFAULT NULL,
+  `email` VARCHAR(100) NOT NULL,
+  `telefone` VARCHAR(20) DEFAULT NULL,
+  `senha` VARCHAR(255) NOT NULL,
+  `tipo` ENUM('cliente', 'funcionario', 'administrador') DEFAULT NULL,
+  `created_at` DATETIME DEFAULT CURRENT_TIMESTAMP(),
+  `updated_at` DATETIME DEFAULT CURRENT_TIMESTAMP() ON UPDATE CURRENT_TIMESTAMP(),
+  `foto_perfil` VARCHAR(255) DEFAULT NULL,
+  `token_recuperacao` VARCHAR(64) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `email` (`email`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- CLIENTES
+CREATE TABLE `clientes` (
+  `id_usuario` INT(11) NOT NULL,
+  `cpf` VARCHAR(14) DEFAULT NULL,
+  `created_at` DATETIME DEFAULT CURRENT_TIMESTAMP(),
+  `updated_at` DATETIME DEFAULT CURRENT_TIMESTAMP() ON UPDATE CURRENT_TIMESTAMP(),
+  PRIMARY KEY (`id_usuario`),
+  UNIQUE KEY `cpf` (`cpf`),
+  CONSTRAINT `clientes_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- ADMINISTRADOR
+CREATE TABLE `administrador` (
+  `id_usuario` INT(11) NOT NULL,
+  `matricula` VARCHAR(20) DEFAULT NULL,
+  `cargo` VARCHAR(50) DEFAULT NULL,
+  `created_at` DATETIME DEFAULT CURRENT_TIMESTAMP(),
+  `updated_at` DATETIME DEFAULT CURRENT_TIMESTAMP() ON UPDATE CURRENT_TIMESTAMP(),
+  PRIMARY KEY (`id_usuario`),
+  CONSTRAINT `administrador_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- FUNCIONÁRIOS
+CREATE TABLE `funcionarios` (
+  `id_usuario` INT(11) NOT NULL,
+  `matricula` VARCHAR(20) DEFAULT NULL,
+  `cargo` VARCHAR(50) DEFAULT NULL,
+  `created_at` DATETIME DEFAULT CURRENT_TIMESTAMP(),
+  `updated_at` DATETIME DEFAULT CURRENT_TIMESTAMP() ON UPDATE CURRENT_TIMESTAMP(),
+  PRIMARY KEY (`id_usuario`),
+  CONSTRAINT `funcionarios_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+SELECT * FROM produtos WHERE id_departamento = 6 AND status_produto = 1;
+select * from departamento;
 
 
+-- DEPARTAMENTO
+CREATE TABLE `departamento` (
+  `id_departamento` INT(11) NOT NULL AUTO_INCREMENT,
+  `nome_departamento` VARCHAR(150) NOT NULL,
+  PRIMARY KEY (`id_departamento`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+INSERT INTO `produtos` (`nome_produto`, `marca_modelo`, `quantidade_produto`, `imagem_produto`, `numero_serie`, `custo_produto`, `cor_produto`, `preco_unid`, `descricao_produto`, `detalhes_produto`, `id_departamento`, `entrega_gratis`, `em_estoque`, `garantia`, `status_produto`) VALUES
+('Headset Gamer Razer BlackShark V2', 'Razer', 120, 'razer-blackshark-v2.png', 'RZRBSV22025', 420.00, 'Preto/Verde', 649.90, 'Headset com som surround 7.1, drivers TriForce Titanium de 50mm e microfone destacável.', 'Conectividade: USB e P2. Espuma viscoelástica para maior conforto. Compatível com PC, PS4, Xbox e mais.', 6, 1, 1, 1, 1),
+('Mouse Gamer Logitech G Pro X Superlight', 'Logitech Wireless', 130, 'logitech-gpro-superlight.png', 'LGGPROSLBR25', 500.00, 'Preto', 799.90, 'Mouse ultra leve e sem fio com sensor HERO 25K, ideal para eSports.', 'Peso: 63g. Sensor: HERO 25K. Bateria de longa duração. Design ambidestro.', 6, 0, 1, 1, 1),
+('Volante Logitech G29 Driving Force', 'Logitech', 40, 'volante-logitech-g29.png', 'LGG29DF2025', 1300.00, 'Preto/Azul', 1999.99, 'Volante para simulação de corridas com force feedback e pedais responsivos.', 'Compatível com PS4, PS5 e PC. Rotação de 900°. Construção em couro costurado à mão.', 6, 1, 1, 1, 1),
+('Jogo Elden Ring', 'FromSoftware - Versão PS5', 180, 'elden-ring-ps5.png', 'ELDRNGPS52025', 160.00, 'N/A', 299.90, 'Jogo de ação e RPG com mundo aberto, criado em colaboração com George R. R. Martin.', 'Gênero: RPG de Ação. Plataforma: PlayStation 5. Modo: Solo e Online. Classificação: 16 anos.', 6, 0, 1, 1, 1);
+-- PRODUTOS
+CREATE TABLE `produtos` (
+  `id_produto` INT(11) NOT NULL AUTO_INCREMENT,
+  `nome_produto` VARCHAR(100) NOT NULL,
+  `marca_modelo` VARCHAR(100) NOT NULL,
+  `quantidade_produto` INT(11) NOT NULL,
+  `imagem_produto` VARCHAR(250) NOT NULL,
+  `numero_serie` VARCHAR(25) NOT NULL,
+  `custo_produto` DECIMAL(10,2) NOT NULL,
+  `cor_produto` VARCHAR(20) NOT NULL,
+  `preco_unid` DECIMAL(10,2) NOT NULL,
+  `descricao_produto` VARCHAR(250) NOT NULL,
+  `detalhes_produto` VARCHAR(500) NOT NULL,
+  `id_departamento` INT(11) DEFAULT NULL,
+  `entrega_gratis` TINYINT(4) NOT NULL CHECK (`entrega_gratis` IN (0,1)),
+  `em_estoque` TINYINT(4) NOT NULL CHECK (`em_estoque` IN (0,1)),
+  `garantia` TINYINT(4) NOT NULL CHECK (`garantia` IN (0,1)),
+  `status_produto` TINYINT(4) DEFAULT NULL CHECK (`status_produto` IN (0,1)),
+  PRIMARY KEY (`id_produto`),
+  KEY `id_departamento` (`id_departamento`),
+  CONSTRAINT `produtos_ibfk_1` FOREIGN KEY (`id_departamento`) REFERENCES `departamento` (`id_departamento`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-CREATE TABLE funcionarios (
-    id_usuario INT PRIMARY KEY,
-    matricula VARCHAR(20),
-    cargo VARCHAR(50),
-    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    FOREIGN KEY (id_usuario) REFERENCES usuarios(id) ON DELETE CASCADE
-);
+-- AVALIAÇÃO DE PRODUTO
+CREATE TABLE `avaliacao_produto` (
+  `id_avaliacao` INT(11) NOT NULL AUTO_INCREMENT,
+  `id` INT(11) NOT NULL,
+  `id_produto` INT(11) NOT NULL,
+  `notas` TINYINT(4) NOT NULL CHECK (`notas` BETWEEN 1 AND 5),
+  `comentario` VARCHAR(255) DEFAULT NULL,
+  `data_avaliacao` DATETIME DEFAULT CURRENT_TIMESTAMP(),
+  PRIMARY KEY (`id_avaliacao`),
+  KEY `id` (`id`),
+  KEY `id_produto` (`id_produto`),
+  CONSTRAINT `avaliacao_produto_ibfk_1` FOREIGN KEY (`id`) REFERENCES `usuarios` (`id`),
+  CONSTRAINT `avaliacao_produto_ibfk_2` FOREIGN KEY (`id_produto`) REFERENCES `produtos` (`id_produto`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- ENDEREÇOS
+CREATE TABLE `enderecos` (
+  `id_endereco` INT(11) NOT NULL AUTO_INCREMENT,
+  `id_cliente` INT(11) DEFAULT NULL,
+  `nome_endereco` VARCHAR(100) DEFAULT NULL,
+  `rua` VARCHAR(100) DEFAULT NULL,
+  `numero` VARCHAR(20) DEFAULT NULL,
+  `cep` VARCHAR(8) DEFAULT NULL,
+  `bairro` VARCHAR(100) DEFAULT NULL,
+  `cidade` VARCHAR(50) DEFAULT NULL,
+  `estado` VARCHAR(50) DEFAULT NULL,
+  `created_at` DATETIME DEFAULT CURRENT_TIMESTAMP(),
+  `updated_at` DATETIME DEFAULT CURRENT_TIMESTAMP() ON UPDATE CURRENT_TIMESTAMP(),
+  PRIMARY KEY (`id_endereco`),
+  KEY `id_cliente` (`id_cliente`),
+  CONSTRAINT `enderecos_ibfk_1` FOREIGN KEY (`id_cliente`) REFERENCES `clientes` (`id_usuario`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 
-drop table clientes;
-select * from clientes;
-select * from cpf;
-select * from enderecos;
-SELECT u.id, u.nome, u.email, f.matricula, f.cargo
-FROM usuarios u
-INNER JOIN funcionarios f ON u.id = f.id_usuario
-WHERE u.email = 'lelelelele@gmail.com';
-CREATE TABLE respostas_preferencias (
-  id INT AUTO_INCREMENT PRIMARY KEY,
-  user_id INT,
-  resposta1 VARCHAR(255),
-  resposta2 VARCHAR(255),
-  resposta3 VARCHAR(255),
-  criado_em DATETIME DEFAULT CURRENT_TIMESTAMP,
-  FOREIGN KEY (user_id) REFERENCES usuarios(id)
-);
+INSERT INTO `produtos` (`nome_produto`, `marca_modelo`, `quantidade_produto`, `imagem_produto`, `numero_serie`, `custo_produto`, `cor_produto`, `preco_unid`, `descricao_produto`, `detalhes_produto`, `id_departamento`, `entrega_gratis`, `em_estoque`, `garantia`, `status_produto`) VALUES
+('Placa de Vídeo RTX 4070', 'NVIDIA GeForce', 50, 'ps5.jpg', 'NV4070RTX2024A1', 3100.00, 'Preto/Prata', 4299.90, 'Placa de vídeo de alta performance para jogos e criação.', '12GB GDDR6X, DLSS 3, Ray Tracing de 3ª Geração, ideal para jogos em 1440p com tudo no máximo.', 1, 1, 1, 1, 1),
+('Processador Core i7-14700K', 'Intel', 80, 'ps5.jpg', 'INTC14700K2024B2', 2100.00, 'N/A', 2899.90, 'Processador desbloqueado para desktops de alta performance.', '20 núcleos (8P + 12E), 28 threads, frequência turbo de até 5.6GHz, soquete LGA1700.', 1, 1, 1, 1, 1),
+('Processador Ryzen 7 7800X3D', 'AMD', 75, 'ps5.jpg', 'AMDR77800X3D24C3', 2200.00, 'N/A', 2999.00, 'Processador otimizado para jogos com tecnologia 3D V-Cache.', '8 núcleos, 16 threads, 96MB de L3 Cache, soquete AM5. Performance incrível para games.', 1, 1, 1, 1, 1),
+('Placa-Mãe B650M AORUS', 'Gigabyte', 120, 'ps5.jpg', 'GGBTB650M24D4', 1100.00, 'Preto', 1549.90, 'Placa-mãe Micro-ATX para processadores AMD Ryzen série 7000.', 'Suporte a DDR5, PCIe 5.0, M.2, Wi-Fi 6E, LAN 2.5GbE.', 1, 1, 1, 1, 1),
+('Memória RAM 32GB (2x16GB)', 'Corsair Vengeance RGB', 250, 'ps5.jpg', 'CORV32DDR524E5', 650.00, 'Branco', 899.90, 'Kit de memória DDR5 de alta velocidade com iluminação RGB.', 'Velocidade de 6000MHz, CL36, compatível com Intel XMP e AMD EXPO.', 1, 1, 1, 1, 1),
+('SSD NVMe 2TB', 'Samsung 990 Pro', 150, 'ps5.jpg', 'SAM990P2TB24F6', 800.00, 'Preto', 1199.90, 'Armazenamento de estado sólido ultrarrápido para sistema e jogos.', 'Leitura de até 7450 MB/s e gravação de até 6900 MB/s. Interface PCIe 4.0.', 1, 1, 1, 1, 1),
+('Water Cooler 360mm', 'NZXT Kraken Elite', 60, 'ps5.jpg', 'NZXTKE36024G7', 1200.00, 'Preto', 1699.99, 'Sistema de refrigeração líquida com tela LCD personalizável.', '3 fans de 120mm, bomba Asetek de 7ª geração, tela LCD de 2.36 polegadas.', 1, 0, 1, 1, 1),
+('Gabinete Gamer Hyte Y60', 'Hyte', 40, 'ps5.jpg', 'HYTEY60W24H8', 950.00, 'Branco', 1399.00, 'Gabinete Mid-Tower com design panorâmico de 3 peças de vidro.', 'Excelente fluxo de ar, design moderno e espaço para customização.', 1, 0, 1, 1, 1),
+('Placa de Captura 4K60 Pro', 'Elgato', 30, 'ps5.jpg', 'ELG4K60P24I9', 1300.00, 'Preto', 1799.90, 'Placa de captura interna para streaming e gravação em 4K.', 'Captura em 4K a 60fps com HDR10. Baixa latência e alta fidelidade.', 1, 1, 1, 1, 1),
+('Kit Fans RGB 120mm (3 un)', 'Lian Li UNI FAN SL-INF', 200, 'ps5.jpg', 'LLUFSI12024J10', 350.00, 'Preto', 549.90, 'Kit com 3 fans modulares com espelho infinito e iluminação RGB.', 'Sistema de encaixe inovador que reduz a quantidade de cabos.', 1, 1, 1, 1, 1);
 
-CREATE TABLE orcamento (
-    id_orcamento INT AUTO_INCREMENT PRIMARY KEY,
-    nome varchar(100) NOT NULL,
-    email varchar(100) NOT NULL,
-    telefone VARCHAR(20) NOT NULL,
-    tipo varchar(50) NOT NULL,
-    prazo varchar(30) NOT NULL,
-    imagem varchar(255) NOT NULL,
-    descricao text not null,
-    status_orcamento ENUM('pendente', 'aceito')
-);
+-- FORNECEDOR
+CREATE TABLE `fornecedor` (
+  `id_fornecedor` INT(11) NOT NULL AUTO_INCREMENT,
+  `nome_fornecedor` VARCHAR(150) NOT NULL,
+  `marca_fornecedor` VARCHAR(150) NOT NULL,
+  `cnpj` CHAR(14) NOT NULL,
+  `nome_fantasia` VARCHAR(50) NOT NULL,
+  `endereco_fornecedor` VARCHAR(255) NOT NULL,
+  PRIMARY KEY (`id_fornecedor`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+select * from produtos;
+select * from departamento;
+-- QUESTIONÁRIO
+CREATE TABLE `questionario` (
+  `id_questionario` INT(11) NOT NULL AUTO_INCREMENT,
+  `conhecimento_tecnico` TINYINT(4) NOT NULL CHECK (`conhecimento_tecnico` IN (0,1)),
+  `tipo_hardware_periferico` TINYINT(4) NOT NULL CHECK (`tipo_hardware_periferico` IN (0,1)),
+  `tipo_compra_pessoal_corporativa` TINYINT(4) NOT NULL CHECK (`tipo_compra_pessoal_corporativa` IN (0,1)),
+  `id_usuario` INT(11) DEFAULT NULL,
+  PRIMARY KEY (`id_questionario`),
+  KEY `id_usuario` (`id_usuario`),
+  CONSTRAINT `questionario_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `clientes` (`id_usuario`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-CREATE TABLE ordem_servico (
-    id_os INT AUTO_INCREMENT PRIMARY KEY,
-    data_abertura TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    tipo_equipamento VARCHAR(50) NOT NULL,
-    nome VARCHAR(100) NOT NULL,
-    email VARCHAR(100) NOT NULL,
-    marca_modelo VARCHAR(100),
-    telefone VARCHAR(11) NOT NULL,
-    endereco VARCHAR(100),
-    cep VARCHAR(8),
-    numero_serie VARCHAR(50),
-    acessorios_entregues TEXT,
-    relato_cliente TEXT,
-    tecnico_responsavel VARCHAR(150),
-    servicos_solicitados ENUM(
-    'atualização de firmware',
-    'backup e recuperação',
-    'configuração de sistema',
-    'formatação',
-    'limpeza e manutenção preventiva',
+-- RESPOSTAS DE PREFERÊNCIAS
+CREATE TABLE `respostas_preferencias` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `user_id` INT(11) DEFAULT NULL,
+  `resposta1` VARCHAR(255) DEFAULT NULL,
+  `resposta2` VARCHAR(255) DEFAULT NULL,
+  `resposta3` VARCHAR(255) DEFAULT NULL,
+  `criado_em` DATETIME DEFAULT CURRENT_TIMESTAMP(),
+  PRIMARY KEY (`id`),
+  KEY `user_id` (`user_id`),
+  CONSTRAINT `respostas_preferencias_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `usuarios` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- ORÇAMENTO
+CREATE TABLE `orcamento` (
+  `id_orcamento` INT(11) NOT NULL AUTO_INCREMENT,
+  `nome` VARCHAR(100) NOT NULL,
+  `email` VARCHAR(100) NOT NULL,
+  `telefone` VARCHAR(20) NOT NULL,
+  `tipo` VARCHAR(50) NOT NULL,
+  `prazo` VARCHAR(30) NOT NULL,
+  `imagem` VARCHAR(255) NOT NULL,
+  `descricao` TEXT NOT NULL,
+  `status_orcamento` ENUM('pendente','aceito') DEFAULT NULL,
+  PRIMARY KEY (`id_orcamento`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- ORDEM DE SERVIÇO
+CREATE TABLE `ordem_servico` (
+  `id_os` INT(11) NOT NULL AUTO_INCREMENT,
+  `data_abertura` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP(),
+  `tipo_equipamento` VARCHAR(100) DEFAULT NULL,
+  `nome_cliente` VARCHAR(150) DEFAULT NULL,
+  `email_cliente` VARCHAR(150) DEFAULT NULL,
+  `marca_modelo` VARCHAR(100) DEFAULT NULL,
+  `telefone` VARCHAR(11) DEFAULT NULL,
+  `endereco` VARCHAR(255) DEFAULT NULL,
+  `cep` VARCHAR(9) DEFAULT NULL,
+  `numero_serie` VARCHAR(50) DEFAULT NULL,
+  `acessorios_entregues` TEXT DEFAULT NULL,
+  `relato_cliente` TEXT DEFAULT NULL,
+  `tecnico_responsavel` VARCHAR(150) DEFAULT NULL,
+  `servicos_solicitados` ENUM(
+    'atualização de firmware','backup e recuperação','configuração de sistema',
+    'formatação','limpeza e manutenção preventiva',
     'serviços de software: instalação, configuração e atualização',
-    'substituição peças') NOT NULL,
-    estimativa_custo DECIMAL(10,2),
-    aprovacao_cliente ENUM('aceito') DEFAULT 'aceito',
-    servicos_realizados TEXT,
-    pecas_substituidas TEXT,
-    testes_realizados TEXT,
-    data_conclusao DATE NOT NULL,
-    observacoes TEXT
-);
+    'substituição peças') DEFAULT NULL,
+  `estimativa_custo` DECIMAL(10,2) DEFAULT NULL,
+  `aprovacao_cliente` ENUM('aceito') DEFAULT 'aceito',
+  `servicos_realizados` TEXT DEFAULT NULL,
+  `pecas_substituidas` TEXT DEFAULT NULL,
+  `testes_realizados` TEXT DEFAULT NULL,
+  `data_conclusao` DATE DEFAULT NULL,
+  `observacoes` TEXT DEFAULT NULL,
+  PRIMARY KEY (`id_os`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+
+INSERT INTO `produtos` (`nome_produto`, `marca_modelo`, `quantidade_produto`, `imagem_produto`, `numero_serie`, `custo_produto`, `cor_produto`, `preco_unid`, `descricao_produto`, `detalhes_produto`, `id_departamento`, `entrega_gratis`, `em_estoque`, `garantia`, `status_produto`) VALUES
+('PC Gamer Tweeb Advanced', 'Tweeb Custom', 20, 'ps5.jpg', 'TWBADV24A1', 6500.00, 'Preto', 8999.00, 'Computador montado para performance extrema em jogos.', 'Ryzen 7 7800X3D, RTX 4070, 32GB DDR5, SSD 2TB NVMe.', 2, 1, 1, 1, 1),
+('PC Gamer Tweeb Starter', 'Tweeb Custom', 35, 'ps5.jpg', 'TWBSTA24B2', 3200.00, 'Preto', 4599.00, 'Computador de entrada para jogos em Full HD.', 'Ryzen 5 5600, RTX 3060, 16GB DDR4, SSD 1TB NVMe.', 2, 1, 1, 1, 1),
+('Notebook Gamer Nitro 5', 'Acer', 50, 'ps5.jpg', 'ACRN524C3', 4100.00, 'Preto/Vermelho', 5499.90, 'Notebook gamer com excelente custo-benefício.', 'Intel Core i5, RTX 3050, 16GB RAM, Tela 144Hz de 15.6".', 2, 1, 1, 1, 1),
+('MacBook Pro 14"', 'Apple', 25, 'ps5.jpg', 'APPMBP1424D4', 13000.00, 'Cinza Espacial', 18499.00, 'Notebook de alta performance para profissionais criativos.', 'Chip M3 Pro, 18GB RAM, 512GB SSD, Tela Liquid Retina XDR.', 2, 1, 1, 1, 1),
+('All-in-One Inspiron 27', 'Dell', 40, 'ps5.jpg', 'DELLAI2724E5', 3800.00, 'Branco', 4999.00, 'Computador tudo-em-um com design elegante e tela de 27".', 'Intel Core i7, 16GB RAM, 512GB SSD, Tela Full HD Touchscreen.', 2, 1, 1, 1, 1),
+('PC para Escritório OptiPlex', 'Dell', 100, 'ps5.jpg', 'DELLOP24F6', 1800.00, 'Preto', 2599.00, 'Computador compacto e confiável para uso corporativo.', 'Intel Core i5, 8GB RAM, 256GB SSD, Windows 11 Pro.', 2, 0, 1, 1, 1),
+('Chromebook Spin 713', 'Acer', 60, 'ps5.jpg', 'ACRCS71324G7', 2500.00, 'Prata', 3499.00, 'Chromebook 2-em-1 versátil para trabalho e estudos.', 'Tela VertiView 2K, Intel Core i5, 8GB RAM, design conversível.', 2, 1, 1, 1, 1),
+('Mini PC NUC 13 Pro', 'Intel', 70, 'ps5.jpg', 'INTNUC13P24H8', 2900.00, 'Preto', 3999.00, 'Mini computador potente e compacto.', 'Intel Core i7, suporte para até 64GB RAM e 2 SSDs NVMe.', 2, 1, 1, 1, 1),
+('Notebook corporativo Latitude', 'Dell', 80, 'ps5.jpg', 'DELLLAT24I9', 4500.00, 'Grafite', 6200.00, 'Notebook seguro e durável para o ambiente de trabalho.', 'Intel Core i7 vPro, 16GB RAM, 512GB SSD, Leitor de biometria.', 2, 0, 1, 1, 1),
+('iMac 24"', 'Apple', 15, 'ps5.jpg', 'APPIMAC2424J10', 8000.00, 'Azul', 11999.00, 'Computador All-in-One com design icônico e chip M3.', 'Tela Retina 4.5K, 8GB RAM, 256GB SSD, Magic Keyboard e Mouse.', 2, 1, 1, 1, 1);
+
+INSERT INTO `produtos` (`nome_produto`, `marca_modelo`, `quantidade_produto`, `imagem_produto`, `numero_serie`, `custo_produto`, `cor_produto`, `preco_unid`, `descricao_produto`, `detalhes_produto`, `id_departamento`, `entrega_gratis`, `em_estoque`, `garantia`, `status_produto`) VALUES
+('Mouse Gamer G502 Hero', 'Logitech', 200, 'ps5.jpg', 'LOGG502H24A1', 180.00, 'Preto', 299.90, 'Mouse gamer com sensor de alta precisão e pesos ajustáveis.', 'Sensor HERO 25K, 11 botões programáveis, iluminação RGB Lightsync.', 3, 1, 1, 1, 1),
+('Teclado Mecânico K95 RGB', 'Corsair', 150, 'ps5.jpg', 'CORK95RGB24B2', 800.00, 'Preto', 1199.90, 'Teclado mecânico premium com switches ópticos.', 'Switches óptico-mecânicos CORSAIR OPX, 6 teclas macro, apoio de pulso.', 3, 1, 1, 1, 1),
+('Headset Gamer Cloud Alpha S', 'HyperX', 180, 'ps5.jpg', 'HYPCLAS24C3', 450.00, 'Preto/Azul', 649.90, 'Headset gamer com som surround 7.1 e drivers de câmara dupla.', 'Controle de áudio avançado, microfone removível com cancelamento de ruído.', 3, 1, 1, 1, 1),
+('Monitor Gamer Odyssey G7', 'Samsung', 70, 'ps5.jpg', 'SAMOG72724D4', 2800.00, 'Preto', 3899.00, 'Monitor curvo de 27 polegadas com 240Hz e 1ms de resposta.', 'Tela QLED, resolução 1440p, curvatura 1000R para imersão máxima.', 3, 0, 1, 1, 1),
+('Webcam C920s Pro HD', 'Logitech', 300, 'ps5.jpg', 'LOGC920S24E5', 250.00, 'Preto', 399.90, 'Webcam Full HD para videochamadas e streaming.', 'Resolução 1080p a 30fps, microfones estéreo, tampa de privacidade.', 3, 1, 1, 1, 1),
+('Mousepad Gamer Goliathus', 'Razer', 400, 'ps5.jpg', 'RAZGGEC24F6', 80.00, 'Preto/Verde', 149.90, 'Mousepad de tecido otimizado para todos os sensores de mouses.', 'Base de borracha antiderrapante, tamanho estendido (92cm x 29cm).', 3, 1, 1, 1, 1),
+('Microfone USB QuadCast S', 'HyperX', 120, 'ps5.jpg', 'HYPQCST24G7', 700.00, 'Preto/RGB', 999.90, 'Microfone condensador USB para streaming com iluminação RGB.', '4 padrões polares, sensor tap-to-mute, pop filter interno, shock mount.', 3, 1, 1, 1, 1),
+('Cadeira Gamer Titan Evo', 'Secretlab', 50, 'ps5.jpg', 'SLTTE24H8', 2500.00, 'Preto (Stealth)', 3499.00, 'Cadeira ergonômica projetada para longas sessões de uso.', 'Couro sintético NEO, suporte lombar ajustável, braços 4D.', 3, 0, 1, 1, 1),
+('Controle sem Fio DualSense', 'Sony', 250, 'ps5.jpg', 'SONYDS24I9', 300.00, 'Branco', 449.90, 'Controle oficial do PlayStation 5 com feedback háptico.', 'Gatilhos adaptáveis, microfone embutido, conector USB-C.', 3, 1, 1, 1, 1),
+('Volante G29 Driving Force', 'Logitech', 60, 'ps5.jpg', 'LOGG29DF24J10', 1500.00, 'Preto/Azul', 2199.00, 'Volante de corrida com Force Feedback para simulação.', 'Rotação de 900 graus, pedais de aço inoxidável, compatível com PS e PC.', 3, 0, 1, 1, 1);
+
+-- =============================================
+-- Departamento 4: Energia
+-- =============================================
+INSERT INTO `produtos` (`nome_produto`, `marca_modelo`, `quantidade_produto`, `imagem_produto`, `numero_serie`, `custo_produto`, `cor_produto`, `preco_unid`, `descricao_produto`, `detalhes_produto`, `id_departamento`, `entrega_gratis`, `em_estoque`, `garantia`, `status_produto`) VALUES
+('Fonte de Alimentação 850W', 'Corsair RM850x', 130, 'ps5.jpg', 'CORRM850X24A1', 700.00, 'Preto', 999.90, 'Fonte de alimentação 80 Plus Gold, totalmente modular.', 'Componentes premium, ventoinha de levitação magnética, operação silenciosa.', 4, 1, 1, 1, 1),
+('Nobreak 1500VA Senoidal', 'APC Back-UPS Pro', 80, 'ps5.jpg', 'APCBUP150024B2', 1100.00, 'Preto', 1599.00, 'Nobreak para proteção de equipamentos eletrônicos sensíveis.', 'Saída senoidal pura, regulação automática de voltagem (AVR), 10 tomadas.', 4, 0, 1, 1, 1),
+('Filtro de Linha iClamper', 'Clamper Energia 8', 500, 'ps5.jpg', 'CLMPRE824C3', 50.00, 'Branco', 89.90, 'Protetor contra surtos elétricos com 8 tomadas.', 'Proteção contra surtos (DPS), microdisjuntor rearmável.', 4, 1, 1, 1, 1),
+('Power Bank 20000mAh', 'Anker PowerCore', 300, 'ps5.jpg', 'ANKPC20K24D4', 200.00, 'Preto', 349.90, 'Carregador portátil de alta capacidade para múltiplos dispositivos.', 'Tecnologia PowerIQ e VoltageBoost, 2 portas USB.', 4, 1, 1, 1, 1),
+('Estabilizador 1000VA', 'SMS Revolution Speedy', 150, 'ps5.jpg', 'SMSRS100024E5', 150.00, 'Preto', 249.90, 'Estabilizador de tensão para proteger PCs e periféricos.', '4 estágios de regulação, fusível rearmável, 4 tomadas de saída.', 4, 1, 1, 1, 1),
+('Fonte de Alimentação 1000W', 'Seasonic Focus GX', 90, 'ps5.jpg', 'SSNFGX100024F6', 900.00, 'Preto', 1349.90, 'Fonte de alimentação 80 Plus Gold, modular, alta eficiência.', 'Controle de ventoinha híbrido, design compacto (140mm de profundidade).', 4, 1, 1, 1, 1),
+('Régua de Tomadas para Rack', 'Intelbras', 100, 'ps5.jpg', 'INTBRR1924G7', 80.00, 'Preto', 129.90, 'Régua de energia padrão 19 polegadas para racks de servidor.', '8 tomadas 2P+T, disjuntor de 10A.', 4, 0, 1, 1, 1),
+('Carregador de Parede 100W GaN', 'Baseus', 250, 'ps5.jpg', 'BASGAN100W24H8', 220.00, 'Branco', 379.90, 'Carregador rápido com tecnologia GaN para notebooks e celulares.', '4 portas (2 USB-C, 2 USB-A), compacto e potente.', 4, 1, 1, 1, 1),
+('Pilhas Recarregáveis AA (4un)', 'Panasonic Eneloop Pro', 600, 'ps5.jpg', 'PANEPROAA24I9', 90.00, 'Preto', 149.90, 'Kit com 4 pilhas recarregáveis de alta capacidade.', '2550mAh, baixa autodescarga, podem ser recarregadas até 500 vezes.', 4, 1, 1, 1, 1),
+('Nobreak 700VA', 'Ragtech Easy Way', 200, 'ps5.jpg', 'RAGTEW70024J10', 250.00, 'Preto', 399.00, 'Nobreak de entrada para estações de trabalho e roteadores.', '6 tomadas, engate para bateria externa, software de gerenciamento.', 4, 1, 1, 1, 1);
+
+-- =============================================
+-- Departamento 5: Áudio
+-- =============================================
+INSERT INTO `produtos` (`nome_produto`, `marca_modelo`, `quantidade_produto`, `imagem_produto`, `numero_serie`, `custo_produto`, `cor_produto`, `preco_unid`, `descricao_produto`, `detalhes_produto`, `id_departamento`, `entrega_gratis`, `em_estoque`, `garantia`, `status_produto`) VALUES
+('Headphone WH-1000XM5', 'Sony', 100, 'ps5.jpg', 'SONYXM524A1', 1500.00, 'Preto', 2299.90, 'Headphone sem fio com o melhor cancelamento de ruído do mercado.', 'Áudio de alta resolução, 30 horas de bateria, design ultraconfortável.', 5, 1, 1, 1, 1),
+('Caixa de Som Bluetooth Flip 6', 'JBL', 300, 'ps5.jpg', 'JBLFLIP624B2', 500.00, 'Azul', 749.00, 'Caixa de som portátil, à prova dágua e com som potente.', '12 horas de bateria, tecnologia PartyBoost para conectar múltiplas caixas.', 5, 1, 1, 1, 1),
+('Interface de Áudio Scarlett 2i2', 'Focusrite', 150, 'ps5.jpg', 'FOCSC2I224C3', 800.00, 'Vermelho', 1199.00, 'Interface de áudio USB com 2 entradas e 2 saídas para gravação.', 'Pré-amplificadores de microfone de alta qualidade, modo Air, latência zero.', 5, 1, 1, 1, 1),
+('Soundbar HW-Q990C', 'Samsung', 60, 'ps5.jpg', 'SAMQ990C24D4', 4500.00, 'Preto', 6499.00, 'Sistema de soundbar com 11.1.4 canais e Dolby Atmos sem fio.', 'Subwoofer e caixas traseiras inclusas, som surround imersivo.', 5, 0, 1, 1, 1),
+('Microfone Condensador AT2020', 'Audio-Technica', 200, 'ps5.jpg', 'AUDAT202024E5', 550.00, 'Preto', 799.90, 'Microfone de estúdio ideal para vocais e instrumentos.', 'Padrão polar cardioide, alta capacidade de SPL, excelente custo-benefício.', 5, 1, 1, 1, 1),
+('Fone de Ouvido Sem Fio TWS', 'Galaxy Buds 2 Pro', 250, 'ps5.jpg', 'SAMGB2P24F6', 850.00, 'Grafite', 1299.00, 'Fone de ouvido intra-auricular com cancelamento de ruído ativo.', 'Áudio Hi-Fi 24bit, design ergonômico, resistência à água IPX7.', 5, 1, 1, 1, 1),
+('Toca-Discos de Vinil AT-LP60X', 'Audio-Technica', 90, 'ps5.jpg', 'AUDLP60X24G7', 1200.00, 'Preto', 1799.00, 'Toca-discos automático para entusiastas de vinil.', 'Operação totalmente automática, pré-amplificador phono integrado.', 5, 1, 1, 1, 1),
+('Monitor de Áudio de Estúdio', 'KRK Rokit 5 G4 (Par)', 120, 'ps5.jpg', 'KRKRP5G424H8', 1800.00, 'Preto/Amarelo', 2599.00, 'Par de monitores de referência para produção musical.', 'Woofer de Kevlar de 5", DSP integrado com EQ visual LCD.', 5, 0, 1, 1, 1),
+('Caixa de Som Portátil Xtreme 3', 'JBL', 80, 'ps5.jpg', 'JBLXTR324I9', 1100.00, 'Preto', 1599.00, 'Caixa de som grande, potente e com alça para transporte.', '15 horas de bateria, à prova dágua e poeira (IP67), power bank embutido.', 5, 1, 1, 1, 1),
+('DAC/AMP Portátil FiiO BTR5', 'FiiO', 180, 'ps5.jpg', 'FIIOBTR524J10', 600.00, 'Preto', 899.90, 'Amplificador de fone de ouvido e DAC Bluetooth de alta fidelidade.', 'Suporte a LDAC/aptX HD, saídas balanceada e P2, chip DAC duplo.', 5, 1, 1, 1, 1);
+
