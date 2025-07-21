@@ -2,10 +2,10 @@
     
 class Database{
     public $conn;
-    public string $local="192.168.22.9";
-    public string $db="140p2";
-    public string $user="devwebp2";
-    public string $password="voucher@140";
+    public string $local="localhost";
+    public string $db="Tweeb25";
+    public string $user="root";
+    public string $password="Oliveira@87185";
     public $table;
 
    
@@ -246,6 +246,7 @@ class Database{
         $stmt = $this->execute($sql, $params);
         return (int) $stmt->fetchColumn();
     }
+    
     public function searchProductsPaginated(string $term, int $limit, int $offset): array {
         $sql = "SELECT * FROM produtos 
                 WHERE nome_produto LIKE ? OR descricao_produto LIKE ? 
@@ -261,6 +262,17 @@ class Database{
         $stmt->bindValue(4, $params[3], PDO::PARAM_INT); 
         $stmt->execute();
         
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+    public function buscarProdutosPorTipoComponente(int $tipo_id) {
+        $query = "
+            SELECT p.*
+            FROM produtos p
+            JOIN produto_componente_link l ON p.id_produto = l.id_produto
+            WHERE l.id_tipo_componente = ?
+        ";
+        
+        $stmt = $this->execute($query, [$tipo_id]);
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 }

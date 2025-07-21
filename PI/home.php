@@ -388,7 +388,7 @@ session_start();
 
       <div class="anuncios">
         <a href="App/user/View/pages/task20-kitsetup.php" class="img-responsiva" ><img src="public/assets/img/Do seu jeito.png" alt=""></a>
-        <a href="App/user/View/pages/do-seu-jeito.php" class="img-responsiva"><img src="public/assets/img/Do seu jeito 2.png" alt=""></a>
+        <a href="/Tweeb-2025/PI/app/user/Controllers/ControllerProd/CategoriaController.php" class="img-responsiva"><img src="public/assets/img/Do seu jeito 2.png" alt=""></a>
         <a href="App/user/View/pages/corporativo.php" class="img-responsiva"><img src="public/assets/img/Do seu jeito 3.png" alt=""></a>
       </div>
 
