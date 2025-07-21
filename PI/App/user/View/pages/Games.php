@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-<?php include __DIR__.'/../../../../includes/headernavb.php'; ?>
+<?php include __DIR__.'/../../../../includes/headernavb.php'; 
+ include __DIR__.'/../../../../includes/sidebar-User.php' 
+?>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../../../public/css/Games.css">
@@ -23,7 +25,7 @@
 <?php if (!empty($produtos)): ?>
     <?php foreach ($produtos as $produto): ?>
         <div class="produtos-card" data-produto-id="<?= $produto['id_produto'] ?>">
-            <img class="heart" src="../../../../public/assets/img/heart_disabled.png" alt="coração" onclick="AtivarCoracao(this)">
+            <img class="heart" src="../../../../public/assets/img/heart_disabled.png" alt="coração" onclick="AtivarCoracao(this, <?= $produto['id_produto'] ?>)">
             <img class="add-carrinho" src="../../../../public/assets/img/carrinho-card.png" alt="Adicionar ao carrinho" onclick="adicionarAoCarrinho(<?= $produto['id_produto'] ?>)">
             <img class="image-produto" src="../../../../public/assets/img/<?= htmlspecialchars($produto['imagem_produto']) ?>" alt="<?= htmlspecialchars($produto['nome_produto']) ?>">
             <div class="card-rate">
@@ -117,7 +119,7 @@ function mostrarNotificacao(mensagem, tipo) {
     notificacao.textContent = mensagem;
     notificacao.style.cssText = `
         position: fixed;
-        top: 20px;
+        top: 70px;
         right: 20px;
         padding: 15px 20px;
         border-radius: 5px;
@@ -151,7 +153,7 @@ function atualizarContadorCarrinho() {
             const contador = document.querySelector('.carrinho-contador');
             if (contador) {
                 contador.textContent = data.contagem;
-                contador.style.display = data.contagem > 0 ? 'block' : 'none';
+                contador.style.display = data.contagem > 0 ? 'flex' : 'none'; // Changed to flex
             }
         }
     })
@@ -190,9 +192,33 @@ document.head.appendChild(style);
 // Carregar contador do carrinho ao carregar a página
 document.addEventListener('DOMContentLoaded', function() {
     atualizarContadorCarrinho();
+    carregarEstadoFavoritos();
 });
+
+// Função para carregar o estado dos favoritos
+function carregarEstadoFavoritos() {
+    const cards = document.querySelectorAll('.produtos-card');
+    cards.forEach(card => {
+        const idProduto = card.dataset.produtoId;
+        const heart = card.querySelector('.heart');
+        
+        if (idProduto && heart) {
+            fetch(`/Tweeb-2025/PI/App/user/Controllers/FavoritoController.php?action=verificar&id_produto=${idProduto}`)
+            .then(response => response.json())
+            .then(data => {
+                if (data.success && data.is_favorito) {
+                    heart.src = heart.src.replace('heart_disabled.png', 'heart_enabled.png');
+                }
+            })
+            .catch(error => {
+                console.error('Erro ao verificar favorito:', error);
+            });
+        }
+    });
+}
 </script>
 </body>
 <?php include __DIR__.'/../../../../includes/voltar-ao-topo.php'; ?>
 <?php include __DIR__.'/../../../../includes/footer.php'; ?>
+<script src="../../../../public/js/favoritos.js"></script>
 </html>

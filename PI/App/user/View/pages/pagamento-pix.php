@@ -147,7 +147,7 @@ function formatarMoeda($valor) {
         <a href="metodo-envio.php">
             <button class="botao-sair">Voltar</button>
         </a>
-        <button class="botao-finalizar" id="btn-finalizar" style="display: none;">Finalizar Compra</button>
+        <button class="botao-finalizar" id="btn-finalizar" style="display: none; cursor: pointer;">Finalizar Compra</button>
         </div>
 
     </div>

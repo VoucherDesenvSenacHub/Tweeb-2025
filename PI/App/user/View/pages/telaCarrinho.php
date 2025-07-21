@@ -32,7 +32,7 @@ $total_carrinho = Carrinho::calcularTotal($id_usuario);
       <?php if (empty($itens_carrinho)): ?>
         <div class="carrinho-vazio">
           <p>Seu carrinho está vazio</p>
-          <a href="/Tweeb-2025/PI/App/user/Controllers/ControllerProd/Departamento_Games.php" class="btn-continuar-comprando">Continuar comprando</a>
+          <a href="/Tweeb-2025/PI/App/user/Controllers/ControllerProd/Departamento_Games.php" class="continuar">Continuar comprando</a>
         </div>
       <?php else: ?>
         <?php foreach ($itens_carrinho as $item): ?>
@@ -52,7 +52,7 @@ $total_carrinho = Carrinho::calcularTotal($id_usuario);
             <button class="remover" onclick="removerProduto(<?= $item['id_produto'] ?>)"> <i class="bi bi-x-lg"></i></button>
           </div>
         <?php endforeach; ?>
-        <button class="continuar"><a href="/Tweeb-2025/PI/App/user/Controllers/ControllerProd/Departamento_Games.php">Continuar comprando</a></button>
+        <a href="/Tweeb-2025/PI/App/user/Controllers/ControllerProd/Departamento_Games.php" class="continuar">Continuar comprando</a>
       <?php endif; ?>
     </div>
     <div class="revisao-itens">
@@ -87,7 +87,7 @@ $total_carrinho = Carrinho::calcularTotal($id_usuario);
         </div>
       </div>
 
-      <button class="desconto" <?= empty($itens_carrinho) ? 'disabled' : '' ?>><a href="escolha-endereco.php">Continuar </a></button>
+      <a href="escolha-endereco.php" class="desconto" <?= empty($itens_carrinho) ? 'style="pointer-events: none; opacity: 0.5;"' : '' ?>>Continuar</a>
     </div>
   </div>
   <?php include __DIR__.'/../../../../includes/footer.php'; ?> 

@@ -94,19 +94,13 @@
   cursor: pointer;
 }
 .Carrinho .quantidade .number {
-  width: 6px;
-  height: 16px;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 16px;
+  display: flex;
   align-items: center;
-  color:#000000;
-  /* gap: 0px; */
-  /* opacity: 0px; */
+  justify-content: center;
   width: 40px;
   height: 100%;
   line-height: 32px;
-  border: 1px solid rgba(0, 0, 0, 0.2);
+  border: none;
   border-radius: 5px;
   box-shadow: none;
   /* cursor: text; */
@@ -141,9 +135,7 @@
   opacity: 0px;
   align-items: center;
   border: none; 
-  cursor: pointer; 
-}
-.Carrinho .continuar a{
+  cursor: pointer;
   color: #FFFFFF;
   font-size: 16px;
   font-weight: 500;
@@ -284,6 +276,7 @@
   text-align: left;  
 }
 .Carrinho .desconto{
+  display: flex;
   width: 445px;
   height: 56px;
   background-color: #291E40;
@@ -292,15 +285,15 @@
   border-radius: 6px;
   opacity: 0px;
   border: none; 
-  cursor: pointer; 
-}
-.Carrinho .desconto a{
+  cursor: pointer;
   color: #FFFFFF;
   font-size: 16px;
   font-weight: 500;
   line-height: 24px;
   text-align: center;
   text-decoration: none;
+  align-items: center;
+  justify-content: center;
 }
 
 
