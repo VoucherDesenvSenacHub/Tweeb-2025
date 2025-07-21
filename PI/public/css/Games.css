@@ -44,13 +44,14 @@
     border-radius: 9px;
     padding: 15px;
     box-sizing: border-box;
-    width: calc(33.333% - 20px);
+    width: calc(25% - 15px);
+    min-width: 250px;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
     position: relative;
-    min-height: 440px;
+    min-height: 432px;
 }
 
 .heart {
@@ -90,7 +91,9 @@
 
 .produtos-card h1 {
     font-family: "Inter", sans-serif;
-    font-size: 1.5rem;
+    font-size: 24px;
+    font-weight: 600;
+    color: #000;
     margin: 10px 0;
 }
 
@@ -184,7 +187,7 @@
         margin-left: 80px;
     }
     .produtos-card {
-        width: calc(50% - 20px);
+        width: calc(33.333% - 15px);
     }
     .Games-pages-container {
         padding-left: 80px; /* Ajusta o alinhamento da paginação */
@@ -206,7 +209,7 @@
         padding: 0 15px;
     }
     .produtos-card {
-        width: calc(100% - 20px);
+        width: calc(50% - 15px);
     }
     .container-favoritos-depto {
         flex-direction: column;
@@ -215,5 +218,12 @@
     .Games-pages-container {
         justify-content: center; /* Centraliza em telas menores */
         padding-left: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .produtos-card {
+        width: 100%;
+        max-width: 300px;
     }
 }

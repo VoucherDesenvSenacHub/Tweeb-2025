@@ -25,16 +25,25 @@
 <?php if (!empty($produtos)): ?>
     <?php foreach ($produtos as $produto): ?>
         <div class="produtos-card" data-produto-id="<?= $produto['id_produto'] ?>">
-            <img class="heart" src="../../../../public/assets/img/heart_disabled.png" alt="coração" onclick="AtivarCoracao(this, <?= $produto['id_produto'] ?>)">
-            <img class="add-carrinho" src="../../../../public/assets/img/carrinho-card.png" alt="Adicionar ao carrinho" onclick="adicionarAoCarrinho(<?= $produto['id_produto'] ?>)">
-            <img class="image-produto" src="../../../../public/assets/img/<?= htmlspecialchars($produto['imagem_produto']) ?>" alt="<?= htmlspecialchars($produto['nome_produto']) ?>">
+            <img class="heart" 
+                 src="../../../../public/assets/img/heart_disabled.png" 
+                 alt="coração" 
+                 data-produto-id="<?= $produto['id_produto'] ?>"
+                 onclick="AtivarCoracao(this)">
+            
+            <img class="image-produto" 
+                 src="../../../../public/assets/img/<?= htmlspecialchars($produto['imagem_produto']) ?>" 
+                 alt="<?= htmlspecialchars($produto['nome_produto']) ?>">
+            
             <div class="card-rate">
                 <?php for ($i = 0; $i < 5; $i++): ?><i class="fa-solid fa-star"></i><?php endfor; ?>
                 <span class="qnt-avaliacoes">(<?= rand(200, 800) ?>+)</span>
             </div>
+            
             <p><?= htmlspecialchars($produto['nome_produto']) ?></p>
             <p><?= htmlspecialchars($produto['marca_modelo']) ?></p>
             <h1>R$<?= number_format($produto['preco_unid'], 2, ',', '.') ?></h1>
+            
             <button class="card-botao" onclick="adicionarAoCarrinho(<?= $produto['id_produto'] ?>)">Adicionar ao Carrinho</button>
         </div>
     <?php endforeach; ?>
@@ -84,6 +93,7 @@
     </div>
 </div>
 <script src="../../../../public/js/task20-modal.js"></script>
+<script src="../../../../public/js/favoritos.js"></script>
 <script>
 // Função para adicionar produto ao carrinho
 function adicionarAoCarrinho(idProduto) {
