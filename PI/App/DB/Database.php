@@ -2,10 +2,10 @@
     
 class Database{
     public $conn;
-    public string $local="localhost";
-    public string $db="Tweeb25";
-    public string $user="root";
-    public string $password="suporte@22";
+    public string $local="192.168.22.9";
+    public string $db="140p2";
+    public string $user="devwebp2";
+    public string $password="voucher@140";
     public $table;
 
    
@@ -20,7 +20,8 @@ class Database{
             $this->conn->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
         } catch (PDOException $err) {
             //retirar msg em produção
-            die("Connection Failed: " . $err->getMessage());
+            error_log("Erro de Conexão com o Banco: " . $err->getMessage());
+            throw new Exception("Não foi possível conectar ao banco de dados.");
         }
     }
 
@@ -33,7 +34,7 @@ class Database{
             return $stmt;
         }catch (PDOException $err) {
             //retirar msg em produção
-            die("Connection Failed " . $err->getMessage());
+            throw $err;
         }
     }
 
@@ -240,11 +241,79 @@ class Database{
         return $this->execute($query);
     }
 
-    /**
-     * Retorna a conexão PDO atual
-     */
-    public function getConnection() {
-        return $this->conn;
+    public function searchProductsByTerm(string $term): array {
+        $sql = "SELECT id_produto, nome_produto, descricao_produto, preco_unid, imagem_produto 
+                FROM produto 
+                WHERE nome_produto LIKE ? OR descricao_produto LIKE ?";
+        
+        $params = ["%{$term}%", "%{$term}%"];
+        
+        return $this->execute($sql, $params)->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    
+    public function findProductById(int $id) {
+        $sql = "SELECT * FROM produto WHERE id_produto = ?";
+        return $this->execute($sql, [$id])->fetchObject('Produto');
+    }
+
+    
+    public function deleteProductById(int $id): bool {
+        $sql = "DELETE FROM produto WHERE id_produto = ?";
+        $stmt = $this->execute($sql, [$id]);
+        return $stmt->rowCount() > 0;
+    }
+
+    
+    public function updateProductById(int $id, array $productData): bool {
+
+        unset($productData['id_produto']);
+
+        $fields = array_keys($productData);
+        $setClause = implode(' = ?, ', $fields) . ' = ?';
+
+        $sql = "UPDATE produto SET {$setClause} WHERE id_produto = ?";
+        $params = array_values($productData);
+        $params[] = $id;
+        
+        $stmt = $this->execute($sql, $params);
+        return $stmt->rowCount() > 0;
+    }
+
+    public function countSearchResults(string $term): int {
+        $sql = $sql = "SELECT COUNT(*) FROM produtos WHERE nome_produto LIKE ? OR descricao_produto LIKE ?";
+        $params = ["%{$term}%", "%{$term}%"];
+        $stmt = $this->execute($sql, $params);
+        return (int) $stmt->fetchColumn();
+    }
+    
+    public function searchProductsPaginated(string $term, int $limit, int $offset): array {
+        $sql = "SELECT * FROM produtos 
+                WHERE nome_produto LIKE ? OR descricao_produto LIKE ? 
+                ORDER BY nome_produto ASC 
+                LIMIT ? OFFSET ?";
+
+        $params = ["%{$term}%", "%{$term}%", $limit, $offset];
+        
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindValue(1, $params[0]); 
+        $stmt->bindValue(2, $params[1]); 
+        $stmt->bindValue(3, $params[2], PDO::PARAM_INT); 
+        $stmt->bindValue(4, $params[3], PDO::PARAM_INT); 
+        $stmt->execute();
+        
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+    public function buscarProdutosPorTipoComponente(int $tipo_id) {
+        $query = "
+            SELECT p.*
+            FROM produtos p
+            JOIN produto_componente_link l ON p.id_produto = l.id_produto
+            WHERE l.id_tipo_componente = ?
+        ";
+        
+        $stmt = $this->execute($query, [$tipo_id]);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 }
 
