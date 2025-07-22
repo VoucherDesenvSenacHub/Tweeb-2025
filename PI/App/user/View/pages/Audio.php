@@ -53,46 +53,7 @@ session_start();
 <?php endif; ?>
 </div>
 
-<div class="Audio-pages-container">
-    <div class="Audio-pages">
-        <?php
-        $adjacents = 2;
-        if ($total_paginas > 1):
-            if ($pagina_atual > 1): ?>
-                <a href="?page=<?= $pagina_atual - 1 ?>" class="Audio-page2-button">&laquo; Anterior</a>
-            <?php endif;
-            if ($pagina_atual < ($adjacents + 3)) {
-                for ($i = 1; $i < ($adjacents + 4) && $i <= $total_paginas; $i++) {
-                    echo '<a href="?page=' . $i . '" class="' . ($i == $pagina_atual ? 'Audio-page1-button' : 'Audio-page2-button') . '"><span class="' . ($i == $pagina_atual ? 'Audio-page-number' : 'Audio-page2-number') . '">' . $i . '</span></a>';
-                }
-                if ($total_paginas > ($adjacents + 3)) {
-                    echo '<span class="Audio-page2-number">...</span>';
-                    echo '<a href="?page=' . $total_paginas . '" class="Audio-page2-button"><span class="Audio-page2-number">' . $total_paginas . '</span></a>';
-                }
-            }
-            elseif ($pagina_atual >= ($adjacents + 3) && $pagina_atual < ($total_paginas - ($adjacents + 1))) {
-                echo '<a href="?page=1" class="Audio-page2-button"><span class="Audio-page2-number">1</span></a>';
-                echo '<span class="Audio-page2-number">...</span>';
-                for ($i = $pagina_atual - $adjacents; $i <= $pagina_atual + $adjacents; $i++) {
-                    echo '<a href="?page=' . $i . '" class="' . ($i == $pagina_atual ? 'Audio-page1-button' : 'Audio-page2-button') . '"><span class="' . ($i == $pagina_atual ? 'Audio-page-number' : 'Audio-page2-number') . '">' . $i . '</span></a>';
-                }
-                echo '<span class="Audio-page2-number">...</span>';
-                echo '<a href="?page=' . $total_paginas . '" class="Audio-page2-button"><span class="Audio-page2-number">' . $total_paginas . '</span></a>';
-            }
-            else {
-                echo '<a href="?page=1" class="Audio-page2-button"><span class="Audio-page2-number">1</span></a>';
-                echo '<span class="Audio-page2-number">...</span>';
-                for ($i = $total_paginas - ($adjacents + 2); $i <= $total_paginas; $i++) {
-                    echo '<a href="?page=' . $i . '" class="' . ($i == $pagina_atual ? 'Audio-page1-button' : 'Audio-page2-button') . '"><span class="' . ($i == $pagina_atual ? 'Audio-page-number' : 'Audio-page2-number') . '">' . $i . '</span></a>';
-                }
-            }
-            if ($pagina_atual < $total_paginas): ?>
-                <a href="?page=<?= $pagina_atual + 1 ?>" class="Audio-page2-button">Próximo &raquo;</a>
-            <?php endif;
-        endif;
-        ?>
-    </div>
-</div>
+
 <script src="../../../../public/js/task20-modal.js"></script>
 </body>
 <?php include __DIR__.'/../../../../includes/voltar-ao-topo.php'; ?>

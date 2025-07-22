@@ -244,6 +244,9 @@
     padding: 20px;
     z-index: 1000;
     width: 350px;
+    padding-bottom: 120px;
+    margin-bottom: 150px;
+
 }
 .filtrodept-container-geral {
     scrollbar-width: thin;
@@ -254,10 +257,11 @@
     top: 855px;
     left: 190px;
     background-color: white;
-    padding: 20px;
+    padding: 200px;
     z-index: 1000;
     width: 350px;
     display: block;
+    padding-bottom: 120px;
 }
 .filtrodept-container-geral {
     scrollbar-width: thin;
