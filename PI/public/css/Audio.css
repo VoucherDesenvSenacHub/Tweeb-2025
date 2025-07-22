@@ -1,42 +1,39 @@
-.Search {
+.Audio{
     overflow-x: hidden;
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
 
-.Search-container_banner img {
+.Audio-container_banner img{
     width: 100%;
     height: 472px;
     margin-top: 40px;
 }
 
-.Search-h1 {
+
+.Audio-h1{
     font-size: 62px;
     font-family: "Inter", serif;
     display: flex;
     margin-left: 5%;
 }
 
-.Search-p {
+.Audio-p{
     font-size: 22px;
     font-family: "Nunito", serif;
     font-weight: bold;
     margin-left: 7%;
 }
-.Search-container_titles {
-    margin-top: 20px;
+.Audio-container_titles{
+    margin-top: 60px;
     margin-left: 130px;
 }
 
 .Audio-container_products{
     display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    gap: 20px;
-    padding: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
+    justify-content: center;
+    gap: 16px;
 }
 
 .Audio-products_box{
@@ -44,9 +41,114 @@
     height: 432px;
     background-color: #F6F6F6;
     border-radius: 9px;
-    padding: 15px;
-    box-sizing: border-box;
-    width: 31%;
+    margin-top: 40px;
+}
+
+.Audio-config-box{
+    width: 107px;
+    height: 37px;
+    background-color: #291E40;
+    border-radius: 40px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 19px;
+    margin-left: 12px;
+    cursor: pointer;
+}
+
+.Audio-config-box-p{
+    color: white;
+    font-size: 8px;
+    margin-left: 15px;
+}
+
+.Audio-info-box{
+    width: 24px;
+    height: 24px;
+    background-color: #BF99FE;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Audio-header-product-box{
+    height: 30%;
+    display: flex;
+    flex-direction: row;
+    cursor: pointer;
+}
+
+.Audio-heart-icon-box img{
+    width: 32px;
+    height: 32px;
+    margin-top: 24px;
+    margin-left: 102px;
+}
+
+.Audio-product-image{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Audio-product-name-box h1{
+    font-size: 16px;
+    font-family: "Montserrat", serif;
+    font-weight: 500;
+    width: 237px;
+    height: 48px;
+    text-align: center;
+}
+
+.Audio-product-name-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 16px;
+}
+
+.Audio-product-price-box h1{
+    font-size: 24px;
+    font-family: "Montserrat", serif;
+    font-weight: 600;
+    width: 237px;
+    height: 48px;
+    text-align: center;
+}
+
+.Audio-product-price-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 16px;
+}
+
+.Audio-buy-product-button-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.Audio-buy-product-button{
+    width: 235px;
+    height: 48px;
+    background-color: #291E40;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin-top: 19px;
+}
+
+.Audio-buy-product-text{
+    color: white;
+}
+
+.Audio-main-product-contant{
     display: flex;
     flex-direction: column;
     transform: translateY(-18%);
@@ -90,99 +192,181 @@
     color: white;
 }
 
-/* ================================== */
-/* CSS PARA PAGINAÇÃO - VERSÃO SEARCH */
-/* ================================== */
-
-.Search-pages-container {
-    display: flex;
-    justify-content: flex-end;
-    width: 100%;
-    margin: 30px 0;
-    padding-right: 5%; 
-    box-sizing: border-box;
+.Audio-page2-number{
+    color: black;
 }
 
-.Search-pages {
+.Audio-left-arrow{
+    width: 6px;
+    height: 12px;
+    cursor: pointer;
+}
+
+.Audio-right-arrow{
+    width: 6px;
+    height: 12px;
+    cursor: pointer;
+}
+
+.Audio-pages-button-container{
+    gap: 8px;
     display: flex;
-    flex-wrap: wrap;
-    gap: 6px; 
+    cursor: pointer;
+}
+
+.Audio-pages-container{
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 13%;
+    margin-top: 32px;
+}
+
+
+
+
+
+
+
+/* CSS MODAL*/
+
+
+.Audio-info-modal-container{
+    display: none;
+    justify-content: center;
     align-items: center;
 }
 
-/* Estilo base para todos os botões de página */
-.Search-pages a {
+
+.Audio-info-modal{
+    width: 270px;
+    height: 432px;
+    background-color: #D4E3FF;
+    border-radius: 9px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+
+
+.Audio-info-modal-title{
+    font-size: 14px;
+    font-family: "Inter", serif;
+    font-weight: 700;
+    display: flex;
+    margin-left: 35px;
+    margin-top: 16px;
+}
+
+.Audio-info-modal-placa-mae{
+    font-size: 10px;
+    font-family: "Nunito", serif;
+    width: 200px;
+    display: flex;
+    margin-left: 56px;
+    margin-top: 10px;
+    line-height: 15px;
+}
+
+.Audio-info-modal-armazenamento{
+    font-size: 10px;
+    font-family: "Nunito", serif;
+    width: 200px;
+    display: flex;
+    margin-left: 56px;
+    margin-top: 10px;
+    line-height: 15px;
+}
+
+.Audio-info-modal-fonte{
+    font-size: 10px;
+    font-family: "Nunito", serif;
+    width: 200px;
+    display: flex;
+    margin-left: 56px;
+    margin-top: 10px;
+    line-height: 15px;
+}
+
+.Audio-info-modal-gabinete{
+    font-size: 10px;
+    font-family: "Nunito", serif;
+    width: 200px;
+    display: flex;
+    margin-left: 56px;
+    margin-top: 10px;
+    line-height: 15px;
+}
+
+.Audio-info-modal-alimentacao{
+    font-size: 10px;
+    font-family: "Nunito", serif;
+    width: 200px;
+    display: flex;
+    margin-left: 56px;
+    margin-top: 10px;
+    line-height: 15px;
+}
+
+.Audio-info-modal-placa-de-video{
+    font-size: 10px;
+    font-family: "Nunito", serif;
+    width: 200px;
+    display: flex;
+    margin-left: 56px;
+    margin-top: 10px;
+    line-height: 15px;
+}
+
+.Audio-icons-model{
+    width: 16px;
+    height: 16px;
+    transform: translateX(-4px);
+}
+
+.Audio-buy-now{
     text-decoration: none;
-    padding: 6px 12px;
-    border: 1px solid #e0e0e0;
-    border-radius: 4px;
-    font-family: "Nunito", sans-serif;
-    font-size: 0.9rem;
-    display: inline-block;
-    transition: all 0.2s ease;
-    background-color: #f8f8f8;
-    color: #555;
-}
-
-/* Efeito hover para botões não ativos */
-.Search-page-button:hover {
-    background-color: #291E40 !important;
-    color: white !important;
-    border-color: #291E40;
-    transform: translateY(-1px);
-}
-
-/* Estilo para o botão da página ativa */
-.Search-page-active {
-    background-color: #291E40;
     color: white;
 }
 
-/* ================================== */
-/* MEDIA QUERIES             */
-/* ================================== */
-
-@media (max-width: 1440px) {
-    .Search-container_banner img {
+@media (max-width: 1440px) { /* Ajustes para telas menores */
+    .Audio-container_banner img {
         height: 400px;
     }
-    .Search-h1 {
+    .Audio-h1 {
         font-size: 52px;
         margin: 0%;
     }
 }
 
-@media (max-width: 1024px) {
-    .Search-container_banner img {
+@media (max-width: 1024px) { /* Tablets e notebooks pequenos */
+    .Audio-container_banner img {
         height: 350px;
     }
-    .Search-h1 {
+    .Audio-h1 {
         font-size: 42px;
     }
-    .Search-container_titles {
+    .Audio-container_titles {
         margin-left: 80px;
     }
-    .produtos-card {
-        width: 47%;
-    }
-    .Search-pages-container {
-        padding-left: 80px; 
+    .Audio-container_products {
+        flex-wrap: wrap;
+        justify-content: center;
     }
 }
 
-@media (max-width: 768px) {
-    .Search-container_banner img {
+@media (max-width: 768px) { /* Tablets em modo retrato */
+    .Audio-container_banner img {
         height: 300px;
     }
-    .Search-h1 {
+    .Audio-h1 {
         font-size: 36px;
     }
-    .Search-p {
+    .Audio-p {
         font-size: 18px;
     }
-    .Search-container_titles {
-        margin-left: 20px;
-        padding: 0 15px;
+    .Audio-container_titles {
+        margin-left: 40px;
     }
     .Audio-products_box {
         width: 220px;
@@ -196,9 +380,12 @@
         flex-direction: column;
         align-items: center;
     }
-    .Search-pages-container {
-        justify-content: center; 
-        padding-left: 0;
+}
+
+@media (max-width: 600px) { /* Smartphones grandes */
+    .Audio-container_banner img {
+        height: 250px;
+        margin-top: 20px;
     }
     .Audio-h1 {
         font-size: 28px;

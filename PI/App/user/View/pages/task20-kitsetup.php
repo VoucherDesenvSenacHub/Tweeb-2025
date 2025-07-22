@@ -19,14 +19,7 @@
     <title>Tweeb</title>
 </head>
 <body class="task20-kitsetup">
-<?php
-    if (isset($_SESSION['usuario'])) {
-        include __DIR__.'/../../../../includes/navbar.php'; 
-        include __DIR__.'/../../../../includes/sidebar-User.php'; 
-    } else {
-        include __DIR__.'/../../../../includes/navbar.php'; 
-    }
-    ?>
+<?php include __DIR__.'/../../../../includes/navbar-logada.php'; ?>
     <div class="kitsetup-container_banner">
         <img src="../../../../public/assets/img/banner setup.png" alt="banner-kit_setup" class="kitsetup-banner">
     </div>

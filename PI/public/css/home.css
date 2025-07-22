@@ -238,10 +238,7 @@ span{
     justify-content: space-evenly;
     /* background-color: rebeccapurple; */
 }
-.categorias-card a{
-    text-decoration: none;
-    color: black;
-}
+
 .card{
     display: flex;
     align-items: center;

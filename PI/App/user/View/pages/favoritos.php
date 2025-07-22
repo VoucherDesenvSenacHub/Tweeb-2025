@@ -23,12 +23,8 @@ $favoritos = Favorito::buscarFavoritosUsuario($_SESSION['usuario']['id']);
 </head>
 <body class="favoritos-usuario">
 
-<?php
-    if (isset($_SESSION['usuario'])) {
-        include __DIR__.'/../../../../includes/navbar.php'; 
-        include __DIR__.'/../../../../includes/sidebar-User.php'; 
-    }
-?>
+<?php include __DIR__.'/../../../../includes/navbar-logada.php'; ?>
+<?php include __DIR__.'/../../../../includes/sidebar-User.php'; ?>
 
 <div class="container-favoritos-5">
     <?php if (empty($favoritos)): ?>

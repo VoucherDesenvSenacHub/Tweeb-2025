@@ -563,14 +563,11 @@
         padding: 0 100px; 
     }
 
-@media (max-width: 1920px){
-.searchn-box .search-form-nav .search-button i{
-    margin-bottom: 13px;
-  }
-.searchn-box .search-form-nav .search-input{
-    width: 90%;
-}
-}
+    .search-box input {
+        height: 60px; 
+        font-size: 18px;
+        padding: 0 50px; 
+    }
 
     .navb ul {
         display: flex;
