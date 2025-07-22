@@ -12,7 +12,6 @@ $is_logged_in = isset($_SESSION['usuario']) && !empty($_SESSION['usuario']);
     <!-- Exemplo: <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"> -->
 </head>
 <body class="navBody">
-
 <header class="headNav">
     <div class="hamburguer">
         <i class='bx bx-menu'></i>
