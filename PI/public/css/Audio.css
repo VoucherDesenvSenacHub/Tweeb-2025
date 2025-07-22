@@ -33,7 +33,7 @@
 .Audio-container_products{
     display: flex;
     flex-wrap: wrap;
-    justify-content: flex-end !important;
+    justify-content: flex-start;
     gap: 20px;
     padding: 320px;
     max-width: 1200px;
@@ -337,7 +337,7 @@
     .Audio-container_banner img {
         height: 400px;
     }
-    .Audio-h1 {
+    .Search-h1 {
         font-size: 52px;
         margin: 0%;
     }
@@ -347,10 +347,10 @@
     .Audio-container_banner img {
         height: 350px;
     }
-    .Audio-h1 {
+    .Search-h1 {
         font-size: 42px;
     }
-    .Audio-container_titles {
+    .Search-container_titles {
         margin-left: 80px;
     }
     .Audio-container_products {
@@ -363,10 +363,10 @@
     .Audio-container_banner img {
         height: 300px;
     }
-    .Audio-h1 {
+    .Search-h1 {
         font-size: 36px;
     }
-    .Audio-p {
+    .Search-p {
         font-size: 18px;
     }
     .Audio-container_titles {

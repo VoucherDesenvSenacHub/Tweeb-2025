@@ -5,10 +5,6 @@ require_once __DIR__ . '../../../Models/Usuario.php';
 if (session_status() !== PHP_SESSION_ACTIVE) {
     session_start();
 }
-if (!isset($_SESSION['usuario']['id'])) {
-    header('Location: login.php');
-    exit();
-}
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -21,7 +17,7 @@ if (!isset($_SESSION['usuario']['id'])) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 </head>
 <body-quemsomos>
-<?php include __DIR__.'/../../../../includes/navbar-logada.php'; ?>
+<?php include __DIR__.'/../../../../includes/navbar.php'; ?>
 
 <div class="quemsomos">
 <section class="Banner_Sobre_Nos">

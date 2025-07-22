@@ -107,4 +107,7 @@ class Produto{
     {
         return (new Database('produtos'))->count($where);
     }
+    public static function buscarPorTipoComponente(int $tipo_id) {
+        return (new Database())->buscarProdutosPorTipoComponente($tipo_id);
+    }
 }
