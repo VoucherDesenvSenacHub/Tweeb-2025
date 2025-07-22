@@ -10,7 +10,6 @@ require_once __DIR__ . '/../../Models/Categoria.php';
 if (!isset($_SESSION['montagem'])) {
     $_SESSION['montagem'] = [];
 }
-
 $tipo_ativo_id = isset($_GET['tipo']) ? (int)$_GET['tipo'] : 1; 
 
 if (isset($_GET['add'])) {

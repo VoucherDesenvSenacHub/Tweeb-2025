@@ -14,7 +14,6 @@ $pagina_atual = isset($_GET['page']) && is_numeric($_GET['page']) ? (int)$_GET['
 // 3. CONFIGURA A PAGINAÇÃO
 $produtos_por_pagina = 9;
 $offset = ($pagina_atual - 1) * $produtos_por_pagina;
-
 // 4. CHAMA A MODEL PARA BUSCAR OS DADOS
 $total_produtos = 0;
 $produtos = [];

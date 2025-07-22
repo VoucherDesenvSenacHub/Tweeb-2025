@@ -11,8 +11,6 @@ $where = 'id_departamento = 3 AND status_produto = 1';
 $total_produtos = Produto::contar($where);
 $total_paginas = ceil($total_produtos / $produtos_por_pagina);
 
-
 $produtos = Produto::buscarPaginado($where, null, $produtos_por_pagina, $offset);
-
 
 include __DIR__ . '/../../View/pages/Perifericos.php';

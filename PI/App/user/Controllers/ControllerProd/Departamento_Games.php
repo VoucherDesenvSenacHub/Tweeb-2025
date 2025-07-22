@@ -14,5 +14,4 @@ $total_paginas = ceil($total_produtos / $produtos_por_pagina);
 
 $produtos = Produto::buscarPaginado($where, null, $produtos_por_pagina, $offset);
 
-
 include __DIR__ . '/../../View/pages/Games.php';
