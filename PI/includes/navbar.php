@@ -16,7 +16,6 @@ $is_logged_in = isset($_SESSION['usuario']) && !empty($_SESSION['usuario']);
     <div class="hamburguer">
         <i class='bx bx-menu'></i>
     </div>
-
     <div class="logo">
         <a href="/Tweeb-2025/PI/home.php"><img src="/Tweeb-2025/PI/public/assets/img/Ativo 2.png" alt="logo tweeb"></a>
     </div>
