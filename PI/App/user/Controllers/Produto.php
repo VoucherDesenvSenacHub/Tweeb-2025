@@ -107,4 +107,11 @@ class Produto{
     {
         return (new Database('produtos'))->count($where);
     }
+    public static function searchAndCount(string $term): int {
+        return (new Database())->countSearchResults($term);
+    }
+
+    public static function searchPaginated(string $term, int $limit, int $offset): array {
+        return (new Database())->searchProductsPaginated($term, $limit, $offset);
+    }
 }

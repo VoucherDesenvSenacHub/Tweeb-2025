@@ -5,7 +5,7 @@
 session_start();
 
 // 1. INCLUI A MODEL
-require_once __DIR__ . '/../../Models/Produto.php'; 
+require_once __DIR__ . '/../Produto.php'; 
 
 // 2. OBTÉM OS DADOS DA URL
 $searchTerm = $_GET['search'] ?? ''; 
