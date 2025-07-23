@@ -69,17 +69,57 @@
     width: 0;
     transition: width 0.5s;
 }
-.painel-prioridade-média{
+
+.painel-prioridade-baixa{
+    /* color: white; */
+    /* background-color: rgb(98, 199, 98); */
+    background-color: green;
+    border-radius: 2px;
+    padding: 5px;
+}
+
+.painel-prioridade-media{
+    /* color: white; */
+    /* background-color: blueviolet; */
     background-color: orange;
     border-radius: 2px;
     padding: 5px;
 }
 
 .painel-prioridade-alta{
+    /* color: white; */
     background-color: red;
     border-radius: 3px;
     padding: 5px;
 }
+
+.painel-prioridade-finalizada{
+    /* color: white; */
+    background-color: rgb(107, 107, 246);
+    border-radius: 3px;
+    padding: 5px;
+}
+
+.pagination-painel-adm {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+.pagination-painel-adm button {
+  border: none;
+  padding: 8px 15px;
+  margin: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.painel-tabela-header tr:hover,
+.painel-tabela-header th:hover {
+  background-color: transparent !important;
+  cursor: default;
+}
+
 /* .painel-bottom-container {
     display: flex;
     gap: 20px;
