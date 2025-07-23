@@ -530,7 +530,7 @@ h2 {
   white-space: nowrap; /* Impede que o texto quebre a linha */
   overflow: hidden;     /* Esconde qualquer coisa que ultrapasse */
   text-overflow: ellipsis;
-  margin-left: 30px;
+  /* margin-left: 30px; */
   
 }
 

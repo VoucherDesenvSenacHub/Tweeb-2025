@@ -33,6 +33,7 @@
     <link rel="stylesheet" href="../../../../public/css/listarProdutos.css">
     <link rel="stylesheet" href="../../../../public/css/estoque.css">
     <link rel="stylesheet" href="../../../../public/css/adm-manutencao.css">
+    <link rel="stylesheet" href="../../../../public/css/estoqueok.css">
     <link rel="stylesheet" href="../../../../public/css/editar-modal.css">
     <link rel="stylesheet" href="../../../../public/css/aparencia.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>

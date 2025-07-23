@@ -13,7 +13,7 @@ class Produto{
     public string $marca_modelo;
     public int $quantidade_produto;
     public string $imagem_produto;
-    public int $numero_serie;
+    public string $numero_serie;
     public float $custo_produto;
     public string $cor_produto;
     public float $preco_unid;
@@ -114,7 +114,8 @@ class Produto{
        
         return (new Database('produtos'))->select($condicaoBase, $order, $limit)->fetchAll(PDO::FETCH_ASSOC);
     }
-    
+
+
 
     // public static function buscar_by_id($id_produto){
     //     //FETCHALL
@@ -134,7 +135,7 @@ class Produto{
 
     
         $stmt = $conn->prepare("UPDATE produtos SET em_estoque = ?, garantia = ?, entrega_gratis = ? WHERE id_produto = ?");
-        $stmt->execute([$em_estoque, $garantia, $entrega_gratis, $id]);
+        $stmt->execute([$em_estoque, $garantia, $entrega_gratis, $id_produto]);
     }
 
     public function update2() {
@@ -143,5 +144,12 @@ class Produto{
             ['status_produto' => $this->status_produto] // ← dados para atualizar
         );
     }
-}
+
     
+   
+
+  
+}
+        
+
+   

@@ -109,12 +109,12 @@
   display: flex;
   justify-content: space-evenly;
   margin: 3rem 0;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
   gap: 2rem;
 }
 
 .centralizar-categorias{
-  display: flex;
+  /* display: flex; */
   align-items: center;
   justify-content: center;
 }
@@ -252,7 +252,7 @@
 }
 
 .form-group-estoque{
-  display: flex;
+  /* display: flex; */
   flex-wrap: wrap;
   margin-top: 2rem;
   justify-content: center;
@@ -261,7 +261,7 @@
 .form-group-estoque, .form-group-breakline{
   height: auto;
   position: inherit;
-  max-height: 100px;
+  /* max-height: 100px; */
 }
 
 /* .form-group-breakline{
