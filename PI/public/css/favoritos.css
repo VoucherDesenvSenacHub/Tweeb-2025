@@ -22,7 +22,9 @@
     border-radius: 10px;
     padding: 15px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    width: 250px;
+    /* Largura ajustada para 3 produtos por linha e para um visual mais fino */
+    width: calc(30% - 13px); /* Reduzido de 33.333% para 30% e ajustado o gap */
+    min-width: 230px; /* Definindo um min-width para o card não ficar menor que isso */
     position: relative;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
@@ -256,10 +258,13 @@
     }
 }
 
-/* Estilos dos cards de produtos */
+/* Estilos dos cards de produtos - ESTILO ORIGINAL DO CARD, REPETIDO NO SEU CÓDIGO */
+/* Mantive apenas a primeira definição do .produtos-card, onde a largura foi ajustada. */
+/* Se você tinha essa segunda definição com a largura original, ela estaria sobrepondo a primeira. */
+/* Garantindo que a largura ajustada seja a única ou a última a ser aplicada. */
 .produtos-card {
-    width: calc(25% - 15px);
-    min-width: 250px;
+    /* Largura já definida acima */
+    min-width: 250px; /* Use o min-width para controlar o menor tamanho do card */
     background-color: #F6F6F6;
     border-radius: 9px;
     padding: 15px;
@@ -328,13 +333,14 @@
 /* Modo responsivo para telas menores */
 @media screen and (max-width: 1024px) {
     .produtos-card {
-        width: calc(33.333% - 15px);
+        /* Para telas de 1024px, 3 produtos por linha ainda deve funcionar bem */
+        width: calc(30% - 13px); /* Mantém 3 por linha, ajustado para mais fino */
     }
 }
 
 @media screen and (max-width: 768px) {
     .produtos-card {
-        width: calc(50% - 15px);
+        width: calc(50% - 15px); /* Aqui já exibe 2 produtos por linha */
     }
 }
 
@@ -350,16 +356,16 @@
 
     .container-favoritos-depto {
         display: flex;
-        flex-direction: column; 
-        align-items: center; 
-        width: 100%; 
-        max-width: 300px; 
-        margin: 0 auto; 
-        gap: 20px; 
-        padding: 10px 0; 
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto;
+        gap: 20px;
+        padding: 10px 0;
     }
-    
-    
+
+
     .produtos-card {
         width: 100%;
         height: auto;
@@ -371,7 +377,7 @@
         flex-direction: column;
         align-items: center;
     }
- 
+
 
     .produtos-card .image-produto {
         width: 100%;
@@ -391,7 +397,3 @@
         font-size: 18px;
     }
 }
-
-
-
-

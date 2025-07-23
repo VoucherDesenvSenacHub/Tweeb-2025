@@ -377,7 +377,8 @@ CREATE TABLE ordem_servico (
 
 
 
-USE 140p2;
+CREATE DATABASE Tweeb25;
+USE Tweeb25;
 SELECT * FROM usuarios;
 SELECT * FROM clientes;
 SELECT * FROM administrador;
@@ -386,13 +387,13 @@ SELECT * FROM departamento;
 SELECT * FROM produtos;
 SELECT * FROM avaliacao_produto;
 SELECT * FROM enderecos;
+SELECT * FROM pedidos;
 SELECT * FROM fornecedor;
 SELECT * FROM questionario;
 SELECT * FROM respostas_preferencias;
 SELECT * FROM orcamento;
 SELECT * FROM ordem_servico;
-SELECT * FROM pedidos;
-SELECT * FROM pedido_itens;
+SELECT * FROM favoritos;
 desc usuarios;
 -- Tabela base: USUÁRIOS
 CREATE TABLE `usuarios` (
@@ -633,7 +634,6 @@ CREATE TABLE IF NOT EXISTS pedidos (
     id_usuario INT NOT NULL,
     id_endereco INT NOT NULL,
     valor_total DECIMAL(10,2) NOT NULL,
-    imagem_prouto VARCHAR(255),
     valor_frete DECIMAL(10,2) DEFAULT 0.00,
     metodo_envio VARCHAR(50) NOT NULL,
     data_entrega_estimada DATE,
@@ -717,3 +717,23 @@ DESCRIBE pedidos;
 DESCRIBE pedido_itens;
 DESCRIBE pedido_status_historico;
 DESCRIBE config_frete;
+
+
+
+
+DROP TABLE IF EXISTS favoritos;
+
+-- Criar a nova tabela favoritos com a estrutura correta
+CREATE TABLE favoritos (
+    id_favorito INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    id_usuario INT NOT NULL,
+    id_produto INT NOT NULL,
+    data_adicionado TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (id_usuario) REFERENCES usuarios (id) ON DELETE CASCADE,
+    FOREIGN KEY (id_produto) REFERENCES produtos (id_produto) ON DELETE CASCADE,
+    UNIQUE KEY unique_user_product (id_usuario, id_produto)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Criar índices para melhor performance
+CREATE INDEX idx_favoritos_usuario ON favoritos (id_usuario);
+CREATE INDEX idx_favoritos_produto ON favoritos (id_produto); 
