@@ -144,7 +144,33 @@ class Produto{
             ['status_produto' => $this->status_produto] // ← dados para atualizar
         );
     }
-
+    public static function buscarnovos($filtros = null, $ordenacao = null, $limite = null) {
+        require_once __DIR__ . '/../../DB/Database.php'; // Ajuste o caminho conforme seu projeto
+    
+        $conexao = Database::conectar();
+    
+        $sql = "SELECT * FROM produtos";
+    
+        if ($filtros) {
+            $sql .= " WHERE " . $filtros;
+        }
+    
+        if ($ordenacao) {
+            $sql .= " ORDER BY " . $ordenacao;
+        }
+    
+        if ($limite) {
+            $sql .= " LIMIT " . intval($limite);
+        }
+    
+        $stmt = $conexao->prepare($sql);
+        $stmt->execute();
+    
+        $resultado = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $resultado;
+    }
+    
+}
     
    
 

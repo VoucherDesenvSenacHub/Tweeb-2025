@@ -220,32 +220,23 @@ class Database{
         }
     }
 
-     public function count($where = null)
-    {
-        $whereClause = !empty($where) ? 'WHERE ' . $where : '';
-        $query = 'SELECT COUNT(*) as total FROM ' . $this->table . ' ' . $whereClause;
-        $stmt = $this->execute($query);
-        $result = $stmt->fetch(PDO::FETCH_ASSOC);
-        return $result ? (int)$result['total'] : 0;
-    }
-
-    public function selectPaginado($where = null, $order = null, $limit = null, $offset = null, $fields = '*')
-    {
-        $where = (!empty($where) && strlen($where) > 0) ? 'WHERE ' . $where : '';
-        $order = (!empty($order) && strlen($order) > 0) ? 'ORDER BY ' . $order : '';
-        $limit = (!empty($limit) && strlen($limit) > 0) ? 'LIMIT ' . $limit : '';
-        $offset = (!empty($offset) && strlen($offset) > 0) ? 'OFFSET ' . $offset : '';
-        $query = 'SELECT ' . $fields . ' FROM ' . $this->table . ' ' . $where . ' ' . $order . ' ' . $limit . ' ' . $offset;
+    public function select_avaliacao(){
+        $query = "SELECT avaliacao_produto.comentario, avaliacao_produto.notas, usuarios.nome, usuarios.sobrenome, usuarios.foto_perfil
+        FROM avaliacao_produto JOIN usuarios ON 
+        avaliacao_produto.id = usuarios.id JOIN usuarios ON usuarios.id = usuarios.id ORDER BY avaliacao_produto.id_avaliacao_produto DESC";
+        $stmt = $this->execute($query)->fetchAll(PDO::FETCH_ASSOC);
         
-        return $this->execute($query);
-    }
-
-    /**
-     * Retorna a conexão PDO atual
-     */
-    public function getConnection() {
-        return $this->conn;
-    }
+        if($stmt){
+            return $stmt;
+        }
+        else{
+            return false;
+        }
+    
+    
+    }    
+    
+    
 }
 
 

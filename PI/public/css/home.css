@@ -239,6 +239,15 @@ span{
     /* background-color: rebeccapurple; */
 }
 
+.produtos-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 20px;
+    padding: 20px;
+    max-width: 900px;
+    max-width: 900px;     
+    margin-left: 120px;    
+}
 .card{
     display: flex;
     align-items: center;
@@ -388,6 +397,11 @@ span{
     width: 29px;
     height: 27px;
     cursor: pointer;
+    margin-bottom: 50px;
+}
+.favorito-ativo {
+    color: red;
+    transition: color 0.3s ease;
 }
 
 .produtos-card .add-carrinho{
@@ -398,6 +412,27 @@ span{
     height: 27px;
     cursor: pointer;
 }
+.produtos-card #favoritar{
+    position: absolute; /* sem isso a imagem não vai pro canto. */
+    top: 20px;
+    left: 20px;
+    width: 29x;
+    height: 27px;
+    cursor: pointer;
+    border: none;
+    background-color: #F6F6F6;
+}
+.produtos-card #favoritar i{
+    font-size: 25px; 
+    color: #909090C4;
+   
+}
+.estrelas{
+    
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
 
 .produtos-card .image-produto{
     width: 160px;
@@ -410,8 +445,8 @@ span{
     transform: scale(1.1);
 }
 
-.card-botao {
-    position: absolute;
+.card-botao{
+    /* position: absolute; */
     bottom: 20px;
     padding: 10px;
     width: 235px;
