@@ -18,8 +18,15 @@ if (!isset($_SESSION['usuario']['id'])) {
     <link rel="stylesheet" href="../../../../public/css/ModalAlterarSenhaUser.css">
 </head>
 <body>
-    <?php include __DIR__.'/../../../../includes/navbar-logada.php'; ?>
-    <?php include __DIR__.'/../../../../includes/sidebar-User.php'; ?>
+<?php
+    if (isset($_SESSION['usuario'])) {
+        include __DIR__.'/../../../../includes/navbar.php'; 
+        include __DIR__.'/../../../../includes/sidebar-User.php'; 
+    } else {
+        header("Location: login.php");
+        exit;
+    }
+    ?>
 
     <!-- Contêiner do Perfil -->
     <div class="perfil-tweeb">

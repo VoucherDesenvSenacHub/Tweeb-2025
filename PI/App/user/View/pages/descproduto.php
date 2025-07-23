@@ -16,6 +16,14 @@ if (!$produto) {
 
 
     
+<?php
+    if (isset($_SESSION['usuario'])) {
+        include __DIR__.'/../../../../includes/navbar.php'; 
+        include __DIR__.'/../../../../includes/sidebar-User.php'; 
+    } else {
+        include __DIR__.'/../../../../includes/navbar.php'; 
+    }
+    ?>
 
     <div class="container-produto">
         <div class="produto-img">
