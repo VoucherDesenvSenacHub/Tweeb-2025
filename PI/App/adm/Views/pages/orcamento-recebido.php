@@ -1,10 +1,6 @@
 <?php
 session_start();
 include_once '../../Models/Orcamento.php';
-
-// $orcamento = new Orcamento();
-// $dados = $orcamento->buscar();
-
 ?>
 
 <!DOCTYPE html>

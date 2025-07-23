@@ -38,17 +38,15 @@ class Orcamento{
         }
     }
 
-    public function atualizar(){
-            return (new Database('cliente'))->update('id ='.$this->id,[
-                'nome' => $this->nome,
-                'cpf' => $this->cpf,
-                'email' => $this->email
-            ]);
+    public function aceitar_orcamento($id){
+        return (new Database('orcamento'))->update([
+            'status_orcamento' => 'aceito'
+        ], 'id_orcamento = ' . $id);
     }
 
     public static function buscar(){
         //FETCHALL
-        return (new Database('orcamento'))->select()->fetchAll(PDO::FETCH_ASSOC);
+        return (new Database('orcamento'))->select("status_orcamento = 'pendente'")->fetchAll(PDO::FETCH_ASSOC);
     }
 
     public static function buscar_by_id($id){
@@ -57,7 +55,7 @@ class Orcamento{
     }
 
     public function excluir($id){
-        return (new Database('cliente'))->delete('id = '.$id);
+        return (new Database('orcamento'))->delete('id_orcamento = '.$id);
     }
 
 }

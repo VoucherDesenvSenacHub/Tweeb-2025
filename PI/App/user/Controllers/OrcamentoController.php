@@ -14,7 +14,7 @@ switch ($_SERVER['REQUEST_METHOD']) {
         $orcamento->status_orcamento = 'pendente';
 
         // Pasta onde as imagens serão salvas
-        $pastaDestino = '../../../public/assets/img';
+        $pastaDestino = '../../../public/uploads/';
 
         // Se houver ao menos uma imagem
         if (isset($_FILES['imagem']) && $_FILES['imagem']['error'][0] == 0) {
@@ -30,7 +30,7 @@ switch ($_SERVER['REQUEST_METHOD']) {
             // Move o arquivo
             if (move_uploaded_file($_FILES['imagem']['tmp_name'][0], $caminhoCompleto)) {
                 // Salva o caminho relativo no banco
-                $orcamento->imagem = 'uploads/orcamentos/' . $nomeUnico;
+                $orcamento->imagem = 'uploads/' . $nomeUnico;
             }
         }
 
