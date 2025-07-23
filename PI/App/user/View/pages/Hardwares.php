@@ -8,6 +8,7 @@ session_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../../../public/css/Hardwares.css">
+    <link rel="stylesheet" href="../../../../public/css/navbar.css">
     <title>Tweeb - Hardware</title>
 </head>
 <body class="Hardware">

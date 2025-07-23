@@ -4,10 +4,11 @@ session_start();
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-<?php include __DIR__.'/../../../../includes/headernavb.php'; ?>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../../../public/css/Games.css">
+    <link rel="stylesheet" href="../../../../public/css/navbar.css">
+    <link rel="stylesheet" href="../../../../public/css/sidebar.css">
     <title>Tweeb - Games</title>
 </head>
 <body class="Games">
