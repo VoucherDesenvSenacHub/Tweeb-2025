@@ -18,7 +18,15 @@ if (!isset($_SESSION['usuario']['id'])) {
   <title>Carrinho</title>
 </head>
 <body class="Carrinho">
-  <?php include __DIR__.'/../../../../includes/navbar-logada.php'; ?>
+<?php
+    if (isset($_SESSION['usuario'])) {
+        include __DIR__.'/../../../../includes/navbar.php'; 
+        include __DIR__.'/../../../../includes/sidebar-User.php'; 
+    } else {
+      header("Location: login.php");
+      exit;
+    }
+    ?>
   <div class="container">
     <div class="cart-items">
       <h1>Carrinho de compras</h1>

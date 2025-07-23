@@ -22,8 +22,11 @@ if (!isset($_SESSION['usuario']['id'])) {
     if (isset($_SESSION['usuario'])) {
         include __DIR__.'/../../../../includes/navbar.php'; 
         include __DIR__.'/../../../../includes/sidebar-User.php'; 
+    } else {
+        header("Location: login.php");
+        exit;
     }
-?>
+    ?>
 
 <div class="container-favoritos-5">
 <div class="produtos-card">

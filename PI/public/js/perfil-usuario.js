@@ -1,5 +1,4 @@
 let perfil_form = document.querySelector('.perfil-tweeb-form');
-console.log(perfil_form)
 let inputs = perfil_form.querySelectorAll('input:not([disabled])');
 let originalValues = {};
 
