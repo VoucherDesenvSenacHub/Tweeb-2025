@@ -65,7 +65,7 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
                 <li class="sidebarAdm-item has-submenu_sidbarAdm" id="toggle">
                   <a href="../pages/listarProdutos.php"><img src="../../../../public/assets/img/Reports.png" alt=""><span class="itemAdm-descricao">Produtos</span> <i class="fa-solid fa-angle-down" id="arrow"></i></a>
                   <ul class="submenu_sidbarAdm">
-                    <li><a href="#"><span class="itemAdm-descricao">Cadastro</span></a></li>
+                    <li><a href="/Tweeb-2025/PI/app/adm/views/pages/estoqueok.php"><span class="itemAdm-descricao">Cadastro</span></a></li>
                     <li><a href="../pages/adm-estoque.php"><span class="itemAdm-descricao">Estoque</span></a></li>
                   </ul>
                 </li>
