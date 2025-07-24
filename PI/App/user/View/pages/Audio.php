@@ -29,7 +29,7 @@ session_start();
     <p class="Audio-p">Escolha a oferta que mais combina com você.</p>
 </div>
 
-<div class="container-favoritos-depto">
+<div class="a-container-favoritos-depto">
 <?php if (!empty($produtos)): ?>
     <?php foreach ($produtos as $produto): ?>
         <div class="a-produtos-card">
