@@ -32,7 +32,7 @@
                   <a href="../pages/listarProdutos.php"><img src="../../../../public/assets/img/Reports.png" alt=""><span class="itemAdm-descricao">Produtos</span> <i class="fa-solid fa-angle-down" id="arrow"></i></a>
                   <ul class="submenu_sidbarAdm">
                     <li><a href="estoqueok.php"><span class="itemAdm-descricao">Cadastro</span></a></li>
-                    <li><a href="../pages/adm-estoque.php"><span class="itemAdm-descricao">Estoque</span></a></li>
+                    <li><a href="estoqueok.php"><span class="itemAdm-descricao">Estoque</span></a></li>
                   </ul>
                 </li>
                 <li class="sidebarAdm-item">
