@@ -77,17 +77,18 @@ async function responderOrcamento(id, email){
         formData.append('enviadoPor', enviadoPor);
         formData.append('data', data);
         formData.append('resposta', resposta);
-
+        
+        alert("Email enviado");
+        
         const response = await fetch(`../../../../public/api/responder_orcamento.php`, {
             method: 'POST',
             body: formData
         });
-
+        
         const result = response.json();
 
         if (result){
-            alert("Email enviado");
-            
+            window.location.reload()
         }
 
     })
