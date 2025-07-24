@@ -19,7 +19,7 @@
     <title>Tweeb</title>
 </head>
 <body class="task20-kitsetup">
-<?php include __DIR__.'/../../../../includes/navbar-logada.php'; ?>
+<?php include __DIR__.'/../../../../includes/navbar.php'; ?>
     <div class="kitsetup-container_banner">
         <img src="../../../../public/assets/img/banner setup.png" alt="banner-kit_setup" class="kitsetup-banner">
     </div>

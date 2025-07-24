@@ -92,7 +92,7 @@ function toggleFavorito(idProduto, elemento) {
     .then(response => response.json())
     .then(data => {
         if (data.success) {
-            if (data.is_favorito) {
+            if (data.favoritado) {
                 elemento.src = '../../../../public/assets/img/heart_enabled.png';
                 elemento.classList.add('favorito-ativo');
             } else {

@@ -32,7 +32,7 @@
 <?php if (!empty($produtos)): ?>
     <?php foreach ($produtos as $produto): ?>
         <div class="g-produtos-card">
-            <img class="g-heart" src="../../../../public/assets/img/heart_disabled.png" alt="coração" onclick="AtivarCoracao(this)">
+            <img class="heart" src="../../../../public/assets/img/heart_disabled.png" alt="coração" data-produto-id="<?= $produto['id_produto'] ?>" onclick="AtivarCoracao(this)">
             <button class="add-carrinho-btn" data-id="<?= $produto['id_produto'] ?>" title="Adicionar ao carrinho">
               <img class="g-add-carrinho" src="../../../../public/assets/img/carrinho-card.png" alt="Adicionar ao carrinho">
             </button>
@@ -93,6 +93,7 @@
     </div>
 </div>
 <script src="../../../../public/js/task20-modal.js"></script>
+<script src="../../../../public/js/favoritos.js"></script>
 </body>
 <?php include __DIR__.'/../../../../includes/voltar-ao-topo.php'; ?>
 <?php include __DIR__.'/../../../../includes/footer.php'; ?>

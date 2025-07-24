@@ -239,6 +239,13 @@ span{
     /* background-color: rebeccapurple; */
 }
 
+.categorias-card a {
+    text-decoration: none;
+}
+.categorias-card a p {
+    color: inherit;
+}
+
 .produtos-container {
     display: grid;
     grid-template-columns: repeat(4, 1fr); 
@@ -253,6 +260,7 @@ span{
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    color: black;
     height: 128px;
     width: 160px;
     border-radius: 15px;

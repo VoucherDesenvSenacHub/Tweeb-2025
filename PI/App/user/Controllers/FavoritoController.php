@@ -7,7 +7,7 @@ if (!isset($_SESSION['usuario']['id'])) {
     exit();
 }
 
-require_once __DIR__ . '/../Models/Database.php';
+require_once __DIR__ . '/../../DB/Database.php';
 
 $id_usuario = $_SESSION['usuario']['id'];
 $action = $_POST['action'] ?? $_GET['action'] ?? '';
@@ -18,7 +18,7 @@ $db = new Database();
 switch ($action) {
     case 'toggle':
         // Verifica se já está favoritado
-        $check = $db->selectQuery("SELECT * FROM favoritos WHERE id_usuario = ? AND id_produto = ?", [$id_usuario, $id_produto]);
+        $check = $db->execute("SELECT * FROM favoritos WHERE id_usuario = ? AND id_produto = ?", [$id_usuario, $id_produto]);
         if ($check->rowCount() > 0) {
             // Remove
             $db->execute("DELETE FROM favoritos WHERE id_usuario = ? AND id_produto = ?", [$id_usuario, $id_produto]);
@@ -31,13 +31,13 @@ switch ($action) {
         break;
 
     case 'listar':
-        $result = $db->selectQuery("SELECT p.* FROM favoritos f INNER JOIN produtos p ON f.id_produto = p.id_produto WHERE f.id_usuario = ?", [$id_usuario]);
+        $result = $db->execute("SELECT p.* FROM favoritos f INNER JOIN produtos p ON f.id_produto = p.id_produto WHERE f.id_usuario = ?", [$id_usuario]);
         $favoritos = $result->fetchAll(PDO::FETCH_ASSOC);
         echo json_encode(['success' => true, 'favoritos' => $favoritos]);
         break;
 
     case 'verificar':
-        $check = $db->selectQuery("SELECT * FROM favoritos WHERE id_usuario = ? AND id_produto = ?", [$id_usuario, $id_produto]);
+        $check = $db->execute("SELECT * FROM favoritos WHERE id_usuario = ? AND id_produto = ?", [$id_usuario, $id_produto]);
         echo json_encode(['success' => true, 'favoritado' => $check->rowCount() > 0]);
         break;
 
