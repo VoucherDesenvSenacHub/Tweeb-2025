@@ -6,23 +6,22 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
     <title>Filtro de Produtos</title>
     <style>
-        .filtrodept-container-geral {
-        position: absolute;
-        top: 855px;
-        left: 190px;
-        height: auto; /* Mantém o filtro visível enquanto a página rola */
-        overflow-y: auto; /* Permite rolagem interna se os filtros forem longos */
-        background-color: white;
-        padding: 20px;
-        /* box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1); */
-        z-index: 1000;
-        width: 350px;
-        /* overflow-y: auto; */
+     .filtrodept-container-geral {
+    display: block; /* Ou flex, se precisar de layout interno */
+    margin-bottom: 100px; /* Espaço para não colar no footer */
+    padding: 200px;
+    background-color: white;
+    overflow-y: auto;
+    width: 100%;
+    max-width: 350px;
+    z-index: 1;
+    box-sizing: border-box;
 }
+
         .filtrodept-group {
             border-bottom: 2px solid #ddd;
             padding: 20px;
-            margin-bottom: 10px;
+            margin-bottom: 30px;
             width: 300px;
         }
         .filtrodept-group label {
@@ -246,7 +245,6 @@
     
         .filtrodept-container-geral {
             position: absolute;
-            top: 855px;
             left: 190px;
             background-color: white;
             padding: 20px;
