@@ -49,6 +49,11 @@ class Orcamento{
         return (new Database('orcamento'))->select("status_orcamento = 'pendente'")->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    public static function buscar_aceitos(){
+        //FETCHALL
+        return (new Database('orcamento'))->select("status_orcamento = 'aceito'")->fetchAll(PDO::FETCH_ASSOC);
+    }
+
     public static function buscar_by_id($id){
         //FETCHALL
         return (new Database('cliente'))->select('id = '. $id)->fetchObject(self::class);

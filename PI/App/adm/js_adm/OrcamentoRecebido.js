@@ -1,8 +1,20 @@
 const containerOrcamento = document.getElementById("orcamentos-dinamicos");
 
 document.addEventListener('DOMContentLoaded', async () => {
+
     const request = await fetch('../../../../public/api/buscar_orcamentos.php').then(r => r.json());
-    console.log(request);
+    const request2 = await fetch('../../../../public/api/buscar_orcamentos.php?status="aceitos"').then(r => r.json());
+
+    // Dor de fazer isso mas não vai ter jeito kkk ;-;
+
+    const totalAceitos = request2.length;
+    const totalOrcamentos = totalAceitos + request.length;
+
+    const qntAceitos = document.getElementById("quantidadeAceitos");
+    qntAceitos.innerText = totalAceitos;
+
+    const qntTotal = document.getElementById("quantidadeTotal");
+    qntTotal.innerText = totalOrcamentos;
 
     request.forEach(orcamento => {
         containerOrcamento.innerHTML += `

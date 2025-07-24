@@ -1,6 +1,5 @@
 <?php
 session_start();
-include_once '../../Models/Orcamento.php';
 ?>
 
 <!DOCTYPE html>
@@ -121,7 +120,7 @@ include_once '../../Models/Orcamento.php';
                 <img src="../../../../public/assets/img/project-icon-2.png" alt="">
             </div>
             <div class="ui-pedidos-label">
-                <h1 class="numero-item-minicard">12</h1>
+                <h1 class="numero-item-minicard" id="quantidadeTotal"></h1>
                 <p><span>1</span> fechado</p>
             </div>
         </div>
@@ -132,7 +131,7 @@ include_once '../../Models/Orcamento.php';
                 <img src="../../../../public/assets/img/project-icon-2.png" alt="">
             </div>
             <div class="ui-pedidos-label">
-                <h1 class="numero-item-minicard">37</h1>
+                <h1 class="numero-item-minicard" id="quantidadeAceitos"></h1>
                 <p><span>1</span> Garantia</p>
             </div>
         </div>
