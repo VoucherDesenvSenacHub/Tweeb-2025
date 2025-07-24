@@ -1,14 +1,13 @@
 <?php
-session_start();
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
+<?php include __DIR__.'/../../../../includes/headernavb.php'; ?>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../../../public/css/Games.css">
-    <link rel="stylesheet" href="../../../../public/css/navbar.css">
-    <link rel="stylesheet" href="../../../../public/css/sidebar.css">
     <title>Tweeb - Games</title>
 </head>
 <body class="Games">
@@ -32,9 +31,9 @@ session_start();
 <div class="container-favoritos-depto">
 <?php if (!empty($produtos)): ?>
     <?php foreach ($produtos as $produto): ?>
-        <div class="produtos-card">
-            <img class="heart" src="../../../../public/assets/img/heart_disabled.png" alt="coração" onclick="AtivarCoracao(this)">
-            <a href="../PI/App/user/View/pages/Carrinho.php"><img class="add-carrinho" src="../../../../public/assets/img/carrinho-card.png" alt=""></a>
+        <div class="g-produtos-card">
+            <img class="g-heart" src="../../../../public/assets/img/heart_disabled.png" alt="coração" onclick="AtivarCoracao(this)">
+            <a href="../PI/App/user/View/pages/Carrinho.php"><img class="g-add-carrinho" src="../../../../public/assets/img/carrinho-card.png" alt=""></a>
             <img class="image-produto" src="../../../../public/assets/img/<?= htmlspecialchars($produto['imagem_produto']) ?>" alt="<?= htmlspecialchars($produto['nome_produto']) ?>">
             <div class="card-rate">
                 <?php for ($i = 0; $i < 5; $i++): ?><i class="fa-solid fa-star"></i><?php endfor; ?>
@@ -43,7 +42,7 @@ session_start();
             <p><?= htmlspecialchars($produto['nome_produto']) ?></p>
             <p><?= htmlspecialchars($produto['marca_modelo']) ?></p>
             <h1>R$<?= number_format($produto['preco_unid'], 2, ',', '.') ?></h1>
-            <button class="card-botao">Comprar Agora</button>
+            <button class="g-card-botao">Comprar Agora</button>
         </div>
     <?php endforeach; ?>
 <?php else: ?>

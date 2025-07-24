@@ -24,6 +24,7 @@
     font-weight: bold;
     margin-left: 7%;
 }
+
 .Energia-container_titles {
     margin-top: 20px;
     margin-left: 130px;
@@ -39,8 +40,8 @@
     margin: 0 auto;
 }
 
-.produtos-card {
-    background-color: #F6F6F6;
+.e-produtos-card {
+    background-color: #f1efef;
     border-radius: 9px;
     padding: 15px;
     box-sizing: border-box;
@@ -53,16 +54,22 @@
     min-height: 480px;
 }
 
-.heart {
+.e-heart,
+.e-add-carrinho {
+    width: 27px;
+    height: 27px;
+}
+
+.e-heart {
     position: absolute;
     top: 15px;
-    right: 15px;
+    left: 15px;
     cursor: pointer;
 }
 
-.add-carrinho {
+.e-add-carrinho {
     position: absolute;
-    top: 50px;
+    top: 15px;
     right: 15px;
     cursor: pointer;
 }
@@ -73,6 +80,7 @@
     object-fit: cover;
     margin-bottom: 10px;
     border-radius: 5px;
+    margin-top: 30px;
 }
 
 .card-rate {
@@ -83,18 +91,18 @@
     color: #fdd835;
 }
 
-.produtos-card p {
+.e-produtos-card p {
     margin: 4px 0;
     font-family: "Nunito", sans-serif;
 }
 
-.produtos-card h1 {
+.e-produtos-card h1 {
     font-family: "Inter", sans-serif;
     font-size: 1.5rem;
     margin: 10px 0;
 }
 
-.card-botao {
+.e-card-botao {
     background-color: #291E40;
     color: white;
     border: none;
@@ -102,7 +110,16 @@
     border-radius: 8px;
     cursor: pointer;
     width: 100%;
+    font-size: 1rem;
+    font-family: "Inter", sans-serif;
     margin-top: auto;
+    transition: all 0.2s ease-in-out;
+}
+
+.e-card-botao:hover {
+    background-color: #3a2d5c;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 /* ================================== */
@@ -179,7 +196,7 @@
     .Energia-container_titles {
         margin-left: 80px;
     }
-    .produtos-card {
+    .e-produtos-card {
         width: 47%;
     }
     .Energia-pages-container {
@@ -201,7 +218,7 @@
         margin-left: 20px;
         padding: 0 15px;
     }
-    .produtos-card {
+    .e-produtos-card {
         width: 95%;
     }
     .container-favoritos-depto {

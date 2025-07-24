@@ -11,6 +11,7 @@ if (!$produto) {
 }
 ?>
 <?php include __DIR__.'/../../../../includes/headernavb.php'; ?>
+<link rel="stylesheet" href="../../../../public/css/descproduto.css">
 <body>
 
 

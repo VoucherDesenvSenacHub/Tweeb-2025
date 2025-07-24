@@ -1,30 +1,31 @@
-.Search {
+.Audio {
     overflow-x: hidden;
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
 
-.Search-container_banner img {
+.Audio-container_banner img {
     width: 100%;
     height: 472px;
     margin-top: 40px;
 }
 
-.Search-h1 {
+.Audio-h1 {
     font-size: 62px;
     font-family: "Inter", serif;
     display: flex;
     margin-left: 5%;
 }
 
-.Search-p {
+.Audio-p {
     font-size: 22px;
     font-family: "Nunito", serif;
     font-weight: bold;
     margin-left: 7%;
 }
-.Search-container_titles {
+
+.Audio-container_titles {
     margin-top: 20px;
     margin-left: 130px;
 }
@@ -39,8 +40,8 @@
     margin: 0 auto;
 }
 
-.produtos-card {
-    background-color: #F6F6F6;
+.a-produtos-card {
+    background-color: #f1efef;
     border-radius: 9px;
     padding: 15px;
     box-sizing: border-box;
@@ -53,16 +54,22 @@
     min-height: 480px;
 }
 
-.heart {
+.a-heart,
+.a-add-carrinho {
+    width: 27px;
+    height: 27px;
+}
+
+.a-heart {
     position: absolute;
     top: 15px;
-    right: 15px;
+    left: 15px;
     cursor: pointer;
 }
 
-.add-carrinho {
+.a-add-carrinho {
     position: absolute;
-    top: 50px;
+    top: 15px;
     right: 15px;
     cursor: pointer;
 }
@@ -73,6 +80,7 @@
     object-fit: cover;
     margin-bottom: 10px;
     border-radius: 5px;
+    margin-top: 30px;
 }
 
 .card-rate {
@@ -83,18 +91,18 @@
     color: #fdd835;
 }
 
-.produtos-card p {
+.a-produtos-card p {
     margin: 4px 0;
     font-family: "Nunito", sans-serif;
 }
 
-.produtos-card h1 {
+.a-produtos-card h1 {
     font-family: "Inter", sans-serif;
     font-size: 1.5rem;
     margin: 10px 0;
 }
 
-.card-botao {
+.a-card-botao {
     background-color: #291E40;
     color: white;
     border: none;
@@ -102,31 +110,40 @@
     border-radius: 8px;
     cursor: pointer;
     width: 100%;
+    font-size: 1rem;
+    font-family: "Inter", sans-serif;
     margin-top: auto;
+    transition: all 0.2s ease-in-out;
+}
+
+.a-card-botao:hover {
+    background-color: #3a2d5c;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 /* ================================== */
-/* CSS PARA PAGINAÇÃO - VERSÃO SEARCH */
+/* CSS PARA PAGINAÇÃO - VERSÃO REFINADA */
 /* ================================== */
 
-.Search-pages-container {
+.Audio-pages-container {
     display: flex;
     justify-content: flex-end;
     width: 100%;
     margin: 30px 0;
-    padding-right: 5%; 
+    padding-right: 5%;
     box-sizing: border-box;
 }
 
-.Search-pages {
+.Audio-pages {
     display: flex;
     flex-wrap: wrap;
-    gap: 6px; 
+    gap: 6px;
     align-items: center;
 }
 
-/* Estilo base para todos os botões de página */
-.Search-pages a {
+.Audio-pages a,
+.Audio-pages span {
     text-decoration: none;
     padding: 6px 12px;
     border: 1px solid #e0e0e0;
@@ -139,77 +156,77 @@
     color: #555;
 }
 
-/* Efeito hover para botões não ativos */
-.Search-page-button:hover {
+.Audio-page2-button:hover {
     background-color: #291E40 !important;
     color: white !important;
     border-color: #291E40;
     transform: translateY(-1px);
 }
 
-/* Estilo para o botão da página ativa */
-.Search-page-active {
+.Audio-page1-button {
     background-color: #291E40;
     color: white;
     border-color: #291E40;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* ================================== */
-/* MEDIA QUERIES             */
-/* ================================== */
+.Audio-pages span.Audio-page2-number {
+    background-color: transparent;
+    border: none;
+    padding: 0 5px;
+}
 
 @media (max-width: 1440px) {
-    .Search-container_banner img {
+    .Audio-container_banner img {
         height: 400px;
     }
-    .Search-h1 {
+    .Audio-h1 {
         font-size: 52px;
         margin: 0%;
     }
 }
 
 @media (max-width: 1024px) {
-    .Search-container_banner img {
+    .Audio-container_banner img {
         height: 350px;
     }
-    .Search-h1 {
+    .Audio-h1 {
         font-size: 42px;
     }
-    .Search-container_titles {
+    .Audio-container_titles {
         margin-left: 80px;
     }
-    .produtos-card {
+    .a-produtos-card {
         width: 47%;
     }
-    .Search-pages-container {
-        padding-left: 80px; 
+    .Audio-pages-container {
+        padding-left: 80px;
     }
 }
 
 @media (max-width: 768px) {
-    .Search-container_banner img {
+    .Audio-container_banner img {
         height: 300px;
     }
-    .Search-h1 {
+    .Audio-h1 {
         font-size: 36px;
     }
-    .Search-p {
+    .Audio-p {
         font-size: 18px;
     }
-    .Search-container_titles {
+    .Audio-container_titles {
         margin-left: 20px;
         padding: 0 15px;
     }
-    .produtos-card {
+    .a-produtos-card {
         width: 95%;
     }
     .container-favoritos-depto {
         flex-direction: column;
         align-items: center;
     }
-    .Search-pages-container {
-        justify-content: center; 
+    .Audio-pages-container {
+        justify-content: center;
         padding-left: 0;
     }
 }

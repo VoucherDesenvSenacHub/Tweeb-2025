@@ -32,9 +32,9 @@ session_start();
 <div class="container-favoritos-depto">
 <?php if (!empty($produtos)): ?>
     <?php foreach ($produtos as $produto): ?>
-        <div class="produtos-card">
-            <img class="heart" src="../../../../public/assets/img/heart_disabled.png" alt="coração" onclick="AtivarCoracao(this)">
-            <a href="../PI/App/user/View/pages/Carrinho.php"><img class="add-carrinho" src="../../../../public/assets/img/carrinho-card.png" alt=""></a>
+        <div class="a-produtos-card">
+            <img class="a-heart" src="../../../../public/assets/img/heart_disabled.png" alt="coração" onclick="AtivarCoracao(this)">
+            <a href="../PI/App/user/View/pages/Carrinho.php"><img class="a-add-carrinho" src="../../../../public/assets/img/carrinho-card.png" alt=""></a>
             <img class="image-produto" src="../../../../public/assets/img/<?= htmlspecialchars($produto['imagem_produto']) ?>" alt="<?= htmlspecialchars($produto['nome_produto']) ?>">
             <div class="card-rate">
                 <?php for ($i = 0; $i < 5; $i++): ?><i class="fa-solid fa-star"></i><?php endfor; ?>
@@ -43,7 +43,7 @@ session_start();
             <p><?= htmlspecialchars($produto['nome_produto']) ?></p>
             <p><?= htmlspecialchars($produto['marca_modelo']) ?></p>
             <h1>R$<?= number_format($produto['preco_unid'], 2, ',', '.') ?></h1>
-            <button class="card-botao">Comprar Agora</button>
+            <button class="a-card-botao">Comprar Agora</button>
         </div>
     <?php endforeach; ?>
 <?php else: ?>

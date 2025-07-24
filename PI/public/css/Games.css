@@ -1,30 +1,31 @@
-.Games{
+.Games {
     overflow-x: hidden;
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
 
-.Games-container_banner img{
+.Games-container_banner img {
     width: 100%;
     height: 472px;
     margin-top: 40px;
 }
 
-.Games-h1{
+.Games-h1 {
     font-size: 62px;
     font-family: "Inter", serif;
     display: flex;
     margin-left: 5%;
 }
 
-.Games-p{
+.Games-p {
     font-size: 22px;
     font-family: "Nunito", serif;
     font-weight: bold;
     margin-left: 7%;
 }
-.Games-container_titles{
+
+.Games-container_titles {
     margin-top: 20px;
     margin-left: 130px;
 }
@@ -39,13 +40,12 @@
     margin: 0 auto;
 }
 
-.produtos-card {
-    background-color: #F6F6F6;
+.g-produtos-card {
+    background-color: #f1efef;
     border-radius: 9px;
     padding: 15px;
     box-sizing: border-box;
-    /* LARGURA AJUSTADA AQUI para criar espaço para o alinhamento */
-    width: 31%; 
+    width: 31%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -54,27 +54,33 @@
     min-height: 480px;
 }
 
+.g-heart,
+.g-add-carrinho {
+    width: 27px;
+    height: 27px;
+}
 
-.heart {
+.g-heart {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    cursor: pointer;
+}
+
+.g-add-carrinho {
     position: absolute;
     top: 15px;
     right: 15px;
     cursor: pointer;
 }
 
-.add-carrinho {
-    position: absolute;
-    top: 50px;
-    right: 15px;
-    cursor: pointer;
-}
-
 .image-produto {
-    width: 100%; 
-    height: 250px; 
+    width: 100%;
+    height: 250px;
     object-fit: cover;
     margin-bottom: 10px;
-    border-radius: 5px; 
+    border-radius: 5px;
+    margin-top: 30px;
 }
 
 .card-rate {
@@ -85,18 +91,18 @@
     color: #fdd835;
 }
 
-.produtos-card p {
+.g-produtos-card p {
     margin: 4px 0;
     font-family: "Nunito", sans-serif;
 }
 
-.produtos-card h1 {
+.g-produtos-card h1 {
     font-family: "Inter", sans-serif;
     font-size: 1.5rem;
     margin: 10px 0;
 }
 
-.card-botao {
+.g-card-botao {
     background-color: #291E40;
     color: white;
     border: none;
@@ -104,7 +110,16 @@
     border-radius: 8px;
     cursor: pointer;
     width: 100%;
+    font-size: 1rem;
+    font-family: "Inter", sans-serif;
     margin-top: auto;
+    transition: all 0.2s ease-in-out;
+}
+
+.g-card-botao:hover {
+    background-color: #3a2d5c;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 /* ================================== */
@@ -116,40 +131,38 @@
     justify-content: flex-end;
     width: 100%;
     margin: 30px 0;
-    padding-right: 5%; /* Usando porcentagem para ser mais responsivo */
+    padding-right: 5%;
     box-sizing: border-box;
 }
 
 .Games-pages {
     display: flex;
     flex-wrap: wrap;
-    gap: 6px; /* Espaço reduzido entre botões */
+    gap: 6px;
     align-items: center;
 }
 
-/* Estilo base compacto */
-.Games-pages a, .Games-pages span {
+.Games-pages a,
+.Games-pages span {
     text-decoration: none;
-    padding: 6px 12px; /* Tamanho reduzido */
+    padding: 6px 12px;
     border: 1px solid #e0e0e0;
     border-radius: 4px;
     font-family: "Nunito", sans-serif;
-    font-size: 0.9rem; /* Fonte um pouco menor */
+    font-size: 0.9rem;
     display: inline-block;
     transition: all 0.2s ease;
     background-color: #f8f8f8;
     color: #555;
 }
 
-/* Hover elegante */
 .Games-page2-button:hover {
     background-color: #291E40 !important;
     color: white !important;
     border-color: #291E40;
-    transform: translateY(-1px); /* Efeito sutil de levantar */
+    transform: translateY(-1px);
 }
 
-/* Página ativa */
 .Games-page1-button {
     background-color: #291E40;
     color: white;
@@ -157,13 +170,11 @@
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-/* Elementos de texto */
 .Games-pages span.Games-page2-number {
     background-color: transparent;
     border: none;
     padding: 0 5px;
 }
-
 
 @media (max-width: 1440px) {
     .Games-container_banner img {
@@ -185,11 +196,11 @@
     .Games-container_titles {
         margin-left: 80px;
     }
-    .produtos-card {
-        width: 47%; 
+    .g-produtos-card {
+        width: 47%;
     }
     .Games-pages-container {
-        padding-left: 80px; /* Ajusta o alinhamento da paginação */
+        padding-left: 80px;
     }
 }
 
@@ -207,7 +218,7 @@
         margin-left: 20px;
         padding: 0 15px;
     }
-    .produtos-card {
+    .g-produtos-card {
         width: 95%;
     }
     .container-favoritos-depto {
@@ -215,7 +226,7 @@
         align-items: center;
     }
     .Games-pages-container {
-        justify-content: center; /* Centraliza em telas menores */
+        justify-content: center;
         padding-left: 0;
     }
 }

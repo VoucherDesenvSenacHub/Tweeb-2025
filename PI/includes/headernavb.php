@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../../../../public/css/cadastro.css">
     <link rel="stylesheet" href="../../../../public/css/footer.css">
     <link rel="stylesheet" href="../../../../public/css/login.css">
-    <link rel="stylesheet" href="../../../../public/css/descproduto.css">
+    <!-- <link rel="stylesheet" href="../../../../public/css/descproduto.css"> -->
     <link rel="stylesheet" href="../../../../public/css/do-seu-jeito.css">
     <link rel="stylesheet" href="../../../../public/css/Carrinho.css">
     <link rel="stylesheet" href="../../../../public/css/sidebar.css">
