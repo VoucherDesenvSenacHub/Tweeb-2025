@@ -127,7 +127,12 @@ document.addEventListener('DOMContentLoaded', function() {
                     }
                     mostrarToastFavorito(data.message);
                 } else {
-                    alert(data.message || 'Erro ao favoritar');
+                    // Se a mensagem indicar que o usuário não está autenticado, redireciona para o login
+                    if (data.message && data.message.toLowerCase().includes('autenticado')) {
+                        window.location.href = '/Tweeb-2025/PI/App/user/View/pages/login.php';
+                    } else {
+                        alert(data.message || 'Erro ao favoritar');
+                    }
                 }
             });
         });

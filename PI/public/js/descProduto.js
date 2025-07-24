@@ -26,3 +26,79 @@ function AtivarCoracao(coracao) {
         coracao.src = '../../../../public/assets/img/heart_disabled.png';
     }
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Captura o botão Comprar Agora
+    const btnComprarAgora = document.querySelector('.comprar-agora');
+    if (btnComprarAgora) {
+        btnComprarAgora.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            const idProduto = window.ID_PRODUTO_DESC;
+            if (!idProduto) {
+                alert('Produto inválido!');
+                return;
+            }
+            fetch('/Tweeb-2025/PI/App/user/Controllers/CarrinhoController.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: 'action=adicionar&id_produto=' + encodeURIComponent(idProduto) + '&quantidade=1'
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    window.location.href = '/Tweeb-2025/PI/App/user/View/pages/telaCarrinho.php';
+                } else {
+                    if (data.message && data.message.includes('logado')) {
+                        window.location.href = '/Tweeb-2025/PI/app/user/view/pages/login.php';
+                    } else {
+                        alert('Erro ao adicionar ao carrinho: ' + (data.message || 'Erro desconhecido.'));
+                    }
+                }
+            })
+            .catch(error => {
+                console.error('Erro:', error);
+                alert('Erro ao adicionar ao carrinho.');
+            });
+        });
+    }
+
+    // Captura o botão Adicionar ao Carrinho
+    const btnAddCarrinho = document.querySelector('.add-carrinho');
+    if (btnAddCarrinho) {
+        btnAddCarrinho.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            const idProduto = window.ID_PRODUTO_DESC;
+            if (!idProduto) {
+                alert('Produto inválido!');
+                return;
+            }
+            fetch('/Tweeb-2025/PI/App/user/Controllers/CarrinhoController.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: 'action=adicionar&id_produto=' + encodeURIComponent(idProduto) + '&quantidade=1'
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert('Produto adicionado ao carrinho!');
+                } else {
+                    if (data.message && data.message.includes('logado')) {
+                        window.location.href = '/Tweeb-2025/PI/app/user/view/pages/login.php';
+                    } else {
+                        alert('Erro ao adicionar ao carrinho: ' + (data.message || 'Erro desconhecido.'));
+                    }
+                }
+            })
+            .catch(error => {
+                console.error('Erro:', error);
+                alert('Erro ao adicionar ao carrinho.');
+            });
+        });
+    }
+});

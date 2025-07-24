@@ -1,11 +1,5 @@
 <?php 
-if(isset($_SESSION['funcionario'])){
-    include __DIR__.'/../../../../includes/sidebar-Adm.php';
-}
-else{
-    header("Location: login-funcionario.php");
-    exit();
-}
+
 require_once(__DIR__ . '/../../Controllers/Produto.php');
 
 
