@@ -9,6 +9,29 @@
     box-sizing: border-box;
 }
 
+.btn_voltar_adicionar_os {
+    width: 75px;
+    display: inline-block;
+    color: black;
+    background-color: #D4E3FF;
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: bold;
+    border: none;
+    border-radius: 4px;
+    text-decoration: none;
+    margin-bottom: 15px;
+    /* margin-left: 370px; */
+    margin-top: 41px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn_voltar_adicionar_os:hover {
+    background-color: #6a8bc8;
+}
+
+
 /* Estilo para o container */
 .container-ordem-de-servico21 {
     padding: 20px;
@@ -60,6 +83,24 @@
     margin-top: 5px;
 }
 
+#aprovacao_cliente[readonly] {
+  background-color: #f0f0f0;
+  color: #555;
+  border: 1px solid #ccc;
+  cursor: not-allowed;
+}
+
+
+.Ordem_Servico21 select {
+    display: block;
+    width: 100%;
+    border-radius: 8px;
+    height: 50px;
+    border: 1px solid #D0D0D0;
+    padding: 10px;
+    margin-top: 5px;
+}
+
 /* Estilo para o botão */
 .btn_ordemServico21 {
     width: 200px;
@@ -67,12 +108,17 @@
     color: white;
     background: #FE8C67;
     border: none;
-    border-radius: 4px;
+    border-radius: 8px;
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    margin-top: 20px;
+    margin-top: 112px;
+    margin-left: -393px;
     cursor: pointer;
+}
+
+.btn_ordemServico21:hover {
+    background-color: #ff6b3b; /* cor um pouco mais escura ou vibrante */
 }
 
 /* Responsividade */
@@ -120,11 +166,37 @@
 
     .Ordem_Servico21 input {
         width: 100%;
-        height: 45px; /* Aumenta a altura do input */
+        height: 45px; 
     }
 
     .btn_ordemServico21 {
-        width: 100%; /* Botão ocupa 100% da largura */
+        width: 100%; 
         height: 50px;
+        margin-top: 20px;
+        border-radius: 8px;
+        transition: background-color 0.3s ease; 
     }
+
+    .btn_ordemServico21:hover {
+        background-color: #ff6b3b; 
+    }
+
+    .btn_voltar_adicionar_os {
+    display: inline-block;
+    color: black;
+    background-color: #D4E3FF;
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: bold;
+    border: none;
+    border-radius: 4px;
+    text-decoration: none;
+    margin-bottom: 15px;
+    /* margin-left: 16px; */
+    margin-top: 41px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
+
+}
+
