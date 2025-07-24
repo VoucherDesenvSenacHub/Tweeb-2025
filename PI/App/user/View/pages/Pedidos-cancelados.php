@@ -67,7 +67,7 @@ function formatarDataCancelamento($historico) {
     
     <link rel="stylesheet" href="../../../../public/css/modal-cancelar-pedido.css">
 </head>
-<body class="body-rastreio pedidos-cancelados"> <?php include __DIR__.'/../../../../includes/navbar-logada.php'; ?>
+<body class="body-rastreio pedidos-cancelados"> <?php include __DIR__.'/../../../../includes/navbar.php'; ?>
     <?php include __DIR__.'/../../../../includes/sidebar-User.php'; ?>
 
     <div class="main-content-wrapper"> <h2 class="pedidosenviadostitulo">Pedidos Cancelados</h2>

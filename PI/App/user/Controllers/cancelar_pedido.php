@@ -34,7 +34,7 @@ if (!$usuario_id || !$id_pedido) {
 }
 
 try {
-    $db = new Database(); // <- Linha 40 (aproximadamente): onde a classe Database é instanciada
+    $db = new Database();
 
     // 1. Verifica se o pedido existe e pertence ao usuário, e pega o status atual
     $stmt = $db->execute("SELECT id_pedido, status_pedido FROM pedidos WHERE id_pedido = ? AND id_usuario = ?", [$id_pedido, $usuario_id]);
@@ -57,7 +57,7 @@ try {
     }
 
     // Inicia transação para garantir atomicidade
-    $db->getConnection()->beginTransaction();
+    $db->conn->beginTransaction();
 
     // 3. Atualiza status do pedido
     $db->execute("UPDATE pedidos SET status_pedido = 'cancelado' WHERE id_pedido = ? AND id_usuario = ?", [$id_pedido, $usuario_id]);
@@ -66,12 +66,12 @@ try {
     $status_anterior_log = $pedido['status_pedido']; // Pega o status antes da atualização
     $db->execute("INSERT INTO pedido_status_historico (id_pedido, status_anterior, status_novo, data_mudanca) VALUES (?, ?, 'cancelado', NOW())", [$id_pedido, $status_anterior_log]);
 
-    $db->getConnection()->commit(); // Confirma a transação
+    $db->conn->commit(); // Confirma a transação
 
     echo json_encode(['success' => true, 'message' => 'Pedido cancelado com sucesso.']);
 } catch (Exception $e) {
-    if ($db->getConnection()->inTransaction()) {
-        $db->getConnection()->rollBack(); // Reverte em caso de erro
+    if ($db->conn && $db->conn->inTransaction()) {
+        $db->conn->rollBack(); // Reverte em caso de erro
     }
     error_log("Erro ao cancelar pedido: " . $e->getMessage());
     echo json_encode(['success' => false, 'message' => 'Erro interno ao cancelar pedido: ' . $e->getMessage()]); // Inclui a mensagem de erro para depuração
