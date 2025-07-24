@@ -144,9 +144,11 @@ session_start();
         ?>
             <div class="produtos-card">
             
-                <button id="favoritar" data-id="123"><i class="fa-regular fa-heart"></i></button>
+                <img class="heart" src="/Tweeb-2025/PI/public/assets/img/heart_disabled.png" data-produto-id="<?= $produto['id_produto'] ?>" alt="Favoritar" onclick="AtivarCoracao(this)">
                 
-                <a href="../PI/App/user/View/pages/Carrinho.php"><img class="add-carrinho" src="public/assets/img/carrinho-card.png" alt=""></a>
+                <button class="add-carrinho-btn" data-id="<?= $produto['id_produto'] ?>" title="Adicionar ao carrinho">
+                  <img class="add-carrinho" src="public/assets/img/carrinho-card.png" alt="Adicionar ao carrinho">
+                </button>
 
                 
                 <img class="image-produto" src="/Tweeb-2025/PI/public/uploads/<?= htmlspecialchars(basename($produto['imagem_produto'])) ?>" alt="Imagem do Produto" style="width: 160px; height: 160px;">
@@ -206,12 +208,11 @@ session_start();
         ?>
         <div class="produtos-card">
 
-             <button id="favoritar" data-id="123"><i class="fa-regular fa-heart"></i></button>
+             <img class="heart" src="/Tweeb-2025/PI/public/assets/img/heart_disabled.png" data-produto-id="<?= $produto['id_produto'] ?>" alt="Favoritar" onclick="AtivarCoracao(this)">
             
-
-            <a href="../PI/App/user/View/pages/Carrinho.php">
-                <img class="add-carrinho" src="public/assets/img/carrinho-card.png" alt="">
-            </a>
+            <button class="add-carrinho-btn" data-id="<?= $produto['id_produto'] ?>" title="Adicionar ao carrinho">
+              <img class="add-carrinho" src="public/assets/img/carrinho-card.png" alt="Adicionar ao carrinho">
+            </button>
 
             <img class="image-produto" src="/Tweeb-2025/PI/public/uploads/<?= htmlspecialchars(basename($produto['imagem_produto'])) ?>" alt="Imagem do Produto" style="width: 160px; height: 160px;">
 
@@ -242,4 +243,5 @@ session_start();
     <?php include __DIR__.'/includes/voltar-ao-topo.php'; ?>
     <?php include __DIR__.'/includes/footer-home.php'; ?>
 </body>
+<script src="/Tweeb-2025/PI/public/js/favoritos.js"></script>
 </html>

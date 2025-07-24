@@ -244,3 +244,27 @@ Array
 )
 
 
+2025-07-24 07:29:46
+Array
+(
+    [action] => cancelar_pedido
+    [id_pedido] => 54
+)
+
+
+2025-07-24 07:29:49
+Array
+(
+    [action] => cancelar_pedido
+    [id_pedido] => 54
+)
+
+
+2025-07-24 07:30:09
+Array
+(
+    [action] => cancelar_pedido
+    [id_pedido] => 62
+)
+
+

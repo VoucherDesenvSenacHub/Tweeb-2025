@@ -132,7 +132,9 @@ document.addEventListener("DOMContentLoaded", function() {
             currentProductBox.style.visibility = "visible"; // Restaura o produto
             currentProductBox = null;
         }
-        modal.style.display = "none"; // Esconde o modal
+        if (modal) {
+            modal.style.display = "none"; // Esconde o modal
+        }
     }
 });
 

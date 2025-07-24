@@ -32,7 +32,7 @@ $total_carrinho = Carrinho::calcularTotal($id_usuario);
       <?php if (empty($itens_carrinho)): ?>
         <div class="carrinho-vazio">
           <p>Seu carrinho está vazio</p>
-          <a href="/Tweeb-2025/PI/App/user/Controllers/ControllerProd/Departamento_Games.php" class="continuar">Continuar comprando</a>
+          <a href="../../../../home.php" class="continuar">Continuar comprando</a>
         </div>
       <?php else: ?>
         <?php foreach ($itens_carrinho as $item): ?>

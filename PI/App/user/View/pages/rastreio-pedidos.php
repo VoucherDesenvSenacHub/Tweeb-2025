@@ -92,7 +92,7 @@ function buscarDataNoHistorico($historico, $status_procurado) {
     <link rel="stylesheet" href="../../../../public/css/modal-cancelar-pedido.css">
 </head>
 <body class="body-rastreio">
-    <?php include __DIR__.'/../../../../includes/navbar-logada.php'; ?>
+    <?php include __DIR__.'/../../../../includes/navbar.php'; ?>
     <?php include __DIR__.'/../../../../includes/sidebar-User.php'; ?>
 
     <div class="main-content-wrapper">

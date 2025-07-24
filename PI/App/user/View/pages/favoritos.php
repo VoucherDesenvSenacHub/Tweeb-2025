@@ -50,7 +50,7 @@ $favoritos = Favorito::buscarFavoritosUsuario($_SESSION['usuario']['id']);
             <p>Nenhum favorito ainda</p>
             <p>Adicione produtos aos seus favoritos</p>
             <h1>R$ 0,00</h1>
-            <button class="card-botao" onclick="window.location.href='departamento01.php'">Explorar Produtos</button>
+            <button class="card-botao" onclick="window.location.href='../../../../home.php'">Explorar Produtos</button>
         </div>
     <?php else: ?>
         <?php foreach ($favoritos as $favorito): ?>

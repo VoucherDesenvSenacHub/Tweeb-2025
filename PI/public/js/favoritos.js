@@ -1,3 +1,29 @@
+// Toast simples para feedback
+function mostrarToastFavorito(mensagem) {
+    let toast = document.getElementById('toast-favorito');
+    if (!toast) {
+        toast = document.createElement('div');
+        toast.id = 'toast-favorito';
+        toast.style.position = 'fixed';
+        toast.style.bottom = '30px';
+        toast.style.right = '30px';
+        toast.style.background = '#333';
+        toast.style.color = '#fff';
+        toast.style.padding = '16px 24px';
+        toast.style.borderRadius = '8px';
+        toast.style.fontSize = '16px';
+        toast.style.zIndex = '9999';
+        toast.style.display = 'flex';
+        toast.style.alignItems = 'center';
+        toast.style.gap = '16px';
+        toast.style.boxShadow = '0 2px 8px rgba(0,0,0,0.2)';
+        document.body.appendChild(toast);
+    }
+    toast.textContent = mensagem;
+    toast.style.display = 'flex';
+    setTimeout(() => { toast.style.display = 'none'; }, 3000);
+}
+
 // Função para alternar favorito (compatível com AtivarCoracao)
 function toggleFavorito(idProduto, elemento) {
     fetch('/Tweeb-2025/PI/App/user/Controllers/FavoritoController.php?action=toggle&id_produto=' + idProduto, {
@@ -16,9 +42,7 @@ function toggleFavorito(idProduto, elemento) {
                 elemento.src = '/Tweeb-2025/PI/public/assets/img/heart_disabled.png';
                 elemento.classList.remove('favorito-ativo');
             }
-            
-            // Mostra notificação simples
-            alert(data.message);
+            mostrarToastFavorito(data.message);
         } else {
             console.error('Erro:', data.message);
             alert('Erro ao alterar favoritos');
@@ -85,8 +109,29 @@ function AtivarCoracao(elemento) {
 
 // Event listener para carregar estado dos favoritos quando a página carrega
 document.addEventListener('DOMContentLoaded', function() {
-    // Carrega o estado dos favoritos
-    carregarEstadoFavoritos();
+    document.querySelectorAll('.heart[data-produto-id]').forEach(function(heart) {
+        heart.addEventListener('click', function() {
+            const idProduto = this.getAttribute('data-produto-id');
+            fetch('/Tweeb-2025/PI/App/user/Controllers/FavoritoController.php', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: 'action=toggle&id_produto=' + encodeURIComponent(idProduto)
+            })
+            .then(res => res.json())
+            .then(data => {
+                if (data.success) {
+                    if (data.favoritado) {
+                        heart.src = '/Tweeb-2025/PI/public/assets/img/heart_enabled.png';
+                    } else {
+                        heart.src = '/Tweeb-2025/PI/public/assets/img/heart_disabled.png';
+                    }
+                    mostrarToastFavorito(data.message);
+                } else {
+                    alert(data.message || 'Erro ao favoritar');
+                }
+            });
+        });
+    });
 });
 
 // Responsivo para containers de favoritos (mantém o original)

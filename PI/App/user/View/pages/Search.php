@@ -28,7 +28,9 @@
     <?php foreach ($produtos as $produto): ?>
         <div class="s-produtos-card">
             <img class="s-heart" src="../../../../public/assets/img/heart_disabled.png" alt="coração" onclick="AtivarCoracao(this)">
-            <a href="#"><img class="s-add-carrinho" src="../../../../public/assets/img/carrinho-card.png" alt=""></a>
+            <button class="add-carrinho-btn" data-id="<?= $produto['id_produto'] ?>" title="Adicionar ao carrinho">
+              <img class="s-add-carrinho" src="../../../../public/assets/img/carrinho-card.png" alt="Adicionar ao carrinho">
+            </button>
             <img class="image-produto" src="../../../../public/uploads/<?= htmlspecialchars($produto['imagem_produto']) ?>" alt="<?= htmlspecialchars($produto['nome_produto']) ?>">
             <div class="card-rate">
                 <?php for ($i = 0; $i < 5; $i++): ?><i class="fa-solid fa-star"></i><?php endfor; ?>
