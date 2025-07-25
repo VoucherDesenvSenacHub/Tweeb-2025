@@ -40,7 +40,7 @@
     margin: 0 auto;
 }
 
-.p-produtos-card {
+.perifericos-produtos-card {
     background-color: #f1efef;
     border-radius: 9px;
     padding: 15px;
@@ -54,26 +54,33 @@
     min-height: 480px;
 }
 
-.heart {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    left: auto;
+.perifericos-heart,
+.perifericos-add-carrinho {
     width: 27px;
     height: 27px;
-    cursor: pointer;
 }
 
-.p-add-carrinho {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    width: 27px;
-    height: 27px;
-    cursor: pointer;
+.perifericos-heart {
+    position: absolute !important;
+    top: 10px !important;
+    left: 10px !important;
+    right: auto !important;
+    width: 30px !important;
+    height: 30px !important;
+    z-index: 10 !important;
 }
 
-.image-produto {
+.perifericos-add-carrinho {
+    position: absolute !important;
+    top: 10px !important;
+    right: 10px !important;
+    left: auto !important;
+    width: 30px !important;
+    height: 30px !important;
+    z-index: 10 !important;
+}
+
+.perifericos-image-produto {
     width: 100%;
     height: 250px;
     object-fit: cover;
@@ -82,26 +89,26 @@
     margin-top: 30px;
 }
 
-.card-rate {
+.perifericos-card-rate {
     margin-bottom: 10px;
 }
 
-.card-rate i {
+.perifericos-card-rate i {
     color: #fdd835;
 }
 
-.p-produtos-card p {
+.perifericos-produtos-card p {
     margin: 4px 0;
     font-family: "Nunito", sans-serif;
 }
 
-.p-produtos-card h1 {
+.perifericos-produtos-card h1 {
     font-family: "Inter", sans-serif;
     font-size: 1.5rem;
     margin: 10px 0;
 }
 
-.p-card-botao {
+.perifericos-card-botao {
     background-color: #291E40;
     color: white;
     border: none;
@@ -115,10 +122,16 @@
     transition: all 0.2s ease-in-out;
 }
 
-.p-card-botao:hover {
+.perifericos-card-botao:hover {
     background-color: #3a2d5c;
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.perifericos-qnt-avaliacoes {
+    color: #666;
+    font-size: 12px;
+    margin-left: 5px;
 }
 
 /* ================================== */

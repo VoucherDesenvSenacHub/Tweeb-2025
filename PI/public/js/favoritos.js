@@ -81,7 +81,7 @@ function verificarFavorito(idProduto, elemento) {
 
 // Função para carregar o estado dos favoritos em uma página
 function carregarEstadoFavoritos() {
-    const coracoes = document.querySelectorAll('.heart[data-produto-id], .games-heart[data-produto-id]');
+    const coracoes = document.querySelectorAll('.heart[data-produto-id], .games-heart[data-produto-id], .computadores-heart[data-produto-id], .hardware-heart[data-produto-id], .audio-heart[data-produto-id], .energia-heart[data-produto-id], .perifericos-heart[data-produto-id]');
     
     coracoes.forEach(coracao => {
         const idProduto = coracao.getAttribute('data-produto-id');
@@ -110,7 +110,7 @@ function AtivarCoracao(elemento) {
 // Event listener para carregar estado dos favoritos quando a página carrega
 document.addEventListener('DOMContentLoaded', function() {
     carregarEstadoFavoritos();
-    document.querySelectorAll('.heart[data-produto-id], .games-heart[data-produto-id]').forEach(function(heart) {
+    document.querySelectorAll('.heart[data-produto-id], .games-heart[data-produto-id], .computadores-heart[data-produto-id], .hardware-heart[data-produto-id], .audio-heart[data-produto-id], .energia-heart[data-produto-id], .perifericos-heart[data-produto-id]').forEach(function(heart) {
         heart.addEventListener('click', function() {
             const idProduto = this.getAttribute('data-produto-id');
             fetch('/Tweeb-2025/PI/App/user/Controllers/FavoritoController.php', {

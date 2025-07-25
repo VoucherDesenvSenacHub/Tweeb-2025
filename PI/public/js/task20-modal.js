@@ -227,6 +227,252 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+document.addEventListener('DOMContentLoaded', function() {
+    // Ícone do carrinho: apenas adiciona ao carrinho, sem redirecionar
+    document.querySelectorAll('.computadores-add-carrinho-btn').forEach(function(btn) {
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            let idProduto = btn.getAttribute('data-id');
+            if (!idProduto) {
+                alert('Produto inválido!');
+                return;
+            }
+            fetch('/Tweeb-2025/PI/App/user/Controllers/CarrinhoController.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: 'action=adicionar&id_produto=' + encodeURIComponent(idProduto) + '&quantidade=1'
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert('Produto adicionado ao carrinho!');
+                } else if (data.message && data.message.toLowerCase().includes('logado')) {
+                    window.location.href = '/Tweeb-2025/PI/app/user/view/pages/login.php';
+                } else {
+                    alert('Erro ao adicionar ao carrinho: ' + (data.message || 'Erro desconhecido.'));
+                }
+            })
+            .catch(error => {
+                console.error('Erro:', error);
+                alert('Erro ao adicionar ao carrinho.');
+            });
+        });
+    });
+
+    // Botão Comprar Agora: redireciona para a tela de descrição do produto
+    document.querySelectorAll('.computadores-card-botao').forEach(function(btn) {
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            let card = btn.closest('.computadores-produtos-card');
+            let idProduto = card && card.querySelector('.computadores-add-carrinho-btn')?.getAttribute('data-id');
+            if (!idProduto) {
+                alert('Produto inválido!');
+                return;
+            }
+            window.location.href = '/Tweeb-2025/PI/App/user/View/pages/descproduto.php?id_produto=' + encodeURIComponent(idProduto);
+        });
+    });
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Ícone do carrinho: apenas adiciona ao carrinho, sem redirecionar
+    document.querySelectorAll('.hardware-add-carrinho-btn').forEach(function(btn) {
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            let idProduto = btn.getAttribute('data-id');
+            if (!idProduto) {
+                alert('Produto inválido!');
+                return;
+            }
+            fetch('/Tweeb-2025/PI/App/user/Controllers/CarrinhoController.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: 'action=adicionar&id_produto=' + encodeURIComponent(idProduto) + '&quantidade=1'
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert('Produto adicionado ao carrinho!');
+                } else if (data.message && data.message.toLowerCase().includes('logado')) {
+                    window.location.href = '/Tweeb-2025/PI/app/user/view/pages/login.php';
+                } else {
+                    alert('Erro ao adicionar ao carrinho: ' + (data.message || 'Erro desconhecido.'));
+                }
+            })
+            .catch(error => {
+                console.error('Erro:', error);
+                alert('Erro ao adicionar ao carrinho.');
+            });
+        });
+    });
+
+    // Botão Comprar Agora: redireciona para a tela de descrição do produto
+    document.querySelectorAll('.hardware-card-botao').forEach(function(btn) {
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            let card = btn.closest('.hardware-produtos-card');
+            let idProduto = card && card.querySelector('.hardware-add-carrinho-btn')?.getAttribute('data-id');
+            if (!idProduto) {
+                alert('Produto inválido!');
+                return;
+            }
+            window.location.href = '/Tweeb-2025/PI/App/user/View/pages/descproduto.php?id_produto=' + encodeURIComponent(idProduto);
+        });
+    });
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Carrinho Áudio
+    document.querySelectorAll('.audio-add-carrinho-btn').forEach(function(btn) {
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            let idProduto = btn.getAttribute('data-id');
+            if (!idProduto) {
+                alert('Produto inválido!');
+                return;
+            }
+            fetch('/Tweeb-2025/PI/App/user/Controllers/CarrinhoController.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: 'action=adicionar&id_produto=' + encodeURIComponent(idProduto) + '&quantidade=1'
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert('Produto adicionado ao carrinho!');
+                } else if (data.message && data.message.toLowerCase().includes('logado')) {
+                    window.location.href = '/Tweeb-2025/PI/app/user/view/pages/login.php';
+                } else {
+                    alert('Erro ao adicionar ao carrinho: ' + (data.message || 'Erro desconhecido.'));
+                }
+            })
+            .catch(error => {
+                console.error('Erro:', error);
+                alert('Erro ao adicionar ao carrinho.');
+            });
+        });
+    });
+    // Comprar Áudio
+    document.querySelectorAll('.audio-card-botao').forEach(function(btn) {
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            let card = btn.closest('.audio-produtos-card');
+            let idProduto = card && card.querySelector('.audio-add-carrinho-btn')?.getAttribute('data-id');
+            if (!idProduto) {
+                alert('Produto inválido!');
+                return;
+            }
+            window.location.href = '/Tweeb-2025/PI/App/user/View/pages/descproduto.php?id_produto=' + encodeURIComponent(idProduto);
+        });
+    });
+    // Carrinho Energia
+    document.querySelectorAll('.energia-add-carrinho-btn').forEach(function(btn) {
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            let idProduto = btn.getAttribute('data-id');
+            if (!idProduto) {
+                alert('Produto inválido!');
+                return;
+            }
+            fetch('/Tweeb-2025/PI/App/user/Controllers/CarrinhoController.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: 'action=adicionar&id_produto=' + encodeURIComponent(idProduto) + '&quantidade=1'
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert('Produto adicionado ao carrinho!');
+                } else if (data.message && data.message.toLowerCase().includes('logado')) {
+                    window.location.href = '/Tweeb-2025/PI/app/user/view/pages/login.php';
+                } else {
+                    alert('Erro ao adicionar ao carrinho: ' + (data.message || 'Erro desconhecido.'));
+                }
+            })
+            .catch(error => {
+                console.error('Erro:', error);
+                alert('Erro ao adicionar ao carrinho.');
+            });
+        });
+    });
+    // Comprar Energia
+    document.querySelectorAll('.energia-card-botao').forEach(function(btn) {
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            let card = btn.closest('.energia-produtos-card');
+            let idProduto = card && card.querySelector('.energia-add-carrinho-btn')?.getAttribute('data-id');
+            if (!idProduto) {
+                alert('Produto inválido!');
+                return;
+            }
+            window.location.href = '/Tweeb-2025/PI/App/user/View/pages/descproduto.php?id_produto=' + encodeURIComponent(idProduto);
+        });
+    });
+    // Carrinho Periféricos
+    document.querySelectorAll('.perifericos-add-carrinho-btn').forEach(function(btn) {
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            let idProduto = btn.getAttribute('data-id');
+            if (!idProduto) {
+                alert('Produto inválido!');
+                return;
+            }
+            fetch('/Tweeb-2025/PI/App/user/Controllers/CarrinhoController.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: 'action=adicionar&id_produto=' + encodeURIComponent(idProduto) + '&quantidade=1'
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert('Produto adicionado ao carrinho!');
+                } else if (data.message && data.message.toLowerCase().includes('logado')) {
+                    window.location.href = '/Tweeb-2025/PI/app/user/view/pages/login.php';
+                } else {
+                    alert('Erro ao adicionar ao carrinho: ' + (data.message || 'Erro desconhecido.'));
+                }
+            })
+            .catch(error => {
+                console.error('Erro:', error);
+                alert('Erro ao adicionar ao carrinho.');
+            });
+        });
+    });
+    // Comprar Periféricos
+    document.querySelectorAll('.perifericos-card-botao').forEach(function(btn) {
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            let card = btn.closest('.perifericos-produtos-card');
+            let idProduto = card && card.querySelector('.perifericos-add-carrinho-btn')?.getAttribute('data-id');
+            if (!idProduto) {
+                alert('Produto inválido!');
+                return;
+            }
+            window.location.href = '/Tweeb-2025/PI/App/user/View/pages/descproduto.php?id_produto=' + encodeURIComponent(idProduto);
+        });
+    });
+});
+
 
 // CORAÇÃO
 

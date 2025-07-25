@@ -32,20 +32,20 @@ session_start();
 <div class="container-favoritos-depto">
 <?php if (!empty($produtos)): ?>
     <?php foreach ($produtos as $produto): ?>
-        <div class="e-produtos-card">
-            <img class="heart" src="../../../../public/assets/img/heart_disabled.png" alt="coração" data-produto-id="<?= $produto['id_produto'] ?>" onclick="AtivarCoracao(this)">
-            <button class="add-carrinho-btn" data-id="<?= $produto['id_produto'] ?>" title="Adicionar ao carrinho">
-              <img class="e-add-carrinho" src="../../../../public/assets/img/carrinho-card.png" alt="Adicionar ao carrinho">
+        <div class="energia-produtos-card">
+            <img class="energia-heart" src="../../../../public/assets/img/heart_disabled.png" alt="coração" data-produto-id="<?= $produto['id_produto'] ?>" onclick="AtivarCoracao(this)">
+            <button class="energia-add-carrinho-btn" data-id="<?= $produto['id_produto'] ?>" title="Adicionar ao carrinho">
+              <img class="energia-add-carrinho" src="../../../../public/assets/img/carrinho-card.png" alt="Adicionar ao carrinho">
             </button>
-            <img class="image-produto" src="../../../../public/assets/img/<?= htmlspecialchars($produto['imagem_produto']) ?>" alt="<?= htmlspecialchars($produto['nome_produto']) ?>">
-            <div class="card-rate">
+            <img class="energia-image-produto" src="../../../../public/assets/img/<?= htmlspecialchars($produto['imagem_produto']) ?>" alt="<?= htmlspecialchars($produto['nome_produto']) ?>">
+            <div class="energia-card-rate">
                 <?php for ($i = 0; $i < 5; $i++): ?><i class="fa-solid fa-star"></i><?php endfor; ?>
-                <span class="qnt-avaliacoes">(<?= rand(200, 800) ?>+)</span>
+                <span class="energia-qnt-avaliacoes">(<?= rand(200, 800) ?>+)</span>
             </div>
             <p><?= htmlspecialchars($produto['nome_produto']) ?></p>
             <p><?= htmlspecialchars($produto['marca_modelo']) ?></p>
             <h1>R$<?= number_format($produto['preco_unid'], 2, ',', '.') ?></h1>
-            <button class="e-card-botao">Comprar Agora</button>
+            <button class="energia-card-botao">Comprar Agora</button>
         </div>
     <?php endforeach; ?>
 <?php else: ?>
