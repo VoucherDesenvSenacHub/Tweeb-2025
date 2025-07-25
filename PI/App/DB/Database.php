@@ -3,9 +3,9 @@
 class Database{
     public $conn;
     public string $local="localhost";
-    public string $db="Tweeb25";
+    public string $db="140p2";
     public string $user="root";
-    public string $password="suporte@22";
+    public string $password="";
     public $table;
 
    
