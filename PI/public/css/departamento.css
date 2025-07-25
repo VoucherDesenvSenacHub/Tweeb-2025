@@ -69,6 +69,12 @@
     height: 28px;
     cursor: pointer;
 }
+.produtos-card .heart {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    left: auto;
+}
 
 .produtos-card .image-produto {
     width: 100%;

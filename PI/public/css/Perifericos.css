@@ -54,10 +54,11 @@
     min-height: 480px;
 }
 
-.p-heart {
+.heart {
     position: absolute;
     top: 15px;
-    left: 15px;
+    right: 15px;
+    left: auto;
     width: 27px;
     height: 27px;
     cursor: pointer;

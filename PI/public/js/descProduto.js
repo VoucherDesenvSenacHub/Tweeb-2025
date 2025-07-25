@@ -50,17 +50,18 @@ document.addEventListener('DOMContentLoaded', function() {
             .then(data => {
                 if (data.success) {
                     window.location.href = '/Tweeb-2025/PI/App/user/View/pages/telaCarrinho.php';
+                } else if (data.message && data.message.toLowerCase().includes('logado')) {
+                    window.location.href = '/Tweeb-2025/PI/app/user/view/pages/login.php';
                 } else {
-                    if (data.message && data.message.includes('logado')) {
-                        window.location.href = '/Tweeb-2025/PI/app/user/view/pages/login.php';
-                    } else {
-                        alert('Erro ao adicionar ao carrinho: ' + (data.message || 'Erro desconhecido.'));
-                    }
+                    // Mesmo em caso de erro, tenta redirecionar para o carrinho
+                    alert('Erro ao adicionar ao carrinho: ' + (data.message || 'Erro desconhecido.'));
+                    window.location.href = '/Tweeb-2025/PI/App/user/View/pages/telaCarrinho.php';
                 }
             })
             .catch(error => {
                 console.error('Erro:', error);
-                alert('Erro ao adicionar ao carrinho.');
+                // Em caso de erro de rede, ainda assim tenta redirecionar para o carrinho
+                window.location.href = '/Tweeb-2025/PI/App/user/View/pages/telaCarrinho.php';
             });
         });
     }

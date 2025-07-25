@@ -40,7 +40,7 @@
     margin: 0 auto;
 }
 
-.g-produtos-card {
+.games-produtos-card {
     background-color: #f1efef;
     border-radius: 9px;
     padding: 15px;
@@ -54,27 +54,30 @@
     min-height: 480px;
 }
 
-.g-heart,
-.g-add-carrinho {
+.games-heart,
+.games-add-carrinho {
     width: 27px;
     height: 27px;
 }
 
-.g-heart {
+.games-heart {
     position: absolute;
     top: 15px;
-    left: 15px;
+    right: 15px;
+    left: auto;
+    width: 27px;
+    height: 27px;
     cursor: pointer;
 }
 
-.g-add-carrinho {
+.games-add-carrinho {
     position: absolute;
     top: 15px;
     right: 15px;
     cursor: pointer;
 }
 
-.image-produto {
+.games-image-produto {
     width: 100%;
     height: 250px;
     object-fit: cover;
@@ -83,26 +86,26 @@
     margin-top: 30px;
 }
 
-.card-rate {
+.games-card-rate {
     margin-bottom: 10px;
 }
 
-.card-rate i {
+.games-card-rate i {
     color: #fdd835;
 }
 
-.g-produtos-card p {
+.games-produtos-card p {
     margin: 4px 0;
     font-family: "Nunito", sans-serif;
 }
 
-.g-produtos-card h1 {
+.games-produtos-card h1 {
     font-family: "Inter", sans-serif;
     font-size: 1.5rem;
     margin: 10px 0;
 }
 
-.g-card-botao {
+.games-card-botao {
     background-color: #291E40;
     color: white;
     border: none;
@@ -116,10 +119,16 @@
     transition: all 0.2s ease-in-out;
 }
 
-.g-card-botao:hover {
+.games-card-botao:hover {
     background-color: #3a2d5c;
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.games-qnt-avaliacoes {
+    color: #666;
+    font-size: 12px;
+    margin-left: 5px;
 }
 
 /* ================================== */
@@ -176,6 +185,39 @@
     padding: 0 5px;
 }
 
+.games-produtos-card .games-heart {
+    position: absolute !important;
+    top: 15px !important;
+    right: 15px !important;
+    left: auto !important;
+    width: 27px !important;
+    height: 27px !important;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.games-produtos-card {
+    position: relative !important;
+}
+.games-produtos-card .games-heart {
+    position: absolute !important;
+    top: 10px !important;
+    left: 10px !important;
+    right: auto !important;
+    width: 30px !important;
+    height: 30px !important;
+    z-index: 10 !important;
+}
+.games-produtos-card .games-add-carrinho {
+    position: absolute !important;
+    top: 10px !important;
+    right: 10px !important;
+    left: auto !important;
+    width: 30px !important;
+    height: 30px !important;
+    z-index: 10 !important;
+}
+
 @media (max-width: 1440px) {
     .Games-container_banner img {
         height: 400px;
@@ -196,7 +238,7 @@
     .Games-container_titles {
         margin-left: 80px;
     }
-    .g-produtos-card {
+    .games-produtos-card {
         width: 47%;
     }
     .Games-pages-container {
@@ -218,7 +260,7 @@
         margin-left: 20px;
         padding: 0 15px;
     }
-    .g-produtos-card {
+    .games-produtos-card {
         width: 95%;
     }
     .container-favoritos-depto {
