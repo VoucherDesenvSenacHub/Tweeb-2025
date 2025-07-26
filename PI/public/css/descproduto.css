@@ -170,8 +170,8 @@
 
 
 .container-produto {
-    height: 650px;
-    margin-top: 180px;
+    height: 250px;
+    margin-top: 350px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -323,7 +323,7 @@
     position: static;
     top: auto;
     right: auto;
-    width: auto;
+    /* width: auto; */
     height: 56px;
     background: #fff;
     color: #291E40;
@@ -343,8 +343,6 @@
     height: 27px;
     cursor: pointer;
 }
-
-
 
 .comprar-agora{
     border: none;
@@ -405,13 +403,13 @@
 /*        */
 
 .product-details-container {
-    height: 500px;
+    height:auto;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    width: 80%;
-    max-width: 1200px;
-    margin: 20px auto;
+    width: 85%;
+    /* max-width: 1200px; */
+    margin: 40px auto;
     padding: 20px;
     background-color: white;
     border-radius: 8px;
@@ -479,7 +477,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 600px;
+    height: auto;
+    padding: 20;
     background-color: #FAFAFA;
 }
 

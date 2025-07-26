@@ -4,13 +4,20 @@
 
 
 /* 90% desse código é inutil e tem que ser apagado depois */
+ nav-prod {
+            display: flex;
+            /* border-bottom: 2px solid #ddd; */
+            margin-bottom: 20px;
+        }
+        nav-prod a {
+            text-decoration: none;
+            padding: 10px 15px;
+            color: #333;
+        }
+        nav-prod a.active {
+            border-bottom: 2px solid black;
+        }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Montserrat', sans-serif;
-}
 
 .estoque-table {
     width: 90%;

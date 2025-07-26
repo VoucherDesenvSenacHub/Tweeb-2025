@@ -131,7 +131,6 @@ session_start();
         <div class="tabs">
             <button class="tab-button tab-button1">Novos Produtos</button>
             <button class="tab-button" id="opacidade">Mais Vendidos</button>
-            <button class="tab-button" id="opacidade">Pacotes em Destaque</button>
         </div>
 
         

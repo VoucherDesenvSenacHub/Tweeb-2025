@@ -1,6 +1,32 @@
 <?php
-session_start();
-require_once __DIR__ . '/../../Controllers/OrdemServicoController.php';
+
+require_once __DIR__ . '/../../Controllers/OrdemServicoController.php';;
+require_once __DIR__ . '/../../Models/Funcionario.php';
+require_once __DIR__ . '/../../../DB/Database.php';
+
+if (session_status() !== PHP_SESSION_ACTIVE) {
+    session_start();
+}
+
+// Verifica se o usuário está logado como admin ou funcionário
+if (!isset($_SESSION['adm']) && !isset($_SESSION['funcionario'])) {
+    header('Location: login-funcionario.php');
+    exit();
+}
+
+// Define qual sessão usar (admin tem prioridade)
+$funcionario = isset($_SESSION['adm']) ? $_SESSION['adm'] : $_SESSION['funcionario'];
+
+// Busca dados completos do banco para garantir que temos todos os campos
+$db = new Database();
+$dadosCompletos = $db->buscarDadosCompletosPorId($funcionario['id'], $funcionario['tipo']);
+
+// Se encontrou dados completos, atualiza a sessão e usa eles
+if ($dadosCompletos) {
+    $tipo_sessao = isset($_SESSION['adm']) ? 'adm' : 'funcionario';
+    $_SESSION[$tipo_sessao] = array_merge($_SESSION[$tipo_sessao], $dadosCompletos);
+    $funcionario = $dadosCompletos;
+}
 
 $controller = new OrdemServicoController();
 $ordens = $controller->listarComPrioridade();

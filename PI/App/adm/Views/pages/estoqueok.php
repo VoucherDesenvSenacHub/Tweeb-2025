@@ -76,8 +76,8 @@ if (isset($_POST['cadastrar'])) {
     $garantia = isset($_POST['garantia']) ? 1 : 0;
     $valor_total = $_POST['valor_total'];
     $fornecedor = $_POST['fornecedor'];
-    $status = $_POST['status'];
-    $nf = $_POST['nf'];
+      // $status = $_POST['status'];
+      // $nf = $_POST['nf'];
 
     // Processamento da imagem
     $arquivo = $_FILES['imagem_produto'];
@@ -154,13 +154,13 @@ if ($id_produto !== null) {
 
     <div class="cadastrando-products-pai">
         <div class="cadastrando-products">
-            <nav>
+            <nav-prod>
             <a href="#" class="active" id="btn-cadastrados">Visão Geral</a>
             <a href="#" class="" id="btn-pedidos">Pedidos</a>
             <a href="#" class="" id="btn-enviados">Enviados</a>
             <a href="#" class="active" id="btn-novo-produto">Novo Produto</a>
             <a href="#" id="btn-inativos">Inativos</a>
-            </nav>
+            </nav-prod>
             <h2 id='titulo-cadastro-produto'>Novo Produto</h2>
 
             <!-- Formulário de cadastro -->
@@ -262,9 +262,16 @@ if ($id_produto !== null) {
     <!-- Alternar a exibição -->
 <script>
 
-  document.addEventListener('DOMContentLoaded', async function () {
-    // Simula clique no botão Visão Geral para manter como página inicial de carregamento e mostrar a tabela
-    document.getElementById('btn-cadastrados').click();
+ document.addEventListener('DOMContentLoaded', async function () {
+    const hash = window.location.hash;
+
+    if (hash === '#btn-novo-produto') {
+        const btnNovo = document.getElementById('btn-novo-produto');
+        if (btnNovo) btnNovo.click();
+    } else {
+        const btnCadastrados = document.getElementById('btn-cadastrados');
+        if (btnCadastrados) btnCadastrados.click();
+    }
 });
 
 // Seleciona o tbody da tabela (onde as linhas serão inseridas)

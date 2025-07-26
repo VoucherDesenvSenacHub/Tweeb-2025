@@ -29,9 +29,9 @@
                   <a href="../pages/orcamento-recebido.php"><img src="../../../../public/assets/img/Inbox.png" alt=""><span class="itemAdm-descricao">Orçamentos</span></a>
                 </li>
                 <li class="sidebarAdm-item has-submenu_sidbarAdm" id="toggle">
-                  <a href="../pages/listarProdutos.php"><img src="../../../../public/assets/img/Reports.png" alt=""><span class="itemAdm-descricao">Produtos</span> <i class="fa-solid fa-angle-down" id="arrow"></i></a>
+                  <a href="estoqueok.php"><img src="../../../../public/assets/img/Reports.png" alt=""><span class="itemAdm-descricao">Produtos</span> <i class="fa-solid fa-angle-down" id="arrow"></i></a>
                   <ul class="submenu_sidbarAdm">
-                    <li><a href="estoqueok.php"><span class="itemAdm-descricao">Cadastro</span></a></li>
+                    <li><a href="estoqueok.php#btn-novo-produto"><span class="itemAdm-descricao">Cadastro</span></a></li>
                     <li><a href="estoqueok.php"><span class="itemAdm-descricao">Estoque</span></a></li>
                   </ul>
                 </li>

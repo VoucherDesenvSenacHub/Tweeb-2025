@@ -51,7 +51,7 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
         <img class="mascote-pc" src="../../../../public/assets/img/sobrenos_computador.png" alt="logo_sobrenos">
     </div>
     
-    <div class="categorias">
+    <!-- <div class="categorias">
         <div class="categorias-content">
             <div class="categorias-text">
                 <div class="text">
@@ -60,6 +60,7 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
             </div>
             <div class="categorias-card">
                 <div class="card card1">
+                    <a href="App/user/View/pages/Hardwares.php" class="card card1"></a>
                     <img src="../../../../public/assets/img/phone-icon.png" alt="hardware">
                     <p>Hardwares</p>
                 </div>
@@ -83,6 +84,41 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
                     <img src="../../../../public/assets/img/jogos-icon.png" alt="periféricos">
                     <p>Jogos</p>
                 </div>
+            </div>
+        </div>
+    </div> -->
+      <div class="categorias">
+        <div class="categorias-content">
+            <div class="categorias-text">
+                <div class="text">
+                    <h1>Categorias</h1>
+                </div>
+            </div>
+            <div class="categorias-card">
+                <a href="Hardwares.php" class="card card1">
+                    <img src="../../../../public/assets/img/phone-icon.png" alt="hardware">
+                    <p>Hardwares</p>
+                </a>
+                <a href="Perifericos.php" class="card card2">
+                    <img src="../../../../public/assets/img/perifericos-icon.png" alt="periféricos">
+                    <p>Periféricos</p>
+                </a>
+                <a href="Energia.php" class="card card3">
+                    <img src="../../../../public/assets/img/energia-icon.png" alt="periféricos">
+                    <p>Energia</p>
+                </a>
+                <a href="Audio.php" class="card card4">
+                    <img src="../../../../public/assets/img/audio-icon.png" alt="periféricos">
+                    <p>Aúdio</p>
+                </a>
+                <a href="Computadores.php" class="card card5">
+                    <img src="../../../../public/assets/img/computadores-icon.png" alt="periféricos">
+                    <p>Computadores</p>
+                </a>
+                <a href="Games.php" class="card card6">
+                    <img src="../../../../public/assets/img/jogos-icon.png" alt="periféricos">
+                    <p>Jogos</p>
+                </a>
             </div>
         </div>
     </div>
