@@ -82,6 +82,51 @@
 //     });
 // });
 
+// ========== FUNÇÃO PARA ATUALIZAR CONTADOR DO CARRINHO ==========
+function atualizarContadorCarrinho() {
+    fetch('/Tweeb-2025/PI/App/user/Controllers/CarrinhoController.php?action=contar_itens')
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            let contador = document.querySelector('.carrinho-contador');
+            if (!contador) {
+                // Cria o contador se não existir
+                const nav = document.querySelector('.bx-cart-alt')?.parentElement;
+                if (nav) {
+                    contador = document.createElement('span');
+                    contador.className = 'carrinho-contador';
+                    contador.style.position = 'absolute';
+                    contador.style.top = '0';
+                    contador.style.right = '0';
+                    contador.style.background = 'red';
+                    contador.style.color = 'white';
+                    contador.style.borderRadius = '50%';
+                    contador.style.fontSize = '12px';
+                    contador.style.width = '18px';
+                    contador.style.height = '18px';
+                    contador.style.display = 'flex';
+                    contador.style.alignItems = 'center';
+                    contador.style.justifyContent = 'center';
+                    nav.style.position = 'relative';
+                    nav.appendChild(contador);
+                }
+            }
+            if (contador) {
+                contador.textContent = data.contagem;
+                contador.style.display = data.contagem > 0 ? 'flex' : 'none';
+            }
+        }
+    })
+    .catch(error => {
+        console.error('Erro ao atualizar contador:', error);
+    });
+}
+
+// Atualiza o contador ao carregar a página
+document.addEventListener('DOMContentLoaded', function() {
+    atualizarContadorCarrinho();
+});
+
 document.addEventListener("DOMContentLoaded", function() {
     const configButtons = document.querySelectorAll(".kitsetup-config-box");
     const modal = document.querySelector(".kitsetup-info-modal-container");
@@ -199,6 +244,7 @@ document.addEventListener('DOMContentLoaded', function() {
             .then(response => response.json())
             .then(data => {
                 if (data.success) {
+                    atualizarContadorCarrinho();
                     alert('Produto adicionado ao carrinho!');
                 } else if (data.message && (data.message.toLowerCase().includes('logado') || data.message.toLowerCase().includes('login'))) {
                     if (confirm('Você precisa estar logado para adicionar produtos ao carrinho. Deseja ir para a página de login?')) {
@@ -252,6 +298,7 @@ document.addEventListener('DOMContentLoaded', function() {
             .then(response => response.json())
             .then(data => {
                 if (data.success) {
+                    atualizarContadorCarrinho();
                     alert('Produto adicionado ao carrinho!');
                 } else if (data.message && (data.message.toLowerCase().includes('logado') || data.message.toLowerCase().includes('login'))) {
                     if (confirm('Você precisa estar logado para adicionar produtos ao carrinho. Deseja ir para a página de login?')) {
@@ -305,6 +352,7 @@ document.addEventListener('DOMContentLoaded', function() {
             .then(response => response.json())
             .then(data => {
                 if (data.success) {
+                    atualizarContadorCarrinho();
                     alert('Produto adicionado ao carrinho!');
                 } else if (data.message && (data.message.toLowerCase().includes('logado') || data.message.toLowerCase().includes('login'))) {
                     if (confirm('Você precisa estar logado para adicionar produtos ao carrinho. Deseja ir para a página de login?')) {
@@ -358,6 +406,7 @@ document.addEventListener('DOMContentLoaded', function() {
             .then(response => response.json())
             .then(data => {
                 if (data.success) {
+                    atualizarContadorCarrinho();
                     alert('Produto adicionado ao carrinho!');
                 } else if (data.message && (data.message.toLowerCase().includes('logado') || data.message.toLowerCase().includes('login'))) {
                     if (confirm('Você precisa estar logado para adicionar produtos ao carrinho. Deseja ir para a página de login?')) {
@@ -407,6 +456,7 @@ document.addEventListener('DOMContentLoaded', function() {
             .then(response => response.json())
             .then(data => {
                 if (data.success) {
+                    atualizarContadorCarrinho();
                     alert('Produto adicionado ao carrinho!');
                 } else if (data.message && (data.message.toLowerCase().includes('logado') || data.message.toLowerCase().includes('login'))) {
                     if (confirm('Você precisa estar logado para adicionar produtos ao carrinho. Deseja ir para a página de login?')) {
@@ -456,6 +506,7 @@ document.addEventListener('DOMContentLoaded', function() {
             .then(response => response.json())
             .then(data => {
                 if (data.success) {
+                    atualizarContadorCarrinho();
                     alert('Produto adicionado ao carrinho!');
                 } else if (data.message && (data.message.toLowerCase().includes('logado') || data.message.toLowerCase().includes('login'))) {
                     if (confirm('Você precisa estar logado para adicionar produtos ao carrinho. Deseja ir para a página de login?')) {
