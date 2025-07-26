@@ -81,8 +81,41 @@ class Usuario {
     }
 
     public function excluir($id) {
-        $db = new Database('usuarios');
-        return $db->delete("id = $id");
+        try {
+            $db = new Database();
+            
+            // Excluir dados relacionados primeiro (devido a foreign keys)
+            
+            // 1. Excluir itens do carrinho
+            $db->execute("DELETE FROM carrinho_items WHERE id_usuario = ?", [$id]);
+            
+            // 2. Excluir favoritos
+            $db->execute("DELETE FROM favoritos WHERE id_usuario = ?", [$id]);
+            
+            // 3. Excluir endereços
+            $db->execute("DELETE FROM enderecos WHERE id_usuario = ?", [$id]);
+            
+            // 4. Excluir histórico de pedidos
+            $db->execute("DELETE FROM pedido_status_historico WHERE id_pedido IN (SELECT id_pedido FROM pedidos WHERE id_usuario = ?)", [$id]);
+            
+            // 5. Excluir itens de pedidos
+            $db->execute("DELETE FROM pedido_itens WHERE id_pedido IN (SELECT id_pedido FROM pedidos WHERE id_usuario = ?)", [$id]);
+            
+            // 6. Excluir pedidos
+            $db->execute("DELETE FROM pedidos WHERE id_usuario = ?", [$id]);
+            
+            // 7. Excluir dados do cliente
+            $db->execute("DELETE FROM clientes WHERE id_usuario = ?", [$id]);
+            
+            // 8. Finalmente, excluir o usuário
+            $resultado = $db->execute("DELETE FROM usuarios WHERE id = ?", [$id]);
+            
+            return $resultado && $resultado->rowCount() > 0;
+            
+        } catch (Exception $e) {
+            error_log("Erro ao excluir usuário: " . $e->getMessage());
+            return false;
+        }
     }
 
     public function atualizarSenha() {

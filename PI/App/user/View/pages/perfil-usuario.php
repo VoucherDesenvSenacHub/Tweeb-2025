@@ -161,6 +161,16 @@ function mascararCPF($cpf) {
     </div>
   </div>
 </div>
+
+<!-- Modal de sucesso para exclusão de conta -->
+<div id="modalSucessoExclusao" class="modal-perfil_usuario">
+  <div class="modal-conteudo_perfilUsuario">
+    <p id="modalSucessoExclusaoTexto">Conta excluída com sucesso!</p>
+    <div class="botoes-perfil_usuario">
+      <button class="btn-excluirPerfil" onclick="fecharModalSucessoExclusao()">OK</button>
+    </div>
+  </div>
+</div>
 <?php include __DIR__.'/../../../../includes/footer.php'; ?>
 <script>
     const usuarioID  = <?php echo json_encode($_SESSION['usuario']['id']);?>

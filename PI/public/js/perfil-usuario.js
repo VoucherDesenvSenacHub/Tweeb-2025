@@ -90,31 +90,50 @@ function mostrarModalSucessoExclusao(mensagem) {
 }
 
 function redirecionarLogin() {
-    window.location.href = "/Tweeb-2025/PI/app/user/view/pages/login.php";
+    window.location.href = "/Tweeb-2025/PI/App/user/View/pages/login.php";
+}
+
+function fecharModalSucessoExclusao() {
+    document.getElementById('modalSucessoExclusao').style.display = 'none';
+    redirecionarLogin();
 }
 
 function deletaUsuario() {
-    fetch("http://localhost/tweeb-2025/PI/public/api/deletar_usuario.php", {
+    // Fechar o modal de confirmação primeiro
+    fecharModal();
+    
+    fetch("/Tweeb-2025/PI/public/api/excluir_conta.php", {
         method: "DELETE",
         headers: {
             "Content-Type": "application/x-www-form-urlencoded"
         },
         body: `id=${encodeURIComponent(usuarioID)}`
     })
-    .then(res => res.text())
+    .then(res => {
+        console.log('Response status:', res.status);
+        return res.text();
+    })
     .then(data => {
+        console.log('Response data:', data);
         try {
             let result = JSON.parse(data);
             if (result.mensagem) {
                 mostrarModalSucessoExclusao(result.mensagem);
+            } else if (result.erro) {
+                mostrarAviso("Erro: " + result.erro);
             } else {
                 mostrarAviso("Operação realizada com sucesso!");
             }
         } catch (e) {
-            mostrarAviso(data);
+            console.error('Erro ao fazer parse do JSON:', e);
+            console.error('Dados recebidos:', data);
+            mostrarAviso("Erro: Resposta inválida do servidor");
         }
     })
-    .catch(err => mostrarAviso("Erro inesperado ao excluir usuário."));
+    .catch(err => {
+        console.error('Erro:', err);
+        mostrarAviso("Erro inesperado ao excluir usuário.");
+    });
 }
 
 function abrirModalConfirmarAlteracao() {
