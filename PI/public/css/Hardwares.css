@@ -29,14 +29,142 @@
     margin-left: 130px;
 }
 
-.container-favoritos-depto {
+.Hardware-layout {
+    display: flex;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+/* Filtro lateral */
+.Hardware-filtro {
+    width: 20%; /* ou 250px */
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: #f2f2f2;
+    border-right: 1px solid #ddd;
+}
+.Hardware-filtro h3 {
+    font-family: "Inter", sans-serif;
+    font-size: 1.5rem;
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #291E40;
+}
+
+/* --- Grupos e Ordenação --- */
+.Hardware-filtro fieldset {
+    border: none;
+    padding: 0;
+    margin: 0;
+    margin-bottom: 25px;
+}
+
+.Hardware-filtro legend {
+    font-family: "Inter", sans-serif;
+    font-weight: bold;
+    font-size: 1rem;
+    margin-bottom: 10px;
+    padding: 0;
+    width: 100%;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 8px;
+}
+
+.Hardware-filtro .h-filtro-select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: "Nunito", sans-serif;
+    font-size: 0.95rem;
+    background-color: white;
+}
+
+/* --- Checkboxes e Preço --- */
+.Hardware-filtro fieldset div {
+    margin-bottom: 8px;
+}
+
+.Hardware-filtro input[type="checkbox"] {
+    margin-right: 8px;
+    accent-color: #291E40;
+    transform: scale(1.1);
+}
+
+.Hardware-filtro label {
+    font-family: "Nunito", sans-serif;
+    font-size: 0.95rem;
+    cursor: pointer;
+}
+
+.Hardware-filtro .h-filtro-preco {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.Hardware-filtro .h-filtro-input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: "Nunito", sans-serif;
+    -moz-appearance: textfield;
+}
+.Hardware-filtro .h-filtro-input::-webkit-outer-spin-button,
+.Hardware-filtro .h-filtro-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* --- Botões --- */
+.Hardware-filtro .h-filtro-aplicar,
+.Hardware-filtro .h-filtro-limpar {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: "Inter", sans-serif;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.2s ease-in-out;
+    box-sizing: border-box; 
+}
+
+.Hardware-filtro .h-filtro-aplicar {
+    background-color: #291E40;
+    color: white;
+    border: none;
+    margin-top: 15px;
+}
+.Hardware-filtro .h-filtro-aplicar:hover {
+    background-color: #3a2d5c;
+}
+
+.Hardware-filtro .h-filtro-limpar {
+    background-color: transparent;
+    color: #291E40;
+    border: 1px solid #291E40;
+    margin-top: 10px;
+    display: block;
+    text-decoration: none;
+}
+.Hardware-filtro .h-filtro-limpar:hover {
+    background-color: #291E40;
+    color: white;
+}
+
+/* Container dos cards */
+.h-container-favoritos-depto {
+    flex: 1;
     display: flex;
     flex-wrap: wrap;
-    justify-content: flex-start;
     gap: 20px;
     padding: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
+    box-sizing: border-box;
+    margin-left: 0;
+    max-width: unset;
 }
 
 .h-produtos-card {
@@ -46,7 +174,7 @@
     flex-direction: column;
     position: relative; /* necessário para colocar o coração no canto. */
     height: 432px;
-    width: 268px;
+    width: calc((100% - 60px) / 4);
     background-color: #F6F6F6;
     border-radius: 9px;
 }

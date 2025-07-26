@@ -4,7 +4,7 @@ session_start();
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-<?php include __DIR__.'/../../../../includes/headernavb.php'; ?>
+    <?php include __DIR__.'/../../../../includes/headernavb.php'; ?>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../../../public/css/Perifericos.css">
@@ -18,7 +18,7 @@ session_start();
     } else {
         include __DIR__.'/../../../../includes/navbar.php'; 
     }
-    ?>
+?>
 
 <div class="Perifericos-container_banner">
     <img src="../../../../public/assets/img/banner-departamento-computador.png" alt="banner-Perifericos" class="Perifericos-banner">
@@ -29,30 +29,107 @@ session_start();
     <p class="Perifericos-p">Escolha a oferta que mais combina com você.</p>
 </div>
 
-<div class="container-favoritos-depto">
-<?php if (!empty($produtos)): ?>
-    <?php foreach ($produtos as $produto): ?>
-        <div class="p-produtos-card">
-            <img class="p-heart" src="../../../../public/assets/img/heart_disabled.png" alt="coração" data-produto-id="<?= $produto['id_produto'] ?>" onclick="AtivarCoracao(this)">
-            <button class="add-carrinho-btn" data-id="<?= $produto['id_produto'] ?>" title="Adicionar ao carrinho">
-              <img class="p-add-carrinho" src="../../../../public/assets/img/carrinho-card.png" alt="Adicionar ao carrinho">
-            </button>
-            <img class="image-produto" src="../../../../public/assets/img/<?= htmlspecialchars($produto['imagem_produto']) ?>" alt="<?= htmlspecialchars($produto['nome_produto']) ?>">
-            <div class="card-rate">
-                <?php for ($i = 0; $i < 5; $i++): ?><i class="fa-solid fa-star"></i><?php endfor; ?>
-                <span class="qnt-avaliacoes">(<?= rand(200, 800) ?>+)</span>
+<!-- LAYOUT COM FILTRO + CARDS -->
+<div class="Perifericos-layout">
+    <!-- Filtro lateral -->
+    <aside class="Perifericos-filtro">
+        <h3>Filtros</h3>
+    <form method="GET" action="">
+        <fieldset>
+            <legend>Ordenar Por</legend>
+            <select name="ordenar" class="Perifericos-filtro-select">
+                <option value="">Padrão</option>
+                <option value="preco_asc">Menor Preço</option>
+                <option value="preco_desc">Maior Preço</option>
+                <option value="nome_asc">Nome (A-Z)</option>
+            </select>
+        </fieldset>
+
+        <fieldset>
+            <legend>Marcas</legend>
+            <div>
+                <input type="checkbox" name="marca[]" value="Logitech" id="p-marca_logitech">
+                <label for="p-marca_logitech">Logitech</label>
             </div>
-            <p><?= htmlspecialchars($produto['nome_produto']) ?></p>
-            <p><?= htmlspecialchars($produto['marca_modelo']) ?></p>
-            <h1>R$<?= number_format($produto['preco_unid'], 2, ',', '.') ?></h1>
-            <button class="p-card-botao">Comprar Agora</button>
-        </div>
-    <?php endforeach; ?>
-<?php else: ?>
-    <p style="text-align: center; font-size: 1.2rem;">Nenhum produto disponível neste departamento.</p>
-<?php endif; ?>
+            <div>
+                <input type="checkbox" name="marca[]" value="Razer" id="p-marca_razer">
+                <label for="p-marca_razer">Razer</label>
+            </div>
+            <div>
+                <input type="checkbox" name="marca[]" value="Corsair" id="p-marca_corsair">
+                <label for="p-marca_corsair">Corsair</label>
+            </div>
+            <div>
+                <input type="checkbox" name="marca[]" value="HyperX" id="p-marca_hyperx">
+                <label for="p-marca_hyperx">HyperX</label>
+            </div>
+            <div>
+                <input type="checkbox" name="marca[]" value="Redragon" id="p-marca_redragon">
+                <label for="p-marca_redragon">Redragon</label>
+            </div>
+            <div>
+                <input type="checkbox" name="marca[]" value="Multilaser" id="p-marca_multilaser">
+                <label for="p-marca_multilaser">Multilaser</label>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>Faixa de Preço</legend>
+            <div class="Perifericos-filtro-preco">
+                <input type="number" name="preco_min" placeholder="Mínimo" class="Perifericos-filtro-input">
+                <span>-</span>
+                <input type="number" name="preco_max" placeholder="Máximo" class="Perifericos-filtro-input">
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>Características</legend>
+            <div>
+                <input type="checkbox" name="em_estoque" value="1" id="p-filtro_estoque">
+                <label for="p-filtro_estoque">Em estoque</label>
+            </div>
+            <div>
+                <input type="checkbox" name="entrega_gratis" value="1" id="p-filtro_entrega">
+                <label for="p-filtro_entrega">Entrega Grátis</label>
+            </div>
+            <div>
+                <input type="checkbox" name="garantia" value="1" id="p-filtro_garantia">
+                <label for="p-filtro_garantia">Com Garantia</label>
+            </div>
+        </fieldset>
+        
+        <button type="submit" class="Perifericos-filtro-aplicar">Aplicar Filtros</button>
+        <a href="#" class="Perifericos-filtro-limpar">Limpar Filtros</a>
+    </form>
+    </aside>
+
+    <!-- Grid de cards -->
+    <div class="p-container-favoritos-depto">
+        <?php if (!empty($produtos)): ?>
+            <?php foreach ($produtos as $produto): ?>
+                <div class="p-produtos-card">
+                    <img class="p-heart" src="../../../../public/assets/img/heart_disabled.png" alt="coração" data-produto-id="<?= $produto['id_produto'] ?>" onclick="AtivarCoracao(this)">
+                    <button class="add-carrinho-btn" data-id="<?= $produto['id_produto'] ?>" title="Adicionar ao carrinho">
+                        <img class="p-add-carrinho" src="../../../../public/assets/img/carrinho-card.png" alt="Adicionar ao carrinho">
+                    </button>
+                    <img class="image-produto" src="../../../../public/assets/img/<?= htmlspecialchars($produto['imagem_produto']) ?>" alt="<?= htmlspecialchars($produto['nome_produto']) ?>">
+                    <div class="card-rate">
+                        <?php for ($i = 0; $i < 5; $i++): ?><i class="fa-solid fa-star"></i><?php endfor; ?>
+                        <span class="qnt-avaliacoes">(<?= rand(200, 800) ?>+)</span>
+                    </div>
+                    <p><?= htmlspecialchars($produto['nome_produto']) ?></p>
+                    <p><?= htmlspecialchars($produto['marca_modelo']) ?></p>
+                    <h1>R$<?= number_format($produto['preco_unid'], 2, ',', '.') ?></h1>
+                    <button class="p-card-botao">Comprar Agora</button>
+                </div>
+            <?php endforeach; ?>
+        <?php else: ?>
+            <p style="text-align: center; font-size: 1.2rem;">Nenhum produto disponível neste departamento.</p>
+        <?php endif; ?>
+    </div>
 </div>
 
+<!-- Paginação -->
 <div class="Perifericos-pages-container">
     <div class="Perifericos-pages">
         <?php
@@ -93,6 +170,7 @@ session_start();
         ?>
     </div>
 </div>
+
 <script src="../../../../public/js/task20-modal.js"></script>
 <script src="../../../../public/js/favoritos.js"></script>
 </body>

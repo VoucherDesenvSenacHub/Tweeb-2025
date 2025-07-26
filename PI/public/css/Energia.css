@@ -29,15 +29,140 @@
     margin-top: 20px;
     margin-left: 130px;
 }
+.Energia-layout {
+    display: flex;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+}
 
-.container-favoritos-depto {
+.Energia-filtro{
+    width: 20%; /* ou 250px */
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: #f2f2f2;
+    border-right: 1px solid #ddd;
+}
+.Energia-filtro h3 {
+    font-family: "Inter", sans-serif;
+    font-size: 1.5rem;
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #291E40;
+}
+
+/* --- Grupos e Ordenação --- */
+.Energia-filtro fieldset {
+    border: none;
+    padding: 0;
+    margin: 0;
+    margin-bottom: 25px;
+}
+
+.Energia-filtro legend {
+    font-family: "Inter", sans-serif;
+    font-weight: bold;
+    font-size: 1rem;
+    margin-bottom: 10px;
+    padding: 0;
+    width: 100%;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 8px;
+}
+
+.Energia-filtro .e-filtro-select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: "Nunito", sans-serif;
+    font-size: 0.95rem;
+    background-color: white;
+}
+
+/* --- Checkboxes e Preço --- */
+.Energia-filtro fieldset div {
+    margin-bottom: 8px;
+}
+
+.Energia-filtro input[type="checkbox"] {
+    margin-right: 8px;
+    accent-color: #291E40;
+    transform: scale(1.1);
+}
+
+.Energia-filtro label {
+    font-family: "Nunito", sans-serif;
+    font-size: 0.95rem;
+    cursor: pointer;
+}
+
+.Energia-filtro .e-filtro-preco {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.Energia-filtro .e-filtro-input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: "Nunito", sans-serif;
+    -moz-appearance: textfield;
+}
+.Energia-filtro .e-filtro-input::-webkit-outer-spin-button,
+.Energia-filtro .e-filtro-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* --- Botões --- */
+.Energia-filtro .e-filtro-aplicar,
+.Energia-filtro .e-filtro-limpar {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: "Inter", sans-serif;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.2s ease-in-out;
+    box-sizing: border-box; 
+}
+
+.Energia-filtro .e-filtro-aplicar {
+    background-color: #291E40;
+    color: white;
+    border: none;
+    margin-top: 15px;
+}
+.Energia-filtro .e-filtro-aplicar:hover {
+    background-color: #3a2d5c;
+}
+
+.Energia-filtro .e-filtro-limpar {
+    background-color: transparent;
+    color: #291E40;
+    border: 1px solid #291E40;
+    margin-top: 10px;
+    display: block;
+    text-decoration: none;
+}
+.Energia-filtro .e-filtro-limpar:hover {
+    background-color: #291E40;
+    color: white;
+}
+
+.e-container-favoritos-depto {
+    flex: 1;
     display: flex;
     flex-wrap: wrap;
-    justify-content: flex-start;
     gap: 20px;
     padding: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
+    box-sizing: border-box;
+    margin-left: 0;
+    max-width: unset;
 }
 
 .e-produtos-card {
@@ -47,7 +172,7 @@
     flex-direction: column;
     position: relative; /* necessário para colocar o coração no canto. */
     height: 432px;
-    width: 268px;
+    width: calc((100% - 60px) / 4);
     background-color: #F6F6F6;
     border-radius: 9px;
 }
