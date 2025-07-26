@@ -4,6 +4,10 @@ $produtos = Produto::buscar(null, 'id_produto DESC', 8);
 <?php
 session_start(); 
 
+
+$produtoController = new Produto();
+
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -69,27 +73,6 @@ session_start();
 
     <img id="ad-produto" src="public/assets/img/ad-produtos.png" alt="">
 
-    <!-- <div class="container-ad">
-        <div class="ad-left">
-            <div class="ad-imagem">
-                <img src="public/assets/img/fone_de_ouvido_ad.png" alt="">
-            </div>
-            <div class="ad-text ad-text1">
-                <h1>Fone de <br> Ouvido <br><span>Edifier</span></h1>
-                <p>Microfone com até 55 <br>Horas de bateria.</p>
-            </div>
-        </div>
-        <div class="ad-right">
-            
-            <div class="ad-imagem ad-imagem2">
-                <img class="img-fix" src="public/assets/img/playstation.png" alt="">
-            </div>
-            <div class="ad-text ad-text2">
-                <h1><span>NOVO</span> Playstation<br> 5 <br></h1>
-                <p>Carregamento  rápido com SSD de altíssima velocidade.</p>
-            </div>
-        </div>
-    </div> -->
 
     <div class="categorias">
         <div class="categorias-content">
@@ -130,7 +113,6 @@ session_start();
     <section class="produtos">
         <div class="tabs">
             <button class="tab-button tab-button1">Novos Produtos</button>
-            <button class="tab-button" id="opacidade">Mais Vendidos</button>
         </div>
 
         
@@ -158,8 +140,28 @@ session_start();
                 <p><?= htmlspecialchars($produto['marca_modelo']) ?></p>
                 <h1>R$<?= number_format($produto['preco_unid'], 2, ',', '.') ?></h1>
 
-                
-                
+            <div class="card-rate">
+                <?php
+                    $media = $produtoController->getMediaNotasPorProduto($produto['id_produto']);
+                    $estrelasCheias = floor($media);
+                    $estrelaMeia = ($media - $estrelasCheias) >= 0.5;
+                    $totalEstrelas = 5;
+
+                    for ($i = 0; $i < $estrelasCheias; $i++) {
+                        echo '<i class="fa-solid fa-star"></i>';
+                    }
+
+                    if ($estrelaMeia) {
+                        echo '<i class="fa-solid fa-star-half-stroke"></i>';
+                        $estrelasCheias++;
+                    }
+
+                    for ($i = $estrelasCheias; $i < $totalEstrelas; $i++) {
+                        echo '<i class="fa-regular fa-star"></i>';
+                    }
+                ?>
+                <span class="qnt-avaliacoes">(<?= $media ?>)</span>
+            </div>
 
                 <a href="App/user/View/pages/descproduto.php?id_produto=<?= $produto['id_produto'] ?>">
 
@@ -172,20 +174,6 @@ session_start();
     </section>
 
     </div>
-    <!-- Segundo carrossel feito usando Swiper pra ser mais facil. -->
-    <!-- <div class="swiper-container">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide"><a href="#"><img src="public/assets/img/slider-img1.png" alt=""></a></div>
-          <div class="swiper-slide"><a href="#"><img src="public/assets/img/slider-img2.png" alt=""></a></div>
-          <div class="swiper-slide"><a href="#"><img src="public/assets/img/slider-img3.png" alt=""></a></div>
-          <div class="swiper-slide"><a href="#"><img src="public/assets/img/slider-img1.png" alt=""></a></div>
-          <div class="swiper-slide"><a href="#"><img src="public/assets/img/slider-img2.png" alt=""></a></div>
-          <div class="swiper-slide"><a href="#"><img src="public/assets/img/slider-img3.png" alt=""></a></div>
-        </div>
-
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-button-next"></div>
-      </div> -->
 
       <div class="anuncios">
         <a href="App/user/View/pages/task20-kitsetup.php" class="img-responsiva" ><img src="public/assets/img/Do seu jeito.png" alt=""></a>

@@ -994,6 +994,50 @@
     background-color: #170e2b;
 }
 
+.comentarios-container {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.comentario-box {
+    display: flex;
+    align-items: flex-start;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    margin-top: 20px;
+}
+
+.foto-perfil {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 15px;
+    border: 2px solid #ccc;
+}
+
+.comentario-box strong {
+    font-size: 16px;
+    color: #333;
+}
+
+.comentario-box small {
+    font-size: 14px;
+    color: #888;
+}
+
+.comentario-box p {
+    margin-top: 20px;
+    color: #444;
+    line-height: 1.4;
+}
+
+
+
 /* Breakpoints Responsivos */
 
 /* Responsividade */

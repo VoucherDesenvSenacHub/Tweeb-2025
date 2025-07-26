@@ -136,7 +136,7 @@
 .orcamento-input-group input,
 .orcamento-input-group select,
 .orcamento-textarea {
-    width: 32%;
+    width: 400px;
     padding: 10px;
     background-color: #F2F2F7;
     border-radius: 5px;

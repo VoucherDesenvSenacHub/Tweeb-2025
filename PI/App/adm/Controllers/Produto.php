@@ -170,6 +170,57 @@ class Produto{
         return $resultado;
     }
     
+    
+
+public static function listarAvaliacoesPorProduto($id_produto) {
+    $db = new Database();
+    $sql = "SELECT a.notas, a.comentario, u.nome, u.foto_perfil
+            FROM avaliacao_produto a
+            JOIN usuarios u ON u.id = a.id
+            WHERE a.id_produto = ?
+            ORDER BY a.id_avaliacao DESC";
+    $stmt = $db->execute($sql, [$id_produto]);
+    $avaliacoes = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    return $avaliacoes;
+}
+
+public function getContagemNotasPorProduto($id_produto) {
+    require_once __DIR__ . '/../../../DB/Database.php';
+    $db = new Database();
+
+    $sql = "SELECT notas, COUNT(*) as total FROM avaliacao_produto WHERE id_produto = ? GROUP BY notas";
+    $stmt = $db->execute($sql, [$id_produto]);
+    $resultados = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    // Inicializa contagem com zero para todas as notas
+    $contagens = [
+        1 => 0,
+        2 => 0,
+        3 => 0,
+        4 => 0,
+        5 => 0,
+    ];
+
+    foreach ($resultados as $linha) {
+        $nota = (int) $linha['notas'];
+        $contagens[$nota] = (int) $linha['total'];
+    }
+
+    return $contagens;
+}
+
+public function getMediaNotasPorProduto($id_produto) {
+    require_once dirname(__DIR__, 2) . '/DB/Database.php';
+    $db = new Database();
+
+    $sql = "SELECT AVG(notas) as media FROM avaliacao_produto WHERE id_produto = ?";
+    $stmt = $db->execute($sql, [$id_produto]);
+    $resultado = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    return $resultado && $resultado['media'] !== null ? round($resultado['media'], 1) : 0;
+}
+
+
 }
     
    

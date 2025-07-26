@@ -1,17 +1,66 @@
 <?php
-session_start();
+
+
 require_once(__DIR__ . '/../../../adm/Controllers/Produto.php');
+require_once(__DIR__ . '/../../../DB/Database.php');
+
+// Exibir todos os erros
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
+
+// Verifica o método
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    echo "<h3>🔍 Método POST recebido</h3>";
+
+    if (!isset($_SESSION['usuario']['id'])) {
+        echo "<p>❌ Usuário não está logado.</p>";
+        exit;
+    }
+
+    $id_usuario = $_SESSION['usuario']['id'];
+    $id_produto = $_GET['id_produto'] ?? $_POST['id_produto'] ?? null;
+    $nota       = $_POST['nota'] ?? null;
+    $comentario = $_POST['comentario'] ?? null;
+
+    echo "<p>🧾 ID do usuário: $id_usuario</p>";
+    echo "<p>📦 ID do produto: $id_produto</p>";
+    echo "<p>⭐ Nota: $nota</p>";
+    echo "<p>💬 Comentário: $comentario</p>";
+
+    if (!$id_usuario || !$id_produto || $nota === null || $comentario === null) {
+        echo "<p>⚠️ Dados incompletos. Verifique os campos.</p>";
+        exit;
+    }
+
+    try {
+        $db = new Database();
+        $sql = "INSERT INTO avaliacao_produto (id, id_produto, notas, comentario) VALUES (?, ?, ?, ?)";
+        $db->execute($sql, [$id_usuario, $id_produto, $nota, $comentario]);
+
+        echo "<p>✅ Avaliação salva com sucesso!</p>";
+    } catch (Exception $e) {
+        echo "<p>❌ Erro ao salvar no banco: " . $e->getMessage() . "</p>";
+        exit;
+    }
+} else {
+    echo "<p>❌ Requisição inválida. Esperado método POST.</p>";
+}
 
 
-$id_produto = (int) $_GET['id_produto'];
+
+$id_produto = (int) ($_GET['id_produto'] ?? 0);
 $produto = Produto::buscar_by_id($id_produto);
+$avaliacoes = Produto::listarAvaliacoesPorProduto($id_produto);
+
+
 
 if (!$produto) {
     echo "Produto não encontrado.";
     exit;
 }
+
+include __DIR__.'/../../../../includes/headernavb.php'; 
 ?>
-<?php include __DIR__.'/../../../../includes/headernavb.php'; ?>
 <link rel="stylesheet" href="../../../../public/css/descproduto.css">
 <body>
 
@@ -41,29 +90,6 @@ if (!$produto) {
                 
             </div>
 
-            <!-- <div class="tabs-memoria">
-                <button class="card-botao-produto">4GB</button>
-                <button class="card-botao-produto" id="ativo">6GB</button>
-                <button class="card-botao-produto">8GB</button>
-                <button class="card-botao-produto">12GB</button>
-            </div>
-
-            <div class="details">
-                <div class="memoria">
-                    <img src="../../../../public/assets/img/desc-icon1.png" alt="icon memoria">
-                    <div class="details-info">
-                        <p>Memória</p>
-                        <p id="destacado" >6GB</p>
-                    </div>
-                </div>
-                <div class="interface">
-                    <img src="../../../../public/assets/img/desc-icon2.png" alt="icon interface">
-                    <div class="details-info">
-                        <p>Interface</p>
-                        <p id="destacado">APCI-Express 3.0</p>
-                    </div>
-                </div>
-            </div> -->
 
             <div class="info">
                 <p></p>
@@ -123,15 +149,7 @@ if (!$produto) {
     <div class="products-detail-background">
 
         <div class="product-details-container">
-            <!-- <ul class="product-attributes">
-                <h2>Detalhes do Produto</h2>
-                <li>Rgb: rgb não</li>
-                <li>Overclocked não</li>
-                <li>Conector de alimentação 8pin</li>
-                <li>Categoria do produto: Placas Gráficas de Desktop</li>
-                <li>Cenário de uso: GAMING, Áudio & Video, Família, Escritório de escritório, DESIGN, Estação de trabalho</li>
-                <li>Características do produto: CROSSFIRE</li>
-            </ul> -->
+          
             <ul class="product-attributes">
                 <h2>Detalhes do Produto</h2>
                 <?php 
@@ -170,10 +188,6 @@ if (!$produto) {
                 </div>
 
                 
-                
-                    <!-- <div class="more-info-btn-container">
-                        <button class="more-info-btn">Saiba Mais <i class="fa-solid fa-chevron-down"></i></button>
-                    </div> -->
         </div>
     </div>
 
@@ -239,12 +253,9 @@ if (!$produto) {
                     </div>
                 </div>
             </div>
-<!-- 
-            <form class="form-comentario" action="">
-                <input type="text" name="add_comentario" placeholder="Deixe Comentário">
-            </form> --> 
+
         
-            <form method="POST" action="avaliar.php" class="form-comentario">
+           <form id="formAvaliacao" method="POST" class="form-comentario">
             <div class="estrelas" id="estrelas">
                     <input type="hidden" name="nota" id="notaSelecionada" value="0">
                                     <i class="fa-regular fa-star" data-nota="1"></i>
@@ -255,7 +266,8 @@ if (!$produto) {
                 </div>
 
                                 <input type="text" name="comentario" placeholder="Deixe um comentário..." required>
-                                <button type="submit" class="avaliacao_btn">Enviar Avaliação</button>
+                                <button type="submit" name="avaliar" class="avaliacao_btn">Enviar Avaliação</button>
+                                
             </form>
 
                                 <script>
@@ -279,57 +291,41 @@ if (!$produto) {
                                     });
                                     });
                                 </script>
-     
+
            
-            <div class="more-info-btn-container">
-                <button class="more-info-btn" onclick="VerMaisComentarios()">Ver Mais <i class="fa-solid fa-chevron-down"></i></button>
+                
+
+                        <?php if (!empty($avaliacoes)): ?>
+                        <div class="comentarios-container">
+                            <?php foreach ($avaliacoes as $av): ?>
+                                <div class="comentario-box">
+                                   <?php
+                                    $baseUrl = '/Tweeb-2025/PI/public/uploads/';
+                                    $fotoPath = !empty($av['foto_perfil']) ? $baseUrl . $av['foto_perfil'] : $baseUrl . 'default.png';
+                                    ?>
+                                    <img src="<?= $fotoPath ?>" alt="Foto de <?= htmlspecialchars($av['nome']) ?>" class="foto-perfil">
+                                    <div>
+                                        <strong><?= htmlspecialchars($av['nome']) ?></strong><br>
+                                        <small>Nota: <?= $av['notas'] ?>/5</small>
+                                        <p><?= nl2br(htmlspecialchars($av['comentario'])) ?></p>
+                                    </div>
+                                </div>
+                            <?php endforeach; ?>
+                        </div>
+                    <?php else: ?>
+                       
+                    <?php endif; ?>
+
+
+
+                    <div class="more-info-btn-container">
+                
+
+                
             </div>
         </section>
     </div>
 
-    <!--  -->
-
-<!--     
-    <section class="produtos">
-        <div class="produtos-grid">
-            <div class="produtos-card">
-                <img class="heart" src="public/assets/img/heart_disabled.png" alt="coração" onclick="AtivarCoracao(this)">
-
-                <img class="image-produto" src="public/assets/img/card-produto2.png" alt="">
-                <p>Monitor Gamer Curvo</p>
-                <p>GAMING MG700 27</p>
-                <h1>R$2535,99</h1>
-                <button class="card-botao">Comprar Agora</button>
-            </div>
-            <div class="produtos-card">
-                <img class="heart" src="public/assets/img/heart_disabled.png" alt="coração" onclick="AtivarCoracao(this)">
-
-                <img class="image-produto" src="public/assets/img/card-produto2.png" alt="">
-                <p>Monitor Gamer Curvo</p>
-                <p>GAMING MG700 27</p>
-                <h1>R$2535,99</h1>
-                <button class="card-botao">Comprar Agora</button>
-            </div>
-            <div class="produtos-card">
-                <img class="heart" src="public/assets/img/heart_disabled.png" alt="coração" onclick="AtivarCoracao(this)">
-
-                <img class="image-produto" src="public/assets/img/card-produto2.png" alt="">
-                <p>Monitor Gamer Curvo</p>
-                <p>GAMING MG700 27</p>
-                <h1>R$2535,99</h1>
-                <button class="card-botao">Comprar Agora</button>
-            </div>
-            <div class="produtos-card">
-                <img class="heart" src="public/assets/img/heart_disabled.png" alt="coração" onclick="AtivarCoracao(this)">
-
-                <img class="image-produto" src="public/assets/img/card-produto2.png" alt="">
-                <p>Monitor Gamer Curvo</p>
-                <p>GAMING MG700 27</p>
-                <h1>R$2535,99</h1>
-                <button class="card-botao">Comprar Agora</button>
-            </div>
-        </div>
-    </section> -->
 
     <section class="produtos produtos2">
         <div class="promo-text">
