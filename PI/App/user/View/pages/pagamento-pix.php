@@ -66,7 +66,7 @@ function formatarMoeda($valor) {
             </div>
         </span>
         
-        <img src="../../../../public/assets/img/linha-pontilhada.png" alt="Linha pontilhada">
+        <img src="/Tweeb-2025/PI/public/assets/img/linha-pontilhada.png" alt="Linha pontilhada">
         <span class="">
             <i class="fa-solid fa-cart-flatbed"></i>
             <div class="span-information">
@@ -74,7 +74,7 @@ function formatarMoeda($valor) {
                 <p>Entrega</p>
             </div>
         </span>
-        <img src="../../../../public/assets/img/linha-pontilhada.png" alt="Linha pontilhada">
+        <img src="/Tweeb-2025/PI/public/assets/img/linha-pontilhada.png" alt="Linha pontilhada">
         <span class="" id="step-ativo">
             <i class="fa-solid fa-credit-card"></i>
             <div class="span-information">
@@ -90,7 +90,7 @@ function formatarMoeda($valor) {
             
             <?php foreach ($itens_carrinho as $item): ?>
             <div class="pix-pago-item">
-                <img src="../../../../public/assets/img/<?php echo htmlspecialchars($item['imagem_produto']); ?>" alt="<?php echo htmlspecialchars($item['nome_produto']); ?>" onerror="this.onerror=null;this.src='https://placehold.co/50x50/cccccc/333333?text=Produto';">
+                <img src="/Tweeb-2025/PI/<?php echo htmlspecialchars($item['imagem_produto']); ?>" alt="<?php echo htmlspecialchars($item['nome_produto']); ?>" onerror="this.onerror=null;this.src='https://placehold.co/50x50/cccccc/333333?text=Produto';">
                 <span class="nome-produto-pix"><?php echo strtoupper(htmlspecialchars($item['nome_produto'])); ?></span>
                 <span>R$ <?php echo formatarMoeda($item['preco_unitario'] * $item['quantidade']); ?></span>
             </div>
@@ -120,7 +120,7 @@ function formatarMoeda($valor) {
         
         <div class="pix-pago-pagamento">
             <h2 class="pix-pago-titulo">Pagamento via PIX</h2>
-            <img src="../../../../public/assets/img/qrcode.png" alt="QR Code Pix" class="pix-pago-qrcode" onerror="this.onerror=null;this.src='https://placehold.co/150x150/cccccc/333333?text=QR+Code';">
+            <img src="/Tweeb-2025/PI/public/assets/img/qrcode.png" alt="QR Code Pix" class="pix-pago-qrcode" onerror="this.onerror=null;this.src='https://placehold.co/150x150/cccccc/333333?text=QR+Code';">
             <p class="pix-pago-fatura">Pedido #<?php echo htmlspecialchars($numero_pedido); ?></p>
             <p class="pix-pago-valor">Valor: R$ <?php echo formatarMoeda($valor_total); ?></p>
             

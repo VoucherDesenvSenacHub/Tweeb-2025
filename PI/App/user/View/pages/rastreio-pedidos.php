@@ -108,7 +108,7 @@ function buscarDataNoHistorico($historico, $status_procurado) {
                             <p class="id-rastreio">Ordem ID: <?php echo htmlspecialchars($pedido['id_pedido']); ?></p>
                             <div class="rastreio-botoes">
                                 <button class="rastreio-icone2">
-                                    <img src="../../../../public/assets/img/nota-rastreio.png" alt="Ícone Nota Fiscal" onerror="this.onerror=null;this.src='https://placehold.co/24x24/cccccc/333333?text=NF';">
+                                    <img src="/Tweeb-2025/PI/public/assets/img/nota-rastreio.png" alt="Ícone Nota Fiscal" onerror="this.onerror=null;this.src='https://placehold.co/24x24/cccccc/333333?text=NF';">
                                 </button>
                                 <button class="rastreio-botao" onclick="toggleDetalhes(this)">Acompanhar Pedido <i class="fa-solid fa-location-dot"></i></button>
                                 <?php
@@ -124,10 +124,10 @@ function buscarDataNoHistorico($historico, $status_procurado) {
                         <div class="rastreio-info-entrega">
                             <p class="data-rastreio">Data: <?php echo formatarData($pedido['data_pedido']); ?></p>
                             <?php if (strtolower(trim($pedido['status_pedido'])) === 'entregue'): ?>
-                                <img src="../../../../public/assets/img/avaliar-vetor.png" alt="Ícone Avaliar" class="rastreio-truck" onerror="this.onerror=null;this.src='https://placehold.co/30x30/cccccc/333333?text=Avaliar';">
+                                <img src="/Tweeb-2025/PI/public/assets/img/avaliar-vetor.png" alt="Ícone Avaliar" class="rastreio-truck" onerror="this.onerror=null;this.src='https://placehold.co/30x30/cccccc/333333?text=Avaliar';">
                                 <p class="entrega-prevista-rastreio-avaliar">Avalie sua compra!</p>
                             <?php else: ?>
-                                <img src="../../../../public/assets/img/truck-tick.png" alt="Ícone Caminhão" class="rastreio-truck" onerror="this.onerror=null;this.src='https://placehold.co/30x30/cccccc/333333?text=Caminhão';">
+                                <img src="/Tweeb-2025/PI/public/assets/img/truck-tick.png" alt="Ícone Caminhão" class="rastreio-truck" onerror="this.onerror=null;this.src='https://placehold.co/30x30/cccccc/333333?text=Caminhão';">
                                 <p class="entrega-prevista-rastreio verde">Entrega prevista: <?php echo formatarData($pedido['data_entrega_estimada']); ?></p>
                             <?php endif; ?>
                         </div>
@@ -188,7 +188,7 @@ function buscarDataNoHistorico($historico, $status_procurado) {
                     <?php if (!empty($pedido['itens'])): ?>
                         <?php foreach ($pedido['itens'] as $item): ?>
                             <div class="rastreio-item">
-                                <img src="../../../../public/assets/img/<?php echo htmlspecialchars($item['imagem_produto']); ?>" alt="<?php echo htmlspecialchars($item['nome_produto']); ?>" class="rastreio-img" onerror="this.onerror=null;this.src='https://placehold.co/80x80/cccccc/333333?text=Sem+Imagem';">
+                                <img src="<?php echo str_replace('../../../../public/', '/Tweeb-2025/PI/public/', htmlspecialchars($item['imagem_produto'])); ?>" alt="<?php echo htmlspecialchars($item['nome_produto']); ?>" class="rastreio-img" onerror="this.onerror=null;this.src='https://placehold.co/80x80/cccccc/333333?text=Sem+Imagem';">
                                 <div class="rastreio-info-preco">
                                     <div class="rastreio-info">
                                         <p class="rastreio-nome"><?php echo htmlspecialchars($item['nome_produto']); ?></p>
