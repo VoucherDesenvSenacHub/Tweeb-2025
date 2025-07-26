@@ -53,10 +53,12 @@ function cancelEdit() {
     document.querySelector(".perfil-tweeb-salvar-end").style.display = "none";
     document.querySelector(".perfil-tweeb-cancelar-end").style.display = "none";
     document.querySelector(".perfil-tweeb-excluir-end").style.display = "none";
-    let camposParaLimpar = ["sobrenome", "telefone"];
-    camposParaLimpar.forEach(id => {
-        let input = document.getElementById(id);
-        if (input) input.value = "";
+    
+    // Restaurar valores originais dos campos
+    inputs.forEach(input => {
+        if (originalValues[input.name]) {
+            input.value = originalValues[input.name];
+        }
     });
 }
 
@@ -152,6 +154,23 @@ async function submitAlteracao() {
     let result = await response.json();
 
     if (result.sucesso) {
+        // Atualizar os valores originais com os novos valores
+        inputs.forEach(input => {
+            if (formData[input.name]) {
+                originalValues[input.name] = formData[input.name];
+            }
+        });
+        
+        // Ocultar os botões após salvar com sucesso
+        document.querySelector(".perfil-tweeb-salvar-end").style.display = "none";
+        document.querySelector(".perfil-tweeb-cancelar-end").style.display = "none";
+        document.querySelector(".perfil-tweeb-excluir-end").style.display = "none";
+        
+        // Tornar os campos readonly novamente
+        perfil_form.querySelectorAll("input").forEach(input => {
+            input.setAttribute("readonly", true);
+        });
+        
         document.getElementById('modalSucessoAtualizacao').style.display = 'flex';
     } else {
         alert('Erro: ' + result.mensagem);
@@ -160,4 +179,6 @@ async function submitAlteracao() {
 
 function fecharModalSucessoAtualizacao() {
     document.getElementById('modalSucessoAtualizacao').style.display = 'none';
+    // Recarregar a página para mostrar os dados atualizados
+    window.location.reload();
 }

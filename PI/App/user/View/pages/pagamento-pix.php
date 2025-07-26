@@ -90,7 +90,7 @@ function formatarMoeda($valor) {
             
             <?php foreach ($itens_carrinho as $item): ?>
             <div class="pix-pago-item">
-                <img src="/Tweeb-2025/PI/<?php echo htmlspecialchars($item['imagem_produto']); ?>" alt="<?php echo htmlspecialchars($item['nome_produto']); ?>" onerror="this.onerror=null;this.src='https://placehold.co/50x50/cccccc/333333?text=Produto';">
+                <img src="<?php echo str_replace('../../../../public/', '/Tweeb-2025/PI/public/', htmlspecialchars($item['imagem_produto'])); ?>" alt="<?php echo htmlspecialchars($item['nome_produto']); ?>" onerror="this.onerror=null;this.src='/Tweeb-2025/PI/public/uploads/imagem_padrao.png';">
                 <span class="nome-produto-pix"><?php echo strtoupper(htmlspecialchars($item['nome_produto'])); ?></span>
                 <span>R$ <?php echo formatarMoeda($item['preco_unitario'] * $item['quantidade']); ?></span>
             </div>
