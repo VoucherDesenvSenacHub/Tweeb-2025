@@ -114,4 +114,9 @@ class Produto{
     public static function searchPaginated(string $term, int $limit, int $offset): array {
         return (new Database())->searchProductsPaginated($term, $limit, $offset);
     }
+    public static function buscarComFiltros(array $filtros) {
+        // Cria uma instância do DB, define a tabela e chama o novo método
+        $db = new Database('produtos');
+        return $db->selectFiltrado($filtros);
+    }
 }

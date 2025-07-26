@@ -31,12 +31,12 @@ session_start();
 </div>
 
 <!-- NOVO CONTAINER FLEX COM FILTRO + PRODUTOS -->
-<div class="Hardware-layout">
+<div class="Hardware-layout" data-departamento-id="1">
 
     <!-- Filtro lateral esquerdo -->
     <aside class="Hardware-filtro">
          <h3>Filtros</h3>
-    <form method="GET" action="">
+    <form method="GET" action="" id="filtro-form">
         <fieldset>
             <legend>Ordenar Por</legend>
             <select name="ordenar" class="h-filtro-select">

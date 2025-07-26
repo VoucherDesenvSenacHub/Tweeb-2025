@@ -329,7 +329,78 @@ class Database{
         $stmt = $this->execute($query, [$tipo_id]);
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
-    
+    public function selectFiltrado(array $filtros)
+    {
+        // 1. PREPARAÇÃO INICIAL
+        $tabela = $this->table; // Usa a tabela definida no construtor
+        $where_conditions = [];
+        $params = [];
+
+        // 2. CONSTRUÇÃO DINÂMICA E SEGURA DA CLÁUSULA WHERE
+        foreach ($filtros as $chave => $valor) {
+            switch ($chave) {
+                case 'departamento_id':
+                    if (!empty($valor)) {
+                        $where_conditions[] = "id_departamento = ?";
+                        $params[] = (int)$valor;
+                    }
+                    break;
+                case 'marca':
+                    if (!empty($valor) && is_array($valor)) {
+                        $placeholders = implode(',', array_fill(0, count($valor), '?'));
+                        $where_conditions[] = "marca_modelo IN ($placeholders)";
+                        $params = array_merge($params, $valor);
+                    }
+                    break;
+                case 'preco_min':
+                    if (is_numeric($valor)) {
+                        $where_conditions[] = "preco_unid >= ?";
+                        $params[] = (float)$valor;
+                    }
+                    break;
+                case 'preco_max':
+                    if (is_numeric($valor)) {
+                        $where_conditions[] = "preco_unid <= ?";
+                        $params[] = (float)$valor;
+                    }
+                    break;
+                case 'em_estoque':
+                case 'entrega_gratis':
+                case 'garantia':
+                    if ($valor) { // O 'isset' é feito no Controller
+                        $where_conditions[] = "$chave = 1";
+                    }
+                    break;
+            }
+        }
+        $sql_where = !empty($where_conditions) ? 'WHERE ' . implode(' AND ', $where_conditions) : '';
+
+        // 3. CONTAGEM PARA PAGINAÇÃO
+        $count_query = "SELECT COUNT(*) FROM $tabela $sql_where";
+        $total_produtos = $this->execute($count_query, $params)->fetchColumn();
+        
+        $produtos_por_pagina = 12;
+        $total_paginas = ceil($total_produtos / $produtos_por_pagina);
+        $pagina_atual = (int)($filtros['page'] ?? 1);
+        $offset = ($pagina_atual - 1) * $produtos_por_pagina;
+
+        // 4. ORDENAÇÃO
+        $opcoes_ordenacao = ['preco_asc' => 'preco_unid ASC', 'preco_desc' => 'preco_unid DESC', 'nome_asc' => 'nome_produto ASC'];
+        $sql_order = isset($filtros['ordenar']) && isset($opcoes_ordenacao[$filtros['ordenar']])
+            ? " ORDER BY " . $opcoes_ordenacao[$filtros['ordenar']]
+            : " ORDER BY id_produto DESC";
+
+        // 5. QUERY FINAL E EXECUÇÃO
+        $final_query = "SELECT * FROM $tabela $sql_where $sql_order LIMIT $produtos_por_pagina OFFSET $offset";
+        $produtos = $this->execute($final_query, $params)->fetchAll(PDO::FETCH_ASSOC);
+        
+        // 6. RETORNO ESTRUTURADO
+        return [
+            'produtos'      => $produtos,
+            'total_paginas' => (int)$total_paginas,
+            'pagina_atual'  => $pagina_atual
+        ];
+    }
     
 }
 
