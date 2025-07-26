@@ -37,8 +37,8 @@ $favoritos = Favorito::buscarFavoritosUsuario($_SESSION['usuario']['id']);
     <?php if (empty($favoritos)): ?>
         <!-- Estado vazio - manter estrutura original -->
         <div class="produtos-card">
-            <img class="heart" src="../../../../public/assets/img/heart_disabled.png" alt="coração" onclick="AtivarCoracao(this)">
-            <img class="image-produto" src="../../../../public/assets/img/card-produto2.png" alt="">
+            <img class="heart" src="/Tweeb-2025/PI/public/assets/img/heart_disabled.png" alt="coração" onclick="AtivarCoracao(this)">
+            <img class="image-produto" src="/Tweeb-2025/PI/public/assets/img/card-produto2.png" alt="">
             <div class="card-rate">
                 <i class="fa-solid fa-star"></i>
                 <i class="fa-solid fa-star"></i>
@@ -56,11 +56,11 @@ $favoritos = Favorito::buscarFavoritosUsuario($_SESSION['usuario']['id']);
         <?php foreach ($favoritos as $favorito): ?>
             <div class="produtos-card">
                 <img class="heart favorito-ativo" 
-                     src="../../../../public/assets/img/heart_enabled.png" 
+                     src="/Tweeb-2025/PI/public/assets/img/heart_enabled.png" 
                      alt="coração" 
                      onclick="toggleFavorito(<?php echo $favorito['id_produto']; ?>, this)">
                 <img class="image-produto" 
-                     src="../../../../public/assets/img/<?php echo $favorito['imagem_produto']; ?>" 
+                     src="<?php echo $favorito['imagem_produto']; ?>" 
                      alt="<?php echo htmlspecialchars($favorito['nome_produto']); ?>">
                 <div class="card-rate">
                     <i class="fa-solid fa-star"></i>

@@ -21,7 +21,7 @@ session_start();
     ?>
 
 <div class="Audio-container_banner">
-    <img src="../../../../public/assets/img/banner-departamento-computador.png" alt="banner-Games" class="Games-banner">
+    <img src="/Tweeb-2025/PI/public/assets/img/banner-departamento-computador.png" alt="banner-Games" class="Games-banner">
 </div>
 
 <div class="Audio-container_titles">
@@ -33,11 +33,11 @@ session_start();
 <?php if (!empty($produtos)): ?>
     <?php foreach ($produtos as $produto): ?>
         <div class="audio-produtos-card">
-            <img class="audio-heart" src="../../../../public/assets/img/heart_disabled.png" alt="coração" data-produto-id="<?= $produto['id_produto'] ?>" onclick="AtivarCoracao(this)">
+            <img class="audio-heart" src="/Tweeb-2025/PI/public/assets/img/heart_disabled.png" alt="coração" data-produto-id="<?= $produto['id_produto'] ?>" onclick="AtivarCoracao(this)">
             <button class="audio-add-carrinho-btn" data-id="<?= $produto['id_produto'] ?>" title="Adicionar ao carrinho">
-              <img class="audio-add-carrinho" src="../../../../public/assets/img/carrinho-card.png" alt="Adicionar ao carrinho">
+              <img class="audio-add-carrinho" src="/Tweeb-2025/PI/public/assets/img/carrinho-card.png" alt="Adicionar ao carrinho">
             </button>
-            <img class="audio-image-produto" src="../../../../public/assets/img/<?= htmlspecialchars($produto['imagem_produto']) ?>" alt="<?= htmlspecialchars($produto['nome_produto']) ?>">
+            <img class="audio-image-produto" src="<?= htmlspecialchars($produto['imagem_produto']) ?>" alt="<?= htmlspecialchars($produto['nome_produto']) ?>">
             <div class="audio-card-rate">
                 <?php for ($i = 0; $i < 5; $i++): ?><i class="fa-solid fa-star"></i><?php endfor; ?>
                 <span class="audio-qnt-avaliacoes">(<?= rand(200, 800) ?>+)</span>
