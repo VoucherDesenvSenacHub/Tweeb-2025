@@ -89,27 +89,66 @@ class OrdemServico {
         return (new Database('ordem_servico'))->select('id_os = ' . $id_os)->fetchObject(self::class);
     }
 
+    // public static function excluir($id_os) {
+    //     return (new Database('ordem_servico'))->delete('id_os = ' . (int)$id_os);
+    // }
+
+    // Alterado para ser exclusão lógica 
     public static function excluir($id_os) {
-        return (new Database('ordem_servico'))->delete('id_os = ' . (int)$id_os);
+        return (new Database('ordem_servico'))->update(['ativo' => 0], 'id_os = ' . (int)$id_os);
     }
+
+    // Listar apenas ordens ativas
+    public static function buscarAtivas() {
+        $db = new Database('ordem_servico');
+        $sql = "SELECT * FROM ordem_servico WHERE ativo = 1 ORDER BY id_os ASC";
+        $stmt = $db->execute($sql);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    // public static function buscarAtivas() {
+    //     return (new Database('ordem_servico'))->select('ativo = 1', 'id_os DESC')->fetchAll(PDO::FETCH_ASSOC);
+    // }
+
+
+
+
+    // Listar ordens inativas(excluidos logicamente)
+    public static function buscarInativas() {
+        $db = new Database('ordem_servico');
+        $sql = "SELECT * FROM ordem_servico WHERE ativo = 0 ORDER BY id_os ASC";
+        $stmt = $db->execute($sql);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    // public static function buscarInativas() {
+    // return (new Database('ordem_servico'))->select('ativo = 0')->fetchAll(PDO::FETCH_ASSOC);
+    // }
+
+
+
+
     
 
     //adm-manutencao.php e adm-manutencao-enviados.php
     public static function contarTodosStatus() {
-    $db = new Database('ordem_servico');
+        $db = new Database('ordem_servico');
 
-    $sql = "
-        SELECT
-    (SELECT COUNT(*) FROM ordem_servico) AS total,
-    (SELECT COUNT(*) FROM ordem_servico WHERE status = 'Em andamento') AS em_andamento,
-    (SELECT COUNT(*) FROM ordem_servico WHERE status = 'Finalizada') AS finalizadas,
-    (SELECT COUNT(*) FROM ordem_servico WHERE status = 'Atrasada') AS atrasadas
+        $sql = "
+            SELECT
+                COUNT(*) AS total,
+                SUM(CASE WHEN status = 'Em andamento' AND ativo = 1 THEN 1 ELSE 0 END) AS em_andamento,
+                SUM(CASE WHEN status = 'Finalizada' AND ativo = 1 THEN 1 ELSE 0 END) AS finalizadas,
+                SUM(CASE WHEN status = 'Atrasada' AND ativo = 1 THEN 1 ELSE 0 END) AS atrasadas,
+                SUM(CASE WHEN ativo = 0 THEN 1 ELSE 0 END) AS inativos
+            FROM ordem_servico
+        ";
 
-    ";
+        $stmt = $db->execute($sql);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
 
-    $stmt = $db->execute($sql);
-    return $stmt->fetch(PDO::FETCH_ASSOC);
-}
+
 
 
     //adm-manutencao.php e adm-manutencao-enviados.php
@@ -145,9 +184,14 @@ class OrdemServico {
     }
 
     //adm-manutencao-enviados.php
-    public static function buscarPorStatus($status) {
-        return (new Database('ordem_servico'))->select("status = '$status'")->fetchAll(PDO::FETCH_ASSOC);
+    public static function buscarPorStatus($status, $ativo = null) {
+        $condicao = "status = '$status'";
+        if ($ativo !== null) {
+            $condicao .= " AND ativo = " . ($ativo ? '1' : '0');
+        }
+        return (new Database('ordem_servico'))->select($condicao)->fetchAll(PDO::FETCH_ASSOC);
     }
+
 
     //OrdemdeServico.php
     public static function listarTecnicos() {

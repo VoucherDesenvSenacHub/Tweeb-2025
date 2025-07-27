@@ -4,6 +4,7 @@ require_once __DIR__ . '/../../Controllers/OrdemServicoController.php';
 
 $controller = new OrdemServicoController();
 $ordens = $controller->listarComPrioridade();
+$contagens = $controller->contagemPorStatus();
 ?>
 
 
@@ -51,10 +52,8 @@ $ordens = $controller->listarComPrioridade();
                         <img src="../../../../public/assets/img/icone-manutencoes-adm.png" alt="">
                     </div>
                     <div class="ui-pedidos-label">
-                        <h1 class="numero-item-minicard"><?= count($ordens) ?></h1>
-                        <p><span>
-                        <?= count(array_filter($ordens, fn($os) => $os['status'] === 'Finalizada')) ?>
-                        </span> finalizadas</p>
+                        <h1 class="numero-item-minicard"><?= $contagens['total'] ?></h1>
+                        <p><span><?= $contagens['finalizadas'] ?></span> finalizadas</p>
                     </div>
                 </div>
 

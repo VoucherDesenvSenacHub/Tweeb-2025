@@ -21,7 +21,7 @@ class OrdemServicoController {
         
         $os->tipo_equipamento = $dados['tipo_equipamento'] ?? '';
         $os->nome_cliente = $dados['nome_cliente'] ?? '';
-        $os->email_cliente = $dados['email_cliente'] = filter_var($dados['email_cliente'], FILTER_VALIDATE_EMAIL) ? $dados['email_cliente'] : '';
+        $os->email_cliente = $dados['email_cliente'] ?? '';
         $os->marca_modelo = $dados['marca_modelo'] ?? '';
         $os->telefone = $dados['telefone'] ?? '';
         $os->endereco = $dados['endereco'] ?? '';
@@ -75,11 +75,18 @@ class OrdemServicoController {
         return $os->atualizar();
     }
 
-    // Excluir uma ordem de serviço
+    // // Excluir uma ordem de serviço
+    // public function excluir(int $id_os) {
+    //     $os = new OrdemServico();
+    //     return $os->excluir($id_os);
+    // }
+
+    // A função de excluir agora é um método static
     public function excluir(int $id_os) {
-        $os = new OrdemServico();
-        return $os->excluir($id_os);
+    return OrdemServico::excluir($id_os);
     }
+
+
 
     //OrdemdeServico.php
     public function formulario() {
@@ -97,47 +104,83 @@ class OrdemServicoController {
 
 
     //painel-adm.php
+    public function contagemPorStatus() {
+        $ordens = OrdemServico::buscar();
+
+        $contagem = [
+            'total' => 0,
+            'finalizadas' => 0,
+            'atrasadas' => 0,
+            'em_andamento' => 0,
+            'inativas' => 0
+        ];
+
+        foreach ($ordens as $os) {
+            $status = strtolower(trim($os['status']));
+            $ativo = (int) $os['ativo'];
+
+            $contagem['total']++;
+
+            if ($ativo === 0) {
+                $contagem['inativas']++;
+            } else {
+                if ($status === 'finalizada') {
+                    $contagem['finalizadas']++;
+                } elseif ($status === 'atrasada') {
+                    $contagem['atrasadas']++;
+                } else {
+                    $contagem['em_andamento']++;
+                }
+            }
+        }
+
+        return $contagem;
+    }
+
     public function listarComPrioridade() {
-        $ordens = OrdemServico::buscarComTecnico();
+        $ordens = array_filter(OrdemServico::buscarComTecnico(), function ($ordem) {
+            return $ordem['ativo'] == 1 && strtolower($ordem['status']) !== 'finalizada';
+        });
 
-    function calcularPrioridade($ordem) {
-        if ($ordem['status'] === 'Finalizada') {
-            return ['Finalizada', 'painel-prioridade-finalizada'];
+
+        function calcularPrioridade($ordem) {
+            if ($ordem['status'] === 'Finalizada') {
+                return ['Finalizada', 'painel-prioridade-finalizada'];
+            }
+
+            if (empty($ordem['data_abertura']) || empty($ordem['data_conclusao'])) {
+                return ['Não definida', 'prioridade-desconhecida'];
+            }
+
+            $abertura = new DateTime($ordem['data_abertura']);
+            $conclusao = new DateTime($ordem['data_conclusao']);
+            $dias = $abertura->diff($conclusao)->days;
+
+            if ($dias <= 2) return ['Alta', 'painel-prioridade-alta'];
+            if ($dias <= 5) return ['Média', 'painel-prioridade-media'];
+            return ['Baixa', 'painel-prioridade-baixa'];
         }
 
-        if (empty($ordem['data_abertura']) || empty($ordem['data_conclusao'])) {
-            return ['Não definida', 'prioridade-desconhecida'];
+        // Função que transforma o status em número para ordenação
+        function prioridadeParaNumero($ordem) {
+            if ($ordem['status'] === 'Finalizada') return 4;
+            [$prioridadeTexto, $_] = calcularPrioridade($ordem);
+            return match($prioridadeTexto) {
+                'Alta' => 1,
+                'Média' => 2,
+                'Baixa' => 3,
+                default => 5
+            };
         }
 
-        $abertura = new DateTime($ordem['data_abertura']);
-        $conclusao = new DateTime($ordem['data_conclusao']);
-        $dias = $abertura->diff($conclusao)->days;
+        usort($ordens, fn($a, $b) => prioridadeParaNumero($a) <=> prioridadeParaNumero($b));
 
-        if ($dias <= 2) return ['Alta', 'painel-prioridade-alta'];
-        if ($dias <= 5) return ['Média', 'painel-prioridade-media'];
-        return ['Baixa', 'painel-prioridade-baixa'];
+        // Adiciona os dados de prioridade para exibição futura
+        foreach ($ordens as &$ordem) {
+            [$ordem['prioridade_texto'], $ordem['classe_prioridade']] = calcularPrioridade($ordem);
+        }
+        return $ordens;
     }
-
-    // Função que transforma o status em número para ordenação
-    function prioridadeParaNumero($ordem) {
-        if ($ordem['status'] === 'Finalizada') return 4;
-        [$prioridadeTexto, $_] = calcularPrioridade($ordem);
-        return match($prioridadeTexto) {
-            'Alta' => 1,
-            'Média' => 2,
-            'Baixa' => 3,
-            default => 5
-        };
-    }
-
-    usort($ordens, fn($a, $b) => prioridadeParaNumero($a) <=> prioridadeParaNumero($b));
-
-    // Adiciona os dados de prioridade para exibição futura
-    foreach ($ordens as &$ordem) {
-        [$ordem['prioridade_texto'], $ordem['classe_prioridade']] = calcularPrioridade($ordem);
-    }
-    return $ordens;
-}
 }
 
 
@@ -156,5 +199,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_GET['action']) && $_GET['ac
     header('Location: ../Views/pages/adm-manutencao.php?updated=' . ($sucesso ? '1' : '0'));
     exit;
 }
+
+
+
+if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['action']) && $_GET['action'] === 'delete') {
+    $controller = new OrdemServicoController();
+    $sucesso = $controller->excluir((int) $_GET['id']);
+    header('Location: ../Views/pages/adm-manutencao.php?deleted=' . ($sucesso ? '1' : '0'));
+    exit;
+}
+
 
 

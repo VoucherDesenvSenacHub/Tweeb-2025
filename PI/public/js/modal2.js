@@ -88,15 +88,18 @@ document.addEventListener('DOMContentLoaded', function () {
             observacoes: row.dataset.observacoes
         };
 
+        data.status = data.status || row.querySelector('td:nth-child(6)')?.textContent?.trim().toLowerCase();
+
+
         const modal = document.createElement('div');
-        modal.classList.add('modal');
+        modal.classList.add('modal-detalhes-os');
         modal.style.display = 'flex';
 
         const modalContent = document.createElement('div');
-        modalContent.classList.add('modal-content');
+        modalContent.classList.add('modal-detalhes-content');
 
         const closeBtn = document.createElement('span');
-        closeBtn.classList.add('close');
+        closeBtn.classList.add('close-os');
         closeBtn.innerHTML = '&times;';
         closeBtn.addEventListener('click', () => modal.remove());
 
@@ -143,38 +146,8 @@ document.addEventListener('DOMContentLoaded', function () {
             color: 'inherit'
         });
 
-        if (data.status === 'Finalizada') {
-            editLink.style.pointerEvents = 'none';
-            editLink.style.opacity = '0.0';
-            editLink.title = 'Ordem finalizada não pode ser editada';
-        } else {
-            editLink.onclick = function (e) {
-                e.preventDefault();
-                modal.remove();
-                document.getElementById('modal_id_os').value = data.numeroOS;
-                document.getElementById('modal_Numero_da_Os').value = data.numeroOS;
-                document.getElementById('modal_Tipo_de_equipamento').value = data.tipoEquipamento;
-                document.getElementById('modal_Nome_do_Cliente').value = data.nomeCliente;
-                document.getElementById('modal_Email').value = data.email;
-                document.getElementById('modal_Marca_e_modelo').value = data.marcaModelo;
-                document.getElementById('modal_Telefone').value = data.telefone;
-                document.getElementById('modal_Endereco').value = data.endereco;
-                document.getElementById('modal_CEP').value = data.cep;
-                document.getElementById('modal_Numero_de_serie').value = data.numeroSerie;
-                document.getElementById('modal_Acessorios_entregues').value = data.acessorios;
-                document.getElementById('modal_Relato_do_cliente').value = data.relatoCliente;
-                document.getElementById('modal_Parecer_Tecnico').value = data.parecerTecnico;
-                document.getElementById('modal_Servicos_solicitados').value = data.servicosSolicitados;
-                document.getElementById('modal_Estimativa_de_custo').value = data.estimativaCusto;
-                document.getElementById('modal_Aprovacao_do_Cliente').value = data.aprovacaoCliente;
-                document.getElementById('modal_Servicos_realizados').value = data.servicosRealizados;
-                document.getElementById('modal_Pecas_substituidas').value = data.pecasSubstituidas;
-                document.getElementById('modal_Testes_realizados').value = data.testesRealizados;
-                document.getElementById('modal_Data_de_conclusao').value = data.dataConclusao;
-                document.getElementById('modal_Observacoes').value = data.observacoes;
-                document.getElementById('editar-os-modal').style.display = 'flex';
-            };
-        }
+        const status = data.status?.toLowerCase();
+
 
         const deleteButton = document.createElement('a');
         deleteButton.classList.add('btn', 'btn-delete');
@@ -207,6 +180,44 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             });
         };
+
+        if (status === 'finalizada') {
+            editLink.style.display = 'none';
+        } else if (status === 'inativo') {
+            editLink.style.display = 'none';
+            deleteButton.style.display = 'none';
+        } else {
+            editLink.onclick = function (e) {
+                e.preventDefault();
+                modal.remove();
+
+                
+                document.getElementById('modal_id_os').value = data.numeroOS;
+                document.getElementById('modal_Numero_da_Os').value = data.numeroOS;
+                document.getElementById('modal_Tipo_de_equipamento').value = data.tipoEquipamento;
+                document.getElementById('modal_Nome_do_Cliente').value = data.nomeCliente;
+                document.getElementById('modal_Email').value = data.email;
+                document.getElementById('modal_Marca_e_modelo').value = data.marcaModelo;
+                document.getElementById('modal_Telefone').value = data.telefone;
+                document.getElementById('modal_Endereco').value = data.endereco;
+                document.getElementById('modal_CEP').value = data.cep;
+                document.getElementById('modal_Numero_de_serie').value = data.numeroSerie;
+                document.getElementById('modal_Acessorios_entregues').value = data.acessorios;
+                document.getElementById('modal_Relato_do_cliente').value = data.relatoCliente;
+                document.getElementById('modal_Parecer_Tecnico').value = data.parecerTecnico;
+                document.getElementById('modal_Servicos_solicitados').value = data.servicosSolicitados;
+                document.getElementById('modal_Estimativa_de_custo').value = data.estimativaCusto;
+                document.getElementById('modal_Aprovacao_do_Cliente').value = data.aprovacaoCliente;
+                document.getElementById('modal_Servicos_realizados').value = data.servicosRealizados;
+                document.getElementById('modal_Pecas_substituidas').value = data.pecasSubstituidas;
+                document.getElementById('modal_Testes_realizados').value = data.testesRealizados;
+                document.getElementById('modal_Data_de_conclusao').value = data.dataConclusao;
+                document.getElementById('modal_Observacoes').value = data.observacoes;
+
+                document.getElementById('editar-os-modal').style.display = 'flex';
+            };
+        }
+
 
         modalActions.appendChild(editLink);
         modalActions.appendChild(deleteButton);

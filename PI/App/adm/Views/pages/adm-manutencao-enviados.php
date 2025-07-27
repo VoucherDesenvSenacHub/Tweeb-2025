@@ -3,7 +3,7 @@ session_start();
 require_once __DIR__ . '/../../Models/OrdemServico.php';
 OrdemServico::atualizarStatusAutomaticamente();
 
-$ordens = OrdemServico::buscarPorStatus('Finalizada');
+$ordens = OrdemServico::buscarPorStatus('Finalizada', true);
 $totais = OrdemServico::contarTodosStatus();
 ?>
 
@@ -18,106 +18,7 @@ $totais = OrdemServico::contarTodosStatus();
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 
-<!-- Modal de Edição de OS -->
-<div id="editar-os-modal" class="editar-os-modal" style="display: none;">
-  <div class="editar-os-modal-content">
-    <span class="editar-os-modal-close" onclick="closeModal()">&times;</span>
-    <form id="editar-os-form" action="../../Controllers/OrdemServicoController.php?action=update" method="POST">
-      <input type="hidden" name="id_os" id="modal_id_os">
-      <h2 class="editar-os-modal-title">Editar Ordem de Serviço</h2><br><br>
 
-      <div class="Ordem_Servico">
-        <label for="Numero_da_Os">Número da OS</label>
-        <input type="text" name="numero_os" id="modal_Numero_da_Os" placeholder="">
-      </div>
-      <!-- <div class="Ordem_Servico">
-        <label for="Data_de_Abertura">Data de Abertura</label>
-        <input type="text" name="data_de_abertura" id="modal_Data_de_Abertura" placeholder="">
-      </div> -->
-      <div class="Ordem_Servico">
-        <label for="Tipo_de_equipamento">Tipo de Equipamento</label>
-        <input type="text" name="tipo_equipamento" id="modal_Tipo_de_equipamento" placeholder="">
-      </div>
-      <div class="Ordem_Servico">
-        <label for="Nome_do_Cliente">Nome do Cliente</label>
-        <input type="text" name="nome_cliente" id="modal_Nome_do_Cliente" placeholder="">
-      </div>
-      <div class="Ordem_Servico">
-        <label for="Email">Email</label>
-        <input type="email" name="email_cliente" id="modal_Email" placeholder="">
-      </div>
-      <div class="Ordem_Servico">
-        <label for="Marca_e_modelo">Marca e Modelo</label>
-        <input type="text" name="marca_modelo" id="modal_Marca_e_modelo" placeholder="">
-      </div>
-      <div class="Ordem_Servico">
-        <label for="Telefone">Telefone</label>
-        <input type="tel" name="telefone" id="modal_Telefone" placeholder="">
-      </div>
-      <div class="Ordem_Servico">
-        <label for="Endereco">Endereço</label>
-        <input type="text" name="endereco" id="modal_Endereco" placeholder="">
-      </div>
-      <div class="Ordem_Servico">
-        <label for="CEP">CEP</label>
-        <input type="number" name="cep" id="modal_CEP" placeholder="">
-      </div>
-      <div class="Ordem_Servico">
-        <label for="Numero_de_série">Número de Série</label>
-        <input type="text" name="numero_serie" id="modal_Numero_de_serie" placeholder="">
-      </div>
-      <div class="Ordem_Servico">
-        <label for="Acessorios_entregues">Acessórios Entregues</label>
-        <input type="text" name="acessorios_entregues" id="modal_Acessorios_entregues" placeholder="">
-      </div>
-      <div class="Ordem_Servico">
-        <label for="Relato_do_cliente">Relato do Cliente</label>
-        <input type="text" name="relato_cliente" id="modal_Relato_do_cliente" placeholder="">
-      </div>
-      <div class="Ordem_Servico">
-        <label for="Parecer_Tecnico">Técnico Responsável</label>
-        <input type="text" name="tecnico_responsavel" id="modal_Parecer_Tecnico" placeholder="">
-      </div>
-      <div class="Ordem_Servico">
-        <label for="Servicos_solicitados">Serviços Solicitados</label>
-        <input type="text" name="servicos_solicitados" id="modal_Servicos_solicitados" placeholder="">
-      </div>
-      <div class="Ordem_Servico">
-        <label for="Estimativa_de_custo">Estimativa de Custo</label>
-        <input type="number" name="estimativa_custo" id="modal_Estimativa_de_custo" placeholder="">
-      </div>
-      <div class="Ordem_Servico">
-        <label for="Aprovacao_do_Cliente">Aprovação do Cliente</label>
-        <input type="text" name="aprovacao_cliente" id="modal_Aprovacao_do_Cliente" placeholder="">
-      </div>
-      <div class="Ordem_Servico">
-        <label for="Servicos_realizados">Serviços Realizados</label>
-        <input type="text" name="servicos_realizados" id="modal_Servicos_realizados" placeholder="">
-      </div>
-      <div class="Ordem_Servico">
-        <label for="Pecas_substituidas">Peças Substituídas</label>
-        <input type="text" name="pecas_substituidas" id="modal_Pecas_substituidas" placeholder="">
-      </div>
-      <div class="Ordem_Servico">
-        <label for="Testes_realizados">Testes Realizados</label>
-        <input type="text" name="testes_realizados" id="modal_Testes_realizados" placeholder="">
-      </div>
-      <div class="Ordem_Servico">
-        <label for="Data_de_conclusao">Data de Conclusão</label>
-        <input type="date" name="data_conclusao" id="modal_Data_de_conclusao" placeholder="">
-      </div>
-      <div class="Ordem_Servico">
-        <label for="Observacoes">Observações</label>
-        <input type="text" name="observacoes" id="modal_Observacoes" placeholder="">
-      </div>
-
-      <div class="editar-os-modal-buttons">
-        <button type="button" class="btn_cancelar" onclick="cancelAndGoBack()">Cancelar</button>
-        <button type="submit" class="btn_salvar">Salvar Alterações</button>
-      </div>
-    </form>
-  </div>
-</div>
 
 
 
@@ -132,9 +33,11 @@ $totais = OrdemServico::contarTodosStatus();
                 <h1>Manutenções</h1>
 
               <div class="manutencoes-cards">
-                <div class="manutencao-card">
-                  <p class="manutencoes-total">Total</p>
-                  <p><?= $totais['total'] ?></p>
+                <div class="manutencao-card card-total" 
+                    data-total="<?= $totais['total'] ?>" 
+                    data-ativas="<?= $totais['total'] - $totais['inativos'] ?>">
+                  <p class="manutencoes-total titulo">Total</p>
+                  <p class="valor-total"><?= $totais['total'] ?></p>
                 </div>
 
                 <div class="manutencao-card">
@@ -151,6 +54,11 @@ $totais = OrdemServico::contarTodosStatus();
                   <p class="manutencoes-atrasadas">Atrasadas</p>
                   <p><?= $totais['atrasadas'] ?></p>
                 </div>
+                
+                <div class="manutencao-card">
+                  <p class="manutencoes-inativos">Inativos</p>
+                  <p><?= $totais['inativos'] ?></p>
+                </div>
               </div>
 
                 
@@ -160,6 +68,7 @@ $totais = OrdemServico::contarTodosStatus();
             <nav class="manutencao-tabs">
                 <a href="adm-manutencao.php" class="">Ordem de serviço</a>
                 <a href="adm-manutencao-enviados.php" class="active">Finalizadas</a>
+                <a href="adm-manutencao-inativos.php">Inativos</a>
             </nav>
           
             
@@ -258,11 +167,9 @@ $totais = OrdemServico::contarTodosStatus();
             </table>
         </div>
     
-            <!-- <div class="pagination">
-                <button onclick="showPage(1)">1</button>
-                <button onclick="showPage(2)">2</button>
-            </div> -->
-        </div>
+          <div class="pagination">
+              <button onclick="showPage()"></button>
+          </div>
     
     </div>
 
@@ -390,5 +297,72 @@ $totais = OrdemServico::contarTodosStatus();
 
   </script>
 
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const rowsPerPage = 5;
+        const rows = document.querySelectorAll('.servicos-table tbody tr');
+        const pagination = document.querySelector('.pagination');
+
+        function showPage(page) {
+          const totalPages = Math.ceil(rows.length / rowsPerPage);
+          const start = (page - 1) * rowsPerPage;
+          const end = start + rowsPerPage;
+
+          rows.forEach((row, index) => {
+            row.style.display = (index >= start && index < end) ? '' : 'none';
+          });
+
+          pagination.innerHTML = '';
+          for (let i = 1; i <= totalPages; i++) {
+            const button = document.createElement('button');
+            button.textContent = i;
+            button.className = (i === page) ? 'active' : '';
+            button.onclick = () => showPage(i);
+            pagination.appendChild(button);
+          }
+        }
+
+        if (rows.length > 0) {
+          showPage(1);
+        }
+      });
+    </script>
+
+    <script>
+      const card = document.querySelector('.card-total');
+      const valor = card.querySelector('.valor-total');
+      const titulo = card.querySelector('.titulo');
+
+      const total = card.getAttribute('data-total');
+      const ativas = card.getAttribute('data-ativas');
+
+    
+      card.addEventListener('click', () => {
+        if (window.innerWidth <= 768) {
+          if (valor.textContent == total) {
+            valor.textContent = ativas;
+            titulo.textContent = 'Ativos';
+          } else {
+            valor.textContent = total;
+            titulo.textContent = 'Total';
+          }
+        }
+      });
+
+      
+      card.addEventListener('mouseenter', () => {
+        if (window.innerWidth > 768) {
+          valor.textContent = ativas;
+          titulo.textContent = 'Ativos';
+        }
+      });
+
+      card.addEventListener('mouseleave', () => {
+        if (window.innerWidth > 768) {
+          valor.textContent = total;
+          titulo.textContent = 'Total';
+        }
+      });
+    </script>
 
 </html>

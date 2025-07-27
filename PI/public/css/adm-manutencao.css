@@ -74,7 +74,6 @@ ul.categoria{
 }
 
 #filtroOS {
-  cursor: pointer;
   width: 100%;
   max-width: 400px;
   padding: 10px;
@@ -152,8 +151,8 @@ ul.categoria{
   font-weight: bold;
   position: absolute;
   /* top: 10px; */
-  top: -2px;
-  right: 20px;
+  top: 17px;
+  right: 35px;
   cursor: pointer;
 }
 
@@ -391,13 +390,82 @@ td {
 .servicos-table .garantia { color: #667085; }
 .servicos-table .andamento { color: #12B76A; } */
 
-.servicos-table .atrasada { color: #5D6679; }
+.servicos-table .atrasada { color: #e53935; }
 .servicos-table .finalizada { color: #845EBC; }
 .servicos-table .garantia { color: #667085; }
 .servicos-table .andamento { color: #E19133; }
 
 
 
+/* .modal-detalhes-os {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+}
+
+.modal-detalhes-content {
+    background-color: #fff;
+    margin: 13% auto;
+    padding: 30px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 600px;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    animation: modalSlideIn 0.3s ease-out;
+} */
+
+.modal-detalhes-os {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+}
+
+.modal-detalhes-content {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 600px;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    animation: modalSlideIn 0.3s ease-out;
+}
+
+
+
+
+.close-os {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    color: #aaa;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.close-os:hover,
+.close-os:focus {
+    color: red;
+    transform: scale(1.3);
+    transition: all 0.2s ease-in-out;
+}
 
 
 footer {
@@ -539,6 +607,12 @@ border: 1px solid #2e8644;
   box-shadow: 5px 0px 10px 0px rgba(0, 0, 0, 0.05);
 }
 
+.card-total {
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+
 .stats-wrapper {
 display: flex;
 flex-direction: column;
@@ -669,6 +743,11 @@ h2 {
   color: #845EBC;
 }
 
+.manutencao-card .manutencoes-atrasadas{
+  color: #e53935;
+  font-weight: 600;
+}
+
 
 /*  */
 
@@ -713,6 +792,12 @@ h2 {
   font-size: 20px;
   color: #383E49;
   /* font-weight: 500; */
+}
+
+.servicos-title-inativos{
+  font-size: 20px;
+  color: #383E49;
+  margin-top: 72px;
 }
 
 .manutencoes-aceitas{
@@ -827,4 +912,12 @@ h2 {
     margin: 5rem 0;
   }
 
+  .modal-detalhes-content {
+    margin: 35% auto;
+  }
+  .editar-os-modal-close {
+    top: 0px;
+    right: 12px;
+
+  }
 }

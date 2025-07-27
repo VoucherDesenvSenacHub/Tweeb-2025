@@ -23,14 +23,14 @@ $dadosCompletos = $db->buscarDadosCompletosPorId($funcionario['id'], $funcionari
 
 // Se encontrou dados completos, atualiza a sessão e usa eles
 if ($dadosCompletos) {
-    $tipo_sessao = isset($_SESSION['adm']) ? 'adm' : 'funcionario';
+    $tipo_s2essao = isset($_SESSION['adm']) ? 'adm' : 'funcionario';
     $_SESSION[$tipo_sessao] = array_merge($_SESSION[$tipo_sessao], $dadosCompletos);
     $funcionario = $dadosCompletos;
 }
 
 OrdemServico::atualizarStatusAutomaticamente();
 
-$ordens = OrdemServico::buscar();
+$ordens = OrdemServico::buscarAtivas();
 $totais = OrdemServico::contarTodosStatus();
 $tecnicos = OrdemServico::listarTecnicos();
 ?>
@@ -70,7 +70,7 @@ $tecnicos = OrdemServico::listarTecnicos();
 
       <div class="Ordem_Servico">
         <label for="Tipo_de_equipamento">Tipo de Equipamento</label>
-        <input type="text" name="tipo_equipamento" id="modal_Tipo_de_equipamento" placeholder="">
+        <input type="text" name="tipo_equipamento" id="modal_Tipo_de_equipamento" placeholder="" required>
       </div>
       <div class="Ordem_Servico">
         <label for="Nome_do_Cliente">Nome do Cliente</label>
@@ -78,7 +78,7 @@ $tecnicos = OrdemServico::listarTecnicos();
       </div>
       <div class="Ordem_Servico">
         <label for="Email">Email</label>
-        <input type="email" name="email_cliente" id="modal_Email" placeholder="">
+        <input type="email" name="email_cliente" id="modal_Email" placeholder="exemplo@gmail.com" required>
       </div>
       <div class="Ordem_Servico">
         <label for="Marca_e_modelo">Marca e Modelo</label>
@@ -86,7 +86,7 @@ $tecnicos = OrdemServico::listarTecnicos();
       </div>
       <div class="Ordem_Servico">
         <label for="Telefone">Telefone</label>
-        <input type="tel" name="telefone" id="modal_Telefone" placeholder="">
+        <input type="tel" name="telefone" id="modal_Telefone" pattern="\d{11}" maxlength="11" placeholder="Ex: 67912345678" required>
       </div>
       <div class="Ordem_Servico">
         <label for="Endereco">Endereço</label>
@@ -134,7 +134,7 @@ $tecnicos = OrdemServico::listarTecnicos();
       </div>
       <div class="Ordem_Servico">
         <label for="Estimativa_de_custo">Estimativa de Custo</label>
-        <input type="number" name="estimativa_custo" id="modal_Estimativa_de_custo" placeholder="">
+        <input type="number" name="estimativa_custo" id="modal_Estimativa_de_custo" placeholder="" required>
       </div>
       <div class="Ordem_Servico">
         <label for="Aprovacao_do_Cliente">Aprovação do Cliente</label>
@@ -193,10 +193,13 @@ $tecnicos = OrdemServico::listarTecnicos();
                 <h1>Manutenções</h1>
 
               <div class="manutencoes-cards">
-                <div class="manutencao-card">
-                  <p class="manutencoes-total">Total</p>
-                  <p><?= $totais['total'] ?></p>
+                <div class="manutencao-card card-total" 
+                    data-total="<?= $totais['total'] ?>" 
+                    data-ativas="<?= $totais['total'] - $totais['inativos'] ?>">
+                  <p class="manutencoes-total titulo">Total</p>
+                  <p class="valor-total"><?= $totais['total'] ?></p>
                 </div>
+
 
                 <div class="manutencao-card">
                   <p class="manutencoes-andamento">Em andamento</p>
@@ -212,6 +215,11 @@ $tecnicos = OrdemServico::listarTecnicos();
                   <p class="manutencoes-atrasadas">Atrasadas</p>
                   <p><?= $totais['atrasadas'] ?></p>
                 </div>
+
+                <div class="manutencao-card">
+                  <p class="manutencoes-inativos">Inativos</p>
+                  <p><?= $totais['inativos'] ?></p>
+                </div>
               </div>
 
                 
@@ -221,6 +229,7 @@ $tecnicos = OrdemServico::listarTecnicos();
             <nav class="manutencao-tabs">
                 <a href="" class="active">Ordem de serviço</a>
                 <a href="adm-manutencao-enviados.php">Finalizadas</a>
+                <a href="adm-manutencao-inativos.php">Inativos</a>
             </nav>
           
             
@@ -494,6 +503,44 @@ $tecnicos = OrdemServico::listarTecnicos();
         }
       });
     </script>
-      
+
+
+    <script>
+      const card = document.querySelector('.card-total');
+      const valor = card.querySelector('.valor-total');
+      const titulo = card.querySelector('.titulo');
+
+      const total = card.getAttribute('data-total');
+      const ativas = card.getAttribute('data-ativas');
+
+    
+      card.addEventListener('click', () => {
+        if (window.innerWidth <= 768) {
+          if (valor.textContent == total) {
+            valor.textContent = ativas;
+            titulo.textContent = 'Ativos';
+          } else {
+            valor.textContent = total;
+            titulo.textContent = 'Total';
+          }
+        }
+      });
+
+     
+      card.addEventListener('mouseenter', () => {
+        if (window.innerWidth > 768) {
+          valor.textContent = ativas;
+          titulo.textContent = 'Ativos';
+        }
+      });
+
+      card.addEventListener('mouseleave', () => {
+        if (window.innerWidth > 768) {
+          valor.textContent = total;
+          titulo.textContent = 'Total';
+        }
+      });
+    </script>
+
 
 </html>

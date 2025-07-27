@@ -41,7 +41,7 @@ $tecnicos = OrdemServico::listarTecnicos();
         </div>
         <div class="Ordem_Servico21">
             <label for="email_cliente">Email</label>
-            <input type="email" name="email_cliente" id="email_cliente" placeholder="">
+            <input type="email" name="email_cliente" id="modal_Email" placeholder="exemplo@gmail.com" required>
         </div>
         <div class="Ordem_Servico21">
             <label for="marca_modelo">Marca e modelo</label>
@@ -49,7 +49,7 @@ $tecnicos = OrdemServico::listarTecnicos();
         </div>
         <div class="Ordem_Servico21">
             <label for="telefone">Telefone</label>
-            <input type="tel" name="telefone" id="telefone" maxlength="15" pattern="\(\d{2}\) \d{5}-\d{4}" placeholder="Digite os 9 dígitos" required>
+            <input type="tel" name="telefone" id="telefone" pattern="\d{11}" maxlength="11" placeholder="Digite os 9 dígitos" required>
         </div>
         <div class="Ordem_Servico21">
             <label for="endereco">Endereço</label>
@@ -136,25 +136,25 @@ $tecnicos = OrdemServico::listarTecnicos();
 
 
 <script>
-    document.getElementById('telefone').addEventListener('input', function (e) {
-    let value = e.target.value.replace(/\D/g, '');
+    // document.getElementById('telefone').addEventListener('input', function (e) {
+    // let value = e.target.value.replace(/\D/g, '');
 
-    if (value.length > 15) value = value.slice(0, 11);
+    // if (value.length > 15) value = value.slice(0, 11);
 
-    let formatted = value;
+    // let formatted = value;
 
-    if (value.length > 0) {
-        formatted = `(${value.substring(0, 2)}`;
-    }
-    if (value.length >= 3) {
-        formatted += `) ${value.substring(2, 7)}`;
-    }
-    if (value.length >= 8) {
-        formatted += `-${value.substring(7, 11)}`;
-    }
+    // if (value.length > 0) {
+    //     formatted = `(${value.substring(0, 2)}`;
+    // }
+    // if (value.length >= 3) {
+    //     formatted += `) ${value.substring(2, 7)}`;
+    // }
+    // if (value.length >= 8) {
+    //     formatted += `-${value.substring(7, 11)}`;
+    // }
 
-    e.target.value = formatted;
-    });
+    // e.target.value = formatted;
+    // });
 
     document.getElementById('cep').addEventListener('input', function (e) {
     let value = e.target.value.replace(/\D/g, ''); 
