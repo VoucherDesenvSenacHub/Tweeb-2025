@@ -161,8 +161,10 @@ document.addEventListener('DOMContentLoaded', function() {
             .then(data => {
                 if (data.success) {
                     window.location.href = '/Tweeb-2025/PI/App/user/View/pages/telaCarrinho.php';
-                } else if (data.message && data.message.toLowerCase().includes('logado')) {
-                    window.location.href = '/Tweeb-2025/PI/app/user/view/pages/login.php';
+                } else if (data.message && (data.message.toLowerCase().includes('logado') || data.message.toLowerCase().includes('login'))) {
+                    if (confirm('Você precisa estar logado para adicionar produtos ao carrinho. Deseja ir para a página de login?')) {
+                        window.location.href = '/Tweeb-2025/PI/app/user/view/pages/login.php';
+                    }
                 } else {
                     alert('Erro ao adicionar ao carrinho: ' + (data.message || 'Erro desconhecido.'));
                     window.location.href = '/Tweeb-2025/PI/App/user/View/pages/telaCarrinho.php';
@@ -198,8 +200,10 @@ document.addEventListener('DOMContentLoaded', function() {
             .then(data => {
                 if (data.success) {
                     alert('Produto adicionado ao carrinho!');
-                } else if (data.message && data.message.toLowerCase().includes('logado')) {
-                    window.location.href = '/Tweeb-2025/PI/app/user/view/pages/login.php';
+                } else if (data.message && (data.message.toLowerCase().includes('logado') || data.message.toLowerCase().includes('login'))) {
+                    if (confirm('Você precisa estar logado para adicionar produtos ao carrinho. Deseja ir para a página de login?')) {
+                        window.location.href = '/Tweeb-2025/PI/app/user/view/pages/login.php';
+                    }
                 } else {
                     alert('Erro ao adicionar ao carrinho: ' + (data.message || 'Erro desconhecido.'));
                 }
@@ -249,8 +253,10 @@ document.addEventListener('DOMContentLoaded', function() {
             .then(data => {
                 if (data.success) {
                     alert('Produto adicionado ao carrinho!');
-                } else if (data.message && data.message.toLowerCase().includes('logado')) {
-                    window.location.href = '/Tweeb-2025/PI/app/user/view/pages/login.php';
+                } else if (data.message && (data.message.toLowerCase().includes('logado') || data.message.toLowerCase().includes('login'))) {
+                    if (confirm('Você precisa estar logado para adicionar produtos ao carrinho. Deseja ir para a página de login?')) {
+                        window.location.href = '/Tweeb-2025/PI/app/user/view/pages/login.php';
+                    }
                 } else {
                     alert('Erro ao adicionar ao carrinho: ' + (data.message || 'Erro desconhecido.'));
                 }
@@ -300,8 +306,10 @@ document.addEventListener('DOMContentLoaded', function() {
             .then(data => {
                 if (data.success) {
                     alert('Produto adicionado ao carrinho!');
-                } else if (data.message && data.message.toLowerCase().includes('logado')) {
-                    window.location.href = '/Tweeb-2025/PI/app/user/view/pages/login.php';
+                } else if (data.message && (data.message.toLowerCase().includes('logado') || data.message.toLowerCase().includes('login'))) {
+                    if (confirm('Você precisa estar logado para adicionar produtos ao carrinho. Deseja ir para a página de login?')) {
+                        window.location.href = '/Tweeb-2025/PI/app/user/view/pages/login.php';
+                    }
                 } else {
                     alert('Erro ao adicionar ao carrinho: ' + (data.message || 'Erro desconhecido.'));
                 }
@@ -351,8 +359,10 @@ document.addEventListener('DOMContentLoaded', function() {
             .then(data => {
                 if (data.success) {
                     alert('Produto adicionado ao carrinho!');
-                } else if (data.message && data.message.toLowerCase().includes('logado')) {
-                    window.location.href = '/Tweeb-2025/PI/app/user/view/pages/login.php';
+                } else if (data.message && (data.message.toLowerCase().includes('logado') || data.message.toLowerCase().includes('login'))) {
+                    if (confirm('Você precisa estar logado para adicionar produtos ao carrinho. Deseja ir para a página de login?')) {
+                        window.location.href = '/Tweeb-2025/PI/app/user/view/pages/login.php';
+                    }
                 } else {
                     alert('Erro ao adicionar ao carrinho: ' + (data.message || 'Erro desconhecido.'));
                 }
@@ -398,8 +408,10 @@ document.addEventListener('DOMContentLoaded', function() {
             .then(data => {
                 if (data.success) {
                     alert('Produto adicionado ao carrinho!');
-                } else if (data.message && data.message.toLowerCase().includes('logado')) {
-                    window.location.href = '/Tweeb-2025/PI/app/user/view/pages/login.php';
+                } else if (data.message && (data.message.toLowerCase().includes('logado') || data.message.toLowerCase().includes('login'))) {
+                    if (confirm('Você precisa estar logado para adicionar produtos ao carrinho. Deseja ir para a página de login?')) {
+                        window.location.href = '/Tweeb-2025/PI/app/user/view/pages/login.php';
+                    }
                 } else {
                     alert('Erro ao adicionar ao carrinho: ' + (data.message || 'Erro desconhecido.'));
                 }
@@ -445,8 +457,10 @@ document.addEventListener('DOMContentLoaded', function() {
             .then(data => {
                 if (data.success) {
                     alert('Produto adicionado ao carrinho!');
-                } else if (data.message && data.message.toLowerCase().includes('logado')) {
-                    window.location.href = '/Tweeb-2025/PI/app/user/view/pages/login.php';
+                } else if (data.message && (data.message.toLowerCase().includes('logado') || data.message.toLowerCase().includes('login'))) {
+                    if (confirm('Você precisa estar logado para adicionar produtos ao carrinho. Deseja ir para a página de login?')) {
+                        window.location.href = '/Tweeb-2025/PI/app/user/view/pages/login.php';
+                    }
                 } else {
                     alert('Erro ao adicionar ao carrinho: ' + (data.message || 'Erro desconhecido.'));
                 }

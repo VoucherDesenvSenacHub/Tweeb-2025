@@ -1,6 +1,14 @@
-<?php require_once __DIR__.'/App/adm/Controllers/Produto.php';
+<?php 
+require_once __DIR__.'/App/adm/Controllers/Banner.php';
+require_once __DIR__.'/App/adm/Controllers/Produto.php';
+
 $produtos = Produto::buscar(null, 'id_produto DESC', 8);
+
+
 ?>
+
+
+
 <?php
 session_start(); 
 
@@ -32,8 +40,23 @@ $produtoController = new Produto();
         include __DIR__.'/../PI/includes/sidebar-User.php'; 
     } else {
         include __DIR__.'/../PI/includes/navbar.php';
-        // include __DIR__.'/includes/sidebar-User.php';
+       
     }
+
+    $banner = new Banner();
+
+
+    $bannerPrincipalPosicao1 = $banner->getBannerForPosicao('banners_principais',1);
+    $bannerPrincipalPosicao2 = $banner->getBannerForPosicao('banners_principais',2);
+    $bannerPrincipalPosicao3 = $banner->getBannerForPosicao('banners_principais',3);
+
+    $bannerSecundarioPosicao1 = $banner->getBannerForPosicao('banners_secundarios',1);
+
+    $bannerPromocionalPosicao1  = $banner->getBannerForPosicao('banners_promocionais',1);
+    $bannerPromocionalPosicao2  = $banner->getBannerForPosicao('banners_promocionais',2);
+    $bannerPromocionalPosicao3  = $banner->getBannerForPosicao('banners_promocionais',3);
+    $bannerPromocionalPosicao4  = $banner->getBannerForPosicao('banners_promocionais',4);
+
     ?>
     
     <section class="slider">
@@ -44,13 +67,19 @@ $produtoController = new Produto();
         
 
         <div class="slide-box primeiro">
-            <a href="#"><img src="public/assets/img/carrossel 1.png" alt="" class="img-desktop"></a>
+        <a href="#">
+            <img src="/Tweeb-2025/PI/public/Banners/bannersPrincipais/<?= basename($bannerPrincipalPosicao1->caminho) ?>" alt="Banner principal" class="img-desktop">
+        </a>
+    </div>
+
+        <div class="slide-box">
+            <a href="#">
+                 <img src="/Tweeb-2025/PI/public/Banners/bannersPrincipais/<?= basename($bannerPrincipalPosicao2->caminho) ?>" alt="Banner principal" class="img-desktop">
         </div>
         <div class="slide-box">
-            <a href="#"><img src="public/assets/img/carrossel 2.png" alt="" class="img-desktop"></a>
-        </div>
-        <div class="slide-box">
-            <a href="#"><img src="public/assets/img/carrossel 3.png" alt="" class="img-desktop"></a>
+            <a href="#">
+                 <img src="/Tweeb-2025/PI/public/Banners/bannersPrincipais/<?= basename($bannerPrincipalPosicao3->caminho) ?>" alt="Banner principal" class="img-desktop">
+        </a>
         </div>
 
 
@@ -71,7 +100,8 @@ $produtoController = new Produto();
         </div>
     </section>
 
-    <img id="ad-produto" src="public/assets/img/ad-produtos.png" alt="">
+    <!-- <img id="ad-produto" src="public/assets/img/ad-produtos.png" alt=""> -->
+     <img id='ad-produto' src="/Tweeb-2025/PI/public/Banners/bannersSecundarios/<?= basename($bannerSecundarioPosicao1->caminho) ?>" alt="Banner secundario"  class="img-desktop">
 
 
     <div class="categorias">
@@ -82,27 +112,27 @@ $produtoController = new Produto();
                 </div>
             </div>
             <div class="categorias-card">
-                <a href="App/user/View/pages/Hardwares.php" class="card card1">
+                <a href="App/user/Controllers/ControllerProd/Departamento_Hardwares.php" class="card card1">
                     <img src="public/assets/img/phone-icon.png" alt="hardware">
                     <p>Hardwares</p>
                 </a>
-                <a href="App/user/View/pages/Perifericos.php" class="card card2">
+                <a href="App/user/Controllers/ControllerProd/Departamento_Perifericos.php" class="card card2">
                     <img src="public/assets/img/perifericos-icon.png" alt="periféricos">
                     <p>Periféricos</p>
                 </a>
-                <a href="App/user/View/pages/Energia.php" class="card card3">
+                <a href="App/user/Controllers/ControllerProd/Departamento_Energia.php" class="card card3">
                     <img src="public/assets/img/energia-icon.png" alt="periféricos">
                     <p>Energia</p>
                 </a>
-                <a href="App/user/View/pages/Audio.php" class="card card4">
+                <a href="App/user/Controllers/ControllerProd/Departamento_Audio.php" class="card card4">
                     <img src="public/assets/img/audio-icon.png" alt="periféricos">
                     <p>Aúdio</p>
                 </a>
-                <a href="App/user/View/pages/Computadores.php" class="card card5">
+                <a href="App/user/Controllers/ControllerProd/Departamento_Computadores.php" class="card card5">
                     <img src="public/assets/img/computadores-icon.png" alt="periféricos">
                     <p>Computadores</p>
                 </a>
-                <a href="App/user/View/pages/Games.php" class="card card6">
+                <a href="App/user/Controllers/ControllerProd/Departamento_Games.php" class="card card6">
                     <img src="public/assets/img/jogos-icon.png" alt="periféricos">
                     <p>Jogos</p>
                 </a>
@@ -176,9 +206,15 @@ $produtoController = new Produto();
     </div>
 
       <div class="anuncios">
-        <a href="App/user/View/pages/task20-kitsetup.php" class="img-responsiva" ><img src="public/assets/img/Do seu jeito.png" alt=""></a>
-        <a href="App/user/View/pages/do-seu-jeito.php" class="img-responsiva"><img src="public/assets/img/Do seu jeito 2.png" alt=""></a>
-        <a href="App/user/View/pages/corporativo.php" class="img-responsiva"><img src="public/assets/img/Do seu jeito 3.png" alt=""></a>
+        <a href="App/user/View/pages/task20-kitsetup.php" class="img-responsiva" >
+            <img src="/Tweeb-2025/PI/public/Banners/bannersPromocionais/<?= basename($bannerPromocionalPosicao2->caminho) ?>" alt="Banner promocionais"  class="img-desktop">
+    </a>
+        <a href="App/user/View/pages/do-seu-jeito.php" class="img-responsiva">
+            <img src="/Tweeb-2025/PI/public/Banners/bannersPromocionais/<?= basename($bannerPromocionalPosicao3->caminho) ?>" alt="Banner promocionais"  class="img-desktop">
+        </a>
+        <a href="App/user/View/pages/corporativo.php" class="img-responsiva">
+            <img src="/Tweeb-2025/PI/public/Banners/bannersPromocionais/<?= basename($bannerPromocionalPosicao4->caminho) ?>" alt="Banner promocionais"  class="img-desktop">
+        </a>
       </div>
       <br>
 
@@ -223,7 +259,9 @@ $produtoController = new Produto();
        
 
       <div class="img-anuncio">
-        <a href="#"><img src="public/assets/img/banner tweeb carnaval.png" alt="anuncio carnaval"></a>
+        <a href="#">
+            <img src="/Tweeb-2025/PI/public/Banners/bannersPromocionais/<?= basename($bannerPromocionalPosicao1->caminho) ?>" alt="Banner promocionais"  class="img-desktop">
+    </a>
       </div>
 
 

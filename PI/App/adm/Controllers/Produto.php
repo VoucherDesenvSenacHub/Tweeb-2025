@@ -6,7 +6,13 @@
 
 require_once(__DIR__ . '/../../DB/Database.php');
 
+
+
 class Produto{
+
+    
+public $conn;
+
 
     public ?int $id_produto = null;
     public string $nome_produto;
@@ -131,12 +137,11 @@ class Produto{
         return (new Database('produtos'))->delete('id_produto = '.$id_produto);
     }
 
-    public function atualizarFlags($id_produto, $em_estoque, $garantia, $entrega_gratis) {
+public function atualizarFlags($id_produto, $em_estoque, $garantia, $entrega_gratis) {
+    $stmt = $this->conn->prepare("UPDATE produtos SET em_estoque = ?, garantia = ?, entrega_gratis = ? WHERE id_produto = ?");
+    $stmt->execute([$em_estoque, $garantia, $entrega_gratis, $id_produto]);
+}
 
-    
-        $stmt = $conn->prepare("UPDATE produtos SET em_estoque = ?, garantia = ?, entrega_gratis = ? WHERE id_produto = ?");
-        $stmt->execute([$em_estoque, $garantia, $entrega_gratis, $id_produto]);
-    }
 
     public function update2() {
         return (new Database('produtos'))->update2(
@@ -147,7 +152,7 @@ class Produto{
     public static function buscarnovos($filtros = null, $ordenacao = null, $limite = null) {
         require_once __DIR__ . '/../../DB/Database.php'; // Ajuste o caminho conforme seu projeto
     
-        $conexao = Database::conectar();
+      
     
         $sql = "SELECT * FROM produtos";
     

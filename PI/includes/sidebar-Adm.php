@@ -49,7 +49,7 @@
 
 
                 <li class="sidebarAdm-item">
-                  <a href="../pages/aparencia.php"><img src="../../../../public/assets/img/Vector (5).png" alt=""><span class="itemAdm-descricao">Aparência</span></a>
+                  <a href="../pages/cadastrar_banner.php"><img src="../../../../public/assets/img/Vector (5).png" alt=""><span class="itemAdm-descricao">Aparência</span></a>
                 </li>
                 <li class="sidebarAdm-item">
                   <a href="/Tweeb-2025/PI/app/adm/Controllers/FuncionarioLogout.php"><img src="../../../../public/assets/img/sair.png" alt=""><span class="itemAdm-descricao">Sair</span></a>

@@ -103,13 +103,18 @@ function toggleFavorito(idProduto, elemento) {
             // Mostra notificação simples
             alert(data.message);
         } else {
-            console.error('Erro:', data.message);
-            alert('Erro ao alterar favoritos');
+            // Se a mensagem indicar que o usuário não está autenticado, redireciona para o login
+            if (data.message && data.message.toLowerCase().includes('autenticado')) {
+                window.location.href = '/Tweeb-2025/PI/App/user/View/pages/login.php';
+            } else {
+                console.error('Erro:', data.message);
+            }
         }
     })
     .catch(error => {
         console.error('Erro:', error);
-        alert('Erro ao alterar favoritos');
+        // Em caso de erro de rede, também redireciona para login
+        window.location.href = '/Tweeb-2025/PI/App/user/View/pages/login.php';
     });
 }
 

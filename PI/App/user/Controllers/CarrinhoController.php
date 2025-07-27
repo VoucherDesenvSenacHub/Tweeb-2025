@@ -8,7 +8,7 @@ require_once __DIR__ . '/../Models/Carrinho.php';
 
 // Verificar se o usuário está logado
 if (!isset($_SESSION['usuario']['id'])) {
-    echo json_encode(['success' => false, 'message' => 'Usuário não logado']);
+    echo json_encode(['success' => false, 'message' => 'Usuário não logado. Faça login para adicionar produtos ao carrinho.']);
     exit();
 }
 
@@ -26,7 +26,11 @@ switch ($action) {
         }
         
         $resultado = Carrinho::adicionarProduto($id_usuario, $id_produto, $quantidade);
-        echo json_encode(['success' => true, 'message' => 'Produto adicionado ao carrinho']);
+        if ($resultado === true || (is_array($resultado) && isset($resultado['success']) && $resultado['success'])) {
+            echo json_encode(['success' => true, 'message' => 'Produto adicionado ao carrinho']);
+        } else {
+            echo json_encode(['success' => false, 'message' => 'Erro ao adicionar produto ao carrinho']);
+        }
         break;
         
     case 'remover':

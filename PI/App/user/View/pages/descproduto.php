@@ -5,6 +5,10 @@ require_once(__DIR__ . '/../../../adm/Controllers/Produto.php');
 require_once(__DIR__ . '/../../../DB/Database.php');
 
 // Exibir todos os erros
+$produtos = Produto::buscar(null, 'id_produto DESC', 8);
+
+$produtoController = new Produto();
+
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
@@ -43,7 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
 } else {
-    echo "<p>❌ Requisição inválida. Esperado método POST.</p>";
+    // echo "<p>❌ Requisição inválida. Esperado método POST.</p>";
 }
 
 
@@ -324,92 +328,69 @@ include __DIR__.'/../../../../includes/headernavb.php';
                 
             </div>
         </section>
+        
     </div>
 
+    <section class="produtos">
+            
+        <div class="produtos-grid" id="container-cards">
+        <?php 
+            $contador = 0;
+            foreach ($produtos as $produto): 
+                if ($contador >= 12) break;
+                $contador++;
+        ?>
+            <div class="produtos-card-desc">
+            
+                <img class="heart" src="/Tweeb-2025/PI/public/assets/img/heart_disabled.png" data-produto-id="<?= $produto['id_produto'] ?>" alt="Favoritar" onclick="AtivarCoracao(this)">
+                
+                <button class="add-carrinho-btn" data-id="<?= $produto['id_produto'] ?>" title="Adicionar ao carrinho">
+                  <img class="add-carrinho" src="/Tweeb-2025/PI/public/assets/img/carrinho-card.png" alt="Adicionar ao carrinho">
+                </button>
 
-    <section class="produtos produtos2">
-        <div class="promo-text">
-            <p>Produtos relacionados</p>
+                
+                <img class="image-produto" src="/Tweeb-2025/PI/public/uploads/<?= htmlspecialchars(basename($produto['imagem_produto'])) ?>" alt="Imagem do Produto" style="width: 160px; height: 160px;">
+
+                
+
+                <p><?= htmlspecialchars($produto['nome_produto']) ?></p>
+                <p><?= htmlspecialchars($produto['marca_modelo']) ?></p>
+                <h1>R$<?= number_format($produto['preco_unid'], 2, ',', '.') ?></h1>
+
+            <div class="card-rate">
+                <?php
+                    $media = $produtoController->getMediaNotasPorProduto($produto['id_produto']);
+                    $estrelasCheias = floor($media);
+                    $estrelaMeia = ($media - $estrelasCheias) >= 0.5;
+                    $totalEstrelas = 5;
+
+                    for ($i = 0; $i < $estrelasCheias; $i++) {
+                        echo '<i class="fa-solid fa-star"></i>';
+                    }
+
+                    if ($estrelaMeia) {
+                        echo '<i class="fa-solid fa-star-half-stroke"></i>';
+                        $estrelasCheias++;
+                    }
+
+                    for ($i = $estrelasCheias; $i < $totalEstrelas; $i++) {
+                        echo '<i class="fa-regular fa-star"></i>';
+                    }
+                ?>
+                <span class="qnt-avaliacoes">(<?= $media ?>)</span>
+            </div>
+
+                <a href="App/user/View/pages/descproduto.php?id_produto=<?= $produto['id_produto'] ?>">
+
+                    <button class="card-botao-desc">Comprar Agora</button>
+                </a>
+         </div>
+        <?php endforeach; ?>
         </div>
-        <div class="produtos-grid">
-            <div class="produtos-card">
-                <img class="heart" src="../../../../public/assets/img/heart_disabled.png" alt="coração" onclick="AtivarCoracao(this)">
 
-                <img class="add-carrinho" src="../../../../public/assets/img/carrinho-card.png" alt="">
-
-                <img class="image-produto" src="../../../../public/assets/img/card-produto2.png" alt="">
-                <div class="card-rate">
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <span class="qnt-avaliacoes">(500+)</span>
-                </div>
-                <p>Monitor Gamer Curvo</p>
-                <p>GAMING MG700 27</p>
-                <h1>R$2535,99</h1>
-                <button class="card-botao">Comprar Agora</button>
-            </div>
-            <div class="produtos-card">
-                <img class="heart" src="../../../../public/assets/img/heart_disabled.png" alt="coração" onclick="AtivarCoracao(this)">
-
-                <img class="add-carrinho" src="../../../../public/assets/img/carrinho-card.png" alt="">
-
-                <img class="image-produto" src="../../../../public/assets/img/card-produto2.png" alt="">
-                <div class="card-rate">
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <span class="qnt-avaliacoes">(500+)</span>
-                </div>
-                <p>Monitor Gamer Curvo</p>
-                <p>GAMING MG700 27</p>
-                <h1>R$2535,99</h1>
-                <button class="card-botao">Comprar Agora</button>
-            </div>
-            <div class="produtos-card">
-                <img class="heart" src="../../../../public/assets/img/heart_disabled.png" alt="coração" onclick="AtivarCoracao(this)">
-
-                <img class="add-carrinho" src="../../../../public/assets/img/carrinho-card.png" alt="">
-
-                <img class="image-produto" src="../../../../public/assets/img/card-produto2.png" alt="">
-                <div class="card-rate">
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <span class="qnt-avaliacoes">(500+)</span>
-                </div>
-                <p>Monitor Gamer Curvo</p>
-                <p>GAMING MG700 27</p>
-                <h1>R$2535,99</h1>
-                <button class="card-botao">Comprar Agora</button>
-            </div>
-            <div class="produtos-card">
-                <img class="heart" src="../../../../public/assets/img/heart_disabled.png" alt="coração" onclick="AtivarCoracao(this)">
-
-                <img class="add-carrinho" src="../../../../public/assets/img/carrinho-card.png" alt="">
-
-                <img class="image-produto" src="../../../../public/assets/img/card-produto2.png" alt="">
-                <div class="card-rate">
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <span class="qnt-avaliacoes">(500+)</span>
-                </div>
-                <p>Monitor Gamer Curvo</p>
-                <p>GAMING MG700 27</p>
-                <h1>R$2535,99</h1>
-                <button class="card-botao">Comprar Agora</button>
-            </div>
-        </div>
     </section>
+    
+  
 <script defer src="public/js/descProduto.js"></script>
 <script>window.ID_PRODUTO_DESC = <?= (int)$produto->id_produto ?>;</script>
 <?php include __DIR__.'/../../../../includes/footer.php'; ?>

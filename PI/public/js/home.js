@@ -119,6 +119,12 @@ document.addEventListener('DOMContentLoaded', function() {
         btn.addEventListener('click', function(e) {
             e.preventDefault();
             const idProduto = this.getAttribute('data-id');
+            
+            if (!idProduto) {
+                alert('Produto inválido!');
+                return;
+            }
+            
             fetch('/Tweeb-2025/PI/App/user/Controllers/CarrinhoController.php', {
                 method: 'POST',
                 headers: {
@@ -132,8 +138,11 @@ document.addEventListener('DOMContentLoaded', function() {
                     atualizarContadorCarrinho();
                     alert('Produto adicionado ao carrinho!');
                 } else {
-                    if (data.message && data.message.includes('logado')) {
-                        window.location.href = '/Tweeb-2025/PI/app/user/view/pages/login.php';
+                    // Verifica se é erro de usuário não logado
+                    if (data.message && (data.message.toLowerCase().includes('logado') || data.message.toLowerCase().includes('login'))) {
+                        if (confirm('Você precisa estar logado para adicionar produtos ao carrinho. Deseja ir para a página de login?')) {
+                            window.location.href = '/Tweeb-2025/PI/app/user/view/pages/login.php';
+                        }
                     } else {
                         alert('Erro ao adicionar ao carrinho: ' + (data.message || 'Erro desconhecido.'));
                     }
@@ -141,7 +150,7 @@ document.addEventListener('DOMContentLoaded', function() {
             })
             .catch(error => {
                 console.error('Erro:', error);
-                alert('Erro ao adicionar ao carrinho.');
+                alert('Erro ao adicionar ao carrinho. Verifique sua conexão.');
             });
         });
     });

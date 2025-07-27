@@ -1,5 +1,12 @@
 <?php
 session_start();
+
+require_once(__DIR__ . '/../../../adm/Controllers/Banner.php');
+
+$banner = new Banner();
+
+
+$bannerSobreMimPosicao1 = $banner->getBannerForPosicao('sobre_mim',1);
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -21,7 +28,7 @@ session_start();
     ?>
 
 <div class="Energia-container_banner">
-    <img src="../../../../public/assets/img/banner-departamento-computador.png" alt="banner-Energia" class="Energia-banner">
+    <img src="/Tweeb-2025/PI/public/Banners/bannersPromocionais/<?= basename($bannerSobreMimPosicao1->caminho) ?>" alt="Banner-Games" class="Games-banner">
 </div>
 
 <div class="Energia-container_titles">
