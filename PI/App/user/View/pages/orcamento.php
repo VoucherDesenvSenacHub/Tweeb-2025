@@ -1,8 +1,3 @@
-<?php
-
-require_once __DIR__ . '../../../Models/Usuario.php';
-
-?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -15,14 +10,6 @@ require_once __DIR__ . '../../../Models/Usuario.php';
 </head>
 <body class="orcamento-body">
 
-<?php
-    if (isset($_SESSION['usuario'])) {
-        include __DIR__.'/../../../../includes/navbar.php'; 
-        include __DIR__.'/../../../../includes/sidebar-User.php'; 
-    } else {
-        include __DIR__.'/../../../../includes/navbar.php'; 
-    }
-    ?>
 
 <div class="orcamento-geral">
 
