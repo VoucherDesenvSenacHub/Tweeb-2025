@@ -78,13 +78,13 @@ function formatarDataCancelamento($historico) {
         <?php else: ?>
             <?php foreach ($pedidos_cancelados as $pedido): ?>
                 <div class="container-rastreio"> <div class="pedido-rastreio"> <div class="header-rastreio"> <p class="id-rastreio">Ordem ID: <?php echo htmlspecialchars($pedido['id_pedido']); ?></p>
-                            <div class="rastreio-botoes"> <button class="rastreio-icone2" disabled title="Nota Fiscal não disponível para pedidos cancelados"> <img src="../../../../public/assets/img/nota-rastreio.png" alt="Ícone Nota Fiscal" onerror="this.onerror=null;this.src='https://placehold.co/24x24/cccccc/333333?text=NF';">
+                            <div class="rastreio-botoes"> <button class="rastreio-icone2" disabled title="Nota Fiscal não disponível para pedidos cancelados"> <img src="/Tweeb-2025/PI/public/assets/img/nota-rastreio.png" alt="Ícone Nota Fiscal" onerror="this.onerror=null;this.src='https://placehold.co/24x24/cccccc/333333?text=NF';">
                                 </button>
                                 <button class="rastreio-botao" onclick="toggleDetalhes(this)">Ver Detalhes <i class="fa-solid fa-chevron-down"></i></button>
                             </div>
                         </div>
                         <div class="rastreio-info-entrega"> <p class="data-rastreio">Cancelado em: <?php echo formatarDataCancelamento($pedido['historico_status']); ?></p>
-                            <img src="../../../../public/assets/img/avaliar-vetor.png" alt="Status" class="rastreio-truck" onerror="this.onerror=null;this.src='https://placehold.co/30x30/cccccc/333333?text=Cancelado';">
+                            <img src="/Tweeb-2025/PI/public/assets/img/avaliar-vetor.png" alt="Status" class="rastreio-truck" onerror="this.onerror=null;this.src='https://placehold.co/30x30/cccccc/333333?text=Cancelado';">
                             <p class="entrega-prevista-rastreio">Pedido Cancelado</p> </div>
                         <div class="rastreio-status"> <?php
                             // Mapeamento dos status para exibição no frontend
@@ -145,7 +145,7 @@ function formatarDataCancelamento($historico) {
                         </div>
                         <?php if (!empty($pedido['itens'])): ?>
                             <?php foreach ($pedido['itens'] as $item): ?>
-                                <div class="rastreio-item"> <img src="../../../../public/assets/img/<?php echo htmlspecialchars($item['imagem_produto']); ?>" alt="<?php echo htmlspecialchars($item['nome_produto']); ?>" class="rastreio-img" onerror="this.onerror=null;this.src='https://placehold.co/80x80/cccccc/333333?text=Sem+Imagem';">
+                                <div class="rastreio-item"> <img src="<?php echo str_replace('../../../../public/', '/Tweeb-2025/PI/public/', htmlspecialchars($item['imagem_produto'])); ?>" alt="<?php echo htmlspecialchars($item['nome_produto']); ?>" class="rastreio-img" onerror="this.onerror=null;this.src='https://placehold.co/80x80/cccccc/333333?text=Sem+Imagem';">
                                     <div class="rastreio-info-preco"> <div class="rastreio-info"> <p class="rastreio-nome"><?php echo htmlspecialchars($item['nome_produto']); ?></p>
                                             <p class="rastreio-detalhes"><?php echo htmlspecialchars($item['detalhes_produto']); ?></p>
                                         </div>

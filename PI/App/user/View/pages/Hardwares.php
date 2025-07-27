@@ -40,11 +40,11 @@ $bannerSobreMimPosicao1 = $banner->getBannerForPosicao('sobre_mim',1);
 <?php if (!empty($produtos)): ?>
     <?php foreach ($produtos as $produto): ?>
         <div class="hardware-produtos-card">
-            <img class="hardware-heart" src="../../../../public/assets/img/heart_disabled.png" alt="coração" data-produto-id="<?= $produto['id_produto'] ?>" onclick="AtivarCoracao(this)">
+            <img class="hardware-heart" src="/Tweeb-2025/PI/public/assets/img/heart_disabled.png" alt="coração" data-produto-id="<?= $produto['id_produto'] ?>" onclick="AtivarCoracao(this)">
             <button class="hardware-add-carrinho-btn" data-id="<?= $produto['id_produto'] ?>" title="Adicionar ao carrinho">
-              <img class="hardware-add-carrinho" src="../../../../public/assets/img/carrinho-card.png" alt="Adicionar ao carrinho">
+              <img class="hardware-add-carrinho" src="/Tweeb-2025/PI/public/assets/img/carrinho-card.png" alt="Adicionar ao carrinho">
             </button>
-            <img class="hardware-image-produto" src="../../../../public/assets/img/<?= htmlspecialchars($produto['imagem_produto']) ?>" alt="<?= htmlspecialchars($produto['nome_produto']) ?>">
+            <img class="hardware-image-produto" src="<?= htmlspecialchars($produto['imagem_produto']) ?>" alt="<?= htmlspecialchars($produto['nome_produto']) ?>">
             <div class="hardware-card-rate">
                 <?php for ($i = 0; $i < 5; $i++): ?><i class="fa-solid fa-star"></i><?php endfor; ?>
                 <span class="hardware-qnt-avaliacoes">(<?= rand(200, 800) ?>+)</span>

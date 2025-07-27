@@ -39,11 +39,11 @@ $bannerSobreMimPosicao1 = $banner->getBannerForPosicao('sobre_mim',1);
 <?php if (!empty($produtos)): ?>
     <?php foreach ($produtos as $produto): ?>
         <div class="perifericos-produtos-card">
-            <img class="perifericos-heart" src="../../../../public/assets/img/heart_disabled.png" alt="coração" data-produto-id="<?= $produto['id_produto'] ?>" onclick="AtivarCoracao(this)">
+            <img class="perifericos-heart" src="/Tweeb-2025/PI/public/assets/img/heart_disabled.png" alt="coração" data-produto-id="<?= $produto['id_produto'] ?>" onclick="AtivarCoracao(this)">
             <button class="perifericos-add-carrinho-btn" data-id="<?= $produto['id_produto'] ?>" title="Adicionar ao carrinho">
-              <img class="perifericos-add-carrinho" src="../../../../public/assets/img/carrinho-card.png" alt="Adicionar ao carrinho">
+              <img class="perifericos-add-carrinho" src="/Tweeb-2025/PI/public/assets/img/carrinho-card.png" alt="Adicionar ao carrinho">
             </button>
-            <img class="perifericos-image-produto" src="../../../../public/assets/img/<?= htmlspecialchars($produto['imagem_produto']) ?>" alt="<?= htmlspecialchars($produto['nome_produto']) ?>">
+            <img class="perifericos-image-produto" src="<?= htmlspecialchars($produto['imagem_produto']) ?>" alt="<?= htmlspecialchars($produto['nome_produto']) ?>">
             <div class="perifericos-card-rate">
                 <?php for ($i = 0; $i < 5; $i++): ?><i class="fa-solid fa-star"></i><?php endfor; ?>
                 <span class="perifericos-qnt-avaliacoes">(<?= rand(200, 800) ?>+)</span>
