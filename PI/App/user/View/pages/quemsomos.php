@@ -18,6 +18,7 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
 </head>
 <body-quemsomos>
 <?php include __DIR__.'/../../../../includes/navbar.php'; ?>
+<?php include __DIR__.'/../../../../includes/sidebar-User.php'; ?>
 
 <div class="quemsomos">
 <section class="Banner_Sobre_Nos">
