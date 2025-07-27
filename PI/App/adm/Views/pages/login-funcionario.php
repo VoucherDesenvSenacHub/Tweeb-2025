@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="../../../../public/assets/img/tentativa2 (1).png">
     <title>Esqueceu sua Senha</title>
     <link rel="stylesheet" href="../../../../public/css/login-funcionario.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
