@@ -1,18 +1,13 @@
 <?php
 
-require_once '../App/adm/Controllers/Produto.php';
+require_once '../App/user/Models/Pedido.php';
 
-$objProd = new Produto();
+$pedidos = Pedido::listarTodosPedidos();
 
-$dados = $objProd->buscar();
-
-if($dados){
-    echo json_encode($dados);
+if ($pedidos) {
+    
+    echo json_encode($pedidos);
+} else {
+    echo json_encode(['status' => 400, 'msg' => 'Nenhum pedido encontrado.']);
 }
-else{
-    $array = ['status' => 400, 'msg' => 'Ocorreu algum erro!!'];
-    echo json_encode($array);
-}
-
 ?>
-

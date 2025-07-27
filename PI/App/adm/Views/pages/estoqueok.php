@@ -359,20 +359,20 @@ document.getElementById("btn-pedidos").addEventListener("click", async function(
     // Cria o HTML com as categorias + filtros
     const infoEstoqueHTML = `
 
-        <div class="filtro-formulario">
-            <form action="">
-                <div class="form-group-estoque">
-                    <label for="filtrar-nome">Nome</label>
-                    <input type="text" id="filtrar-nome" name="filtrar-nome" placeholder="filtrar nome">
+<div class="filtro-formulario">
+  <form id="form-filtro-pedidos" onsubmit="event.preventDefault(); aplicarFiltroPedidos();">
+    <div class="form-group-estoque">
 
-                    <label for="filtrar-id">Número ID</label>
-                    <input type="text" id="filtrar-id" name="filtrar-id" placeholder="filtrar nº">
+      <label for="filtro-id-pedidos">Número ID</label>
+      <input type="text" id="filtro-id-pedidos" name="filtro-id-pedidos" placeholder="filtrar nº">
 
-                    <input class="form-botao-limpar" type="submit" value="Limpar">
-                    <input class="form-botao-buscar" type="submit" value="Buscar">
-                </div>
-            </form>
-        </div>
+      <input class="form-botao-limpar" type="button" value="Limpar" onclick="limparFiltroPedidos()">
+      <input class="form-botao-buscar" type="submit" value="Buscar">
+    </div>
+  </form>
+</div>
+
+
     `;
 
     // Cria a tabela
@@ -384,7 +384,7 @@ document.getElementById("btn-pedidos").addEventListener("click", async function(
                     <th class="th-listarP">ID do cliente</th>
                     <th class="th-listarP">Valor Total</th>
                     <th class="th-listarP">Frete</th>
-                    <th class="th-listarP">Endereço</th>
+                    <th class="th-listarP">Endereco</th>
                     <th class="th-listarP">Método de Envio</th>
                     <th class="th-listarP">Data do Pedido</th>
                     <th class="th-listarP">Data de Entrega</th>
@@ -402,7 +402,7 @@ document.getElementById("btn-pedidos").addEventListener("click", async function(
     dados_tabela = document.getElementById('rows_products');
 
     // Carrega os dados da tabela
-    await load_table3_pedidos();
+    await loadPedidos();
 
     // Atualiza o título da seção
     document.getElementById('titulo-cadastro-produto').textContent = 'Pedidos Enviados';
@@ -414,6 +414,34 @@ document.getElementById("btn-pedidos").addEventListener("click", async function(
     document.getElementById('btn-cadastrados').classList.remove('active');
     this.classList.add('active');
 });
+
+async function loadPedidos() {
+    let dados_php = await fetch('../../../../actions/listar_pedidos.php');
+    let response = await dados_php.json();
+
+     console.log(JSON.stringify(response[0])); 
+
+    let html = '';
+
+    console.log(response);
+
+    for (let i = 0; i < response.length; i++) {
+        html += `<tr>`;
+        html += `<td class="td-listarP">${response[i].id_pedido}</td>`;              // ID Pedido
+        html += `<td class="td-listarP">${response[i].id_usuario}</td>`;             // ID Cliente
+        html += `<td class="td-listarP">R$ ${parseFloat(response[i].valor_total).toFixed(2)}</td>`; // Valor Total
+        html += `<td class="td-listarP">R$ ${parseFloat(response[i].valor_frete).toFixed(2)}</td>`; // Frete
+        html += `<td class="td-listarP">${response[i].endereco}</td>`;
+    // Endereço (formatado no PHP)
+        html += `<td class="td-listarP">${response[i].metodo_envio}</td>`;           // Método Envio
+        html += `<td class="td-listarP">${response[i].data_pedido}</td>`;            // Data Pedido
+        html += `<td class="td-listarP">${response[i].data_entrega_estimada || '-'}</td>`; // Data Estimada
+        html += `<td class="td-listarP">${response[i].status_pedido}</td>`;          // Status
+        html += `</tr>`;
+    }
+
+    dados_tabela.innerHTML = html;
+}
 
 
 
@@ -448,7 +476,7 @@ async function load_table2() {
                   </button>
                 </a>
               </div>
-            </td>`;                                                                    // Alterar
+            </td>`;                                                                    
     html += `</tr>`;
   }
 
@@ -478,6 +506,32 @@ function limparFiltro() {
   document.getElementById('filtrar-id').value = "";
   filtrarTabela();
 }
+
+// Função para filtrar a tabela no Pedidos
+function aplicarFiltroPedidos() {
+  const idFiltro = document.getElementById('filtro-id-pedidos').value.toLowerCase();
+  const linhas = document.querySelectorAll('#rows_products tr');
+
+  linhas.forEach(linha => {
+    const tdId = linha.children[0]?.textContent.toLowerCase() || "";
+
+    const mostrar = idFiltro === "" || tdId.includes(idFiltro);
+
+    linha.style.display = mostrar ? "" : "none";
+  });
+}
+
+
+
+
+// Limpa os campos e mostra toda a tabela de Pedidos
+
+function limparFiltroPedidos() {
+  document.getElementById('filtro-id-pedidos').value = "";
+  aplicarFiltroPedidos(); // Reaplica o filtro com campo vazio
+}
+
+
 
 
 
