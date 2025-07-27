@@ -165,7 +165,7 @@ if ($id_produto !== null) {
 
             <!-- Formulário de cadastro -->
             <form action="estoqueok.php" method="POST" enctype="multipart/form-data" id="product-form">
-                <div class="form-group">
+                <div class="form-group-est">
                     <label for="product-name">Nome do Produto</label>
                     <input autocomplete="off" type="text" name="nome_produto" class="form_field" id="nome_produto" required>
 
@@ -173,10 +173,12 @@ if ($id_produto !== null) {
                     <input autocomplete="off" type="text" name="marca_modelo" class="form_field" id="marca_modelo" required>
                 </div>
 
-                <div class="form-group">
+                <div class="form-group-est">
                     <label for="product-quantity">Quantidade</label>
                     <input autocomplete="off" type="number" name="quantidade_produto" class="form_field" id="quantidade_produto" required>
+                </div>
 
+                 <div class="form-group-est">
                     <label for="product-department">Departamento</label>
                     <select name="id_departamento" id="id_departamento">
                         <option value="1">hardwares</option>
@@ -186,14 +188,15 @@ if ($id_produto !== null) {
                         <option value="5">áudio</option>
                         <option value="6">jogos</option>
                     </select>
-                </div>
+                 </div>
+                    
 
-                <div class="form-group">
+                <div class="form-group-est">
                     <label for="product-image">Imagem</label>
                     <input autocomplete="off" type="file" name="imagem_produto" class="form_field" id="imagem_produto" required>
                 </div>
 
-                <div class="form-group">
+                <div class="form-group-est">
                     <label for="serial-number">Número de Série</label>
                     <input autocomplete="off" type="number" name="numero_serie" class="form_field" id="numero_serie" required>
 
@@ -201,28 +204,28 @@ if ($id_produto !== null) {
                     <input autocomplete="off" type="number" name="custo_produto" step="0.01" class="form_field" id="custo_produto" required>
                 </div>
 
-                <div class="form-group">
+                <div class="form-group-est">
                     <label for="product-color">Cor</label>
                     <input autocomplete="off" type="text" name="cor_produto" class="form_field" id="cor_produto" required>
                 </div>
 
-                <div class="form-group">
+                <div class="form-group-est">
                     <label for="product-description">Descrição</label>
                     <textarea name="descricao_produto" id="descricao_produto" maxlength="1000"></textarea>
                 </div>
 
-                <div class="form-group">
+                <div class="form-group-est">
                     <label for="product-description">Detalhes produto</label>
                     <textarea name="detalhes_produto" id="detalhes_produto" maxlength="1000"></textarea>
                 </div>
 
                 <h3>Especificações Promocionais</h3>
-                <div class="form-group">
+                <div class="form-group-est">
                     <label for="promo-value">Valor</label>
                     <input autocomplete="off" type="number" name="preco_unid" step="0.01" class="form_field" id="preco_unid" required>
                 </div>
 
-                <div class="form-group">
+                <div class="form-group-est">
                     <label for="related-products">Produtos Relacionados</label>
                     <select name="related-products" id="related-products">
                         <option value="">hardwares</option>

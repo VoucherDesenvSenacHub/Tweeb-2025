@@ -532,9 +532,9 @@ footer {
 #form-novo-endereco input{
     border-radius: 8px;
     background-color: #fafafa;
-    box-shadow: 0 5px 10px 1px rgba(0, 0, 0, 0.200);
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.200);
     border: none;
-    height: 2rem;
+    height: 20px;
     padding: 20px;
     outline: none;
     color: #555;

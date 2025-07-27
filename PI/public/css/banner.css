@@ -191,9 +191,15 @@
 .title_adm{
     display: flex;
     justify-content: center;
-    font-size: larger;
+    /* font-size: larger; */
     margin-top: 40px;
-    margin-bottom: 40px;
+    margin-bottom: 40px; 
+    
+    text-align: center;
+    margin-top: 30px;
+    font-size: 32px;
+    font-weight: bold;
+
 }
 /* Botões de salvar e excluir */
 .btn_salvar_produto, .btn_excluir_produto, .btn_salvar_adm {

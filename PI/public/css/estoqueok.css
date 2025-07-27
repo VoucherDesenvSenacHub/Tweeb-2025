@@ -42,16 +42,16 @@
         h2, h3 {
             margin-bottom: 35px;
         }
-        .form-group {
+        .form-group-est {
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
             margin-bottom: 25px;
         }
-        .form-group label {
+        .form-group-est label {
             flex: 1 1 30%;
         }
-        .form-group input, .form-group select, .form-group textarea {
+        .form-group-est input, .form-group-est select, .form-group-est textarea {
             flex: 2 1 65%;
             padding: 8px;
             border: 1px solid #ccc;

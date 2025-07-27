@@ -5,7 +5,7 @@
 
         <div class="sidebar_contentAdm">
             <div class="adm_user">
-            <a href="../pages/perfil-adm.php"><img class="foto-adm" src="../../../../public/assets/img/Avatar.png" id="userAdm_avatar" alt="Avatar"></a>
+            <a href="../pages/perfil-adm.php"><img class="foto-adm" src="../../../../public/assets/img/avatar-padrao.png" id="userAdm_avatar" alt="Avatar"></a>
                 <!-- <img class="foto-adm" src="../../../../public/assets/img/Avatar.png" id="userAdm_avatar" alt="Avatar"> -->
     
                 <p class="userAdm_infos">
