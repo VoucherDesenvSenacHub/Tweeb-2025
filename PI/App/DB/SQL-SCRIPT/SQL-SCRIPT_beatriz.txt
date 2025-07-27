@@ -1,0 +1,315 @@
+create database 140p2;
+use 140p2;
+
+CREATE TABLE `usuarios` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nome` varchar(100) NOT NULL,
+  `sobrenome` varchar(100) DEFAULT NULL,
+  `email` varchar(100) NOT NULL,
+  `telefone` varchar(20) DEFAULT NULL,
+  `senha` varchar(255) NOT NULL,
+  `tipo` enum('cliente','funcionario','administrador') DEFAULT NULL,
+  `created_at` datetime DEFAULT current_timestamp(),
+  `updated_at` datetime DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `foto_perfil` varchar(255) DEFAULT NULL,
+  `token_recuperacao` varchar(64) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `email` (`email`)
+  );
+  
+  CREATE TABLE `clientes` (
+  `id_usuario` int(11) NOT NULL,
+  `cpf` varchar(14) DEFAULT NULL,
+  `created_at` datetime DEFAULT current_timestamp(),
+  `updated_at` datetime DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  PRIMARY KEY (`id_usuario`),
+  UNIQUE KEY `cpf` (`cpf`),
+  CONSTRAINT `clientes_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id`) ON DELETE CASCADE
+);
+
+CREATE TABLE `administrador` (
+  `id_usuario` int(11) NOT NULL,
+  `matricula` varchar(20) DEFAULT NULL,
+  `cargo` varchar(50) DEFAULT NULL,
+  `created_at` datetime DEFAULT current_timestamp(),
+  `updated_at` datetime DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  PRIMARY KEY (`id_usuario`),
+  CONSTRAINT `administrador_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id`) on delete cascade
+  );
+  
+  CREATE TABLE `funcionarios` (
+  `id_usuario` int(11) NOT NULL,
+  `matricula` varchar(20) DEFAULT NULL,
+  `cargo` varchar(50) DEFAULT NULL,
+  `created_at` datetime DEFAULT current_timestamp(),
+  `updated_at` datetime DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  PRIMARY KEY (`id_usuario`),
+  CONSTRAINT `funcionarios_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id`) ON DELETE CASCADE
+  );
+  CREATE TABLE `departamento` (
+  `id_departamento` int(11) NOT NULL AUTO_INCREMENT,
+  `nome_departamento` varchar(150) NOT NULL,
+  PRIMARY KEY (`id_departamento`)
+  );
+  
+   
+  CREATE TABLE `produtos` (
+  `id_produto` int(11) NOT NULL AUTO_INCREMENT,
+  `nome_produto` varchar(100) NOT NULL,
+  `marca_modelo` varchar(100) NOT NULL,
+  `quantidade_produto` int(11) NOT NULL,
+  `imagem_produto` varchar(250) NOT NULL,
+  `numero_serie` varchar(25) NOT NULL,
+  `custo_produto` decimal(10,2) NOT NULL,
+  `cor_produto` varchar(20) NOT NULL,
+  `preco_unid` decimal(10,2) NOT NULL,
+  `descricao_produto` varchar(250) NOT NULL,
+  `detalhes_produto` varchar(500) NOT NULL,
+  `id_departamento` int(11) DEFAULT NULL,
+  `entrega_gratis` tinyint(4) NOT NULL CHECK (`entrega_gratis` in (0,1)),
+  `em_estoque` tinyint(4) NOT NULL CHECK (`em_estoque` in (0,1)),
+  `garantia` tinyint(4) NOT NULL CHECK (`garantia` in (0,1)),
+  `status_produto` tinyint(4) DEFAULT NULL CHECK (`status_produto` in (0,1)),
+  PRIMARY KEY (`id_produto`),
+  KEY `id_departamento` (`id_departamento`),
+  CONSTRAINT `produtos_ibfk_1` FOREIGN KEY (`id_departamento`) REFERENCES `departamento` (`id_departamento`)
+  );
+  
+
+CREATE TABLE `avaliacao_produto` (
+  `id_avaliacao` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL,
+  `id_produto` int(11) NOT NULL,
+  `notas` tinyint(4) NOT NULL CHECK (`notas` between 1 and 5),
+  `comentario` varchar(255) DEFAULT NULL,
+  `data_avaliacao` datetime DEFAULT current_timestamp(),
+  PRIMARY KEY (`id_avaliacao`),
+  KEY `id` (`id`),
+  KEY `id_produto` (`id_produto`),
+  CONSTRAINT `avaliacao_produto_ibfk_1` FOREIGN KEY (`id`) REFERENCES `usuarios` (`id`),
+  CONSTRAINT `avaliacao_produto_ibfk_2` FOREIGN KEY (`id_produto`) REFERENCES `produtos` (`id_produto`)
+);
+
+CREATE TABLE `enderecos` (
+  `id_endereco` int(11) NOT NULL AUTO_INCREMENT,
+  `id_cliente` int(11) DEFAULT NULL,
+  `nome_endereco` varchar(100) DEFAULT NULL,
+  `rua` varchar(100) DEFAULT NULL,
+  `numero` varchar(20) DEFAULT NULL,
+  `cep` varchar(8) DEFAULT NULL,
+  `bairro` varchar(100) DEFAULT NULL,
+  `cidade` varchar(50) DEFAULT NULL,
+  `estado` varchar(50) DEFAULT NULL,
+  `created_at` datetime DEFAULT current_timestamp(),
+  `updated_at` datetime DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  PRIMARY KEY (`id_endereco`),
+  KEY `id_cliente` (`id_cliente`),
+  CONSTRAINT `enderecos_ibfk_1` FOREIGN KEY (`id_cliente`) REFERENCES `clientes` (`id_usuario`) ON DELETE CASCADE
+);
+
+CREATE TABLE `fornecedor` (
+  `id_fornecedor` int(11) NOT NULL AUTO_INCREMENT,
+  `nome_fornecedor` varchar(150) NOT NULL,
+  `marca_fornecedor` varchar(150) NOT NULL,
+  `cnpj` char(14) NOT NULL,
+  `nome_fantasia` varchar(50) NOT NULL,
+  `endereco_fornecedor` varchar(255) NOT NULL,
+  PRIMARY KEY (`id_fornecedor`));
+  
+CREATE TABLE `questionario` (
+  `id_questionario` int(11) NOT NULL AUTO_INCREMENT,
+  `conhecimento_tecnico` tinyint(4) NOT NULL CHECK (`conhecimento_tecnico` in (0,1)),
+  `tipo_hardware_periferico` tinyint(4) NOT NULL CHECK (`tipo_hardware_periferico` in (0,1)),
+  `tipo_compra_pessoal_corporativa` tinyint(4) NOT NULL CHECK (`tipo_compra_pessoal_corporativa` in (0,1)),
+  `id_usuario` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id_questionario`),
+  KEY `id_usuario` (`id_usuario`),
+  CONSTRAINT `questionario_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `clientes` (`id_usuario`)
+);
+
+CREATE TABLE `respostas_preferencias` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) DEFAULT NULL,
+  `resposta1` varchar(255) DEFAULT NULL,
+  `resposta2` varchar(255) DEFAULT NULL,
+  `resposta3` varchar(255) DEFAULT NULL,
+  `criado_em` datetime DEFAULT current_timestamp(),
+  PRIMARY KEY (`id`),
+  KEY `user_id` (`user_id`),
+  CONSTRAINT `respostas_preferencias_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `usuarios` (`id`)
+);
+
+CREATE TABLE `orcamento` (
+  `id_orcamento` int(11) NOT NULL AUTO_INCREMENT,
+  `nome` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `telefone` varchar(20) NOT NULL,
+  `tipo_solicitacao` varchar(50) NOT NULL,
+  `prazo_estimado` varchar(30) NOT NULL,
+  `imagem` varchar(255) NOT NULL,
+  `descricao` text NOT NULL,
+  `tipo_equipamento` varchar(50) NOT NULL,
+  `status_orcamento` enum('pendente','aceito') DEFAULT NULL,
+  PRIMARY KEY (`id_orcamento`)
+);
+
+CREATE TABLE `ordem_servico` (
+  `id_os` int(11) NOT NULL AUTO_INCREMENT,
+  `data_abertura` timestamp NOT NULL DEFAULT current_timestamp(),
+  `tipo_equipamento` varchar(100) DEFAULT NULL,
+  `nome_cliente` varchar(100) DEFAULT NULL,
+  `email_cliente` varchar(100) DEFAULT NULL,
+  `marca_modelo` varchar(100) DEFAULT NULL,
+  `telefone` varchar(20) DEFAULT NULL,
+  `endereco` varchar(100) DEFAULT NULL,
+  `cep` varchar(9) DEFAULT NULL,
+  `numero_serie` varchar(50) DEFAULT NULL,
+  `acessorios_entregues` text DEFAULT NULL,
+  `relato_cliente` text DEFAULT NULL,
+  `tecnico_responsavel` int(11) DEFAULT NULL,
+  `servicos_solicitados` enum('atualização de firmware','backup e recuperação','configuração de sistema','formatação','limpeza e manutenção preventiva','serviços de software: instalação, configuração e atualização','substituição peças') DEFAULT NULL,
+  `estimativa_custo` decimal(10,2) DEFAULT NULL,
+  `aprovacao_cliente` enum('aceito') DEFAULT 'aceito',
+  `servicos_realizados` text DEFAULT NULL,
+  `pecas_substituidas` text DEFAULT NULL,
+  `testes_realizados` text DEFAULT NULL,
+  `data_conclusao` date DEFAULT NULL,
+  `observacoes` text DEFAULT NULL,
+  `status` enum('Em andamento','Finalizada','Atrasada') DEFAULT 'Em andamento',
+  PRIMARY KEY (`id_os`),
+  KEY `fk_tecnico_responsavel` (`tecnico_responsavel`),
+  CONSTRAINT `fk_tecnico_responsavel` FOREIGN KEY (`tecnico_responsavel`) REFERENCES `usuarios` (`id`) ON DELETE SET NULL ON UPDATE CASCADE
+);
+
+CREATE TABLE `carrinho_items` (
+  `id_item` int(11) NOT NULL AUTO_INCREMENT,
+  `id_usuario` int(11) NOT NULL,
+  `id_produto` int(11) NOT NULL,
+  `quantidade` int(11) NOT NULL DEFAULT 1,
+  `preco_unitario` decimal(10,2) NOT NULL,
+  `data_adicionado` timestamp NOT NULL DEFAULT current_timestamp(),
+  PRIMARY KEY (`id_item`),
+  UNIQUE KEY `unique_user_product` (`id_usuario`,`id_produto`),
+  KEY `idx_carrinho_usuario` (`id_usuario`),
+  KEY `idx_carrinho_produto` (`id_produto`),
+  CONSTRAINT `carrinho_items_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `carrinho_items_ibfk_2` FOREIGN KEY (`id_produto`) REFERENCES `produtos` (`id_produto`) ON DELETE CASCADE
+);
+
+  CREATE TABLE `pedidos` (
+  `id_pedido` int(11) NOT NULL AUTO_INCREMENT,
+  `id_usuario` int(11) NOT NULL,
+  `id_endereco` int(11) NOT NULL,
+  `valor_total` decimal(10,2) NOT NULL,
+  `valor_frete` decimal(10,2) DEFAULT 0.00,
+  `metodo_envio` varchar(50) NOT NULL,
+  `data_entrega_estimada` date DEFAULT NULL,
+  `status_pedido` enum('pendente','pago','preparando','enviado','entregue','cancelado') DEFAULT 'pendente',
+  `metodo_pagamento` varchar(50) NOT NULL,
+  `status_pagamento` enum('pendente','aprovado','rejeitado') DEFAULT 'pendente',
+  `codigo_rastreio` varchar(100) DEFAULT NULL,
+  `observacoes` text DEFAULT NULL,
+  `data_pedido` timestamp NOT NULL DEFAULT current_timestamp(),
+  `data_atualizacao` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  PRIMARY KEY (`id_pedido`),
+  KEY `id_endereco` (`id_endereco`),
+  KEY `idx_pedidos_usuario` (`id_usuario`),
+  KEY `idx_pedidos_status` (`status_pedido`),
+  KEY `idx_pedidos_data` (`data_pedido`),
+  CONSTRAINT `pedidos_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `pedidos_ibfk_2` FOREIGN KEY (`id_endereco`) REFERENCES `enderecos` (`id_endereco`) ON DELETE CASCADE
+);
+
+CREATE TABLE `pedido_itens` (
+  `id_item_pedido` int(11) NOT NULL AUTO_INCREMENT,
+  `id_pedido` int(11) NOT NULL,
+  `id_produto` int(11) NOT NULL,
+  `quantidade` int(11) NOT NULL,
+  `preco_unitario` decimal(10,2) NOT NULL,
+  `subtotal` decimal(10,2) NOT NULL,
+  PRIMARY KEY (`id_item_pedido`),
+  KEY `idx_pedido_itens_pedido` (`id_pedido`),
+  KEY `idx_pedido_itens_produto` (`id_produto`),
+  CONSTRAINT `pedido_itens_ibfk_1` FOREIGN KEY (`id_pedido`) REFERENCES `pedidos` (`id_pedido`) ON DELETE CASCADE,
+  CONSTRAINT `pedido_itens_ibfk_2` FOREIGN KEY (`id_produto`) REFERENCES `produtos` (`id_produto`) ON DELETE CASCADE
+);
+
+CREATE TABLE `pedido_status_historico` (
+  `id_historico` int(11) NOT NULL AUTO_INCREMENT,
+  `id_pedido` int(11) NOT NULL,
+  `status_anterior` varchar(50) DEFAULT NULL,
+  `status_novo` varchar(50) NOT NULL,
+  `observacao` text DEFAULT NULL,
+  `data_mudanca` timestamp NOT NULL DEFAULT current_timestamp(),
+  PRIMARY KEY (`id_historico`),
+  KEY `idx_historico_pedido` (`id_pedido`),
+  CONSTRAINT `pedido_status_historico_ibfk_1` FOREIGN KEY (`id_pedido`) REFERENCES `pedidos` (`id_pedido`) ON DELETE CASCADE
+);
+
+CREATE TABLE `config_frete` (
+  `id_config` int(11) NOT NULL AUTO_INCREMENT,
+  `nome_servico` varchar(100) NOT NULL,
+  `valor_frete` decimal(10,2) NOT NULL,
+  `prazo_entrega_dias` int(11) NOT NULL,
+  `ativo` tinyint(1) DEFAULT 1,
+  `descricao` text DEFAULT NULL,
+  PRIMARY KEY (`id_config`)
+);
+
+CREATE TABLE `favoritos` (
+  `id_favorito` int(11) NOT NULL AUTO_INCREMENT,
+  `id_usuario` int(11) NOT NULL,
+  `id_produto` int(11) NOT NULL,
+  `data_adicionado` timestamp NOT NULL DEFAULT current_timestamp(),
+  PRIMARY KEY (`id_favorito`),
+  UNIQUE KEY `unique_user_product` (`id_usuario`,`id_produto`),
+  KEY `idx_favoritos_usuario` (`id_usuario`),
+  KEY `idx_favoritos_produto` (`id_produto`),
+  CONSTRAINT `favoritos_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `favoritos_ibfk_2` FOREIGN KEY (`id_produto`) REFERENCES `produtos` (`id_produto`) ON DELETE CASCADE
+);
+
+CREATE TABLE `banners_principais` (
+  `id_banner` int(11) NOT NULL AUTO_INCREMENT,
+  `caminho` varchar(250) NOT NULL,
+  `posicao` int(11) NOT NULL,
+  PRIMARY KEY (`id_banner`)
+);
+
+CREATE TABLE `banners_secundarios` (
+  `id_banner` int(11) NOT NULL AUTO_INCREMENT,
+  `caminho` varchar(250) NOT NULL,
+  `posicao` int(11) NOT NULL,
+  PRIMARY KEY (`id_banner`)
+);
+
+CREATE TABLE `banners_promocionais` (
+  `id_banner` int(11) NOT NULL AUTO_INCREMENT,
+  `caminho` varchar(250) NOT NULL,
+  `posicao` int(11) NOT NULL,
+  PRIMARY KEY (`id_banner`)
+);
+
+CREATE TABLE `sobre_mim` (
+  `id_banner` int(11) NOT NULL AUTO_INCREMENT,
+  `caminho` varchar(250) NOT NULL,
+  `posicao` int(11) NOT NULL,
+  PRIMARY KEY (`id_banner`)
+);
+
+// Para acessar o adm, é preciso cadastrar:
+
+INSERT INTO usuarios (nome, sobrenome, email, telefone, senha, tipo)
+VALUES ('Beatriz', 'Sena', 'admgeral@empresa.com', '(67)9113-4617', 'adm123', 'administrador');
+INSERT INTO administrador (id_usuario, matricula, cargo)
+VALUES (1, 'ADM0001', 'Administrador Geral');
+
+// Para cadastrar qualquer coisa, é preciso preencher a tabela de departamento com as categorias:
+
+INSERT INTO departamento (nome_departamento) VALUES 
+('Hardwares'),
+('Computadores'),
+('Periféricos'),
+('Energia'),
+('Áudio'),
+('Jogos');
