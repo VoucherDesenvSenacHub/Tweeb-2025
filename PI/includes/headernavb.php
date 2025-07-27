@@ -26,7 +26,7 @@
     <link rel="stylesheet" href="../../../../public/css/estoque_cadastrar_novo.css">
     <link rel="stylesheet" href="../../../../public/css/departamento01.css">
     <link rel="stylesheet" href="../../../../public/css/escolha-endereco.css">
-    <link rel="stylesheet" href="../../../../public/css/metodo-envio.css">
+   <link rel="stylesheet" href="../../../../public/css/metodo-envio.css">
     <link rel="stylesheet" href="../../../../public/css/OrdemdeServico.css">
     <link rel="stylesheet" href="../../../../public/css/corporativo.css">
     <link rel="stylesheet" href="../../../../public/css/painel-adm.css">
