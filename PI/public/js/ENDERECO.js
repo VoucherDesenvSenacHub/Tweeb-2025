@@ -3,6 +3,9 @@ document.getElementById("add-new-endereco-btn").addEventListener("click", functi
     form.style.display = form.style.display === "none" ? "block" : "none";
     document.getElementById("form-novo-endereco").reset();
     document.getElementById("id_endereco").value = ''; // limpa id
+    
+    // Limpar seleção ao abrir formulário de novo endereço
+    localStorage.removeItem('enderecoSelecionado');
 });
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -51,6 +54,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (result.sucesso) {
             alert(result.mensagem);
+            // Limpar seleção ao adicionar/editar endereço
+            localStorage.removeItem('enderecoSelecionado');
             location.reload();
         } else {
             alert('Erro: ' + result.mensagem);
@@ -70,6 +75,15 @@ document.addEventListener("DOMContentLoaded", function () {
                 return;
             }
 
+            // Recuperar endereço selecionado do localStorage
+            const enderecoSelecionado = localStorage.getItem('enderecoSelecionado');
+            
+            // Verificar se o endereço selecionado ainda existe
+            const enderecoExiste = enderecos.some(endereco => endereco.id_endereco == enderecoSelecionado);
+            if (enderecoSelecionado && !enderecoExiste) {
+                localStorage.removeItem('enderecoSelecionado');
+            }
+            
             enderecos.forEach(endereco => {
                 const card = document.createElement("div");
                 card.classList.add("endereco-card");
@@ -77,7 +91,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 card.innerHTML = `
                     <label>
-                        <input type="radio" name="endereco" value="${endereco.nome_endereco ?? ''}">
+                        <input type="radio" name="endereco" value="${endereco.nome_endereco ?? ''}" data-endereco-id="${endereco.id_endereco}">
                         <label class="endereco-label">${endereco.nome_endereco ?? 'Endereço'}</label>
                         <div class="endereco-details">
                           <p>${endereco.rua}, ${endereco.numero}, ${endereco.bairro}</p>
@@ -105,6 +119,22 @@ document.addEventListener("DOMContentLoaded", function () {
                     window.scrollTo({ top: 0, behavior: 'smooth' });
                 });
 
+                // Evento de seleção do radio button
+                const radioButton = card.querySelector('input[type="radio"]');
+                
+                // Verificar se este endereço estava selecionado anteriormente
+                if (enderecoSelecionado && enderecoSelecionado == endereco.id_endereco) {
+                    radioButton.checked = true;
+                }
+                
+                radioButton.addEventListener('change', function() {
+                    if (this.checked) {
+                        // Salvar a seleção no localStorage
+                        localStorage.setItem('enderecoSelecionado', endereco.id_endereco);
+                        console.log('Endereço selecionado:', endereco.id_endereco);
+                    }
+                });
+
                 // Evento deletar
                 card.querySelector(".delete").addEventListener("click", () => {
                     if (confirm("Tem certeza que deseja deletar este endereço?")) {
@@ -114,6 +144,10 @@ document.addEventListener("DOMContentLoaded", function () {
                             .then(res => res.json())
                             .then(res => {
                                 if (res.sucesso) {
+                                    // Se o endereço deletado era o selecionado, limpar a seleção
+                                    if (localStorage.getItem('enderecoSelecionado') == endereco.id_endereco) {
+                                        localStorage.removeItem('enderecoSelecionado');
+                                    }
                                     card.remove();
                                     alert("Endereço deletado com sucesso!");
                                 } else {

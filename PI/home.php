@@ -22,6 +22,7 @@ $produtoController = new Produto();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="public/assets/img/tentativa2 (1).png">
     <title>Home</title>
     <link rel="stylesheet" href="../PI/public/css/navbar.css">
     <link rel="stylesheet" href="../PI/public/css/home.css">

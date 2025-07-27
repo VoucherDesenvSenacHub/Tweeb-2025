@@ -30,33 +30,31 @@
 .adm_sidebar{
     position: sticky; 
     top: 150px;
-    /* width: 100px; */
-    /*   */
     left: 0;
-    min-height: 90vh; /* Altura da sidebar */
-    height: calc(100vh - 40px);
+    height: auto;
+    max-height: 80vh;
     z-index: 100; 
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
     background-color: #ffffff;
     border-radius: 0px 12px 12px 0px;
     transition: all .5s;
     min-width: 82px;
-    gap: 24px;
+    gap: 16px;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
 }
 .sidebar_contentAdm{
     padding: 12px;
     padding-left: 25px;
-    flex: 1;
+    padding-bottom: 20px;
 }
 .adm_user{
     display: flex;
     align-items: center;
-    margin-top: 50px;
+    margin-top: 20px;
     gap: 12px;
-    margin-bottom: 24px;
+    margin-bottom: 16px;
 }
 
 /* .foto-adm{
@@ -69,6 +67,14 @@
 
 
 #userAdm_avatar{
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 50px;
+    background-color: #0a0a0a;
+}
+
+.foto-adm{
     width: 50px;
     height: 50px;
     object-fit: cover;
@@ -91,7 +97,7 @@
 .linha {
     height: 2px; 
     background-color: #F6F6F6;
-    margin: 10px 0; 
+    margin: 8px 0; 
     width: 90%;
     gap: 0px;
     border-radius: 2px 0px 0px 0px;
@@ -101,13 +107,13 @@
 .menu_sidebarAdm{
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 4px;
     list-style: none;
 }
 .sidebarAdm-item{
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 4px;
     list-style: none;
     border-radius: 8px;
     cursor: pointer;
@@ -165,7 +171,7 @@
     text-decoration: none;
     color: #0a0a0a;
     font-size: 16px;
-    padding: 10px;
+    padding: 8px 10px;
     border-radius: 5px;
     transition: background-color 0.3s ease;
     white-space: nowrap;
@@ -183,15 +189,7 @@
     height: 20px;
 }
 #logout{
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    padding: 12px;
-    position: absolute;
-    bottom: 20px;
-    left: 0;
-    width: 100%;
-    margin: auto;
+    display: none; /* Removido pois está vazio */
 }
 #logout_btn{
     border: none;

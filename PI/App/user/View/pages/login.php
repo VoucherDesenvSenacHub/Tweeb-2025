@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="../../../../public/assets/img/tentativa2 (1).png">
     <title>Entrar</title>
     <link rel="stylesheet" href="../../../../public/css/Login.css">
     <?php include __DIR__.'/../../../../includes/headernavb.php'; ?>
@@ -50,7 +51,6 @@
                 <p class="linha-2"></p>
             </div>
 
-            <button type="button" class="bt"><img src="/Tweeb-2025/PI/public/assets/img/Google.png" alt="">Google</button>
             <a href="/Tweeb-2025/PI/app/adm/Views/pages/login-funcionario.php"><button type="button" class="bt">Corporativo</button></a>
         </form>
     </div>
