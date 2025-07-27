@@ -50,7 +50,6 @@
                 <p class="linha-2"></p>
             </div>
 
-            <button type="button" class="bt"><img src="/Tweeb-2025/PI/public/assets/img/Google.png" alt="">Google</button>
             <a href="/Tweeb-2025/PI/app/adm/Views/pages/login-funcionario.php"><button type="button" class="bt">Corporativo</button></a>
         </form>
     </div>
