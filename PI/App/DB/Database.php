@@ -331,12 +331,11 @@ class Database{
     }
     public function selectFiltrado(array $filtros)
     {
-        // 1. PREPARAÇÃO INICIAL
-        $tabela = $this->table; // Usa a tabela definida no construtor
+
+        $tabela = $this->table;
         $where_conditions = [];
         $params = [];
 
-        // 2. CONSTRUÇÃO DINÂMICA E SEGURA DA CLÁUSULA WHERE
         foreach ($filtros as $chave => $valor) {
             switch ($chave) {
                 case 'departamento_id':
@@ -367,15 +366,13 @@ class Database{
                 case 'em_estoque':
                 case 'entrega_gratis':
                 case 'garantia':
-                    if ($valor) { // O 'isset' é feito no Controller
+                    if ($valor) { 
                         $where_conditions[] = "$chave = 1";
                     }
                     break;
             }
         }
         $sql_where = !empty($where_conditions) ? 'WHERE ' . implode(' AND ', $where_conditions) : '';
-
-        // 3. CONTAGEM PARA PAGINAÇÃO
         $count_query = "SELECT COUNT(*) FROM $tabela $sql_where";
         $total_produtos = $this->execute($count_query, $params)->fetchColumn();
         
@@ -384,17 +381,13 @@ class Database{
         $pagina_atual = (int)($filtros['page'] ?? 1);
         $offset = ($pagina_atual - 1) * $produtos_por_pagina;
 
-        // 4. ORDENAÇÃO
         $opcoes_ordenacao = ['preco_asc' => 'preco_unid ASC', 'preco_desc' => 'preco_unid DESC', 'nome_asc' => 'nome_produto ASC'];
         $sql_order = isset($filtros['ordenar']) && isset($opcoes_ordenacao[$filtros['ordenar']])
             ? " ORDER BY " . $opcoes_ordenacao[$filtros['ordenar']]
             : " ORDER BY id_produto DESC";
-
-        // 5. QUERY FINAL E EXECUÇÃO
         $final_query = "SELECT * FROM $tabela $sql_where $sql_order LIMIT $produtos_por_pagina OFFSET $offset";
         $produtos = $this->execute($final_query, $params)->fetchAll(PDO::FETCH_ASSOC);
         
-        // 6. RETORNO ESTRUTURADO
         return [
             'produtos'      => $produtos,
             'total_paginas' => (int)$total_paginas,
