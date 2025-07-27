@@ -38,6 +38,7 @@ function formatarMoeda($valor) {
     return number_format($valor, 2, ',', '.');
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
