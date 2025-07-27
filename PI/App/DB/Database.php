@@ -394,6 +394,38 @@ class Database{
             'pagina_atual'  => $pagina_atual
         ];
     }
+    public function buscarProdutosPorTipoComponentePaginado(int $tipo_id, int $limit, int $offset)
+    {
+        $query = "
+            SELECT p.*
+            FROM produtos p
+            JOIN produto_componente_link l ON p.id_produto = l.id_produto
+            WHERE l.id_tipo_componente = :tipo_id
+            ORDER BY p.nome_produto ASC
+            LIMIT :limit OFFSET :offset
+        ";
+
+        $stmt = $this->conn->prepare($query);
+        $stmt->bindValue(':tipo_id', $tipo_id, PDO::PARAM_INT);
+        $stmt->bindValue(':limit', $limit, PDO::PARAM_INT);
+        $stmt->bindValue(':offset', $offset, PDO::PARAM_INT);
+        $stmt->execute();
+
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function contarProdutosPorTipoComponente(int $tipo_id): int
+    {
+        $query = "
+            SELECT COUNT(p.id_produto)
+            FROM produtos p
+            JOIN produto_componente_link l ON p.id_produto = l.id_produto
+            WHERE l.id_tipo_componente = ?
+        ";
+
+        $stmt = $this->execute($query, [$tipo_id]);
+        return (int) $stmt->fetchColumn();
+    }
     
 }
 

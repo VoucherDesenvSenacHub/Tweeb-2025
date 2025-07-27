@@ -19,7 +19,7 @@ class Produto{
     public string $marca_modelo;
     public int $quantidade_produto;
     public string $imagem_produto;
-    public int $numero_serie;
+    public string $numero_serie;
     public float $custo_produto;
     public string $cor_produto;
     public float $preco_unid;
@@ -118,5 +118,12 @@ class Produto{
         // Cria uma instância do DB, define a tabela e chama o novo método
         $db = new Database('produtos');
         return $db->selectFiltrado($filtros);
+    }
+    public static function buscarPorTipoComponente(int $tipo_id, int $limit = 10, int $offset = 0) {
+        return (new Database())->buscarProdutosPorTipoComponentePaginado($tipo_id, $limit, $offset);
+    }
+
+    public static function contarPorTipoComponente(int $tipo_id): int {
+        return (new Database())->contarProdutosPorTipoComponente($tipo_id);
     }
 }
