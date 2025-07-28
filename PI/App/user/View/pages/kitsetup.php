@@ -3,8 +3,7 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 if (!isset($_SESSION['usuario'])) {
-    header("Location:/Tweeb-2025/PI/app/user/View/Pages/login.php");
-    exit;
+    include __DIR__.'/../../../../includes/navbar.php'; 
 } else {
     include __DIR__.'/../../../../includes/navbar.php'; 
     include __DIR__.'/../../../../includes/sidebar-User.php'; 

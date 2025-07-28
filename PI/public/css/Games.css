@@ -38,13 +38,11 @@
 }
 .Games-filtro{
     width: 20%; 
-    flex-shrink: 0; /* Impede que o filtro encolha */
-    padding: 25px;
-    background-color: #F6F6F6; /* Mesma cor de fundo dos cards */
-    border-right: 1px solid #e0e0e0;
-    /* height: fit-content; Faz a altura se ajustar ao conteúdo */
-    border-radius: 9px;
-    margin: 20px;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: #f2f2f2;
+    border-right: 1px solid #ddd;
+    height: fit-content;
 }
 .Games-filtro h3 {
     font-family: "Inter", sans-serif;

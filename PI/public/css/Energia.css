@@ -38,11 +38,12 @@
 }
 
 .Energia-filtro{
-    width: 20%; /* ou 250px */
+    width: 20%; 
     padding: 20px;
     box-sizing: border-box;
     background-color: #f2f2f2;
     border-right: 1px solid #ddd;
+    height: fit-content;
 }
 .Energia-filtro h3 {
     font-family: "Inter", sans-serif;

@@ -44,7 +44,7 @@
     box-sizing: border-box;
     background-color: #f2f2f2;
     border-right: 1px solid #ddd;
-    height: auto;
+    height: fit-content;
 }
 .Audio-filtro h3 {
     font-family: "Inter", sans-serif;

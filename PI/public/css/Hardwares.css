@@ -43,6 +43,7 @@
     box-sizing: border-box;
     background-color: #f2f2f2;
     border-right: 1px solid #ddd;
+    height: fit-content;
 }
 .Hardware-filtro h3 {
     font-family: "Inter", sans-serif;
