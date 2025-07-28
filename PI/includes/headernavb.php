@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="../../../../public/assets/img/tentativa2 (1).png">
-    <title></title>
+    <link rel="icon" type="image/png" href="../../../../public/assets/img/icone-tentativa.png">
+    <title>Tweeb</title>
     <link rel="stylesheet" href="../../../../public/css/navbar.css">
     <link rel="stylesheet" href="../../../../public/css/cadastro.css">
     <link rel="stylesheet" href="../../../../public/css/footer.css">
@@ -27,7 +27,7 @@
     <link rel="stylesheet" href="../../../../public/css/estoque_cadastrar_novo.css">
     <link rel="stylesheet" href="../../../../public/css/departamento01.css">
     <link rel="stylesheet" href="../../../../public/css/escolha-endereco.css">
-    <link rel="stylesheet" href="../../../../public/css/metodo-envio.css">
+   <link rel="stylesheet" href="../../../../public/css/metodo-envio.css">
     <link rel="stylesheet" href="../../../../public/css/OrdemdeServico.css">
     <link rel="stylesheet" href="../../../../public/css/corporativo.css">
     <link rel="stylesheet" href="../../../../public/css/painel-adm.css">
@@ -37,6 +37,7 @@
     <link rel="stylesheet" href="../../../../public/css/estoqueok.css">
     <link rel="stylesheet" href="../../../../public/css/editar-modal.css">
     <link rel="stylesheet" href="../../../../public/css/aparencia.css">
+    <link rel="stylesheet" href="../../../../public/css/banner.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
     <script defer src="../../../../public/js/descProduto.js"></script>
@@ -60,4 +61,5 @@
     <script src="../../../../public/js/adm-manutencao.js" defer></script>
     <script src="../../../../public/js/modal2.js" defer></script>
     <script src="../../../../public/js/aparencia.js" defer></script>
+    <script src="../../../../public/js/banner.js" defer></script>
 </head>

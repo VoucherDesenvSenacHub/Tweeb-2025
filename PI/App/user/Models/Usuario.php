@@ -147,5 +147,24 @@ class Usuario {
         return $db->update(['senha' => $this->senha], "id = {$this->id}");
     }
     
-    
+
+public function listarClientes()
+{
+    $dbUsuarios = new Database('usuarios');
+    $clientes = $dbUsuarios->select('tipo = "cliente"')->fetchAll(PDO::FETCH_ASSOC);
+
+    $dbEnderecos = new Database('enderecos');
+
+    foreach ($clientes as &$cliente) {
+        $endereco = $dbEnderecos->select('id_cliente = ' . $cliente['id'])->fetch(PDO::FETCH_ASSOC);
+        $cliente['endereco'] = $endereco['rua'] ?? 'Não informado';
+        $cliente['endereco2'] = $endereco['numero'] ?? 'Não informado';
+        $cliente['endereco3'] = $endereco['cep'] ?? 'Não informado';
+    }
+
+    return $clientes;
+}
+
+
+  
 }

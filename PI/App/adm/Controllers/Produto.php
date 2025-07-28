@@ -6,7 +6,13 @@
 
 require_once(__DIR__ . '/../../DB/Database.php');
 
+
+
 class Produto{
+
+    
+public $conn;
+
 
     public ?int $id_produto = null;
     public string $nome_produto;
@@ -131,12 +137,11 @@ class Produto{
         return (new Database('produtos'))->delete('id_produto = '.$id_produto);
     }
 
-    public function atualizarFlags($id_produto, $em_estoque, $garantia, $entrega_gratis) {
+public function atualizarFlags($id_produto, $em_estoque, $garantia, $entrega_gratis) {
+    $stmt = $this->conn->prepare("UPDATE produtos SET em_estoque = ?, garantia = ?, entrega_gratis = ? WHERE id_produto = ?");
+    $stmt->execute([$em_estoque, $garantia, $entrega_gratis, $id_produto]);
+}
 
-    
-        $stmt = $conn->prepare("UPDATE produtos SET em_estoque = ?, garantia = ?, entrega_gratis = ? WHERE id_produto = ?");
-        $stmt->execute([$em_estoque, $garantia, $entrega_gratis, $id_produto]);
-    }
 
     public function update2() {
         return (new Database('produtos'))->update2(
@@ -147,7 +152,7 @@ class Produto{
     public static function buscarnovos($filtros = null, $ordenacao = null, $limite = null) {
         require_once __DIR__ . '/../../DB/Database.php'; // Ajuste o caminho conforme seu projeto
     
-        $conexao = Database::conectar();
+      
     
         $sql = "SELECT * FROM produtos";
     
@@ -170,6 +175,57 @@ class Produto{
         return $resultado;
     }
     
+    
+
+public static function listarAvaliacoesPorProduto($id_produto) {
+    $db = new Database();
+    $sql = "SELECT a.notas, a.comentario, u.nome, u.foto_perfil
+            FROM avaliacao_produto a
+            JOIN usuarios u ON u.id = a.id
+            WHERE a.id_produto = ?
+            ORDER BY a.id_avaliacao DESC";
+    $stmt = $db->execute($sql, [$id_produto]);
+    $avaliacoes = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    return $avaliacoes;
+}
+
+public function getContagemNotasPorProduto($id_produto) {
+    require_once __DIR__ . '/../../../DB/Database.php';
+    $db = new Database();
+
+    $sql = "SELECT notas, COUNT(*) as total FROM avaliacao_produto WHERE id_produto = ? GROUP BY notas";
+    $stmt = $db->execute($sql, [$id_produto]);
+    $resultados = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    // Inicializa contagem com zero para todas as notas
+    $contagens = [
+        1 => 0,
+        2 => 0,
+        3 => 0,
+        4 => 0,
+        5 => 0,
+    ];
+
+    foreach ($resultados as $linha) {
+        $nota = (int) $linha['notas'];
+        $contagens[$nota] = (int) $linha['total'];
+    }
+
+    return $contagens;
+}
+
+public function getMediaNotasPorProduto($id_produto) {
+    require_once dirname(__DIR__, 2) . '/DB/Database.php';
+    $db = new Database();
+
+    $sql = "SELECT AVG(notas) as media FROM avaliacao_produto WHERE id_produto = ?";
+    $stmt = $db->execute($sql, [$id_produto]);
+    $resultado = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    return $resultado && $resultado['media'] !== null ? round($resultado['media'], 1) : 0;
+}
+
+
 }
     
    

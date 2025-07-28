@@ -25,9 +25,9 @@
 .orcamento-form-section {
     width: 100%;
     max-width: 800px;
-    background-color: #fff;
+    /* background-color: #fff; */
     padding: 20px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    /* box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); */
     border-radius: 8px;
     display: flex;
     flex-direction: column;
@@ -52,9 +52,9 @@
     max-width: 340px;
     height: 472px;
     margin: 30px;
-    background-color: #fff;
+    /* background-color: #fff; */
     padding: 24px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    /* box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); */
     border-radius: 12px;
 }
 
@@ -136,12 +136,14 @@
 .orcamento-input-group input,
 .orcamento-input-group select,
 .orcamento-textarea {
-    width: 32%;
+    width: 400px;
     padding: 10px;
     background-color: #F2F2F7;
     border-radius: 5px;
     outline: none;
     border: none;
+    margin-right: 1%; /* adiciona espaçamento horizontal */
+    margin-bottom: 10px; /* adiciona espaçamento vertical */
 }
 
 .orcamento-textarea {

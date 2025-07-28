@@ -276,5 +276,37 @@ class Pedido {
             ];
         }
     }
+
+  public static function listarTodosPedidos() {
+    try {
+        $db = new Database('pedidos');
+
+      $sql = "SELECT 
+    p.id_pedido,
+    u.id AS id_usuario,
+    u.nome AS nome_cliente,
+    CONCAT_WS(', ', e.rua, e.numero, e.bairro, e.cidade, e.estado, e.cep) AS endereco,
+    p.valor_total,
+    p.valor_frete,
+    p.metodo_envio,
+    p.data_pedido,
+    p.data_entrega_estimada,
+    p.status_pedido
+FROM pedidos p
+LEFT JOIN usuarios u ON p.id_usuario = u.id
+LEFT JOIN enderecos e ON p.id_endereco = e.id_endereco
+ORDER BY p.data_pedido DESC";
+
+
+
+        $stmt = $db->execute($sql);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    } catch (Exception $e) {
+        return [];
+    }
+}
+
+
 }
 ?> 

@@ -1,0 +1,281 @@
+.top_container_cadastrar_produto_adm{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+
+.item_top_produto{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+
+.tamanho_banner_adm{
+    font-size: 15px;
+    color: #979797;
+}
+
+/* Estilo para o título das categorias de banners */
+.title_banner_categoria {
+    display: flex;
+    font-size: 15px;
+    color: #4A4A4A;
+    font-weight: 500;
+}
+
+/* Contêiner para as imagens de banners */
+.container_banner_wrap {
+    display: flex;
+    width: 80vw;
+    border: 1px solid #e5e5e5;
+    /* box-shadow: 0px 0px 20px rgba(122, 122, 122, 0.8); */
+    border-radius: 5px;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    gap: 1rem;
+}
+.tamanho_banner_adm{
+    text-align: end;
+}
+.container_banner_wrap-promocional{
+    width: 80vw;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #e5e5e5;
+    border-radius: 5px;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    gap: 1rem;
+}
+.quadro-banners-promo{
+    display: flex;
+    height: auto;
+    gap: 1rem;
+    flex-direction: column;
+}
+.banner-item-promocional{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+    cursor: pointer;
+    width: 600px;
+    height: 300px;
+}
+.banner-item-promo{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+    cursor: pointer;
+    width: 350px;
+    height: 180px;
+}
+
+/* Estilo para os itens de banner */
+.banner-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 380px;
+    height: 200px;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #4A4A4A;
+    font-weight: 500;
+    cursor: pointer;
+    position: relative;
+}
+
+.banner-item img{
+    display: flex;
+    width: 380px;
+    /* background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; */
+}
+
+/* Estilo da imagem do banner */
+.banner-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+    background-color: #e5e5e5;
+}
+
+/* Botão de trocar imagem */
+.trocar-imagem-btn {
+    position: absolute;
+    width: 90px;
+    height: 50px;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 5px 10px;
+    background-color: #4200db;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    font-size: 20px;
+    gap: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.trocar-imagem-btn .fa-plus{
+    font-size: 18px;
+}
+
+.trocar-imagem-btn:hover {
+    background-color: #FA301E;
+}
+
+/* Input de arquivo escondido */
+.file-upload {
+    display: none;
+}
+
+/* Contêiner dos botões de salvar e excluir */
+.container_btn_salvar_excluir_produto_mobile {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    width: 100%;
+    gap: 10px;
+    margin: 20px 0;
+    
+}
+
+.container_banner_wrap,
+.container_banner_wrap-promocional {
+    max-width: 1200px;      
+    width: 90vw;            
+    margin: 0 auto;         
+    padding: 1rem 1.5rem;   
+    border: 1px solid #e5e5e5;
+    border-radius: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.top_container_cadastrar_produto_adm {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;  
+    width: 100%;
+    padding: 0 1rem;          
+    box-sizing: border-box;   
+}
+
+.title_adm{
+    display: flex;
+    justify-content: center;
+    /* font-size: larger; */
+    margin-top: 40px;
+    margin-bottom: 40px; 
+    
+    text-align: center;
+    margin-top: 30px;
+    font-size: 32px;
+    font-weight: bold;
+
+}
+/* Botões de salvar e excluir */
+.btn_salvar_produto, .btn_excluir_produto, .btn_salvar_adm {
+            bottom: 20px;
+    padding: 10px;
+    width: 235px;
+    height: 48px;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--azul-intenso);
+    color: white;
+    cursor: pointer;
+    transition: 0.1s ease;
+    text-decoration: none; /* Remove o sublinhado */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+}
+
+.btn_salvar_produto:hover, .btn_excluir_produto:hover {
+    background-color: #45a049;
+}
+
+/* Estilo do título de cada categoria de banners */
+.item_top_produto {
+    margin-bottom: 20px;
+}
+
+
+@media (max-width:1290px) {
+
+    .top_container_cadastrar_produto_adm{
+        justify-content: center;
+    }
+    .container_banner_wrap, .container_banner_wrap-promocional{
+        width: 70vw;
+        gap: 1rem;
+    }
+
+    .tamanho_banner_adm{
+        font-size: 13px;
+        color: #979797;
+    }
+    
+}
+
+@media (max-width:580px) {
+
+    .top_container_cadastrar_produto_adm{
+        justify-content: center;
+    }
+    .container_banner_wrap, .container_banner_wrap-promocional{
+        width: 85vw;
+        gap: 1rem;
+    }
+
+    .tamanho_banner_adm{
+        font-size: 13px;
+        color: #979797;
+    }
+    
+}
+
+@media (max-width:468px) {
+    .banner-item img, .banner-item-promo{
+        width: 250px;
+        height: 150px;
+    }
+
+    .banner-item-promocional{
+        width: 280px;
+        height: 180px;
+    }
+    .container_title_adm_left{
+        font-size: 15px;
+    }
+    
+}

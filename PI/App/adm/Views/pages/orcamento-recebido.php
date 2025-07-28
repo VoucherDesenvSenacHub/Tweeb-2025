@@ -1,6 +1,31 @@
 <?php
-session_start();
+require_once(__DIR__ . '/../../Controllers/Produto.php');
+require_once __DIR__ . '/../../Models/Funcionario.php';
+require_once __DIR__ . '/../../../DB/Database.php';
 
+if (session_status() !== PHP_SESSION_ACTIVE) {
+    session_start();
+}
+
+// Verifica se o usuário está logado como admin ou funcionário
+if (!isset($_SESSION['adm']) && !isset($_SESSION['funcionario'])) {
+    header('Location: login-funcionario.php');
+    exit();
+}
+
+// Define qual sessão usar (admin tem prioridade)
+$funcionario = isset($_SESSION['adm']) ? $_SESSION['adm'] : $_SESSION['funcionario'];
+
+// Busca dados completos do banco para garantir que temos todos os campos
+$db = new Database();
+$dadosCompletos = $db->buscarDadosCompletosPorId($funcionario['id'], $funcionario['tipo']);
+
+// Se encontrou dados completos, atualiza a sessão e usa eles
+if ($dadosCompletos) {
+    $tipo_sessao = isset($_SESSION['adm']) ? 'adm' : 'funcionario';
+    $_SESSION[$tipo_sessao] = array_merge($_SESSION[$tipo_sessao], $dadosCompletos);
+    $funcionario = $dadosCompletos;
+}
 ?>
 
 <!DOCTYPE html>
@@ -12,6 +37,8 @@ session_start();
     <title>Enviados</title>
     <link rel="stylesheet" href="../../../../public/css/adm-enviados.css">
     <link rel="stylesheet" href="../../../../public/css/orcamento-recebido.css">
+    <script defer src="../../js_adm/OrcamentoRecebido.js"></script>
+    <script src="../../../../public/js/orcamento-recebido.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
@@ -112,129 +139,51 @@ session_start();
 
 <div class="orcamento-recebido">
 
-<div class="quantidade-pedidos2">
+    <div class="quantidade-pedidos2">
         <div class="pedidos-ui-card2">
-
             <div class="ui-pedidos-frame">
                 <p>Orçamentos</p>
                 <img src="../../../../public/assets/img/project-icon-2.png" alt="">
             </div>
-
             <div class="ui-pedidos-label">
-                <h1 class="numero-item-minicard">12</h1>
+                <h1 class="numero-item-minicard" id="quantidadeTotal"></h1>
                 <p><span>1</span> fechado</p>
             </div>
-
         </div>
 
-        
         <div class="pedidos-ui-card3">
-
             <div class="ui-pedidos-frame">
                 <p>Aceitos</p>
                 <img src="../../../../public/assets/img/project-icon-2.png" alt="">
             </div>
-
             <div class="ui-pedidos-label">
-                <h1 class="numero-item-minicard">37</h1>
+                <h1 class="numero-item-minicard" id="quantidadeAceitos"></h1>
                 <p><span>1</span> Garantia</p>
             </div>
-
         </div>
     </div>
 
     <div class="pedidos-categoria-selecionado">
         <div class="categorias-adm-enviados">
-        <span><p>Pendentes</p></span>
-        <a href="orcamento-aceitos.php"><p>Aceitos</p></a>
+            <span><p>Pendentes</p></span>
+            <a href="orcamento-aceitos.php"><p>Aceitos</p></a>
         </div>
     </div>
 
-    <div class="orcamento-recebido-container">
+    <!-- ✅ Adicionamos aqui a div que receberá os orçamentos -->
+    <div id="orcamentos-dinamicos"></div>
 
-    <div class="orcamento-recebido-header">
-        <span>Solicitação (1)</span>
-        <span>18/07/2024 11:50</span>
+</div> <!-- fim do .orcamento-recebido -->
+
+<!-- ✅ Footer fora do container -->
+<footer class="footer-adm">
+    <div class="footer-content-adm">
+        <div class="footer-logo-adm">
+            <div><img src="../../../../public/assets/img/logo.png" alt="Logo Tweeb" /></div>
+            <div class="footer-text-adm">Você faz parte da nossa conexão com o futuro.</div>
+        </div>
     </div>
-    <form class="orcamento-recebido-form">
-        <div class="orcamento-recebido-row">
-            <input type="text" value="Igor" readonly>
-            <input type="email" value="Igor@gmail.com" readonly>
-            <input type="tel" value="67 12234-5678" readonly>
-        </div>
-        <div class="orcamento-recebido-row">
-            <input type="text" value="Concerto" readonly>
-            <input type="text" value="Até 10/10/2024" readonly>
-            <button class="foto-orcamento-jpeg" type="button" readonly> <i class="fa-regular fa-circle-down"></i></button>
-       
-            
-        </div>
-        <textarea readonly>Formatação do Notebook</textarea>
-        <div class="orcamento-recebido-buttons">
-            <button type="button" class="orcamento-recebido-negacao">Negar</button>
-            <button type="button" class="orcamento-recebido-responder open-modal-resposta">Responder</button>
+</footer>
 
-
-
-        </div>
-    </form>
-    </div>
-
-    <div class="orcamento-recebido-container">
-
-    <div class="orcamento-recebido-header">
-        <span>Solicitação (1)</span>
-        <span>18/07/2024 11:50</span>
-    </div>
-    <form class="orcamento-recebido-form">
-        <div class="orcamento-recebido-row">
-            <input type="text" value="Igor" readonly>
-            <input type="email" value="Igor@gmail.com" readonly>
-            <input type="tel" value="67 12234-5678" readonly>
-        </div>
-        <div class="orcamento-recebido-row">
-            <input type="text" value="Concerto" readonly>
-            <input type="text" value="Até 10/10/2024" readonly>
-            <button class="foto-orcamento-jpeg" type="button" readonly> <i class="fa-regular fa-circle-down"></i></button>
-       
-            
-        </div>
-        <textarea readonly>Formatação do Notebook</textarea>
-        <div class="orcamento-recebido-buttons">
-            <button type="button" class="orcamento-recebido-negacao">Negar</button>
-            <button type="button" class="orcamento-recebido-responder open-modal-resposta">Responder</button>
-
-
-        </div>
-    </form>
-    </div>
-
-    
-</div>
-
-    
-    
-<?php include __DIR__.'/../../../../includes/footer-adm.php'; ?> 
 </body>
-
-
-<script>
-  document.querySelectorAll('.open-modal-resposta').forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.getElementById('modal-responder-orcamento').style.display = 'flex';
-    });
-  });
-
-  document.querySelectorAll('.close-modal').forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.getElementById('modal-responder-orcamento').style.display = 'none';
-    });
-  });
-</script>
-
-
-
-
-
-
 </html>

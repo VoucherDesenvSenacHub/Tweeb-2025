@@ -22,116 +22,230 @@
     font-size: 22px;
     font-family: "Nunito", serif;
     font-weight: bold;
-    margin-left: 7%;
+    margin-left: 5%; 
+    margin-bottom: 80px;
 }
 
 .Perifericos-container_titles {
     margin-top: 20px;
     margin-left: 130px;
 }
+.Perifericos-layout{
+    display: flex;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    padding-left: 105px;
+}
+.Perifericos-filtro{
+    width: 20%; /* ou 250px */
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: #f2f2f2;
+    border-right: 1px solid #ddd;
+}
 
-.container-favoritos-depto {
+.Perifericos-filtro h3 {
+    font-family: "Inter", sans-serif;
+    font-size: 1.5rem;
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #291E40;
+}
+
+/* --- Grupos e Ordenação --- */
+.Perifericos-filtro fieldset {
+    border: none;
+    padding: 0;
+    margin: 0;
+    margin-bottom: 25px;
+}
+
+.Perifericos-filtro legend {
+    font-family: "Inter", sans-serif;
+    font-weight: bold;
+    font-size: 1rem;
+    margin-bottom: 10px;
+    padding: 0;
+    width: 100%;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 8px;
+}
+
+.Perifericos-filtro .Perifericos-filtro-select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: "Nunito", sans-serif;
+    font-size: 0.95rem;
+    background-color: white;
+}
+
+/* --- Checkboxes e Preço --- */
+.Perifericos-filtro fieldset div {
+    margin-bottom: 8px;
+}
+
+.Perifericos-filtro input[type="checkbox"] {
+    margin-right: 8px;
+    accent-color: #291E40;
+    transform: scale(1.1);
+}
+
+.Perifericos-filtro label {
+    font-family: "Nunito", sans-serif;
+    font-size: 0.95rem;
+    cursor: pointer;
+}
+
+.Perifericos-filtro .Perifericos-filtro-preco {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.Perifericos-filtro .Perifericos-filtro-input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: "Nunito", sans-serif;
+    -moz-appearance: textfield;
+}
+.Perifericos-filtro .Perifericos-filtro-input::-webkit-outer-spin-button,
+.Perifericos-filtro .Perifericos-filtro-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* --- Botões --- */
+.Perifericos-filtro .Perifericos-filtro-aplicar,
+.Perifericos-filtro .Perifericos-filtro-limpar {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: "Inter", sans-serif;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.2s ease-in-out;
+    box-sizing: border-box; 
+}
+
+.Perifericos-filtro .Perifericos-filtro-aplicar {
+    background-color: #291E40;
+    color: white;
+    border: none;
+    margin-top: 15px;
+}
+.Perifericos-filtro .Perifericos-filtro-aplicar:hover {
+    background-color: #3a2d5c;
+}
+
+.Perifericos-filtro .Perifericos-filtro-limpar {
+    background-color: transparent;
+    color: #291E40;
+    border: 1px solid #291E40;
+    margin-top: 10px;
+    display: block;
+    text-decoration: none;
+}
+.Perifericos-filtro .Perifericos-filtro-limpar:hover {
+    background-color: #291E40;
+    color: white;
+}
+.p-container-favoritos-depto {
+    flex: 1;
     display: flex;
     flex-wrap: wrap;
-    justify-content: flex-start;
     gap: 20px;
     padding: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.perifericos-produtos-card {
-    background-color: #f1efef;
-    border-radius: 9px;
-    padding: 15px;
     box-sizing: border-box;
-    width: 31%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    position: relative;
-    min-height: 480px;
+    margin-left: 0;
+    max-width: unset;
 }
 
-.perifericos-heart,
-.perifericos-add-carrinho {
+.p-produtos-card {
+     display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative; /* necessário para colocar o coração no canto. */
+    height: 432px;
+    width: 268px;
+    background-color: #F6F6F6;
+    border-radius: 9px;
+}
+
+.p-heart {
+    position: absolute;
+    top: 15px;
+    left: 15px;
     width: 27px;
     height: 27px;
+    cursor: pointer;
 }
 
-.perifericos-heart {
-    position: absolute !important;
-    top: 10px !important;
-    left: 10px !important;
-    right: auto !important;
-    width: 30px !important;
-    height: 30px !important;
-    z-index: 10 !important;
+.p-add-carrinho {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 27px;
+    height: 27px;
+    cursor: pointer;
 }
 
-.perifericos-add-carrinho {
-    position: absolute !important;
-    top: 10px !important;
-    right: 10px !important;
-    left: auto !important;
-    width: 30px !important;
-    height: 30px !important;
-    z-index: 10 !important;
-}
-
-.perifericos-image-produto {
-    width: 100%;
-    height: 250px;
+.image-produto {
+    width: 160px;
+    height: 160px;
     object-fit: cover;
     margin-bottom: 10px;
     border-radius: 5px;
-    margin-top: 30px;
+    margin-top: 65px;
 }
 
-.perifericos-card-rate {
+.card-rate {
     margin-bottom: 10px;
 }
 
-.perifericos-card-rate i {
+.card-rate i {
     color: #fdd835;
 }
 
-.perifericos-produtos-card p {
+.p-produtos-card p {
     margin: 4px 0;
     font-family: "Nunito", sans-serif;
 }
 
-.perifericos-produtos-card h1 {
+.p-produtos-card h1 {
     font-family: "Inter", sans-serif;
     font-size: 1.5rem;
     margin: 10px 0;
 }
 
-.perifericos-card-botao {
-    background-color: #291E40;
-    color: white;
+.p-card-botao {
+    bottom: 20px;
+    padding: 10px;
+    width: 235px;
+    height: 48px;
     border: none;
-    padding: 10px 20px;
     border-radius: 8px;
+    background-color: var(--azul-intenso);
+    color: white;
     cursor: pointer;
-    width: 100%;
-    font-size: 1rem;
-    font-family: "Inter", sans-serif;
-    margin-top: auto;
-    transition: all 0.2s ease-in-out;
+    transition: 0.1s ease;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
 }
 
-.perifericos-card-botao:hover {
+.p-card-botao:hover {
     background-color: #3a2d5c;
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.perifericos-qnt-avaliacoes {
-    color: #666;
-    font-size: 12px;
-    margin-left: 5px;
 }
 
 /* ================================== */

@@ -1,17 +1,26 @@
 <?php
 require_once __DIR__ . '/../Produto.php'; 
 
-$produtos_por_pagina = 9;
-$pagina_atual = isset($_GET['page']) && is_numeric($_GET['page']) ? (int)$_GET['page'] : 1;
-$offset = ($pagina_atual - 1) * $produtos_por_pagina;
+$filtros = $_GET;
+$filtros['departamento_id'] = 4;
 
-$where = 'id_departamento = 4 AND status_produto = 1';
+$dados_iniciais = Produto::buscarComFiltros($filtros);
 
+$produtos = $dados_iniciais['produtos'];
+$total_paginas = $dados_iniciais['total_paginas'];
+$pagina_atual = $dados_iniciais['pagina_atual'];
 
-$total_produtos = Produto::contar($where);
-$total_paginas = ceil($total_produtos / $produtos_por_pagina);
+$marcas_filtro = $filtros['marca'] ?? [];
+$preco_min_filtro = $filtros['preco_min'] ?? '';
+$preco_max_filtro = $filtros['preco_max'] ?? '';
+$em_estoque_filtro = isset($filtros['em_estoque']);
+$entrega_gratis_filtro = isset($filtros['entrega_gratis']);
+$garantia_filtro = isset($filtros['garantia']);
+$ordenar_filtro = $filtros['ordenar'] ?? '';
 
-$produtos = Produto::buscarPaginado($where, null, $produtos_por_pagina, $offset);
+$query_params = $_GET;
+unset($query_params['page']);
+$query_string = http_build_query($query_params);
 
 
 include __DIR__ . '/../../View/pages/Energia.php';

@@ -38,6 +38,7 @@ function formatarMoeda($valor) {
     return number_format($valor, 2, ',', '.');
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -45,7 +46,7 @@ function formatarMoeda($valor) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Método de Envio - Tweeb</title>
     <!-- Inclui o CSS principal da página -->
-    <link rel="stylesheet" href="../../../../public/css/metodo-envio.CSS">
+   
     <?php include __DIR__.'/../../../../includes/headernavb.php'; ?>
     <!-- Inclui ícones Boxicons e Font Awesome -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>

@@ -640,6 +640,7 @@ span{
     height: auto;
 }
 
+
 @media screen and (max-width: 1024px) {
     .container {
         flex-direction: column;

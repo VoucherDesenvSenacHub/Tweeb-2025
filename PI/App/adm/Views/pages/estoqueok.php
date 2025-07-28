@@ -76,8 +76,8 @@ if (isset($_POST['cadastrar'])) {
     $garantia = isset($_POST['garantia']) ? 1 : 0;
     $valor_total = $_POST['valor_total'];
     $fornecedor = $_POST['fornecedor'];
-    $status = $_POST['status'];
-    $nf = $_POST['nf'];
+      // $status = $_POST['status'];
+      // $nf = $_POST['nf'];
 
     // Processamento da imagem
     $arquivo = $_FILES['imagem_produto'];
@@ -154,18 +154,18 @@ if ($id_produto !== null) {
 
     <div class="cadastrando-products-pai">
         <div class="cadastrando-products">
-            <nav>
+            <nav-prod>
             <a href="#" class="active" id="btn-cadastrados">Visão Geral</a>
             <a href="#" class="" id="btn-pedidos">Pedidos</a>
             <a href="#" class="" id="btn-enviados">Enviados</a>
             <a href="#" class="active" id="btn-novo-produto">Novo Produto</a>
             <a href="#" id="btn-inativos">Inativos</a>
-            </nav>
+            </nav-prod>
             <h2 id='titulo-cadastro-produto'>Novo Produto</h2>
 
             <!-- Formulário de cadastro -->
             <form action="estoqueok.php" method="POST" enctype="multipart/form-data" id="product-form">
-                <div class="form-group">
+                <div class="form-group-est">
                     <label for="product-name">Nome do Produto</label>
                     <input autocomplete="off" type="text" name="nome_produto" class="form_field" id="nome_produto" required>
 
@@ -173,10 +173,12 @@ if ($id_produto !== null) {
                     <input autocomplete="off" type="text" name="marca_modelo" class="form_field" id="marca_modelo" required>
                 </div>
 
-                <div class="form-group">
+                <div class="form-group-est">
                     <label for="product-quantity">Quantidade</label>
                     <input autocomplete="off" type="number" name="quantidade_produto" class="form_field" id="quantidade_produto" required>
+                </div>
 
+                 <div class="form-group-est">
                     <label for="product-department">Departamento</label>
                     <select name="id_departamento" id="id_departamento">
                         <option value="1">hardwares</option>
@@ -186,14 +188,15 @@ if ($id_produto !== null) {
                         <option value="5">áudio</option>
                         <option value="6">jogos</option>
                     </select>
-                </div>
+                 </div>
+                    
 
-                <div class="form-group">
+                <div class="form-group-est">
                     <label for="product-image">Imagem</label>
                     <input autocomplete="off" type="file" name="imagem_produto" class="form_field" id="imagem_produto" required>
                 </div>
 
-                <div class="form-group">
+                <div class="form-group-est">
                     <label for="serial-number">Número de Série</label>
                     <input autocomplete="off" type="number" name="numero_serie" class="form_field" id="numero_serie" required>
 
@@ -201,28 +204,28 @@ if ($id_produto !== null) {
                     <input autocomplete="off" type="number" name="custo_produto" step="0.01" class="form_field" id="custo_produto" required>
                 </div>
 
-                <div class="form-group">
+                <div class="form-group-est">
                     <label for="product-color">Cor</label>
                     <input autocomplete="off" type="text" name="cor_produto" class="form_field" id="cor_produto" required>
                 </div>
 
-                <div class="form-group">
+                <div class="form-group-est">
                     <label for="product-description">Descrição</label>
                     <textarea name="descricao_produto" id="descricao_produto" maxlength="1000"></textarea>
                 </div>
 
-                <div class="form-group">
+                <div class="form-group-est">
                     <label for="product-description">Detalhes produto</label>
                     <textarea name="detalhes_produto" id="detalhes_produto" maxlength="1000"></textarea>
                 </div>
 
                 <h3>Especificações Promocionais</h3>
-                <div class="form-group">
+                <div class="form-group-est">
                     <label for="promo-value">Valor</label>
                     <input autocomplete="off" type="number" name="preco_unid" step="0.01" class="form_field" id="preco_unid" required>
                 </div>
 
-                <div class="form-group">
+                <div class="form-group-est">
                     <label for="related-products">Produtos Relacionados</label>
                     <select name="related-products" id="related-products">
                         <option value="">hardwares</option>
@@ -262,9 +265,16 @@ if ($id_produto !== null) {
     <!-- Alternar a exibição -->
 <script>
 
-  document.addEventListener('DOMContentLoaded', async function () {
-    // Simula clique no botão Visão Geral para manter como página inicial de carregamento e mostrar a tabela
-    document.getElementById('btn-cadastrados').click();
+ document.addEventListener('DOMContentLoaded', async function () {
+    const hash = window.location.hash;
+
+    if (hash === '#btn-novo-produto') {
+        const btnNovo = document.getElementById('btn-novo-produto');
+        if (btnNovo) btnNovo.click();
+    } else {
+        const btnCadastrados = document.getElementById('btn-cadastrados');
+        if (btnCadastrados) btnCadastrados.click();
+    }
 });
 
 // Seleciona o tbody da tabela (onde as linhas serão inseridas)
@@ -349,20 +359,20 @@ document.getElementById("btn-pedidos").addEventListener("click", async function(
     // Cria o HTML com as categorias + filtros
     const infoEstoqueHTML = `
 
-        <div class="filtro-formulario">
-            <form action="">
-                <div class="form-group-estoque">
-                    <label for="filtrar-nome">Nome</label>
-                    <input type="text" id="filtrar-nome" name="filtrar-nome" placeholder="filtrar nome">
+<div class="filtro-formulario">
+  <form id="form-filtro-pedidos" onsubmit="event.preventDefault(); aplicarFiltroPedidos();">
+    <div class="form-group-estoque">
 
-                    <label for="filtrar-id">Número ID</label>
-                    <input type="text" id="filtrar-id" name="filtrar-id" placeholder="filtrar nº">
+      <label for="filtro-id-pedidos">Número ID</label>
+      <input type="text" id="filtro-id-pedidos" name="filtro-id-pedidos" placeholder="filtrar nº">
 
-                    <input class="form-botao-limpar" type="submit" value="Limpar">
-                    <input class="form-botao-buscar" type="submit" value="Buscar">
-                </div>
-            </form>
-        </div>
+      <input class="form-botao-limpar" type="button" value="Limpar" onclick="limparFiltroPedidos()">
+      <input class="form-botao-buscar" type="submit" value="Buscar">
+    </div>
+  </form>
+</div>
+
+
     `;
 
     // Cria a tabela
@@ -374,7 +384,7 @@ document.getElementById("btn-pedidos").addEventListener("click", async function(
                     <th class="th-listarP">ID do cliente</th>
                     <th class="th-listarP">Valor Total</th>
                     <th class="th-listarP">Frete</th>
-                    <th class="th-listarP">Endereço</th>
+                    <th class="th-listarP">Endereco</th>
                     <th class="th-listarP">Método de Envio</th>
                     <th class="th-listarP">Data do Pedido</th>
                     <th class="th-listarP">Data de Entrega</th>
@@ -392,7 +402,7 @@ document.getElementById("btn-pedidos").addEventListener("click", async function(
     dados_tabela = document.getElementById('rows_products');
 
     // Carrega os dados da tabela
-    await load_table3_pedidos();
+    await loadPedidos();
 
     // Atualiza o título da seção
     document.getElementById('titulo-cadastro-produto').textContent = 'Pedidos Enviados';
@@ -404,6 +414,34 @@ document.getElementById("btn-pedidos").addEventListener("click", async function(
     document.getElementById('btn-cadastrados').classList.remove('active');
     this.classList.add('active');
 });
+
+async function loadPedidos() {
+    let dados_php = await fetch('../../../../actions/listar_pedidos.php');
+    let response = await dados_php.json();
+
+     console.log(JSON.stringify(response[0])); 
+
+    let html = '';
+
+    console.log(response);
+
+    for (let i = 0; i < response.length; i++) {
+        html += `<tr>`;
+        html += `<td class="td-listarP">${response[i].id_pedido}</td>`;              // ID Pedido
+        html += `<td class="td-listarP">${response[i].id_usuario}</td>`;             // ID Cliente
+        html += `<td class="td-listarP">R$ ${parseFloat(response[i].valor_total).toFixed(2)}</td>`; // Valor Total
+        html += `<td class="td-listarP">R$ ${parseFloat(response[i].valor_frete).toFixed(2)}</td>`; // Frete
+        html += `<td class="td-listarP">${response[i].endereco}</td>`;
+    // Endereço (formatado no PHP)
+        html += `<td class="td-listarP">${response[i].metodo_envio}</td>`;           // Método Envio
+        html += `<td class="td-listarP">${response[i].data_pedido}</td>`;            // Data Pedido
+        html += `<td class="td-listarP">${response[i].data_entrega_estimada || '-'}</td>`; // Data Estimada
+        html += `<td class="td-listarP">${response[i].status_pedido}</td>`;          // Status
+        html += `</tr>`;
+    }
+
+    dados_tabela.innerHTML = html;
+}
 
 
 
@@ -438,7 +476,7 @@ async function load_table2() {
                   </button>
                 </a>
               </div>
-            </td>`;                                                                    // Alterar
+            </td>`;                                                                    
     html += `</tr>`;
   }
 
@@ -468,6 +506,32 @@ function limparFiltro() {
   document.getElementById('filtrar-id').value = "";
   filtrarTabela();
 }
+
+// Função para filtrar a tabela no Pedidos
+function aplicarFiltroPedidos() {
+  const idFiltro = document.getElementById('filtro-id-pedidos').value.toLowerCase();
+  const linhas = document.querySelectorAll('#rows_products tr');
+
+  linhas.forEach(linha => {
+    const tdId = linha.children[0]?.textContent.toLowerCase() || "";
+
+    const mostrar = idFiltro === "" || tdId.includes(idFiltro);
+
+    linha.style.display = mostrar ? "" : "none";
+  });
+}
+
+
+
+
+// Limpa os campos e mostra toda a tabela de Pedidos
+
+function limparFiltroPedidos() {
+  document.getElementById('filtro-id-pedidos').value = "";
+  aplicarFiltroPedidos(); // Reaplica o filtro com campo vazio
+}
+
+
 
 
 

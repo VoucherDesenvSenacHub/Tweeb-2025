@@ -1,5 +1,12 @@
 <?php
 
+require_once(__DIR__ . '/../../../adm/Controllers/Banner.php');
+
+$banner = new Banner();
+
+
+$bannerSobreMimPosicao1 = $banner->getBannerForPosicao('sobre_mim',1);
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -18,9 +25,11 @@
     } else {
         include __DIR__.'/../../../../includes/navbar.php'; 
     }
-    ?>
+?>
+
 <div class="Games-container_banner">
-    <img src="/Tweeb-2025/PI/public/assets/img/banner-departamento-computador.png" alt="banner-Games" class="Games-banner">
+    <img src="/Tweeb-2025/PI/public/Banners/bannersPromocionais/<?= basename($bannerSobreMimPosicao1->caminho) ?>" alt="Banner-Games" class="Games-banner">
+
 </div>
 
 <div class="Games-container_titles">
@@ -28,30 +37,95 @@
     <p class="Games-p">Escolha a oferta que mais combina com você.</p>
 </div>
 
-<div class="container-favoritos-depto">
-<?php if (!empty($produtos)): ?>
-    <?php foreach ($produtos as $produto): ?>
-        <div class="games-produtos-card">
-            <img class="games-heart" src="/Tweeb-2025/PI/public/assets/img/heart_disabled.png" alt="coração" data-produto-id="<?= $produto['id_produto'] ?>" onclick="AtivarCoracao(this)">
-            <button class="games-add-carrinho-btn" data-id="<?= $produto['id_produto'] ?>" title="Adicionar ao carrinho">
-              <img class="games-add-carrinho" src="/Tweeb-2025/PI/public/assets/img/carrinho-card.png" alt="Adicionar ao carrinho">
-            </button>
-            <img class="games-image-produto" src="<?= htmlspecialchars($produto['imagem_produto']) ?>" alt="<?= htmlspecialchars($produto['nome_produto']) ?>">
-            <div class="games-card-rate">
-                <?php for ($i = 0; $i < 5; $i++): ?><i class="fa-solid fa-star"></i><?php endfor; ?>
-                <span class="games-qnt-avaliacoes">(<?= rand(200, 800) ?>+)</span>
+<!-- LAYOUT COM FILTRO + CARDS -->
+<div class="Games-layout">
+    <!-- Filtro lateral -->
+   <aside class="Games-filtro">
+    <h3>Filtros</h3>
+    <form method="GET" action="">
+        <fieldset>
+            <legend>Ordenar Por</legend>
+            <select name="ordenar" class="Perifericos-filtro-select">
+                <option value="">Padrão</option>
+                <option value="preco_asc">Menor Preço</option>
+                <option value="preco_desc">Maior Preço</option>
+                <option value="nome_asc">Nome (A-Z)</option>
+            </select>
+        </fieldset>
+        <fieldset>
+            <legend>Marcas</legend>
+            <div>
+                <input type="checkbox" name="marca[]" value="Sony" id="marca_sony">
+                <label for="marca_sony">Sony</label>
             </div>
-            <p><?= htmlspecialchars($produto['nome_produto']) ?></p>
-            <p><?= htmlspecialchars($produto['marca_modelo']) ?></p>
-            <h1>R$<?= number_format($produto['preco_unid'], 2, ',', '.') ?></h1>
-            <button class="games-card-botao">Comprar Agora</button>
-        </div>
-    <?php endforeach; ?>
-<?php else: ?>
-    <p style="text-align: center; font-size: 1.2rem;">Nenhum produto disponível neste departamento.</p>
-<?php endif; ?>
+            <div>
+                <input type="checkbox" name="marca[]" value="Microsoft" id="marca_microsoft">
+                <label for="marca_microsoft">Microsoft</label>
+            </div>
+            <div>
+                <input type="checkbox" name="marca[]" value="Nintendo" id="marca_nintendo">
+                <label for="marca_nintendo">Nintendo</label>
+            </div>
+             </fieldset>
+
+        <fieldset>
+            <legend>Faixa de Preço</legend>
+            <div class="filtro-preco">
+                <input type="number" name="preco_min" placeholder="Mínimo">
+                <span>-</span>
+                <input type="number" name="preco_max" placeholder="Máximo">
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>Características</legend>
+            <div>
+                <input type="checkbox" name="em_estoque" value="1" id="filtro_estoque">
+                <label for="filtro_estoque">Em estoque</label>
+            </div>
+            <div>
+                <input type="checkbox" name="entrega_gratis" value="1" id="filtro_entrega">
+                <label for="filtro_entrega">Entrega Grátis</label>
+            </div>
+             <div>
+                <input type="checkbox" name="garantia" value="1" id="filtro_garantia">
+                <label for="filtro_garantia">Com Garantia</label>
+            </div>
+        </fieldset>
+        
+        
+            <button type="submit" class="filtro-aplicar">Aplicar Filtros</button>
+            <a href="sua-pagina-de-games.php" class="filtro-limpar">Limpar Filtros</a>
+        </form>
+    </aside>
+
+    <!-- Grid de cards -->
+    <div class="g-container-favoritos-depto">
+        <?php if (!empty($produtos)): ?>
+            <?php foreach ($produtos as $produto): ?>
+                <div class="g-produtos-card">
+                    <img class="g-heart" src="../../../../public/assets/img/heart_disabled.png" alt="coração" data-produto-id="<?= $produto['id_produto'] ?>" onclick="AtivarCoracao(this)">
+                    <button class="add-carrinho-btn" data-id="<?= $produto['id_produto'] ?>" title="Adicionar ao carrinho">
+                        <img class="g-add-carrinho" src="../../../../public/assets/img/carrinho-card.png" alt="Adicionar ao carrinho">
+                    </button>
+                    <img class="image-produto" src="../../../../public/assets/img/<?= htmlspecialchars($produto['imagem_produto']) ?>" alt="<?= htmlspecialchars($produto['nome_produto']) ?>">
+                    <div class="card-rate">
+                        <?php for ($i = 0; $i < 5; $i++): ?><i class="fa-solid fa-star"></i><?php endfor; ?>
+                        <span class="qnt-avaliacoes">(<?= rand(200, 800) ?>+)</span>
+                    </div>
+                    <p><?= htmlspecialchars($produto['nome_produto']) ?></p>
+                    <p><?= htmlspecialchars($produto['marca_modelo']) ?></p>
+                    <h1>R$<?= number_format($produto['preco_unid'], 2, ',', '.') ?></h1>
+                    <button class="g-card-botao">Comprar Agora</button>
+                </div>
+            <?php endforeach; ?>
+        <?php else: ?>
+            <p style="text-align: center; font-size: 1.2rem;">Nenhum produto disponível neste departamento.</p>
+        <?php endif; ?>
+    </div>
 </div>
 
+<!-- Paginação -->
 <div class="Games-pages-container">
     <div class="Games-pages">
         <?php
@@ -92,6 +166,7 @@
         ?>
     </div>
 </div>
+
 <script src="../../../../public/js/task20-modal.js"></script>
 <script src="../../../../public/js/favoritos.js"></script>
 </body>

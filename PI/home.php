@@ -1,8 +1,20 @@
-<?php require_once __DIR__.'/App/adm/Controllers/Produto.php';
+<?php 
+require_once __DIR__.'/App/adm/Controllers/Banner.php';
+require_once __DIR__.'/App/adm/Controllers/Produto.php';
+
 $produtos = Produto::buscar(null, 'id_produto DESC', 8);
+
+
 ?>
+
+
+
 <?php
 session_start(); 
+
+
+$produtoController = new Produto();
+
 
 ?>
 <!DOCTYPE html>
@@ -29,8 +41,23 @@ session_start();
         include __DIR__.'/../PI/includes/sidebar-User.php'; 
     } else {
         include __DIR__.'/../PI/includes/navbar.php';
-        // include __DIR__.'/includes/sidebar-User.php';
+       
     }
+
+    $banner = new Banner();
+
+
+    $bannerPrincipalPosicao1 = $banner->getBannerForPosicao('banners_principais',1);
+    $bannerPrincipalPosicao2 = $banner->getBannerForPosicao('banners_principais',2);
+    $bannerPrincipalPosicao3 = $banner->getBannerForPosicao('banners_principais',3);
+
+    $bannerSecundarioPosicao1 = $banner->getBannerForPosicao('banners_secundarios',1);
+
+    $bannerPromocionalPosicao1  = $banner->getBannerForPosicao('banners_promocionais',1);
+    $bannerPromocionalPosicao2  = $banner->getBannerForPosicao('banners_promocionais',2);
+    $bannerPromocionalPosicao3  = $banner->getBannerForPosicao('banners_promocionais',3);
+    $bannerPromocionalPosicao4  = $banner->getBannerForPosicao('banners_promocionais',4);
+
     ?>
     
     <section class="slider">
@@ -41,13 +68,19 @@ session_start();
         
 
         <div class="slide-box primeiro">
-            <a href="#"><img src="public/assets/img/carrossel 1.png" alt="" class="img-desktop"></a>
+        <a href="#">
+            <img src="/Tweeb-2025/PI/public/Banners/bannersPrincipais/<?= basename($bannerPrincipalPosicao1->caminho) ?>" alt="Banner principal" class="img-desktop">
+        </a>
+    </div>
+
+        <div class="slide-box">
+            <a href="#">
+                 <img src="/Tweeb-2025/PI/public/Banners/bannersPrincipais/<?= basename($bannerPrincipalPosicao2->caminho) ?>" alt="Banner principal" class="img-desktop">
         </div>
         <div class="slide-box">
-            <a href="#"><img src="public/assets/img/carrossel 2.png" alt="" class="img-desktop"></a>
-        </div>
-        <div class="slide-box">
-            <a href="#"><img src="public/assets/img/carrossel 3.png" alt="" class="img-desktop"></a>
+            <a href="#">
+                 <img src="/Tweeb-2025/PI/public/Banners/bannersPrincipais/<?= basename($bannerPrincipalPosicao3->caminho) ?>" alt="Banner principal" class="img-desktop">
+        </a>
         </div>
 
 
@@ -68,29 +101,9 @@ session_start();
         </div>
     </section>
 
-    <img id="ad-produto" src="public/assets/img/ad-produtos.png" alt="">
+    <!-- <img id="ad-produto" src="public/assets/img/ad-produtos.png" alt=""> -->
+     <img id='ad-produto' src="/Tweeb-2025/PI/public/Banners/bannersSecundarios/<?= basename($bannerSecundarioPosicao1->caminho) ?>" alt="Banner secundario"  class="img-desktop">
 
-    <!-- <div class="container-ad">
-        <div class="ad-left">
-            <div class="ad-imagem">
-                <img src="public/assets/img/fone_de_ouvido_ad.png" alt="">
-            </div>
-            <div class="ad-text ad-text1">
-                <h1>Fone de <br> Ouvido <br><span>Edifier</span></h1>
-                <p>Microfone com até 55 <br>Horas de bateria.</p>
-            </div>
-        </div>
-        <div class="ad-right">
-            
-            <div class="ad-imagem ad-imagem2">
-                <img class="img-fix" src="public/assets/img/playstation.png" alt="">
-            </div>
-            <div class="ad-text ad-text2">
-                <h1><span>NOVO</span> Playstation<br> 5 <br></h1>
-                <p>Carregamento  rápido com SSD de altíssima velocidade.</p>
-            </div>
-        </div>
-    </div> -->
 
     <div class="categorias">
         <div class="categorias-content">
@@ -131,8 +144,6 @@ session_start();
     <section class="produtos">
         <div class="tabs">
             <button class="tab-button tab-button1">Novos Produtos</button>
-            <button class="tab-button" id="opacidade">Mais Vendidos</button>
-            <button class="tab-button" id="opacidade">Pacotes em Destaque</button>
         </div>
 
         
@@ -160,8 +171,28 @@ session_start();
                 <p><?= htmlspecialchars($produto['marca_modelo']) ?></p>
                 <h1>R$<?= number_format($produto['preco_unid'], 2, ',', '.') ?></h1>
 
-                
-                
+            <div class="card-rate">
+                <?php
+                    $media = $produtoController->getMediaNotasPorProduto($produto['id_produto']);
+                    $estrelasCheias = floor($media);
+                    $estrelaMeia = ($media - $estrelasCheias) >= 0.5;
+                    $totalEstrelas = 5;
+
+                    for ($i = 0; $i < $estrelasCheias; $i++) {
+                        echo '<i class="fa-solid fa-star"></i>';
+                    }
+
+                    if ($estrelaMeia) {
+                        echo '<i class="fa-solid fa-star-half-stroke"></i>';
+                        $estrelasCheias++;
+                    }
+
+                    for ($i = $estrelasCheias; $i < $totalEstrelas; $i++) {
+                        echo '<i class="fa-regular fa-star"></i>';
+                    }
+                ?>
+                <span class="qnt-avaliacoes">(<?= $media ?>)</span>
+            </div>
 
                 <a href="App/user/View/pages/descproduto.php?id_produto=<?= $produto['id_produto'] ?>">
 
@@ -174,25 +205,17 @@ session_start();
     </section>
 
     </div>
-    <!-- Segundo carrossel feito usando Swiper pra ser mais facil. -->
-    <!-- <div class="swiper-container">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide"><a href="#"><img src="public/assets/img/slider-img1.png" alt=""></a></div>
-          <div class="swiper-slide"><a href="#"><img src="public/assets/img/slider-img2.png" alt=""></a></div>
-          <div class="swiper-slide"><a href="#"><img src="public/assets/img/slider-img3.png" alt=""></a></div>
-          <div class="swiper-slide"><a href="#"><img src="public/assets/img/slider-img1.png" alt=""></a></div>
-          <div class="swiper-slide"><a href="#"><img src="public/assets/img/slider-img2.png" alt=""></a></div>
-          <div class="swiper-slide"><a href="#"><img src="public/assets/img/slider-img3.png" alt=""></a></div>
-        </div>
-
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-button-next"></div>
-      </div> -->
 
       <div class="anuncios">
-        <a href="App/user/View/pages/task20-kitsetup.php" class="img-responsiva" ><img src="public/assets/img/Do seu jeito.png" alt=""></a>
-        <a href="App/user/View/pages/do-seu-jeito.php" class="img-responsiva"><img src="public/assets/img/Do seu jeito 2.png" alt=""></a>
-        <a href="App/user/View/pages/corporativo.php" class="img-responsiva"><img src="public/assets/img/Do seu jeito 3.png" alt=""></a>
+        <a href="App/user/View/pages/task20-kitsetup.php" class="img-responsiva" >
+            <img src="/Tweeb-2025/PI/public/Banners/bannersPromocionais/<?= basename($bannerPromocionalPosicao2->caminho) ?>" alt="Banner promocionais"  class="img-desktop">
+    </a>
+        <a href="App/user/View/pages/do-seu-jeito.php" class="img-responsiva">
+            <img src="/Tweeb-2025/PI/public/Banners/bannersPromocionais/<?= basename($bannerPromocionalPosicao3->caminho) ?>" alt="Banner promocionais"  class="img-desktop">
+        </a>
+        <a href="App/user/View/pages/corporativo.php" class="img-responsiva">
+            <img src="/Tweeb-2025/PI/public/Banners/bannersPromocionais/<?= basename($bannerPromocionalPosicao4->caminho) ?>" alt="Banner promocionais"  class="img-desktop">
+        </a>
       </div>
       <br>
 
@@ -237,7 +260,9 @@ session_start();
        
 
       <div class="img-anuncio">
-        <a href="#"><img src="public/assets/img/banner tweeb carnaval.png" alt="anuncio carnaval"></a>
+        <a href="#">
+            <img src="/Tweeb-2025/PI/public/Banners/bannersPromocionais/<?= basename($bannerPromocionalPosicao1->caminho) ?>" alt="Banner promocionais"  class="img-desktop">
+    </a>
       </div>
 
 

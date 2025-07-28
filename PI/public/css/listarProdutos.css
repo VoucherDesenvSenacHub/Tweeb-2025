@@ -16,7 +16,7 @@
 
 /* Tabela */
 .listarP-table {
-  width: 100%;
+  width: auto;
   border-collapse: separate;
   border-spacing: 0 20px;
   min-width: 900px;

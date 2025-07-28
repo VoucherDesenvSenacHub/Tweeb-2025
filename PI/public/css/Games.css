@@ -22,113 +22,240 @@
     font-size: 22px;
     font-family: "Nunito", serif;
     font-weight: bold;
-    margin-left: 7%;
+    margin-left: 5%;
+    margin-bottom: 80px;
 }
 
 .Games-container_titles {
     margin-top: 20px;
     margin-left: 130px;
 }
+.Games-layout{
+    display: flex;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    padding-left: 105px;
+}
+.Games-filtro{
+    width: 20%; 
+    flex-shrink: 0; /* Impede que o filtro encolha */
+    padding: 25px;
+    background-color: #F6F6F6; /* Mesma cor de fundo dos cards */
+    border-right: 1px solid #e0e0e0;
+    /* height: fit-content; Faz a altura se ajustar ao conteúdo */
+    border-radius: 9px;
+    margin: 20px;
+}
+.Games-filtro h3 {
+    font-family: "Inter", sans-serif;
+    font-size: 1.5rem;
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #291E40;
+}
 
-.container-favoritos-depto {
+/* --- Grupos de Filtro (Fieldset) --- */
+.Games-filtro fieldset {
+    border: none;
+    padding: 0;
+    margin: 0;
+    margin-bottom: 25px; /* Espaço entre os grupos de filtro */
+}
+
+.Games-filtro legend {
+    font-family: "Inter", sans-serif;
+    font-weight: bold;
+    font-size: 1rem;
+    margin-bottom: 10px;
+    padding: 0;
+    width: 100%;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 8px;
+}
+
+/* --- Checkboxes e Labels --- */
+.Games-filtro fieldset div {
+    margin-bottom: 8px;
+}
+
+.Games-filtro input[type="checkbox"] {
+    margin-right: 8px;
+    accent-color: #291E40; /* Cor do check quando marcado */
+    transform: scale(1.1);
+}
+
+.Games-filtro label {
+    font-family: "Nunito", sans-serif;
+    font-size: 0.95rem;
+    cursor: pointer;
+}
+
+/* --- Filtro de Faixa de Preço --- */
+.filtro-preco {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.filtro-preco span {
+    font-weight: bold;
+    color: #555;
+}
+
+.Games-filtro input[type="number"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: "Nunito", sans-serif;
+    font-size: 0.9rem;
+    /* Remove as setas de incremento/decremento */
+    -moz-appearance: textfield;
+}
+
+.Games-filtro input[type="number"]::-webkit-outer-spin-button,
+.Games-filtro input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+
+/* --- Botões do Filtro --- */
+.filtro-aplicar,
+.filtro-limpar {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: "Inter", sans-serif;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.2s ease-in-out;
+}
+
+/* Botão Principal: Aplicar */
+.filtro-aplicar {
+    background-color: #291E40; /* Cor principal */
+    color: white;
+    border: none;
+    margin-top: 15px;
+}
+
+.filtro-aplicar:hover {
+    background-color: #3a2d5c;
+    transform: translateY(-2px);
+}
+
+/* Botão Secundário: Limpar */
+.filtro-limpar {
+    background-color: transparent;
+    color: #291E40;
+    border: 1px solid #291E40;
+    margin-top: 10px;
+    display: block; /* Para o 'a' se comportar como botão */
+    text-decoration: none;
+}
+
+.filtro-limpar:hover {
+    background-color: #291E40;
+    color: white;
+}
+
+.g-container-favoritos-depto {
+    flex: 1;
     display: flex;
     flex-wrap: wrap;
-    justify-content: flex-start;
     gap: 20px;
     padding: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.games-produtos-card {
-    background-color: #f1efef;
-    border-radius: 9px;
-    padding: 15px;
     box-sizing: border-box;
-    width: 31%;
-    display: flex;
-    flex-direction: column;
+    margin-left: 0;
+    max-width: unset;
+}
+
+.g-produtos-card {
+ display: flex;
     align-items: center;
-    text-align: center;
-    position: relative;
-    min-height: 480px;
+    justify-content: center;
+    flex-direction: column;
+    position: relative; /* necessário para colocar o coração no canto. */
+    height: 432px;
+    width: 268px;
+    background-color: #F6F6F6;
+    border-radius: 9px;
 }
 
-.games-heart,
-.games-add-carrinho {
+.g-heart,
+.g-add-carrinho {
     width: 27px;
     height: 27px;
 }
 
-.games-heart {
+.g-heart {
     position: absolute;
     top: 15px;
-    right: 15px;
-    left: auto;
-    width: 27px;
-    height: 27px;
+    left: 15px;
     cursor: pointer;
 }
 
-.games-add-carrinho {
+.g-add-carrinho {
     position: absolute;
     top: 15px;
     right: 15px;
     cursor: pointer;
 }
 
-.games-image-produto {
-    width: 100%;
-    height: 250px;
+.image-produto {
+    width: 160px;
+    height: 160px;
     object-fit: cover;
     margin-bottom: 10px;
     border-radius: 5px;
-    margin-top: 30px;
+    margin-top: 65px;
 }
 
-.games-card-rate {
+.card-rate {
     margin-bottom: 10px;
 }
 
-.games-card-rate i {
+.card-rate i {
     color: #fdd835;
 }
 
-.games-produtos-card p {
+.g-produtos-card p {
     margin: 4px 0;
     font-family: "Nunito", sans-serif;
 }
 
-.games-produtos-card h1 {
+.g-produtos-card h1 {
     font-family: "Inter", sans-serif;
     font-size: 1.5rem;
     margin: 10px 0;
 }
 
-.games-card-botao {
-    background-color: #291E40;
-    color: white;
+.g-card-botao {
+bottom: 20px;
+    padding: 10px;
+    width: 235px;
+    height: 48px;
     border: none;
-    padding: 10px 20px;
     border-radius: 8px;
+    background-color: var(--azul-intenso);
+    color: white;
     cursor: pointer;
-    width: 100%;
-    font-size: 1rem;
-    font-family: "Inter", sans-serif;
-    margin-top: auto;
-    transition: all 0.2s ease-in-out;
+    transition: 0.1s ease;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
 }
 
-.games-card-botao:hover {
+.g-card-botao:hover {
     background-color: #3a2d5c;
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.games-qnt-avaliacoes {
-    color: #666;
-    font-size: 12px;
-    margin-left: 5px;
 }
 
 /* ================================== */
@@ -185,39 +312,6 @@
     padding: 0 5px;
 }
 
-.games-produtos-card .games-heart {
-    position: absolute !important;
-    top: 15px !important;
-    right: 15px !important;
-    left: auto !important;
-    width: 27px !important;
-    height: 27px !important;
-    cursor: pointer;
-    z-index: 2;
-}
-
-.games-produtos-card {
-    position: relative !important;
-}
-.games-produtos-card .games-heart {
-    position: absolute !important;
-    top: 10px !important;
-    left: 10px !important;
-    right: auto !important;
-    width: 30px !important;
-    height: 30px !important;
-    z-index: 10 !important;
-}
-.games-produtos-card .games-add-carrinho {
-    position: absolute !important;
-    top: 10px !important;
-    right: 10px !important;
-    left: auto !important;
-    width: 30px !important;
-    height: 30px !important;
-    z-index: 10 !important;
-}
-
 @media (max-width: 1440px) {
     .Games-container_banner img {
         height: 400px;
@@ -238,7 +332,7 @@
     .Games-container_titles {
         margin-left: 80px;
     }
-    .games-produtos-card {
+    .g-produtos-card {
         width: 47%;
     }
     .Games-pages-container {
@@ -260,7 +354,7 @@
         margin-left: 20px;
         padding: 0 15px;
     }
-    .games-produtos-card {
+    .g-produtos-card {
         width: 95%;
     }
     .container-favoritos-depto {
