@@ -22,7 +22,8 @@
     font-size: 22px;
     font-family: "Nunito", serif;
     font-weight: bold;
-    margin-left: 7%;
+    margin-left: 5%;
+    margin-bottom: 80px;
 }
 .Hardware-container_titles {
     margin-top: 20px;
@@ -174,7 +175,7 @@
     flex-direction: column;
     position: relative; /* necessário para colocar o coração no canto. */
     height: 432px;
-    width: calc((100% - 60px) / 3);
+    width: 268px;
     background-color: #F6F6F6;
     border-radius: 9px;
 }
@@ -226,7 +227,7 @@
 }
 
 .h-card-botao {
-    background-color: #291E40;
+     background-color: #291E40;
     color: white;
     border: none;
     padding: 10px 20px;

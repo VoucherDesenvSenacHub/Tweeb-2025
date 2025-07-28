@@ -5,8 +5,6 @@
 
         <div class="sidebar_contentAdm">
             <div class="adm_user">
-            <a href="../pages/perfil-adm.php"><img class="foto-adm" src="../../../../public/assets/img/avatar-padrao.png" id="userAdm_avatar" alt="Avatar"></a>
-                <!-- <img class="foto-adm" src="../../../../public/assets/img/Avatar.png" id="userAdm_avatar" alt="Avatar"> -->
             <?php
             // Define qual sessão usar (admin tem prioridade)
             $funcionario = isset($_SESSION['adm']) ? $_SESSION['adm'] : $_SESSION['funcionario'];

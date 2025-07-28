@@ -15,7 +15,7 @@ $bannerSobreMimPosicao1 = $banner->getBannerForPosicao('sobre_mim',1);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../../../public/css/Hardwares.css">
     <link rel="stylesheet" href="../../../../public/css/navbar.css">
-    <title>Tweeb - Hardware</title>
+    <title>Tweeb - Hardwares</title>
 </head>
 <body class="Hardware">
 <?php
@@ -32,7 +32,7 @@ $bannerSobreMimPosicao1 = $banner->getBannerForPosicao('sobre_mim',1);
 </div>
 
 <div class="Hardware-container_titles">
-    <h1 class="Hardware-h1">Hardware</h1>
+    <h1 class="Hardware-h1">Hardwares</h1>
     <p class="Hardware-p">Escolha a oferta que mais combina com você.</p>
 </div>
 

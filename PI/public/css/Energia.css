@@ -22,7 +22,8 @@
     font-size: 22px;
     font-family: "Nunito", serif;
     font-weight: bold;
-    margin-left: 7%;
+    margin-left: 5%;
+    margin-bottom: 80px;
 }
 
 .Energia-container_titles {
@@ -167,13 +168,13 @@
 }
 
 .e-produtos-card {
-    display: flex;
+      display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     position: relative; /* necessário para colocar o coração no canto. */
     height: 432px;
-    width: calc((100% - 60px) / 3);
+    width: 268px;
     background-color: #F6F6F6;
     border-radius: 9px;
 }
