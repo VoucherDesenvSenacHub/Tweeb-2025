@@ -80,6 +80,12 @@ class Usuario {
         return $dados;
     }
 
+    public static function buscarPorCpf($cpf) {
+        $db2 = new Database(); 
+        $dados = $db2->buscarUsuarioPorCpf($cpf);
+        return $dados;
+    }
+
     public function excluir($id) {
         try {
             $db = new Database();

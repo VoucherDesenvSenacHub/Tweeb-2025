@@ -115,6 +115,18 @@ class Database{
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
+    public function buscarUsuarioPorCpf(string $cpf) {
+        $query = "
+            SELECT u.id, u.nome, u.sobrenome, u.email, u.senha, u.tipo, u.telefone, u.foto_perfil, c.cpf
+            FROM usuarios u
+            LEFT JOIN clientes c ON u.id = c.id_usuario
+            WHERE c.cpf = ?
+            LIMIT 1
+        ";
+        $stmt = $this->execute($query, [$cpf]);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
     public function buscarAdmPorEmail(string $email) {
         $query = "
             SELECT u.id, u.nome, u.sobrenome, u.email, u.senha, u.tipo, u.telefone, u.foto_perfil, a.matricula, a.cargo
