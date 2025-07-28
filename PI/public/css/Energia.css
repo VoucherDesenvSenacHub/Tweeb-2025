@@ -7,10 +7,11 @@
 
 .Energia-container_banner img {
     width: 100%;
-    height: 472px;
+    height: auto; /* Alterado para auto para manter a proporção */
     margin-top: 40px;
 }
 
+/* Títulos e textos */
 .Energia-h1 {
     font-size: 62px;
     font-family: "Inter", serif;
@@ -26,10 +27,12 @@
     margin-bottom: 80px;
 }
 
+/* Container e layout */
 .Energia-container_titles {
     margin-top: 20px;
     margin-left: 130px;
 }
+
 .Energia-layout {
     display: flex;
     width: 100%;
@@ -38,13 +41,15 @@
     padding-left: 105px;
 }
 
-.Energia-filtro{
-    width: 20%; /* ou 250px */
+.Energia-filtro {
+    width: 20%; 
     padding: 20px;
     box-sizing: border-box;
     background-color: #f2f2f2;
     border-right: 1px solid #ddd;
+    height: fit-content;
 }
+
 .Energia-filtro h3 {
     font-family: "Inter", sans-serif;
     font-size: 1.5rem;
@@ -113,6 +118,7 @@
     font-family: "Nunito", sans-serif;
     -moz-appearance: textfield;
 }
+
 .Energia-filtro .e-filtro-input::-webkit-outer-spin-button,
 .Energia-filtro .e-filtro-input::-webkit-inner-spin-button {
     -webkit-appearance: none;
@@ -139,6 +145,7 @@
     border: none;
     margin-top: 15px;
 }
+
 .Energia-filtro .e-filtro-aplicar:hover {
     background-color: #3a2d5c;
 }
@@ -151,11 +158,13 @@
     display: block;
     text-decoration: none;
 }
+
 .Energia-filtro .e-filtro-limpar:hover {
     background-color: #291E40;
     color: white;
 }
 
+/* Container de produtos */
 .e-container-favoritos-depto {
     flex: 1;
     display: flex;
@@ -167,6 +176,7 @@
     max-width: unset;
 }
 
+/* Cartão de produtos */
 .e-produtos-card {
       display: flex;
     align-items: center;
@@ -301,19 +311,20 @@
     padding: 0 5px;
 }
 
+/* Media Queries para responsividade */
 @media (max-width: 1440px) {
     .Energia-container_banner img {
-        height: 400px;
+        height: 400px; /* Ajuste de altura */
     }
     .Energia-h1 {
         font-size: 52px;
-        margin: 0%;
+        margin: 0;
     }
 }
 
 @media (max-width: 1024px) {
     .Energia-container_banner img {
-        height: 350px;
+        height: 350px; /* Ajuste de altura */
     }
     .Energia-h1 {
         font-size: 42px;
@@ -322,7 +333,7 @@
         margin-left: 80px;
     }
     .e-produtos-card {
-        width: 47%;
+        width: 47%; /* Ajuste de largura */
     }
     .Energia-pages-container {
         padding-left: 80px;
@@ -331,7 +342,7 @@
 
 @media (max-width: 768px) {
     .Energia-container_banner img {
-        height: 300px;
+        height: 300px; /* Ajuste de altura */
     }
     .Energia-h1 {
         font-size: 36px;
@@ -344,14 +355,37 @@
         padding: 0 15px;
     }
     .e-produtos-card {
-        width: 95%;
+        width: 95%; /* Ajuste de largura */
     }
-    .container-favoritos-depto {
+    .e-container-favoritos-depto {
         flex-direction: column;
         align-items: center;
     }
     .Energia-pages-container {
         justify-content: center;
         padding-left: 0;
+    }
+}
+
+/* Novas media queries para telas menores */
+@media (max-width: 480px) {
+    .Energia-h1 {
+        font-size: 28px;
+        margin-left: 0;
+    }
+    .Energia-p {
+        font-size: 16px;
+        margin-left: 0;
+    }
+    .Energia-filtro {
+        width: 100%; /* Filtro ocupa 100% da largura */
+        border-right: none; /* Remove a borda direita em telas pequenas */
+    }
+    .Energia-layout {
+        flex-direction: column; /* Muda para coluna em telas pequenas */
+        padding-left: 0; /* Remove o padding */
+    }
+    .e-produtos-card {
+        width: 100%; /* Cartões ocupam 100% da largura */
     }
 }

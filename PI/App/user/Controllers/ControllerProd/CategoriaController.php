@@ -3,10 +3,6 @@ session_start();
 require_once __DIR__ . '/../Produto.php';
 require_once __DIR__ . '/../../Models/Categoria.php';
 
-if (!isset($_SESSION['usuario'])) {
-    header('Location: /login.php');
-    exit();
-}
 if (!isset($_SESSION['montagem'])) {
     $_SESSION['montagem'] = [];
 }

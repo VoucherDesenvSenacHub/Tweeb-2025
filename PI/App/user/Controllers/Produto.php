@@ -129,4 +129,82 @@ class Produto{
     public static function buscarTodosKits() {
         return (new Database('kits_completos'))->select('ativo = 1')->fetchAll(PDO::FETCH_ASSOC);
     }
+    public static function contarKitsCompletos(): int {
+        return (new Database('kits_completos'))->count('ativo = 1');
+    }
+
+    public static function buscarKitsPaginado($limite, $offset, $ordenar = '', $finalidades = [], $preco_min = '', $preco_max = '') {
+    $db = new Database(); // cria instância da sua classe Database
+    
+    $params = [];
+    $where = [];
+
+    // Remover filtro finalidade pois não existe na tabela
+
+    // Filtro preço mínimo
+    if (is_numeric($preco_min)) {
+        $where[] = "preco_kit >= ?";
+        $params[] = $preco_min;
+    }
+
+    // Filtro preço máximo
+    if (is_numeric($preco_max)) {
+        $where[] = "preco_kit <= ?";
+        $params[] = $preco_max;
+    }
+
+    $whereSql = '';
+    if (!empty($where)) {
+        $whereSql = 'WHERE ' . implode(' AND ', $where);
+    }
+
+    // Ordenação
+    $orderSql = '';
+    switch ($ordenar) {
+        case 'preco_asc':
+            $orderSql = 'ORDER BY preco_kit ASC';
+            break;
+        case 'preco_desc':
+            $orderSql = 'ORDER BY preco_kit DESC';
+            break;
+        case 'nome_asc':
+            $orderSql = 'ORDER BY nome_kit ASC';
+            break;
+        default:
+            $orderSql = 'ORDER BY id_kit DESC'; 
+    }
+
+    // Consulta para contar total de kits filtrados
+    $stmtTotal = $db->conn->prepare("SELECT COUNT(*) FROM kits_completos $whereSql");
+    $stmtTotal->execute($params);
+    $totalRegistros = $stmtTotal->fetchColumn();
+    $totalPaginas = ceil($totalRegistros / $limite);
+
+    // Consulta para buscar os kits paginados
+    $sql = "SELECT * FROM kits_completos $whereSql $orderSql LIMIT ? OFFSET ?";
+    $stmt = $db->conn->prepare($sql);
+
+    // Passar parâmetros + limite e offset (como inteiros)
+    $paramsWithLimit = array_merge($params, [$limite, $offset]);
+
+    // Importante: bindValue para limitar com PDO::PARAM_INT para evitar erro de sintaxe
+    $i = 1;
+    foreach ($params as $param) {
+        $stmt->bindValue($i, $param);
+        $i++;
+    }
+    $stmt->bindValue($i++, (int)$limite, PDO::PARAM_INT);
+    $stmt->bindValue($i++, (int)$offset, PDO::PARAM_INT);
+
+    $stmt->execute();
+
+    $kits = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    return [
+        'kits' => $kits,
+        'total_paginas' => $totalPaginas
+    ];
+}
+
+
 }

@@ -5,7 +5,7 @@ if (session_status() === PHP_SESSION_NONE) {
 if (!isset($_SESSION['usuario'])) {
     header("Location:/Tweeb-2025/PI/app/user/View/Pages/login.php");
     exit;
-}else{
+} else {
     include __DIR__.'/../../../../includes/navbar.php'; 
     include __DIR__.'/../../../../includes/sidebar-User.php'; 
 }

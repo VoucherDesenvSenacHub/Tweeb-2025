@@ -10,36 +10,43 @@
     box-sizing: border-box;
     background-color: #fff;
 }
+
 main.kitsetup-main-content {
     margin-left: 100px;
     padding: 0 20px;
 }
+
 .kitsetup-container_banner img {
     width: 100%;
-    height: auto;
+    height: auto; /* Alterado para auto para manter a proporção */
     margin-top: 40px;
 }
+
 .kitsetup-container_titles {
     margin-top: 40px;
     margin-bottom: 40px;
     box-sizing: border-box;
 }
+
 .kitsetup-h1 {
     font-size: 62px;
     font-family: "Inter", serif;
 }
+
 .kitsetup-p {
     font-size: 22px;
     font-family: "Nunito", serif;
     font-weight: bold;
     color: #555;
 }
+
 .kitsetup-layout {
     display: flex;
     width: 100%;
     gap: 30px;
     box-sizing: border-box;
 }
+
 .kitsetup-filtro {
     width: 450px;
     flex-shrink: 0;
@@ -48,6 +55,7 @@ main.kitsetup-main-content {
     border-radius: 9px;
     height: fit-content;
 }
+
 .kitsetup-filtro h3 {
     font-family: "Inter", sans-serif;
     font-size: 1.5rem;
@@ -55,11 +63,13 @@ main.kitsetup-main-content {
     margin-bottom: 20px;
     color: #291E40;
 }
+
 .kitsetup-filtro fieldset {
     border: none;
     padding: 0;
     margin: 0 0 25px 0;
 }
+
 .kitsetup-filtro legend {
     font-family: "Inter", sans-serif;
     font-weight: bold;
@@ -69,24 +79,29 @@ main.kitsetup-main-content {
     width: 100%;
     border-bottom: 1px solid #ddd;
 }
+
 .kitsetup-filtro fieldset div {
     margin-bottom: 8px;
 }
+
 .kitsetup-filtro input[type="checkbox"] {
     margin-right: 8px;
     accent-color: #291E40;
     transform: scale(1.1);
 }
+
 .kitsetup-filtro label {
     font-family: "Nunito", sans-serif;
     font-size: 0.95rem;
     cursor: pointer;
 }
+
 .filtro-preco {
     display: flex;
     align-items: center;
     gap: 10px;
 }
+
 .kitsetup-filtro input[type="number"] {
     width: 100%;
     padding: 8px;
@@ -95,11 +110,13 @@ main.kitsetup-main-content {
     font-family: "Nunito", sans-serif;
     -moz-appearance: textfield;
 }
+
 .kitsetup-filtro input[type="number"]::-webkit-outer-spin-button,
 .kitsetup-filtro input[type="number"]::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
+
 .filtro-aplicar,
 .filtro-limpar {
     width: 100%;
@@ -111,15 +128,18 @@ main.kitsetup-main-content {
     text-align: center;
     transition: all 0.2s ease-in-out;
 }
+
 .filtro-aplicar {
     background-color: #291E40;
     color: white;
     border: none;
     margin-top: 15px;
 }
+
 .filtro-aplicar:hover {
     background-color: #3a2d5c;
 }
+
 .filtro-limpar {
     background-color: transparent;
     color: #291E40;
@@ -128,17 +148,21 @@ main.kitsetup-main-content {
     display: block;
     text-decoration: none;
 }
+
 .filtro-limpar:hover {
     background-color: #291E40;
     color: white;
 }
+
 .kitsetup-grid-container {
     flex: 1;
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
     justify-content: flex-start;
+    
 }
+
 .kitsetup-products_box {
     display: flex;
     flex-direction: column;
@@ -150,16 +174,19 @@ main.kitsetup-main-content {
     position: relative;
     overflow: hidden;
 }
+
 .kitsetup-products_box:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 20px rgba(0,0,0,0.1);
 }
+
 .kitsetup-header-product-box {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 15px 15px 0 15px;
 }
+
 .kitsetup-config-box {
     display: flex;
     align-items: center;
@@ -173,15 +200,18 @@ main.kitsetup-main-content {
     font-size: 0.8rem;
     font-weight: bold;
 }
+
 .kitsetup-config-box img {
     width: 16px;
     height: 16px;
 }
+
 .kitsetup-heart-icon-box img {
     width: 24px;
     height: 24px;
     cursor: pointer;
 }
+
 .kitsetup-main-product-contant {
     display: flex;
     flex-direction: column;
@@ -191,12 +221,14 @@ main.kitsetup-main-content {
     padding: 15px;
     transition: opacity 0.3s ease, visibility 0.3s ease;
 }
+
 .kitsetup-product-image img {
     width: 180px;
     height: 180px;
     object-fit: contain;
     margin: 15px 0;
 }
+
 .kitsetup-product-name {
     font-family: "Inter", sans-serif;
     font-size: 1.1rem;
@@ -204,6 +236,7 @@ main.kitsetup-main-content {
     margin: 10px 0;
     flex-grow: 1;
 }
+
 .kitsetup-product-price {
     font-family: "Inter", sans-serif;
     font-size: 1.8rem;
@@ -211,10 +244,12 @@ main.kitsetup-main-content {
     color: #291E40;
     margin: 10px 0 20px 0;
 }
+
 .kitsetup-buy-now {
     text-decoration: none;
     width: 100%;
 }
+
 .kitsetup-buy-product-button {
     background-color: #291E40;
     color: white;
@@ -227,9 +262,11 @@ main.kitsetup-main-content {
     font-family: "Inter", sans-serif;
     transition: background-color 0.2s ease;
 }
+
 .kitsetup-buy-product-button:hover {
     background-color: #3a2d5c;
 }
+
 .kitsetup-config-details {
     position: absolute;
     top: 0;
@@ -245,15 +282,18 @@ main.kitsetup-main-content {
     visibility: hidden;
     transition: opacity 0.3s ease, visibility 0.3s ease;
 }
+
 .kitsetup-products_box.config-visible .kitsetup-config-details {
     opacity: 1;
     visibility: visible;
 }
+
 .kitsetup-products_box.config-visible .kitsetup-main-product-contant,
 .kitsetup-products_box.config-visible .kitsetup-header-product-box {
     opacity: 0;
     visibility: hidden;
 }
+
 .kitsetup-config-details h1 {
     font-family: "Inter", serif;
     font-weight: 700;
@@ -262,6 +302,7 @@ main.kitsetup-main-content {
     text-align: center;
     color: #291E40;
 }
+
 .kitsetup-config-details p {
     font-family: "Nunito", serif;
     font-size: 11px;
@@ -273,65 +314,86 @@ main.kitsetup-main-content {
     padding-bottom: 8px;
     margin-bottom: 8px;
 }
+
 .kitsetup-config-details p:last-child {
     border-bottom: none;
 }
+
 .kitsetup-icons-model {
     width: 24px;
     height: 24px;
     flex-shrink: 0;
 }
+
 .kitsetup-pages-container {
     display: flex;
-    justify-content: center;
-    width: 100%;
-    margin: 40px 0;
+    justify-content: flex-end;
+    margin-top: 40px;
+    margin-bottom: 60px;
 }
-.kitsetup-pages {
-    display: flex;
-    gap: 8px;
-    align-items: center;
-}
-.kitsetup-pages a, .kitsetup-pages span {
+
+.kitsetup-pages a,
+.kitsetup-pages span {
+    margin: 0 5px;
     text-decoration: none;
-    padding: 8px 15px;
-    border: 1px solid #e0e0e0;
+    font-size: 16px;
+}
+
+.kitsetup-page1-button {
+    background-color: #222;
+    color: #fff;
+    padding: 8px 14px;
     border-radius: 6px;
-    font-family: "Nunito", sans-serif;
-    color: #555;
-    background-color: #fff;
-    transition: all 0.2s ease;
-}
-.kitsetup-pages a:hover {
-    background-color: #291E40;
-    color: white;
-    border-color: #291E40;
-}
-.kitsetup-pages span.pagina-atual {
-    background-color: #291E40;
-    color: white;
-    border-color: #291E40;
     font-weight: bold;
+    font-family: "Inter", sans-serif;
+    transition: background-color 0.2s ease;
 }
+
+.kitsetup-page1-button:hover {
+    background-color: #3a2d5c;
+}
+
+.kitsetup-page2-button {
+    background-color: #f1f1f1;
+    color: #222;
+    padding: 8px 14px;
+    border-radius: 6px;
+    font-weight: bold;
+    font-family: "Inter", sans-serif;
+    transition: background-color 0.2s ease;
+}
+
+.kitsetup-page2-button:hover {
+    background-color: #ddd;
+}
+
+.kitsetup-page-number,
+.kitsetup-page2-number {
+    font-weight: bold;
+    font-family: "Inter", sans-serif;
+}
+
+
 @media (max-width: 1200px) {
     .kitsetup-products_box {
-        width: calc((100% - 20px) / 2);
+        width: calc((100% - 20px) / 2); 
     }
 }
+
 @media (max-width: 768px) {
     .kitsetup-layout {
-        flex-direction: column;
+        flex-direction: column; 
     }
     .kitsetup-filtro {
-        width: 100%;
-        margin-bottom: 30px;
+        width: 100%; 
+        margin-bottom: 30px; 
     }
     .kitsetup-products_box {
-        width: 100%;
+        width: 100%; 
         height: auto;
     }
     main.kitsetup-main-content {
         margin-left: 0;
-        padding: 0 15px;
+        padding: 0 15px; 
     }
 }

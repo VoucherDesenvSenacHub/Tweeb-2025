@@ -442,6 +442,25 @@ class Database{
         $stmt = $this->execute($query, [$tipo_id]);
         return (int) $stmt->fetchColumn();
     }
+    public function buscarKitsComPaginacao(int $limit, int $offset): array {
+        $where = "ativo = 1";
+        $order = "id_kit ASC";
+
+        $countQuery = "SELECT COUNT(*) as total FROM {$this->table} WHERE {$where}";
+        $total = $this->execute($countQuery)->fetch(PDO::FETCH_ASSOC)['total'] ?? 0;
+        $total_paginas = ceil($total / $limit);
+
+        $query = "SELECT * FROM {$this->table} WHERE {$where} ORDER BY {$order} LIMIT ? OFFSET ?";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bindValue(1, $limit, PDO::PARAM_INT);
+        $stmt->bindValue(2, $offset, PDO::PARAM_INT);
+        $stmt->execute();
+
+        return [
+            'kits' => $stmt->fetchAll(PDO::FETCH_ASSOC),
+            'total_paginas' => $total_paginas
+        ];
+    }
     
       // Funções para a parte dos banners
     public function select_banner($where = null, $order = null, $limit = null, $fields = '*') {
@@ -488,8 +507,5 @@ class Database{
     }
 
 }
-
-
-
 
 ?>

@@ -1,3 +1,4 @@
+/* Estilos gerais */
 .Computadores {
     overflow-x: hidden;
     padding: 0;
@@ -7,10 +8,11 @@
 
 .Computadores-container_banner img {
     width: 100%;
-    height: 472px;
+    height: auto; /* Alterado para auto para manter a proporção */
     margin-top: 40px;
 }
 
+/* Títulos e textos */
 .Computadores-h1 {
     font-size: 62px;
     font-family: "Inter", serif;
@@ -26,18 +28,21 @@
     margin-bottom: 80px;
 }
 
+/* Container e layout */
 .Computadores-container_titles {
     margin-top: 20px;
     margin-left: 130px;
 }
-.Computadores-layout{
+
+.Computadores-layout {
     display: flex;
     width: 100%;
     max-width: 100%;
     box-sizing: border-box;
     padding-left: 105px;
 }
-.Computadores-filtro{
+
+.Computadores-filtro {
     width: 20%; /* ou 250px */
     padding: 20px;
     box-sizing: border-box;
@@ -45,6 +50,8 @@
     border-right: 1px solid #ddd;
     height: fit-content;
 }
+
+/* Estilos de filtro */
 .Computadores-filtro h3 {
     font-family: "Inter", sans-serif;
     font-size: 1.5rem;
@@ -113,6 +120,7 @@
     font-family: "Nunito", sans-serif;
     -moz-appearance: textfield;
 }
+
 .Computadores-filtro .c-filtro-input::-webkit-outer-spin-button,
 .Computadores-filtro .c-filtro-input::-webkit-inner-spin-button {
     -webkit-appearance: none;
@@ -139,6 +147,7 @@
     border: none;
     margin-top: 15px;
 }
+
 .Computadores-filtro .c-filtro-aplicar:hover {
     background-color: #3a2d5c;
 }
@@ -151,11 +160,13 @@
     display: block;
     text-decoration: none;
 }
+
 .Computadores-filtro .c-filtro-limpar:hover {
     background-color: #291E40;
     color: white;
 }
 
+/* Container de produtos */
 .c-container-favoritos-depto {
     flex: 1;
     display: flex;
@@ -167,6 +178,7 @@
     max-width: unset;
 }
 
+/* Cartão de produtos */
 .c-produtos-card {
      display: flex;
     align-items: center;
@@ -301,6 +313,7 @@
     padding: 0 5px;
 }
 
+/* Media Queries para responsividade */
 @media (max-width: 1440px) {
     .Computadores-container_banner img {
         height: 400px;
@@ -353,5 +366,28 @@
     .Computadores-pages-container {
         justify-content: center;
         padding-left: 0;
+    }
+}
+
+/* Novas media queries para telas menores */
+@media (max-width: 480px) {
+    .Computadores-h1 {
+        font-size: 28px;
+        margin-left: 0;
+    }
+    .Computadores-p {
+        font-size: 16px;
+        margin-left: 0;
+    }
+    .Computadores-filtro {
+        width: 100%;
+        border-right: none; /* Remove a borda direita em telas pequenas */
+    }
+    .Computadores-layout {
+        flex-direction: column; /* Muda para coluna em telas pequenas */
+        padding-left: 0; /* Remove o padding */
+    }
+    .c-produtos-card {
+        width: 100%; /* Cartões ocupam 100% da largura */
     }
 }

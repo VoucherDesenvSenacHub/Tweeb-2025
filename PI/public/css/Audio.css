@@ -7,7 +7,7 @@
 
 .Audio-container_banner img {
     width: 100%;
-    height: 472px;
+    height: auto; /* Alterado para auto para manter a proporção */
     margin-top: 40px;
 }
 
@@ -45,8 +45,9 @@
     box-sizing: border-box;
     background-color: #f2f2f2;
     border-right: 1px solid #ddd;
-    height: auto;
+    height: fit-content;
 }
+
 .Audio-filtro h3 {
     font-family: "Inter", sans-serif;
     font-size: 1.5rem;
@@ -115,6 +116,7 @@
     font-family: "Nunito", sans-serif;
     -moz-appearance: textfield;
 }
+
 .Audio-filtro .a-filtro-input::-webkit-outer-spin-button,
 .Audio-filtro .a-filtro-input::-webkit-inner-spin-button {
     -webkit-appearance: none;
@@ -141,6 +143,7 @@
     border: none;
     margin-top: 15px;
 }
+
 .Audio-filtro .a-filtro-aplicar:hover {
     background-color: #3a2d5c;
 }
@@ -153,6 +156,7 @@
     display: block;
     text-decoration: none;
 }
+
 .Audio-filtro .a-filtro-limpar:hover {
     background-color: #291E40;
     color: white;
@@ -168,6 +172,7 @@
     margin-left: 0;
     max-width: unset;
 }
+
 .a-produtos-card {
     display: flex;
     align-items: center;
@@ -307,6 +312,17 @@
     padding: 0 5px;
 }
 
+/* Media Queries para responsividade */
+@media (max-width: 1440px) {
+    .Audio-container_banner img {
+        height: 400px;
+    }
+    .Audio-h1 {
+        font-size: 52px;
+        margin: 0%;
+    }
+}
+
 @media (max-width: 1024px) {
     .Audio-container_banner img {
         height: 350px;
@@ -317,23 +333,21 @@
     .Audio-container_titles {
         margin-left: 80px;
     }
-
-    /* 👇 AJUSTES AQUI 👇 */
+    .Audio-layout {
+        margin-left: 0; /* Remove a margem esquerda em telas menores */
+    }
     .a-container-favoritos-depto {
         /* Muda o grid para 2 colunas em telas menores */
-        grid-template-columns: repeat(2, 1fr); 
+        flex-direction: row; /* Mantenha o flexbox */
+        flex-wrap: wrap; /* Permite que os itens se movam para a próxima linha */
     }
-
     .a-produtos-card {
-        /* width: 47%; */ /* REMOVA ESTA LINHA - ela não é necessária com Grid */
+        width: calc((100% - 40px) / 2); /* Ajusta a largura para 2 colunas */
     }
-
     .Audio-pages-container {
         padding-left: 80px;
     }
 }
-
-/* ================================================================ */
 
 @media (max-width: 768px) {
     .Audio-container_banner img {
@@ -349,22 +363,38 @@
         margin-left: 20px;
         padding: 0 15px;
     }
-
-    /* 👇 AJUSTES AQUI 👇 */
     .a-container-favoritos-depto {
         /* Muda o grid para 1 coluna em telas de celular */
-        grid-template-columns: 1fr;
-        /* As linhas abaixo são de Flexbox e devem ser removidas */
-        /* flex-direction: column; */ /* REMOVA */
-        /* align-items: center; */   /* REMOVA */
+        flex-direction: column; /* Muda para coluna */
+        align-items: center; /* Centraliza os itens */
     }
-
     .a-produtos-card {
-        /* width: 95%; */ /* REMOVA ESTA LINHA - o card já ocupa 100% da coluna do grid */
+        width: 95%; /* Cartões ocupam 95% da largura */
     }
-    
     .Audio-pages-container {
         justify-content: center;
         padding-left: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .Audio-h1 {
+        font-size: 28px;
+        margin-left: 0;
+    }
+    .Audio-p {
+        font-size: 16px;
+        margin-left: 0;
+    }
+    .Audio-filtro {
+        width: 100%; /* Filtro ocupa 100% da largura */
+        border-right: none; /* Remove a borda direita em telas pequenas */
+    }
+    .Audio-layout {
+        flex-direction: column; /* Muda para coluna em telas pequenas */
+        margin-left: 0; /* Remove o padding */
+    }
+    .a-produtos-card {
+        width: 100%; /* Cartões ocupam 100% da largura */
     }
 }
