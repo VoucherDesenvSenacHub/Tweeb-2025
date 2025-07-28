@@ -9,32 +9,6 @@ if (!isset($_SESSION['usuario'])) {
     include __DIR__.'/../../../../includes/navbar.php'; 
     include __DIR__.'/../../../../includes/sidebar-User.php'; 
 }
-
-require_once __DIR__ . '/../../Models/Categoria.php';
-require_once (__DIR__ . '/../../../adm/Controllers/Produto.php');
-
-
-$categorias = Categoria::buscarTodos();
-
-
-$tipo_ativo_id = $_GET['tipo'] ?? ($categorias[0]['id_tipo_componente'] ?? null);
-$produtos = Produto::buscarPorTipo($tipo_ativo_id);
-
-// Encontrar o índice da categoria atual
-$indice_categoria_atual = null;
-foreach ($categorias as $index => $cat) {
-    if ($cat['id_tipo_componente'] == $tipo_ativo_id) {
-        $indice_categoria_atual = $index;
-        break;
-    }
-}
-
-// Define categoria anterior e próxima
-$categoria_anterior_id = $indice_categoria_atual > 0 ? $categorias[$indice_categoria_atual - 1]['id_tipo_componente'] : null;
-$proxima_categoria_id = ($indice_categoria_atual !== null && $indice_categoria_atual < count($categorias) - 1) ? $categorias[$indice_categoria_atual + 1]['id_tipo_componente'] : null;
-
-
-
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -92,7 +66,8 @@ $proxima_categoria_id = ($indice_categoria_atual !== null && $indice_categoria_a
                 <div class="produto-container">
                     <div class="do-seu-jeito-product <?php if($esta_selecionado) echo 'selecionado'; ?>" id="produto-<?php echo $produto['id_produto']; ?>">
                         
-                      <img class="image-produto" src="/Tweeb-2025/PI/public/uploads/<?= htmlspecialchars(basename($produto['imagem_produto'])) ?>" alt="Imagem do Produto" style="width: 160px; height: 160px;">
+                        <img src="../../../../public/assets/img/<?php echo htmlspecialchars($produto['imagem_produto']); ?>" alt="<?php echo htmlspecialchars($produto['nome_produto']); ?>" class="do-seu-jeito-img-product">
+                        <p class="do-seu-jeito-name"><?php echo htmlspecialchars($produto['nome_produto']); ?></p>
                         <p class="do-seu-jeito-value">R$ <?php echo number_format($produto['preco_unid'], 2, ',', '.'); ?></p>
                         
                         <div class="container-selecao">
@@ -160,20 +135,18 @@ $proxima_categoria_id = ($indice_categoria_atual !== null && $indice_categoria_a
 
     <div class="do-seu-jeito-navigation-buttons">
         <?php if ($categoria_anterior_id !== null): ?>
-            <a href="../../Controllers/ControllerProd/CategoriaController.php?tipo=<?php echo $categoria_anterior_id; ?>" class="do-seu-jeito-nav-button-voltar">VOLTAR</a>
+            <a href="CategoriaController.php?tipo=<?php echo $categoria_anterior_id; ?>" class="do-seu-jeito-nav-button-voltar">VOLTAR</a>
         <?php endif; ?>
-        <?php if ($proxima_categoria_id !== null): ?> 
-        <a href="../../Controllers/ControllerProd/CategoriaController.php?tipo=<?php echo $proxima_categoria_id; ?>" class="do-seu-jeito-nav-button-avancar">AVANÇAR</a>
+        <?php if ($proxima_categoria_id !== null): ?>
+            <a href="CategoriaController.php?tipo=<?php echo $proxima_categoria_id; ?>" class="do-seu-jeito-nav-button-avancar">AVANÇAR</a>
         <?php else: ?>
-            <a href="../../Controllers/ControllerProd/RevisaoController.php" class="do-seu-jeito-nav-button-avancar">IR PARA REVISÃO</a>
+            <a href="RevisaoController.php" class="do-seu-jeito-nav-button-avancar">IR PARA REVISÃO</a>
         <?php endif; ?>
     </div>
 
     <?php include __DIR__.'/../../../../includes/voltar-ao-topo.php'; ?>
     <?php include __DIR__.'/../../../../includes/footer.php'; ?>
     
-    <script>
-        // SCRIPT COMPLETO E FINAL
-    </script>
+    
 </body>
 </html>
