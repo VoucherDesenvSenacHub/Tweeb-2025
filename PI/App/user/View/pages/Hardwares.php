@@ -22,7 +22,7 @@ session_start();
 ?>
 
 <div class="Hardware-container_banner">
-    <img src="../../../../public/assets/img/banner-departamento-computador.png" alt="banner-Hardware" class="Hardware-banner">
+    <img src="/Tweeb-2025/PI/public/assets/img/banner-departamento-computador.png" alt="banner-Hardware" class="Hardware-banner">
 </div>
 
 <div class="Hardware-container_titles">

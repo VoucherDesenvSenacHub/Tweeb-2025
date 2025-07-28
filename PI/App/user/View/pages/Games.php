@@ -21,7 +21,7 @@ session_start();
 ?>
 
 <div class="Games-container_banner">
-    <img src="../../../../public/assets/img/banner-departamento-computador.png" alt="banner-Games" class="Games-banner">
+    <img src="/Tweeb-2025/PI/public/assets/img/banner-departamento-computador.png" alt="banner-Games" class="Games-banner">
 </div>
 
 <div class="Games-container_titles">

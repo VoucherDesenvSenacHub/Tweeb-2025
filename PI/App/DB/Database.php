@@ -3,7 +3,7 @@
 class Database{
     public $conn;
     public string $local="localhost";
-    public string $db="Tweeb25";
+    public string $db="tweeb25";
     public string $user="root";
     public string $password="Oliveira@87185";
     public $table;
@@ -257,7 +257,7 @@ class Database{
 
     public function searchProductsByTerm(string $term): array {
         $sql = "SELECT id_produto, nome_produto, descricao_produto, preco_unid, imagem_produto 
-                FROM produto 
+                FROM produtos 
                 WHERE nome_produto LIKE ? OR descricao_produto LIKE ?";
         
         $params = ["%{$term}%", "%{$term}%"];
@@ -267,13 +267,13 @@ class Database{
 
     
     public function findProductById(int $id) {
-        $sql = "SELECT * FROM produto WHERE id_produto = ?";
+        $sql = "SELECT * FROM produtos WHERE id_produto = ?";
         return $this->execute($sql, [$id])->fetchObject('Produto');
     }
 
     
     public function deleteProductById(int $id): bool {
-        $sql = "DELETE FROM produto WHERE id_produto = ?";
+        $sql = "DELETE FROM produtos WHERE id_produto = ?";
         $stmt = $this->execute($sql, [$id]);
         return $stmt->rowCount() > 0;
     }
@@ -286,7 +286,7 @@ class Database{
         $fields = array_keys($productData);
         $setClause = implode(' = ?, ', $fields) . ' = ?';
 
-        $sql = "UPDATE produto SET {$setClause} WHERE id_produto = ?";
+        $sql = "UPDATE produtos SET {$setClause} WHERE id_produto = ?";
         $params = array_values($productData);
         $params[] = $id;
         

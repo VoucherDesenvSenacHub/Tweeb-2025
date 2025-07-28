@@ -246,7 +246,7 @@ select * from departamento
 drop table funcionarios;
 drop table enderecos;
 
-CREATE TABLE clientes (
+CREATE TABLE clientes ( 
     id_usuario INT PRIMARY KEY,
     cpf VARCHAR(14) UNIQUE,
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,

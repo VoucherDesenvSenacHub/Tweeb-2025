@@ -15,6 +15,8 @@ if (!isset($_SESSION['usuario']['id'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="../../../../public/css/escolha-endereco.css">
+    <link rel="stylesheet" href="../../../../public/css/form-endereco-fix.css">
+    <link rel="stylesheet" href="../../../../public/css/endereco-footer-fix.css">
     <?php include __DIR__.'/../../../../includes/headernavb.php'; ?>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
@@ -28,45 +30,58 @@ if (!isset($_SESSION['usuario']['id'])) {
         <!-- Endereços existentes estarão aqui -->
     </div>
 
-    <div id="new-endereco-form" style="display: none;">
-    <h2>Adicionar Novo Endereço</h2>
-    
-    <form id="form-novo-endereco" method="post">
-    <input type="hidden" id="id_endereco" name="id_endereco"> <!-- Oculto para edição -->
-
-    <div class="form-grid">
-        <!-- campos já estavam ok -->
-        <div class="form-group">
-            <label for="nome_endereco">Nome (ex: Casa, Trabalho):</label>
-            <input type="text" id="nome_endereco" name="nome_endereco" required>
-        </div>
-        <div class="form-group">
-            <label for="cep_endereco">CEP:</label>
-            <input type="text" id="cep_endereco" name="cep_endereco" required placeholder="Ex: 00000000">
-        </div>
-        <div class="form-group full-width">
-            <label for="rua_endereco">Rua:</label>
-            <input type="text" id="rua_endereco" name="rua_endereco" required>
-        </div>
-        <div class="form-group">
-            <label for="numero_endereco">Número:</label>
-            <input type="text" id="numero_endereco" name="numero_endereco" required>
-        </div>
-        <div class="form-group">
-            <label for="bairro_endereco">Bairro:</label>
-            <input type="text" id="bairro_endereco" name="bairro_endereco" required>
-        </div>
-        <div class="form-group">
-            <label for="cidade_endereco">Cidade:</label>
-            <input type="text" id="cidade_endereco" name="cidade_endereco" required>
-        </div>
-        <div class="form-group">
-            <label for="estado_endereco">Estado:</label>
-            <input type="text" id="estado_endereco" name="estado_endereco" required placeholder="Ex: SP">
-        </div>
-    </div>
-    <button type="submit" class="btoes-endereco">Salvar Endereço</button>
-</form>
+    <div id="new-endereco-form">
+        <h2>Adicionar Novo Endereço</h2>
+        
+        <form id="form-novo-endereco" method="post">
+            <input type="hidden" id="id_endereco" name="id_endereco">
+            
+            <!-- Primeira linha: Nome e CEP -->
+            <div class="form-row">
+                <div class="form-field">
+                    <label for="nome_endereco">Nome (ex: Casa, Trabalho):</label>
+                    <input type="text" id="nome_endereco" name="nome_endereco" required>
+                </div>
+                <div class="form-field">
+                    <label for="cep_endereco">CEP:</label>
+                    <input type="text" id="cep_endereco" name="cep_endereco" required placeholder="Ex: 00000000">
+                </div>
+            </div>
+            
+            <!-- Segunda linha: Rua (largura total) -->
+            <div class="form-row full-width">
+                <div class="form-field full-width">
+                    <label for="rua_endereco">Rua:</label>
+                    <input type="text" id="rua_endereco" name="rua_endereco" required>
+                </div>
+            </div>
+            
+            <!-- Terceira linha: Número e Bairro -->
+            <div class="form-row">
+                <div class="form-field">
+                    <label for="numero_endereco">Número:</label>
+                    <input type="text" id="numero_endereco" name="numero_endereco" required>
+                </div>
+                <div class="form-field">
+                    <label for="bairro_endereco">Bairro:</label>
+                    <input type="text" id="bairro_endereco" name="bairro_endereco" required>
+                </div>
+            </div>
+            
+            <!-- Quarta linha: Cidade e Estado -->
+            <div class="form-row">
+                <div class="form-field">
+                    <label for="cidade_endereco">Cidade:</label>
+                    <input type="text" id="cidade_endereco" name="cidade_endereco" required>
+                </div>
+                <div class="form-field">
+                    <label for="estado_endereco">Estado:</label>
+                    <input type="text" id="estado_endereco" name="estado_endereco" required placeholder="Ex: SP">
+                </div>
+            </div>
+            
+            <button type="submit" class="btoes-endereco">Salvar Endereço</button>
+        </form>
     </div>
 
     <div class="add-new-endereco" id="add-new-endereco-btn">

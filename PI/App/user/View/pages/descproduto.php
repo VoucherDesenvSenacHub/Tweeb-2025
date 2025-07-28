@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once(__DIR__ . '/../../../adm/Controllers/Produto.php');
 
 
@@ -70,7 +71,7 @@ if (!$produto) {
 
             <div class="buy-buttons">
                 <button class="add-carrinho">Adicionar ao carrinho</button>
-                <a href="Carrinho.php"><button class="comprar-agora">Comprar Agora</button></a>
+                <button class="comprar-agora">Comprar Agora</button>
             </div>
 
             <div class="card-infos">
@@ -414,6 +415,7 @@ if (!$produto) {
         </div>
     </section>
 <script defer src="public/js/descProduto.js"></script>
+<script>window.ID_PRODUTO_DESC = <?= (int)$produto->id_produto ?>;</script>
 <?php include __DIR__.'/../../../../includes/footer.php'; ?>
 </body>
 </html>

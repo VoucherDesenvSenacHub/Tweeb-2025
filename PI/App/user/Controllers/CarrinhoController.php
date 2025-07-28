@@ -8,7 +8,7 @@ require_once __DIR__ . '/../Models/Carrinho.php';
 
 // Verificar se o usuário está logado
 if (!isset($_SESSION['usuario']['id'])) {
-    echo json_encode(['success' => false, 'message' => 'Usuário não logado']);
+    echo json_encode(['success' => false, 'message' => 'Usuário não logado. Faça login para adicionar produtos ao carrinho.']);
     exit();
 }
 
@@ -26,7 +26,11 @@ switch ($action) {
         }
         
         $resultado = Carrinho::adicionarProduto($id_usuario, $id_produto, $quantidade);
-        echo json_encode(['success' => true, 'message' => 'Produto adicionado ao carrinho']);
+        if ($resultado === true || $resultado > 0 || (is_array($resultado) && isset($resultado['success']) && $resultado['success'])) {
+            echo json_encode(['success' => true, 'message' => 'Produto adicionado ao carrinho']);
+        } else {
+            echo json_encode(['success' => false, 'message' => 'Erro ao adicionar produto ao carrinho']);
+        }
         break;
         
     case 'remover':
@@ -38,7 +42,11 @@ switch ($action) {
         }
         
         $resultado = Carrinho::removerProduto($id_usuario, $id_produto);
-        echo json_encode(['success' => true, 'message' => 'Produto removido do carrinho']);
+        if ($resultado === true || (is_array($resultado) && isset($resultado['success']) && $resultado['success'])) {
+            echo json_encode(['success' => true, 'message' => 'Produto removido do carrinho']);
+        } else {
+            echo json_encode(['success' => false, 'message' => 'Erro ao remover produto do carrinho']);
+        }
         break;
         
     case 'atualizar_quantidade':
@@ -51,7 +59,11 @@ switch ($action) {
         }
         
         $resultado = Carrinho::atualizarQuantidade($id_usuario, $id_produto, $quantidade);
-        echo json_encode(['success' => true, 'message' => 'Quantidade atualizada']);
+        if ($resultado === true || (is_array($resultado) && isset($resultado['success']) && $resultado['success'])) {
+            echo json_encode(['success' => true, 'message' => 'Quantidade atualizada']);
+        } else {
+            echo json_encode(['success' => false, 'message' => 'Erro ao atualizar quantidade']);
+        }
         break;
         
     case 'obter_carrinho':
@@ -69,7 +81,11 @@ switch ($action) {
         
     case 'limpar':
         $resultado = Carrinho::limparCarrinho($id_usuario);
-        echo json_encode(['success' => true, 'message' => 'Carrinho limpo']);
+        if ($resultado === true || (is_array($resultado) && isset($resultado['success']) && $resultado['success'])) {
+            echo json_encode(['success' => true, 'message' => 'Carrinho limpo']);
+        } else {
+            echo json_encode(['success' => false, 'message' => 'Erro ao limpar carrinho']);
+        }
         break;
         
     case 'contar_itens':

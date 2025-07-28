@@ -21,7 +21,7 @@ session_start();
 ?>
 
 <div class="Energia-container_banner">
-    <img src="../../../../public/assets/img/banner-departamento-computador.png" alt="banner-Energia" class="Energia-banner">
+    <img src="/Tweeb-2025/PI/public/assets/img/banner-departamento-computador.png" alt="banner-Energia" class="Energia-banner">
 </div>
 
 <div class="Energia-container_titles">

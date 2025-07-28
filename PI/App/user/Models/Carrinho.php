@@ -2,10 +2,6 @@
 if (session_status() !== PHP_SESSION_ACTIVE) {
     session_start();
 }
-if (!isset($_SESSION['usuario']['id'])) {
-    header('Location: login.php');
-    exit();
-}
 
 require_once __DIR__ . '/../../DB/Database.php';
 

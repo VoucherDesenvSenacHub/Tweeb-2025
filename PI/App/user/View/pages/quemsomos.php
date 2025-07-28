@@ -5,10 +5,6 @@ require_once __DIR__ . '../../../Models/Usuario.php';
 if (session_status() !== PHP_SESSION_ACTIVE) {
     session_start();
 }
-if (!isset($_SESSION['usuario']['id'])) {
-    header('Location: login.php');
-    exit();
-}
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -22,6 +18,7 @@ if (!isset($_SESSION['usuario']['id'])) {
 </head>
 <body-quemsomos>
 <?php include __DIR__.'/../../../../includes/navbar.php'; ?>
+<?php include __DIR__.'/../../../../includes/sidebar-User.php'; ?>
 
 <div class="quemsomos">
 <section class="Banner_Sobre_Nos">
@@ -63,30 +60,30 @@ if (!isset($_SESSION['usuario']['id'])) {
                 </div>
             </div>
             <div class="categorias-card">
-                <div class="card card1">
-                    <img src="../../../../public/assets/img/phone-icon.png" alt="hardware">
+                <a href="/Tweeb-2025/PI/App/user/Controllers/ControllerProd/Departamento_Hardwares.php" class="card card1">
+                    <img src="/Tweeb-2025/PI/public/assets/img/phone-icon.png" alt="hardware">
                     <p>Hardwares</p>
-                </div>
-                <div class="card card2">
-                    <img src="../../../../public/assets/img/perifericos-icon.png" alt="periféricos">
+                </a>
+                <a href="/Tweeb-2025/PI/App/user/Controllers/ControllerProd/Departamento_Perifericos.php" class="card card2">
+                    <img src="/Tweeb-2025/PI/public/assets/img/perifericos-icon.png" alt="periféricos">
                     <p>Periféricos</p>
-                </div>
-                <div class="card card3">
-                    <img src="../../../../public/assets/img/energia-icon.png" alt="periféricos">
+                </a>
+                <a href="/Tweeb-2025/PI/App/user/Controllers/ControllerProd/Departamento_Energia.php" class="card card3">
+                    <img src="/Tweeb-2025/PI/public/assets/img/energia-icon.png" alt="periféricos">
                     <p>Energia</p>
-                </div>
-                <div class="card card4">
-                    <img src="../../../../public/assets/img/audio-icon.png" alt="periféricos">
+                </a>
+                <a href="/Tweeb-2025/PI/App/user/Controllers/ControllerProd/Departamento_Audio.php" class="card card4">
+                    <img src="/Tweeb-2025/PI/public/assets/img/audio-icon.png" alt="periféricos">
                     <p>Aúdio</p>
-                </div>
-                <div class="card card5">
-                    <img src="../../../../public/assets/img/computadores-icon.png" alt="periféricos">
+                </a>
+                <a href="/Tweeb-2025/PI/App/user/Controllers/ControllerProd/Departamento_Computadores.php" class="card card5">
+                    <img src="/Tweeb-2025/PI/public/assets/img/computadores-icon.png" alt="periféricos">
                     <p>Computadores</p>
-                </div>
-                <div class="card card6">
-                    <img src="../../../../public/assets/img/jogos-icon.png" alt="periféricos">
+                </a>
+                <a href="/Tweeb-2025/PI/App/user/Controllers/ControllerProd/Departamento_Games.php" class="card card6">
+                    <img src="/Tweeb-2025/PI/public/assets/img/jogos-icon.png" alt="periféricos">
                     <p>Jogos</p>
-                </div>
+                </a>
             </div>
         </div>
     </div>

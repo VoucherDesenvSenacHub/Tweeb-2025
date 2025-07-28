@@ -104,8 +104,9 @@ if (!$pedido) {
         <h3>Produtos Comprados</h3>
         <?php foreach ($itens_pedido as $item): ?>
         <div class="produto-item">
-            <img src="../../../../public/assets/img/<?php echo $item['imagem_produto']; ?>" 
-                 alt="<?php echo $item['nome_produto']; ?>">
+            <img src="<?php echo str_replace('../../../../public/', '/Tweeb-2025/PI/public/', htmlspecialchars($item['imagem_produto'])); ?>" 
+                 alt="<?php echo $item['nome_produto']; ?>" 
+                 onerror="this.src='/Tweeb-2025/PI/public/uploads/imagem_padrao.png'">
             <div class="produto-info">
                 <h4><?php echo $item['nome_produto']; ?></h4>
                 <p class="produto-marca"><?php echo $item['marca_modelo']; ?></p>

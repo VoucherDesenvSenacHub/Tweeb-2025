@@ -21,7 +21,7 @@ session_start();
 ?>
 
 <div class="Computadores-container_banner">
-    <img src="../../../../public/assets/img/banner-departamento-computador.png" alt="banner-Computadores" class="Computadores-banner">
+    <img src="/Tweeb-2025/PI/public/assets/img/banner-departamento-computador.png" alt="banner-Computadores" class="Computadores-banner">
 </div>
 
 <div class="Computadores-container_titles">

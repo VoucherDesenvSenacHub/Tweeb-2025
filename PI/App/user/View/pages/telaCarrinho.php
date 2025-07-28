@@ -32,12 +32,12 @@ $total_carrinho = Carrinho::calcularTotal($id_usuario);
       <?php if (empty($itens_carrinho)): ?>
         <div class="carrinho-vazio">
           <p>Seu carrinho está vazio</p>
-          <a href="../../../../home.php" class="continuar">Continuar comprando</a>
+          <a href="/Tweeb-2025/PI/home.php" class="continuar">Continuar comprando</a>
         </div>
       <?php else: ?>
         <?php foreach ($itens_carrinho as $item): ?>
           <div class="item" data-produto-id="<?= $item['id_produto'] ?>">
-            <img src="../../../../public/assets/img/<?= htmlspecialchars($item['imagem_produto']) ?>" alt="<?= htmlspecialchars($item['nome_produto']) ?>">
+            <img src="<?= str_replace('../../../../public/', '/Tweeb-2025/PI/public/', htmlspecialchars($item['imagem_produto'])) ?>" alt="<?= htmlspecialchars($item['nome_produto']) ?>" onerror="this.src='/Tweeb-2025/PI/public/assets/img/imagem_padrao.png'" style="width: 90px; height: 90px; object-fit: cover;">
             <div class="detalhe">
               <p><?= htmlspecialchars($item['nome_produto']) ?><br><span><?= htmlspecialchars($item['marca_modelo']) ?></span></p>
               <p class="code">#<?= $item['id_produto'] ?></p>
@@ -87,7 +87,7 @@ $total_carrinho = Carrinho::calcularTotal($id_usuario);
         </div>
       </div>
 
-      <a href="escolha-endereco.php" class="desconto" <?= empty($itens_carrinho) ? 'style="pointer-events: none; opacity: 0.5;"' : '' ?>>Continuar</a>
+      <a href="/Tweeb-2025/PI/App/user/View/pages/escolha-endereco.php" class="desconto" <?= empty($itens_carrinho) ? 'style="pointer-events: none; opacity: 0.5;"' : '' ?>>Continuar</a>
     </div>
   </div>
   <?php include __DIR__.'/../../../../includes/footer.php'; ?> 

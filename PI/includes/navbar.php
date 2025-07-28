@@ -3,6 +3,9 @@
 // Define a variável $is_logged_in para facilitar a verificação no HTML.
 $is_logged_in = isset($_SESSION['usuario']) && !empty($_SESSION['usuario']);
 ?>
+<script>
+    window.isLogged = <?= $is_logged_in ? 'true' : 'false' ?>;
+</script>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -58,8 +61,8 @@ $is_logged_in = isset($_SESSION['usuario']) && !empty($_SESSION['usuario']);
                 <!-- Links para usuário DESLOGADO -->
                 <li><a class="op" href="/Tweeb-2025/PI/app/user/View/pages/cadastro.php">Cadastre-se</a></li>
                 <li>
-                    <a class="op" href="/Tweeb-2025/PI/App/user/View/pages/Carrinho.php"><i class='bx bx-cart-alt'></i></a>
-                    <a class="op" href="/Tweeb-2025/PI/app/user/view/pages/login.php"><i class='bx bx-user'></i></a>
+                    <a class="op" href="/Tweeb-2025/PI/App/user/View/pages/login.php" title="Faça login para acessar o carrinho"><i class='bx bx-cart-alt'></i></a>
+                    <a class="op" href="/Tweeb-2025/PI/App/user/View/pages/login.php"><i class='bx bx-user'></i></a>
                 </li>
             <?php endif; ?>
         </ul>
@@ -117,8 +120,8 @@ $is_logged_in = isset($_SESSION['usuario']) && !empty($_SESSION['usuario']);
             <?php else: ?>
                 <!-- Opções para usuário DESLOGADO -->
                 <div class="auth-buttons">
-                    <a href="/Tweeb-2025/PI/app/user/view/pages/login.php" class="btn-login">Entrar</a>
-                    <a href="/Tweeb-2025/PI/app/user/View/pages/cadastro.php" class="btn-register">Cadastrar</a>
+                    <a href="/Tweeb-2025/PI/App/user/View/pages/login.php" class="btn-login">Entrar</a>
+                    <a href="/Tweeb-2025/PI/App/user/View/pages/cadastro.php" class="btn-register">Cadastrar</a>
                 </div>
             <?php endif; ?>
         </ul>

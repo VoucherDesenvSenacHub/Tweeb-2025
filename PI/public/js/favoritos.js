@@ -44,13 +44,18 @@ function toggleFavorito(idProduto, elemento) {
             }
             mostrarToastFavorito(data.message);
         } else {
-            console.error('Erro:', data.message);
-            alert('Erro ao alterar favoritos');
+            // Se a mensagem indicar que o usuário não está autenticado, redireciona para o login
+            if (data.message && data.message.toLowerCase().includes('autenticado')) {
+                window.location.href = '/Tweeb-2025/PI/App/user/View/pages/login.php';
+            } else {
+                console.error('Erro:', data.message);
+            }
         }
     })
     .catch(error => {
         console.error('Erro:', error);
-        alert('Erro ao alterar favoritos');
+        // Em caso de erro de rede, também redireciona para login
+        window.location.href = '/Tweeb-2025/PI/App/user/View/pages/login.php';
     });
 }
 
@@ -81,7 +86,7 @@ function verificarFavorito(idProduto, elemento) {
 
 // Função para carregar o estado dos favoritos em uma página
 function carregarEstadoFavoritos() {
-    const coracoes = document.querySelectorAll('.heart[data-produto-id]');
+    const coracoes = document.querySelectorAll('.heart[data-produto-id], .games-heart[data-produto-id], .computadores-heart[data-produto-id], .hardware-heart[data-produto-id], .audio-heart[data-produto-id], .energia-heart[data-produto-id], .perifericos-heart[data-produto-id]');
     
     coracoes.forEach(coracao => {
         const idProduto = coracao.getAttribute('data-produto-id');
@@ -109,7 +114,8 @@ function AtivarCoracao(elemento) {
 
 // Event listener para carregar estado dos favoritos quando a página carrega
 document.addEventListener('DOMContentLoaded', function() {
-    document.querySelectorAll('.heart[data-produto-id]').forEach(function(heart) {
+    carregarEstadoFavoritos();
+    document.querySelectorAll('.heart[data-produto-id], .games-heart[data-produto-id], .computadores-heart[data-produto-id], .hardware-heart[data-produto-id], .audio-heart[data-produto-id], .energia-heart[data-produto-id], .perifericos-heart[data-produto-id]').forEach(function(heart) {
         heart.addEventListener('click', function() {
             const idProduto = this.getAttribute('data-produto-id');
             fetch('/Tweeb-2025/PI/App/user/Controllers/FavoritoController.php', {
@@ -127,7 +133,12 @@ document.addEventListener('DOMContentLoaded', function() {
                     }
                     mostrarToastFavorito(data.message);
                 } else {
-                    alert(data.message || 'Erro ao favoritar');
+                    // Se a mensagem indicar que o usuário não está autenticado, redireciona para o login
+                    if (data.message && data.message.toLowerCase().includes('autenticado')) {
+                        window.location.href = '/Tweeb-2025/PI/App/user/View/pages/login.php';
+                    } else {
+                        console.error('Erro:', data.message);
+                    }
                 }
             });
         });

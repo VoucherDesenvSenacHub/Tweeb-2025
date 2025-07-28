@@ -7,6 +7,7 @@
     box-sizing: border-box;
     font-family: "Montserrat", sans-serif;
     scroll-behavior: smooth;
+    text-decoration: none;
 }
 
 /* Define cores principais em variaveis */

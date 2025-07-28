@@ -5,8 +5,21 @@
 
         <div class="sidebar_contentAdm">
             <div class="adm_user">
-            <a href="../pages/perfil-adm.php"><img class="foto-adm" src="../../../../public/assets/img/Avatar.png" id="userAdm_avatar" alt="Avatar"></a>
-                <!-- <img class="foto-adm" src="../../../../public/assets/img/Avatar.png" id="userAdm_avatar" alt="Avatar"> -->
+            <?php
+            // Define qual sessão usar (admin tem prioridade)
+            $funcionario = isset($_SESSION['adm']) ? $_SESSION['adm'] : $_SESSION['funcionario'];
+            
+            // Busca a foto do perfil
+            $foto_perfil = !empty($funcionario['foto_perfil']) ? $funcionario['foto_perfil'] : 'imagem_padrao.png';
+            
+            // Verifica se é a imagem padrão ou uma foto personalizada
+            if ($foto_perfil === 'imagem_padrao.png' || empty($foto_perfil) || $foto_perfil === null) {
+                $caminho_foto = '/Tweeb-2025/PI/public/uploads/imagem_padrao.png';
+            } else {
+                $caminho_foto = '/Tweeb-2025/PI/public/uploads/' . $foto_perfil;
+            }
+            ?>
+            <a href="../pages/perfil-adm.php"><img class="foto-adm" src="<?php echo htmlspecialchars($caminho_foto); ?>" id="userAdm_avatar" alt="Avatar"></a>
     
                 <p class="userAdm_infos">
                     <span class="itemAdm-descricao">
