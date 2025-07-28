@@ -126,4 +126,7 @@ class Produto{
     public static function contarPorTipoComponente(int $tipo_id): int {
         return (new Database())->contarProdutosPorTipoComponente($tipo_id);
     }
+    public static function buscarTodosKits() {
+        return (new Database('kits_completos'))->select('ativo = 1')->fetchAll(PDO::FETCH_ASSOC);
+    }
 }

@@ -34,6 +34,7 @@
     width: 100%;
     max-width: 100%;
     box-sizing: border-box;
+    padding-left: 105px;
 }
 
 .Energia-filtro{
@@ -172,7 +173,7 @@
     flex-direction: column;
     position: relative; /* necessário para colocar o coração no canto. */
     height: 432px;
-    width: calc((100% - 60px) / 4);
+    width: calc((100% - 60px) / 3);
     background-color: #F6F6F6;
     border-radius: 9px;
 }

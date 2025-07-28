@@ -1,159 +1,27 @@
-//FUNCIONANDO
-// document.addEventListener("DOMContentLoaded", function() {
-//     // Seleciona todas as divs "config-box"
-//     const configButtons = document.querySelectorAll(".config-box");
-//     const modal = document.querySelector(".info-modal-container");
+document.addEventListener('DOMContentLoaded', function() {
+    // 1. Seleciona todos os botões "Configuração" da página
+    const configButtons = document.querySelectorAll('.kitsetup-config-box');
 
-//     configButtons.forEach(button => {
-//         button.addEventListener("click", function() {
-//             // Encontra o elemento pai do produto (a div "kitsetup-products_box")
-//             const productBox = this.closest(".kitsetup-products_box");
-
-//             if (productBox) {
-//                 productBox.style.display = "none"; // Esconde o produto
-//             }
-
-//             // Exibe o modal
-//             if (modal) {
-//                 modal.style.display = "flex"; // Mostra o modal
-//             }
-//         });
-//     });
-// });
-
-//FUNCIONANDO
-// document.addEventListener("DOMContentLoaded", function() {
-//     const configButtons = document.querySelectorAll(".config-box");
-//     const modal = document.querySelector(".info-modal-container");
-
-//     configButtons.forEach(button => {
-//         button.addEventListener("click", function() {
-//             const productBox = this.closest(".kitsetup-products_box");
-
-//             if (productBox) {
-//                 // Obtém a posição e tamanho do produto antes de escondê-lo
-//                 const rect = productBox.getBoundingClientRect();
-                
-//                 // Define as mesmas dimensões e posição para o modal
-//                 modal.style.position = "absolute";
-//                 modal.style.top = `${rect.top + window.scrollY}px`;
-//                 modal.style.left = `${rect.left + window.scrollX}px`;
-//                 modal.style.width = `${rect.width}px`;
-//                 modal.style.height = `${rect.height}px`;
-
-//                 // Esconde o produto
-//                 productBox.style.display = "none";
-
-//                 // Mostra o modal
-//                 modal.style.display = "flex";
-//             }
-//         });
-//     });
-// });
-
-
-//FUNCIONANDO
-// document.addEventListener("DOMContentLoaded", function() {
-//     const configButtons = document.querySelectorAll(".config-box");
-//     const modal = document.querySelector(".info-modal-container");
-
-//     configButtons.forEach(button => {
-//         button.addEventListener("click", function() {
-//             const productBox = this.closest(".kitsetup-products_box");
-
-//             if (productBox) {
-//                 // Obtém a posição e tamanho do produto antes de escondê-lo
-//                 const rect = productBox.getBoundingClientRect();
-
-//                 // Define as mesmas dimensões e posição para o modal
-//                 modal.style.position = "absolute";
-//                 modal.style.top = `${rect.top + window.scrollY}px`;
-//                 modal.style.left = `${rect.left + window.scrollX}px`;
-//                 modal.style.width = `${rect.width}px`;
-//                 modal.style.height = `${rect.height}px`;
-
-//                 // Mantém o espaço do produto, mas o torna invisível
-//                 productBox.style.visibility = "hidden";
-
-//                 // Mostra o modal
-//                 modal.style.display = "flex";
-//             }
-//         });
-//     });
-// });
-
-document.addEventListener("DOMContentLoaded", function() {
-    const configButtons = document.querySelectorAll(".kitsetup-config-box");
-    const modal = document.querySelector(".kitsetup-info-modal-container");
-
-    let currentProductBox = null; // Armazena o produto que foi escondido
-
+    // 2. Adiciona um "escutador" de clique para cada um deles
     configButtons.forEach(button => {
-        button.addEventListener("click", function(event) {
-            event.stopPropagation(); // Impede que o clique propague para o `document`
+        button.addEventListener('click', function() {
+            
+            // 3. Encontra o card "pai" do botão que foi clicado
+            const card = this.closest('.kitsetup-products_box');
 
-            // Se houver um modal aberto, fecha antes de abrir outro
-            closeModal();
+            // 4. Verifica se o painel deste card já está visível
+            const isAlreadyVisible = card.classList.contains('config-visible');
 
-            currentProductBox = this.closest(".kitsetup-products_box");
+            // 5. ANTES de fazer qualquer coisa, fecha TODOS os painéis que estiverem abertos
+            document.querySelectorAll('.kitsetup-products_box.config-visible').forEach(otherCard => {
+                otherCard.classList.remove('config-visible');
+            });
 
-            if (currentProductBox) {
-                // Obtém a posição e tamanho do produto antes de escondê-lo
-                const rect = currentProductBox.getBoundingClientRect();
-
-                // Define as mesmas dimensões e posição para o modal
-                modal.style.position = "absolute";
-                modal.style.top = `${rect.top + window.scrollY}px`;
-                modal.style.left = `${rect.left + window.scrollX}px`;
-                modal.style.width = `${rect.width}px`;
-                modal.style.height = `${rect.height}px`;
-
-                // Mantém o espaço do produto, mas o torna invisível
-                currentProductBox.style.visibility = "hidden";
-
-                // Mostra o modal
-                modal.style.display = "flex";
+            // 6. Se o painel que clicamos NÃO estava visível, nós o abrimos.
+            // (Se ele já estava visível, o passo 5 acima já o fechou, criando o efeito de "clicar de novo para fechar")
+            if (!isAlreadyVisible) {
+                card.classList.add('config-visible');
             }
         });
     });
-
-    // Fecha o modal ao clicar fora dele
-    document.addEventListener("click", function() {
-        closeModal();
-    });
-
-    // Impede o fechamento ao clicar dentro do modal
-    modal.addEventListener("click", function(event) {
-        event.stopPropagation();
-    });
-
-    function closeModal() {
-        if (currentProductBox) {
-            currentProductBox.style.visibility = "visible"; // Restaura o produto
-            currentProductBox = null;
-        }
-        if (modal) {
-            modal.style.display = "none"; // Esconde o modal
-        }
-    }
 });
-
-
-
-// CORAÇÃO
-
-// Selecione todos os ícones de like
-const heartIcons = document.querySelectorAll('.kitsetup-heart-icon-box img');
-
-// Para cada ícone, adicione um ouvinte de evento para o clique
-heartIcons.forEach(heartIcon => {
-    heartIcon.addEventListener('click', () => {
-        // Verifique a imagem atual e altere para o outro ícone
-        if (heartIcon.src.includes('heart_disabled')) {
-            heartIcon.src = '../../../../public/assets/img/heart_enabled.png';
-        } else {
-            heartIcon.src = '../../../../public/assets/img/heart_disabled.png';
-        }
-    });
-});
-

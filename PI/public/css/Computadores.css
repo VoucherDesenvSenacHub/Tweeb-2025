@@ -34,6 +34,7 @@
     width: 100%;
     max-width: 100%;
     box-sizing: border-box;
+    padding-left: 105px;
 }
 .Computadores-filtro{
     width: 20%; /* ou 250px */
@@ -41,6 +42,7 @@
     box-sizing: border-box;
     background-color: #f2f2f2;
     border-right: 1px solid #ddd;
+    height: fit-content;
 }
 .Computadores-filtro h3 {
     font-family: "Inter", sans-serif;
@@ -171,7 +173,7 @@
     flex-direction: column;
     position: relative; /* necessário para colocar o coração no canto. */
     height: 432px;
-    width: calc((100% - 60px) / 4);
+    width: calc((100% - 60px) / 3);
     background-color: #F6F6F6;
     border-radius: 9px;
 }
