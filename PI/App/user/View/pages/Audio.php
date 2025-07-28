@@ -122,7 +122,11 @@ $bannerSobreMimPosicao1 = $banner->getBannerForPosicao('sobre_mim',1);
                     <p><?= htmlspecialchars($produto['nome_produto']) ?></p>
                     <p><?= htmlspecialchars($produto['marca_modelo']) ?></p>
                     <h1>R$<?= number_format($produto['preco_unid'], 2, ',', '.') ?></h1>
+                   
+                    <a href="../../View/pages/descproduto.php?id_produto=<?= $produto['id_produto'] ?>">
+
                     <button class="a-card-botao">Comprar Agora</button>
+                    </a>
                 </div>
             <?php endforeach; ?>
         <?php else: ?>
