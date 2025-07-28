@@ -29,86 +29,204 @@
     margin-top: 20px;
     margin-left: 130px;
 }
+.Computadores-layout{
+    display: flex;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    padding-left: 105px;
+}
+.Computadores-filtro{
+    width: 20%; /* ou 250px */
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: #f2f2f2;
+    border-right: 1px solid #ddd;
+    height: fit-content;
+}
+.Computadores-filtro h3 {
+    font-family: "Inter", sans-serif;
+    font-size: 1.5rem;
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #291E40;
+}
 
-.container-favoritos-depto {
+/* --- Grupos e Ordenação --- */
+.Computadores-filtro fieldset {
+    border: none;
+    padding: 0;
+    margin: 0;
+    margin-bottom: 25px;
+}
+
+.Computadores-filtro legend {
+    font-family: "Inter", sans-serif;
+    font-weight: bold;
+    font-size: 1rem;
+    margin-bottom: 10px;
+    padding: 0;
+    width: 100%;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 8px;
+}
+
+.Computadores-filtro .c-filtro-select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: "Nunito", sans-serif;
+    font-size: 0.95rem;
+    background-color: white;
+}
+
+/* --- Checkboxes e Preço --- */
+.Computadores-filtro fieldset div {
+    margin-bottom: 8px;
+}
+
+.Computadores-filtro input[type="checkbox"] {
+    margin-right: 8px;
+    accent-color: #291E40;
+    transform: scale(1.1);
+}
+
+.Computadores-filtro label {
+    font-family: "Nunito", sans-serif;
+    font-size: 0.95rem;
+    cursor: pointer;
+}
+
+.Computadores-filtro .c-filtro-preco {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.Computadores-filtro .c-filtro-input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: "Nunito", sans-serif;
+    -moz-appearance: textfield;
+}
+.Computadores-filtro .c-filtro-input::-webkit-outer-spin-button,
+.Computadores-filtro .c-filtro-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* --- Botões --- */
+.Computadores-filtro .c-filtro-aplicar,
+.Computadores-filtro .c-filtro-limpar {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: "Inter", sans-serif;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.2s ease-in-out;
+    box-sizing: border-box; 
+}
+
+.Computadores-filtro .c-filtro-aplicar {
+    background-color: #291E40;
+    color: white;
+    border: none;
+    margin-top: 15px;
+}
+.Computadores-filtro .c-filtro-aplicar:hover {
+    background-color: #3a2d5c;
+}
+
+.Computadores-filtro .c-filtro-limpar {
+    background-color: transparent;
+    color: #291E40;
+    border: 1px solid #291E40;
+    margin-top: 10px;
+    display: block;
+    text-decoration: none;
+}
+.Computadores-filtro .c-filtro-limpar:hover {
+    background-color: #291E40;
+    color: white;
+}
+
+.c-container-favoritos-depto {
+    flex: 1;
     display: flex;
     flex-wrap: wrap;
-    justify-content: flex-start;
     gap: 20px;
     padding: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.computadores-produtos-card {
-    background-color: #f1efef;
-    border-radius: 9px;
-    padding: 15px;
     box-sizing: border-box;
-    width: 31%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    position: relative;
-    min-height: 480px;
+    margin-left: 0;
+    max-width: unset;
 }
 
-.computadores-heart,
-.computadores-add-carrinho {
+.c-produtos-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative; /* necessário para colocar o coração no canto. */
+    height: 432px;
+    width: calc((100% - 60px) / 3);
+    background-color: #F6F6F6;
+    border-radius: 9px;
+}
+
+.c-heart,
+.c-add-carrinho {
     width: 27px;
     height: 27px;
 }
 
-.computadores-heart {
-    position: absolute !important;
-    top: 10px !important;
-    left: 10px !important;
-    right: auto !important;
-    width: 30px !important;
-    height: 30px !important;
-    z-index: 10 !important;
+.c-heart {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    cursor: pointer;
 }
 
-.computadores-add-carrinho {
-    position: absolute !important;
-    top: 10px !important;
-    right: 10px !important;
-    left: auto !important;
-    width: 30px !important;
-    height: 30px !important;
-    z-index: 10 !important;
+.c-add-carrinho {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    cursor: pointer;
 }
 
-.computadores-image-produto {
-    width: 100%;
-    height: 250px;
+.image-produto {
+    width: 160px;
+    height: 160px;
     object-fit: cover;
     margin-bottom: 10px;
     border-radius: 5px;
-    margin-top: 30px;
+    margin-top: 65px;
 }
 
-.computadores-card-rate {
+.card-rate {
     margin-bottom: 10px;
 }
 
-.computadores-card-rate i {
+.card-rate i {
     color: #fdd835;
 }
 
-.computadores-produtos-card p {
+.c-produtos-card p {
     margin: 4px 0;
     font-family: "Nunito", sans-serif;
 }
 
-.computadores-produtos-card h1 {
+.c-produtos-card h1 {
     font-family: "Inter", sans-serif;
     font-size: 1.5rem;
     margin: 10px 0;
 }
 
-.computadores-card-botao {
+.c-card-botao {
     background-color: #291E40;
     color: white;
     border: none;
@@ -122,16 +240,10 @@
     transition: all 0.2s ease-in-out;
 }
 
-.computadores-card-botao:hover {
+.c-card-botao:hover {
     background-color: #3a2d5c;
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.computadores-qnt-avaliacoes {
-    color: #666;
-    font-size: 12px;
-    margin-left: 5px;
 }
 
 /* ================================== */
@@ -208,7 +320,7 @@
     .Computadores-container_titles {
         margin-left: 80px;
     }
-    .computadores-produtos-card {
+    .c-produtos-card {
         width: 47%;
     }
     .Computadores-pages-container {
@@ -230,7 +342,7 @@
         margin-left: 20px;
         padding: 0 15px;
     }
-    .computadores-produtos-card {
+    .c-produtos-card {
         width: 95%;
     }
     .container-favoritos-depto {

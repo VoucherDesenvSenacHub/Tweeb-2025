@@ -1,593 +1,337 @@
-.task20-kitsetup{
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+.kitsetup-body {
     overflow-x: hidden;
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    background-color: #fff;
 }
-
-.kitsetup-container_banner img{
+main.kitsetup-main-content {
+    margin-left: 100px;
+    padding: 0 20px;
+}
+.kitsetup-container_banner img {
     width: 100%;
-    height: 472px;
+    height: auto;
     margin-top: 40px;
 }
-
-.kitsetup-h1{
+.kitsetup-container_titles {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    box-sizing: border-box;
+}
+.kitsetup-h1 {
     font-size: 62px;
     font-family: "Inter", serif;
-    display: flex;
-    margin-left: 5%;
 }
-
-.kitsetup-p{
+.kitsetup-p {
     font-size: 22px;
     font-family: "Nunito", serif;
     font-weight: bold;
-    margin-left: 7%;
+    color: #555;
 }
-
-.kitsetup-container_titles{
-    margin-top: 60px;
-    margin-left: 130px;
-}
-
-.kitsetup-container_products{
+.kitsetup-layout {
     display: flex;
-    justify-content: center;
-    gap: 16px;
+    width: 100%;
+    gap: 30px;
+    box-sizing: border-box;
 }
-
-.kitsetup-products_box{
-    width: 270px;
-    height: 432px;
+.kitsetup-filtro {
+    width: 450px;
+    flex-shrink: 0;
+    padding: 25px;
     background-color: #F6F6F6;
     border-radius: 9px;
-    margin-top: 40px;
+    height: fit-content;
 }
-
-.kitsetup-config-box{
-    width: 107px;
-    height: 37px;
-    background-color: #291E40;
-    border-radius: 40px;
+.kitsetup-filtro h3 {
+    font-family: "Inter", sans-serif;
+    font-size: 1.5rem;
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #291E40;
+}
+.kitsetup-filtro fieldset {
+    border: none;
+    padding: 0;
+    margin: 0 0 25px 0;
+}
+.kitsetup-filtro legend {
+    font-family: "Inter", sans-serif;
+    font-weight: bold;
+    font-size: 1rem;
+    margin-bottom: 10px;
+    padding-bottom: 8px;
+    width: 100%;
+    border-bottom: 1px solid #ddd;
+}
+.kitsetup-filtro fieldset div {
+    margin-bottom: 8px;
+}
+.kitsetup-filtro input[type="checkbox"] {
+    margin-right: 8px;
+    accent-color: #291E40;
+    transform: scale(1.1);
+}
+.kitsetup-filtro label {
+    font-family: "Nunito", sans-serif;
+    font-size: 0.95rem;
+    cursor: pointer;
+}
+.filtro-preco {
     display: flex;
     align-items: center;
     gap: 10px;
-    margin-top: 19px;
-    margin-left: 12px;
-    cursor: pointer;
 }
-
-.kitsetup-config-box-p{
-    color: white;
-    font-size: 8px;
-    margin-left: 15px;
+.kitsetup-filtro input[type="number"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: "Nunito", sans-serif;
+    -moz-appearance: textfield;
 }
-
-.kitsetup-info-box{
-    width: 24px;
-    height: 24px;
-    background-color: #BF99FE;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.kitsetup-filtro input[type="number"]::-webkit-outer-spin-button,
+.kitsetup-filtro input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }
-
-.kitsetup-header-product-box{
-    height: 30%;
-    display: flex;
-    flex-direction: row;
-    cursor: pointer;
-}
-
-.kitsetup-heart-icon-box img{
-    width: 32px;
-    height: 32px;
-    margin-top: 24px;
-    margin-left: 102px;
-}
-
-.kitsetup-product-image{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.kitsetup-product-name-box h1{
-    font-size: 16px;
-    font-family: "Montserrat", serif;
-    font-weight: 500;
-    width: 237px;
-    height: 48px;
-    text-align: center;
-}
-
-.kitsetup-product-name-box{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-top: 16px;
-}
-
-.kitsetup-product-price-box h1{
-    font-size: 24px;
-    font-family: "Montserrat", serif;
-    font-weight: 600;
-    width: 237px;
-    height: 48px;
-    text-align: center;
-}
-
-.kitsetup-product-price-box{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-top: 16px;
-}
-
-.kitsetup-buy-product-button-container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-
-.kitsetup-buy-product-button{
-    width: 235px;
-    height: 48px;
-    background-color: #291E40;
+.filtro-aplicar,
+.filtro-limpar {
+    width: 100%;
+    padding: 12px;
     border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    font-size: 1rem;
+    font-family: "Inter", sans-serif;
     cursor: pointer;
-    margin-top: 19px;
+    text-align: center;
+    transition: all 0.2s ease-in-out;
 }
-
-.kitsetup-buy-product-text{
+.filtro-aplicar {
+    background-color: #291E40;
+    color: white;
+    border: none;
+    margin-top: 15px;
+}
+.filtro-aplicar:hover {
+    background-color: #3a2d5c;
+}
+.filtro-limpar {
+    background-color: transparent;
+    color: #291E40;
+    border: 1px solid #291E40;
+    margin-top: 10px;
+    display: block;
+    text-decoration: none;
+}
+.filtro-limpar:hover {
+    background-color: #291E40;
     color: white;
 }
-
-.kitsetup-main-product-contant{
+.kitsetup-grid-container {
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: flex-start;
+}
+.kitsetup-products_box {
     display: flex;
     flex-direction: column;
-    transform: translateY(-18%);
-}
-
-.kitsetup-pages-container{
-    display: flex;
-    cursor: pointer;
-    margin-bottom: 112px;
-}
-
-
-.kitsetup-pages{
-    display: flex;
-    flex-direction: row;
-    gap: 16px;
-    align-items: center;
-}
-
-.kitsetup-page1-button{
-    width: 30px;
-    height: 32px;
-    border-radius: 5px;
-    background-color: #000000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.kitsetup-page2-button{
-    width: 30px;
-    height: 32px;
-    border-radius: 5px;
-    background-color: #F6F6F6;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.kitsetup-page-number{
-    color: white;
-}
-
-.kitsetup-page2-number{
-    color: black;
-}
-
-.kitsetup-left-arrow{
-    width: 6px;
-    height: 12px;
-    cursor: pointer;
-}
-
-.kitsetup-right-arrow{
-    width: 6px;
-    height: 12px;
-    cursor: pointer;
-}
-
-.kitsetup-pages-button-container{
-    gap: 8px;
-    display: flex;
-    cursor: pointer;
-}
-
-.kitsetup-pages-container{
-    display: flex;
-    justify-content: flex-end;
-    margin-right: 13%;
-    margin-top: 32px;
-}
-
-
-
-
-
-
-
-/* CSS MODAL*/
-
-
-.kitsetup-info-modal-container{
-    display: none;
-    justify-content: center;
-    align-items: center;
-}
-
-
-.kitsetup-info-modal{
-    width: 270px;
+    width: calc((100% - 40px) / 3);
     height: 432px;
-    background-color: #D4E3FF;
+    background-color: #F6F6F6;
     border-radius: 9px;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    position: relative;
+    overflow: hidden;
 }
-
-
-
-.kitsetup-info-modal-title{
-    font-size: 14px;
-    font-family: "Inter", serif;
-    font-weight: 700;
-    display: flex;
-    margin-left: 35px;
-    margin-top: 16px;
+.kitsetup-products_box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
 }
-
-.kitsetup-info-modal-placa-mae{
-    font-size: 10px;
-    font-family: "Nunito", serif;
-    width: 200px;
+.kitsetup-header-product-box {
     display: flex;
-    margin-left: 56px;
-    margin-top: 10px;
-    line-height: 15px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 15px 0 15px;
 }
-
-.kitsetup-info-modal-armazenamento{
-    font-size: 10px;
-    font-family: "Nunito", serif;
-    width: 200px;
+.kitsetup-config-box {
     display: flex;
-    margin-left: 56px;
-    margin-top: 10px;
-    line-height: 15px;
+    align-items: center;
+    gap: 8px;
+    background-color: #291E40;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-family: "Nunito", sans-serif;
+    font-size: 0.8rem;
+    font-weight: bold;
 }
-
-.kitsetup-info-modal-fonte{
-    font-size: 10px;
-    font-family: "Nunito", serif;
-    width: 200px;
-    display: flex;
-    margin-left: 56px;
-    margin-top: 10px;
-    line-height: 15px;
-}
-
-.kitsetup-info-modal-gabinete{
-    font-size: 10px;
-    font-family: "Nunito", serif;
-    width: 200px;
-    display: flex;
-    margin-left: 56px;
-    margin-top: 10px;
-    line-height: 15px;
-}
-
-.kitsetup-info-modal-alimentacao{
-    font-size: 10px;
-    font-family: "Nunito", serif;
-    width: 200px;
-    display: flex;
-    margin-left: 56px;
-    margin-top: 10px;
-    line-height: 15px;
-}
-
-.kitsetup-info-modal-placa-de-video{
-    font-size: 10px;
-    font-family: "Nunito", serif;
-    width: 200px;
-    display: flex;
-    margin-left: 56px;
-    margin-top: 10px;
-    line-height: 15px;
-}
-
-.kitsetup-icons-model{
+.kitsetup-config-box img {
     width: 16px;
     height: 16px;
-    transform: translateX(-4px);
 }
-
-.kitsetup-buy-now{
+.kitsetup-heart-icon-box img {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+.kitsetup-main-product-contant {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    flex-grow: 1;
+    padding: 15px;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+.kitsetup-product-image img {
+    width: 180px;
+    height: 180px;
+    object-fit: contain;
+    margin: 15px 0;
+}
+.kitsetup-product-name {
+    font-family: "Inter", sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 10px 0;
+    flex-grow: 1;
+}
+.kitsetup-product-price {
+    font-family: "Inter", sans-serif;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #291E40;
+    margin: 10px 0 20px 0;
+}
+.kitsetup-buy-now {
     text-decoration: none;
+    width: 100%;
+}
+.kitsetup-buy-product-button {
+    background-color: #291E40;
     color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 1rem;
+    font-family: "Inter", sans-serif;
+    transition: background-color 0.2s ease;
 }
-
-@media (max-width: 1440px) { /* Ajustes para telas menores */
-    .kitsetup-container_banner img {
-        height: 400px;
-    }
-    .kitsetup-h1 {
-        font-size: 52px;
-        margin: 0%;
-    }
+.kitsetup-buy-product-button:hover {
+    background-color: #3a2d5c;
 }
-
-@media (max-width: 1024px) { /* Tablets e notebooks pequenos */
-    .kitsetup-container_banner img {
-        height: 350px;
-    }
-    .kitsetup-h1 {
-        font-size: 42px;
-    }
-    .kitsetup-container_titles {
-        margin-left: 80px;
-    }
-    .kitsetup-container_products {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-}
-
-@media (max-width: 768px) { /* Tablets em modo retrato */
-    .kitsetup-container_banner img {
-        height: 300px;
-    }
-    .kitsetup-h1 {
-        font-size: 36px;
-    }
-    .kitsetup-p {
-        font-size: 18px;
-    }
-    .kitsetup-container_titles {
-        margin-left: 40px;
-    }
-    .kitsetup-products_box {
-        width: 220px;
-        height: 450px;
-    }
-    .kitsetup-pages-container {
-        justify-content: center;
-        margin-right: 0;
-    }
-    .kitsetup-container_products {
-        flex-direction: column;
-        align-items: center;
-    }
-}
-
-@media (max-width: 600px) { /* Smartphones grandes */
-    .kitsetup-container_banner img {
-        height: 250px;
-        margin-top: 20px;
-    }
-    .kitsetup-h1 {
-        font-size: 28px;
-    }
-    .kitsetup-p {
-        font-size: 16px;
-    }
-    .kitsetup-container_titles {
-        margin-left: 20px;
-    }
-    .kitsetup-products_box {
-        width: 200px;
-        height: 450px;
-    }
-    .kitsetup-heart-icon-box img {
-        margin-left: 35px;
-    }
-    .kitsetup-buy-product-button {
-        width: 200px;
-    }
-    .kitsetup-container_products {
-        flex-direction: column;
-        align-items: center;
-    }
-}
-
-@media (max-width: 480px) { /* Smartphones médios e pequenos */
-    .kitsetup-container_banner img {
-        height: 200px;
-    }
-    .kitsetup-h1 {
-        font-size: 24px;
-    }
-    .kitsetup-p {
-        font-size: 14px;
-        width: 90%;
-    }
-    .kitsetup-container_titles {
-        margin-left: 10px;
-    }
-    .kitsetup-products_box {
-        width: 256px;
-        height: 445px;
-    }
-    .kitsetup-config-box {
-        height: 30px;
-        margin-left: 8px;
-    }
-   /* Modal Container */
-.kitsetup-info-modal-container {
-    display: none; /* Inicialmente invisível */
-    position: fixed;
+.kitsetup-config-details {
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Fundo escuro para dar o efeito de bloqueio */
-    justify-content: center;
-    align-items: center;
-    z-index: 1000; /* Garante que o modal fique sobre o conteúdo */
-}
-
-/* Modal */
-.kitsetup-info-modal {
-    width: 100%; /* Responsivo: 90% da largura da tela */
-    max-width: 600px; /* Limita a largura máxima */
     background-color: #D4E3FF;
-    border-radius: 9px;
     padding: 20px;
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    gap: 15px;
-    overflow-y: auto;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
 }
-
-/* Modal Title */
-.kitsetup-info-modal-title {
-    font-size: 18px;
+.kitsetup-products_box.config-visible .kitsetup-config-details {
+    opacity: 1;
+    visibility: visible;
+}
+.kitsetup-products_box.config-visible .kitsetup-main-product-contant,
+.kitsetup-products_box.config-visible .kitsetup-header-product-box {
+    opacity: 0;
+    visibility: hidden;
+}
+.kitsetup-config-details h1 {
     font-family: "Inter", serif;
     font-weight: 700;
-    margin-bottom: 10px;
-}
-
-/* Modal Content */
-.kitsetup-info-modal p {
-    font-size: 12px;
-    font-family: "Nunito", serif;
-    line-height: 1.5;
-    margin-left: 20px;
-}
-
-.kitsetup-info-modal img {
-    width: 16px;
-    height: 16px;
-    margin-right: 10px;
-    vertical-align: middle;
-}
-
-/* Ajuste para a Responsividade */
-@media (max-width: 768px) {
-    .kitsetup-info-modal {
-        width: 100%; /* Reduz a largura para 90% em telas menores */
-    }
-    .kitsetup-info-modal-title {
-        font-size: 16px; /* Ajusta o tamanho do título em telas menores */
-    }
-    .kitsetup-info-modal p {
-        font-size: 10px; /* Diminui o tamanho do texto */
-    }
-}
-
-@media (max-width: 480px) {
-    .kitsetup-info-modal {
-        width: 100%; /* Reduz mais a largura em telas muito pequenas */
-    }
-    .kitsetup-info-modal-title {
-        font-size: 14px; /* Título menor */
-    }
-    .kitsetup-info-modal p {
-        font-size: 9px; /* Texto ainda menor */
-    }
-}
-
-/* Responsividade do botão de fechar */
-.kitsetup-config-box {
-    width: 60%; /* Responsivo */
-    height: 40px;
-    background-color: #291E40;
-    color: white;
-    border-radius: 40px;
+    font-size: 14px;
+    margin-bottom: 15px;
     text-align: center;
-    cursor: pointer;
+    color: #291E40;
+}
+.kitsetup-config-details p {
+    font-family: "Nunito", serif;
+    font-size: 11px;
+    line-height: 1.5;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    padding-bottom: 8px;
+    margin-bottom: 8px;
+}
+.kitsetup-config-details p:last-child {
+    border-bottom: none;
+}
+.kitsetup-icons-model {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+}
+.kitsetup-pages-container {
     display: flex;
     justify-content: center;
+    width: 100%;
+    margin: 40px 0;
+}
+.kitsetup-pages {
+    display: flex;
+    gap: 8px;
     align-items: center;
-    margin: 10px 0;
-    margin-left: 10px;
 }
-
-.kitsetup-config-box p {
-    font-size: 12px;
+.kitsetup-pages a, .kitsetup-pages span {
+    text-decoration: none;
+    padding: 8px 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    font-family: "Nunito", sans-serif;
+    color: #555;
+    background-color: #fff;
+    transition: all 0.2s ease;
+}
+.kitsetup-pages a:hover {
+    background-color: #291E40;
     color: white;
+    border-color: #291E40;
 }
-
-.kitsetup-heart-icon-box img{
-    width: 32px;
-    height: 32px;
-    margin-top: 14px;
-    margin-left: 30px;
+.kitsetup-pages span.pagina-atual {
+    background-color: #291E40;
+    color: white;
+    border-color: #291E40;
+    font-weight: bold;
 }
-
-/* Ajustes finais para dispositivos menores */
-@media (max-width: 360px) {
-    .kitsetup-info-modal {
-        width: 100%; /* Modal ocupa toda a tela em dispositivos pequenos */
-    }
-    .kitsetup-info-modal-title {
-        font-size: 12px; /* Ajuste no título para telas muito pequenas */
-    }
-    .kitsetup-info-modal p {
-        font-size: 8px; /* Texto muito pequeno em telas pequenas */
+@media (max-width: 1200px) {
+    .kitsetup-products_box {
+        width: calc((100% - 20px) / 2);
     }
 }
-
-    .kitsetup-buy-product-button {
-        width: 180px;
-    }
-    .kitsetup-container_products {
+@media (max-width: 768px) {
+    .kitsetup-layout {
         flex-direction: column;
-        align-items: center;
     }
-
-   
-}
-
-@media (max-width: 360px) { /* Smartphones menores */
-    .kitsetup-container_banner img {
-        height: 180px;
-    }
-    .kitsetup-h1 {
-        font-size: 20px;
-    }
-    .kitsetup-p {
-        font-size: 12px;
+    .kitsetup-filtro {
+        width: 100%;
+        margin-bottom: 30px;
     }
     .kitsetup-products_box {
-        width: 160px;
-        height: 400px;
+        width: 100%;
+        height: auto;
     }
-    .kitsetup-buy-product-button {
-        width: 160px;
-    }
-    .kitsetup-heart-icon-box img {
-        width: 24px;
-        height: 24px;
-        margin-left: 30px;
-    }
-    .kitsetup-pages{
-        margin-top: 50px;
-    }
-    .kitsetup-container_products {
-        flex-direction: column;
-        align-items: center;
+    main.kitsetup-main-content {
+        margin-left: 0;
+        padding: 0 15px;
     }
 }

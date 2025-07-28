@@ -30,85 +30,204 @@
     margin-left: 130px;
 }
 
-.container-favoritos-depto {
+.Audio-layout {
+    display: flex;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    margin-left: 105px;
+}
+
+.Audio-filtro {
+    width: 20%; /* ou 250px */
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: #f2f2f2;
+    border-right: 1px solid #ddd;
+    height: auto;
+}
+.Audio-filtro h3 {
+    font-family: "Inter", sans-serif;
+    font-size: 1.5rem;
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #291E40;
+}
+
+/* --- Grupos e Ordenação --- */
+.Audio-filtro fieldset {
+    border: none;
+    padding: 0;
+    margin: 0;
+    margin-bottom: 25px;
+}
+
+.Audio-filtro legend {
+    font-family: "Inter", sans-serif;
+    font-weight: bold;
+    font-size: 1rem;
+    margin-bottom: 10px;
+    padding: 0;
+    width: 100%;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 8px;
+}
+
+.Audio-filtro .a-filtro-select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: "Nunito", sans-serif;
+    font-size: 0.95rem;
+    background-color: white;
+}
+
+/* --- Checkboxes e Preço --- */
+.Audio-filtro fieldset div {
+    margin-bottom: 8px;
+}
+
+.Audio-filtro input[type="checkbox"] {
+    margin-right: 8px;
+    accent-color: #291E40;
+    transform: scale(1.1);
+}
+
+.Audio-filtro label {
+    font-family: "Nunito", sans-serif;
+    font-size: 0.95rem;
+    cursor: pointer;
+}
+
+.Audio-filtro .a-filtro-preco {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.Audio-filtro .a-filtro-input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: "Nunito", sans-serif;
+    -moz-appearance: textfield;
+}
+.Audio-filtro .a-filtro-input::-webkit-outer-spin-button,
+.Audio-filtro .a-filtro-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* --- Botões --- */
+.Audio-filtro .a-filtro-aplicar,
+.Audio-filtro .a-filtro-limpar {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: "Inter", sans-serif;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.2s ease-in-out;
+    box-sizing: border-box; 
+}
+
+.Audio-filtro .a-filtro-aplicar {
+    background-color: #291E40;
+    color: white;
+    border: none;
+    margin-top: 15px;
+}
+.Audio-filtro .a-filtro-aplicar:hover {
+    background-color: #3a2d5c;
+}
+
+.Audio-filtro .a-filtro-limpar {
+    background-color: transparent;
+    color: #291E40;
+    border: 1px solid #291E40;
+    margin-top: 10px;
+    display: block;
+    text-decoration: none;
+}
+.Audio-filtro .a-filtro-limpar:hover {
+    background-color: #291E40;
+    color: white;
+}
+
+.a-container-favoritos-depto {
+    flex: 1;
     display: flex;
     flex-wrap: wrap;
-    justify-content: flex-start;
     gap: 20px;
     padding: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.audio-produtos-card {
-    background-color: #f1efef;
-    border-radius: 9px;
-    padding: 15px;
     box-sizing: border-box;
-    width: 31%;
+    margin-left: 0;
+    max-width: unset;
+}
+.a-produtos-card {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    text-align: center;
-    position: relative;
-    min-height: 480px;
+    justify-content: center;
+    flex-direction: column;
+    position: relative; 
+    height: 432px;
+    width: calc((100% - 60px) / 3);
+    background-color: #F6F6F6;
+    border-radius: 9px;
 }
 
-.audio-heart,
-.audio-add-carrinho {
+.a-heart,
+.a-add-carrinho {
     width: 27px;
     height: 27px;
 }
 
-.audio-heart {
-    position: absolute !important;
-    top: 10px !important;
-    left: 10px !important;
-    right: auto !important;
-    width: 30px !important;
-    height: 30px !important;
-    z-index: 10 !important;
+.a-heart {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    cursor: pointer;
 }
 
-.audio-add-carrinho {
-    position: absolute !important;
-    top: 10px !important;
-    right: 10px !important;
-    left: auto !important;
-    width: 30px !important;
-    height: 30px !important;
-    z-index: 10 !important;
+.a-add-carrinho {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    cursor: pointer;
 }
 
-.audio-image-produto {
-    width: 100%;
-    height: 250px;
+.image-produto {
+    width: 160px;
+    height: 160px;
     object-fit: cover;
     margin-bottom: 10px;
     border-radius: 5px;
-    margin-top: 30px;
+    margin-top: 65px;
 }
 
-.audio-card-rate {
+.card-rate {
     margin-bottom: 10px;
 }
 
-.audio-card-rate i {
+.card-rate i {
     color: #fdd835;
 }
 
-.audio-produtos-card p {
+.a-produtos-card p {
     margin: 4px 0;
     font-family: "Nunito", sans-serif;
 }
 
-.audio-produtos-card h1 {
+.a-produtos-card h1 {
     font-family: "Inter", sans-serif;
     font-size: 1.5rem;
     margin: 10px 0;
 }
 
-.audio-card-botao {
+.a-card-botao {
     background-color: #291E40;
     color: white;
     border: none;
@@ -122,16 +241,10 @@
     transition: all 0.2s ease-in-out;
 }
 
-.audio-card-botao:hover {
+.a-card-botao:hover {
     background-color: #3a2d5c;
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.audio-qnt-avaliacoes {
-    color: #666;
-    font-size: 12px;
-    margin-left: 5px;
 }
 
 /* ================================== */
@@ -188,16 +301,6 @@
     padding: 0 5px;
 }
 
-@media (max-width: 1440px) {
-    .Audio-container_banner img {
-        height: 400px;
-    }
-    .Audio-h1 {
-        font-size: 52px;
-        margin: 0%;
-    }
-}
-
 @media (max-width: 1024px) {
     .Audio-container_banner img {
         height: 350px;
@@ -208,13 +311,23 @@
     .Audio-container_titles {
         margin-left: 80px;
     }
-    .audio-produtos-card {
-        width: 47%;
+
+    /* 👇 AJUSTES AQUI 👇 */
+    .a-container-favoritos-depto {
+        /* Muda o grid para 2 colunas em telas menores */
+        grid-template-columns: repeat(2, 1fr); 
     }
+
+    .a-produtos-card {
+        /* width: 47%; */ /* REMOVA ESTA LINHA - ela não é necessária com Grid */
+    }
+
     .Audio-pages-container {
         padding-left: 80px;
     }
 }
+
+/* ================================================================ */
 
 @media (max-width: 768px) {
     .Audio-container_banner img {
@@ -230,13 +343,20 @@
         margin-left: 20px;
         padding: 0 15px;
     }
-    .audio-produtos-card {
-        width: 95%;
+
+    /* 👇 AJUSTES AQUI 👇 */
+    .a-container-favoritos-depto {
+        /* Muda o grid para 1 coluna em telas de celular */
+        grid-template-columns: 1fr;
+        /* As linhas abaixo são de Flexbox e devem ser removidas */
+        /* flex-direction: column; */ /* REMOVA */
+        /* align-items: center; */   /* REMOVA */
     }
-    .container-favoritos-depto {
-        flex-direction: column;
-        align-items: center;
+
+    .a-produtos-card {
+        /* width: 95%; */ /* REMOVA ESTA LINHA - o card já ocupa 100% da coluna do grid */
     }
+    
     .Audio-pages-container {
         justify-content: center;
         padding-left: 0;

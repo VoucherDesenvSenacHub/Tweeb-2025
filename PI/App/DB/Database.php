@@ -333,7 +333,103 @@ class Database{
         $stmt = $this->execute($query, [$tipo_id]);
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
-    
+    public function selectFiltrado(array $filtros)
+    {
+
+        $tabela = $this->table;
+        $where_conditions = [];
+        $params = [];
+
+        foreach ($filtros as $chave => $valor) {
+            switch ($chave) {
+                case 'departamento_id':
+                    if (!empty($valor)) {
+                        $where_conditions[] = "id_departamento = ?";
+                        $params[] = (int)$valor;
+                    }
+                    break;
+                case 'marca':
+                    if (!empty($valor) && is_array($valor)) {
+                        $placeholders = implode(',', array_fill(0, count($valor), '?'));
+                        $where_conditions[] = "marca_modelo IN ($placeholders)";
+                        $params = array_merge($params, $valor);
+                    }
+                    break;
+                case 'preco_min':
+                    if (is_numeric($valor)) {
+                        $where_conditions[] = "preco_unid >= ?";
+                        $params[] = (float)$valor;
+                    }
+                    break;
+                case 'preco_max':
+                    if (is_numeric($valor)) {
+                        $where_conditions[] = "preco_unid <= ?";
+                        $params[] = (float)$valor;
+                    }
+                    break;
+                case 'em_estoque':
+                case 'entrega_gratis':
+                case 'garantia':
+                    if ($valor) { 
+                        $where_conditions[] = "$chave = 1";
+                    }
+                    break;
+            }
+        }
+        $sql_where = !empty($where_conditions) ? 'WHERE ' . implode(' AND ', $where_conditions) : '';
+        $count_query = "SELECT COUNT(*) FROM $tabela $sql_where";
+        $total_produtos = $this->execute($count_query, $params)->fetchColumn();
+        
+        $produtos_por_pagina = 12;
+        $total_paginas = ceil($total_produtos / $produtos_por_pagina);
+        $pagina_atual = (int)($filtros['page'] ?? 1);
+        $offset = ($pagina_atual - 1) * $produtos_por_pagina;
+
+        $opcoes_ordenacao = ['preco_asc' => 'preco_unid ASC', 'preco_desc' => 'preco_unid DESC', 'nome_asc' => 'nome_produto ASC'];
+        $sql_order = isset($filtros['ordenar']) && isset($opcoes_ordenacao[$filtros['ordenar']])
+            ? " ORDER BY " . $opcoes_ordenacao[$filtros['ordenar']]
+            : " ORDER BY id_produto DESC";
+        $final_query = "SELECT * FROM $tabela $sql_where $sql_order LIMIT $produtos_por_pagina OFFSET $offset";
+        $produtos = $this->execute($final_query, $params)->fetchAll(PDO::FETCH_ASSOC);
+        
+        return [
+            'produtos'      => $produtos,
+            'total_paginas' => (int)$total_paginas,
+            'pagina_atual'  => $pagina_atual
+        ];
+    }
+    public function buscarProdutosPorTipoComponentePaginado(int $tipo_id, int $limit, int $offset)
+    {
+        $query = "
+            SELECT p.*
+            FROM produtos p
+            JOIN produto_componente_link l ON p.id_produto = l.id_produto
+            WHERE l.id_tipo_componente = :tipo_id
+            ORDER BY p.nome_produto ASC
+            LIMIT :limit OFFSET :offset
+        ";
+
+        $stmt = $this->conn->prepare($query);
+        $stmt->bindValue(':tipo_id', $tipo_id, PDO::PARAM_INT);
+        $stmt->bindValue(':limit', $limit, PDO::PARAM_INT);
+        $stmt->bindValue(':offset', $offset, PDO::PARAM_INT);
+        $stmt->execute();
+
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function contarProdutosPorTipoComponente(int $tipo_id): int
+    {
+        $query = "
+            SELECT COUNT(p.id_produto)
+            FROM produtos p
+            JOIN produto_componente_link l ON p.id_produto = l.id_produto
+            WHERE l.id_tipo_componente = ?
+        ";
+
+        $stmt = $this->execute($query, [$tipo_id]);
+        return (int) $stmt->fetchColumn();
+    }
     
       // Funções para a parte dos banners
     public function select_banner($where = null, $order = null, $limit = null, $fields = '*') {

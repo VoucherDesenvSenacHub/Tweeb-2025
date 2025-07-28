@@ -1,109 +1,164 @@
-// Seleciona todas as divisões de departamento
-// const departamentos = document.querySelectorAll('.departamentos');
+document.addEventListener('DOMContentLoaded', function() {
 
-const listItems = document.querySelectorAll('.do-seu-jeito-ul-components li');
+    const selecionarApiUrl = '/Tweeb-2025/PI/public/api/api_selecionar_produto.php';
+    const carregarApiUrl = '/Tweeb-2025/PI/public/api/api_carregar_produtos.php';
 
+    function handleSelecaoClick(event) {
+        const botao = event.currentTarget;
+        const produtoId = botao.dataset.produtoId;
+        const tipoId = botao.dataset.tipoId;
 
-listItems.forEach(item => {
-    item.addEventListener('click', function(event) {
-        event.preventDefault(); // Impede o comportamento padrão do link
-        
-        // Remover a classe 'active' de todos os itens
-        listItems.forEach(i => i.classList.remove('active'));
-        
-        // Adicionar a classe 'active' ao item clicado
-        item.classList.add('active');
-        
-    });
-});
+        const formData = new FormData();
+        formData.append('produto_id', produtoId);
+        formData.append('tipo_id', tipoId);
+        formData.append('quantidade', 1);
 
-// Função para aumentar ou diminuir a quantidade
-function updateAmount(action, element) {
-    // Encontra o elemento de quantidade dentro do produto
-    const amountElement = element.closest('.do-seu-jeito-product').querySelector('.do-seu-jeito-amount');
-    let currentAmount = amountElement.textContent.trim();
+        fetch(selecionarApiUrl, { method: 'POST', body: formData })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    document.querySelectorAll('.do-seu-jeito-product.selecionado').forEach(prod => {
+                        prod.classList.remove('selecionado');
+                        const containerAntigo = prod.querySelector('.container-selecao');
+                        if (containerAntigo && containerAntigo.dataset.originalButton) {
+                            containerAntigo.innerHTML = containerAntigo.dataset.originalButton;
+                        }
+                    });
 
-    // Se for "-", considera como 0
-    if (currentAmount === '-') {
-        currentAmount = 0;
-    } else {
-        currentAmount = parseInt(currentAmount);
+                    const produtoContainer = botao.closest('.do-seu-jeito-product');
+                    produtoContainer.classList.add('selecionado');
+
+                    const containerSelecao = botao.parentElement;
+                    if (!containerSelecao.dataset.originalButton) {
+                        containerSelecao.dataset.originalButton = containerSelecao.innerHTML;
+                    }
+                    containerSelecao.innerHTML = `<div class="indicador-selecionado"><i class='bx bx-check-circle'></i><span>Selecionado</span></div>`;
+                    
+                    const linkCategoria = document.querySelector(`.do-seu-jeito-ul-components a[href*="tipo=${tipoId}"]`);
+                    if (linkCategoria) linkCategoria.parentElement.classList.add('com-selecao');
+                    
+                    initializeEventListeners(document.body);
+                } else {
+                    alert('Erro: ' + data.message);
+                }
+            });
     }
 
-    // Atualiza a quantidade
-    if (action === 'increase') {
-        currentAmount += 1;
-    } else if (action === 'decrease' && currentAmount > 0) {
-        currentAmount -= 1;
+    function updateRamQuantity(seletor, newQuantity) {
+        const produtoId = seletor.dataset.produtoId;
+        const tipoId = seletor.dataset.tipoId;
+
+        const formData = new FormData();
+        formData.append('produto_id', produtoId);
+        formData.append('tipo_id', tipoId);
+        formData.append('quantidade', newQuantity);
+
+        fetch(selecionarApiUrl, { method: 'POST', body: formData })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    const qtyValueSpan = seletor.querySelector('.qty-value');
+                    const decreaseBtn = seletor.querySelector('.btn-qty-decrease');
+                    qtyValueSpan.textContent = newQuantity;
+                    decreaseBtn.disabled = (newQuantity === 0);
+
+                    document.querySelectorAll('.do-seu-jeito-product').forEach(p => p.classList.remove('selecionado'));
+                    document.querySelectorAll('.seletor-quantidade').forEach(sel => {
+                        if (sel !== seletor) {
+                            sel.querySelector('.qty-value').textContent = '0';
+                            sel.querySelector('.btn-qty-decrease').disabled = true;
+                        }
+                    });
+
+                    const produtoContainer = seletor.closest('.do-seu-jeito-product');
+                    const linkCategoria = document.querySelector(`.do-seu-jeito-ul-components a[href*="tipo=${tipoId}"]`);
+
+                    if (newQuantity > 0) {
+                        produtoContainer.classList.add('selecionado');
+                        if (linkCategoria) linkCategoria.parentElement.classList.add('com-selecao');
+                    } else {
+                        if (linkCategoria) linkCategoria.parentElement.classList.remove('com-selecao');
+                    }
+                } else {
+                    alert('Erro: ' + data.message);
+                }
+            });
     }
 
-    // Atualiza o valor de quantidade
-    amountElement.textContent = currentAmount > 0 ? currentAmount : '-';
-}
+    function handleVerMaisToggle(event) {
+        const produtoContainer = event.currentTarget.closest('.produto-container');
+        if (produtoContainer) {
+            produtoContainer.classList.toggle('ver-mais-ativo');
+        }
+    }
 
-// Adiciona eventos de clique para as setas
-document.querySelectorAll('.do-seu-jeito-left-arrow').forEach(arrow => {
-    arrow.addEventListener('click', (e) => {
-        // console.log("clicou");
-        updateAmount('decrease', e.target);
-    });
+    function initializeEventListeners(container) {
+        container.querySelectorAll('.botao-selecionar:not(.event-attached)').forEach(botao => {
+            botao.classList.add('event-attached');
+            botao.addEventListener('click', handleSelecaoClick);
+        });
+
+        container.querySelectorAll('.seletor-quantidade:not(.event-attached)').forEach(seletor => {
+            seletor.classList.add('event-attached');
+            const increaseBtn = seletor.querySelector('.btn-qty-increase');
+            const decreaseBtn = seletor.querySelector('.btn-qty-decrease');
+            
+            increaseBtn.addEventListener('click', () => {
+                let currentQty = parseInt(seletor.querySelector('.qty-value').textContent);
+                updateRamQuantity(seletor, currentQty + 1);
+            });
+            decreaseBtn.addEventListener('click', () => {
+                let currentQty = parseInt(seletor.querySelector('.qty-value').textContent);
+                if (currentQty > 0) {
+                    updateRamQuantity(seletor, currentQty - 1);
+                }
+            });
+        });
+
+        container.querySelectorAll('.do-seu-jeito-product-bottom:not(.event-attached)').forEach(trigger => {
+            trigger.classList.add('event-attached');
+            trigger.addEventListener('click', handleVerMaisToggle);
+        });
+    }
+
+    initializeEventListeners(document);
+
+    const btnVerMais = document.getElementById('btn-ver-mais');
+    if (btnVerMais) {
+        btnVerMais.addEventListener('click', function() {
+            const botao = this;
+            const proximaPagina = parseInt(botao.dataset.proximaPagina);
+            const tipoId = botao.dataset.tipoId;
+            const totalProdutos = parseInt(botao.dataset.totalProdutos);
+
+            botao.textContent = 'Carregando...';
+            botao.disabled = true;
+
+            const url = `${carregarApiUrl}?tipo_id=${tipoId}&page=${proximaPagina}`;
+
+            fetch(url)
+                .then(response => response.text())
+                .then(htmlProdutos => {
+                    const listaProdutos = document.getElementById('lista-produtos');
+                    
+                    const tempContainer = document.createElement('div');
+                    tempContainer.innerHTML = htmlProdutos;
+
+                    while (tempContainer.firstChild) {
+                        listaProdutos.appendChild(tempContainer.firstChild);
+                    }
+                    
+                    initializeEventListeners(listaProdutos);
+
+                    botao.dataset.proximaPagina = proximaPagina + 1;
+                    botao.textContent = 'Ver Mais';
+                    botao.disabled = false;
+
+                    const produtosCarregados = listaProdutos.querySelectorAll('.produto-container').length;
+                    if (produtosCarregados >= totalProdutos) {
+                        botao.style.display = 'none';
+                    }
+                });
+        });
+    }
 });
-
-document.querySelectorAll('.do-seu-jeito-right-arrow').forEach(arrow => {
-    arrow.addEventListener('click', (e) => {
-        // console.log("clicou");
-        updateAmount('increase', e.target);
-    });
-});
-
-
-// document.querySelectorAll('.do-seu-jeito-sub-bottom').forEach(botao => {
-//     botao.addEventListener('click', (e) => {
-//         ativarDiv();
-//     });
-// });
-// // do-seu-jeito-sub-button
-
-// document.querySelectorAll('.do-seu-jeito-sub-button').forEach(botao => {
-//     botao.addEventListener('click', (e) => {
-//         desativarDiv();
-//     });
-// });
-
-// const verMais = document.getElementById('produto-ver-mais');
-
-// function ativarDiv() {
-//     verMais.classList.add('div-ativo');
-//     verMais.classList.remove('div-desativado');
-// }
-
-// function desativarDiv() {
-//     verMais.classList.add('div-desativado');
-//     verMais.classList.remove('div-ativo');
-// }
-
-document.querySelectorAll('.do-seu-jeito-sub-bottom').forEach((botao, index) => {
-    botao.addEventListener('click', () => {
-        ativarDiv(index);
-    });
-});
-
-document.querySelectorAll('.do-seu-jeito-sub-button').forEach((botao, index) => {
-    botao.addEventListener('click', () => {
-        desativarDiv(index);
-    });
-});
-
-function ativarDiv(index) {
-    // Seleciona o menu de detalhes do produto específico usando o índice
-    const verMais = document.querySelectorAll('.produto-ver-mais')[index];
-    verMais.classList.add('div-ativo');
-    verMais.classList.remove('div-desativado');
-}
-
-function desativarDiv(index) {
-    // Seleciona o menu de detalhes do produto específico usando o índice
-    const verMais = document.querySelectorAll('.produto-ver-mais')[index];
-    verMais.classList.add('div-desativado');
-    verMais.classList.remove('div-ativo');
-}
