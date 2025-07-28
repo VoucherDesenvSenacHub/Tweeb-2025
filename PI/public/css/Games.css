@@ -1,3 +1,4 @@
+/* Estilos gerais */
 .Games {
     overflow-x: hidden;
     padding: 0;
@@ -7,10 +8,11 @@
 
 .Games-container_banner img {
     width: 100%;
-    height: 472px;
+    height: auto; /* Alterado para auto para manter a proporção */
     margin-top: 40px;
 }
 
+/* Títulos e textos */
 .Games-h1 {
     font-size: 62px;
     font-family: "Inter", serif;
@@ -25,25 +27,30 @@
     margin-left: 7%;
 }
 
+/* Container e layout */
 .Games-container_titles {
     margin-top: 20px;
     margin-left: 130px;
 }
-.Games-layout{
+
+.Games-layout {
     display: flex;
     width: 100%;
     max-width: 100%;
     box-sizing: border-box;
     padding-left: 105px;
 }
-.Games-filtro{
+
+.Games-filtro {
     width: 20%; 
-    padding: 20px;
-    box-sizing: border-box;
-    background-color: #f2f2f2;
-    border-right: 1px solid #ddd;
-    height: fit-content;
+    flex-shrink: 0; /* Impede que o filtro encolha */
+    padding: 25px;
+    background-color: #F6F6F6; /* Mesma cor de fundo dos cards */
+    border-right: 1px solid #e0e0e0;
+    border-radius: 9px;
+    margin: 20px;
 }
+
 .Games-filtro h3 {
     font-family: "Inter", sans-serif;
     font-size: 1.5rem;
@@ -108,8 +115,7 @@
     border-radius: 5px;
     font-family: "Nunito", sans-serif;
     font-size: 0.9rem;
-    /* Remove as setas de incremento/decremento */
-    -moz-appearance: textfield;
+    -moz-appearance: textfield; /* Remove as setas de incremento/decremento */
 }
 
 .Games-filtro input[type="number"]::-webkit-outer-spin-button,
@@ -117,7 +123,6 @@
     -webkit-appearance: none;
     margin: 0;
 }
-
 
 /* --- Botões do Filtro --- */
 .filtro-aplicar,
@@ -160,6 +165,7 @@
     color: white;
 }
 
+/* Container de produtos */
 .g-container-favoritos-depto {
     flex: 1;
     display: flex;
@@ -171,6 +177,7 @@
     max-width: unset;
 }
 
+/* Cartão de produtos */
 .g-produtos-card {
     display: flex;
     align-items: center;
@@ -305,6 +312,7 @@
     padding: 0 5px;
 }
 
+/* Media Queries para responsividade */
 @media (max-width: 1440px) {
     .Games-container_banner img {
         height: 400px;
@@ -350,12 +358,35 @@
     .g-produtos-card {
         width: 95%;
     }
-    .container-favoritos-depto {
+    .g-container-favoritos-depto {
         flex-direction: column;
         align-items: center;
     }
     .Games-pages-container {
         justify-content: center;
         padding-left: 0;
+    }
+}
+
+/* Novas media queries para telas menores */
+@media (max-width: 480px) {
+    .Games-h1 {
+        font-size: 28px;
+        margin-left: 0;
+    }
+    .Games-p {
+        font-size: 16px;
+        margin-left: 0;
+    }
+    .Games-filtro {
+        width: 100%;
+        border-right: none; /* Remove a borda direita em telas pequenas */
+    }
+    .Games-layout {
+        flex-direction: column; /* Muda para coluna em telas pequenas */
+        padding-left: 0; /* Remove o padding */
+    }
+    .g-produtos-card {
+        width: 100%; /* Cartões ocupam 100% da largura */
     }
 }
