@@ -1,0 +1,243 @@
+/* ============================================= */
+/* CSS PARA PÁGINA DE RESULTADOS DE BUSCA        */
+/* ============================================= */
+
+/* --- ESTILOS GERAIS --- */
+.Search {
+    font-family: "Nunito", sans-serif;
+    background-color: #fff;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+/* --- BANNER SUPERIOR --- */
+.Search-container_banner {
+    width: 100%;
+    margin-top: 40px;
+}
+
+.Search-banner {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+}
+
+/* --- TÍTULOS DA PÁGINA --- */
+.Search-container_titles {
+    padding: 30px 5%;
+    max-width: 1400px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.Search-h1 {
+    font-family: "Inter", sans-serif;
+    font-size: 48px;
+    color: #291E40;
+    margin-bottom: 8px;
+}
+
+.Search-p {
+    font-size: 18px;
+    color: #555;
+    font-weight: 500;
+}
+
+/* --- CONTAINER DOS PRODUTOS --- */
+.container-favoritos-depto {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+    padding: 20px 5%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* --- CARD DE PRODUTO INDIVIDUAL (ATUALIZADO) --- */
+.s-produtos-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; /* Alinha itens ao topo */
+    position: relative; 
+    height: 432px; /* Altura fixa como no exemplo */
+    background-color: #F6F6F6;
+    border-radius: 9px;
+    padding: 15px; /* Reduzido para combinar com o exemplo */
+    box-sizing: border-box;
+    border: 1px solid #eee;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.s-produtos-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* --- ÍCONES NO CARD (ATUALIZADO) --- */
+.s-produtos-card .s-heart {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    cursor: pointer;
+    width: 27px;
+    height: 27px;
+}
+
+.s-produtos-card .add-carrinho-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+    width: 27px;
+    height: 27px;
+}
+
+.s-produtos-card .s-add-carrinho {
+    width: 100%;
+    height: 100%;
+}
+
+/* --- CONTEÚDO DO CARD (ATUALIZADO) --- */
+.s-produtos-card .image-produto {
+    width: 160px;
+    height: 160px;
+    object-fit: cover;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    margin-top: 50px; /* Espaço para os ícones */
+}
+
+.s-produtos-card .card-rate {
+    margin-bottom: 10px;
+}
+
+.s-produtos-card .card-rate i {
+    color: #fdd835;
+}
+
+.s-produtos-card .qnt-avaliacoes {
+    font-size: 14px;
+    color: #777;
+    margin-left: 5px;
+}
+
+.s-produtos-card p {
+    margin: 4px 0;
+    font-family: "Nunito", sans-serif;
+    color: #333;
+}
+
+.s-produtos-card h1 {
+    font-family: "Inter", sans-serif;
+    font-size: 1.5rem;
+    margin: 10px 0;
+}
+
+.s-card-botao {
+    background-color: #291E40;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 1rem;
+    font-family: "Inter", sans-serif;
+    margin-top: auto; /* Garante que o botão fique no final */
+    transition: all 0.2s ease-in-out;
+}
+
+.s-card-botao:hover {
+    background-color: #3a2d5c;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* --- PAGINAÇÃO --- */
+.Search-pages-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: 40px 0;
+    padding: 0 5%;
+    box-sizing: border-box;
+}
+
+.Search-pages {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+}
+
+.Search-pages a {
+    text-decoration: none;
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-family: "Nunito", sans-serif;
+    font-size: 1rem;
+    display: inline-block;
+    transition: all 0.2s ease;
+    color: #555;
+    background-color: #fff;
+}
+
+.Search-page-button:hover {
+    background-color: #f5f5f5;
+    border-color: #291E40;
+    color: #291E40;
+}
+
+.Search-page-active {
+    background-color: #291E40;
+    color: white;
+    border-color: #291E40;
+}
+
+/* ============================================= */
+/* RESPONSIVIDADE                                */
+/* ============================================= */
+
+@media (max-width: 1024px) {
+    .Search-banner {
+        height: 300px;
+    }
+    .Search-h1 {
+        font-size: 40px;
+    }
+    .container-favoritos-depto {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .Search-banner {
+        height: 220px;
+    }
+    .Search-h1 {
+        font-size: 32px;
+    }
+    .Search-p {
+        font-size: 16px;
+    }
+    .container-favoritos-depto {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+}
+
+@media (max-width: 480px) {
+    .container-favoritos-depto {
+        grid-template-columns: 1fr; /* Uma coluna */
+    }
+    .Search-pages a {
+        padding: 8px 12px;
+        font-size: 0.9rem;
+    }
+}

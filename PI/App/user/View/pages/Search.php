@@ -4,7 +4,7 @@
     <?php include __DIR__.'/../../../../includes/headernavb.php'; ?>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../../../public/css/Departamento.css"> 
+    <link rel="stylesheet" href="../../../../public/css/Search.css"> 
     <title>Busca por "<?= htmlspecialchars($searchTerm) ?>"</title>
 </head>
 <body class="Search"> <?php
@@ -27,7 +27,7 @@
 <?php if (!empty($produtos)): ?>
     <?php foreach ($produtos as $produto): ?>
         <div class="s-produtos-card">
-            <img class="heart" src="/Tweeb-2025/PI/public/assets/img/heart_disabled.png" alt="coração" data-produto-id="<?= $produto['id_produto'] ?>" onclick="AtivarCoracao(this)">
+            <img class="s-heart" src="/Tweeb-2025/PI/public/assets/img/heart_disabled.png" alt="coração" data-produto-id="<?= $produto['id_produto'] ?>" onclick="AtivarCoracao(this)">
             <button class="add-carrinho-btn" data-id="<?= $produto['id_produto'] ?>" title="Adicionar ao carrinho">
               <img class="s-add-carrinho" src="/Tweeb-2025/PI/public/assets/img/carrinho-card.png" alt="Adicionar ao carrinho">
             </button>
