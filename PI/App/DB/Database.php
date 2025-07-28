@@ -445,7 +445,71 @@ class Database{
             'total_paginas' => $total_paginas
         ];
     }
-    
+    public function buscarKitsFiltradosPaginado(int $limite, int $offset, string $ordenar = '', array $finalidades = [], $preco_min = '', $preco_max = '') {
+        $params = [];
+        $where = [];
+
+
+
+
+        if (is_numeric($preco_min)) {
+            $where[] = "preco_kit >= ?";
+            $params[] = $preco_min;
+        }
+
+
+        if (is_numeric($preco_max)) {
+            $where[] = "preco_kit <= ?";
+            $params[] = $preco_max;
+        }
+
+        $whereSql = '';
+        if (!empty($where)) {
+            $whereSql = 'WHERE ' . implode(' AND ', $where);
+        }
+
+        $orderSql = '';
+        switch ($ordenar) {
+            case 'preco_asc':
+                $orderSql = 'ORDER BY preco_kit ASC';
+                break;
+            case 'preco_desc':
+                $orderSql = 'ORDER BY preco_kit DESC';
+                break;
+            case 'nome_asc':
+                $orderSql = 'ORDER BY nome_kit ASC';
+                break;
+            default:
+                $orderSql = 'ORDER BY id_kit DESC';
+        }
+
+        $stmtTotal = $this->conn->prepare("SELECT COUNT(*) FROM kits_completos $whereSql");
+        $stmtTotal->execute($params);
+        $totalRegistros = $stmtTotal->fetchColumn();
+        $totalPaginas = ceil($totalRegistros / $limite);
+
+   
+        $sql = "SELECT * FROM kits_completos $whereSql $orderSql LIMIT ? OFFSET ?";
+        $stmt = $this->conn->prepare($sql);
+
+        $i = 1;
+        foreach ($params as $param) {
+            $stmt->bindValue($i, $param);
+            $i++;
+        }
+
+        $stmt->bindValue($i++, (int)$limite, PDO::PARAM_INT);
+        $stmt->bindValue($i++, (int)$offset, PDO::PARAM_INT);
+
+        $stmt->execute();
+
+        $kits = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        return [
+            'kits' => $kits,
+            'total_paginas' => $totalPaginas
+        ];
+    }
 }
 
 ?>
