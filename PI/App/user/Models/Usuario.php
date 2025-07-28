@@ -90,28 +90,46 @@ class Usuario {
         try {
             $db = new Database();
             
+            // Primeiro, verificar o tipo de usuário
+            $usuario = $db->execute("SELECT tipo FROM usuarios WHERE id = ?", [$id])->fetch(PDO::FETCH_ASSOC);
+            
+            if (!$usuario) {
+                return false; // Usuário não encontrado
+            }
+            
+            $tipo = $usuario['tipo'];
+            
             // Excluir dados relacionados primeiro (devido a foreign keys)
             
-            // 1. Excluir itens do carrinho
-            $db->execute("DELETE FROM carrinho_items WHERE id_usuario = ?", [$id]);
+            // 1. Excluir itens do carrinho (apenas para clientes)
+            if ($tipo === 'cliente') {
+                $db->execute("DELETE FROM carrinho_items WHERE id_usuario = ?", [$id]);
+                
+                // 2. Excluir favoritos (apenas para clientes)
+                $db->execute("DELETE FROM favoritos WHERE id_usuario = ?", [$id]);
+                
+                // 3. Excluir endereços (apenas para clientes)
+                $db->execute("DELETE FROM enderecos WHERE id_usuario = ?", [$id]);
+                
+                // 4. Excluir histórico de pedidos
+                $db->execute("DELETE FROM pedido_status_historico WHERE id_pedido IN (SELECT id_pedido FROM pedidos WHERE id_usuario = ?)", [$id]);
+                
+                // 5. Excluir itens de pedidos
+                $db->execute("DELETE FROM pedido_itens WHERE id_pedido IN (SELECT id_pedido FROM pedidos WHERE id_usuario = ?)", [$id]);
+                
+                // 6. Excluir pedidos
+                $db->execute("DELETE FROM pedidos WHERE id_usuario = ?", [$id]);
+                
+                // 7. Excluir dados do cliente
+                $db->execute("DELETE FROM clientes WHERE id_usuario = ?", [$id]);
+            }
             
-            // 2. Excluir favoritos
-            $db->execute("DELETE FROM favoritos WHERE id_usuario = ?", [$id]);
-            
-            // 3. Excluir endereços
-            $db->execute("DELETE FROM enderecos WHERE id_usuario = ?", [$id]);
-            
-            // 4. Excluir histórico de pedidos
-            $db->execute("DELETE FROM pedido_status_historico WHERE id_pedido IN (SELECT id_pedido FROM pedidos WHERE id_usuario = ?)", [$id]);
-            
-            // 5. Excluir itens de pedidos
-            $db->execute("DELETE FROM pedido_itens WHERE id_pedido IN (SELECT id_pedido FROM pedidos WHERE id_usuario = ?)", [$id]);
-            
-            // 6. Excluir pedidos
-            $db->execute("DELETE FROM pedidos WHERE id_usuario = ?", [$id]);
-            
-            // 7. Excluir dados do cliente
-            $db->execute("DELETE FROM clientes WHERE id_usuario = ?", [$id]);
+            // Para administradores e funcionários
+            if ($tipo === 'administrador') {
+                $db->execute("DELETE FROM administrador WHERE id_usuario = ?", [$id]);
+            } elseif ($tipo === 'funcionario') {
+                $db->execute("DELETE FROM funcionarios WHERE id_usuario = ?", [$id]);
+            }
             
             // 8. Finalmente, excluir o usuário
             $resultado = $db->execute("DELETE FROM usuarios WHERE id = ?", [$id]);

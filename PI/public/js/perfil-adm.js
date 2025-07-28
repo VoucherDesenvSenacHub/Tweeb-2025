@@ -66,7 +66,7 @@ function cancelEdit() {
 
 
 function deletaUsuario() {
-    let confirma = confirm("Tem certeza que deseja excluir sua conta?");
+    let confirma = confirm("Tem certeza que deseja excluir sua conta? Esta ação não pode ser desfeita.");
     if (!confirma) return;
 
     // Pegar o ID do usuário da sessão (admin ou funcionário)
@@ -79,20 +79,23 @@ function deletaUsuario() {
         },
         body: `id=${encodeURIComponent(usuarioID)}`
     })
-    .then(res => res.text())
-    .then(data => {
-        try {
-            let result = JSON.parse(data);
-            alert(result.mensagem || "Operação realizada com sucesso!");
-            if (result.sucesso) {
-                console.log("Redirecionando...");
-                window.location.href = "/Tweeb-2025/PI/App/adm/Views/pages/login-funcionario.php";
-            }
-        } catch (e) {
-            alert(data); 
+    .then(res => {
+        if (!res.ok) {
+            throw new Error(`HTTP error! status: ${res.status}`);
+        }
+        return res.json();
+    })
+    .then(result => {
+        alert(result.mensagem);
+        if (result.sucesso) {
+            console.log("Redirecionando...");
+            window.location.href = "/Tweeb-2025/PI/App/adm/Views/pages/login-funcionario.php";
         }
     })
-    .catch(err => console.error("Erro:", err));
+    .catch(err => {
+        console.error("Erro:", err);
+        alert("Erro ao excluir conta. Tente novamente.");
+    });
 }
 
     perfil_form.addEventListener('submit', async function(event) {
