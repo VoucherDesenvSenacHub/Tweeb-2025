@@ -109,6 +109,6 @@ if (!isset($_SESSION['adm']) && !isset($_SESSION['funcionario'])) {
     </div>
 </div>
 <script src="../../../../public/js/adicionar-funcionario.js"></script>
-<?php include __DIR__.'/../../../../includes/footer.php'; ?>
+<?php include __DIR__.'/../../../../includes/footer-adm.php'; ?>
 </body>
 </html>
