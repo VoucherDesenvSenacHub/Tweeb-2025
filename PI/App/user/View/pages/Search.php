@@ -39,7 +39,10 @@
             <p><?= htmlspecialchars($produto['nome_produto']) ?></p>
             <p><?= htmlspecialchars($produto['marca_modelo']) ?></p>
             <h1>R$<?= number_format($produto['preco_unid'], 2, ',', '.') ?></h1>
-            <button class="s-card-botao">Comprar Agora</button>
+             <a href="../../../../App/user/View/pages/descproduto.php?id_produto=<?= $produto['id_produto'] ?>">
+
+                    <button class="s-card-botao">Comprar Agora</button>
+                </a>
         </div>
     <?php endforeach; ?>
 <?php else: ?>

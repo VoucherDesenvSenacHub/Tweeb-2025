@@ -207,12 +207,12 @@ $produtoController = new Produto();
     </div>
 
       <div class="anuncios">
-        <a href="App/user/View/pages/task20-kitsetup.php" class="img-responsiva" >
+        <a href="App/user/Controllers/ControllerProd/KitSetupController.php" class="img-responsiva" >
             <img src="/Tweeb-2025/PI/public/Banners/bannersPromocionais/<?= basename($bannerPromocionalPosicao2->caminho) ?>" alt="Banner promocionais"  class="img-desktop">
     </a>
-        <a href="App/user/View/pages/do-seu-jeito.php" class="img-responsiva">
+        <!-- <a href="App/user/View/pages/do-seu-jeito.php" class="img-responsiva">
             <img src="/Tweeb-2025/PI/public/Banners/bannersPromocionais/<?= basename($bannerPromocionalPosicao3->caminho) ?>" alt="Banner promocionais"  class="img-desktop">
-        </a>
+        </a> -->
         <a href="App/user/View/pages/corporativo.php" class="img-responsiva">
             <img src="/Tweeb-2025/PI/public/Banners/bannersPromocionais/<?= basename($bannerPromocionalPosicao4->caminho) ?>" alt="Banner promocionais"  class="img-desktop">
         </a>

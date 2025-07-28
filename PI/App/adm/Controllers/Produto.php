@@ -225,6 +225,12 @@ public function getMediaNotasPorProduto($id_produto) {
     return $resultado && $resultado['media'] !== null ? round($resultado['media'], 1) : 0;
 }
 
+public static function buscarPorTipo($id_tipo) {
+    $db = new Database();
+    $stmt = $db->execute("SELECT * FROM produtos WHERE id_departamento = ?", [$id_tipo]);
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
 
 }
     

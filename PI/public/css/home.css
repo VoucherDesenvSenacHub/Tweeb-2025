@@ -623,17 +623,26 @@ span{
     object-fit: contain;
 }
 
-.anuncios{
+.anuncios {
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: center; /* centraliza as imagens */
+    gap: 0.5rem; /* diminui o espaço entre as imagens */
 }
 
-.anuncios img{
+.anuncios img {
     border-radius: 1rem;
     cursor: pointer;
+    width: 1080px; /* aumenta o tamanho da imagem */
+    height: auto; /* mantém a proporção */
+    object-fit: cover; /* para cobrir a área, se precisar */
+     flex-basis: 80%; /* ocupa 20% do container cada uma */
+    max-width: 600px; /* limite máximo */
+    height: auto;
+    margin-bottom: 40px;
 }
+
 
 .produtos2{
     margin-bottom: 50px;

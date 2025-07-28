@@ -35,7 +35,7 @@ class Produto{
         $db = new Database('produto');
         $result =  $db->insert(
                             [
-                            'id_prod' => $this->id_prod,    
+                            // 'id_prod' => $this->id_prod,    
                             'nome_produto' => $this->nome_produto,
                             'marca_modelo' => $this->marca_modelo,
                             'quantidade_produto' => $this->quantidade_produto,                           
@@ -137,6 +137,13 @@ class Produto{
         $db = new Database();
         return $db->buscarKitsFiltradosPaginado($limite, $offset, $ordenar, $finalidades, $preco_min, $preco_max);
     }
+
+public static function buscarPorTipo($tipoId) {
+    $db = new Database();
+    $stmt = $db->execute("SELECT * FROM produtos WHERE id_departamento = :tipoId", ['tipoId' => $tipoId]);
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
 
 
 }

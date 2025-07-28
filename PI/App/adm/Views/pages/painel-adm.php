@@ -14,6 +14,28 @@ if (!isset($_SESSION['adm']) && !isset($_SESSION['funcionario'])) {
     exit();
 }
 
+
+$ordens = OrdemServico::buscarPorStatus('Finalizada');
+$totais = OrdemServico::contarTodosStatus();
+
+
+$db = new Database();
+
+// Verde: quantidade > 50
+$completo = $db->execute("SELECT COUNT(*) as total FROM produtos WHERE quantidade_produto > 50")->fetch()['total'];
+
+// Vermelho: 31 a 50
+$em_falta = $db->execute("SELECT COUNT(*) as total FROM produtos WHERE quantidade_produto BETWEEN 31 AND 50")->fetch()['total'];
+
+// Amarelo: até 30
+$alerta = $db->execute("SELECT COUNT(*) as total FROM produtos WHERE quantidade_produto <= 30")->fetch()['total'];
+
+$data = [
+    'completo' => (int)$completo,
+    'alerta' => (int)$alerta,
+    'em_falta' => (int)$em_falta
+];
+
 // Define qual sessão usar (admin tem prioridade)
 $funcionario = isset($_SESSION['adm']) ? $_SESSION['adm'] : $_SESSION['funcionario'];
 
@@ -175,9 +197,24 @@ $ordens = $controller->listarComPrioridade();
                     <p>Últimos itens</p>
                 </div>
                 <div class="painel-bottom-grafico">
-                    <canvas id="painel-bottom-graficoEstoque"></canvas>
+                    <!-- <canvas id="painel-bottom-graficoEstoque"></canvas> -->
+
+                       <div class="grafico-container">
+        <h3>Estoque</h3>
+        <canvas id="graficoEstoque"></canvas>
+        <div class="legenda">
+            <div class="item-legenda" style="color: green;">
+                ✅<br><span><?= round(($data['completo'] / array_sum($data)) * 100) ?>%<br>Completo</span>
+            </div>
+            <div class="item-legenda" style="color: orange;">
+                ⚠️<br><span><?= round(($data['alerta'] / array_sum($data)) * 100) ?>%<br>Alerta</span>
+            </div>
+            <div class="item-legenda" style="color: red;">
+                ❌<br><span><?= round(($data['em_falta'] / array_sum($data)) * 100) ?>%<br>Em falta</span>
+            </div>
+        </div>
                 </div>
-                <div class="painel-bottom-status">
+                <!-- <div class="painel-bottom-status">
                     <div class="painel-bottom-status-item painel-bottom-completo">
                         <span><img src="../../../../public/assets/img/icone-grafico1.png" alt=""></span>
                         <p>76%<br>Completo</p>
@@ -190,7 +227,7 @@ $ordens = $controller->listarComPrioridade();
                         <span><img src="../../../../public/assets/img/icone-grafico3.png" alt=""></span>
                         <p>13%<br>Em falta</p>
                     </div>
-                </div>
+                </div> -->
             </div>
 
         </div>
@@ -231,6 +268,33 @@ $ordens = $controller->listarComPrioridade();
         showPage(1);
         }
     });
+
+    
+    
+        const ctx = document.getElementById('graficoEstoque').getContext('2d');
+
+        new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Completo', 'Alerta', 'Em falta'],
+                datasets: [{
+                    data: [
+                        <?= $data['completo'] ?>,
+                        <?= $data['alerta'] ?>,
+                        <?= $data['em_falta'] ?>
+                    ],
+                    backgroundColor: ['green', 'orange', 'red'],
+                    borderWidth: 0
+                }]
+            },
+            options: {
+                cutout: '60%',
+                plugins: {
+                    legend: { display: false },
+                }
+            }
+        });
+    
     </script>
 
 </html>

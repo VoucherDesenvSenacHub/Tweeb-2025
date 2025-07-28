@@ -157,7 +157,7 @@ if ($id_produto !== null) {
             <nav-prod>
             <a href="#" class="active" id="btn-cadastrados">Visão Geral</a>
             <a href="#" class="" id="btn-pedidos">Pedidos</a>
-            <a href="#" class="" id="btn-enviados">Enviados</a>
+            <!-- <a href="#" class="" id="btn-enviados">Enviados</a> -->
             <a href="#" class="active" id="btn-novo-produto">Novo Produto</a>
             <a href="#" id="btn-inativos">Inativos</a>
             </nav-prod>
@@ -389,7 +389,9 @@ document.getElementById("btn-pedidos").addEventListener("click", async function(
                     <th class="th-listarP">Data do Pedido</th>
                     <th class="th-listarP">Data de Entrega</th>
                     <th class="th-listarP">Status do Pedido</th>
+                    <label for="status_pedido">Status do Pedido</label><br>
                 </tr>
+                
             </thead>
             <tbody id="rows_products" class="tbody-listarP"></tbody>
         </table>
@@ -442,6 +444,9 @@ async function loadPedidos() {
 
     dados_tabela.innerHTML = html;
 }
+
+//Enviados
+
 
 
 

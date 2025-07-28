@@ -43,6 +43,25 @@
   color: #ED3237;
 }
 
+        .grafico-container {
+            max-width: 400px;
+            margin: 40px auto;
+            text-align: center;
+        }
+        .legenda {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+            font-family: sans-serif;
+        }
+        .item-legenda {
+            text-align: center;
+        }
+        .item-legenda span {
+            display: block;
+            font-size: 14px;
+        }
+
 .estoque-table .status-poucasunid{
   color: #F29425;
 }
